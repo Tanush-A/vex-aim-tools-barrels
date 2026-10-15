@@ -49,10 +49,10 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 
 ## Known confusers (from the 10/7 baselines; details in `EXPERIMENTS.md`)
 
-Things that look like barrel colors to naive thresholds. **v1 scenes deliberately exclude similar-looking objects and backgrounds**, so these are constraints for later milestones and for choosing what v1 must not break, not v1 test cases.
+Things that look like barrel colors to naive fixed thresholds. **v1 scenes deliberately exclude similar-looking objects and backgrounds**, so these are constraints for later milestones, not v1 test cases. Which component is expected to handle each one is noted; the table prior covers only what appears in the bottom band.
 
-- **Wood under warm light** falls inside naive orange thresholds (H ≈ 15, S ≈ 170 vs. barrel orange H ≈ 2–7, S ≈ 225).
-- **Skin** (Lab a* ≈ 29) and **orange cardboard** (a* ≈ 33) sit near barrel orange (a* ≈ 50).
+- **Wood under warm light** falls inside naive orange thresholds (H ≈ 15, S ≈ 170 vs. barrel orange H ≈ 2–7, S ≈ 225; 70% of wood flagged by fixed HSV with no table prior). **This is the case the table prior is designed for.** Open questions are whether the bottom band represents far wood too (lighting gradient, grain) and whether rejection can be tight enough to drop wood without eating barrel orange.
+- **Skin** (Lab a* ≈ 29) and **orange cardboard** (a* ≈ 33) sit near barrel orange (a* ≈ 50). Not in the table band, so the table prior says nothing about them; the RGB box has to separate them (a* suggests it can).
 - **Barrel reflections on glossy tables** create orange/blue smears *below* the barrel's ground contact. Likely worse on a glossy black table — check the first black-table frames. Geometry can reject them later: they are below the contact row.
 - **The blue stripe under warm light** darkens and desaturates (S 236 → 103, V ≈ 60). It is the weakest class.
 - **Black table (expected, not yet observed):** the table prior's color will be nearly black, so rejection-by-table-similarity will mostly remove dark pixels and won't touch bright distractors. The saturation floor, background prior, and v1.5 barrel-referenced thresholds do that work. Verify on the first black-table frames.
