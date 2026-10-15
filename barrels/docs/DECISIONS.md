@@ -4,6 +4,13 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-14 — v1 method details, approved by Tanush (N-004)
+
+- **Decision:** v1 adds (1) a **saturation floor** `max(R,G,B) − min(R,G,B) ≥ s_min`, (2) a **minimum-brightness gate** `brightness ≥ v_min`, (3) a **box-fullness report** alongside the RGB box (fraction of box volume occupied by labeled barrel pixels + 3D scatter), and (4) **data-capture guidance**: shoot v1 black-table frames under indirect/bounced light, tag direct/overhead-light frames for later stress tests. `s_min`, `v_min` are config parameters fit on train/dev.
+- **Why:** from Dave's vision-pipeline slides (`NAVIGATOR.md` K-1): saturation is the CMVision-era test for "is this colored at all," and the RGBK map gates color classes on minimum Y because chroma is noise in dark pixels. Black table, gray wall, and white glare are all low-saturation, so these two gates do cheap, safe work before the box. Both are pixel thresholds, not image correction. Box fullness answers Dave's box-vs-diagonal question with a number. Indirect light keeps glare (out of scope) out of the v1 data.
+- **Who:** Tanush approved 2026-10-14 (via navigator, N-004).
+- **Alternatives:** RGB box alone (rejected — the box would have to be stretched to cover dark/desaturated barrel pixels and would swallow the table); direct lamp light for v1 data (rejected — glare is out of scope and would contaminate labels).
+
 ## 2026-10-14 — Horizon gating is in v1
 
 - **Decision:** v1 rejects every pixel above the horizon row as non-barrel, regardless of color. Gate at the conservative row (~25) until tilt and focal length of AIM-4A8B6118 are measured, then move to the computed row.

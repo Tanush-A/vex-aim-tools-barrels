@@ -11,7 +11,7 @@ Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, mask
 `{robot}_{light}_{surface}_{scene}_{nn}.png` — e.g. `4A8B_overhead_black_core_01.png`. Use exact tags.
 
 - **robot:** short id, e.g. `4A8B` (= AIM-4A8B6118).
-- **light:** describe the source — `overhead`, `lamp`, `window`, `dim`, `side`, `mixed`, or the home-lamp tags `{up,at,away}{cool,mid,warm}` (lamp direction × warmth).
+- **light:** describe the source — `bounce` (indirect, lamp at ceiling/wall; the v1 default), `overhead`, `lamp`, `window`, `dim`, `side`, `mixed`, or the home-lamp tags `{up,at,away}{cool,mid,warm}` (lamp direction × warmth).
 - **surface:** `black`, `wood`, `light`, `floor`, `paper`, … (extend as needed).
 - **scene:**
   - `core` — orange + blue touching ~15 cm, one far ~30 cm, one close ~7 cm
@@ -24,6 +24,8 @@ Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, mask
 ## Capture procedure
 
 Camera viewer, key `s` → `snapshots/robot_snapN.png`. **The counter resets each session — rename immediately** to the convention above. Robot ops: `RUNBOOK.md`.
+
+**Lighting for v1 black-table frames (N-004):** use **indirect/bounced light** — lamp pointed at the ceiling or wall, not straight at the barrels. Direct light puts specular glare on the lids and body, and glare is out of v1 scope. Frames under overhead/direct light are welcome but must be tagged as such (`overhead`, `lamp`, …); they become later stress tests, not v1 training data. Use a `bounce` light tag for the indirect setup.
 
 ## Label format
 

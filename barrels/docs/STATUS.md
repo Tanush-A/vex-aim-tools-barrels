@@ -20,6 +20,12 @@
 7. Eval harness (per-pixel P/R/IoU per class, per condition) + v1 experiment: RGB-box thresholds with table/background rejection + horizon gating (conservative row until measured). Log it, email Dave.
 8. Then: plot RGB clusters (box vs. diagonal) → v1.5 barrel-referenced adaptive thresholds → other color spaces.
 
+## Navigator requests
+
+- N-001 done (2026-10-14): `NAVIGATOR.md` registered in `barrels/CLAUDE.md` (docs table + end-of-session checklist).
+- N-004 done (2026-10-14): saturation floor, brightness gate, box-fullness report in `PROBLEM.md`; capture guidance in `DATA.md`; logged in `DECISIONS.md`.
+- N-002, N-003 + review notes: assessed; awaiting Tanush's OK (foundation-doc changes).
+
 ## Housekeeping
 
 - `color_data/` (repo root): rename the two `top&stripe` files → `topstripe`; decide when to move the set into `barrels/data/raw/`.

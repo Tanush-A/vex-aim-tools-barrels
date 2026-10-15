@@ -33,6 +33,7 @@ Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork
 | `docs/DATA.md` | Before capturing or using data | Datasets/labels/splits change |
 | `docs/RUNBOOK.md` | Operating the robot | Procedures/gotchas change |
 | `docs/NOTES-INBOX.md` | Start of session (triage it) | Tanush pastes in notes from phone/browser chats |
+| `docs/NAVIGATOR.md` | Start of every session (after `STATUS.md`) | **Never** — navigator-owned, read-only for Claude Code. Act on its open requests; reply via `STATUS.md` or `NOTES-INBOX.md` |
 
 ## Workflow loop
 
@@ -62,5 +63,5 @@ Every piece of algorithm work follows:
 
 1. Update `STATUS.md` (state, next steps, open questions, blockers).
 2. Log any experiments in `EXPERIMENTS.md`, decisions in `DECISIONS.md`.
-3. Triage anything new in `NOTES-INBOX.md`.
+3. Triage anything new in `NOTES-INBOX.md`; check `NAVIGATOR.md` requests and mark done ones in `STATUS.md` by ID.
 4. **Commit and push** (docs included — the claude.ai mirror depends on it).
