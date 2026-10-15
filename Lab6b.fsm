@@ -1,0 +1,21 @@
+from aim_fsm import *
+
+class Lab6b(StateMachineProgram):
+    def __init__(self):
+        super().__init__(launch_path_viewer=True)
+
+    class Go(StateNode):
+        def start(self, event=None):
+            super().start(event)
+            ob = self.robot.world_map.objects['OrangeBarrel.a']
+            self.post_data(ob)
+
+    $setup{
+        TagDetection(enabled=True) =N=> loop
+
+        loop: Print("\n\nType 'tm' to proceed") =TM=> self.Go() =D=> pilot
+
+        pilot: PilotToPose()
+        pilot =C=> loop
+        pilot =PILOT=> loop
+    }

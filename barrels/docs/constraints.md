@@ -1,0 +1,68 @@
+# constraints.md — known facts + unknowns to measure
+
+**Version:** v1 (2026-10-14). Foundation doc — the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; log scope-relevant changes in `DECISIONS.md`.
+
+## Camera / robot
+
+- VEX AIM camera: **640×480 color**.
+- Camera height above the ground plane: **43.47 mm** (`aim_fsm/aim_kin.py`). The camera sits **27 mm ahead of the robot's center** (`camera_from_origin`); distances in this doc are horizontal distances from the camera unless stated.
+- Tilt: **18–25° below horizontal; assume 23°** (per Dave). `aim_kin.py` has per-robot measured values: 25.4° (AIM-5A888218), 23.7° (AIM-32A57C18); the design spec says 18°. Measurement procedure used there: abut a ruler to the robot's front edge, read the distance d to the horizontal crosshair on the ruler surface, then `camera_tilt = atan2(43.47, d + 3) * 180/pi`.
+- Intrinsics: `aim_fsm/camera.py` hardcodes focal length **(400, 400) px** and principal point **(320, 240)** — guesses, not calibrated (the file notes the center "should be adjusted for each robot's camera chip"). The same file lists an estimated FOV of 70°×50°, which would imply f ≈ 457 px (x) / 515 px (y), so the two guesses disagree with each other. **Unknown to measure** (#2).
+- The vendor detector (aivision) runs **on the robot at 320×240**; `worldmap.py` scales its boxes ×2 to the 640×480 frame.
+- Tanush's robot: **AIM-4A8B6118**. Another seen: AIM-627D8818. **Cameras differ between robots** (color response, possibly geometry).
+
+## Barrels
+
+- Two types: **orange** (orange body, blue center stripe) and **blue** (blue body, orange stripe). Identical size/shape, always upright on the ground plane. (A barrel held in the robot's kicker is a separate case — unknown #8.)
+- Bulged barrel shape, **not a true cylinder**. Lid has an embossed "VEX" logo. In a close-range top-only view the lid shows as a large ellipse filling the lower frame (`color_data/4A8B_upmid_wood_top_01.png`).
+- Size: **25 mm tall × 22 mm diameter, 6 mm stripe** (Dave's measurement; `worldmap.py` uses the same 25 × 22). Working values for now; confirm with a ruler (#1).
+- **Barrel height (25 mm) is less than camera height (43.47 mm).** The horizon rule below depends on this.
+
+## Geometry (for later; documented now)
+
+Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y = 240, camera height h = 43.47 mm, ground plane = the surface the robot drives on.
+
+- **Horizon (definition):** the image row where the ground plane projects at infinite distance — equivalently, the row of exactly horizontal rays: `horizon_row = c_y − f·tan(θ)`. It is a property of the camera pose, **not a visible scene feature.** In particular, **the visible far edge of a table is not the horizon.** The table edge is at a finite distance, so it sits below the horizon row, and a barrel standing near the far edge of the table rises above the edge line and is seen against the wall (visible in `color_data/4A8B_atcool_wood_core_01.png`). Rows above the table edge can contain barrel pixels; rows above the horizon cannot.
+- **Nothing above the horizon can be a barrel.** Every point of a barrel standing on the ground plane is at most 25 mm up, i.e. below the camera's 43.47 mm, so it projects below the horizon row at any distance. Assumes the barrel is on the ground plane and the robot is level (not pitched by driving over something).
+- **Row ↔ ground distance:** a ground point at distance d appears at row `c_y + f·tan(atan(h/d) − θ)`. A barrel at distance d is ≈ `f·22/d` px wide, with its top at row `c_y + f·tan(atan((h − 25)/d) − θ)`. So every row has an **expected barrel pixel size.**
+- Nominal numbers (θ = 23°, f = 400 — **unverified**):
+
+| | value |
+|---|---|
+| horizon row | ≈ 70 |
+| bottom row (480) sees the ground at | ≈ 32 mm from the camera |
+| barrel at 70 mm (the `close` scene) | rows ≈ 182–302, ≈ 126 px wide |
+| barrel at 150 mm (`core`) | rows ≈ 126–192, ≈ 59 px wide |
+| barrel at 300 mm (worldmap's max range) | rows ≈ 99–135, ≈ 29 px wide |
+| ground at 0.5 m / 2 m | ≈ 40 px / ≈ 10 px below the horizon |
+
+- **Sensitivity:** with f = 400 the horizon row is ≈ 50 at 25.4° tilt and ≈ 110 at 18°; at 23° it is ≈ 49–91 for f = 350–450. Until tilt and f are measured, only the **top ~25 rows** are guaranteed above the horizon across the plausible range — use that as the conservative background band, with ~70 as the nominal estimate.
+- Uses: size sanity check when top + bottom are both visible; infer the bottom from the top row + width when the bottom is occluded/off-frame; occlusion reasoning; choosing the prior bands.
+- **Close/top-only case (working assumption, not a hard rule):** in Lab 6 Dave observed that the top-only view occurs only when the barrel's top is in the bottom half of the image. Nominal geometry agrees: the bottom edge leaves the frame once the barrel is closer than ≈ 32 mm, and by then its top is at row ≈ 290. Lab 6 was a class homework setting, so re-check this on real frames before relying on it.
+
+## Scene assumptions
+
+- "Table" = the ground plane the robot drives on (a table or a floor). The lower frame is mostly table unless a barrel is very close: under nominal geometry, rows below ~400 are table unless a barrel is within ≈ 45 mm of the camera. The top-only case fills the bottom of the frame with barrel and breaks this prior.
+- Rows above the horizon: wall/background, never a barrel. Rows between the horizon and the visible table edge **can** contain barrels (seen against the wall).
+- No deliberately adversarial objects in view. Ordinary clutter (hands, bottle caps, boxes) does appear in the 10/7 frames; "non-adversarial" means nothing placed specifically to fool the detector, not an empty scene.
+- v1 data: black table, home lighting, no distractors; later other tables/lighting (goal: table-agnostic).
+
+## How barrels feed the robot (context for the eventual drop-in)
+
+- `aim_fsm/worldmap.py::make_new_aiv_objects()`: per aivision box → **bottom-edge midpoint** assumed to be the floor contact → `robot.kine.project_to_ground(cx, cy)` (uses tilt + focal length) → + half the barrel diameter → world (x, y) via the odometry pose.
+- Barrel height padded to `max(h, 1.1*w)` (occlusion hack). Detections more than **300 mm** away are dropped as spurious.
+- Path planners (wavefront, RRT) treat barrels as obstacles: RRT uses a circle of radius 11 mm + planner inflation (15 mm "skinny" / 40 mm "fat"), i.e. 26 mm in the skinny setting.
+- The eventual detector should emit boxes in the same spec shape (`OrangeBarrel`, `originx, originy, width, height`) so it can drop in. **Not v1.**
+
+## Unknowns to measure
+
+| # | Unknown | How to measure |
+|---|---------|----------------|
+| 1 | True barrel dimensions + stripe height (working values: 25 × 22 × 6 mm) | Ruler |
+| 2 | Focal length + principal point of AIM-4A8B6118 | Checkerboard calibration, or barrels at known distances (width = f·22/d) |
+| 3 | Actual camera tilt of AIM-4A8B6118 | The `aim_kin.py` procedure: `atan2(43.47, d + 3)` with measured d |
+| 4 | Barrel orange/blue RGB distribution across lights + tables — **is the cluster box-shaped or diagonal?** | Plot labeled barrel pixels in 3D RGB from labeled data |
+| 5 | Table + background color distributions per surface/lighting | From labeled data |
+| 6 | How much auto-exposure/auto-white-balance shifts colors | Already partially characterized (see `EXPERIMENTS.md` 2026-10-07: camera does NOT fully auto-WB; mean blue 134 → 73 under warm light); extend with new data |
+| 7 | The horizon row in practice | Not the table edge (see Geometry). Either compute from #2 + #3, or measure directly: a mark at camera height (43.47 mm above the ground plane) on a vertical surface ≥ 1 m away projects onto the horizon row. Ground at 2 m is within ~10 px of it. |
+| 8 | Does the robot's own body, kicker, or a held barrel appear in the bottom rows? | Snapshot with the kicker extended / holding a barrel. Affects the table prior. |

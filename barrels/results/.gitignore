@@ -1,0 +1,3 @@
+# Generated outputs: keep small summaries, ignore big artifacts
+*
+!.gitignore
