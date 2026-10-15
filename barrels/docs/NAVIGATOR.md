@@ -11,33 +11,12 @@ How Claude Code uses this file:
 
 Precedence: Tanush's direct instructions > foundation docs (`PROBLEM.md`, `constraints.md`, `EVAL.md`) > this file.
 
-_Last updated: 2026-10-14 (evening)._
+_Last updated: 2026-10-14 (night)._
 
 ---
 
 ## Requests (open)
-
-### N-001 (2026-10-14): register this file in CLAUDE.md
-Add `docs/NAVIGATOR.md` to the running-docs table in `barrels/CLAUDE.md`: *Read when: start of every session (after STATUS.md). Update when: never; navigator-owned, read-only for Claude Code.* Also add "check NAVIGATOR.md requests" to the end-of-session checklist's triage step.
-
-### N-002 (2026-10-14): measure tilt + focal length before the v1 experiment
-Right now the horizon gate and the background band are both the conservative top ~25 rows, so horizon gating removes almost nothing beyond the band itself. Unknowns #2 (focal length) and #3 (tilt) are cheap (a ruler + ~5 barrel photos at known distances; width = f·22/d) and would move the gate to its real row (~70 nominal). Slot a small "measure camera geometry" task into STATUS.md between steps 5 and 7. Tanush can shoot the calibration frames in the same session as the black-table data.
-
-### N-003 (2026-10-14): add a "known confusers" section to constraints.md
-The 10/7 findings only live in EXPERIMENTS.md, but they're constraints the algorithm must respect. Add a short section to `constraints.md` (log it in DECISIONS.md as a doc update, not a scope change):
-- Wood under warm light falls inside naive orange thresholds (H≈15, S≈170).
-- Skin (Lab a*≈29) and orange cardboard (a*≈33) sit near barrel orange (a*≈50).
-- Barrel **reflections on glossy tables** create orange/blue smears *below* the barrel's ground contact. Likely worse on a glossy black table, so check the first black-table frames. (Geometry can reject them later: they're below the contact row.)
-- The blue stripe darkens and desaturates under warm light (S 236→103, V≈60). It's the weakest class.
-- A dark (black) table makes the table prior's color nearly black, so rejection-by-table-similarity mostly removes dark pixels. The background prior, saturation floor (N-004), and v1.5 do the rest.
-
-### N-004 (2026-10-14): finalize v1 method details (approved by Tanush 10/14)
-Tanush approved these v1 additions (from Dave's vision-pipeline slides; see Knowledge K-1). Update `PROBLEM.md` §Method / §In scope and log in `DECISIONS.md` (2026-10-14, "v1 method details, approved by Tanush"):
-1. **Saturation floor:** a pixel can only be barrel if `max(R,G,B) − min(R,G,B) ≥ s_min`. This is thresholding, not image correction, so it's consistent with Dave's rule. Black table, gray wall, and white glare are all low-saturation. `s_min` is a config parameter fit on train/dev (it can also adapt per image from the table/background bands).
-2. **Minimum-brightness gate:** a pixel can only be barrel if its brightness is above `v_min` (e.g. max channel or Y). Color is unreliable in very dark pixels (black table, shadows). Same idea as Tekkotsu's RGBK map, which gates color classes on minimum Y. Config parameter.
-3. **RGB box** as already specified, plus **report how "full" the fitted box is** (fraction of box volume actually occupied by labeled barrel pixels, and the 3D scatter). This is the evidence for Dave's "is the cluster box-shaped or diagonal?" question.
-4. **Data capture guidance** (add to `DATA.md`): shoot v1 black-table frames with **indirect/bounced light** (lamp pointed at the ceiling), not a lamp aimed straight at the barrels, to keep specular glare out of v1 (glare is out of scope). Overhead/direct-light frames are welcome but tag them as such (they'll be later stress tests).
-Everything else from the slides is Knowledge, not v1.
+*(none right now)*
 
 ## Knowledge
 
@@ -69,8 +48,18 @@ Probe-sampled barrel and distractor pixels from the 19 warm-wood-desk frames (9 
 - **Docs philosophy:** foundation docs (PROBLEM/constraints/EVAL) act as the per-milestone spec (agreed with Dave, changed only via DECISIONS.md, re-versioned per milestone). Running docs are the lab notebook. Tanush wanted "an SSOT blueprint" like a spec, and this is the research-appropriate version.
 - **Labels:** semi-automatic full masks (scribble → auto-grow → fix). Classes: 0 other, 1 orange (incl. orange stripes), 2 blue (incl. blue stripes), 255 ignore (glare/uncertain edges).
 - **Data plan:** black table at home (CA, ordinary home light; the multi-warmth lamp is in Pittsburgh), then Pittsburgh tables. The table-agnostic goal is reached across these.
-- **Dave comms:** one email per finished task. First email = `constraints.md` + `PROBLEM.md` + general update + directions (being drafted with the navigator now).
+- **Dave comms:** one email per finished task. **First email sent 2026-10-14** (see K-5).
 - **Lab 6:** the homework (part VI) was what Dave actually intended; Tanush did parts I–V. Skipped, since v1 covers its first half.
+
+### K-5 (2026-10-14): first email to Dave, SENT
+Subject: "Barrel detector: spec docs for review before I start coding". Contents:
+- Links to the fork (branch `barrels`), `PROBLEM.md`, and `constraints.md`, asking him to read them.
+- A v1 summary: per-pixel color segmentation, adaptive thresholds from table rows + above-horizon rows, saturation floor + minimum-brightness gate (from his slides/RGBK map), a report on how well an RGB box fits (box-vs-diagonal), and the repo built around a fixed labeled set + eval harness so Claude can propose/score variants. Deferred to v2+: bounding boxes, glare/shadow, close-range top-only, other color spaces.
+- **Question asked:** should horizon gating be in v1 (conservative near the top until tilt/f are measured), or keep v1 purely color? **→ Until Dave answers, keep horizon gating in v1 as written (conservative), but implement it as a config flag so it can be switched off.**
+- **Note given:** camera.py f = 400 vs. the 70°×50° FOV (implies f ≈ 457 horizontal / 515 vertical). Tanush will calibrate AIM-4A8B6118 and send numbers.
+- **Promised next steps:** labeling tool → 20–30 black-table frames + tilt/focal-length measurements this week (CA) → eval harness → first RGB-box experiment. A short note to Dave after each significant step.
+- Questions deliberately NOT asked (Tanush will resolve them himself): verifying barrel dimensions (ruler), success targets (strawman IoU ≥ 0.8 stays internal), the Lab 6 top-only assumption, the missing detect.py / bounding_boxes*.png.
+- When Dave replies: Tanush pastes it to the navigator (or into NOTES-INBOX.md), and decisions get logged in DECISIONS.md.
 
 ## Review notes
 
@@ -87,4 +76,8 @@ Overall: strong, accurate to the 10/7 meeting and the 10/14 decisions. Small fix
 - The repo's default branch was `master`, so the claude.ai Project only saw master. Fixed: the Project now syncs the `barrels` branch.
 
 ## Closed
-*(none yet)*
+- **N-001** (register NAVIGATOR.md in CLAUDE.md): done 2026-10-14 (commit 2a29846).
+- **N-002** (measure tilt + focal length before v1 experiment): queued as STATUS.md step 6, 2026-10-14 (commit 8adc749).
+- **N-003** (known confusers in constraints.md): done 2026-10-14 (commits 8adc749, 7749859).
+- **N-004** (v1 method details: saturation floor, brightness gate, box-fullness report, bounced-light capture): done 2026-10-14 (commit 2a29846; DECISIONS.md entry).
+- **Review notes 2026-10-14:** applied 2026-10-14 (commit 8adc749).
