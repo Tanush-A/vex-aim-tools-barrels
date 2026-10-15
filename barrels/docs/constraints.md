@@ -15,7 +15,7 @@
 
 - Two types: **orange** (orange body, blue center stripe) and **blue** (blue body, orange stripe). Identical size/shape, always upright on the ground plane. (A barrel held in the robot's kicker is a separate case — unknown #8.)
 - Bulged barrel shape, **not a true cylinder**. Lid has an embossed "VEX" logo. In a close-range top-only view the lid shows as a large ellipse filling the lower frame (`color_data/4A8B_upmid_wood_top_01.png`).
-- Size: **25 mm tall × 22 mm diameter, 6 mm stripe** (Dave's measurement; `worldmap.py` uses the same 25 × 22). Working values for now; confirm with a ruler (#1).
+- Size: **25 mm tall × 22 mm diameter, 6 mm stripe** — from Dave's draft spec and `worldmap.py` (which uses 25 × 22); **unverified.** Working values for now; confirm with a ruler (#1).
 - **Barrel height (25 mm) is less than camera height (43.47 mm).** The horizon rule below depends on this.
 
 ## Geometry (for later; documented now)
@@ -46,6 +46,16 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 - Rows above the horizon: wall/background, never a barrel. Rows between the horizon and the visible table edge **can** contain barrels (seen against the wall).
 - No deliberately adversarial objects in view. Ordinary clutter (hands, bottle caps, boxes) does appear in the 10/7 frames; "non-adversarial" means nothing placed specifically to fool the detector, not an empty scene.
 - v1 data: black table, home lighting, no distractors; later other tables/lighting (goal: table-agnostic).
+
+## Known confusers (from the 10/7 baselines; details in `EXPERIMENTS.md`)
+
+Things that look like barrel colors to naive thresholds. **v1 scenes deliberately exclude similar-looking objects and backgrounds**, so these are constraints for later milestones and for choosing what v1 must not break, not v1 test cases.
+
+- **Wood under warm light** falls inside naive orange thresholds (H ≈ 15, S ≈ 170 vs. barrel orange H ≈ 2–7, S ≈ 225).
+- **Skin** (Lab a* ≈ 29) and **orange cardboard** (a* ≈ 33) sit near barrel orange (a* ≈ 50).
+- **Barrel reflections on glossy tables** create orange/blue smears *below* the barrel's ground contact. Likely worse on a glossy black table — check the first black-table frames. Geometry can reject them later: they are below the contact row.
+- **The blue stripe under warm light** darkens and desaturates (S 236 → 103, V ≈ 60). It is the weakest class.
+- **Black table (expected, not yet observed):** the table prior's color will be nearly black, so rejection-by-table-similarity will mostly remove dark pixels and won't touch bright distractors. The saturation floor, background prior, and v1.5 barrel-referenced thresholds do that work. Verify on the first black-table frames.
 
 ## How barrels feed the robot (context for the eventual drop-in)
 

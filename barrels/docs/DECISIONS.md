@@ -4,6 +4,13 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-14 — Doc updates from the navigator review (N-003 + review notes)
+
+- **Decision:** documentation updates, no scope change. `constraints.md`: barrel size attributed to Dave's draft spec + `worldmap.py` and marked unverified; new "Known confusers" section (wood under warm light, skin, orange cardboard, glossy-table reflections, warm-light blue stripe, expected black-table behavior). `PROBLEM.md`: table band default = bottom 80 rows, a config parameter to revisit after tilt/focal length are measured. `EVAL.md`: stripes scored as their own color; negative-frame false-positive-rate metric. `STATUS.md`: new step to measure tilt + focal length before the v1 experiment (N-002).
+- **Why:** confusers are exploitable constraints and belong in the constraints doc even though v1 scenes exclude them. A stated band default makes v1 reproducible. The stripe rule prevents label drift between docs. Negative frames need their own metric because IoU is undefined without positives. Measuring the geometry first moves the horizon gate from the safe row (~25) to its real row (~70).
+- **Who:** Tanush, 2026-10-14, on navigator suggestions.
+- **Alternatives:** keep confusers only in `EXPERIMENTS.md` (rejected — the lab notebook is not what experiments cite); leave the band size to the config only (rejected — the spec should name the default).
+
 ## 2026-10-14 — v1 method details, approved by Tanush (N-004)
 
 - **Decision:** v1 adds (1) a **saturation floor** `max(R,G,B) − min(R,G,B) ≥ s_min`, (2) a **minimum-brightness gate** `brightness ≥ v_min`, (3) a **box-fullness report** alongside the RGB box (fraction of box volume occupied by labeled barrel pixels + 3D scatter), and (4) **data-capture guidance**: shoot v1 black-table frames under indirect/bounced light, tag direct/overhead-light frames for later stress tests. `s_min`, `v_min` are config parameters fit on train/dev.

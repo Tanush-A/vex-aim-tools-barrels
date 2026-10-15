@@ -4,7 +4,7 @@
 
 ## Metrics
 
-Per-pixel, computed per class (**orange**, **blue**) against the ground-truth masks (`DATA.md` label format):
+Per-pixel, computed per class (**orange**, **blue**) against the ground-truth masks (`DATA.md` label format). **Stripes count as their own color:** the orange stripe of a blue barrel is labeled and scored as orange, the blue stripe of an orange barrel as blue — matching `PROBLEM.md`.
 
 - **Precision** = TP / (TP + FP)
 - **Recall** = TP / (TP + FN)
@@ -15,6 +15,7 @@ Rules:
 - Pixels labeled **255 (ignore)** — glare/uncertain — are excluded from all counts.
 - Report **per condition** (surface × lighting × scene tag, from the filename convention in `DATA.md`), plus an overall aggregate. A method that only works on one table or one lamp must be visible as such.
 - Aggregate = micro-average (pool pixels across images within a condition). Also report per-image numbers in the results folder so outlier frames are findable.
+- **Negative frames** (`neg` scene, no barrels): precision/recall/IoU are undefined when a class is absent, so report instead the **fraction of pixels flagged** per class (false-positive rate), target ≈ 0. Report it per condition like the other metrics. Negative frames are excluded from the IoU aggregates and listed separately.
 
 ## Splits
 
