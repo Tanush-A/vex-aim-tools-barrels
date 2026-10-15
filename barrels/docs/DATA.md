@@ -1,6 +1,6 @@
 # DATA.md — dataset index, naming, labels, splits
 
-**Updated:** 2026-10-14.
+**Updated:** 2026-10-14 (labeling tool built; color_data moved).
 
 ## Storage
 
@@ -38,7 +38,14 @@ Full per-pixel masks: same stem + `_mask.png`, single-channel PNG:
 | 2 | barrel blue (blue body or blue stripe of an orange barrel) |
 | 255 | ignore (glare / uncertain) — excluded from eval |
 
-**Labeling tool (to build — task 5):** semi-automatic, extending `experiments/2026-10-07_baselines/label_strokes.py`. User scribbles stroke labels `1` orange, `2` blue, `3` table+background, `4` glare/uncertain → a key triggers auto-grow (GrabCut / seeded region growing) → user fixes with more strokes → save `_mask.png`. Target ~1 min/image.
+**Labeling tool:** `tools/label_tool.py` (semi-automatic). Run from the venv:
+
+```zsh
+python barrels/tools/label_tool.py                  # all of data/raw
+python barrels/tools/label_tool.py --filter black   # subset by filename
+```
+
+Scribble strokes `1` orange, `2` blue, `3` table+background, `4` glare/uncertain (stripes get their own color: orange stripe → 1, blue stripe → 2). Press `g` to grow — a marker-based watershed (`src/barrels/labeling.py`) gives every pixel the class of the nearest stroke along image edges; the top 10 rows are auto-seeded as background (above the horizon). Fix with more strokes (they override the grown mask immediately), `n` saves and advances. Anything you don't stroke gets absorbed by its neighbours, so every barrel needs at least one stroke, and put a background stroke on the table **and** on the wall. ~1 min/image. The tool writes two files per image to `data/labels/`: `<stem>_strokes.png` (your strokes, for resuming/re-growing) and `<stem>_mask.png` (the label). Both are committed.
 
 ## Splits
 
@@ -54,6 +61,6 @@ Fixed **train / dev / test**; test is held out early and **never used for tuning
 
 | set | location | count | status |
 |---|---|---|---|
-| Home color baselines (10/7) | `~/Desktop/Celeste/vex-aim-tools/color_data/` (repo root, untracked) | 19 PNG, wood desk, 3 lamp directions × 3 warmths | Unlabeled; used for probe-based baselines (`EXPERIMENTS.md` 2026-10-07). **Two filenames contain `top&stripe` → rename to `topstripe`.** To move into `barrels/data/raw/` when triaged. |
+| Home color baselines (10/7) | `barrels/data/raw/4A8B_*_wood_*.png` (moved from repo-root `color_data/` 2026-10-14; `top&stripe` renamed `topstripe`) | 19 PNG, wood desk, 3 lamp directions × 3 warmths | Unlabeled; used for probe-based baselines (`EXPERIMENTS.md` 2026-10-07). Not v1 training data (wood, direct lamp light) — later stress tests. |
 | Dave's barrels.zip (9/28) | not in repo | 20 snapshots; snap00–11 have GIMP-drawn GT boxes baked into pixels (not machine-readable) | Reference only; zip lacked `detect.py` + `bounding_boxes*.png` (asked Dave) |
 | v1 black-table set | — | planned ~20–30 frames, black table, home light (task 6) | Not captured yet |

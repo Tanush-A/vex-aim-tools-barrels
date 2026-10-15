@@ -10,7 +10,8 @@ Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork
 
 ## Environment
 
-- macOS, Python 3.13, venv at `~/Desktop/Celeste/env` (has OpenCV). Robot ops: `docs/RUNBOOK.md`.
+- macOS, Python 3.13, venv at `~/Desktop/Celeste/env` (OpenCV, numpy, pytest). The `barrels` package is installed editable: `pip install -e barrels` from the repo root. Tests: `cd barrels && python -m pytest`. Robot ops: `docs/RUNBOOK.md`.
+- Code layout: `src/barrels/` (io, labeling, later priors/thresholds/eval), `tools/` (label tool, viewers), `experiments/`, `tests/`.
 - Small hand-taken image sets are **committed to git** under `barrels/data/`.
 
 ## The docs and when to touch them
