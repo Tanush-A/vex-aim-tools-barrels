@@ -30,6 +30,10 @@ Rules:
 3. The results table + takeaway are logged in `EXPERIMENTS.md` immediately.
 4. Comparisons between methods use the **same split and the same label version**. If labels are re-done, re-run the baselines.
 
+## Implementation
+
+`src/barrels/eval.py` (counts, metrics, per-condition aggregation, result tables), `src/barrels/splits.py` + `tools/make_splits.py` (fixed stratified splits in `data/splits.json`), `tools/eval_masks.py` (score a folder of predicted masks on a split → `results/<date>_<name>/`), `src/barrels/viz.py` (PROBLEM.md output images, debug sheets).
+
 ## Infrastructure correctness
 
 Metric computation, mask IO, and label parsing have **unit tests** (`barrels/tests/`) — eval numbers are only meaningful if the harness is right. Algorithms themselves are judged by these eval numbers, not by unit tests.

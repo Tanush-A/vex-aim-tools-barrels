@@ -1,12 +1,12 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-14 (late).
+**Updated:** 2026-10-16.
 
 ## Where we are
 
 - Fork + branch verified: origin `Tanush-A/vex-aim-tools-barrels` (public fork of `touretzkyds/vex-aim-tools`), branch `barrels`, upstream set. Note: the fork is named `vex-aim-tools-barrels`, not `vex-aim-tools` (see `DECISIONS.md` 2026-10-14).
 - `barrels/` skeleton + all docs created from the planning handoff (archived at `docs/archive/HANDOFF.md`). 10/7 baseline code copied to `experiments/2026-10-07_baselines/`.
-- Docs sent to Dave 2026-10-14. Package `barrels` (`pip install -e barrels`) now has IO + label growing + the label tool. **No segmentation algorithm code yet** (next: eval harness, then the v1 experiment).
+- Docs sent to Dave 2026-10-14. Package `barrels` (`pip install -e barrels`) has IO, label growing + label tool, eval harness, splits, output rendering. **No segmentation algorithm code yet** — blocked on labeled black-table data.
 - Prior findings (directional, 19 unlabeled frames): orange body robust across lighting; blue stripe collapses under warm light; wood floods the orange channel; camera does not fully auto-WB. See `EXPERIMENTS.md` 2026-10-07.
 
 ## Next steps (in order)
@@ -15,9 +15,9 @@
 2. ~~Write the docs~~ ✓ (this session)
 3. ~~Tanush reviews the docs → fix → commit + push.~~ ✓
 4. ~~Email to Dave (constraints + PROBLEM + update).~~ ✓ sent 2026-10-14 (`NAVIGATOR.md` K-5). Awaiting reply; horizon gating stays in v1 as a config flag until he answers.
-5. ~~Semi-automatic labeling tool + unit tests for mask IO.~~ ✓ `tools/label_tool.py`, `src/barrels/{io,labeling}.py`, 12 tests pass. **Not yet used on a real session by Tanush — try it on a few wood frames first and report friction.** ← **we are here**
-6. Tanush shoots ~20–30 black-table frames + labels them. **Same session (N-002): measure camera geometry** — tilt via the `aim_kin.py` ruler procedure, focal length from ~5 barrel photos at known distances (width = f·22/d). Record in `constraints.md`, move the horizon gate + bands from the safe rows to the computed ones.
-7. Eval harness (per-pixel P/R/IoU per class, per condition) + v1 experiment: RGB-box thresholds with table/background rejection + horizon gating (conservative row until measured). Log it, email Dave.
+5. ~~Semi-automatic labeling tool + unit tests for mask IO.~~ ✓ `tools/label_tool.py`, `src/barrels/{io,labeling}.py`, tests pass. Not yet used on a real session by Tanush.
+6. **Tanush shoots the 27-frame v1 plan (`DATA.md` → v1 capture plan) + labels them.** ← **we are here** **Same session (N-002): measure camera geometry** — tilt via the `aim_kin.py` ruler procedure, focal length from ~5 barrel photos at known distances (width = f·22/d). Record in `constraints.md`, move the horizon gate + bands from the safe rows to the computed ones.
+7. ~~Eval harness~~ ✓ (`src/barrels/{eval,splits,viz}.py`, `tools/{eval_masks,make_splits,import_snaps}.py`, 22 tests). **v1 experiment** once labels exist: RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating (config flag; conservative row until measured). Log it, email Dave.
 8. Then: plot RGB clusters (box vs. diagonal) → v1.5 barrel-referenced adaptive thresholds → other color spaces.
 
 ## Navigator requests
@@ -31,7 +31,6 @@
 ## Housekeeping
 
 - ~~`color_data/` move + `top&stripe` rename~~ ✓ done 2026-10-14, now `barrels/data/raw/`. `snapshots/4A8B_upcool_wood_closeup_01.png` (gitignored folder) is named per convention — move it into `data/raw/` if wanted.
-- Untracked at repo root: `color_data.zip` and `handoff/prior_work/` are exact duplicates of what's committed — delete them.
 - Unknowns to measure with a ruler/robot: barrel dimensions, camera tilt, focal length, horizon row (`constraints.md` table).
 
 ## Open questions for Dave
