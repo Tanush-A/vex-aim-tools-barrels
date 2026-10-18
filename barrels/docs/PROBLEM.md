@@ -36,7 +36,7 @@ Two images, plus an optional combined debug preview:
 - Per-pixel orange/blue barrel segmentation on single frames, per the output spec above.
 - Table + background priors; saturation floor; minimum-brightness gate; adaptive RGB-box thresholds with a box-fullness report.
 - **Horizon gating:** any pixel above the horizon row is rejected as non-barrel regardless of color (`constraints.md`, Geometry). Until tilt and focal length are measured, gate at the conservative row (~25, the top of the plausible range) rather than the nominal row 70, so a wrong estimate can't erase real barrels.
-- Simple scenes on a **black table** (Tanush's home, CA, ordinary home light, indirect/bounced light preferred — see `DATA.md`), no distractors. Then Pittsburgh with different tables. Goal: **table-agnostic**.
+- Simple scenes on a **light-colored matte table under white overhead light** (CMU campus), no distractors — the v1 base set. A **black table under warm yellow overhead light** (Tanush's home, CA) is shot alongside as the first stress condition. Then more Pittsburgh tables. Goal: **table-agnostic**. Capture details: `DATA.md`.
 - Assumption: no deliberately adversarial objects in view (ordinary clutter is fine; nothing placed specifically to fool the detector).
 
 ## Out of scope (v1)
@@ -54,6 +54,6 @@ Judged by the metrics and protocol in `EVAL.md` (per-pixel precision/recall/IoU 
 
 ## Milestones
 
-1. **v1:** RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating, evaluated on labeled black-table data. Includes the box-fullness report.
+1. **v1:** RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating, evaluated on the labeled light-table set (and reported on the warm black-table stress set). Includes the box-fullness report.
 2. **v1.5:** barrel-referenced adaptive thresholds (iterative re-fit using high-confidence barrel pixels).
 3. **Later:** other color spaces / threshold shapes; glare + shadow handling; close/top-only barrels; bounding boxes emitting the aivision spec shape (`OrangeBarrel`, `originx, originy, width, height`) so the detector can drop into `worldmap.py`.
