@@ -9,7 +9,8 @@ Short records: decision, why, who, alternatives. Newest first.
 - **Decision:** the v1 "simple scene" data is shot on a light-colored matte table under normal white overhead light at CMU (tags `overhead_light`), 21 scene frames + 5 calib + 1 ruler. The home black table is only available under warm yellow overhead light; that set (21 frames, tags `overheadwarm_black`) is shot too, but as the first stress condition, not the v1 base.
 - **Why:** under the yellow light the camera (no auto-WB) renders the glossy black table as dark orange-brown and the blue barrel as gray — the warm-light failure mode from 10/7, worse. That is not a "simple scene." Daylight on the black table isn't possible before Tanush leaves CA (2026-10-18). A matte light table under white light is the easiest case for the saturation floor and keeps the blue stripe saturated.
 - **Who:** Tanush, 2026-10-17.
-- **Alternatives:** black table + yellow light as the v1 base (rejected — would make v1 a stress test); skip the black-table set (rejected — free stress data, 15 minutes).
+- **Alternatives:** black table + yellow light as the v1 base (rejected — would make v1 a stress test).
+- **Update 2026-10-17:** Tanush skipped the black-table/warm-light set entirely; only the CMU set is shot. A warm-light stress set can be captured in Pittsburgh later.
 
 ## 2026-10-14 — Doc updates from the navigator review (N-003 + review notes)
 

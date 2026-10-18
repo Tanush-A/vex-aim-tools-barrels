@@ -33,8 +33,8 @@ Camera viewer, key `s` → `snapshots/robot_snapN.png`. **The counter resets eac
 
 | session | where | tags | frames |
 |---|---|---|---|
-| A (2026-10-17 night) | home black table, warm yellow overhead light | `--light overheadwarm --surface black` | scenes 1–21 only (stress set) |
 | B (2026-10-18, CMU) | light-colored **matte** table, white overhead light | `--light overhead --surface light` | scenes 1–21 + calib 22–26 + ruler 27 (**v1 base set**) |
+| ~~A~~ | ~~home black table, warm yellow overhead light~~ | | skipped 2026-10-17 (Tanush's call); a warm-light black-table stress set can be shot in Pittsburgh later |
 
 Direct overhead light puts glare on lids; label glare as ignore (255). On a light table the barrel shadows are visible: label them other (3).
 
@@ -58,10 +58,6 @@ Setup: robot on the table, at least 4 barrels (2 orange, 2 blue), **nothing oran
 Import commands (dry-run first, then without `--dry-run`):
 
 ```zsh
-# session A
-python barrels/tools/import_snaps.py --light overheadwarm --surface black --scenes \
-core,core,core,core,far,far,close,close,touch,touch,cluster,cluster,occl,occl,edge,edge,top,topstripe,neg,neg,neg --dry-run
-# session B
 python barrels/tools/import_snaps.py --light overhead --surface light --scenes \
 core,core,core,core,far,far,close,close,touch,touch,cluster,cluster,occl,occl,edge,edge,top,topstripe,neg,neg,neg,calib,calib,calib,calib,calib,ruler --dry-run
 ```
