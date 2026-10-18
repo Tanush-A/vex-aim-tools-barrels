@@ -1,6 +1,6 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-16.
+**Updated:** 2026-10-17.
 
 ## Where we are
 
@@ -16,7 +16,7 @@
 3. ~~Tanush reviews the docs → fix → commit + push.~~ ✓
 4. ~~Email to Dave (constraints + PROBLEM + update).~~ ✓ sent 2026-10-14 (`NAVIGATOR.md` K-5). Awaiting reply; horizon gating stays in v1 as a config flag until he answers.
 5. ~~Semi-automatic labeling tool + unit tests for mask IO.~~ ✓ `tools/label_tool.py`, `src/barrels/{io,labeling}.py`, tests pass. Not yet used on a real session by Tanush.
-6. **Tanush shoots the 27-frame v1 plan (`DATA.md` → v1 capture plan) + labels them.** ← **we are here** **Same session (N-002): measure camera geometry** — tilt via the `aim_kin.py` ruler procedure, focal length from ~5 barrel photos at known distances (width = f·22/d). Record in `constraints.md`, move the horizon gate + bands from the safe rows to the computed ones.
+6. **Tanush shoots session A (black/warm, 21) tonight and session B (light table/white, 27 incl. calib + ruler) at CMU 10/18, imports, labels (`DATA.md` → v1 capture plan).** ← **we are here** **Same session (N-002): measure camera geometry** — tilt via the `aim_kin.py` ruler procedure, focal length from ~5 barrel photos at known distances (width = f·22/d). Record in `constraints.md`, move the horizon gate + bands from the safe rows to the computed ones.
 7. ~~Eval harness~~ ✓ (`src/barrels/{eval,splits,viz}.py`, `tools/{eval_masks,make_splits,import_snaps}.py`, 22 tests). **v1 experiment** once labels exist: RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating (config flag; conservative row until measured). Log it, email Dave.
 8. Then: plot RGB clusters (box vs. diagonal) → v1.5 barrel-referenced adaptive thresholds → other color spaces.
 

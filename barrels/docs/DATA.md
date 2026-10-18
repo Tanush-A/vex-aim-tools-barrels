@@ -29,11 +29,16 @@ Camera viewer, key `s` → `snapshots/robot_snapN.png`. **The counter resets eac
 
 **Lighting for v1 black-table frames (N-004):** use **indirect/bounced light** — lamp pointed at the ceiling or wall, not straight at the barrels. Direct light puts specular glare on the lids and body, and glare is out of v1 scope. Frames under overhead/direct light are welcome but must be tagged as such (`overhead`, `lamp`, …); they become later stress tests, not v1 training data. Use a `bounce` light tag for the indirect setup.
 
-## v1 capture plan (black table, home, 2026-10)
+## v1 capture plan (2026-10, two sessions)
 
-Light available: yellow overhead, direct. Tag it `overhead`. Direct light will put glare on lids; label glare as ignore (255). If a lamp becomes available, repeat the core/far/close scenes under `bounce`.
+| session | where | tags | frames |
+|---|---|---|---|
+| A (2026-10-17 night) | home black table, warm yellow overhead light | `--light overheadwarm --surface black` | scenes 1–21 only (stress set) |
+| B (2026-10-18, CMU) | light-colored **matte** table, white overhead light | `--light overhead --surface light` | scenes 1–21 + calib 22–26 + ruler 27 (**v1 base set**) |
 
-Setup: robot on the black table, at least 4 barrels (2 orange, 2 blue). Frame the table so the far edge and some wall are visible when possible. Shoot in **this order** in **one session** (the snapshot counter resets per session), then import with `tools/import_snaps.py` using the same scene list.
+Direct overhead light puts glare on lids; label glare as ignore (255). On a light table the barrel shadows are visible: label them other (3).
+
+Setup: robot on the table, at least 4 barrels (2 orange, 2 blue), **nothing orange/blue/yellow in the background** for the data frames (plush toys, books, remotes out of view). Frame so the far edge of the table and some wall are visible when possible. Shoot in **this order** in **one session** (the snapshot counter resets per session), then import with `tools/import_snaps.py` using the same scene list.
 
 | # | scene | shot |
 |---|---|---|
@@ -50,10 +55,14 @@ Setup: robot on the black table, at least 4 barrels (2 orange, 2 blue). Frame th
 | 22–26 | `calib` | one **orange** barrel centered on the vertical crosshair, near edge at **50, 100, 150, 200, 300 mm** from the robot's front edge (ruler), in that order |
 | 27 | `ruler` | mm ruler flat on the table, zero at the robot's front edge, running straight ahead along the vertical crosshair, tick numbers readable |
 
-Import command for exactly this order (dry-run first):
+Import commands (dry-run first, then without `--dry-run`):
 
 ```zsh
-python barrels/tools/import_snaps.py --light overhead --surface black --scenes \
+# session A
+python barrels/tools/import_snaps.py --light overheadwarm --surface black --scenes \
+core,core,core,core,far,far,close,close,touch,touch,cluster,cluster,occl,occl,edge,edge,top,topstripe,neg,neg,neg --dry-run
+# session B
+python barrels/tools/import_snaps.py --light overhead --surface light --scenes \
 core,core,core,core,far,far,close,close,touch,touch,cluster,cluster,occl,occl,edge,edge,top,topstripe,neg,neg,neg,calib,calib,calib,calib,calib,ruler --dry-run
 ```
 
@@ -63,11 +72,11 @@ If a shot is bad, retake it immediately (press `s` again) and delete the bad `ro
 
 | stem | distance front-edge → barrel near edge (mm) | camera → barrel center (mm) = d + 3 + 11 | measured width (px) |
 |---|---|---|---|
-| `4A8B_overhead_black_calib_01` | 50 | 64 | |
-| `4A8B_overhead_black_calib_02` | 100 | 114 | |
-| `4A8B_overhead_black_calib_03` | 150 | 164 | |
-| `4A8B_overhead_black_calib_04` | 200 | 214 | |
-| `4A8B_overhead_black_calib_05` | 300 | 314 | |
+| `4A8B_overhead_light_calib_01` | 50 | 64 | |
+| `4A8B_overhead_light_calib_02` | 100 | 114 | |
+| `4A8B_overhead_light_calib_03` | 150 | 164 | |
+| `4A8B_overhead_light_calib_04` | 200 | 214 | |
+| `4A8B_overhead_light_calib_05` | 300 | 314 | |
 
 (camera sits ≈ 3 mm behind the front edge per the `aim_kin.py` tilt procedure; barrel radius 11 mm.)
 
