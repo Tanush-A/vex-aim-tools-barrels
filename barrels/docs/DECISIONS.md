@@ -4,6 +4,12 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-14 — Dave's reply to the first update (logged 2026-10-18)
+
+- **Decision / facts:** (1) **Horizon gating stays in v1** — Dave: fine to include, probably little effect in practice. Kept as a config flag. (2) **Focal length 400 is an estimate**, no official value, likely varies per camera — calibration of AIM-4A8B6118 stands (N-002). (3) **Frames with no barrels are a required case** — "you should not assume that an image always contains some orange or blue barrel pixels." Added to `PROBLEM.md` Input and to the v1.5 fallback rule; `constraints.md` scene assumptions; already covered by `neg` frames in the capture plan and the negative-frame FP-rate metric in `EVAL.md`.
+- **Why:** Dave's email 2026-10-14 (he will review the repo in detail once back in Pittsburgh).
+- **Who:** Dave; logged by Tanush/Claude Code.
+
 ## 2026-10-17 — v1 base set = light campus table under white light; warm black table = stress set
 
 - **Decision:** the v1 "simple scene" data is shot on a light-colored matte table under normal white overhead light at CMU (tags `overhead_light`), 21 scene frames + 5 calib + 1 ruler. The home black table is only available under warm yellow overhead light; that set (21 frames, tags `overheadwarm_black`) is shot too, but as the first stress condition, not the v1 base.

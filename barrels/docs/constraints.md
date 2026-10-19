@@ -7,7 +7,7 @@
 - VEX AIM camera: **640×480 color**.
 - Camera height above the ground plane: **43.47 mm** (`aim_fsm/aim_kin.py`). The camera sits **27 mm ahead of the robot's center** (`camera_from_origin`); distances in this doc are horizontal distances from the camera unless stated.
 - Tilt: **18–25° below horizontal; assume 23°** (per Dave). `aim_kin.py` has per-robot measured values: 25.4° (AIM-5A888218), 23.7° (AIM-32A57C18); the design spec says 18°. Measurement procedure used there: abut a ruler to the robot's front edge, read the distance d to the horizontal crosshair on the ruler surface, then `camera_tilt = atan2(43.47, d + 3) * 180/pi`.
-- Intrinsics: `aim_fsm/camera.py` hardcodes focal length **(400, 400) px** and principal point **(320, 240)** — guesses, not calibrated (the file notes the center "should be adjusted for each robot's camera chip"). The same file lists an estimated FOV of 70°×50°, which would imply f ≈ 457 px (x) / 515 px (y), so the two guesses disagree with each other. **Unknown to measure** (#2).
+- Intrinsics: `aim_fsm/camera.py` hardcodes focal length **(400, 400) px** and principal point **(320, 240)** — guesses, not calibrated (Dave, 2026-10-14: 400 was an estimate, there is no official value, and it likely varies slightly per camera) (the file notes the center "should be adjusted for each robot's camera chip"). The same file lists an estimated FOV of 70°×50°, which would imply f ≈ 457 px (x) / 515 px (y), so the two guesses disagree with each other. **Unknown to measure** (#2).
 - The vendor detector (aivision) runs **on the robot at 320×240**; `worldmap.py` scales its boxes ×2 to the 640×480 frame.
 - Tanush's robot: **AIM-4A8B6118**. Another seen: AIM-627D8818. **Cameras differ between robots** (color response, possibly geometry).
 
@@ -44,6 +44,7 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 
 - "Table" = the ground plane the robot drives on (a table or a floor). The lower frame is mostly table unless a barrel is very close: under nominal geometry, rows below ~400 are table unless a barrel is within ≈ 45 mm of the camera. The top-only case fills the bottom of the frame with barrel and breaks this prior.
 - Rows above the horizon: wall/background, never a barrel. Rows between the horizon and the visible table edge **can** contain barrels (seen against the wall).
+- **Frames may contain no barrels** (Dave, 2026-10-14). Every prior and every adaptive step must work on a barrel-free frame; `neg` scenes are in every capture set.
 - No deliberately adversarial objects in view. Ordinary clutter (hands, bottle caps, boxes) does appear in the 10/7 frames; "non-adversarial" means nothing placed specifically to fool the detector, not an empty scene.
 - v1 data: black table, home lighting, no distractors; later other tables/lighting (goal: table-agnostic).
 

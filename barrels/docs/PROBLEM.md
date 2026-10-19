@@ -9,6 +9,7 @@ Given one camera frame from the VEX AIM robot, decide **per pixel**: is this pix
 ## Input
 
 - One **640×480 RGB** frame from the robot camera (PNG snapshot or live frame).
+- **The frame may contain no barrels at all** (Dave, 2026-10-14: the robot is often looking at other stuff). Nothing in the method may assume barrel pixels exist; on such frames both outputs are all gray.
 
 ## Output
 
@@ -29,13 +30,13 @@ Two images, plus an optional combined debug preview:
 - **Saturation floor:** a pixel can only be barrel if `max(R,G,B) − min(R,G,B) ≥ s_min`. Black table, gray wall, and white glare are all low-saturation. This is a threshold on the pixel, not a correction of the image, so it's consistent with the no-correction rule. `s_min` is a config parameter fit on train/dev (it may also adapt per image from the table/background bands).
 - **Minimum-brightness gate:** a pixel can only be barrel if its brightness (max channel, or Y) is `≥ v_min`. Color is unreliable in very dark pixels (black table, shadows). Same idea as Tekkotsu's RGBK threshold map, which gates color classes on a minimum Y. Config parameter.
 - **Threshold shape, v1: an axis-aligned box in RGB.** First plot labeled barrel pixels in 3D RGB. If the cluster is compact, a box works. If it's elongated/diagonal (e.g. along brightness), a box swallows other hues → after v1, try fancier threshold functions or other color spaces (HSV, YUV, Lab). **Report how full the fitted box is** (fraction of the box volume occupied by labeled barrel pixels, plus the 3D scatter) — that is the evidence for the box-vs-diagonal question.
-- **Lighting estimation is an open problem.** There is no absolute "ground truth" table color in a new setting (e.g. a lab with one overhead light), so don't rely on a stored table color. Planned **v1.5**: use the **barrels themselves as the reference** — their colors are known, so find high-confidence barrel pixels → measure how barrel orange/blue look *in this image* → re-fit the thresholds (iterative). Still adaptive thresholding; still no image correction.
+- **Lighting estimation is an open problem.** There is no absolute "ground truth" table color in a new setting (e.g. a lab with one overhead light), so don't rely on a stored table color. Planned **v1.5**: use the **barrels themselves as the reference** — their colors are known, so find high-confidence barrel pixels → measure how barrel orange/blue look *in this image* → re-fit the thresholds (iterative). Still adaptive thresholding; still no image correction. **Must degrade gracefully when no high-confidence barrel pixels are found** (no barrels in view): fall back to the v1 thresholds rather than re-fitting on noise.
 
 ## In scope (v1)
 
 - Per-pixel orange/blue barrel segmentation on single frames, per the output spec above.
 - Table + background priors; saturation floor; minimum-brightness gate; adaptive RGB-box thresholds with a box-fullness report.
-- **Horizon gating:** any pixel above the horizon row is rejected as non-barrel regardless of color (`constraints.md`, Geometry). Until tilt and focal length are measured, gate at the conservative row (~25, the top of the plausible range) rather than the nominal row 70, so a wrong estimate can't erase real barrels.
+- **Horizon gating** (Dave OK'd for v1, 2026-10-14; he expects little practical effect): any pixel above the horizon row is rejected as non-barrel regardless of color (`constraints.md`, Geometry). Config flag. Until tilt and focal length are measured, gate at the conservative row (~25, the top of the plausible range) rather than the nominal row 70, so a wrong estimate can't erase real barrels.
 - Simple scenes on a **light-colored matte table under white overhead light** (CMU campus), no distractors — the v1 base set. A **black table under warm yellow overhead light** (Tanush's home, CA) is shot alongside as the first stress condition. Then more Pittsburgh tables. Goal: **table-agnostic**. Capture details: `DATA.md`.
 - Assumption: no deliberately adversarial objects in view (ordinary clutter is fine; nothing placed specifically to fool the detector).
 
