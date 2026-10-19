@@ -24,7 +24,8 @@ Keys:
     r           drop the grown mask (keep strokes)
     c           clear strokes for this image (and the mask)
     u           undo last stroke
-    v           cycle view: mask overlay / strokes only / raw
+    v           cycle view: mask+strokes / mask only / strokes only / raw
+                (mask view: orange tint = orange, blue tint = blue, magenta = ignore, no tint = other)
     n / p       save + next / previous image
     s           save
     q / Esc     save + quit
@@ -49,7 +50,7 @@ WIN = "barrel labeler"
 # BGR display colors
 MASK_COLORS = {io.ORANGE: (0, 128, 255), io.BLUE: (255, 100, 0), io.IGNORE: (255, 0, 255)}
 STROKE_COLORS = {1: (0, 90, 255), 2: (255, 40, 0), 3: (0, 220, 0), 4: (255, 0, 255)}
-VIEWS = ("mask", "strokes", "raw")
+VIEWS = ("mask+strokes", "mask", "strokes", "raw")
 
 
 class Session:
@@ -64,6 +65,7 @@ class Session:
         self.view = 0
         self.drawing = False
         self.cursor = (-1, -1)
+        self.last: tuple[int, int] | None = None
         self.undo: list[tuple[np.ndarray, np.ndarray | None]] = []
         self.load(0)
 
@@ -101,23 +103,26 @@ class Session:
             self.strokes, self.mask = self.undo.pop()
 
     def paint(self, x: int, y: int) -> None:
-        cv2.circle(self.strokes, (x, y), self.brush, self.label, -1)
-        if self.mask is not None:
-            if self.label == 0:
-                pass  # eraser clears the stroke only; regrow (g) to refill that area
-            else:
-                cv2.circle(self.mask, (x, y), self.brush, lab.STROKE_TO_MASK[self.label], -1)
+        """Paint a round-capped segment from the last drag point (continuous strokes)."""
+        start = self.last if self.last is not None else (x, y)
+        targets = [(self.strokes, self.label)]
+        if self.mask is not None and self.label != 0:   # eraser clears the stroke only; regrow (g) to refill
+            targets.append((self.mask, lab.STROKE_TO_MASK[self.label]))
+        for arr, val in targets:
+            cv2.line(arr, start, (x, y), val, 2 * self.brush)
+            cv2.circle(arr, (x, y), self.brush, val, -1)
+        self.last = (x, y)
 
     # ---- rendering
     def render(self) -> np.ndarray:
         view = self.img.copy()
         mode = VIEWS[self.view]
-        if mode == "mask" and self.mask is not None:
+        if mode in ("mask+strokes", "mask") and self.mask is not None:
             overlay = self.img.copy()
             for v, col in MASK_COLORS.items():
                 overlay[self.mask == v] = col
             view = cv2.addWeighted(overlay, 0.5, self.img, 0.5, 0)
-        if mode in ("mask", "strokes"):
+        if mode in ("mask+strokes", "strokes"):
             for v, col in STROKE_COLORS.items():
                 view[self.strokes == v] = col
         if self.scale != 1:
@@ -167,8 +172,10 @@ def main(argv=None) -> int:
         if event == cv2.EVENT_LBUTTONDOWN:
             s.push_undo()
             s.drawing = True
+            s.last = None
         elif event == cv2.EVENT_LBUTTONUP:
             s.drawing = False
+            s.last = None
         if s.drawing and event in (cv2.EVENT_LBUTTONDOWN, cv2.EVENT_MOUSEMOVE):
             s.paint(x, y)
 
