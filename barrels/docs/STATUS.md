@@ -16,7 +16,7 @@
 3. ~~Tanush reviews the docs → fix → commit + push.~~ ✓
 4. ~~Email to Dave (constraints + PROBLEM + update).~~ ✓ sent 2026-10-14; **reply 2026-10-14** (logged in `DECISIONS.md`): horizon gating OK for v1, f=400 is an estimate, no-barrel frames are a required case. He'll review the repo in detail when back in Pittsburgh — expect more notes.
 5. ~~Semi-automatic labeling tool + unit tests for mask IO.~~ ✓ `tools/label_tool.py`, `src/barrels/{io,labeling}.py`, tests pass. Not yet used on a real session by Tanush.
-6. ~~Shoot the v1 set~~ ✓ 21 frames (`window_light`, CMU 10/19) + calib/ruler (`upcool_wood`). ~~N-002 geometry~~ ✓ f = 404, tilt = 23.3°, horizon ≈ 66 (`EXPERIMENTS.md` 2026-10-19). **Tanush is labeling** (11/21 masks as of 10/19). ← **we are here**
+6. ~~Shoot the v1 set~~ ✓ 21 frames (`window_light`, CMU 10/19) + calib/ruler (`upcool_wood`). ~~N-002 geometry~~ ✓ measured but methods disagree at ±10 %: f ≈ 355–405, tilt 21.5–25.5°, horizon row 55–100 → gate at row 50 (`EXPERIMENTS.md` 2026-10-19). Barrel measured: 24 tall / 18 ends / 25.5 bulge / 6 stripe. **Tanush is labeling** (11/21 masks as of 10/19). ← **we are here**
 7. ~~Eval harness~~ ✓ (`src/barrels/{eval,splits,viz}.py`, `tools/{eval_masks,make_splits,import_snaps}.py`, 22 tests). **v1 experiment** once labels exist: RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating (config flag; conservative row until measured). Log it, email Dave.
 8. Then: plot RGB clusters (box vs. diagonal) → v1.5 barrel-referenced adaptive thresholds → other color spaces.
 
@@ -31,7 +31,7 @@
 ## Housekeeping
 
 - ~~`color_data/` move + `top&stripe` rename~~ ✓ done 2026-10-14, now `barrels/data/raw/`. `snapshots/4A8B_upcool_wood_closeup_01.png` (gitignored folder) is named per convention — move it into `data/raw/` if wanted.
-- Still unmeasured: barrel dimensions with the tape measure (`constraints.md` #1).
+- Geometry tightening (optional, cheap): a mark at camera height (43.47 mm) on a far wall gives the horizon row directly. Worth doing next time the robot is on a table near a wall.
 
 ## Open questions for Dave
 

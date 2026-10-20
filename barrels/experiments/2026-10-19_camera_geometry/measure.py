@@ -10,6 +10,11 @@
 2. Tilt from the ruler frame: image rows of the centimeter marks (read by eye from an
    upscaled crop; see CM_MARK_ROWS) are fit to row = cy + f*tan(atan(h/d) - tilt) with
    h = 43.47 mm, d = 10*cm + 3, f fixed from step 1, cy = 240.
+3. Tilt + f from the barrel bottom rows in the calib frames (ground contact at the near edge
+   of the 18 mm base), as an independent cross-check.
+
+The three estimates disagree at the ±10 % level (see EXPERIMENTS.md 2026-10-19): the ruler
+zero offset, the eyeballed mark rows, and the contact-point assumption are the weak links.
 """
 from __future__ import annotations
 
@@ -24,7 +29,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 from barrels import io  # noqa: E402
 
 H_CAM = 43.47          # mm, aim_kin.py
-D_BARREL = 22.0        # mm, draft spec + worldmap.py (not independently verified)
+D_BARREL = 80 / math.pi  # 25.5 mm: widest circumference 80 mm measured with a tape 2026-10-19 (draft spec said 22)
+R_BASE = 9.0             # mm: barrel diameter at the base/lid is 18 mm (measured)
 CAM_BEHIND_FRONT = 3.0 # mm, aim_kin.py tilt procedure
 CY = 240
 CALIB = {1: 50, 2: 100, 3: 150, 4: 200, 5: 300}   # calib_NN -> ruler distance front edge -> barrel near edge, mm
@@ -76,6 +82,21 @@ def main() -> int:
         print(f"  {k:2} cm: row {r} model {row_model(k, tilt, f_med):.1f}  resid {row_model(k, tilt, f_med) - r:+.1f}")
     horizon = CY - f_med * math.tan(math.radians(tilt))
     print(f"\nhorizon row = {horizon:.1f}")
+
+    print("\n## cross-check: tilt + f from barrel bottom rows (contact at near edge of the 18 mm base)")
+    bottoms = {}
+    for i, dist in CALIB.items():
+        img = io.load_image(io.RAW_DIR / f"4A8B_upcool_wood_calib_{i:02d}.png")
+        bottoms[dist] = barrel_width(img)[2][3]
+    best = None
+    for tilt_b in np.arange(18, 30, 0.05):
+        for f_b in np.arange(300, 480, 2):
+            err = sum((CY + f_b * math.tan(math.atan(H_CAM / (dist + CAM_BEHIND_FRONT + D_BARREL / 2 - R_BASE)) - math.radians(tilt_b)) - b) ** 2
+                      for dist, b in bottoms.items())
+            if best is None or err < best[0]:
+                best = (err, tilt_b, f_b)
+    err, tilt_b, f_b = best
+    print(f"tilt = {tilt_b:.2f} deg, f = {f_b:.0f}, rms {math.sqrt(err / 5):.1f} px, horizon row = {CY - f_b * math.tan(math.radians(tilt_b)):.1f}")
     print(f"bottom row sees ground at {H_CAM / math.tan(math.radians(tilt) + math.atan(240 / f_med)):.1f} mm from the camera")
     return 0
 

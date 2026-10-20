@@ -65,9 +65,9 @@ core,core,core,core,far,far,close,close,touch,touch,cluster,cluster,occl,occl,ed
 
 If a shot is bad, retake it immediately (press `s` again) and delete the bad `robot_snapN.png` before importing; the tool pairs the remaining files with the scene list in numeric order, so the counts must match.
 
-### Calibration table (measured 2026-10-19 → f ≈ 404 px; `experiments/2026-10-19_camera_geometry/`)
+### Calibration table (measured 2026-10-19; with the 25.5 mm bulge diameter → f ≈ 356 px; `experiments/2026-10-19_camera_geometry/`)
 
-| stem | distance front-edge → barrel near edge (mm) | camera → barrel center (mm) = d + 3 + 11 | measured width (px) |
+| stem | distance front-edge → barrel near edge (mm) | camera → barrel center (mm) = d + 3 + 11 (recompute with r = 12.7) | measured width (px) |
 |---|---|---|---|
 | `4A8B_upcool_wood_calib_01` | 50 | 64 | 138 |
 | `4A8B_upcool_wood_calib_02` | 100 | 114 | 78 |
