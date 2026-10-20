@@ -3,6 +3,10 @@
 
     python barrels/tools/make_splits.py            # assigns unassigned labeled images
     python barrels/tools/make_splits.py --show     # print current splits
+    python barrels/tools/make_splits.py --test-only 5 --exclude-scenes top,topstripe
+        # lock a test set (one labeled image per scene, largest scenes first) and put every
+        # other labeled image in train; dev stays empty (tuning uses leave-one-scene-out CV,
+        # see EVAL.md). Refuses if a test set already exists.
 
 Only images that have a mask in data/labels are assigned, and once assigned a stem never
 moves (docs/EVAL.md: the test set is fixed and never tuned on).
@@ -21,9 +25,22 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--show", action="store_true")
+    ap.add_argument("--test-only", type=int, metavar="N", help="lock N test images, rest -> train, dev empty")
+    ap.add_argument("--exclude-scenes", default="", help="comma-separated scene tags never used for test")
     args = ap.parse_args(argv)
 
     current = sp.load_splits()
+    if args.test_only:
+        if current["test"]:
+            print(f"refusing: a test set already exists ({len(current['test'])} images). It is fixed (EVAL.md).")
+            return 1
+        labeled = [p.stem for p in io.list_images() if io.mask_path(p).exists()]
+        excl = tuple(x for x in args.exclude_scenes.split(",") if x)
+        test = sp.pick_test(labeled, args.test_only, seed=args.seed, exclude_scenes=excl)
+        new = {"train": sorted(set(labeled) - set(test)), "dev": [], "test": test}
+        path = sp.save_splits(new)
+        print(f"test ({len(test)}): {test}\ntrain ({len(new['train'])}), dev (0) -> {path}")
+        return 0
     if args.show:
         for s in sp.SPLIT_NAMES:
             print(f"{s} ({len(current[s])}):")

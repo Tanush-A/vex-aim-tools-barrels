@@ -29,3 +29,17 @@ def test_allocate_small_groups():
     assert sp._allocate(2, (0.6, 0.2, 0.2)) == (1, 0, 1)
     assert sp._allocate(3, (0.6, 0.2, 0.2)) == (1, 1, 1)
     assert sum(sp._allocate(10, (0.6, 0.2, 0.2))) == 10
+
+
+def test_pick_test_one_per_scene_largest_first_deterministic():
+    pool = (stems("overhead_black_core", 4) + stems("overhead_black_neg", 3) + stems("overhead_black_far", 2)
+            + stems("overhead_black_close", 2) + stems("overhead_black_top", 1))
+    a = sp.pick_test(pool, 3, seed=0, exclude_scenes=("top",))
+    b = sp.pick_test(pool, 3, seed=0, exclude_scenes=("top",))
+    assert a == b and len(a) == 3 and len(set(a)) == 3
+    scenes = [x.split("_")[3] for x in a]
+    assert scenes.count("core") == 1 and scenes.count("neg") == 1   # largest groups first
+    assert "top" not in scenes
+    big = sp.pick_test(pool, 7, seed=0)                                # more than groups -> round-robin
+    assert len(big) == 7 and len(set(big)) == 7
+    assert sp.pick_test([], 3) == []

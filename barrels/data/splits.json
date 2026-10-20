@@ -1,0 +1,28 @@
+{
+  "train": [
+    "4A8B_window_light_close_01",
+    "4A8B_window_light_close_02",
+    "4A8B_window_light_cluster_01",
+    "4A8B_window_light_cluster_02",
+    "4A8B_window_light_core_01",
+    "4A8B_window_light_core_02",
+    "4A8B_window_light_core_03",
+    "4A8B_window_light_edge_01",
+    "4A8B_window_light_far_02",
+    "4A8B_window_light_neg_01",
+    "4A8B_window_light_neg_02",
+    "4A8B_window_light_occl_01",
+    "4A8B_window_light_occl_02",
+    "4A8B_window_light_top_01",
+    "4A8B_window_light_topstripe_01",
+    "4A8B_window_light_touch_02"
+  ],
+  "dev": [],
+  "test": [
+    "4A8B_window_light_core_04",
+    "4A8B_window_light_edge_02",
+    "4A8B_window_light_far_01",
+    "4A8B_window_light_neg_03",
+    "4A8B_window_light_touch_01"
+  ]
+}

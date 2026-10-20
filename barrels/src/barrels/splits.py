@@ -73,6 +73,38 @@ def assign(stems: list[str], splits: dict[str, list[str]] | None = None, seed: i
     return splits
 
 
+def pick_test(stems: list[str], n_test: int, seed: int = 0,
+              exclude_scenes: tuple[str, ...] = ()) -> list[str]:
+    """Deterministically pick a held-out test set: one stem per condition, largest groups first.
+
+    Groups (light_surface_scene) are ordered by size descending with a seeded tie-break; one
+    seeded-random stem is taken from each group in that order until n_test are chosen
+    (round-robin if n_test exceeds the number of groups). Scenes in exclude_scenes are never
+    picked (e.g. out-of-scope single frames that should stay in the tuning pool).
+    """
+    rng = random.Random(seed)
+    groups: dict[str, list[str]] = {}
+    for st in sorted(set(stems)):
+        try:
+            scene = parse_name(st)["scene"]
+        except ValueError:
+            scene = "unknown"
+        if scene in exclude_scenes:
+            continue
+        groups.setdefault(_condition(st), []).append(st)
+    if not groups:
+        return []
+    order = sorted(groups, key=lambda g: (-len(groups[g]), rng.random()))
+    for g in order:
+        rng.shuffle(groups[g])
+    chosen: list[str] = []
+    while len(chosen) < n_test and any(groups[g] for g in order):
+        for g in order:
+            if groups[g] and len(chosen) < n_test:
+                chosen.append(groups[g].pop())
+    return sorted(chosen)
+
+
 def split_of(stem: str, splits: dict[str, list[str]]) -> str | None:
     for s in SPLIT_NAMES:
         if stem in splits[s]:
