@@ -14,6 +14,36 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-10-20 — Per-image saturation floor (band-derived) vs fixed; synthetic lighting-shift probe; second test evaluation
+
+- **Hypothesis:** (Tanush) the saturation floor should not be a constant learned from training frames; the image's own known-non-barrel rows can set it. Expectation: a tie on this single-light set (the floor it derives should land near 50), and better behaviour when the background gets more colorful or the exposure changes.
+- **Method / params:** `experiments/2026-10-20_v1_adaptive/run.py`. `Config.s_min_mode="band"`: floor = the `s_band_q` percentile of the saturation of the rows above the horizon (`bg_rows`, optionally plus the bottom table rows) + `s_band_margin`, clamped to [20, 120]; computed per image, nothing in the image is changed. (1) LOSO CV grid vs the fixed v1 final (`ee36a1e9`): q ∈ {99, 99.5, 99.9} × margin ∈ {5, 10, 15, 20} × source ∈ {bg, both}. (2) **Synthetic** lighting shifts applied to the *held-out* frames only (train frames untouched): gain ×0.5 / ×0.75 / ×1.25, warm cast (R×1.2, B×0.8), cool cast (R×0.8, B×1.2); fixed vs band floor, each also with the YUV chroma box and/or the re-fit. Not real data — a probe of which parts of the method depend on the lighting. (3) The adopted config evaluated once more on the test set (`final_test.py --allow-rerun`, reason recorded in its config.json). Results: `results/2026-10-20_v1_adaptive_cv/`, `_v1_adaptive_shift/`, `_v1_test_adaptive/`, overlays in `_v1_viz_adaptive/` (sheet copied to `experiments/2026-10-20_v1_adaptive/figures/`).
+- **Data / split:** 16 pool frames (CV, shift), 5 test frames (once).
+- **Results:**
+
+| | fixed floor 50 (`ee36a1e9`) | band floor, bg rows, q 99.5, margin 10 (`afd85483`) |
+|---|---|---|
+| LOSO CV primary (orange / blue IoU) | 0.810 (0.829 / 0.791) | 0.809 (0.825 / 0.793) — tie |
+| floor actually used per frame | 50 everywhere | **44–55**, derived from each frame's own wall rows (negatives 47–48, top-only 44) |
+| band source "both" (adds the table rows) | | 0.81 on in-scope frames but the top-only frames drop to 0.63 / 0.00: the lid sits in the table band and drives the floor to 120 → **use the above-horizon rows only** (they can never contain barrel) |
+| **test set, evaluated once each** | orange **0.844**, blue **0.811**, neg FP 0 | orange **0.843**, blue **0.813**, neg FP 0 |
+
+Synthetic shifts on held-out frames (primary; neg FP where non-zero):
+
+| shift | fixed floor | band floor | band + YUV box | band + re-fit (margin 3) |
+|---|---|---|---|---|
+| none | 0.810 | 0.809 | 0.814 | 0.816 |
+| gain ×0.5 (dark) | 0.534 | 0.630 | **0.770** | 0.512 |
+| gain ×0.75 | 0.760 | 0.786 | **0.824** | 0.810 |
+| gain ×1.25 (clipping) | 0.558 | 0.564 | 0.491 | **0.673** |
+| warm cast | 0.443 (neg FP 3.1 %) | 0.421 (1.3 %) | 0.158 (20 %) | **0.569** (1.3 %) |
+| cool cast | 0.417, **blue precision 0.05, neg FP 7.7 % → disqualified** | 0.564 (neg FP 0) | 0.422 | **0.602** (neg FP 0) |
+
+- **Takeaway:** (1) The floor does not need to be a learned constant: derived from the image's own above-horizon rows it lands at 44–55 and scores identically on real data, so **v1 adopts the band floor** (Tanush's intent; no cost). (2) Under a cool cast the fixed floor lets the bluish wall through and the method fails its own disqualification rule (7.7 % of empty-frame pixels flagged blue); the band floor rises with the wall's saturation and keeps negatives at zero. The floor is the *false-positive* guard, and adapting it is what makes that guard follow the scene. (3) What does *not* adapt is the per-class RGB boxes, and they are what breaks under casts and gain: recall collapses because the barrel colors move out of the box. The YUV chroma box fixes brightness changes (gain ×0.5: 0.53 → 0.77) but is the worst under casts; the re-fit is the only thing that helps under casts (0.44 → 0.57, 0.42 → 0.60), i.e. the barrel-side adaptation is v1.5's real job and it needs real multi-light data, not this probe. (4) The ×1.25 case clips channels; nothing recovers that, and it is a camera-exposure problem, not a thresholding one.
+- **Next:** label the 10/7 wood-desk frames (3 lamp warmths × 3 directions) — that is the real version of this probe; re-run `analyze.py`, the v1 CV, `v15/run.py` and this script there, with leave-one-*light*-out folds.
+
+---
+
 ## 2026-10-20 — v1.5 arms vs v1 final: barrel-referenced re-fit, YUV chroma box (LOSO CV only)
 
 - **Hypothesis:** (a) re-fitting each class box to the image's own high-confidence barrel pixels (PROBLEM.md v1.5) recovers shadowed faces the train-fold box misses; (b) a box in the YUV chroma plane (brightness dropped) beats the RGB box because the clusters are brightness-elongated.

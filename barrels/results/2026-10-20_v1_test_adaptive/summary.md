@@ -1,0 +1,14 @@
+# v1_test_adaptive: config afd85483 fit on 16 pool frames, evaluated once on 5 test frames
+
+Per-pixel micro-average per condition; IGNORE pixels excluded. `neg fp` = fraction of pixels flagged on frames with no barrels (target ≈ 0).
+
+| condition | n pos | n neg | orange P | orange R | orange IoU | blue P | blue R | blue IoU | orange neg fp | blue neg fp |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ALL | 4 | 1 | 0.959 | 0.875 | 0.843 | 0.982 | 0.825 | 0.813 | 0.000 | 0.000 |
+| window_light_core | 1 | 0 | 0.994 | 0.871 | 0.867 | 0.991 | 0.854 | 0.848 | — | — |
+| window_light_edge | 1 | 0 | 0.971 | 0.810 | 0.791 | 0.983 | 0.933 | 0.918 | — | — |
+| window_light_far | 1 | 0 | 0.912 | 0.830 | 0.768 | 0.949 | 0.761 | 0.731 | — | — |
+| window_light_neg | 0 | 1 | — | — | — | — | — | — | 0.000 | 0.000 |
+| window_light_touch | 1 | 0 | 0.969 | 0.903 | 0.877 | 0.992 | 0.789 | 0.785 | — | — |
+
+Per-image numbers: `per_image.csv`.

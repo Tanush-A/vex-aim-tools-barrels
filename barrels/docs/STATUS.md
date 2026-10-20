@@ -5,8 +5,8 @@
 ## Where we are
 
 - **v1 is done and evaluated** (unattended block, night of 2026-10-19→20; plain-English recap in `docs/OVERNIGHT-2026-10-20.md`).
-  - Final config `ee36a1e9`: horizon gate row 50, saturation floor 50, brightness gate 40, **table prior off**, wall prior k = 2.5 (rows 0–50), RGB box 1–99 % fit after the gates (3000 px/frame cap), R > B tie rule. Chosen by leave-one-scene-out CV on the 16 pool frames under the pre-registered rule (`DECISIONS.md` 2026-10-19/20).
-  - **Test set (5 frames, evaluated once): orange IoU 0.844 (P 0.96 / R 0.88), blue IoU 0.811 (P 0.98 / R 0.82), negative frame 0 pixels flagged.** CV estimate was 0.829 / 0.791, so no overfit.
+  - Final config `afd85483` (`results/2026-10-20_v1_adaptive_cv/configs/`): horizon gate row 50, **saturation floor derived per image** from the rows above the horizon (99.5th pct + 10; lands at 44–55 here), brightness gate 40, **table prior off**, wall prior k = 2.5 (rows 0–50), RGB box 1–99 % fit after the gates (3000 px/frame cap), R > B tie rule. Chosen by leave-one-scene-out CV on the 16 pool frames under the pre-registered rule (`DECISIONS.md` 2026-10-19/20).
+  - **Test set (5 frames): orange IoU 0.843 (P 0.96 / R 0.88), blue IoU 0.813 (P 0.98 / R 0.83), negative frame 0 pixels flagged.** (Evaluated twice — once with the fixed floor, 0.844 / 0.811, once after adopting the per-image floor; both logged.) CV estimate 0.825 / 0.793, so no overfit. Overlays of every frame: `experiments/2026-10-20_v1_adaptive/figures/overlays_sheet.png`.
   - What the ablations showed: the saturation floor and the wall prior are the whole separation (box alone: IoU 0.04; without the wall prior blue drops to 0.34); the horizon gate and brightness gate change nothing on this table; the table prior is redundant here and destroys the top-only frames (shadow inflates its MAD scale) — off for v1, kept as a flag for dark tables.
   - Known weak spots: shadowed lower faces (both classes, recall ≈ 0.8–0.88); the hand (skin is inside the orange RGB box; orange IoU on the pool is 0.77 with the hand frames vs 0.84 without); far blurred barrels.
 - Package: `src/barrels/{io,labeling,eval,splits,viz,priors,boxfit,pipeline,cv}.py`, 46 tests; experiments in `experiments/2026-10-19_data_analysis/`, `experiments/2026-10-20_v1_rgbbox/`; every number in `EXPERIMENTS.md` points to a `results/` folder with its config hash and git commit.
@@ -15,6 +15,7 @@
 
 1. ~~Repo setup~~ ✓ 2. ~~Docs~~ ✓ 3. ~~Review~~ ✓ 4. ~~Email Dave~~ ✓ (reply logged) 5. ~~Labeling tool~~ ✓ 6. ~~Shoot + label v1 set; camera geometry~~ ✓ 7. ~~Eval harness, v1 experiment, test evaluation~~ ✓
 8. **Tanush:** read `docs/OVERNIGHT-2026-10-20.md`, confirm the two judgment calls in `DECISIONS.md` 2026-10-20, send the v1 email to Dave (draft below).
+9a. ~~Per-image saturation floor~~ ✓ adopted (ties on real data; keeps negatives clean under a synthetic cool cast where the fixed floor fails). The synthetic probe also says: the fixed RGB boxes are what break under lighting shifts → v1.5's job, needs real multi-light data.
 9. ~~v1.5 arms, CV only~~ ✓ run: the re-fit **hurts** (−0.07; it tightens the box) and the YUV chroma box **ties** (+0.005) — with one table and one light there is nothing for a re-fit to adapt to. Both stay as flags; re-test on the second lighting condition (`EXPERIMENTS.md` 2026-10-20 v1.5).
 10. **More data before more tuning:** a second table/light (the warm black table is the obvious stress set), then the Pittsburgh wood desk. Re-run `analyze.py` and the CV on each new set; the v1 config must be re-validated, not assumed.
 11. Later: a scale cap / mode-seeking fit for the table prior; hue-based separation of skin from orange (a*/chroma angle) — both out of v1.
@@ -52,10 +53,10 @@ Subject: Barrel detector: v1 color segmentation results
 
 Hi Dave,
 
-v1 is done and evaluated. Short version: on a white matte table under window light, the adaptive-threshold segmentation gets per-pixel IoU 0.84 (orange) and 0.81 (blue) on a held-out test set, with precision ≥ 0.96 and zero false pixels on the no-barrel frame.
+v1 is done and evaluated. Short version: on a white matte table under window light, the adaptive-threshold segmentation gets per-pixel IoU 0.84 (orange) and 0.81 (blue) on a held-out test set, with precision ≥ 0.96 and zero false pixels on the no-barrel frame. The only things learned from labels are the two per-class RGB boxes; every other threshold is derived from the image at hand.
 
 What worked and what didn't, from the ablations (leave-one-scene-out CV on 16 frames, test set touched once):
-- The saturation floor (max−min ≥ 50) and the above-horizon "wall" prior do essentially all of the separating. An RGB box alone scores 0.04 IoU: the barrel clusters are smears along the brightness axis (PCA linearity 0.6 / 0.5), so a box that covers shadowed faces also covers the table and wall.
+- The saturation floor and the above-horizon "wall" prior do essentially all of the separating. Both are set from the image itself: the floor is the 99.5th percentile of the saturation of the rows above the horizon plus a margin (it lands at 44–55 on these frames), and the wall prior is a median/MAD model of those same rows. An RGB box alone scores 0.04 IoU: the barrel clusters are smears along the brightness axis (PCA linearity 0.6 / 0.5), so a box that covers shadowed faces also covers the table and wall.
 - The horizon gate and the minimum-brightness gate changed nothing on this table (no barrel pixel is above row 105 in any frame; nothing is dark enough to trip the brightness gate). Both stay as flags.
 - The bottom-rows "table" prior was redundant here and actively harmful on the close/top-only frames: the barrel's shadow inflates the band's MAD scale and the prior then swallows the lid. It's off in v1; it needs a scale cap before it's trustworthy on a dark table.
 - Blue recall (0.82) is the weak spot: shadowed lower faces desaturate toward the blue-gray wall.

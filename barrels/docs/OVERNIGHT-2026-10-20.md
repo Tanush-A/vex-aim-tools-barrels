@@ -48,3 +48,11 @@ v1 works. On the white campus table under window light, the segmentation finds 8
 - Git: 9 commits on `barrels` since the labels landed, each one a milestone, all pushed.
 
 One cosmetic thing: the data-analysis experiment folder is dated 10-19 and its results folder 10-20, because midnight passed between writing it and running it.
+
+## Addendum (same morning): the floor now comes from the image
+
+You asked whether the thresholds were memorised from training frames. Mostly yes, so I changed the saturation floor to be computed from each image's own rows above the horizon (those can never contain a barrel). On the real frames it derives 44 to 55 by itself and scores the same as the hand-set 50 (test: orange 0.843, blue 0.813). In a synthetic test where the held-out images were given a bluish color cast, the fixed floor let the wall flood the empty-table frame with blue (7.7 % of pixels) and the per-image floor kept it at zero. That is the point of adapting it.
+
+What still does not adapt is the orange and blue boxes themselves, and the same synthetic test shows they are what break when the lighting changes color. That is exactly what v1.5 is for, and it needs real photos under different lights, not simulated ones. The 10/7 wood-desk frames are the right next set.
+
+The overlays you asked for are in `experiments/2026-10-20_v1_adaptive/figures/overlays_sheet.png` (all 21 frames, dimmed, predicted orange/blue painted on, ground truth as thin white outlines) and full-size per frame in `results/2026-10-20_v1_viz_adaptive/overlays/`.
