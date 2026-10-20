@@ -14,6 +14,29 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-10-20 — v1.5 arms vs v1 final: barrel-referenced re-fit, YUV chroma box (LOSO CV only)
+
+- **Hypothesis:** (a) re-fitting each class box to the image's own high-confidence barrel pixels (PROBLEM.md v1.5) recovers shadowed faces the train-fold box misses; (b) a box in the YUV chroma plane (brightness dropped) beats the RGB box because the clusters are brightness-elongated.
+- **Method / params:** `experiments/2026-10-20_v15/run.py`: 11 re-fit variants (`pipeline.RefitConfig`: inner box 10–90 % defines "confident", new box = percentile box of those pixels ± margin·MAD, clipped to the 0.1–99.9 % train box, fallback to v1 below `min_px`) and 6 YUV-chroma variants, all starting from the v1 final config `ee36a1e9`, scored under the same leave-one-scene-out folds. **No test-set run.** Results: `results/2026-10-20_v15/`.
+- **Data / split:** 16 pool frames, one table, one light.
+- **Results:**
+
+| arm | primary | Δ vs v1 | orange IoU | blue IoU (P / R) | note |
+|---|---|---|---|---|---|
+| v1 final | 0.810 | — | 0.829 | 0.791 (0.99 / 0.80) | |
+| re-fit, default (margin 1·MAD) | 0.739 | −0.071 | 0.744 | 0.734 (0.99 / 0.74) | engaged on 12/16 (orange) and 11/16 (blue) frames; negatives never re-fit. The re-fit box is *tighter* than the train box, so it loses more shadowed pixels |
+| re-fit, margin 0.5 | 0.659 | −0.151 | | | worse still |
+| re-fit, margin 2 / 3 | 0.807 / 0.819 | −0.003 / +0.009 | 0.830 | 0.808 (0.99 / 0.82) | ties with v1; margin 3 ≈ the v1 box re-centered |
+| re-fit, inner 25–75 | 0.434 | −0.376 | | | too few confident pixels → tiny boxes |
+| YUV chroma box 1–99 | 0.805 | −0.005 | 0.842 | 0.767 (0.94 / 0.81) | tie: orange up, blue precision down (gray wall is near the blue chroma box) |
+| YUV chroma box 0.5–99.5 | 0.815 | +0.005 | 0.846 | 0.785 (0.95 / 0.82) | tie |
+| YUV + re-fit | 0.806 | −0.004 | 0.848 | 0.763 | tie |
+
+- **Takeaway:** neither arm beats v1 on this data, and that is the expected result rather than a failure: with one table and one light there is **no per-image color shift for a re-fit to correct** — the only thing it can do is shrink the box toward the bright faces, which is what it did. The chroma box is a genuinely different shape at the same score (orange better, blue slightly worse); its case is generalization across lighting, which this set cannot test. Both stay implemented behind flags (`Config.refit`, `Config.box_space`) and go back on the table once a second lighting condition is labeled (the wood-desk warm/cool frames are the obvious next set). v1 config unchanged.
+- **Next:** label a second light/table; re-run `analyze.py`, the v1 CV, and this script there. Separately: the table prior needs a scale cap before it is trusted on dark tables; skin vs orange needs a hue-angle test (both out of v1).
+
+---
+
 ## 2026-10-20 — v1 on the held-out test set (single run)
 
 - **Hypothesis:** the CV estimate (primary 0.810) transfers to the 5 untouched test frames.

@@ -15,7 +15,7 @@
 
 1. ~~Repo setup~~ ✓ 2. ~~Docs~~ ✓ 3. ~~Review~~ ✓ 4. ~~Email Dave~~ ✓ (reply logged) 5. ~~Labeling tool~~ ✓ 6. ~~Shoot + label v1 set; camera geometry~~ ✓ 7. ~~Eval harness, v1 experiment, test evaluation~~ ✓
 8. **Tanush:** read `docs/OVERNIGHT-2026-10-20.md`, confirm the two judgment calls in `DECISIONS.md` 2026-10-20, send the v1 email to Dave (draft below).
-9. v1.5 arms, CV only (see `EXPERIMENTS.md` 2026-10-20 v1.5 entry if present): barrel-referenced re-fit; YUV chroma box.
+9. ~~v1.5 arms, CV only~~ ✓ run: the re-fit **hurts** (−0.07; it tightens the box) and the YUV chroma box **ties** (+0.005) — with one table and one light there is nothing for a re-fit to adapt to. Both stay as flags; re-test on the second lighting condition (`EXPERIMENTS.md` 2026-10-20 v1.5).
 10. **More data before more tuning:** a second table/light (the warm black table is the obvious stress set), then the Pittsburgh wood desk. Re-run `analyze.py` and the CV on each new set; the v1 config must be re-validated, not assumed.
 11. Later: a scale cap / mode-seeking fit for the table prior; hue-based separation of skin from orange (a*/chroma angle) — both out of v1.
 
