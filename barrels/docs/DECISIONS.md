@@ -4,6 +4,11 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-20 — constraints.md unknowns #4/#5 marked measured for the v1 table (doc update)
+
+- **Decision:** record the pool-frame color analysis (`EXPERIMENTS.md` 2026-10-20) against unknowns #4/#5 in `constraints.md`; they stay open for other surfaces/lights. No scope change.
+- **Who:** Claude Code, unattended block, 2026-10-20.
+
 ## 2026-10-19 — v1 evaluation protocol: 5-frame test set locked; leave-one-scene-out CV replaces dev; pre-registered selection rule
 
 - **Decision:** (1) **Test set = 5 frames**, picked deterministically by `splits.pick_test` (seed 0: one frame from each of the two largest scene groups, `core` and `neg`, then one from three of the six two-frame scenes): `core_04, edge_02, far_01, neg_03, touch_01`. `top_01` and `topstripe_01` are excluded from test (the close/top-only case is out of v1 scope); they stay in the pool, are predicted and reported, but are **excluded from the headline score**. (2) The **dev split is empty**; all tuning uses **leave-one-scene-out (LOSO) cross-validation over the 16 pool frames** (10 scene groups → 10 folds; every pool frame is predicted exactly once by a model that never saw its scene). (3) **Pre-registered selection rule**, fixed before any sweep: primary score = mean of pooled orange IoU and pooled blue IoU over in-scope positive pool frames; any config with pooled negative-frame false-positive rate > 0.5 % for either class is disqualified; differences < 0.02 in the primary score count as "no difference" unless the sign is consistent across ≥ 6 of the 7 positive folds, in which case prefer the simplest setting; at most two coordinate-descent passes. The test set is evaluated **once**, with the single chosen config.

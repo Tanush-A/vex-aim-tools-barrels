@@ -72,8 +72,8 @@ Things that look like barrel colors to naive fixed thresholds. **v1 scenes delib
 | 1 | ~~Barrel dimensions~~ **done** (2026-10-19): 24 tall, 18 ends, 25.5 bulge, 6 stripe | — |
 | 2 | Focal length: **355–405 px** (2026-10-19, methods disagree). Principal point assumed (320, 240) | Direct horizon measurement (mark at camera height, far wall) + a cleaner ruler frame with the tape zero clearly at the front edge |
 | 3 | Camera tilt: **21.5–25.5°** (2026-10-19) | Same as #2 |
-| 4 | Barrel orange/blue RGB distribution across lights + tables — **is the cluster box-shaped or diagonal?** | Plot labeled barrel pixels in 3D RGB from labeled data |
-| 5 | Table + background color distributions per surface/lighting | From labeled data |
+| 4 | Barrel RGB distribution — **measured for the white table / window light** (2026-10-20, `EXPERIMENTS.md`): both clusters are brightness-elongated smears (PCA linearity 0.59 orange / 0.47 blue, axis ≈ gray axis), 1–99 box fullness ≈ 0.3 at voxel 8; a box alone admits 55–86 % of table/wall. Still to measure under other lights/tables | Re-run `experiments/2026-10-19_data_analysis/analyze.py` on each new labeled set |
+| 5 | Table + background distributions — **measured for white table / window light**: table sat 95th pct 32, wall band 38, but the wall between horizon and table edge keeps 26 % at sat ≥ 40 (bluish); see `EXPERIMENTS.md` 2026-10-20. Other surfaces/lights still open | From labeled data, same script |
 | 6 | How much auto-exposure/auto-white-balance shifts colors | Already partially characterized (see `EXPERIMENTS.md` 2026-10-07: camera does NOT fully auto-WB; mean blue 134 → 73 under warm light); extend with new data |
 | 7 | Horizon row: **55–100** (2026-10-19); gate at 50 | Direct check: a mark at camera height (43.47 mm) on a vertical surface ≥ 1 m away projects onto the horizon row |
 | 8 | Does the robot's own body, kicker, or a held barrel appear in the bottom rows? | Snapshot with the kicker extended / holding a barrel. Affects the table prior. |

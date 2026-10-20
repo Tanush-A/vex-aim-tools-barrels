@@ -1,0 +1,47 @@
+{
+ "pool": [
+  "4A8B_window_light_close_01",
+  "4A8B_window_light_close_02",
+  "4A8B_window_light_cluster_01",
+  "4A8B_window_light_cluster_02",
+  "4A8B_window_light_core_01",
+  "4A8B_window_light_core_02",
+  "4A8B_window_light_core_03",
+  "4A8B_window_light_edge_01",
+  "4A8B_window_light_far_02",
+  "4A8B_window_light_neg_01",
+  "4A8B_window_light_neg_02",
+  "4A8B_window_light_occl_01",
+  "4A8B_window_light_occl_02",
+  "4A8B_window_light_top_01",
+  "4A8B_window_light_topstripe_01",
+  "4A8B_window_light_touch_02"
+ ],
+ "boxes": {
+  "orange": {
+   "lo": [
+    37.0,
+    8.0,
+    3.0
+   ],
+   "hi": [
+    211.0,
+    127.0,
+    121.0
+   ]
+  },
+  "blue": {
+   "lo": [
+    0.0,
+    7.0,
+    25.0
+   ],
+   "hi": [
+    134.0,
+    125.0,
+    184.0
+   ]
+  }
+ },
+ "cap": 3000
+}
