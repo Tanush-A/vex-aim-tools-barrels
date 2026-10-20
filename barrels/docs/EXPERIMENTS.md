@@ -14,6 +14,25 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-10-19 — Camera geometry of AIM-4A8B6118 (focal length, tilt, horizon)
+
+- **Hypothesis:** `camera.py`'s f = 400 and Dave's 23° tilt are close; the 70°×50° FOV figures are not.
+- **Method / params:** `experiments/2026-10-19_camera_geometry/measure.py`. f from barrel silhouette width at 5 ruler distances (`calib_01..05`, D = 22 mm, camera 3 mm behind the front edge + 11 mm radius). Tilt by least squares on the image rows of the 4–10 cm marks of a tape measure laid from the front edge (`ruler_01`, rows read by eye from an upscaled crop), f fixed, principal point fixed at (320, 240).
+- **Data / split:** `data/raw/4A8B_upcool_wood_{calib,ruler}_*.png` (wood desk, cool lamp; geometry only, not a segmentation set).
+- **Results:**
+
+| quantity | value | notes |
+|---|---|---|
+| focal length | **404 px** (400, 404, 410, 409, 400 at 64–314 mm) | consistent across all distances, so D = 22 mm + the offsets are self-consistent (but f and D are not separable from widths alone) |
+| tilt | **23.3°** | rms 3.8 px over 7 marks; the 6–10 cm marks fit within 2 px, the 4–5 cm reads are the noisy ones |
+| horizon row | **≈ 66** | 240 − 404·tan(23.3°) |
+| bottom row ↔ ground | 31.6 mm from the camera | |
+
+- **Takeaway:** f = 400 was a good guess; use 404. Tilt 23.3° matches Dave's "assume 23°". Freeing the principal point only trades off against tilt (cy 220 ↔ 20.7°), so it is not identifiable here; keep (320, 240). The 70°×50° FOV in `camera.py` is wrong. Horizon gate for this robot: row 60.
+- **Next:** measure the barrel with the tape (unknown #1); re-run the script for any other robot.
+
+---
+
 ## 2026-10-07 — Color baselines: fixed HSV vs. lighting (pre-labels, probe-based)
 
 - **Hypothesis:** fixed color thresholds survive home-lighting variation well enough to segment barrels.

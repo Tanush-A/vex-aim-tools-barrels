@@ -1,13 +1,13 @@
 # constraints.md — known facts + unknowns to measure
 
-**Version:** v1 (2026-10-14). Foundation doc — the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; log scope-relevant changes in `DECISIONS.md`.
+**Version:** v1 (2026-10-14; geometry measured 2026-10-19). Foundation doc — the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; log scope-relevant changes in `DECISIONS.md`.
 
 ## Camera / robot
 
 - VEX AIM camera: **640×480 color**.
 - Camera height above the ground plane: **43.47 mm** (`aim_fsm/aim_kin.py`). The camera sits **27 mm ahead of the robot's center** (`camera_from_origin`); distances in this doc are horizontal distances from the camera unless stated.
-- Tilt: **18–25° below horizontal; assume 23°** (per Dave). `aim_kin.py` has per-robot measured values: 25.4° (AIM-5A888218), 23.7° (AIM-32A57C18); the design spec says 18°. Measurement procedure used there: abut a ruler to the robot's front edge, read the distance d to the horizontal crosshair on the ruler surface, then `camera_tilt = atan2(43.47, d + 3) * 180/pi`.
-- Intrinsics: `aim_fsm/camera.py` hardcodes focal length **(400, 400) px** and principal point **(320, 240)** — guesses, not calibrated (Dave, 2026-10-14: 400 was an estimate, there is no official value, and it likely varies slightly per camera) (the file notes the center "should be adjusted for each robot's camera chip"). The same file lists an estimated FOV of 70°×50°, which would imply f ≈ 457 px (x) / 515 px (y), so the two guesses disagree with each other. **Unknown to measure** (#2).
+- Tilt of AIM-4A8B6118: **23.3° (measured 2026-10-19**, ruler-frame fit, ±0.5°; `experiments/2026-10-19_camera_geometry/`). Dave's "18–25°, assume 23°" holds. `aim_kin.py` has other robots: 25.4° (AIM-5A888218), 23.7° (AIM-32A57C18); the design spec says 18°. Measurement procedure used there: abut a ruler to the robot's front edge, read the distance d to the horizontal crosshair on the ruler surface, then `camera_tilt = atan2(43.47, d + 3) * 180/pi`.
+- Focal length of AIM-4A8B6118: **≈ 404 px (measured 2026-10-19**, barrel width at 5 distances, spread 400–410, assuming D = 22 mm). `aim_fsm/camera.py`'s hardcoded 400 was a good guess (Dave, 2026-10-14: an estimate, likely varies per camera); its 70°×50° FOV figures (which would imply f ≈ 457/515) are wrong. Principal point still assumed **(320, 240)** — not separable from tilt with the ruler data (#2).
 - The vendor detector (aivision) runs **on the robot at 320×240**; `worldmap.py` scales its boxes ×2 to the 640×480 frame.
 - Tanush's robot: **AIM-4A8B6118**. Another seen: AIM-627D8818. **Cameras differ between robots** (color response, possibly geometry).
 
@@ -25,18 +25,18 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 - **Horizon (definition):** the image row where the ground plane projects at infinite distance — equivalently, the row of exactly horizontal rays: `horizon_row = c_y − f·tan(θ)`. It is a property of the camera pose, **not a visible scene feature.** In particular, **the visible far edge of a table is not the horizon.** The table edge is at a finite distance, so it sits below the horizon row, and a barrel standing near the far edge of the table rises above the edge line and is seen against the wall (visible in `color_data/4A8B_atcool_wood_core_01.png`). Rows above the table edge can contain barrel pixels; rows above the horizon cannot.
 - **Nothing above the horizon can be a barrel.** Every point of a barrel standing on the ground plane is at most 25 mm up, i.e. below the camera's 43.47 mm, so it projects below the horizon row at any distance. Assumes the barrel is on the ground plane and the robot is level (not pitched by driving over something).
 - **Row ↔ ground distance:** a ground point at distance d appears at row `c_y + f·tan(atan(h/d) − θ)`. A barrel at distance d is ≈ `f·22/d` px wide, with its top at row `c_y + f·tan(atan((h − 25)/d) − θ)`. So every row has an **expected barrel pixel size.**
-- Nominal numbers (θ = 23°, f = 400 — **unverified**):
+- Numbers for AIM-4A8B6118 (measured θ = 23.3°, f = 404; the table was computed at the nominal 23°/400 and differs by a few px):
 
 | | value |
 |---|---|
-| horizon row | ≈ 70 |
+| horizon row | **≈ 66 measured** (70 nominal) |
 | bottom row (480) sees the ground at | ≈ 32 mm from the camera |
 | barrel at 70 mm (the `close` scene) | rows ≈ 182–302, ≈ 126 px wide |
 | barrel at 150 mm (`core`) | rows ≈ 126–192, ≈ 59 px wide |
 | barrel at 300 mm (worldmap's max range) | rows ≈ 99–135, ≈ 29 px wide |
 | ground at 0.5 m / 2 m | ≈ 40 px / ≈ 10 px below the horizon |
 
-- **Sensitivity:** with f = 400 the horizon row is ≈ 50 at 25.4° tilt and ≈ 110 at 18°; at 23° it is ≈ 49–91 for f = 350–450. Until tilt and f are measured, only the **top ~25 rows** are guaranteed above the horizon across the plausible range — use that as the conservative background band, with ~70 as the nominal estimate.
+- **Sensitivity:** with f = 400 the horizon row is ≈ 50 at 25.4° tilt and ≈ 110 at 18°. For AIM-4A8B6118 it is measured at ≈ 66 (±5 px). Gate/band at **row 60** (horizon minus a margin) for this robot; for an unmeasured robot fall back to the conservative top-25-rows band, and re-run `experiments/2026-10-19_camera_geometry/measure.py` on its own calib + ruler frames.
 - Uses: size sanity check when top + bottom are both visible; infer the bottom from the top row + width when the bottom is occluded/off-frame; occlusion reasoning; choosing the prior bands.
 - **Close/top-only case (working assumption, not a hard rule):** in Lab 6 Dave observed that the top-only view occurs only when the barrel's top is in the bottom half of the image. Nominal geometry agrees: the bottom edge leaves the frame once the barrel is closer than ≈ 32 mm, and by then its top is at row ≈ 290. Lab 6 was a class homework setting, so re-check this on real frames before relying on it.
 
@@ -69,11 +69,11 @@ Things that look like barrel colors to naive fixed thresholds. **v1 scenes delib
 
 | # | Unknown | How to measure |
 |---|---------|----------------|
-| 1 | True barrel dimensions + stripe height (working values: 25 × 22 × 6 mm) | Ruler |
-| 2 | Focal length + principal point of AIM-4A8B6118 | Checkerboard calibration, or barrels at known distances (width = f·22/d) |
-| 3 | Actual camera tilt of AIM-4A8B6118 | The `aim_kin.py` procedure: `atan2(43.47, d + 3)` with measured d |
+| 1 | True barrel dimensions + stripe height (working values: 25 × 22 × 6 mm). The f measurement assumed D = 22; f and D are degenerate from widths alone, so measure D directly | Tape measure: height, max diameter, lid diameter, stripe height |
+| 2 | ~~Focal length~~ **done: 404 px** (2026-10-19). Principal point of AIM-4A8B6118 still assumed (320, 240) | Checkerboard calibration if it ever matters |
+| 3 | ~~Camera tilt of AIM-4A8B6118~~ **done: 23.3°** (2026-10-19) | — |
 | 4 | Barrel orange/blue RGB distribution across lights + tables — **is the cluster box-shaped or diagonal?** | Plot labeled barrel pixels in 3D RGB from labeled data |
 | 5 | Table + background color distributions per surface/lighting | From labeled data |
 | 6 | How much auto-exposure/auto-white-balance shifts colors | Already partially characterized (see `EXPERIMENTS.md` 2026-10-07: camera does NOT fully auto-WB; mean blue 134 → 73 under warm light); extend with new data |
-| 7 | The horizon row in practice | Not the table edge (see Geometry). Either compute from #2 + #3, or measure directly: a mark at camera height (43.47 mm above the ground plane) on a vertical surface ≥ 1 m away projects onto the horizon row. Ground at 2 m is within ~10 px of it. |
+| 7 | ~~The horizon row~~ **done: ≈ 66** (from #2 + #3) | Direct check still possible: a mark at camera height (43.47 mm) on a vertical surface ≥ 1 m away projects onto the horizon row |
 | 8 | Does the robot's own body, kicker, or a held barrel appear in the bottom rows? | Snapshot with the kicker extended / holding a barrel. Affects the table prior. |

@@ -1,6 +1,6 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-18.
+**Updated:** 2026-10-19.
 
 ## Where we are
 
@@ -16,7 +16,7 @@
 3. ~~Tanush reviews the docs → fix → commit + push.~~ ✓
 4. ~~Email to Dave (constraints + PROBLEM + update).~~ ✓ sent 2026-10-14; **reply 2026-10-14** (logged in `DECISIONS.md`): horizon gating OK for v1, f=400 is an estimate, no-barrel frames are a required case. He'll review the repo in detail when back in Pittsburgh — expect more notes.
 5. ~~Semi-automatic labeling tool + unit tests for mask IO.~~ ✓ `tools/label_tool.py`, `src/barrels/{io,labeling}.py`, tests pass. Not yet used on a real session by Tanush.
-6. **Tanush shoots the 27-frame v1 set (light matte table, white overhead light, incl. calib + ruler) at CMU 10/18, imports, labels (`DATA.md` → v1 capture plan).** Black-table/warm-light session skipped. ← **we are here** **Same session (N-002): measure camera geometry** — tilt via the `aim_kin.py` ruler procedure, focal length from ~5 barrel photos at known distances (width = f·22/d). Record in `constraints.md`, move the horizon gate + bands from the safe rows to the computed ones.
+6. ~~Shoot the v1 set~~ ✓ 21 frames (`window_light`, CMU 10/19) + calib/ruler (`upcool_wood`). ~~N-002 geometry~~ ✓ f = 404, tilt = 23.3°, horizon ≈ 66 (`EXPERIMENTS.md` 2026-10-19). **Tanush is labeling** (11/21 masks as of 10/19). ← **we are here**
 7. ~~Eval harness~~ ✓ (`src/barrels/{eval,splits,viz}.py`, `tools/{eval_masks,make_splits,import_snaps}.py`, 22 tests). **v1 experiment** once labels exist: RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating (config flag; conservative row until measured). Log it, email Dave.
 8. Then: plot RGB clusters (box vs. diagonal) → v1.5 barrel-referenced adaptive thresholds → other color spaces.
 
@@ -24,14 +24,14 @@
 
 - N-001 done (2026-10-14): `NAVIGATOR.md` registered in `barrels/CLAUDE.md` (docs table + end-of-session checklist).
 - N-004 done (2026-10-14): saturation floor, brightness gate, box-fullness report in `PROBLEM.md`; capture guidance in `DATA.md`; logged in `DECISIONS.md`.
-- N-002 done (2026-10-14): geometry-measurement task added to step 6.
+- N-002 done (2026-10-19): tilt + focal length measured (`EXPERIMENTS.md` 2026-10-19; `constraints.md` updated).
 - N-003 done (2026-10-14): confusers section in `constraints.md`.
 - Review notes applied (2026-10-14): barrel-size provenance, table band default, stripes rule + negative-frame metric in `EVAL.md`. **Deferred:** moving `color_data/` into `barrels/data/raw/` — do it together with the `top&stripe` rename when the labeling tool lands (step 5), so paths change once.
 
 ## Housekeeping
 
 - ~~`color_data/` move + `top&stripe` rename~~ ✓ done 2026-10-14, now `barrels/data/raw/`. `snapshots/4A8B_upcool_wood_closeup_01.png` (gitignored folder) is named per convention — move it into `data/raw/` if wanted.
-- Unknowns to measure with a ruler/robot: barrel dimensions, camera tilt, focal length, horizon row (`constraints.md` table).
+- Still unmeasured: barrel dimensions with the tape measure (`constraints.md` #1).
 
 ## Open questions for Dave
 

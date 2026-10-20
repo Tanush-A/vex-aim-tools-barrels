@@ -65,15 +65,15 @@ core,core,core,core,far,far,close,close,touch,touch,cluster,cluster,occl,occl,ed
 
 If a shot is bad, retake it immediately (press `s` again) and delete the bad `robot_snapN.png` before importing; the tool pairs the remaining files with the scene list in numeric order, so the counts must match.
 
-### Calibration table (fill in after shooting)
+### Calibration table (measured 2026-10-19 → f ≈ 404 px; `experiments/2026-10-19_camera_geometry/`)
 
 | stem | distance front-edge → barrel near edge (mm) | camera → barrel center (mm) = d + 3 + 11 | measured width (px) |
 |---|---|---|---|
-| `4A8B_upcool_wood_calib_01` | 50 | 64 | |
-| `4A8B_upcool_wood_calib_02` | 100 | 114 | |
-| `4A8B_upcool_wood_calib_03` | 150 | 164 | |
-| `4A8B_upcool_wood_calib_04` | 200 | 214 | |
-| `4A8B_upcool_wood_calib_05` | 300 | 314 | |
+| `4A8B_upcool_wood_calib_01` | 50 | 64 | 138 |
+| `4A8B_upcool_wood_calib_02` | 100 | 114 | 78 |
+| `4A8B_upcool_wood_calib_03` | 150 | 164 | 55 |
+| `4A8B_upcool_wood_calib_04` | 200 | 214 | 42 |
+| `4A8B_upcool_wood_calib_05` | 300 | 314 | 28 |
 
 (camera sits ≈ 3 mm behind the front edge per the `aim_kin.py` tilt procedure; barrel radius 11 mm.)
 
