@@ -1,0 +1,41 @@
+{
+ "base": {
+  "horizon_row": 50,
+  "bg_rows": [
+   0,
+   50
+  ],
+  "table_rows": 80,
+  "s_min": 40,
+  "s_min_blue": null,
+  "v_min": 40,
+  "table_prior": true,
+  "bg_prior": true,
+  "k_table": 3.0,
+  "k_bg": 3.0,
+  "prior_fit": "lowsat",
+  "scale_floor": 4.0,
+  "prior_min_frac": 0.3,
+  "box_space": "rgb",
+  "box_pct": [
+   1.0,
+   99.0
+  ],
+  "fit_after_gates": true,
+  "fit_max_px_per_image": 3000,
+  "tie": "rb_sign",
+  "seed": 0,
+  "refit": null
+ },
+ "chosen_id": "6c993aa0",
+ "chosen": {
+  "axis": "ablation",
+  "value": "no_table_prior"
+ },
+ "notes": [
+  "best primary 0.783 at ablation=no_table_prior",
+  "tied within 0.02: base=base (0.775), ablation=no_horizon_gate (0.773), ablation=no_brightness_gate (0.775), ablation=no_table_prior (0.783), ablation=prior_fit_all (0.781), ablation=fit_before_gates (0.769), ablation=tie_orange (0.774)",
+  "simplest among ties (4 active stages): ablation=no_table_prior"
+ ],
+ "git": "34fb11f"
+}

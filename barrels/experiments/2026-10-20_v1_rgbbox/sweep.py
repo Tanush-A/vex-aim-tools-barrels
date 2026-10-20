@@ -72,10 +72,14 @@ def main(argv=None) -> int:
     ap.add_argument("--mode", choices=("ablation", "coord", "pair"), required=True)
     ap.add_argument("--name", required=True)
     ap.add_argument("--base", type=Path, help="config JSON to sweep around (default: BASE)")
+    ap.add_argument("--set", action="append", default=[], metavar="KEY=JSON", help="override a base field, e.g. --set s_min=50 --set k_bg=2.5")
     ap.add_argument("--out", type=Path, default=io.PKG_ROOT / "results")
     args = ap.parse_args(argv)
 
     base = pl.Config.from_dict(json.load(args.base.open())) if args.base else BASE
+    if args.set:
+        overrides = {k: json.loads(v) for k, v in (kv.split("=", 1) for kv in args.set)}
+        base = pl.Config.from_dict(base.to_dict() | overrides)
     ds = load_pool()
     folds = cv.loso_folds(ds.stems, ds.scene)
     out_dir = cv.fresh_dir(args.out / f"{dt.date.today().isoformat()}_{args.name}")
