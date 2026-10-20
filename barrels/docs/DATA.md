@@ -33,7 +33,8 @@ Camera viewer, key `s` → `snapshots/robot_snapN.png`. **The counter resets eac
 
 | session | where | tags | frames |
 |---|---|---|---|
-| B (2026-10-18, CMU) | light-colored **matte** table, white overhead light | `--light overhead --surface light` | scenes 1–21 + calib 22–26 + ruler 27 (**v1 base set**) |
+| B (2026-10-19, CMU) | white matte table, daylight from the side, plain blue-gray wall | `--light window --surface light` | scenes 1–21 (**v1 base set**) |
+| C (2026-10-19, Pittsburgh) | wood desk, cool lamp pointed up | `--light upcool --surface wood` | calib 22–26 + ruler 27 (camera geometry only) |
 | ~~A~~ | ~~home black table, warm yellow overhead light~~ | | skipped 2026-10-17 (Tanush's call); a warm-light black-table stress set can be shot in Pittsburgh later |
 
 Direct overhead light puts glare on lids; label glare as ignore (255). On a light table the barrel shadows are visible: label them other (3).
@@ -68,11 +69,11 @@ If a shot is bad, retake it immediately (press `s` again) and delete the bad `ro
 
 | stem | distance front-edge → barrel near edge (mm) | camera → barrel center (mm) = d + 3 + 11 | measured width (px) |
 |---|---|---|---|
-| `4A8B_overhead_light_calib_01` | 50 | 64 | |
-| `4A8B_overhead_light_calib_02` | 100 | 114 | |
-| `4A8B_overhead_light_calib_03` | 150 | 164 | |
-| `4A8B_overhead_light_calib_04` | 200 | 214 | |
-| `4A8B_overhead_light_calib_05` | 300 | 314 | |
+| `4A8B_upcool_wood_calib_01` | 50 | 64 | |
+| `4A8B_upcool_wood_calib_02` | 100 | 114 | |
+| `4A8B_upcool_wood_calib_03` | 150 | 164 | |
+| `4A8B_upcool_wood_calib_04` | 200 | 214 | |
+| `4A8B_upcool_wood_calib_05` | 300 | 314 | |
 
 (camera sits ≈ 3 mm behind the front edge per the `aim_kin.py` tilt procedure; barrel radius 11 mm.)
 
