@@ -115,9 +115,10 @@ Fixed **train / dev / test**; test is held out early and **never used for tuning
 
 | split | images |
 |---|---|
-| train | — (none yet) |
-| dev | — |
-| test | — |
+| test (5, locked 2026-10-19) | `window_light_core_04`, `window_light_edge_02`, `window_light_far_01`, `window_light_neg_03`, `window_light_touch_01` |
+| train / pool (16) | all other `4A8B_window_light_*` frames: close 01–02, cluster 01–02, core 01–03, edge_01, far_02, neg 01–02, occl 01–02, top_01, topstripe_01, touch_02 — tuned by leave-one-scene-out CV (`EVAL.md`) |
+| dev | empty by design (v1) |
+| not in any split | `4A8B_upcool_wood_calib_*`, `ruler_01` (geometry only, unlabeled) |
 
 ## Dataset index
 

@@ -1,6 +1,6 @@
 # EVAL.md — metrics + protocol
 
-**Version:** v1 (2026-10-14). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
+**Version:** v1 (2026-10-14; protocol detailed 2026-10-19, see `DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
 
 ## Metrics
 
@@ -19,9 +19,11 @@ Rules:
 
 ## Splits
 
-- A **held-out test set is fixed early and never used for tuning.** No threshold fitting, no parameter sweeps, no "just checking" against test. Tune on train/dev only.
-- Split assignment is recorded in `DATA.md` and committed. New captures get assigned to a split when added, before any method sees them.
-- Splits should stratify by condition (don't put all warm-light frames in test).
+- A **held-out test set is fixed early and never used for tuning.** No threshold fitting, no parameter sweeps, no "just checking" against test. It is evaluated once per milestone, with one pre-chosen config.
+- **v1 (decided 2026-10-19):** test = 5 frames (`core_04, edge_02, far_01, neg_03, touch_01`), locked in `data/splits.json`. **Tuning uses leave-one-scene-out cross-validation over the 16 pool frames** (one fold per scene tag; a model never sees its held-out scene). The dev split is empty. `top_01`/`topstripe_01` are in the pool but excluded from the headline score (out of v1 scope); they are still predicted and reported.
+- **Selection rule (pre-registered):** primary = mean of pooled orange and blue IoU over in-scope positive pool frames; disqualify any config with negative-frame FP rate > 0.5 % for either class; differences < 0.02 are "no difference" unless consistent in sign across ≥ 6 of 7 positive folds, then prefer the simpler setting; at most two coordinate passes.
+- Split assignment is recorded in `DATA.md` and committed. New captures get assigned when added, before any method sees them, and existing assignments never move.
+- Splits stratify by condition (don't put all warm-light frames in test); folds never split frames of one scene.
 
 ## Protocol
 
@@ -32,7 +34,7 @@ Rules:
 
 ## Implementation
 
-`src/barrels/eval.py` (counts, metrics, per-condition aggregation, result tables), `src/barrels/splits.py` + `tools/make_splits.py` (fixed stratified splits in `data/splits.json`), `tools/eval_masks.py` (score a folder of predicted masks on a split → `results/<date>_<name>/`), `src/barrels/viz.py` (PROBLEM.md output images, debug sheets).
+`src/barrels/eval.py` (counts, metrics, per-condition aggregation, result tables), `src/barrels/splits.py` + `tools/make_splits.py` (fixed test set + pool in `data/splits.json`; `--test-only N` locks test once), `src/barrels/cv.py` (leave-one-scene-out driver, sweeps), `tools/eval_masks.py` (score a folder of predicted masks on a split → `results/<date>_<name>/`), `src/barrels/viz.py` (PROBLEM.md output images, debug sheets).
 
 ## Infrastructure correctness
 
