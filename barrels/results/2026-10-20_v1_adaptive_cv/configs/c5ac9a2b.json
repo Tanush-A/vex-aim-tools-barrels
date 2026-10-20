@@ -1,0 +1,34 @@
+{
+ "horizon_row": 50,
+ "bg_rows": [
+  0,
+  50
+ ],
+ "table_rows": 80,
+ "s_min": 50,
+ "s_min_blue": null,
+ "v_min": 40,
+ "s_min_mode": "band",
+ "s_band_q": 99.5,
+ "s_band_margin": 20.0,
+ "s_band_source": "both",
+ "s_min_lo": 20,
+ "s_min_hi": 120,
+ "table_prior": false,
+ "bg_prior": true,
+ "k_table": 3.0,
+ "k_bg": 2.5,
+ "prior_fit": "lowsat",
+ "scale_floor": 4.0,
+ "prior_min_frac": 0.3,
+ "box_space": "rgb",
+ "box_pct": [
+  1.0,
+  99.0
+ ],
+ "fit_after_gates": true,
+ "fit_max_px_per_image": 3000,
+ "tie": "rb_sign",
+ "seed": 0,
+ "refit": null
+}
