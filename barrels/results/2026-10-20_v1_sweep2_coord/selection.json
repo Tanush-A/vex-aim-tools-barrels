@@ -1,0 +1,41 @@
+{
+ "base": {
+  "horizon_row": 50,
+  "bg_rows": [
+   0,
+   50
+  ],
+  "table_rows": 80,
+  "s_min": 50,
+  "s_min_blue": null,
+  "v_min": 40,
+  "table_prior": false,
+  "bg_prior": true,
+  "k_table": 3.0,
+  "k_bg": 2.5,
+  "prior_fit": "lowsat",
+  "scale_floor": 4.0,
+  "prior_min_frac": 0.3,
+  "box_space": "rgb",
+  "box_pct": [
+   1.0,
+   99.0
+  ],
+  "fit_after_gates": true,
+  "fit_max_px_per_image": 3000,
+  "tie": "rb_sign",
+  "seed": 0,
+  "refit": null
+ },
+ "chosen_id": "1c86ce9b",
+ "chosen": {
+  "axis": "v_min",
+  "value": "0"
+ },
+ "notes": [
+  "best primary 0.819 at box_pct=(0.5, 99.5)",
+  "tied within 0.02: base=base (0.810), s_min=50 (0.810), s_min_blue=50 (0.810), v_min=0 (0.810), v_min=20 (0.810), v_min=40 (0.810), v_min=60 (0.806), box_pct=(0.5, 99.5) (0.819), box_pct=(1.0, 99.0) (0.810), k_table=1.5 (0.810), k_table=2.0 (0.810), k_table=2.5 (0.810), k_table=3.0 (0.810), k_table=4.0 (0.810), k_table=6.0 (0.810), k_bg=1.5 (0.814), k_bg=2.0 (0.813), k_bg=2.5 (0.810), k_bg=3.0 (0.801), table_rows=40 (0.810), table_rows=80 (0.810), table_rows=120 (0.810), horizon_row=25 (0.810), horizon_row=50 (0.810), horizon_row=66 (0.811), horizon_row=90 (0.815), horizon_row=None (0.810)",
+  "simplest among ties (3 active stages): v_min=0"
+ ],
+ "git": "9b2bff4"
+}

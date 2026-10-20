@@ -14,6 +14,60 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-10-20 — v1 on the held-out test set (single run)
+
+- **Hypothesis:** the CV estimate (primary 0.810) transfers to the 5 untouched test frames.
+- **Method / params:** `experiments/2026-10-20_v1_rgbbox/final_test.py --config .../ee36a1e9.json`, fit on all 16 pool frames, predicted the 5 test frames exactly once. Independently re-scored from the saved `pred/*.png` with `tools/eval_masks.py --split test` — identical numbers. Results: `results/2026-10-20_v1_test/` (summary.md/csv, per_image.csv, sheets, PROBLEM.md output images, predicted masks, config.json with the fitted boxes).
+- **Data / split:** test = `core_04, edge_02, far_01, neg_03, touch_01`.
+- **Results:**
+
+| frame | orange IoU (P / R) | blue IoU (P / R) | neg FP o / b |
+|---|---|---|---|
+| **ALL (4 pos + 1 neg)** | **0.844** (0.960 / 0.875) | **0.811** (0.982 / 0.823) | **0.000 / 0.000** |
+| core_04 (hand in frame) | 0.874 (0.993 / 0.880) | 0.848 (0.990 / 0.855) | |
+| edge_02 | 0.791 (0.971 / 0.810) | 0.915 (0.983 / 0.929) | |
+| far_01 | 0.771 (0.910 / 0.835) | 0.732 (0.948 / 0.763) | |
+| touch_01 | 0.875 (0.972 / 0.898) | 0.776 (0.993 / 0.780) | |
+| neg_03 | — | — | 0.000 / 0.000 |
+
+- **Takeaway:** test ≥ CV (orange 0.844 vs 0.829, blue 0.811 vs 0.791), so the CV selection did not overfit the pool; the strawman target of IoU ≥ 0.8 per class on this table is met. Precision is ≥ 0.91 everywhere; the remaining error is recall: shadowed lower faces (both classes) and the far barrels' blurred edges. The hand in `core_04` was not flagged (it sits mostly above row 50 and at the frame edge). Negative frame: zero pixels flagged.
+- **Next:** v1.5 arms (re-fit, YUV chroma) under CV only; more surfaces/lights before anything else is believed.
+
+---
+
+## 2026-10-20 — v1 RGB box: default config, stage ablations, parameter sweeps (LOSO CV)
+
+- **Hypothesis:** with the saturation floor and the wall prior doing the separating, an axis-aligned RGB box is sufficient on the white table; blue is the weak class; the horizon gate changes nothing measurable (no barrel pixel is above row 105 in any frame).
+- **Method / params:** `experiments/2026-10-20_v1_rgbbox/` (`config.py` BASE = the PROBLEM.md defaults; `run.py`; `sweep.py --mode ablation|coord|pair`). Leave-one-scene-out CV over the 16 pool frames (10 folds); every pool frame predicted once by a model that never saw its scene. Score per the pre-registered rule (`DECISIONS.md` 2026-10-19): primary = mean pooled orange/blue IoU over in-scope positive frames; neg FP > 0.5 % disqualifies; < 0.02 = tie → simplest. Test set untouched. Results: `results/2026-10-20_v1_base/`, `_v1_ablation/`, `_v1_sweep1/`, `_v1_sweep2_pair/`, `_v1_sweep2_coord/` (each has `sweep.csv`/`summary.md`, `configs/<id>.json`).
+- **Data / split:** 16 pool frames (`window_light`), 3 of them with a hand in view.
+- **Results:**
+
+| step | config | primary | orange IoU (P/R) | blue IoU (P/R) | neg FP | note |
+|---|---|---|---|---|---|---|
+| BASE (PROBLEM.md defaults) | `5f1a692b` | 0.775 | 0.766 (0.87/0.87) | 0.785 (0.99/0.79) | 0 / 0 | fold std orange 0.18 (the `far` fold: 0.34), blue 0.05; top/topstripe IoU **0.00** |
+| ablation: no saturation floor | | 0.046 | | | 25 % / 12 % | collapses; disqualified |
+| ablation: no wall (bg) prior | | 0.551 | 0.758 | **0.344** (P 0.37) | 0 / 0 | the wall floods blue — the prior is essential |
+| ablation: box only | | 0.039 | | | 25 % / 21 % | the RGB box alone is useless, as the data analysis predicted |
+| ablation: no horizon gate | | 0.773 | | | | −0.002: no effect, as predicted |
+| ablation: no brightness gate | | 0.775 | | | | +0.000: no effect on this table |
+| ablation: **no table prior** | `6c993aa0` | **0.783** | 0.780 | 0.785 | 0 / 0 | tie with base, one stage fewer → chosen; top/topstripe IoU 0.00 → **0.87 / 0.37** |
+| ablation: prior fit "all" | | 0.781 | | 0.801 | | tie; lowsat kept (safer by construction) |
+| ablation: no per-image cap | | 0.749 | 0.714 | | | −0.026: the two lids dominate the box fit, as predicted |
+| ablation: tie → blue | | 0.756 | | 0.723 | | R > B rule is right |
+| sweep 1 around `6c993aa0` | | | | | | s_min 50: +0.019 (orange 0.828); k_bg 2.5: +0.010 (blue 0.812); k_table/table_rows: no effect (prior off); v_min 0–40 identical; box 2–98: −0.020, 5–95: −0.113; **horizon_row 90: +0.022** |
+| pass-2 candidate (s_min 50 + k_bg 2.5) | `ee36a1e9` | **0.810** | **0.829** (0.99/0.84) | **0.791** (0.99/0.80) | 0 / 0 | +0.027 over `6c993aa0` → adopted (joint move exceeds the band) |
+| pass-2 pair s_min_blue × k_bg | | ≤ 0.814 | | | | s_min_blue 50 / k_bg 1.5–2.0 tie with the candidate; s_min_blue ≤ 30 collapses blue precision |
+| pass-2 coordinate | | ≤ 0.819 | | | | box 0.5–99.5: +0.009 (tie); everything else a tie or worse → stop (two passes max) |
+
+- **Why the table prior lost:** on the two top-only frames the bottom band mixes bright table with the barrel's dark shadow, so the MAD scale balloons (38–55 vs 13–19 on a normal frame) and the k = 3 rejection box swallows the lid (100 % of lid pixels rejected, `median [123 146 124] scale [38 38 55]`). On every other frame the saturation floor had already removed the table, so the prior did nothing. The prior is therefore both redundant and fragile on a white table; it stays in the code (flag) for dark tables, where the analysis says it will matter, but needs a scale cap or a mode-seeking fit before it can be trusted.
+- **Why horizon_row = 90 was NOT adopted** despite +0.022: the gain is entirely on the two hand frames (`far_02`, `core_03`): rows 50–90 there contain the hand, not barrels, and gating them out removes skin false positives. That is tuning to where Tanush's hand happened to be, and row 90 is inside the measured horizon range (55–100), so on other data it could cut real far barrels (a barrel at 300 mm has its top at row ≈ 99). Gate stays at 50. Logged in `DECISIONS.md`.
+- **The hand is the orange error:** BASE orange IoU is 0.766 with the hand frames and **0.840 without them** (precision 0.87 → 0.96, recall unchanged). Skin sits inside the orange RGB box (the a* separation noted in constraints.md is not available to an RGB box). `s_min` 50 recovers part of this because shadowed skin is less saturated than the barrel.
+- **Blue:** recall 0.80 at precision 0.99 — the misses are shadowed lower faces (sat < 50) and the wall-prior rejections (k_bg 2.5 trades 1 % precision for 3 % recall vs k = 3). Lower `s_min_blue` or higher `k_bg` floods blue with wall.
+- **Takeaway:** v1 final config `ee36a1e9`: horizon gate 50, saturation floor 50 (both classes), brightness gate 40 (no effect here, kept for dark tables), table prior off, wall prior k = 2.5 on rows 0–50 (low-sat fit), RGB box 1–99 % fit after the gates with a 3000-px/frame cap, R > B tie rule. CV estimate: primary 0.810 (orange 0.829, blue 0.791), neg FP 0.
+- **Next:** single test-set evaluation (same day); v1.5 barrel-referenced re-fit and the YUV chroma arm under the same folds.
+
+---
+
 ## 2026-10-20 — Barrel color distribution in RGB (pool frames): box vs diagonal
 
 - **Hypothesis:** (Dave 10/7, navigator K-2) the orange cluster is a brightness-elongated smear and blue is not compact, so an axis-aligned RGB box alone will swallow table/wall; the saturation floor and the band priors have to do the separating.

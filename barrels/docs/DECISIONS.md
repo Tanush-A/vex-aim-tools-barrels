@@ -4,6 +4,13 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-20 — v1 final config chosen by CV; two documented departures from the mechanical rule
+
+- **Decision:** v1 ships config `ee36a1e9` (`results/2026-10-20_v1_sweep2_pair/configs/`): horizon gate row 50, saturation floor 50, brightness gate 40, **table prior off**, wall prior k = 2.5 (rows 0–50, low-sat fit), RGB box 1–99 % (fit after gates, 3000 px/frame cap), R > B tie rule. LOSO-CV primary 0.810. Two judgment calls on top of the pre-registered rule, both recorded in `EXPERIMENTS.md` 2026-10-20: (1) **horizon_row = 90 not adopted** although it scored +0.022 — the gain comes only from masking the hand in two frames, and 90 is inside the measured horizon band (55–100), so it would be tuning to a confuser at the cost of a physical constraint; (2) **"simplest among ties" means fewest active stages in the ablation round and "unchanged" in the parameter rounds** — otherwise the parameter sweep would switch off the brightness gate (v_min = 0 ties exactly) just because it is a no-op on this table, while the data analysis predicts it matters on dark tables. The stage stays, at 40.
+- **Why:** both choices favour the physically motivated setting over a score difference that is either an artifact (the hand) or exactly zero (v_min).
+- **Who:** Claude Code, unattended block 2026-10-20; Tanush to confirm.
+- **Alternatives:** take the rule literally (horizon 90, v_min 0) — rejected for the reasons above; keep the table prior (base config) — rejected, it is redundant on this table and destroys the top-only frames.
+
 ## 2026-10-20 — constraints.md unknowns #4/#5 marked measured for the v1 table (doc update)
 
 - **Decision:** record the pool-frame color analysis (`EXPERIMENTS.md` 2026-10-20) against unknowns #4/#5 in `constraints.md`; they stay open for other surfaces/lights. No scope change.

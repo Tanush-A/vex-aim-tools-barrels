@@ -1,24 +1,23 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-19.
+**Updated:** 2026-10-20 (unattended block).
 
 ## Where we are
 
-- Fork + branch verified: origin `Tanush-A/vex-aim-tools-barrels` (public fork of `touretzkyds/vex-aim-tools`), branch `barrels`, upstream set. Note: the fork is named `vex-aim-tools-barrels`, not `vex-aim-tools` (see `DECISIONS.md` 2026-10-14).
-- `barrels/` skeleton + all docs created from the planning handoff (archived at `docs/archive/HANDOFF.md`). 10/7 baseline code copied to `experiments/2026-10-07_baselines/`.
-- Docs sent to Dave 2026-10-14; quick reply received, detailed review pending. Package `barrels` (`pip install -e barrels`) has IO, label growing + label tool, eval harness, splits, output rendering. **No segmentation algorithm code yet** — blocked on labeled black-table data.
-- Prior findings (directional, 19 unlabeled frames): orange body robust across lighting; blue stripe collapses under warm light; wood floods the orange channel; camera does not fully auto-WB. See `EXPERIMENTS.md` 2026-10-07.
+- **v1 is done and evaluated** (unattended block, night of 2026-10-19→20; plain-English recap in `docs/OVERNIGHT-2026-10-20.md`).
+  - Final config `ee36a1e9`: horizon gate row 50, saturation floor 50, brightness gate 40, **table prior off**, wall prior k = 2.5 (rows 0–50), RGB box 1–99 % fit after the gates (3000 px/frame cap), R > B tie rule. Chosen by leave-one-scene-out CV on the 16 pool frames under the pre-registered rule (`DECISIONS.md` 2026-10-19/20).
+  - **Test set (5 frames, evaluated once): orange IoU 0.844 (P 0.96 / R 0.88), blue IoU 0.811 (P 0.98 / R 0.82), negative frame 0 pixels flagged.** CV estimate was 0.829 / 0.791, so no overfit.
+  - What the ablations showed: the saturation floor and the wall prior are the whole separation (box alone: IoU 0.04; without the wall prior blue drops to 0.34); the horizon gate and brightness gate change nothing on this table; the table prior is redundant here and destroys the top-only frames (shadow inflates its MAD scale) — off for v1, kept as a flag for dark tables.
+  - Known weak spots: shadowed lower faces (both classes, recall ≈ 0.8–0.88); the hand (skin is inside the orange RGB box; orange IoU on the pool is 0.77 with the hand frames vs 0.84 without); far blurred barrels.
+- Package: `src/barrels/{io,labeling,eval,splits,viz,priors,boxfit,pipeline,cv}.py`, 46 tests; experiments in `experiments/2026-10-19_data_analysis/`, `experiments/2026-10-20_v1_rgbbox/`; every number in `EXPERIMENTS.md` points to a `results/` folder with its config hash and git commit.
 
 ## Next steps (in order)
 
-1. ~~Repo setup + skeleton~~ ✓
-2. ~~Write the docs~~ ✓ (this session)
-3. ~~Tanush reviews the docs → fix → commit + push.~~ ✓
-4. ~~Email to Dave (constraints + PROBLEM + update).~~ ✓ sent 2026-10-14; **reply 2026-10-14** (logged in `DECISIONS.md`): horizon gating OK for v1, f=400 is an estimate, no-barrel frames are a required case. He'll review the repo in detail when back in Pittsburgh — expect more notes.
-5. ~~Semi-automatic labeling tool + unit tests for mask IO.~~ ✓ `tools/label_tool.py`, `src/barrels/{io,labeling}.py`, tests pass. Not yet used on a real session by Tanush.
-6. ~~Shoot the v1 set~~ ✓ 21 frames (`window_light`, CMU 10/19) + calib/ruler (`upcool_wood`). ~~N-002 geometry~~ ✓ measured but methods disagree at ±10 %: f ≈ 355–405, tilt 21.5–25.5°, horizon row 55–100 → gate at row 50 (`EXPERIMENTS.md` 2026-10-19). Barrel measured: 24 tall / 18 ends / 25.5 bulge / 6 stripe. **Tanush is labeling** (11/21 masks as of 10/19). ← **we are here**
-7. ~~Eval harness~~ ✓ (`src/barrels/{eval,splits,viz}.py`, `tools/{eval_masks,make_splits,import_snaps}.py`, 22 tests). **v1 experiment** once labels exist: RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating (config flag; conservative row until measured). Log it, email Dave.
-8. Then: plot RGB clusters (box vs. diagonal) → v1.5 barrel-referenced adaptive thresholds → other color spaces.
+1. ~~Repo setup~~ ✓ 2. ~~Docs~~ ✓ 3. ~~Review~~ ✓ 4. ~~Email Dave~~ ✓ (reply logged) 5. ~~Labeling tool~~ ✓ 6. ~~Shoot + label v1 set; camera geometry~~ ✓ 7. ~~Eval harness, v1 experiment, test evaluation~~ ✓
+8. **Tanush:** read `docs/OVERNIGHT-2026-10-20.md`, confirm the two judgment calls in `DECISIONS.md` 2026-10-20, send the v1 email to Dave (draft below).
+9. v1.5 arms, CV only (see `EXPERIMENTS.md` 2026-10-20 v1.5 entry if present): barrel-referenced re-fit; YUV chroma box.
+10. **More data before more tuning:** a second table/light (the warm black table is the obvious stress set), then the Pittsburgh wood desk. Re-run `analyze.py` and the CV on each new set; the v1 config must be re-validated, not assumed.
+11. Later: a scale cap / mode-seeking fit for the table prior; hue-based separation of skin from orange (a*/chroma angle) — both out of v1.
 
 ## Navigator requests
 
@@ -35,6 +34,8 @@
 
 ## Open questions for Dave
 
+0. (new, v1) The wall prior is doing most of the work on blue; on a wall that is not blue-gray it may be unnecessary — fine to keep it adaptive? And: skin lands inside the orange RGB box; is a hue-angle (a*/chroma) test acceptable in v1.5, or does he consider that "another color space" for later?
+
 1. Is the eventual output a drop-in aivision replacement (host-side, same spec into worldmap)? Latency budget?
 2. How will "good" segmentation be judged (metrics, numeric targets)?
 3. Close barrels: full predicted (unclipped) boxes later? Is fixing the world-map side (focal length, the 1.1·w pad) in scope?
@@ -44,3 +45,25 @@
 ## Blockers
 
 None.
+
+## Draft email to Dave (v1 result) — Tanush sends
+
+Subject: Barrel detector: v1 color segmentation results
+
+Hi Dave,
+
+v1 is done and evaluated. Short version: on a white matte table under window light, the adaptive-threshold segmentation gets per-pixel IoU 0.84 (orange) and 0.81 (blue) on a held-out test set, with precision ≥ 0.96 and zero false pixels on the no-barrel frame.
+
+What worked and what didn't, from the ablations (leave-one-scene-out CV on 16 frames, test set touched once):
+- The saturation floor (max−min ≥ 50) and the above-horizon "wall" prior do essentially all of the separating. An RGB box alone scores 0.04 IoU: the barrel clusters are smears along the brightness axis (PCA linearity 0.6 / 0.5), so a box that covers shadowed faces also covers the table and wall.
+- The horizon gate and the minimum-brightness gate changed nothing on this table (no barrel pixel is above row 105 in any frame; nothing is dark enough to trip the brightness gate). Both stay as flags.
+- The bottom-rows "table" prior was redundant here and actively harmful on the close/top-only frames: the barrel's shadow inflates the band's MAD scale and the prior then swallows the lid. It's off in v1; it needs a scale cap before it's trustworthy on a dark table.
+- Blue recall (0.82) is the weak spot: shadowed lower faces desaturate toward the blue-gray wall.
+- Skin sits inside the orange RGB box. With the three frames that have my hand in them, orange IoU on the pool is 0.77; without them 0.84. A hue-angle test would separate them (Lab a* ≈ 29 vs 50) — is that fair game for v1.5, or does it count as "another color space"?
+
+Camera: f ≈ 355–405 px and tilt ≈ 21.5–25.5° for AIM-4A8B6118 depending on method (barrel-width vs ruler), horizon row 55–100. I measured the barrel: 24 mm tall, 18 mm at the ends, 25.5 mm at the bulge (circumference 80 mm), 6 mm stripe — the 22 mm in worldmap.py is between the two diameters.
+
+Everything is in the repo (branch barrels): docs/EXPERIMENTS.md has every number with a results folder and config hash; docs/STATUS.md has the state. Next: v1.5 (barrel-referenced re-fit, YUV chroma box) under the same CV, then a second table/light before anything else is believed.
+
+Thanks,
+Tanush

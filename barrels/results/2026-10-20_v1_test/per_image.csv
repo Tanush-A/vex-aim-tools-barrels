@@ -1,0 +1,6 @@
+name,condition,negative,orange_tp,orange_fp,orange_fn,orange_precision,orange_recall,orange_iou,orange_fp_rate,blue_tp,blue_fp,blue_fn,blue_precision,blue_recall,blue_iou,blue_fp_rate
+4A8B_window_light_core_04,window_light_core,0,1092,8,149,0.993,0.880,0.874,0.004,3202,32,541,0.990,0.855,0.848,0.011
+4A8B_window_light_edge_02,window_light_edge,0,303,9,71,0.971,0.810,0.791,0.001,1007,17,77,0.983,0.929,0.915,0.003
+4A8B_window_light_far_01,window_light_far,0,1548,153,307,0.910,0.835,0.771,0.006,1467,80,456,0.948,0.763,0.732,0.005
+4A8B_window_light_neg_03,window_light_neg,1,0,0,0,—,—,—,0.000,0,0,0,—,—,—,0.000
+4A8B_window_light_touch_01,window_light_touch,0,3688,108,418,0.972,0.898,0.875,0.012,2246,16,632,0.993,0.780,0.776,0.007
