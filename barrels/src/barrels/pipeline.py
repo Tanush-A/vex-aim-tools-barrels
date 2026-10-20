@@ -45,6 +45,12 @@ class Config:
     s_min: int = 40                         # saturation floor (max-min), orange and default for blue
     s_min_blue: int | None = None           # per-class override; None = s_min
     v_min: int = 40                         # brightness floor (max channel)
+    s_min_mode: str = "fixed"               # "fixed" | "band": floor = percentile of the known-background band's saturation + margin, per image
+    s_band_q: float = 99.5                  # band mode: percentile of band saturation
+    s_band_margin: float = 10.0             # band mode: added on top of that percentile
+    s_band_source: str = "bg"               # band mode: "bg" (rows above the horizon only) | "both" (bg + bottom table rows)
+    s_min_lo: int = 20                      # band mode: clamp
+    s_min_hi: int = 120
     # priors
     table_prior: bool = True
     bg_prior: bool = True
@@ -135,7 +141,24 @@ class Model:
                 "outer": {str(c): b.to_dict() for c, b in self.outer.items()}, "fit_info": self.fit_info}
 
 
-# ---------------------------------------------------------------- fixed gates
+# ---------------------------------------------------------------- gates
+
+def effective_s_min(frame: Frame, cfg: Config) -> tuple[dict[int, int], dict]:
+    """Per-class saturation floor for this frame. "fixed": the config constants. "band": the
+    cfg.s_band_q percentile of the saturation of the frame's own known-non-barrel rows (above the
+    horizon, optionally plus the bottom table rows) plus a margin, clamped to [s_min_lo, s_min_hi]
+    — the floor adapts to how colorful this image's background is, no pixel is ever changed."""
+    if cfg.s_min_mode == "fixed":
+        return {ORANGE: cfg.s_min, BLUE: cfg.s_min_for(BLUE)}, {"s_min_mode": "fixed", "s_min_eff": cfg.s_min}
+    h = frame.shape[0]
+    parts = [frame.sat[cfg.bg_rows[0]:cfg.bg_rows[1]].ravel()]
+    if cfg.s_band_source == "both":
+        parts.append(frame.sat[max(0, h - cfg.table_rows):h].ravel())
+    band = np.concatenate(parts)
+    base = float(np.percentile(band, cfg.s_band_q)) if band.size else float(cfg.s_min)
+    s_eff = int(round(min(max(base + cfg.s_band_margin, cfg.s_min_lo), cfg.s_min_hi)))
+    return {ORANGE: s_eff, BLUE: s_eff}, {"s_min_mode": "band", "band_sat_pct": base, "s_min_eff": s_eff}
+
 
 def _fixed_keep(frame: Frame, cfg: Config) -> np.ndarray:
     """Pixels surviving the content-independent gates (horizon + brightness)."""
@@ -145,11 +168,11 @@ def _fixed_keep(frame: Frame, cfg: Config) -> np.ndarray:
     return keep
 
 
-def _prior_keep(frame: Frame, cfg: Config, info: dict) -> np.ndarray:
+def _prior_keep(frame: Frame, cfg: Config, info: dict, s_floor: int) -> np.ndarray:
     """Pixels NOT rejected by the table/background priors; records BandStats in info."""
     h = frame.shape[0]
     keep = np.ones(frame.shape, bool)
-    fit_mask = (frame.sat < cfg.s_min) if cfg.prior_fit == "lowsat" else None
+    fit_mask = (frame.sat < s_floor) if cfg.prior_fit == "lowsat" else None
     for name, on, rows, k in (("table", cfg.table_prior, slice(max(0, h - cfg.table_rows), h), cfg.k_table),
                               ("bg", cfg.bg_prior, slice(cfg.bg_rows[0], cfg.bg_rows[1]), cfg.k_bg)):
         if not on:
@@ -172,10 +195,11 @@ def fit(frames: list[Frame], masks: list[np.ndarray], cfg: Config) -> Model:
     for frame, mask in zip(frames, masks):
         feats = frame.features(cfg.box_space)
         base_keep = _fixed_keep(frame, cfg) if cfg.fit_after_gates else None
+        smin, _ = effective_s_min(frame, cfg)
         for c in CLASSES:
             keep = None
             if cfg.fit_after_gates:
-                keep = base_keep & (frame.sat >= cfg.s_min_for(c))
+                keep = base_keep & (frame.sat >= smin[c])
             samples[c].append(bf.sample_class_pixels(feats, mask, c, keep=keep, max_px=cfg.fit_max_px_per_image, rng=rng))
     boxes, inner, outer, info = {}, {}, {}, {}
     for c in CLASSES:
@@ -219,12 +243,14 @@ def segment(frame: Frame, model: Model) -> tuple[np.ndarray, dict]:
     info: dict = {}
     keep = _fixed_keep(frame, cfg)
     info["after_fixed_gates"] = int(keep.sum())
-    keep &= _prior_keep(frame, cfg, info)
+    smin, s_info = effective_s_min(frame, cfg)
+    info.update(s_info)
+    keep &= _prior_keep(frame, cfg, info, smin[ORANGE])
     info["after_priors"] = int(keep.sum())
     feats = frame.features(cfg.box_space)
     cand = {}
     for c in CLASSES:
-        base = keep & (frame.sat >= cfg.s_min_for(c))
+        base = keep & (frame.sat >= smin[c])
         box = model.boxes[c]
         if cfg.refit is not None and model.inner:
             box = _refit_box(feats, base, model, c, info)

@@ -118,3 +118,35 @@ def test_yuv_chroma_space_runs():
     assert model.boxes[io.ORANGE].dims == 2
     m, _ = pl.segment(fr[1], model)
     assert iou(m, ms[1], io.ORANGE) > 0.9 and iou(m, ms[1], io.BLUE) > 0.9
+
+
+def test_band_mode_floor_tracks_background_saturation():
+    # background rows with saturation up to 30 -> floor = 30 + margin
+    img = np.full((120, 160, 3), 120, np.uint8)
+    img[:10, :, 2] = 150                                   # bg rows: sat 30 (BGR red channel up)
+    f = pl.Frame.from_image(img)
+    cfg = pl.Config(bg_rows=(0, 10), table_rows=20, s_min_mode="band", s_band_q=99.5, s_band_margin=10)
+    smin, info = pl.effective_s_min(f, cfg)
+    assert smin[io.ORANGE] == smin[io.BLUE] == 40 and info["s_min_mode"] == "band"
+    # clamps
+    assert pl.effective_s_min(f, pl.with_overrides(cfg, s_min_lo=60))[0][io.ORANGE] == 60
+    img2 = img.copy(); img2[:10, :, 2] = 255               # bg sat 135 -> would be 145, capped at 120
+    assert pl.effective_s_min(pl.Frame.from_image(img2), cfg)[0][io.ORANGE] == 120
+    # "bg" source ignores a barrel sitting in the table band; "both" does not
+    img3 = img.copy(); img3[100:, :, :] = (0, 128, 255)   # saturated slab fills the bottom 20 rows
+    f3 = pl.Frame.from_image(img3)
+    assert pl.effective_s_min(f3, cfg)[0][io.ORANGE] == 40
+    assert pl.effective_s_min(f3, pl.with_overrides(cfg, s_band_source="both"))[0][io.ORANGE] == 120
+    # fixed mode untouched
+    assert pl.effective_s_min(f, pl.Config(s_min=55, s_min_blue=33))[0] == {io.ORANGE: 55, io.BLUE: 33}
+
+
+def test_band_mode_segments_like_fixed_on_clean_scene():
+    fr, ms = frames_and_masks()
+    fixed = pl.fit(fr, ms, pl.Config(**SMALL, s_min=40))
+    band = pl.fit(fr, ms, pl.Config(**SMALL, s_min_mode="band", s_band_margin=20))
+    m_fixed, _ = pl.segment(fr[0], fixed)
+    m_band, info = pl.segment(fr[0], band)
+    assert info["s_min_mode"] == "band" and 20 <= info["s_min_eff"] <= 120
+    assert iou(m_band, ms[0], io.ORANGE) > 0.95 and iou(m_band, ms[0], io.BLUE) > 0.95
+    assert (m_band == m_fixed).mean() > 0.98
