@@ -1,0 +1,12 @@
+condition,n_pos,n_neg,orange_precision,orange_recall,orange_iou,orange_neg_fp_rate,blue_precision,blue_recall,blue_iou,blue_neg_fp_rate
+ALL,14,2,0.866,0.203,0.197,0.000,0.989,0.652,0.647,0.000
+window_light_close,2,0,0.960,0.925,0.890,—,0.992,0.831,0.826,—
+window_light_cluster,2,0,0.940,0.772,0.735,—,0.995,0.799,0.796,—
+window_light_core,3,0,0.818,0.890,0.743,—,0.989,0.681,0.676,—
+window_light_edge,1,0,0.978,0.661,0.651,—,0.968,0.818,0.797,—
+window_light_far,1,0,0.364,0.859,0.344,—,0.927,0.793,0.746,—
+window_light_neg,0,2,—,—,—,0.000,—,—,—,0.000
+window_light_occl,2,0,0.977,0.917,0.898,—,0.996,0.829,0.826,—
+window_light_top,1,0,—,0.000,0.000,—,—,0.000,0.000,—
+window_light_topstripe,1,0,—,0.000,0.000,—,—,0.000,0.000,—
+window_light_touch,1,0,0.962,0.833,0.807,—,0.990,0.763,0.758,—

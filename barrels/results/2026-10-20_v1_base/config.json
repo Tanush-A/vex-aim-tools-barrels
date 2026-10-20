@@ -1,0 +1,130 @@
+{
+ "config": {
+  "horizon_row": 50,
+  "bg_rows": [
+   0,
+   50
+  ],
+  "table_rows": 80,
+  "s_min": 40,
+  "s_min_blue": null,
+  "v_min": 40,
+  "table_prior": true,
+  "bg_prior": true,
+  "k_table": 3.0,
+  "k_bg": 3.0,
+  "prior_fit": "lowsat",
+  "scale_floor": 4.0,
+  "prior_min_frac": 0.3,
+  "box_space": "rgb",
+  "box_pct": [
+   1.0,
+   99.0
+  ],
+  "fit_after_gates": true,
+  "fit_max_px_per_image": 3000,
+  "tie": "rb_sign",
+  "seed": 0,
+  "refit": null
+ },
+ "config_hash": "5f1a692b",
+ "git": "34fb11f",
+ "folds": [
+  {
+   "name": "close",
+   "held_out": [
+    "4A8B_window_light_close_01",
+    "4A8B_window_light_close_02"
+   ]
+  },
+  {
+   "name": "cluster",
+   "held_out": [
+    "4A8B_window_light_cluster_01",
+    "4A8B_window_light_cluster_02"
+   ]
+  },
+  {
+   "name": "core",
+   "held_out": [
+    "4A8B_window_light_core_01",
+    "4A8B_window_light_core_02",
+    "4A8B_window_light_core_03"
+   ]
+  },
+  {
+   "name": "edge",
+   "held_out": [
+    "4A8B_window_light_edge_01"
+   ]
+  },
+  {
+   "name": "far",
+   "held_out": [
+    "4A8B_window_light_far_02"
+   ]
+  },
+  {
+   "name": "neg",
+   "held_out": [
+    "4A8B_window_light_neg_01",
+    "4A8B_window_light_neg_02"
+   ]
+  },
+  {
+   "name": "occl",
+   "held_out": [
+    "4A8B_window_light_occl_01",
+    "4A8B_window_light_occl_02"
+   ]
+  },
+  {
+   "name": "top",
+   "held_out": [
+    "4A8B_window_light_top_01"
+   ]
+  },
+  {
+   "name": "topstripe",
+   "held_out": [
+    "4A8B_window_light_topstripe_01"
+   ]
+  },
+  {
+   "name": "touch",
+   "held_out": [
+    "4A8B_window_light_touch_02"
+   ]
+  }
+ ],
+ "score": {
+  "iou_o": 0.7657351495576464,
+  "prec_o": 0.8663213752343427,
+  "rec_o": 0.868335562774699,
+  "neg_fp_o": 0.0,
+  "oos_iou_o": 0.0,
+  "iou_b": 0.7847599471443254,
+  "prec_b": 0.988789403581471,
+  "rec_b": 0.7918049300782176,
+  "neg_fp_b": 0.0,
+  "oos_iou_b": 0.0,
+  "primary": 0.775247548350986,
+  "fold_mean_o": 0.7240513485886071,
+  "fold_std_o": 0.175328593166413,
+  "fold_mean_b": 0.7749197352515755,
+  "fold_std_b": 0.049440073585233196,
+  "fold_primary": [
+   0.8580081870866936,
+   0.7656940262323724,
+   0.7094980478463968,
+   0.7238023722683666,
+   0.5450714618893687,
+   0.8621730175119271,
+   0.7821516806055139
+  ],
+  "n_pos_folds": 7,
+  "guard_trips": 0,
+  "disqualified": false,
+  "runtime_s": 1.494555950164795
+ }
+}
