@@ -20,42 +20,45 @@ A color segmenter for the VEX AIM robot's camera: given one 640×480 frame, deci
 - **Orange false pixels are two things:** the hand (skin sits inside the orange box) and the barrel's own reflection in the glossy table next to a close barrel (brownish, saturation ≈ 47, inside the box). Everything else is a thin halo at barrel edges.
 - **IoU is a harsh number.** A one-pixel error around a far barrel 28 pixels wide costs about 10 %. Precision is 0.91–0.99 on every frame; the gap to 1.0 is mostly recall on shadows and edges.
 
-## Open questions
+## Things not tried yet (general ideas on the table)
 
-1. Skin vs orange: an RGB box cannot separate them; a hue test (Lab a*) can. Is that fair game for v1.5?
-2. The table prior: redundant on a white table, expected to matter on wood. It needs a cap on its spread before it can be trusted near close barrels.
-3. Shadowed faces: chase them now (lower floor + a shape cue), or get a second table and light first?
+- **Hue / color-angle test** (Lab a\*, or the angle in the YUV chroma plane): tells skin, cardboard and lid reflections apart from barrel orange regardless of brightness. Measured gap already known (a\* ≈ 29 skin vs 50 barrel).
+- **Seed-and-grow (hysteresis):** find sure barrel pixels with strict thresholds, then let them spread into touching pixels that are *almost* barrel-colored. Targets the shadowed lower faces, which are the biggest miss. Same trick the labeling tool uses.
+- **Table prior with a cap on its spread**, tested on a colored table (wood), where the saturation floor can't remove the table by itself.
+- **Per-image re-fit of the color boxes on real multi-light data.** Tried on one light only, where it had nothing to adapt to.
+- **Learned lookup table** over a coarse color grid instead of a box (Dave's CMVision), so the class region can be any shape.
+- **Mask cleanup:** remove tiny blobs, bridge small gaps, open/close.
+- **Geometry:** reject reflections (they sit below the barrel's contact row); expected barrel size per image row. Needs the horizon/focal-length calibration tightened first.
+- **Stripe structure as evidence:** a blue band inside orange (or the reverse) confirms a barrel.
+- **Edges/gradients** to split touching barrels (matters for bounding boxes, not pixels).
+- **Temporal consistency** across frames (the robot sees video).
+- **More data:** other tables, lights, and robot cameras.
 
-## Next steps
+## Proposed v2 scope (to confirm with Dave)
 
-1. Label the 19 wood-desk frames from 10/7 (nine lighting settings) with the tool. That is the real test of "adapts to the image."
-2. Re-run the analysis, the v1 cross-validation, and the v1.5 arms on them, holding out whole lighting conditions.
-3. Then the drop-in interface for `worldmap.py` (boxes), once the pixels are right.
+1. **Data first:** label the 19 wood-desk frames from 10/7 (three lamp colors × three directions), shoot the warm-light black table, and evaluate holding out whole lighting conditions.
+2. **Hue test** added to the per-class test, for skin and reflections.
+3. **Seed-and-grow** for shadowed faces.
+4. **Table prior with a spread cap**, judged on wood.
+5. **Mask cleanup** (tiny blobs).
+
+Everything else above is deferred: lookup tables, geometry rejection, stripe evidence, bounding boxes and the `worldmap.py` drop-in, temporal, glare.
 
 ---
 
 ## Draft check-in email to Dave
 
-Subject: Barrel detector check-in: v1 segmentation results, next steps
+Subject: Barrel detector: v1 done, proposed v2 scope
 
 Hi Dave,
 
-Quick check-in on the barrel detector since my last note.
+v1 is done. On a white matte table under window light, per-pixel IoU on 5 held-out frames is 0.84 for orange and 0.81 for blue, precision ≥ 0.96, zero pixels flagged on the empty-table frame. The method adapts to each image: the saturation floor and the wall model are both derived from the image's rows above the horizon; the only thing learned from labels is one RGB box per class. Ablations: the saturation floor and the wall model do nearly all the work, an RGB box alone scores 0.04 (the clusters are brightness smears, as you expected), and the horizon gate changes nothing on this table.
 
-Done so far: the spec and constraints docs you read, a labeling tool, an evaluation harness with fixed splits, 21 labeled frames on a white matte table under window light, and a first camera calibration of my robot (f ≈ 355–405 px, tilt ≈ 21.5–25.5°; the two methods disagree by about 10 %, and a mark at camera height on a far wall would settle it). I also measured the barrel: 24 mm tall, 18 mm at the ends, 25.5 mm at the widest point, 6 mm stripe.
+The remaining errors are shadowed lower faces (21 % of true blue pixels fall below the saturation floor), skin inside the orange box, and lid reflections on the glossy table next to close barrels.
 
-v1 result: on 5 held-out frames, per-pixel IoU 0.84 for orange and 0.81 for blue, precision ≥ 0.96, and zero pixels flagged on the empty-table frame. The method, per image: reject everything above the horizon; reject pixels less saturated than the image's own above-horizon rows (that floor comes out at 44–55 on these frames, nothing hand-set); reject pixels matching a median/MAD model of those same rows; then accept what falls in an orange or blue RGB box fit on labeled barrels. The boxes are the only thing learned from training data.
+Proposed v2: (1) label the wood-desk frames (three lamp colors × three directions) and evaluate holding out whole lighting conditions; (2) add a hue test (Lab a*) for skin and reflections; (3) seed-and-grow from confident pixels to recover shadowed faces; (4) the table prior with a cap on its spread, judged on wood; (5) small-blob cleanup. Deferred for now: lookup tables, geometry-based rejection, stripe structure, bounding boxes, temporal. Does that scope look right to you?
 
-What the ablations said: the saturation floor and the wall model do essentially all of the separating. An RGB box alone scores 0.04 because the barrel clusters are smears along the brightness axis. The horizon gate changes nothing on this table (no barrel pixel is above row 105 in any frame), as you predicted. The bottom-rows table prior was redundant on a white table and harmful when a barrel is close (its shadow inflates the robust scale and the prior swallows the lid), so it is off for now and I'd like to fix it before trying wood.
-
-Where the errors are: 21 % of true blue pixels are shadowed lower faces that fall below the saturation floor; orange false positives are my hand (skin lands inside the orange RGB box) and the barrel's own reflection in the glossy table next to a close barrel. Per-image re-fitting of the boxes and a YUV chroma box did not beat v1 here, which I think is expected with one table and one light.
-
-Questions:
-1. Is a hue-angle test (Lab a*, or chroma angle) acceptable for separating skin from barrel orange in v1.5, or do you count that as "another color space" for later?
-2. For the table prior, would you rather I cap its spread (so a shadow can't inflate it) or restrict it to the lowest-variance part of the band?
-3. Should I chase the shadowed-face recall now, or get a second table and lighting condition first? My instinct is the data first.
-
-Next: label the 19 wood-desk frames from 10/7 (three lamp colors × three directions) and re-run everything on them, holding out whole lighting conditions. Everything is on the `barrels` branch; `docs/EXPERIMENTS.md` has each experiment with its numbers and results folder.
+Everything is on the `barrels` branch; `docs/EXPERIMENTS.md` has each experiment with its numbers.
 
 Thanks,
 Tanush
