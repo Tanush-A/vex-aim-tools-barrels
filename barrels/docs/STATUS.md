@@ -1,6 +1,6 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-20 (unattended block).
+**Updated:** 2026-10-22. Plain-English state + check-in email draft: `docs/SUMMARY.md`.
 
 ## Where we are
 
@@ -8,6 +8,7 @@
   - Final config `afd85483` (`results/2026-10-20_v1_adaptive_cv/configs/`): horizon gate row 50, **saturation floor derived per image** from the rows above the horizon (99.5th pct + 10; lands at 44–55 here), brightness gate 40, **table prior off**, wall prior k = 2.5 (rows 0–50), RGB box 1–99 % fit after the gates (3000 px/frame cap), R > B tie rule. Chosen by leave-one-scene-out CV on the 16 pool frames under the pre-registered rule (`DECISIONS.md` 2026-10-19/20).
   - **Test set (5 frames): orange IoU 0.843 (P 0.96 / R 0.88), blue IoU 0.813 (P 0.98 / R 0.83), negative frame 0 pixels flagged.** (Evaluated twice — once with the fixed floor, 0.844 / 0.811, once after adopting the per-image floor; both logged.) CV estimate 0.825 / 0.793, so no overfit. Overlays of every frame: `experiments/2026-10-20_v1_adaptive/figures/overlays_sheet.png`.
   - What the ablations showed: the saturation floor and the wall prior are the whole separation (box alone: IoU 0.04; without the wall prior blue drops to 0.34); the horizon gate and brightness gate change nothing on this table; the table prior is redundant here and destroys the top-only frames (shadow inflates its MAD scale) — off for v1, kept as a flag for dark tables.
+  - Error attribution (`EXPERIMENTS.md` 2026-10-22): 21 % of true blue pixels are shadowed faces removed by the saturation floor; orange false pixels are reflections next to close barrels and the hand; the table prior is useless-but-harmless on non-close frames (−0.000 to −0.009) and catastrophic on close ones above k 1.5.
   - Known weak spots: shadowed lower faces (both classes, recall ≈ 0.8–0.88); the hand (skin is inside the orange RGB box; orange IoU on the pool is 0.77 with the hand frames vs 0.84 without); far blurred barrels.
 - Package: `src/barrels/{io,labeling,eval,splits,viz,priors,boxfit,pipeline,cv}.py`, 46 tests; experiments in `experiments/2026-10-19_data_analysis/`, `experiments/2026-10-20_v1_rgbbox/`; every number in `EXPERIMENTS.md` points to a `results/` folder with its config hash and git commit.
 

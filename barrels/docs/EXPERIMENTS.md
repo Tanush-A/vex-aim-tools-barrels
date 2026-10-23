@@ -14,6 +14,34 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-10-22 — Where v1's errors come from (attribution), and the table prior on non-close frames
+
+- **Hypothesis:** blue misses are shadowed faces removed by the saturation floor; orange false pixels are the hand and the reflections next to close barrels; the table prior is harmless-but-useless on frames without a close barrel.
+- **Method / params:** `experiments/2026-10-22_error_attribution/run.py` on the final config `afd85483` LOSO-CV predictions (16 pool frames). Each missed pixel is attributed to the first stage that removed it (horizon → brightness → saturation floor → wall prior → class box → tie); each false pixel is "boundary halo" (≤ 4 px from a true barrel) or "elsewhere", split by hand frame. Then the table prior switched back on at k = 1.5–3. Results: `results/2026-10-22_error_attribution/`.
+- **Results:**
+
+| | orange (≈ 132 k labeled px) | blue (41 k labeled px) |
+|---|---|---|
+| missed: saturation floor | 2.3 % | **21.0 %** |
+| missed: outside class box | 2.5 % | 3.7 % |
+| missed: wall prior / brightness / tie | 0.0 / 0.2 / 0.0 % | 2.0 / 1.0 / 0.5 % |
+| false: boundary halo | 1.1 % | 0.5 % |
+| false: elsewhere | 3.9 % — **all of it in `top_01`/`topstripe_01`**: the lid's reflection in the glossy table next to it, median RGB (120, 102, 70), saturation 45–47, i.e. just above those frames' floor (44) and inside the orange box | 0.0 % |
+| false: hand frames | 0.6 % (841 px, RGB ≈ (100, 65, 48), sat 50–55) | 0.0 % |
+
+| table prior (band-floor config) | primary (non-close frames) | top/topstripe orange IoU |
+|---|---|---|
+| off | 0.809 | 0.918 |
+| k 1.5 | 0.809 | 0.762 |
+| k 2.0 | 0.808 | 0.297 |
+| k 2.5 | 0.806 | 0.076 |
+| k 3.0 | 0.800 | 0.009 |
+
+- **Takeaway:** (1) The dominant error is blue recall: one fifth of true blue pixels are shadowed faces below the floor; lowering the floor is not the fix (the wall is right there in saturation), so recovering them needs something other than saturation — a shape/adjacency cue or a hue test. (2) Orange's false pixels are reflections on the glossy table next to close barrels (the "known confuser" from `constraints.md`; geometry can reject them later because they are below the contact row) and skin. (3) The table prior costs 0.000–0.009 on the non-close frames and gains nothing — the saturation floor already removed the table — while on the close frames it goes from harmless (k 1.5) to catastrophic (k 3). It is correctly off on this table; on a colored table it must be re-tested, with a scale cap. (4) Per-frame precision is 0.91–0.99; IoU looks low mainly because of recall on shadows and edges, and because a 1-px edge error on a 28-px barrel is ~10 %.
+- **Next:** label the 10/7 wood-desk set; test the prior (with a cap) and the floor there.
+
+---
+
 ## 2026-10-20 — Per-image saturation floor (band-derived) vs fixed; synthetic lighting-shift probe; second test evaluation
 
 - **Hypothesis:** (Tanush) the saturation floor should not be a constant learned from training frames; the image's own known-non-barrel rows can set it. Expectation: a tie on this single-light set (the floor it derives should land near 50), and better behaviour when the background gets more colorful or the exposure changes.

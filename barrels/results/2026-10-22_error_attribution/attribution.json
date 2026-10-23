@@ -1,0 +1,610 @@
+{
+ "4A8B_window_light_close_01": {
+  "orange": {
+   "n_gt": 5113,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 4,
+    "saturation floor": 181,
+    "wall prior": 0,
+    "outside class box": 38,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 234,
+    "elsewhere": 1
+   },
+   "s_min_eff": 47,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 1629,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 26,
+    "saturation floor": 227,
+    "wall prior": 39,
+    "outside class box": 49,
+    "lost tie to other class": 11
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 47,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_close_02": {
+  "orange": {
+   "n_gt": 1557,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 1,
+    "saturation floor": 170,
+    "wall prior": 1,
+    "outside class box": 48,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 5074,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 13,
+    "saturation floor": 455,
+    "wall prior": 153,
+    "outside class box": 261,
+    "lost tie to other class": 24
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 21,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_cluster_01": {
+  "orange": {
+   "n_gt": 2299,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 151,
+    "saturation floor": 281,
+    "wall prior": 8,
+    "outside class box": 190,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 3,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 3629,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 154,
+    "saturation floor": 421,
+    "wall prior": 105,
+    "outside class box": 69,
+    "lost tie to other class": 14
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 10,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_cluster_02": {
+  "orange": {
+   "n_gt": 3782,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 35,
+    "saturation floor": 318,
+    "wall prior": 3,
+    "outside class box": 309,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 56,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 4590,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 88,
+    "saturation floor": 633,
+    "wall prior": 92,
+    "outside class box": 166,
+    "lost tie to other class": 16
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 39,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_core_01": {
+  "orange": {
+   "n_gt": 2376,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 170,
+    "wall prior": 0,
+    "outside class box": 87,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 25,
+    "elsewhere": 0
+   },
+   "s_min_eff": 55,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 2459,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 188,
+    "wall prior": 49,
+    "outside class box": 287,
+    "lost tie to other class": 15
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 22,
+    "elsewhere": 0
+   },
+   "s_min_eff": 55,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_core_02": {
+  "orange": {
+   "n_gt": 2348,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 3,
+    "saturation floor": 189,
+    "wall prior": 0,
+    "outside class box": 43,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 12,
+    "elsewhere": 0
+   },
+   "s_min_eff": 55,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 2454,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 1,
+    "saturation floor": 146,
+    "wall prior": 73,
+    "outside class box": 93,
+    "lost tie to other class": 7
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 7,
+    "elsewhere": 0
+   },
+   "s_min_eff": 55,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_core_03": {
+  "orange": {
+   "n_gt": 541,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 25,
+    "wall prior": 2,
+    "outside class box": 29,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 41,
+    "elsewhere": 321
+   },
+   "s_min_eff": 51,
+   "false_px_stats": {
+    "median_rgb": [
+     107,
+     70,
+     51
+    ],
+    "median_sat": 55,
+    "n": 321
+   }
+  },
+  "blue": {
+   "n_gt": 187,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 33,
+    "wall prior": 32,
+    "outside class box": 0,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 1,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_edge_01": {
+  "orange": {
+   "n_gt": 545,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 207,
+    "wall prior": 0,
+    "outside class box": 13,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 47,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 1321,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 4,
+    "saturation floor": 396,
+    "wall prior": 1,
+    "outside class box": 3,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 15,
+    "elsewhere": 0
+   },
+   "s_min_eff": 47,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_far_02": {
+  "orange": {
+   "n_gt": 1544,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 154,
+    "wall prior": 3,
+    "outside class box": 83,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 75,
+    "elsewhere": 520
+   },
+   "s_min_eff": 48,
+   "false_px_stats": {
+    "median_rgb": [
+     94,
+     57,
+     44
+    ],
+    "median_sat": 50,
+    "n": 520
+   }
+  },
+  "blue": {
+   "n_gt": 1678,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 157,
+    "wall prior": 35,
+    "outside class box": 130,
+    "lost tie to other class": 8
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 73,
+    "elsewhere": 1
+   },
+   "s_min_eff": 48,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_neg_01": {
+  "orange": {
+   "n_gt": 0,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 0,
+    "wall prior": 0,
+    "outside class box": 0,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 47,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 0,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 0,
+    "wall prior": 0,
+    "outside class box": 0,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 47,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_neg_02": {
+  "orange": {
+   "n_gt": 0,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 0,
+    "wall prior": 0,
+    "outside class box": 0,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 48,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 0,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 0,
+    "wall prior": 0,
+    "outside class box": 0,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 48,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_occl_01": {
+  "orange": {
+   "n_gt": 5120,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 139,
+    "wall prior": 0,
+    "outside class box": 60,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 35,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 2513,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 27,
+    "saturation floor": 471,
+    "wall prior": 68,
+    "outside class box": 31,
+    "lost tie to other class": 20
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 5,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_occl_02": {
+  "orange": {
+   "n_gt": 2267,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 7,
+    "saturation floor": 198,
+    "wall prior": 0,
+    "outside class box": 48,
+    "lost tie to other class": 1
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 22,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 5256,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 17,
+    "saturation floor": 443,
+    "wall prior": 124,
+    "outside class box": 178,
+    "lost tie to other class": 17
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 1,
+    "elsewhere": 0
+   },
+   "s_min_eff": 51,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_top_01": {
+  "orange": {
+   "n_gt": 55770,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 260,
+    "wall prior": 0,
+    "outside class box": 795,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 424,
+    "elsewhere": 681
+   },
+   "s_min_eff": 44,
+   "false_px_stats": {
+    "median_rgb": [
+     118,
+     102,
+     74
+    ],
+    "median_sat": 45,
+    "n": 681
+   }
+  },
+  "blue": {
+   "n_gt": 123,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 121,
+    "wall prior": 0,
+    "outside class box": 2,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 44,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_topstripe_01": {
+  "orange": {
+   "n_gt": 46943,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 0,
+    "saturation floor": 490,
+    "wall prior": 0,
+    "outside class box": 1170,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 487,
+    "elsewhere": 4547
+   },
+   "s_min_eff": 44,
+   "false_px_stats": {
+    "median_rgb": [
+     120,
+     102,
+     70
+    ],
+    "median_sat": 47,
+    "n": 4547
+   }
+  },
+  "blue": {
+   "n_gt": 7112,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 35,
+    "saturation floor": 4548,
+    "wall prior": 0,
+    "outside class box": 72,
+    "lost tie to other class": 35
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 0,
+    "elsewhere": 0
+   },
+   "s_min_eff": 44,
+   "false_px_stats": null
+  }
+ },
+ "4A8B_window_light_touch_02": {
+  "orange": {
+   "n_gt": 3906,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 15,
+    "saturation floor": 263,
+    "wall prior": 0,
+    "outside class box": 406,
+    "lost tie to other class": 0
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 52,
+    "elsewhere": 0
+   },
+   "s_min_eff": 48,
+   "false_px_stats": null
+  },
+  "blue": {
+   "n_gt": 2962,
+   "missed": {
+    "above horizon": 0,
+    "brightness gate": 43,
+    "saturation floor": 366,
+    "wall prior": 67,
+    "outside class box": 165,
+    "lost tie to other class": 29
+   },
+   "false": {
+    "boundary halo (\u22644 px from a barrel)": 13,
+    "elsewhere": 0
+   },
+   "s_min_eff": 48,
+   "false_px_stats": null
+  }
+ }
+}
