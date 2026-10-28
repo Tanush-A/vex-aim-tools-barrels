@@ -1,6 +1,6 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-22. Plain-English state + check-in email draft: `docs/SUMMARY.md`.
+**Updated:** 2026-10-28. Meeting brief: `docs/MEETING-2026-10-28.md`. Plain-English v1 summary: `docs/Post-v1-SUMMARY.md`.
 
 ## Where we are
 
