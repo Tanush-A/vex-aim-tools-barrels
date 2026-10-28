@@ -1,6 +1,6 @@
-# PROBLEM.md — v1 spec: barrel color segmentation
+# PROBLEM.md — v1 spec: barrel color segmentation (+ v2 proposal)
 
-**Version:** v1 (2026-10-14). Foundation doc — change only via a logged entry in `DECISIONS.md`. Source: Dave meeting 2026-10-07 + Tanush's scope decisions 2026-10-14.
+**Version:** v1 (2026-10-14; v1 frozen at config `afd85483` 2026-10-20; v2 proposal appended 2026-10-28, pending Dave). Foundation doc — change only via a logged entry in `DECISIONS.md`. Source: Dave meeting 2026-10-07 + Tanush's scope decisions 2026-10-14.
 
 ## Task
 
@@ -58,3 +58,40 @@ Judged by the metrics and protocol in `EVAL.md` (per-pixel precision/recall/IoU 
 1. **v1:** RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating, evaluated on the labeled light-table set (and reported on the warm black-table stress set). Includes the box-fullness report.
 2. **v1.5:** barrel-referenced adaptive thresholds (iterative re-fit using high-confidence barrel pixels).
 3. **Later:** other color spaces / threshold shapes; glare + shadow handling; close/top-only barrels; bounding boxes emitting the aivision spec shape (`OrangeBarrel`, `originx, originy, width, height`) so the detector can drop into `worldmap.py`.
+
+---
+
+# v2 proposal — barrel detection (2026-10-28, PENDING Dave's agreement)
+
+Dave (2026-10-24): the goal is accurate barrel detection, not pixel labeling; use the known barrel size and the fixed camera to infer what shadows hide; wood tables are out of scope. v1.5 (2026-10-28) built the infrastructure below; v2 is the first detector.
+
+## Task
+
+Given one 640×480 frame, output the list of barrels in view: for each, its **color** (orange | blue), its **box** in image pixels, and its **ground position** in the robot base frame (x forward, y left, mm). Frames may contain no barrels (then the list is empty).
+
+## Inputs
+
+As v1. The v1 segmentation masks (config `afd85483`) are the starting point; v2 may also use the image directly.
+
+## Outputs
+
+A `barrels.detect_types.Barrel` list; `Barrel.to_aivision_spec()` gives exactly what `worldmap.py` reads (`OrangeBarrel`/`BlueBarrel`, `originx, originy, width, height` at 320×240). Integration route (display-only vs replacing aivision) is an open question.
+
+## Constraints to exploit (`constraints.md`, `barrels.geometry`)
+
+- Barrel 24 mm tall, 25.5 mm at the bulge, 18 mm at the ends, 6 mm stripe at mid-height; always upright on the ground plane.
+- Fixed camera: height 43.47 mm, tilt ≈ 21.5–25.5°, f ≈ 355–405 px → the **expected width and height at every image row**, the **bottom row from the top edge or the stripe row** when the lower face is in shadow, and the **ground position from the bottom-edge midpoint**.
+- Barrels standing side by side meet along a **vertical line**; a blob wider than the expected width holds several barrels.
+- Reflections sit **below** the contact row; nothing above the horizon is a barrel.
+
+## In scope (v2, first iteration)
+
+Splitting touching barrels by expected width + stripe structure; inferring the bottom edge from the top edge / stripe when shadowed (flag `bottom_inferred`); rejecting blobs of impossible size for their row; ground position per barrel; zero false barrels on empty frames.
+
+## Out of scope (v2)
+
+Wood / colored tables; per-pixel polish (the v1 masks are frozen); occlusion reasoning beyond the ignore flags; temporal tracking; bounding boxes from aivision-compatible training.
+
+## Success criteria
+
+`EVAL.md` detection metrics on the held-out test and measured splits: per-class precision / recall / F1 at IoU 0.5, loose F1 (projected position within 15 mm), bottom-row error, ground error in mm, zero false detections on negatives. **Floor to beat** (connected components on the v1 masks, provisional): mean F1 0.45. Numeric targets: open for Dave.

@@ -4,6 +4,11 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-28 — Pixel cleanup flags not adopted (tie); v1 stays `afd85483`
+
+- **Decision:** `min_blob_px`, `open_px`, `fill_holes` stay in `Config` (default off) but v1 ships without them: every variant was within the 0.02 tie band (best +0.010), opening hurt. Per the pre-registered rule the simplest config wins. Config hashes are preserved by omitting the new fields at their defaults.
+- **Who:** Claude Code, 2026-10-28 (`EXPERIMENTS.md` 2026-10-28).
+
 ## 2026-10-28 — constraints.md geometry table regenerated from `barrels.geometry` (doc update)
 
 - **Decision:** the nominal geometry table in `constraints.md` is now produced by `python -m barrels.geometry` with the measured barrel (24 mm tall, 25.5 mm bulge, 18 mm ends; silhouette = lid far edge to base near edge). The old table used 25 × 22 mm and no edge offsets (e.g. 126 px wide at 70 mm; it is ≈ 146 px). No scope change.

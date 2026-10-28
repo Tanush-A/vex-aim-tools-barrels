@@ -120,6 +120,28 @@ Two files next to each class mask, both committed:
 
 **Tool:** `python barrels/tools/instance_tool.py [--filter touch]`. Each frame is auto-split (`src/barrels/instances.py`: stripe-seeded watershed; vertical cuts between side-by-side barrels; it gets the count right on 20 of the 21 v1 frames). Left click selects, shift-click adds, right click drops a seed; `w` re-splits the instance under ≥ 2 seeds, `m` merges, `d` deletes, `o`/`b` set the color, `t`/`x`/`z` toggle truncated/occluded/top_only, `u` undoes, `v` cycles views, `n`/`p` save and move. The white bar under each box is the expected barrel width at that row: a box much wider than its bar is two barrels. ~10–30 s per frame; the merged frames (`occl`, `touch`, `cluster`) need a look.
 
+## Measured set (v1.5 M7 — to shoot)
+
+Same white matte table and window light, robot 4A8B; scene tag **`meas`**, plus one **`horizon`** frame. The split is `measured` (never train/dev/test; `EVAL.md`). Shot list (shoot in order; import with `--light window --surface light --scenes meas,...,horizon`):
+
+| # | content | ruler d (mm) | lateral (mm) |
+|---|---|---|---|
+| 01 | orange, straight ahead | 50 | 0 |
+| 02 | blue, straight ahead | 100 | 0 |
+| 03 | orange | 150 | 0 |
+| 04 | blue | 200 | 0 |
+| 05 | orange (worldmap's max range) | 300 | 0 |
+| 06 | orange left, blue right | 100, 100 | +60, −60 |
+| 07 | blue left, orange right | 200, 200 | +100, −100 |
+| 08 | mixed-color pair touching (orange left) | 150 | ±12.75 |
+| 09 | same-color pair touching (two orange) | 150 | ±12.75 |
+| 10 | occlusion: orange in front, blue behind, both on the crosshair | 100, 200 | 0, 0 |
+| 11 | `horizon`: a mark at **43.47 mm** above the table on a wall ≥ 1 m away, centred | — | — |
+
+Ruler convention: zero at the robot's **front-edge centre**, flat on the table, straight ahead along the vertical crosshair; **distance to the near edge of the barrel's 18 mm base at table level** (the bulge overhangs the base by ≈ 3.75 mm — slide the ruler under it); lateral = offset of the barrel axis from the ruler line, **left positive**. Ruler out of frame before pressing `s`. Uncertainty ≈ ±2 mm.
+
+Truth file `data/measured.csv` (`stem, idx, color, d_ruler_mm, lateral_mm, note`; `idx` = left-to-right in the image). Base-frame truth: **x = d_ruler + 30 + 9**, **y = lateral** (x forward, y left; the camera is 27 mm ahead of the origin, 3 mm behind the front edge). After labeling masks + instances, `python barrels/tools/attach_measured.py` writes `ground_xy_mm` into the instance JSON and prints measured vs projected positions.
+
 ## Splits
 
 Fixed **train / dev / test**; test is held out early and **never used for tuning** (see `EVAL.md`). Machine-readable copy: `data/splits.json`, written by `tools/make_splits.py` (stratified by condition, seeded, append-only — a stem never moves once assigned). Summary here:
@@ -129,7 +151,8 @@ Fixed **train / dev / test**; test is held out early and **never used for tuning
 | test (5, locked 2026-10-19) | `window_light_core_04`, `window_light_edge_02`, `window_light_far_01`, `window_light_neg_03`, `window_light_touch_01` |
 | train / pool (16) | all other `4A8B_window_light_*` frames: close 01–02, cluster 01–02, core 01–03, edge_01, far_02, neg 01–02, occl 01–02, top_01, topstripe_01, touch_02 — tuned by leave-one-scene-out CV (`EVAL.md`) |
 | dev | empty by design (v1) |
-| not in any split | `4A8B_upcool_wood_calib_*`, `ruler_01` (geometry only, unlabeled) |
+| measured | `meas` frames (to shoot); never tuned on |
+| not in any split | `4A8B_upcool_wood_calib_*`, `ruler_01`, `horizon` (geometry only) |
 
 ## Dataset index
 

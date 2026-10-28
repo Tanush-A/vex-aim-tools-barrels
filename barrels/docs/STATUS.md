@@ -40,7 +40,15 @@ v1 steps 1–9 done. v1.5 = scaffolding for v2 (detection), no detector:
 - ~~`color_data/` move + `top&stripe` rename~~ ✓ done 2026-10-14, now `barrels/data/raw/`. `snapshots/4A8B_upcool_wood_closeup_01.png` (gitignored folder) is named per convention — move it into `data/raw/` if wanted.
 - Geometry tightening (optional, cheap): a mark at camera height (43.47 mm) on a far wall gives the horizon row directly. Worth doing next time the robot is on a table near a wall.
 
-## Open questions for Dave
+## Open questions for Dave (v2)
+
+- **Targets:** what counts as success for detection — e.g. every barrel within 30 cm found, position within 15 mm?
+- **Integration route:** display-only alongside aivision first, or replace it by writing our items into the status (`worldmap_bridge.py` docstring)? Latency budget?
+- **worldmap's barrel size:** 22 mm diameter / 11 mm projection offset vs the measured 18 mm base / 25.5 mm bulge, and the `max(h, 1.1·w)` pad — fix in worldmap or compensate on our side?
+- **Occluded / edge-cut barrels:** ignore in the eval (VOC-style, current) or count?
+- **Skin vs orange:** park, or a hue test when it produces false *barrels*?
+
+## Open questions for Dave (older)
 
 0. (new, v1) The wall prior is doing most of the work on blue; on a wall that is not blue-gray it may be unnecessary — fine to keep it adaptive? And: skin lands inside the orange RGB box; is a hue-angle (a*/chroma) test acceptable in v1.5, or does he consider that "another color space" for later?
 
@@ -72,6 +80,25 @@ What worked and what didn't, from the ablations (leave-one-scene-out CV on 16 fr
 Camera: f ≈ 355–405 px and tilt ≈ 21.5–25.5° for AIM-4A8B6118 depending on method (barrel-width vs ruler), horizon row 55–100. I measured the barrel: 24 mm tall, 18 mm at the ends, 25.5 mm at the bulge (circumference 80 mm), 6 mm stripe — the 22 mm in worldmap.py is between the two diameters.
 
 Everything is in the repo (branch barrels): docs/EXPERIMENTS.md has every number with a results folder and config hash; docs/STATUS.md has the state. Next: v1.5 (barrel-referenced re-fit, YUV chroma box) under the same CV, then a second table/light before anything else is believed.
+
+Thanks,
+Tanush
+
+## Draft email to Dave (v1.5 done, v2 proposal) — Tanush sends after the instance review + measured set
+
+Subject: Barrel detector: detection harness ready, v2 proposal
+
+Hi Dave,
+
+Following your note, I stopped on pixels and built what detection needs: per-barrel ground truth (the v1 masks split into barrels, with a tool to fix the touching cases), a camera-geometry module (horizon, image row ↔ ground distance, expected barrel size per row, bottom edge from the top edge or the stripe), a detection eval (per-class P/R/F1 at IoU 0.5, bottom-edge error, ground-position error in mm, zero tolerance for false barrels on empty frames), and a stub that emits exactly the five fields worldmap.py reads.
+
+As a floor I ran the dumbest detector — connected components on the v1 masks → one box per blob: mean F1 ≈ 0.45 (≈ 0.63 even with perfect pixels, because touching barrels merge). Matched boxes are accurate (bottom edge within 1 px, projected position within ~3 mm median), so the loss is in splitting blobs, not in their edges. That is what v2 will do: split by expected width per row and the stripe, infer the bottom edge when shadowed, reject impossible sizes.
+
+I also shot ~10 frames with ruler-measured barrel positions so v2 gets a position error in mm, not just box overlap.
+
+Three questions: (1) targets — is "every barrel within 30 cm found, position within 15 mm" the right bar? (2) integration — run alongside aivision for display first, or replace it? (3) worldmap uses 22 mm diameter and an 11 mm projection offset; the barrel is 18 mm at the base and 25.5 mm at the bulge — fix in worldmap or compensate on my side?
+
+The v2 proposal is at the end of docs/PROBLEM.md on the barrels branch.
 
 Thanks,
 Tanush

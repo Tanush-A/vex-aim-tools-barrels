@@ -45,3 +45,10 @@ def test_barrels_from_instances_uses_json_then_mask():
         dt.barrels_from_instances(inst, meta)      # id 2 has no color and no mask
     out2 = dt.barrels_from_instances(inst, meta, mask, cam=geo.NOMINAL)
     assert out2[1].ground_xy_mm is not None and out2[0].ground_xy_mm == (100.0, -5.0)
+
+
+def test_attach_measured_truth_convention():
+    import importlib.util, pathlib
+    spec = importlib.util.spec_from_file_location("attach_measured", pathlib.Path(__file__).resolve().parents[1] / "tools" / "attach_measured.py")
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    assert mod.truth_xy(100.0, -60.0) == (139.0, -60.0)      # d + 30 (front edge) + 9 (base radius)
