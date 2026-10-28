@@ -12,14 +12,20 @@
   - Known weak spots: shadowed lower faces (both classes, recall ≈ 0.8–0.88); the hand (skin is inside the orange RGB box; orange IoU on the pool is 0.77 with the hand frames vs 0.84 without); far blurred barrels.
 - Package: `src/barrels/{io,labeling,eval,splits,viz,priors,boxfit,pipeline,cv}.py`, 46 tests; experiments in `experiments/2026-10-19_data_analysis/`, `experiments/2026-10-20_v1_rgbbox/`; every number in `EXPERIMENTS.md` points to a `results/` folder with its config hash and git commit.
 
-## Next steps (in order)
+## Next steps (in order) — v1.5 (plan approved 2026-10-28; `DECISIONS.md` 2026-10-28)
 
-1. ~~Repo setup~~ ✓ 2. ~~Docs~~ ✓ 3. ~~Review~~ ✓ 4. ~~Email Dave~~ ✓ (reply logged) 5. ~~Labeling tool~~ ✓ 6. ~~Shoot + label v1 set; camera geometry~~ ✓ 7. ~~Eval harness, v1 experiment, test evaluation~~ ✓
-8. ~~Send the v1 check-in email to Dave~~ ✓ sent 2026-10-22 (text in `SUMMARY.md`), proposing the v2 scope. **Waiting for his reply; v2 starts with whatever changes he wants.** Still open for Tanush: confirm the two judgment calls in `DECISIONS.md` 2026-10-20.
-9a. ~~Per-image saturation floor~~ ✓ adopted (ties on real data; keeps negatives clean under a synthetic cool cast where the fixed floor fails). The synthetic probe also says: the fixed RGB boxes are what break under lighting shifts → v1.5's job, needs real multi-light data.
-9. ~~v1.5 arms, CV only~~ ✓ run: the re-fit **hurts** (−0.07; it tightens the box) and the YUV chroma box **ties** (+0.005) — with one table and one light there is nothing for a re-fit to adapt to. Both stay as flags; re-test on the second lighting condition (`EXPERIMENTS.md` 2026-10-20 v1.5).
-10. **More data before more tuning:** a second table/light (the warm black table is the obvious stress set), then the Pittsburgh wood desk. Re-run `analyze.py` and the CV on each new set; the v1 config must be re-validated, not assumed.
-11. Later: a scale cap / mode-seeking fit for the table prior; hue-based separation of skin from orange (a*/chroma angle) — both out of v1.
+v1 steps 1–9 done. v1.5 = scaffolding for v2 (detection), no detector:
+
+1. ~~Meeting brief~~ ✓ `docs/MEETING-2026-10-28.md`. ~~Scope docs~~ ✓.
+2. `geometry.py` (camera model, horizon, row ↔ distance, barrel rows, `project_to_ground` replica) + tests; regenerate the `constraints.md` geometry table.
+3. Instance labels: `io` + `instances.py` (auto-split) + `detect_types.Barrel` + tests.
+4. `tools/instance_tool.py`; **Tanush fixes the auto-split on the 21 frames (~45 min)**; commit `_inst.*`.
+5. `eval_det.py` + `tools/eval_boxes.py` + `EVAL.md` detection section.
+6. Pixel cleanup flags (`cleanup.py`, hash-preserving) + LOSO sweep.
+7. `detect_cc.py` reference baseline + detection floor experiment (labeled baseline, not v2).
+8. **Tanush shoots the measured set (10 `meas` frames + 1 `horizon` frame, ruler positions in `data/measured.csv`)**; labels; `measured` split; baseline mm error.
+9. `worldmap_bridge.py` stub (not wired).
+10. `PROBLEM.md` v2 proposal + email draft; then v2.
 
 ## Navigator requests
 

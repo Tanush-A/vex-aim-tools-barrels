@@ -4,14 +4,14 @@
 
 A robust **barrel detector for the VEX AIM robot**, replacing the unreliable vendor detector ("aivision"). Research project: Tanush Aggarwal (CMU SCS, `Tanush-A`) with Prof. David Touretzky (dst@cs.cmu.edu), ~10 hrs/week, fall 2026.
 
-**Current scope (v1): color segmentation only.** One 640×480 RGB frame in → two flat-color masks out (barrel-orange pixels, barrel-blue pixels). No bounding boxes yet. Method: **adaptive thresholding** — adjust thresholds per image using table/background priors; **never correct the image itself (no white balance)**. Full spec: `docs/PROBLEM.md`.
+**Current scope (v1.5): v1 per-pixel segmentation is frozen (config `afd85483`); building the detection infrastructure for v2 = barrel detection** — instance labels, camera geometry, detection eval, a connected-components reference baseline, a measured-position set, a world-map bridge stub. No new pixel methods, no real detector yet. v1 spec + v2 proposal: `docs/PROBLEM.md`; **never correct the image itself (no white balance)**.
 
 Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork `Tanush-A/vex-aim-tools-barrels`, branch `barrels`; upstream `touretzkyds/vex-aim-tools`) is the **single source of truth** — the claude.ai Project only mirrors `CLAUDE.md` + `barrels/docs/` via manual GitHub sync.
 
 ## Environment
 
 - macOS, Python 3.13, venv at `~/Desktop/Celeste/env` (OpenCV, numpy, pytest). The `barrels` package is installed editable: `pip install -e barrels` from the repo root. Tests: `cd barrels && python -m pytest`. Robot ops: `docs/RUNBOOK.md`.
-- Code layout: `src/barrels/` (io, labeling, later priors/thresholds/eval), `tools/` (label tool, viewers), `experiments/`, `tests/`.
+- Code layout: `src/barrels/` (io, labeling, priors, boxfit, pipeline, cv, eval, splits, viz; v1.5 adds geometry, instances, detect_types, eval_det, cleanup, detect_cc, worldmap_bridge), `tools/` (label_tool, instance_tool, eval_masks, eval_boxes, import_snaps, make_splits), `experiments/`, `tests/`.
 - Small hand-taken image sets are **committed to git** under `barrels/data/`.
 
 ## The docs and when to touch them
@@ -49,7 +49,7 @@ Every piece of algorithm work follows:
 
 ## Testing policy
 
-- **Unit tests for infrastructure only**: image/mask IO, label parsing, metric computation, geometry math. These must be correct for eval numbers to mean anything.
+- **Unit tests for infrastructure only**: image/mask/instance IO, label parsing, metric computation (pixel and box matching), geometry math. These must be correct for eval numbers to mean anything.
 - **Algorithms are judged by eval numbers**, not unit tests. A segmentation method is "good" per `EVAL.md`, never per a hand-picked example.
 
 ## Rules

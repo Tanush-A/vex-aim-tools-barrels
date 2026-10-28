@@ -4,6 +4,15 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-28 — v1.5 = detection infrastructure (no detector); instance ground truth; `measured` split
+
+- **Decision (1) scope:** v1 is frozen at config `afd85483`. v1.5 builds what v2 (barrel detection) needs and stops short of a detector: per-barrel instance ground truth, a camera-geometry module, a detection evaluation, cheap pixel-cleanup flags, a connected-components reference detector (a labeled baseline, never tuned), a ruler-measured capture set, and a world-map integration stub. Dave (2026-10-24): accurate barrel detection is the goal, not pixel labeling; use the known barrel size and fixed camera to infer bottom edges in shadow; wood tables are out of scope. The 10/22 v2 proposal (wood data, hue test, seed-and-grow, table-prior cap) is withdrawn.
+- **Decision (2) instance labels:** per-barrel ground truth is derived from the existing class masks by an automatic split (stripe-seeded watershed on the distance transform) plus click edits recorded by image point so they can be replayed; stored as `<stem>_inst.png` (uint8 ids) + `<stem>_inst.json` (per-barrel color, box, flags, the class mask's sha1). Tanush chose auto-split + fix over fully manual boxes (2026-10-27).
+- **Decision (3) measured split:** frames with ruler-measured barrel positions (`meas` scene) form a fourth split, `measured`, never used for fitting or selection; positions are the barrel axis in the robot base frame (x forward, y left), distance measured to the near edge of the 18 mm base. The wood-desk `calib` frames stay geometry-only (Tanush, 2026-10-27).
+- **Why:** jumping straight to a detector was rejected because there is no ground truth or metric to judge one by; the reference detector exists only to prove the harness and set the floor.
+- **Who:** Tanush + Claude Code, 2026-10-27/28 (plan approved 2026-10-28).
+- **Alternatives:** manual boxes (slower, rejected); detection scored on box overlap only without a measured set (rejected — the planner cares about mm).
+
 ## 2026-10-20 — v1 saturation floor is derived per image from the above-horizon rows (band mode); second test evaluation logged
 
 - **Decision:** v1 final config becomes `afd85483` = `ee36a1e9` with `s_min_mode="band"` (floor = 99.5th percentile of the saturation of rows 0–50 + 10, clamped to [20, 120], computed per image; source = above-horizon rows only, never the table rows). The brightness gate stays a fixed constant (40): it guards against sensor noise in near-black pixels, which is a property of the camera, not of the scene. The per-class RGB boxes stay fixed from labels (something must encode what barrel orange/blue look like); adapting them per image is v1.5's job. Because this changes the shipped config after the first test run, the test set was evaluated a **second** time, with the reason recorded in `results/2026-10-20_v1_test_adaptive/config.json`; both numbers are reported (0.844/0.811 fixed, 0.843/0.813 band).

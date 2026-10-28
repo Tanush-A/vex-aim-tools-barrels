@@ -1,7 +1,7 @@
 [project]
 name = "barrels"
-version = "0.1.0"
-description = "Barrel color segmentation for the VEX AIM robot"
+version = "0.2.0"
+description = "Barrel segmentation and detection for the VEX AIM robot"
 requires-python = ">=3.11"
 dependencies = ["numpy", "opencv-python"]
 
