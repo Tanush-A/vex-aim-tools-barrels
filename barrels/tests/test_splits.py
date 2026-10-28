@@ -43,3 +43,16 @@ def test_pick_test_one_per_scene_largest_first_deterministic():
     big = sp.pick_test(pool, 7, seed=0)                                # more than groups -> round-robin
     assert len(big) == 7 and len(set(big)) == 7
     assert sp.pick_test([], 3) == []
+
+
+def test_measured_and_unassigned_scenes_routing():
+    pool = stems("window_light_core", 2) + stems("window_light_meas", 3) + stems("upcool_wood_calib", 2) + stems("window_light_horizon", 1)
+    out = sp.assign(pool, {s: [] for s in sp.SPLIT_NAMES}, seed=0)
+    assert sorted(out["measured"]) == stems("window_light_meas", 3)
+    assert all("calib" not in x and "horizon" not in x for v in out.values() for x in v)
+    assert set(out["train"] + out["test"]) == set(stems("window_light_core", 2))
+    # append-only still holds for the measured split
+    again = sp.assign(pool + stems("window_light_meas", 4)[3:], out, seed=1)
+    assert set(out["measured"]) <= set(again["measured"]) and len(again["measured"]) == 4
+    loaded = sp.load_splits(__import__("pathlib").Path("/nonexistent/splits.json"))
+    assert set(loaded) == set(sp.SPLIT_NAMES)

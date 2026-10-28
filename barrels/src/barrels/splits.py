@@ -12,7 +12,9 @@ from pathlib import Path
 from .io import PKG_ROOT, parse_name
 
 SPLITS_PATH = PKG_ROOT / "data" / "splits.json"
-SPLIT_NAMES = ("train", "dev", "test")
+SPLIT_NAMES = ("train", "dev", "test", "measured")
+MEASURED_SCENES = ("meas",)        # ruler-measured frames: never train/dev/test (EVAL.md)
+UNASSIGNED_SCENES = ("calib", "ruler", "horizon")   # geometry-only frames: never in any split
 
 
 def load_splits(path: Path | str | None = None) -> dict[str, list[str]]:
@@ -28,6 +30,13 @@ def save_splits(splits: dict[str, list[str]], path: Path | str | None = None) ->
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps({s: sorted(splits[s]) for s in SPLIT_NAMES}, indent=2) + "\n")
     return path
+
+
+def _scene(stem: str) -> str:
+    try:
+        return parse_name(stem)["scene"]
+    except ValueError:
+        return "unknown"
 
 
 def _condition(stem: str) -> str:
@@ -57,10 +66,17 @@ def assign(stems: list[str], splits: dict[str, list[str]] | None = None, seed: i
            fractions: tuple[float, float, float] = (0.6, 0.2, 0.2)) -> dict[str, list[str]]:
     """Return splits with every stem assigned; existing assignments are kept."""
     splits = {s: list(v) for s, v in (splits or load_splits()).items()}
+    splits.setdefault("measured", [])
     assigned = {x for v in splits.values() for x in v}
     new = sorted(set(stems) - assigned)
     groups: dict[str, list[str]] = {}
     for s in new:
+        scene = _scene(s)
+        if scene in UNASSIGNED_SCENES:
+            continue
+        if scene in MEASURED_SCENES:
+            splits["measured"].append(s)
+            continue
         groups.setdefault(_condition(s), []).append(s)
     rng = random.Random(seed)
     for cond in sorted(groups):

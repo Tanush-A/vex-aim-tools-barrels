@@ -1,0 +1,25 @@
+[
+ {
+  "color": "orange",
+  "bbox": [
+   165,
+   260,
+   480,
+   480
+  ],
+  "confidence": 1.0,
+  "bottom_mid": [
+   322.5,
+   480.0
+  ],
+  "ground_xy_mm": [
+   67.56782928487101,
+   -0.3297358383681514
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "area": 55822,
+  "source": "cc"
+ }
+]

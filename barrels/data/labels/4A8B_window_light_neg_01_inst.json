@@ -1,0 +1,29 @@
+{
+ "version": 1,
+ "mask_sha1": "aa3fa7daf3949c4ad8265de7d8fc6bacac7a179f",
+ "reviewed": false,
+ "camera": {
+  "f": 404.0,
+  "tilt_deg": 23.3,
+  "cx": 320.0,
+  "cy": 240.0
+ },
+ "auto": {
+  "algorithm": "stripe_ws",
+  "params": {
+   "min_area_px": 20,
+   "stripe_frac": 0.25,
+   "width_ratio_split": 1.5,
+   "min_seed_sep": 0.5,
+   "seed_erode_px": 2,
+   "dt_peak_frac": 0.3,
+   "dt_min_sep": 0.6,
+   "no_stripe_frac": 0.02,
+   "occluded_height_frac": 0.6
+  }
+ },
+ "edits": [],
+ "dropped_px": 0,
+ "barrels": [],
+ "stem": "4A8B_window_light_neg_01"
+}

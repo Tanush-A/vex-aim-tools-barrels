@@ -1,0 +1,102 @@
+{
+ "version": 1,
+ "mask_sha1": "8786f338ff40ed826ba320cfd1921fb87c03d739",
+ "reviewed": false,
+ "camera": {
+  "f": 404.0,
+  "tilt_deg": 23.3,
+  "cx": 320.0,
+  "cy": 240.0
+ },
+ "auto": {
+  "algorithm": "stripe_ws",
+  "params": {
+   "min_area_px": 20,
+   "stripe_frac": 0.25,
+   "width_ratio_split": 1.5,
+   "min_seed_sep": 0.5,
+   "seed_erode_px": 2,
+   "dt_peak_frac": 0.3,
+   "dt_min_sep": 0.6,
+   "no_stripe_frac": 0.02,
+   "occluded_height_frac": 0.6
+  }
+ },
+ "edits": [],
+ "dropped_px": 0,
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    313,
+    117,
+    331,
+    164
+   ],
+   "area": 753,
+   "bottom_mid": [
+    322.0,
+    164
+   ]
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    331,
+    117,
+    376,
+    171
+   ],
+   "area": 2023,
+   "bottom_mid": [
+    353.5,
+    171
+   ]
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    350,
+    117,
+    379,
+    172
+   ],
+   "area": 463,
+   "bottom_mid": [
+    364.5,
+    172
+   ]
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    379,
+    117,
+    437,
+    170
+   ],
+   "area": 2689,
+   "bottom_mid": [
+    408.0,
+    170
+   ]
+  }
+ ],
+ "stem": "4A8B_window_light_cluster_01"
+}

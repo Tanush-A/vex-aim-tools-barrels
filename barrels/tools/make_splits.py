@@ -34,10 +34,10 @@ def main(argv=None) -> int:
         if current["test"]:
             print(f"refusing: a test set already exists ({len(current['test'])} images). It is fixed (EVAL.md).")
             return 1
-        labeled = [p.stem for p in io.list_images() if io.mask_path(p).exists()]
+        labeled = [p.stem for p in io.list_images() if io.mask_path(p).exists() and sp._scene(p.stem) not in sp.MEASURED_SCENES + sp.UNASSIGNED_SCENES]
         excl = tuple(x for x in args.exclude_scenes.split(",") if x)
         test = sp.pick_test(labeled, args.test_only, seed=args.seed, exclude_scenes=excl)
-        new = {"train": sorted(set(labeled) - set(test)), "dev": [], "test": test}
+        new = {"train": sorted(set(labeled) - set(test)), "dev": [], "test": test, "measured": list(current.get("measured", []))}
         path = sp.save_splits(new)
         print(f"test ({len(test)}): {test}\ntrain ({len(new['train'])}), dev (0) -> {path}")
         return 0
@@ -49,7 +49,7 @@ def main(argv=None) -> int:
         return 0
     labeled = [p.stem for p in io.list_images() if io.mask_path(p).exists()]
     before = {x for v in current.values() for x in v}
-    new = sp.assign(labeled, current, seed=args.seed)
+    new = sp.assign(labeled, current, seed=args.seed)      # 'meas' frames go to the measured split, calib/ruler/horizon nowhere
     path = sp.save_splits(new)
     added = [x for v in new.values() for x in v if x not in before]
     print(f"{len(added)} newly assigned, {sum(len(v) for v in new.values())} total -> {path}")

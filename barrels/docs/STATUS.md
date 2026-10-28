@@ -1,6 +1,6 @@
 # STATUS.md — current state
 
-**Updated:** 2026-10-28. Meeting brief: `docs/MEETING-2026-10-28.md`. Plain-English v1 summary: `docs/Post-v1-SUMMARY.md`.
+**Updated:** 2026-10-28 (v1.5 M0–M6, M8 done; waiting on Tanush for the instance review and the measured set). Meeting brief: `docs/MEETING-2026-10-28.md`. Plain-English v1 summary: `docs/Post-v1-SUMMARY.md`.
 
 ## Where we are
 
@@ -17,14 +17,14 @@
 v1 steps 1–9 done. v1.5 = scaffolding for v2 (detection), no detector:
 
 1. ~~Meeting brief~~ ✓ `docs/MEETING-2026-10-28.md`. ~~Scope docs~~ ✓.
-2. `geometry.py` (camera model, horizon, row ↔ distance, barrel rows, `project_to_ground` replica) + tests; regenerate the `constraints.md` geometry table.
-3. Instance labels: `io` + `instances.py` (auto-split) + `detect_types.Barrel` + tests.
-4. `tools/instance_tool.py`; **Tanush fixes the auto-split on the 21 frames (~45 min)**; commit `_inst.*`.
-5. `eval_det.py` + `tools/eval_boxes.py` + `EVAL.md` detection section.
-6. Pixel cleanup flags (`cleanup.py`, hash-preserving) + LOSO sweep.
-7. `detect_cc.py` reference baseline + detection floor experiment (labeled baseline, not v2).
+2. ~~`geometry.py`~~ ✓ (+ `constraints.md` table regenerated).
+3. ~~Instance labels code~~ ✓ (`instances.py` auto-split gets the count right on 20/21 frames; `Barrel` type).
+4. **Tanush: review the auto-split on the 21 frames** — `python barrels/tools/instance_tool.py` (provisional `_inst.*` files are committed with `reviewed: false`; `n` saves them as reviewed). Frames to look at hardest: `occl_01` (hidden barrel merged), `touch_02`, `cluster_01/02`. ~45 min.
+5. ~~`eval_det.py` + `tools/eval_boxes.py` + `EVAL.md` section~~ ✓.
+6. ~~Pixel cleanup flags + LOSO sweep~~ ✓ tie → v1 unchanged (`EXPERIMENTS.md` 2026-10-28).
+7. ~~`detect_cc.py` + floor experiment~~ ✓ provisional: GT-mask CC 0.63 F1, v1-mask CC 0.45 F1 (merging touching barrels is the gap). Re-run after step 4 → the real floor.
 8. **Tanush shoots the measured set (10 `meas` frames + 1 `horizon` frame, ruler positions in `data/measured.csv`)**; labels; `measured` split; baseline mm error.
-9. `worldmap_bridge.py` stub (not wired).
+9. ~~`worldmap_bridge.py` stub~~ ✓ (not wired; the two integration routes are in its docstring).
 10. `PROBLEM.md` v2 proposal + email draft; then v2.
 
 ## Navigator requests

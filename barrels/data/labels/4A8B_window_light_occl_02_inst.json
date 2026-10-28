@@ -1,0 +1,66 @@
+{
+ "version": 1,
+ "mask_sha1": "5434a6cb626a85ada6407d8770243a6b8ec80fcf",
+ "reviewed": false,
+ "camera": {
+  "f": 404.0,
+  "tilt_deg": 23.3,
+  "cx": 320.0,
+  "cy": 240.0
+ },
+ "auto": {
+  "algorithm": "stripe_ws",
+  "params": {
+   "min_area_px": 20,
+   "stripe_frac": 0.25,
+   "width_ratio_split": 1.5,
+   "min_seed_sep": 0.5,
+   "seed_erode_px": 2,
+   "dt_peak_frac": 0.3,
+   "dt_min_sep": 0.6,
+   "no_stripe_frac": 0.02,
+   "occluded_height_frac": 0.6
+  }
+ },
+ "edits": [],
+ "dropped_px": 0,
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    393,
+    117,
+    405,
+    223
+   ],
+   "area": 817,
+   "bottom_mid": [
+    399.0,
+    223
+   ]
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    405,
+    116,
+    478,
+    230
+   ],
+   "area": 6706,
+   "bottom_mid": [
+    441.5,
+    230
+   ]
+  }
+ ],
+ "stem": "4A8B_window_light_occl_02"
+}

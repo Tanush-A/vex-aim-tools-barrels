@@ -14,6 +14,32 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-10-28 — Pixel cleanup flags on v1 (LOSO CV): a tie, v1 unchanged
+
+- **Hypothesis (stated first):** a tie — v1's false pixels are hundreds-of-pixel lid reflections and edge halos, its misses are shadowed faces; speck removal and hole filling touch neither.
+- **Method / params:** `experiments/2026-10-28_v1_cleanup/run.py`: `min_blob_px` ∈ {10, 25, 50, 100}, `open_px` ∈ {3, 5}, `fill_holes`, two pairs, on the v1 final `afd85483`, same folds and rule. Results: `results/2026-10-28_v1_cleanup/`.
+- **Results:** base 0.809; small-blob removal +0.000 to +0.003; opening −0.006 (3) / −0.024 (5): it eats the thin far barrels; hole filling +0.009; best pair (blobs 25 + holes) +0.010. All within the 0.02 band → **v1 stays at `afd85483`**; the flags remain in `Config` (default off, hash-preserving).
+- **Takeaway:** as predicted. Hole filling's +0.009 is real but tiny (the stripe edge and the VEX logo); worth re-checking once detection, not IoU, is the metric.
+
+---
+
+## 2026-10-28 — Detection floor: connected-components reference detector (BASELINE, not v2) — PROVISIONAL
+
+- **Hypothesis:** the harness works end to end; with perfect pixels the floor is limited by touching barrels merging; with v1's pixels it is also limited by fragmentation of shadowed faces.
+- **Method / params:** `experiments/2026-10-28_det_baseline/run.py`. Arm A: ground-truth class mask → CC → boxes; arm B: v1 LOSO-CV predicted mask → CC → boxes. Scored with `eval_det` (greedy IoU ≥ 0.5, VOC-style ignore flags, loose = projected ground position within 15 mm) against per-barrel instances. **Instances are the automatic split, not yet reviewed by Tanush**, so the numbers are provisional (`results/2026-10-28_det_baseline_PROVISIONAL/`); the entry will be replaced after the review.
+- **Results (in-scope frames, 16 pool):**
+
+| arm | primary (mean F1) | F1 orange / blue | loose F1 o / b | mean IoU of matches | bottom-row err (median px) | projected ground err (median mm) | neg false det |
+|---|---|---|---|---|---|---|---|
+| A: GT mask → CC | 0.633 | 0.600 / 0.667 | 0.600 / 0.762 | 0.959 | 0.0 | 0.0 | 0 |
+| B: v1 mask → CC | 0.448 | 0.333 / 0.562 | 0.429 / 0.710 | 0.750 | 1.0 | 2.7 | 0 |
+
+Geometry sensitivity (arm B, projected ground error): median 2.2–3.8 mm, p90 32–82 mm across the camera range corners — the p90 is merged boxes, not the camera.
+- **Takeaway:** the harness runs: GT instances → eval → tables → re-scorable `det.json`. Even with perfect pixels a CC detector finds only ~63 % of barrels (every touching pair becomes one box, often the wrong color), which is exactly the gap v2 is for: splitting by expected width per row and the stripe structure. With v1's pixels the floor is 0.45 F1; matched boxes are good (IoU 0.75, bottom edge within 1 px), so the loss is in *which* blobs exist, not where their edges are. Zero false detections on negatives.
+- **Next:** Tanush reviews the instances (`tools/instance_tool.py`); re-run without `--allow-unreviewed` → the non-provisional floor; measured set.
+
+---
+
 ## 2026-10-22 — Where v1's errors come from (attribution), and the table prior on non-close frames
 
 - **Hypothesis:** blue misses are shadowed faces removed by the saturation floor; orange false pixels are the hand and the reflections next to close barrels; the table prior is harmless-but-useless on frames without a close barrel.

@@ -67,6 +67,13 @@ class Config:
     tie: str = "rb_sign"                    # pixel in both boxes: "rb_sign" (R>B -> orange) | "orange" | "blue"
     seed: int = 0
     refit: RefitConfig | None = None
+    # v1.5 cleanup stages (default off = identity). Omitted from the hash at their defaults so the
+    # hashes of every pre-v1.5 config (e.g. the v1 final `afd85483`) stay valid.
+    min_blob_px: int = 0
+    open_px: int = 0
+    fill_holes: bool = False
+
+    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes")
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -85,7 +92,12 @@ class Config:
         return cls(**d)
 
     def short_hash(self) -> str:
-        return hashlib.sha1(json.dumps(self.to_dict(), sort_keys=True).encode()).hexdigest()[:8]
+        d = self.to_dict()
+        defaults = {"min_blob_px": 0, "open_px": 0, "fill_holes": False}
+        for k in self._HASH_OMIT_AT_DEFAULT:
+            if d.get(k) == defaults[k]:
+                d.pop(k, None)
+        return hashlib.sha1(json.dumps(d, sort_keys=True).encode()).hexdigest()[:8]
 
     def s_min_for(self, cls: int) -> int:
         return self.s_min_blue if (cls == BLUE and self.s_min_blue is not None) else self.s_min
@@ -270,6 +282,10 @@ def segment(frame: Frame, model: Model) -> tuple[np.ndarray, dict]:
     mask = np.full(frame.shape, OTHER, np.uint8)
     mask[cand[ORANGE]] = ORANGE
     mask[cand[BLUE]] = BLUE
+    if cfg.min_blob_px or cfg.open_px or cfg.fill_holes:
+        from . import cleanup
+        mask = cleanup.apply(mask, cfg)
+        info["after_cleanup"] = {str(c): int((mask == c).sum()) for c in CLASSES}
     return mask, info
 
 

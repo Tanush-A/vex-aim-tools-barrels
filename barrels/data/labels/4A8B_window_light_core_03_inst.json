@@ -1,0 +1,48 @@
+{
+ "version": 1,
+ "mask_sha1": "ca70b0b64040b8c8e5641a3b356292f6c572886a",
+ "reviewed": false,
+ "camera": {
+  "f": 404.0,
+  "tilt_deg": 23.3,
+  "cx": 320.0,
+  "cy": 240.0
+ },
+ "auto": {
+  "algorithm": "stripe_ws",
+  "params": {
+   "min_area_px": 20,
+   "stripe_frac": 0.25,
+   "width_ratio_split": 1.5,
+   "min_seed_sep": 0.5,
+   "seed_erode_px": 2,
+   "dt_peak_frac": 0.3,
+   "dt_min_sep": 0.6,
+   "no_stripe_frac": 0.02,
+   "occluded_height_frac": 0.6
+  }
+ },
+ "edits": [],
+ "dropped_px": 0,
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    317,
+    108,
+    346,
+    137
+   ],
+   "area": 728,
+   "bottom_mid": [
+    331.5,
+    137
+   ]
+  }
+ ],
+ "stem": "4A8B_window_light_core_03"
+}

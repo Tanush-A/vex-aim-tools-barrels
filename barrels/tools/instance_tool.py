@@ -69,12 +69,13 @@ class Session:
         self.mask = io.load_mask(io.mask_path(self.path, self.labels_dir))
         self.mask_sha = io.file_sha1(io.mask_path(self.path, self.labels_dir))
         self.selection: set[int] = set(); self.seeds: list[tuple[int, int]] = []; self.undo.clear()
-        self.edits: list[dict] = []; self.overrides: dict[int, dict] = {}; self.stale = False; self.failed: list[dict] = []
+        self.edits: list[dict] = []; self.overrides: dict[int, dict] = {}; self.stale = False; self.failed: list[dict] = []; self.reviewed = False
         js = io.inst_json_path(self.path, self.labels_dir)
         if js.exists():
             try:
                 self.inst, meta = io.load_instances(self.path, self.labels_dir, check_mask=False)
                 self.edits = list(meta.get("edits", []))
+                self.reviewed = bool(meta.get("reviewed", False))
                 self.seed_kind = {b["id"]: (b.get("seed", "manual"), None) for b in meta.get("barrels", [])}
                 self.overrides = {b["id"]: {"color": b.get("color"), "flags": {f: True for f in b.get("flags", [])}} for b in meta.get("barrels", [])}
                 if meta.get("mask_sha1") != self.mask_sha:
@@ -109,9 +110,9 @@ class Session:
             self.overrides = {int(k): v for k, v in ov.items()}
             self.selection.clear(); self.seeds.clear()
 
-    def save(self) -> None:
+    def save(self, reviewed: bool = True) -> None:
         recs = self.records()
-        meta = {"version": io.INSTANCE_JSON_VERSION, "mask_sha1": self.mask_sha,
+        meta = {"version": io.INSTANCE_JSON_VERSION, "mask_sha1": self.mask_sha, "reviewed": reviewed,
                 "camera": {"f": self.cam.f, "tilt_deg": self.cam.tilt_deg, "cx": self.cam.cx, "cy": self.cam.cy},
                 "auto": {"algorithm": "stripe_ws", "params": self.cfg.to_dict()},
                 "edits": self.edits, "dropped_px": int(getattr(self, "dropped", 0)),
@@ -172,7 +173,7 @@ class Session:
             cv2.circle(view, (sx, sy), 4, (0, 255, 255), -1)
         if self.scale != 1:
             view = cv2.resize(view, None, fx=self.scale, fy=self.scale, interpolation=cv2.INTER_NEAREST)
-        hud = [f"[{self.idx + 1}/{len(self.images)}] {self.path.name}  view={mode}  sel={sorted(self.selection)}  seeds={len(self.seeds)}  edits={len(self.edits)}"
+        hud = [f"[{self.idx + 1}/{len(self.images)}] {self.path.name}  view={mode}  sel={sorted(self.selection)}  seeds={len(self.seeds)}  edits={len(self.edits)}" + ("" if getattr(self, "reviewed", False) else "  [unreviewed]")
                + ("  STALE: mask changed, edits replayed" if self.stale else "")]
         if self.failed:
             hud.append(f"{len(self.failed)} edit(s) failed to replay")
@@ -192,10 +193,19 @@ def main(argv=None) -> int:
     ap.add_argument("--filter", default="")
     ap.add_argument("--scale", type=float, default=2.0)
     ap.add_argument("--cam", choices=sorted(CAMS), default="4a8b")
+    ap.add_argument("--batch", action="store_true", help="no GUI: write the auto-split for every frame that has no instance file yet (reviewed=false)")
     args = ap.parse_args(argv)
     images = [p for p in io.list_images(args.raw) if args.filter in p.name and io.mask_path(p, args.labels).exists()]
     if not images:
         print("no labeled images match"); return 1
+    if args.batch:
+        n = 0
+        for p in images:
+            if io.inst_json_path(p, args.labels).exists():
+                continue
+            s = Session([p], args.labels, args.scale, CAMS[args.cam], ins.SplitConfig())
+            s.save(reviewed=False); n += 1
+        print(f"wrote {n} provisional instance file(s)"); return 0
     s = Session(images, args.labels, args.scale, CAMS[args.cam], ins.SplitConfig())
 
     def on_mouse(event, x, y, flags, _):

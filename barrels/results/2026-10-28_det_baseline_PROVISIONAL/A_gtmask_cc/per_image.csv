@@ -1,0 +1,17 @@
+name,condition,negative,orange_n_gt,orange_tp,orange_fp,orange_fn,orange_ignored,orange_tp_loose,orange_fp_loose,orange_fn_loose,blue_n_gt,blue_tp,blue_fp,blue_fn,blue_ignored,blue_tp_loose,blue_fp_loose,blue_fn_loose,color_confusions
+4A8B_window_light_close_01,window_light_close,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_close_02,window_light_close,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0
+4A8B_window_light_cluster_01,window_light_cluster,0,1,0,0,1,0,0,0,1,3,0,1,3,0,1,0,2,0
+4A8B_window_light_cluster_02,window_light_cluster,0,2,0,1,2,0,0,1,2,2,1,0,1,0,1,0,1,0
+4A8B_window_light_core_01,window_light_core,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1,0,0,0
+4A8B_window_light_core_02,window_light_core,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1,0,0,0
+4A8B_window_light_core_03,window_light_core,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_edge_01,window_light_edge,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0
+4A8B_window_light_far_02,window_light_far,0,2,1,0,1,0,1,0,1,2,2,0,0,0,2,0,0,0
+4A8B_window_light_neg_01,window_light_neg,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_neg_02,window_light_neg,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_occl_01,window_light_occl,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_occl_02,window_light_occl,0,0,0,0,0,0,0,0,0,2,1,0,1,0,1,0,1,0
+4A8B_window_light_top_01,window_light_top,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_topstripe_01,window_light_topstripe,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+4A8B_window_light_touch_02,window_light_touch,0,2,0,1,2,0,0,1,2,1,0,0,1,0,0,0,1,1

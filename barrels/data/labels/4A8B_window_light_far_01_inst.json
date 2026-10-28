@@ -1,0 +1,102 @@
+{
+ "version": 1,
+ "mask_sha1": "03abd52d9de4800da18938bb40cd088e840cce86",
+ "reviewed": false,
+ "camera": {
+  "f": 404.0,
+  "tilt_deg": 23.3,
+  "cx": 320.0,
+  "cy": 240.0
+ },
+ "auto": {
+  "algorithm": "stripe_ws",
+  "params": {
+   "min_area_px": 20,
+   "stripe_frac": 0.25,
+   "width_ratio_split": 1.5,
+   "min_seed_sep": 0.5,
+   "seed_erode_px": 2,
+   "dt_peak_frac": 0.3,
+   "dt_min_sep": 0.6,
+   "no_stripe_frac": 0.02,
+   "occluded_height_frac": 0.6
+  }
+ },
+ "edits": [],
+ "dropped_px": 0,
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    227,
+    109,
+    259,
+    145
+   ],
+   "area": 988,
+   "bottom_mid": [
+    243.0,
+    145
+   ]
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    271,
+    109,
+    301,
+    142
+   ],
+   "area": 870,
+   "bottom_mid": [
+    286.0,
+    142
+   ]
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    329,
+    110,
+    361,
+    145
+   ],
+   "area": 1019,
+   "bottom_mid": [
+    345.0,
+    145
+   ]
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "flags": [],
+   "seed": "stripe",
+   "hints": [],
+   "bbox": [
+    382,
+    108,
+    414,
+    140
+   ],
+   "area": 901,
+   "bottom_mid": [
+    398.0,
+    140
+   ]
+  }
+ ],
+ "stem": "4A8B_window_light_far_01"
+}
