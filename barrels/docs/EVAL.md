@@ -39,3 +39,20 @@ Rules:
 ## Infrastructure correctness
 
 Metric computation, mask IO, and label parsing have **unit tests** (`barrels/tests/`) — eval numbers are only meaningful if the harness is right. Algorithms themselves are judged by these eval numbers, not by unit tests.
+
+## Detection metrics (v2 protocol, proposed 2026-10-28 — pending Dave)
+
+Ground truth = one instance per physical barrel (`DATA.md`, instance labels). A prediction is a `Barrel` (color, box in 640×480, confidence, optional ground position).
+
+- **Matching:** greedy, class-aware, by box IoU ≥ 0.5; predictions in confidence order take the best free ground truth. Deterministic (`eval_det.match_greedy`).
+- **Ignored ground truth:** barrels flagged `occluded`, `truncated` (cut by the frame edge) or `top_only` are VOC-style "difficult": matching one is not a hit, missing one is not a miss. They are counted (`n_ignored`).
+- **Per class:** precision, recall, F1 (strict, IoU-matched) and a **loose** P/R where a prediction counts if its projected ground position is within **15 mm** of the ground truth's (= the planner's "skinny" obstacle inflation).
+- **Errors over matched pairs:** box IoU; **bottom-edge row error** (px, signed: positive = predicted lower); **ground-position error** (mm): *projected* (both bottom-mids through the same `CameraModel`, available on every frame) and *measured* (vs the ruler truth of the `measured` split).
+- **Negative frames:** the number of false detections; any false detection on a negative frame **disqualifies** a config (as for pixels).
+- **Color confusions:** class-agnostic IoU matches whose colors differ, reported separately.
+- **Aggregation:** per condition + ALL, micro (pooled counts), medians/p90 for errors; `top`/`topstripe` reported but excluded from the headline.
+- **Proposed primary:** mean over classes of strict F1; targets open for Dave. Implementation: `src/barrels/eval_det.py`, `tools/eval_boxes.py`.
+
+### The `measured` split
+
+Frames with ruler-measured barrel positions (`meas` scene) form a fourth split, **`measured`**, never used for fitting or selection; evaluated like test — once per milestone with the pre-chosen config and a pre-declared `CameraModel` — and the only source of *measured* ground-position error. Position truth = the barrel axis in the robot base frame (x forward, y left), see `DATA.md`.

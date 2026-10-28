@@ -4,6 +4,11 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-10-28 — constraints.md geometry table regenerated from `barrels.geometry` (doc update)
+
+- **Decision:** the nominal geometry table in `constraints.md` is now produced by `python -m barrels.geometry` with the measured barrel (24 mm tall, 25.5 mm bulge, 18 mm ends; silhouette = lid far edge to base near edge). The old table used 25 × 22 mm and no edge offsets (e.g. 126 px wide at 70 mm; it is ≈ 146 px). No scope change.
+- **Who:** Claude Code, 2026-10-28 (v1.5 M1).
+
 ## 2026-10-28 — v1.5 = detection infrastructure (no detector); instance ground truth; `measured` split
 
 - **Decision (1) scope:** v1 is frozen at config `afd85483`. v1.5 builds what v2 (barrel detection) needs and stops short of a detector: per-barrel instance ground truth, a camera-geometry module, a detection evaluation, cheap pixel-cleanup flags, a connected-components reference detector (a labeled baseline, never tuned), a ruler-measured capture set, and a world-map integration stub. Dave (2026-10-24): accurate barrel detection is the goal, not pixel labeling; use the known barrel size and fixed camera to infer bottom edges in shadow; wood tables are out of scope. The 10/22 v2 proposal (wood data, hue test, seed-and-grow, table-prior cap) is withdrawn.

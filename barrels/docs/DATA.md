@@ -109,6 +109,17 @@ Scribble strokes `1` orange, `2` blue, `3` table+background, `4` glare/uncertain
 - `top`/`topstripe`/`calib` frames: label normally. `ruler` frame: one `3` stroke, `g`, save (all other).
 - `g` to grow, check, fix with more strokes (they override immediately), `g` again if the fill is off, `n` to save and move on.
 
+## Instance labels (per barrel; v1.5, 2026-10-28)
+
+Two files next to each class mask, both committed:
+
+- `<stem>_inst.png`: single-channel uint8, 0 = no barrel, 1..N = barrel id (left to right).
+- `<stem>_inst.json`: `mask_sha1` of the class mask the instances came from; the camera used; the auto-split parameters; `edits` (merge / split / color / flag / delete, recorded **by image point** so they replay after a mask is re-grown); `dropped_px`; `barrels[]` with per barrel `id`, `color` (orange | blue = the body color), `bbox [x0, y0, x1, y1]` half-open in 640×480, `area`, per-class pixel counts, `bottom_mid`, `flags` ⊆ {`truncated` (cut by the frame edge), `occluded` (partly hidden by another barrel), `no_stripe`, `top_only`}, `seed` (stripe | dt | manual), `hints`, `ground_xy_mm` + `measured_idx` on measured frames. Loading (`io.load_instances`) recomputes the geometry from the PNG and refuses stale files.
+
+**Rules:** one instance per physical barrel including its stripe; the color is the body color; a barrel's reflection is not part of it; glare (255) pixels inside a barrel belong to it; flag `occluded` when another barrel hides part of it, `truncated` when the frame edge cuts it.
+
+**Tool:** `python barrels/tools/instance_tool.py [--filter touch]`. Each frame is auto-split (`src/barrels/instances.py`: stripe-seeded watershed; vertical cuts between side-by-side barrels; it gets the count right on 20 of the 21 v1 frames). Left click selects, shift-click adds, right click drops a seed; `w` re-splits the instance under ≥ 2 seeds, `m` merges, `d` deletes, `o`/`b` set the color, `t`/`x`/`z` toggle truncated/occluded/top_only, `u` undoes, `v` cycles views, `n`/`p` save and move. The white bar under each box is the expected barrel width at that row: a box much wider than its bar is two barrels. ~10–30 s per frame; the merged frames (`occl`, `touch`, `cluster`) need a look.
+
 ## Splits
 
 Fixed **train / dev / test**; test is held out early and **never used for tuning** (see `EVAL.md`). Machine-readable copy: `data/splits.json`, written by `tools/make_splits.py` (stratified by condition, seeded, append-only — a stem never moves once assigned). Summary here:
