@@ -58,13 +58,17 @@ def strokes_path(image_path: Path | str, labels_dir: Path | str | None = None) -
     return Path(labels_dir or LABELS_DIR) / f"{image_path.stem}_strokes.png"
 
 
+# side files that may sit next to an image and are never images to label/evaluate
+SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes")
+
+
 def list_images(raw_dir: Path | str | None = None) -> list[Path]:
-    """Sorted image files in a folder, excluding mask/stroke side files."""
+    """Sorted image files in a folder, excluding mask/stroke/instance/prediction side files."""
     raw_dir = Path(raw_dir or RAW_DIR)
     return sorted(
         p for p in raw_dir.iterdir()
         if p.suffix.lower() in IMAGE_SUFFIXES
-        and not p.stem.endswith(("_mask", "_strokes", "_inst"))
+        and not p.stem.endswith(SIDE_SUFFIXES)
     )
 
 

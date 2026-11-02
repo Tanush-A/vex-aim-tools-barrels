@@ -78,6 +78,6 @@ def test_instance_round_trip_and_staleness(tmp_path):
 
 
 def test_list_images_skips_inst_files(tmp_path):
-    for n in ("a_01.png", "a_01_inst.png", "a_01_mask.png"):
+    for n in ("a_01.png", "a_01_inst.png", "a_01_mask.png", "a_01_pred.png", "a_01_overlay.png", "a_01_orange.png", "a_01_blue.png"):
         (tmp_path / n).write_bytes(b"")
     assert [p.name for p in io.list_images(tmp_path)] == ["a_01.png"]

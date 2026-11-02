@@ -7,3 +7,10 @@ snapshots
 *.egg-info/
 __pycache__/
 .pytest_cache/
+
+# segment_image.py / detector outputs must never sit in the raw data folder
+barrels/data/raw/*_pred.png
+barrels/data/raw/*_overlay.png
+barrels/data/raw/*_orange.png
+barrels/data/raw/*_blue.png
+barrels/data/raw/*_boxes.png

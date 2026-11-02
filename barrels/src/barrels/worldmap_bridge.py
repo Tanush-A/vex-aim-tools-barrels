@@ -64,7 +64,9 @@ def draw_boxes(image_rgb: np.ndarray, barrels: list[Barrel], scale: int = AIVISI
     items = barrels_to_aivision_items(barrels)
     try:
         from viewer.camera_overlay import draw_aiobj_boxes  # type: ignore
-        return draw_aiobj_boxes(image_rgb.copy(), items, scale)
+        out = image_rgb.copy()
+        draw_aiobj_boxes(out, items, scale)       # draws in place and returns None
+        return out
     except Exception:  # noqa: BLE001 — viewer not importable outside the repo
         out = image_rgb.copy()
         for it in items:

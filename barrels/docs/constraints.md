@@ -1,13 +1,13 @@
 # constraints.md — known facts + unknowns to measure
 
-**Version:** v1 (2026-10-14; geometry measured 2026-10-19). Foundation doc — the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; log scope-relevant changes in `DECISIONS.md`.
+**Version:** v1 (2026-10-14; geometry measured 2026-10-19; close zone computed + v2 scene assumptions 2026-11-02). Foundation doc — the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; log scope-relevant changes in `DECISIONS.md`.
 
 ## Camera / robot
 
 - VEX AIM camera: **640×480 color**.
 - Camera height above the ground plane: **43.47 mm** (`aim_fsm/aim_kin.py`). The camera sits **27 mm ahead of the robot's center** (`camera_from_origin`); distances in this doc are horizontal distances from the camera unless stated.
 - Tilt of AIM-4A8B6118: **21.5–25.5°** (measured 2026-10-19, three methods disagree; `experiments/2026-10-19_camera_geometry/`). Dave's "18–25°, assume 23°" holds. `aim_kin.py` has other robots: 25.4° (AIM-5A888218), 23.7° (AIM-32A57C18); the design spec says 18°. Measurement procedure used there: abut a ruler to the robot's front edge, read the distance d to the horizontal crosshair on the ruler surface, then `camera_tilt = atan2(43.47, d + 3) * 180/pi`.
-- Focal length of AIM-4A8B6118: **≈ 355–405 px** (measured 2026-10-19). Barrel width at 5 distances gives 356 with the measured 25.5 mm diameter (very consistent across distances); the ruler-mark fit prefers 405–420 unless the tape zero was ~8 mm off; barrel bottom rows give 388. `aim_fsm/camera.py`'s hardcoded 400 is in range (Dave: an estimate, likely varies per camera); its 70°×50° FOV figures (f ≈ 457/515) are not. Principal point assumed **(320, 240)**.
+- Focal length of AIM-4A8B6118: **≈ 355–405 px** (measured 2026-10-19). Barrel width at 5 distances gives 356 with the measured 25.5 mm diameter (very consistent across distances); the ruler-mark fit prefers 405–420 unless the tape zero was ~8 mm off; barrel bottom rows give 388. `aim_fsm/camera.py`'s hardcoded 400 is in range (Dave: an estimate; 2026-10-30: it should not differ much between robots — calibrate once per robot with the v2 `calib` frames); its 70°×50° FOV figures (f ≈ 457/515) are not. Principal point assumed **(320, 240)**.
 - The vendor detector (aivision) runs **on the robot at 320×240**; `worldmap.py` scales its boxes ×2 to the 640×480 frame.
 - Tanush's robot: **AIM-4A8B6118**. Another seen: AIM-627D8818. **Cameras differ between robots** (color response, possibly geometry).
 
@@ -38,15 +38,16 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 
 - **Sensitivity:** with f = 400 the horizon row is ≈ 50 at 25.4° tilt and ≈ 110 at 18°. For AIM-4A8B6118 the measured fits put it between rows 55 and 100. **Gate/band at row 50** for this robot (safe across every fit). To tighten: a direct measurement — a mark at camera height (43.47 mm) on a vertical surface ≥ 1 m away lands on the horizon row, independent of f and barrel size.
 - Uses: size sanity check when top + bottom are both visible; infer the bottom from the top row + width when the bottom is occluded/off-frame; occlusion reasoning; choosing the prior bands.
-- **Close/top-only case (working assumption, not a hard rule):** in Lab 6 Dave observed that the top-only view occurs only when the barrel's top is in the bottom half of the image. Nominal geometry agrees: the bottom edge leaves the frame once the barrel is closer than ≈ 32 mm, and by then its top is at row ≈ 290. Lab 6 was a class homework setting, so re-check this on real frames before relying on it.
+- **Close zone (computed 2026-11-02 with `barrels.geometry` over the measured f/tilt range):** the bottom edge leaves the frame when the near edge of the barrel's base is closer than **≈ 28 mm (23–31) past the bumper** — about one barrel diameter of travel. In that zone the top edge sits at rows **≈ 255 (base 20 mm out) → ≈ 303 (10 mm) → ≈ 383 (touching)**, i.e. it moves ≈ 13 px per mm, so the top row alone pins the distance; the stripe is below the frame when touching and visible from ≈ 10 mm out. This replaces the Lab 6 working assumption ("top-only only when the top is in the bottom half of the image"): nominal geometry agrees; the v2 `calib` frames (0–30 mm in 5 mm steps) check it directly.
 
 ## Scene assumptions
 
 - "Table" = the ground plane the robot drives on (a table or a floor). The lower frame is mostly table unless a barrel is very close: under nominal geometry, rows below ~400 are table unless a barrel is within ≈ 45 mm of the camera. The top-only case fills the bottom of the frame with barrel and breaks this prior.
 - Rows above the horizon: wall/background, never a barrel. Rows between the horizon and the visible table edge **can** contain barrels (seen against the wall).
 - **Frames may contain no barrels** (Dave, 2026-10-14). Every prior and every adaptive step must work on a barrel-free frame; `neg` scenes are in every capture set.
-- No deliberately adversarial objects in view. Ordinary clutter (hands, bottle caps, boxes) does appear in the 10/7 frames; "non-adversarial" means nothing placed specifically to fool the detector, not an empty scene.
-- v1 data: black table, home lighting, no distractors; later other tables/lighting (goal: table-agnostic).
+- **Clutter is expected (v2):** ordinary objects, hands, and a few orange/blue objects used as distractors; all are negatives (must not be boxed). Nothing is placed specifically to fool the detector. The stripe is what distinguishes a barrel from another orange/blue object.
+- v1 data: white table, window light, no distractors. v2 data: white, beige and black tables under whatever light is there, with clutter (`DATA.md`). Wood is out (Dave 2026-10-24). Goal: works on a table never seen in training.
+- Barrels are upright (knocked-over barrels: question for Dave). A barrel held in the robot's kicker sits barely off the ground (Tanush 2026-11-02) and is treated as on the ground.
 
 ## Known confusers (from the 10/7 baselines; details in `EXPERIMENTS.md`)
 
@@ -76,4 +77,4 @@ Things that look like barrel colors to naive fixed thresholds. **v1 scenes delib
 | 5 | Table + background distributions — **measured for white table / window light**: table sat 95th pct 32, wall band 38, but the wall between horizon and table edge keeps 26 % at sat ≥ 40 (bluish); see `EXPERIMENTS.md` 2026-10-20. Other surfaces/lights still open | From labeled data, same script |
 | 6 | How much auto-exposure/auto-white-balance shifts colors | Already partially characterized (see `EXPERIMENTS.md` 2026-10-07: camera does NOT fully auto-WB; mean blue 134 → 73 under warm light); extend with new data |
 | 7 | Horizon row: **55–100** (2026-10-19); gate at 50 | Direct check: a mark at camera height (43.47 mm) on a vertical surface ≥ 1 m away projects onto the horizon row |
-| 8 | Does the robot's own body, kicker, or a held barrel appear in the bottom rows? | Snapshot with the kicker extended / holding a barrel. Affects the table prior. |
+| 8 | Does the robot's own body or kicker appear in the bottom rows? A held barrel sits barely off the ground (Tanush 2026-11-02) → detected as a normal barrel | The v2 `held` frames |

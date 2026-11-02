@@ -4,7 +4,7 @@
     python barrels/tools/segment_image.py path/to/image.png [--out DIR] [--model results/.../config.json] [--boxes]
 
 Loads the fitted v1 model (default: the one saved by the final test run, config afd85483), segments
-the image, and writes next to it (or into --out):
+the image, and writes into --out (default barrels/results/segment_image/):
     <stem>_orange.png, <stem>_blue.png   the PROBLEM.md outputs (flat class color on gray)
     <stem>_overlay.png                   the image dimmed with the classes painted on
     <stem>_pred.png                      the class mask (0 other, 1 orange, 2 blue)
@@ -23,13 +23,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from barrels import detect_cc, geometry as geo, io, pipeline as pl, viz, worldmap_bridge as wb  # noqa: E402
 
 DEFAULT_MODEL = io.PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"
+DEFAULT_OUT = io.PKG_ROOT / "results" / "segment_image"      # never next to the image: data/raw must hold only inputs
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("image", type=Path)
     ap.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="results config.json with a fitted 'model'")
-    ap.add_argument("--out", type=Path, help="output folder (default: next to the image)")
+    ap.add_argument("--out", type=Path, default=DEFAULT_OUT, help="output folder (default: barrels/results/segment_image)")
     ap.add_argument("--boxes", action="store_true", help="also run the CC reference detector")
     ap.add_argument("--show", action="store_true", help="open a window with the overlay")
     args = ap.parse_args(argv)
@@ -40,7 +41,7 @@ def main(argv=None) -> int:
         print(f"warning: {img.shape[1]}x{img.shape[0]} image; the model and geometry assume 640x480")
     frame = pl.Frame.from_image(img)
     mask, info = pl.segment(frame, hook.model)
-    out_dir = args.out or args.image.parent
+    out_dir = args.out
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = args.image.stem
     orange, blue = viz.render_outputs(mask)

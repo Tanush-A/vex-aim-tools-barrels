@@ -1,6 +1,6 @@
 # EVAL.md — metrics + protocol
 
-**Version:** v1 (2026-10-14; protocol detailed 2026-10-19, see `DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
+**Version:** v1 (2026-10-14; protocol detailed 2026-10-19); **v2 detection rule + splits added 2026-11-02** (`DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
 
 ## Metrics
 
@@ -40,19 +40,27 @@ Rules:
 
 Metric computation, mask IO, and label parsing have **unit tests** (`barrels/tests/`) — eval numbers are only meaningful if the harness is right. Algorithms themselves are judged by these eval numbers, not by unit tests.
 
-## Detection metrics (v2 protocol, proposed 2026-10-28 — pending Dave)
+## Detection metrics (v2, decided 2026-11-02 — `DECISIONS.md`)
 
-Ground truth = one instance per physical barrel (`DATA.md`, instance labels). A prediction is a `Barrel` (color, box in 640×480, confidence, optional ground position).
+Ground truth = one **box per physical barrel** (`DATA.md`, box labels): the full barrel as if occluders were transparent, clipped to the frame, with flags. A prediction is a `Barrel` (color, box in 640×480).
 
-- **Matching:** greedy, class-aware, by box IoU ≥ 0.5; predictions in confidence order take the best free ground truth. Deterministic (`eval_det.match_greedy`).
-- **Ignored ground truth:** barrels flagged `occluded`, `truncated` (cut by the frame edge) or `top_only` are VOC-style "difficult": matching one is not a hit, missing one is not a miss. They are counted (`n_ignored`).
-- **Per class:** precision, recall, F1 (strict, IoU-matched) and a **loose** P/R where a prediction counts if its projected ground position is within **15 mm** of the ground truth's (= the planner's "skinny" obstacle inflation).
-- **Errors over matched pairs:** box IoU; **bottom-edge row error** (px, signed: positive = predicted lower); **ground-position error** (mm): *projected* (both bottom-mids through the same `CameraModel`, available on every frame) and *measured* (vs the ruler truth of the `measured` split).
-- **Negative frames:** the number of false detections; any false detection on a negative frame **disqualifies** a config (as for pixels).
-- **Color confusions:** class-agnostic IoU matches whose colors differ, reported separately.
-- **Aggregation:** per condition + ALL, micro (pooled counts), medians/p90 for errors; `top`/`topstripe` reported but excluded from the headline.
-- **Proposed primary:** mean over classes of strict F1; targets open for Dave. Implementation: `src/barrels/eval_det.py`, `tools/eval_boxes.py`.
+- **A box is correct** when it has the same color as a ground-truth box, overlaps it with **IoU ≥ 0.5**, **and** its bottom edge is within **max(3 px, 10 % of the ground-truth box height)** of the true bottom edge. Both conditions must hold. Rationale: the bottom edge is what the world map will use; a tenth of the height is a few pixels on a far barrel and ≈ 15 px on a near one. (Tanush 2026-11-02: can be adjusted later, via a logged decision.)
+- **Matching:** greedy, class-aware, among eligible pairs (both conditions), highest IoU first; deterministic. Unmatched predictions are false positives, unmatched ground truth false negatives.
+- **Every ground-truth barrel counts.** Occluded barrels are scored on their inferred full box (Dave 2026-10-30), truncated barrels on their clipped box, held barrels like any other. Nothing is "difficult"/ignored any more. Flags are used only to **report** errors by case (bottom seen vs `bottom_estimated`, occluded, truncated, held).
+- **Per class:** precision, recall, F1 under the rule above, pooled over frames (micro). **Primary = mean of the two F1s.**
+- **Negative frames** (no barrels): their false detections count as FP in the pooled score and are listed per frame. A false barrel on a negative frame that contains **no orange or blue clutter** (`clean: true` in the label file) **disqualifies** the config — a frame with nothing barrel-like in it must come back with nothing drawn.
+- **Reported alongside:** matched-pair IoU; bottom-edge error (px, signed, positive = predicted lower; and as a fraction of box height), split by whether the labeler saw the bottom (`bottom_estimated` boxes are themselves a guess); barrel-count error per frame; color confusions (class-agnostic IoU matches with the wrong color).
+- **Aggregation:** per condition (light × surface), per arrangement (scene tag), ALL, and **separately for the unseen table** (below). Per-image numbers in the results folder.
+- **Floor:** the connected-components baseline (`detect_cc.py`), never tuned, re-scored under this rule.
+- **Implementation:** `src/barrels/eval_det.py`, `tools/eval_boxes.py` — to be updated for box ground truth and the bottom-edge condition (v2 M2). The 15 mm loose criterion and the projected/measured ground errors stay in the code for later; they are not part of the v2 score.
 
-### The `measured` split
+### v2 splits
 
-Frames with ruler-measured barrel positions (`meas` scene) form a fourth split, **`measured`**, never used for fitting or selection; evaluated like test — once per milestone with the pre-chosen config and a pre-declared `CameraModel` — and the only source of *measured* ground-position error. Position truth = the barrel axis in the robot base frame (x forward, y left), see `DATA.md`.
+- The 21 v1 frames keep their split: the 16 pool frames → train, the locked 5-frame test stays test (this also keeps the v1 pixel test clean if the color ranges are re-fit).
+- New v2 frames are assigned **at import, before any method sees them**: one entire table × light session is held out as the **unseen table** (planned: the beige table), and about one frame per scene tag from each training table goes to test as well. Everything else is train. Tuning uses cross-validation that holds out whole scenes (as v1). The unseen table is used for nothing but the final evaluation.
+- Calibration frames (`calib`, `ruler`, `horizon`) are geometry-only and in no split.
+- Selection rule as v1: primary metric; differences < 0.02 → simplest; at most two coordinate passes; test evaluated once per milestone with one pre-chosen config.
+
+### The `measured` split (deferred 2026-11-02)
+
+Defined 2026-10-28 for ground-position error in mm; **not used in v2**, which outputs boxes only. The known-distance `calib` frames serve geometry calibration instead. Revisit when the world map comes back into scope.
