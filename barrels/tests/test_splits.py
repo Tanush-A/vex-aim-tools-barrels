@@ -56,3 +56,24 @@ def test_measured_and_unassigned_scenes_routing():
     assert set(out["measured"]) <= set(again["measured"]) and len(again["measured"]) == 4
     loaded = sp.load_splits(__import__("pathlib").Path("/nonexistent/splits.json"))
     assert set(loaded) == set(sp.SPLIT_NAMES)
+
+
+def test_assign_holdout_per_scene_one_test_per_multiframe_scene():
+    new = (stems("overhead_black_core", 2) + stems("overhead_black_far", 1) + stems("overhead_black_neg", 3)
+           + stems("overhead_black_calib", 2) + stems("overhead_black_meas", 1))
+    a = sp.assign_holdout_per_scene(new, {s: [] for s in sp.SPLIT_NAMES}, seed=0)
+    b = sp.assign_holdout_per_scene(new, {s: [] for s in sp.SPLIT_NAMES}, seed=0)
+    assert a == b                                                   # deterministic
+    assert a["dev"] == []
+    assert sum(1 for x in a["test"] if "_core_" in x) == 1 and sum(1 for x in a["train"] if "_core_" in x) == 1
+    assert sum(1 for x in a["test"] if "_neg_" in x) == 1 and sum(1 for x in a["train"] if "_neg_" in x) == 2
+    assert a["train"].count("4A8B_overhead_black_far_01") == 1 and "4A8B_overhead_black_far_01" not in a["test"]
+    assert all("calib" not in x for v in a.values() for x in v)
+    assert a["measured"] == ["4A8B_overhead_black_meas_01"]
+    # existing assignments never move; a second session adds to the same groups independently
+    old = {"train": ["4A8B_window_light_core_01"], "dev": [], "test": ["4A8B_window_light_core_04"], "measured": []}
+    c = sp.assign_holdout_per_scene(new + ["4A8B_window_light_core_01", "4A8B_window_light_core_04"], old, seed=3)
+    assert "4A8B_window_light_core_01" in c["train"] and "4A8B_window_light_core_04" in c["test"]
+    assert sorted(x for v in c.values() for x in v) == sorted(set(new) - set(stems("overhead_black_calib", 2)) | set(old["train"]) | set(old["test"]))
+    two = sp.assign_holdout_per_scene(stems("lamp_beige_touch", 5), {s: [] for s in sp.SPLIT_NAMES}, n_test_per_scene=2)
+    assert len(two["test"]) == 2 and len(two["train"]) == 3

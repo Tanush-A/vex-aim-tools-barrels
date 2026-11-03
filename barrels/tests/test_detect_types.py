@@ -52,3 +52,13 @@ def test_attach_measured_truth_convention():
     spec = importlib.util.spec_from_file_location("attach_measured", pathlib.Path(__file__).resolve().parents[1] / "tools" / "attach_measured.py")
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     assert mod.truth_xy(100.0, -60.0) == (139.0, -60.0)      # d + 30 (front edge) + 9 (base radius)
+
+
+def test_barrels_from_boxes_keeps_color_box_and_flags():
+    meta = {"barrels": [{"id": 1, "color": "orange", "bbox": [10, 20, 50, 60], "flags": ["occluded", "bottom_estimated"]},
+                        {"id": 2, "color": "blue", "bbox": [100, 100, 140, 150], "flags": ["held"]}]}
+    out = dt.barrels_from_boxes(meta)
+    assert [b.color for b in out] == [io.ORANGE, io.BLUE] and out[0].bbox == (10, 20, 50, 60)
+    assert out[0].flags == frozenset({"occluded", "bottom_estimated"}) and out[1].flags == frozenset({"held"})
+    assert all(b.source == "gt" for b in out) and out[1].bottom_mid == (120.0, 150.0)
+    assert dt.barrels_from_boxes({"barrels": []}) == []

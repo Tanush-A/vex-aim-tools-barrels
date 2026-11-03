@@ -1,6 +1,6 @@
 # EVAL.md — metrics + protocol
 
-**Version:** v1 (2026-10-14; protocol detailed 2026-10-19); **v2 detection rule + splits added 2026-11-02** (`DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
+**Version:** v1 (2026-10-14; protocol detailed 2026-10-19); **v2 detection rule + splits added 2026-11-02; one-table v2.0 splits 2026-11-03** (`DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
 
 ## Metrics
 
@@ -50,14 +50,15 @@ Ground truth = one **box per physical barrel** (`DATA.md`, box labels): the full
 - **Per class:** precision, recall, F1 under the rule above, pooled over frames (micro). **Primary = mean of the two F1s.**
 - **Negative frames** (no barrels): their false detections count as FP in the pooled score and are listed per frame. A false barrel on a negative frame that contains **no orange or blue clutter** (`clean: true` in the label file) **disqualifies** the config — a frame with nothing barrel-like in it must come back with nothing drawn.
 - **Reported alongside:** matched-pair IoU; bottom-edge error (px, signed, positive = predicted lower; and as a fraction of box height), split by whether the labeler saw the bottom (`bottom_estimated` boxes are themselves a guess); barrel-count error per frame; color confusions (class-agnostic IoU matches with the wrong color).
-- **Aggregation:** per condition (light × surface), per arrangement (scene tag), ALL, and **separately for the unseen table** (below). Per-image numbers in the results folder.
+- **Aggregation:** per condition (light × surface), per arrangement (scene tag), ALL, and — once a second table exists (v2.1) — **separately for the unseen table** (below). Per-image numbers in the results folder.
 - **Floor:** the connected-components baseline (`detect_cc.py`), never tuned, re-scored under this rule.
 - **Implementation:** `src/barrels/eval_det.py`, `tools/eval_boxes.py` — to be updated for box ground truth and the bottom-edge condition (v2 M2). The 15 mm loose criterion and the projected/measured ground errors stay in the code for later; they are not part of the v2 score.
 
 ### v2 splits
 
 - The 21 v1 frames keep their split: the 16 pool frames → train, the locked 5-frame test stays test (this also keeps the v1 pixel test clean if the color ranges are re-fit).
-- New v2 frames are assigned **at import, before any method sees them**: one entire table × light session is held out as the **unseen table** (planned: the beige table), and about one frame per scene tag from each training table goes to test as well. Everything else is train. Tuning uses cross-validation that holds out whole scenes (as v1). The unseen table is used for nothing but the final evaluation.
+- New v2 frames are assigned **at import, before any method sees them**, by `tools/make_splits.py --v2 --filter <robot>_<light>_<surface>` (`splits.assign_holdout_per_scene`): within the session, **one frame per scene tag that has ≥ 2 frames goes to test**, the rest to train; dev stays empty. Tuning uses cross-validation that holds out whole scenes (as v1).
+- **v2.0 has one table** (decided 2026-11-03, timeline). The **unseen table** — a whole table × light session used for nothing but the final evaluation — is the v2.1 generalisation check, assigned the same way when that data is shot.
 - Calibration frames (`calib`, `ruler`, `horizon`) are geometry-only and in no split.
 - Selection rule as v1: primary metric; differences < 0.02 → simplest; at most two coordinate passes; test evaluated once per milestone with one pre-chosen config.
 

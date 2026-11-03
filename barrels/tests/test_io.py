@@ -81,3 +81,79 @@ def test_list_images_skips_inst_files(tmp_path):
     for n in ("a_01.png", "a_01_inst.png", "a_01_mask.png", "a_01_pred.png", "a_01_overlay.png", "a_01_orange.png", "a_01_blue.png"):
         (tmp_path / n).write_bytes(b"")
     assert [p.name for p in io.list_images(tmp_path)] == ["a_01.png"]
+
+
+# ---------------------------------------------------------------- box labels (v2)
+
+def _box(id, color, bbox, flags=()):
+    return {"id": id, "color": color, "bbox": list(bbox), "flags": list(flags), "note": ""}
+
+
+def test_boxes_round_trip_sorts_renumbers_and_derives_negative(tmp_path):
+    meta = {"image_sha1": "abc", "reviewed": True, "clean": False,
+            "barrels": [_box(7, "blue", (300, 100, 360, 170), ["occluded", "bottom_estimated"]), _box(2, "orange", (10, 20, 50, 60))]}
+    p = io.save_boxes("4A8B_window_light_core_01", meta, labels_dir=tmp_path)
+    assert p.name == "4A8B_window_light_core_01_boxes.json" and p == io.boxes_path("4A8B_window_light_core_01", tmp_path)
+    back = io.load_boxes("4A8B_window_light_core_01", labels_dir=tmp_path, raw_dir=tmp_path)   # no image there -> sha not checked
+    assert back["version"] == io.BOXES_JSON_VERSION and back["stem"] == "4A8B_window_light_core_01"
+    assert back["negative"] is False and back["clean"] is False and back["reviewed"] is True and back["image_sha1"] == "abc"
+    assert [b["id"] for b in back["barrels"]] == [1, 2]                      # renumbered left to right
+    assert back["barrels"][0]["bbox"] == [10, 20, 50, 60] and back["barrels"][0]["color"] == "orange"
+    assert back["barrels"][1]["flags"] == ["occluded", "bottom_estimated"]   # BOX_FLAGS order
+    neg = io.save_boxes("x_neg_01", {"barrels": []}, labels_dir=tmp_path)
+    assert neg.name == "x_neg_01_boxes.json" and io.load_boxes("x_neg_01", labels_dir=tmp_path, raw_dir=tmp_path)["negative"] is True
+    with pytest.raises(FileNotFoundError):
+        io.load_boxes("nope", labels_dir=tmp_path)
+
+
+def test_validate_boxes_rejects_bad_content():
+    ok = {"barrels": [_box(1, "orange", (0, 0, 640, 480))]}
+    io.validate_boxes(ok)
+    for bad in (
+        {"barrels": [_box(1, "orange", (10, 10, 10, 20))]},            # empty
+        {"barrels": [_box(1, "orange", (-1, 0, 20, 20))]},             # outside
+        {"barrels": [_box(1, "orange", (0, 0, 641, 20))]},             # outside
+        {"barrels": [_box(1, "orange", (0, 0, 20.5, 20))]},            # not ints
+        {"barrels": [_box(1, "red", (0, 0, 20, 20))]},                 # color
+        {"barrels": [_box(1, "blue", (0, 0, 20, 20), ["top_only"])]},  # not a box flag
+        {"barrels": [_box(1, "blue", (0, 0, 20, 20)), _box(1, "blue", (30, 30, 40, 40))]},   # duplicate id
+        {"negative": True, "barrels": [_box(1, "blue", (0, 0, 20, 20))]},                   # negative with barrels
+        {"negative": False, "barrels": []},
+        {"nothing": 1},
+    ):
+        with pytest.raises(ValueError):
+            io.validate_boxes(bad)
+
+
+def test_load_boxes_detects_changed_image(tmp_path):
+    img = np.zeros((480, 640, 3), np.uint8)
+    cv2.imwrite(str(tmp_path / "a_01.png"), img)
+    io.save_boxes("a_01", {"image_sha1": io.file_sha1(tmp_path / "a_01.png"), "barrels": []}, labels_dir=tmp_path)
+    io.load_boxes("a_01", labels_dir=tmp_path, raw_dir=tmp_path)
+    img[0, 0] = 255; cv2.imwrite(str(tmp_path / "a_01.png"), img)
+    with pytest.raises(ValueError, match="stale"):
+        io.load_boxes("a_01", labels_dir=tmp_path, raw_dir=tmp_path)
+    io.load_boxes("a_01", labels_dir=tmp_path, raw_dir=tmp_path, check_image=False)
+
+
+def test_boxes_from_instances_maps_flags_and_truncation():
+    imeta = {"stem": "4A8B_window_light_top_01", "barrels": [
+        {"id": 1, "color": "orange", "flags": ["top_only"], "bbox": [100, 300, 500, 480]},
+        {"id": 2, "color": "blue", "flags": ["occluded", "no_stripe"], "bbox": [10, 20, 40, 50]},
+        {"id": 3, "color": "blue", "flags": [], "bbox": [0, 100, 30, 150]}]}
+    meta = io.boxes_from_instances(imeta, image_sha1="s")
+    assert meta["reviewed"] is False and meta["source"] == "from_inst" and meta["negative"] is False and meta["clean"] is True
+    by_id = {b["id"]: b for b in meta["barrels"]}
+    assert by_id[1]["flags"] == ["truncated"]                       # top_only -> truncated (also touches the frame)
+    assert by_id[2]["flags"] == ["no_stripe", "occluded"]           # sorted set
+    assert by_id[3]["flags"] == ["truncated"]                       # touches x = 0
+    empty = io.boxes_from_instances({"stem": "n", "barrels": []}, "s")
+    assert empty["negative"] is True and empty["barrels"] == []
+    assert io.touches_frame((0, 10, 20, 30)) and io.touches_frame((10, 10, 640, 30)) and not io.touches_frame((1, 1, 639, 479))
+
+
+def test_list_images_skips_boxes_side_files(tmp_path):
+    for n in ("a_01.png", "a_01_boxes.png"):
+        (tmp_path / n).write_bytes(b"")
+    assert [p.name for p in io.list_images(tmp_path)] == ["a_01.png"]
+    assert io.find_image("a_01", tmp_path) == tmp_path / "a_01.png" and io.find_image("zz", tmp_path) is None

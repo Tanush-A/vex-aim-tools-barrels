@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_light_core_04",
+ "image_sha1": "fcd88b3ebcb416fc040c807fbca8be18838147f8",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "from_inst",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    317,
+    135,
+    391,
+    214
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

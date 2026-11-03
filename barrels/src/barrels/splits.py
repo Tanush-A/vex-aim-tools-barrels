@@ -126,3 +126,31 @@ def split_of(stem: str, splits: dict[str, list[str]]) -> str | None:
         if stem in splits[s]:
             return s
     return None
+
+
+def assign_holdout_per_scene(stems: list[str], splits: dict[str, list[str]] | None = None, seed: int = 0,
+                             n_test_per_scene: int = 1) -> dict[str, list[str]]:
+    """v2 assignment (EVAL.md, "v2 splits"): new stems are grouped by condition (light_surface_scene);
+    every group with more than ``n_test_per_scene`` frames sends that many seeded-random frames to test
+    and the rest to train; smaller groups go whole to train; dev gets nothing. calib/ruler/horizon are
+    never assigned, ``meas`` goes to measured, and existing assignments never move."""
+    splits = {s: list(v) for s, v in (splits or load_splits()).items()}
+    splits.setdefault("measured", [])
+    assigned = {x for v in splits.values() for x in v}
+    groups: dict[str, list[str]] = {}
+    for s in sorted(set(stems) - assigned):
+        scene = _scene(s)
+        if scene in UNASSIGNED_SCENES:
+            continue
+        if scene in MEASURED_SCENES:
+            splits["measured"].append(s)
+            continue
+        groups.setdefault(_condition(s), []).append(s)
+    rng = random.Random(seed)
+    for cond in sorted(groups):
+        items = sorted(groups[cond])
+        rng.shuffle(items)
+        k = n_test_per_scene if len(items) > n_test_per_scene else 0
+        splits["test"] += items[:k]
+        splits["train"] += items[k:]
+    return splits

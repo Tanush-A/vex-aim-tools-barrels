@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_light_neg_03",
+ "image_sha1": "7b0045f36def7a6a35b1a3f382c6196b5b668e2e",
+ "reviewed": false,
+ "negative": true,
+ "clean": true,
+ "source": "from_inst",
+ "barrels": []
+}

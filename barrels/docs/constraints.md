@@ -46,7 +46,7 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 - Rows above the horizon: wall/background, never a barrel. Rows between the horizon and the visible table edge **can** contain barrels (seen against the wall).
 - **Frames may contain no barrels** (Dave, 2026-10-14). Every prior and every adaptive step must work on a barrel-free frame; `neg` scenes are in every capture set.
 - **Clutter is expected (v2):** ordinary objects, hands, and a few orange/blue objects used as distractors; all are negatives (must not be boxed). Nothing is placed specifically to fool the detector. The stripe is what distinguishes a barrel from another orange/blue object.
-- v1 data: white table, window light, no distractors. v2 data: white, beige and black tables under whatever light is there, with clutter (`DATA.md`). Wood is out (Dave 2026-10-24). Goal: works on a table never seen in training.
+- v1 data: white table, window light, no distractors. v2.0 data: one table and one background, varied arrangements and clutter (`DATA.md`; Tanush 2026-11-03). v2.1: more tables. Wood is out (Dave 2026-10-24). Goal: works on a table never seen in training.
 - Barrels are upright (knocked-over barrels: question for Dave). A barrel held in the robot's kicker sits barely off the ground (Tanush 2026-11-02) and is treated as on the ground.
 
 ## Known confusers (from the 10/7 baselines; details in `EXPERIMENTS.md`)

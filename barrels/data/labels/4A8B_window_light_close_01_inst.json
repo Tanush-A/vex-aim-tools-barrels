@@ -1,7 +1,7 @@
 {
  "version": 1,
  "mask_sha1": "deb1f0d31e747306df299f25392cf82011c21ac0",
- "reviewed": false,
+ "reviewed": true,
  "camera": {
   "f": 404.0,
   "tilt_deg": 23.3,
@@ -22,7 +22,24 @@
    "occluded_height_frac": 0.6
   }
  },
- "edits": [],
+ "edits": [
+  {
+   "op": "color",
+   "point": [
+    346,
+    187
+   ],
+   "color": "blue"
+  },
+  {
+   "op": "color",
+   "point": [
+    346,
+    187
+   ],
+   "color": "orange"
+  }
+ ],
  "dropped_px": 0,
  "barrels": [
   {

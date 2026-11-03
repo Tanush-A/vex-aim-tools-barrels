@@ -1,6 +1,6 @@
 # DATA.md — dataset index, naming, labels, splits
 
-**Updated:** 2026-11-02 (v2 box labels + capture plan + calibration session; measured set deferred).
+**Updated:** 2026-11-03 (v2.0 cut to one table; box tool + converted boxes; `make_splits.py --v2`).
 
 ## Storage
 
@@ -142,7 +142,7 @@ One file per image, committed next to the masks: `data/labels/<stem>_boxes.json`
 - `color` = the body color (an orange barrel has a blue stripe).
 - `negative` = true when the frame has no barrels (an empty list is then explicit). `clean` = true when nothing orange or blue is in the frame besides barrels; the eval's disqualification rule uses it.
 - `flags` ⊆ {`occluded` (something hides part of it), `truncated` (the frame edge cuts it), `held` (in the robot's kicker), `bottom_estimated` (you could not see where the base meets the table and estimated it), `no_stripe` (the stripe is not visible)}.
-- For the 21 v1 frames the `_inst.*` files are the starting point (`box_tool.py --from-inst` converts them); after that, boxes are the ground truth and the instance review is no longer needed.
+- `source` = `manual` | `from_inst` | `from_inst+manual`. The 21 v1 frames were converted from their `_inst.*` files on 2026-11-03 (`box_tool.py --from-inst`): boxes around the visible pixels, `reviewed: false`, to be stretched to the full barrel where occluded. Saving a frame in the tool marks it reviewed. Boxes are the detection ground truth from here on; the instance review is no longer needed.
 
 ### Box labeling rules
 
@@ -155,11 +155,11 @@ One file per image, committed next to the masks: `data/labels/<stem>_boxes.json`
 - **Held barrel** (in the kicker): box it normally, flag `held`.
 - 1–2 px precision is enough; the eval tolerance is a tenth of the box height.
 
-**Tool:** `python barrels/tools/box_tool.py [--filter black] [--from-inst]` (v2 M1, to build). Drag to draw a box; `o`/`b` set its color; `x`/`t`/`h`/`e`/`s` toggle occluded / truncated / held / bottom_estimated / no_stripe; `c` toggles `clean`; `d` deletes; `u` undoes; `n`/`p` save and move. ≈ 30 s per frame.
+**Tool:** `python barrels/tools/box_tool.py [--filter <light>_<surface>] [--unlabeled]` (v2 M1, 2026-11-03). Drag on empty space to draw a box (it takes the color of the last box drawn); click inside a box to select it; drag an edge or corner of the selected box to move just that edge. `o`/`b` set the color; `x`/`h`/`e`/`s` toggle occluded / held / bottom_estimated / no_stripe (`truncated` is set automatically when the box touches a frame edge); `c` toggles `clean`; `d` deletes; `u` undoes; `g` shows the barrel size the geometry expects at the cursor row (a sanity check — draw what you see first); `v` toggles the raw view; `w` saves; `n`/`p` save and move; `q` saves and quits. ≈ 30 s per frame.
 
 ## v2 capture plan (2026-11)
 
-Three tables, **not wood**: white (`--surface light`, as the v1 frames), beige (`beige`), black (`black`); whatever light is there, tagged honestly (`window`, `overhead`, `lamp`, `mixed`, …). Clutter is Tanush's own, varied, mostly not orange/blue, with a few orange/blue objects as distractors. Barrels upright. Per table, shoot in this order in one session and import with the matching `--scenes` list:
+**v2.0 (decided 2026-11-03): one table and one background**, not wood, whatever light is there, tagged honestly (`--surface` = `light` | `beige` | `black` | …; `--light` = `window` | `overhead` | `lamp` | `mixed` | …). Variety comes from arrangements, positions and clutter, not from surfaces: shoot the list below **once at minimum, twice if time allows** (second pass: different clutter, positions and distances; ≈ 38 frames). More tables are v2.1. Clutter is Tanush's own, varied, mostly not orange/blue, with a few orange/blue objects as distractors. Barrels upright. Shoot in this order in one session and import with the matching `--scenes` list:
 
 | # | scene | shot |
 |---|---|---|
@@ -183,7 +183,9 @@ python barrels/tools/import_snaps.py --light <light> --surface <light|beige|blac
 core,core,far,close,topstripe,top,touch,touch,occl,occl,cluster,cluster,edge,clutter,clutter,neg,neg,neg,held --dry-run
 ```
 
-**Calibration session** (one non-wood table, once; Dave's "lookup table"): one **orange** barrel centred on the vertical crosshair, ruler zero at the robot's front edge, distance to the **near edge of the base at table level** (the bulge overhangs it by ≈ 3.75 mm — slide the ruler under): **0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm** → 12 `calib` frames, in that order, ruler out of frame before `s`. Plus one `horizon` frame if a wall ≥ 1 m away is available: a mark at **43.47 mm** above the table, centred. Import with `--scenes calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,horizon`. Geometry-only (no split); the distances go in `data/calib.csv` (`stem, d_ruler_mm`).
+Then assign splits **right away**, before any method sees the frames (labels are not needed for this): `python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>` — one frame per scene tag with ≥ 2 frames → test, the rest → train. Commit `data/raw/` and `data/splits.json`. Then label boxes (`box_tool.py --filter <light>_<surface>`).
+
+**Calibration session** (one non-wood table, once; Dave's "lookup table"): one **orange** barrel centred on the vertical crosshair, ruler zero at the robot's front edge, distance to the **near edge of the base at table level** (the bulge overhangs it by ≈ 3.75 mm — slide the ruler under): **0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm** → 12 `calib` frames, in that order, ruler out of frame before `s`. Plus one `horizon` frame if a wall ≥ 1 m away is available: a mark at **43.47 mm** above the table, centred. Import with `--scenes calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,horizon`. Geometry-only (no split); the distances go in `data/calib.csv` (`stem, d_ruler_mm`). **Label the calib frames with boxes too** (one barrel each, `box_tool.py --filter calib`): the top row, bottom row and width of those boxes are what the geometry calibration (M4) fits f and tilt from.
 
 Masks are not needed for v2. Optionally paint `_mask.png` on two frames per table (`label_tool.py --filter <surface>`) as a segmentation sanity check.
 
@@ -196,7 +198,7 @@ Fixed **train / dev / test**; test is held out early and **never used for tuning
 | test (5, locked 2026-10-19) | `window_light_core_04`, `window_light_edge_02`, `window_light_far_01`, `window_light_neg_03`, `window_light_touch_01` |
 | train / pool (16) | all other `4A8B_window_light_*` frames: close 01–02, cluster 01–02, core 01–03, edge_01, far_02, neg 01–02, occl 01–02, top_01, topstripe_01, touch_02 — tuned by leave-one-scene-out CV (`EVAL.md`) |
 | dev | empty by design (v1) |
-| v2 frames (assigned at import, 2026-11) | one whole table × light session → test as the **unseen table** (planned: beige); ≈ 1 frame per scene tag from each training table → test; the rest → train |
+| v2.0 frames (assigned at import, `make_splits.py --v2`) | one frame per scene tag with ≥ 2 frames → test; the rest → train; dev empty. The unseen-table hold-out is v2.1 |
 | measured | deferred (`meas` frames not shot); never tuned on |
 | not in any split | `calib`, `ruler`, `horizon` frames (geometry only) |
 
@@ -206,5 +208,5 @@ Fixed **train / dev / test**; test is held out early and **never used for tuning
 |---|---|---|---|
 | Home color baselines (10/7) | `barrels/data/raw/4A8B_*_wood_*.png` (moved from repo-root `color_data/` 2026-10-14; `top&stripe` renamed `topstripe`) | 19 PNG, wood desk, 3 lamp directions × 3 warmths | Unlabeled; used for probe-based baselines (`EXPERIMENTS.md` 2026-10-07). Not v1 training data (wood, direct lamp light) — later stress tests. |
 | Dave's barrels.zip (9/28) | not in repo | 20 snapshots; snap00–11 have GIMP-drawn GT boxes baked into pixels (not machine-readable) | Reference only; zip lacked `detect.py` + `bounding_boxes*.png` (asked Dave) |
-| v1 base set (10/19) | `barrels/data/raw/4A8B_window_light_*.png` | 21 PNG + masks + instances | Labeled; splits locked |
-| v2 three-table set | to shoot (`v2 capture plan`) | ≈ 19 per table × 3 + 12 `calib` + `horizon` | Not captured yet |
+| v1 base set (10/19) | `barrels/data/raw/4A8B_window_light_*.png` | 21 PNG + masks + instances + boxes | Labeled; splits locked; boxes converted from instances 2026-11-03 (`reviewed: false`, Tanush to fix) |
+| v2.0 set (one table, one background) | to shoot (`v2 capture plan`) | 19–38 frames + 12 `calib` + `horizon` | Not captured yet (plan cut to one table 2026-11-03) |

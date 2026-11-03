@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_light_close_02",
+ "image_sha1": "6b5e8c8e7f989dfe6676b1b68c48f73b4d1a74e9",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "from_inst",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    306,
+    141,
+    392,
+    233
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

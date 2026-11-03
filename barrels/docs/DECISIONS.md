@@ -4,6 +4,18 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-11-03 — v2.0 data = one table, one background; demo today; generalisation deferred
+
+- **Decision (1) data:** v2.0 is built and tested on one table and one background (Tanush's choice), with varied arrangements, positions and clutter — the 19-shot list in `DATA.md`, twice if time allows — plus the 12-frame `calib` session and a `horizon` frame. The three-table plan and the unseen-table hold-out move to v2.1.
+- **Decision (2) splits:** the locked 5-frame test stays; new frames are assigned at import by `make_splits.py --v2` (`splits.assign_holdout_per_scene`): one frame per scene tag with ≥ 2 frames → test, the rest → train, dev empty; tuning by scene-held-out CV as before.
+- **Decision (3) box labels:** the 21 v1 frames were converted from their instances (`box_tool.py --from-inst`, `reviewed: false`); Tanush's five partly reviewed instance files are committed as they are. `truncated` is derived (the box touches a frame edge), not a key. Boxes are not pre-filled from the detector on new frames: that would anchor the ground-truth bottom edge on the thing being measured.
+- **Decision (4) today:** Tanush has ≈ 1 h 45 (16:15–18:00) to have something to show and to understand it fully. So the first detector is built on the 21 existing frames, kept to three explainable steps (barrel-colored blobs → how many barrels by the expected width at that row → hidden bottom from the top row via the geometry), with a one-image CLI, and scored provisionally against the instance ground truth with the existing eval (IoU rule) on the 16 train frames next to the CC floor. The stripe anchor, the v2 eval rule and the new data follow.
+- **Why:** Tanush 2026-11-03: the timeline was pushed forward significantly; his data collection is the bottleneck, so everything that can run on the existing frames runs now, in parallel with shooting.
+- **Who:** Tanush (scope, timeline), Claude Code (plan), 2026-11-03.
+- **Alternatives:** three tables with fewer frames each (rejected — one session is all the time allows; arrangements matter more than surfaces for the detector logic); shoot and label today (rejected — would use the whole window on data with nothing to show); pre-fill labels from the detector (rejected, above).
+
+---
+
 ## 2026-11-02 — v2.0 = draw boxes on a still image; stripe-anchored detection; box labels; three-table data; code must be explainable
 
 - **Decision (1) scope:** v2 takes one 640×480 image and returns the same image with one box per barrel in the barrel's color, on the laptop. Nothing downstream of the boxes (ground positions, world map, aivision spec, running on the robot) is touched; it is assumed correct. The box is the full barrel — as if occluders were transparent — clipped to the frame. All four hidden-bottom cases (below the frame, shadow, behind a barrel, behind clutter) are in scope; occluded barrels are reported with their inferred full box; a held barrel is detected like any other. Confidence and inferred distance are kept internally, not shown. (Dave meeting 2026-10-30, relayed by Tanush; details settled 2026-11-02.)

@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_light_edge_01",
+ "image_sha1": "dc27a09761bbe1c0d32a67c1470dffae4b6c36a1",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "from_inst",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    133,
+    34,
+    198
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": ""
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "version": 1,
  "mask_sha1": "b6f7f46381ddb20cbfd4c5f57632590b79aa0752",
- "reviewed": false,
+ "reviewed": true,
  "camera": {
   "f": 404.0,
   "tilt_deg": 23.3,

@@ -208,3 +208,112 @@ def save_instances(image_or_stem: Path | str, inst: np.ndarray, meta: dict,
     meta["barrels"] = [old.get(i, {}) | live[i] for i in sorted(live)]
     js.write_text(json.dumps(meta, indent=1) + "\n")
     return png, js
+
+
+# ---------------------------------------------------------------- box labels (v2, docs/DATA.md "Box labels")
+
+BOXES_JSON_VERSION = 1
+BOX_FLAGS = ("occluded", "truncated", "held", "bottom_estimated", "no_stripe")
+FRAME_W, FRAME_H = 640, 480
+# how the v1.5 instance flags map onto box flags (top_only = lid only, bottom below the frame -> truncated)
+INST_TO_BOX_FLAGS = {"occluded": "occluded", "truncated": "truncated", "top_only": "truncated", "no_stripe": "no_stripe"}
+
+
+def boxes_path(image_or_stem: Path | str, labels_dir: Path | str | None = None) -> Path:
+    """``data/labels/<stem>_boxes.json`` — one box per barrel, the v2 detection ground truth."""
+    return Path(labels_dir or LABELS_DIR) / f"{Path(image_or_stem).stem}_boxes.json"
+
+
+def find_image(stem: str, raw_dir: Path | str | None = None) -> Path | None:
+    """The raw image for a stem (png/jpg/jpeg), or None."""
+    for suf in IMAGE_SUFFIXES:
+        p = Path(raw_dir or RAW_DIR) / f"{stem}{suf}"
+        if p.exists():
+            return p
+    return None
+
+
+def touches_frame(bbox, shape: tuple[int, int] = (FRAME_H, FRAME_W)) -> bool:
+    """True when a half-open box reaches any frame edge (the barrel may be cut by the frame)."""
+    x0, y0, x1, y1 = bbox
+    return x0 <= 0 or y0 <= 0 or x1 >= shape[1] or y1 >= shape[0]
+
+
+def validate_boxes(meta: dict, shape: tuple[int, int] = (FRAME_H, FRAME_W)) -> None:
+    """Raise ValueError unless ``meta`` is a well-formed box label: a 'barrels' list whose boxes are four
+    ints, half-open, non-empty and inside the frame; colors orange|blue; flags from BOX_FLAGS; unique
+    ids; and 'negative' true exactly when the list is empty."""
+    h, w = shape
+    if not isinstance(meta, dict) or not isinstance(meta.get("barrels"), list):
+        raise ValueError("box label needs a 'barrels' list")
+    ids: set = set()
+    for b in meta["barrels"]:
+        bb = b.get("bbox")
+        if not (isinstance(bb, (list, tuple)) and len(bb) == 4 and all(isinstance(v, (int, np.integer)) and not isinstance(v, bool) for v in bb)):
+            raise ValueError(f"bbox must be four ints [x0, y0, x1, y1], got {bb!r}")
+        x0, y0, x1, y1 = (int(v) for v in bb)
+        if not (0 <= x0 < x1 <= w and 0 <= y0 < y1 <= h):
+            raise ValueError(f"bbox {bb} is empty or outside the {w}x{h} frame")
+        if b.get("color") not in ("orange", "blue"):
+            raise ValueError(f"color must be 'orange' or 'blue', got {b.get('color')!r}")
+        bad = set(b.get("flags", ())) - set(BOX_FLAGS)
+        if bad:
+            raise ValueError(f"unknown flags {sorted(bad)}; allowed: {BOX_FLAGS}")
+        if "id" in b:
+            if b["id"] in ids:
+                raise ValueError(f"duplicate barrel id {b['id']}")
+            ids.add(b["id"])
+    if bool(meta.get("negative", not meta["barrels"])) != (not meta["barrels"]):
+        raise ValueError("'negative' must be true exactly when there are no barrels")
+
+
+def load_boxes(image_or_stem: Path | str, labels_dir: Path | str | None = None, *,
+               check_image: bool = True, raw_dir: Path | str | None = None) -> dict:
+    """The box label dict for a stem. Raises FileNotFoundError, or ValueError when the content is bad or
+    (check_image, image found in raw_dir) the image changed since the boxes were drawn."""
+    import json
+    stem = Path(image_or_stem).stem
+    p = boxes_path(stem, labels_dir)
+    if not p.exists():
+        raise FileNotFoundError(p)
+    meta = json.loads(p.read_text())
+    validate_boxes(meta)
+    if check_image and meta.get("image_sha1"):
+        img = find_image(stem, raw_dir)
+        if img is not None and file_sha1(img) != meta["image_sha1"]:
+            raise ValueError(f"{p.name} is stale: {img.name} changed since the boxes were drawn")
+    return meta
+
+
+def save_boxes(image_or_stem: Path | str, meta: dict, labels_dir: Path | str | None = None) -> Path:
+    """Validate and write ``<stem>_boxes.json``: barrels sorted left to right and renumbered 1..N, bbox as
+    ints, flags in BOX_FLAGS order, 'negative' derived from the list, 'clean' default true."""
+    import json
+    validate_boxes(meta)
+    stem = Path(image_or_stem).stem
+    out = {"version": BOXES_JSON_VERSION, "stem": stem, "image_sha1": meta.get("image_sha1", ""),
+           "reviewed": bool(meta.get("reviewed", False)), "negative": not meta["barrels"],
+           "clean": bool(meta.get("clean", True)), "source": meta.get("source", "manual"), "barrels": []}
+    for i, b in enumerate(sorted(meta["barrels"], key=lambda b: (b["bbox"][0], b["bbox"][1])), 1):
+        out["barrels"].append({"id": i, "color": b["color"], "bbox": [int(v) for v in b["bbox"]],
+                               "flags": [f for f in BOX_FLAGS if f in b.get("flags", ())], "note": b.get("note", "")})
+    p = boxes_path(stem, labels_dir)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(out, indent=1) + "\n")
+    return p
+
+
+def boxes_from_instances(inst_meta: dict, image_sha1: str = "", shape: tuple[int, int] = (FRAME_H, FRAME_W)) -> dict:
+    """A provisional (reviewed=false) box label from a v1.5 instance JSON: one box per instance around its
+    visible pixels (not yet the full barrel — the labeler fixes occluded ones), body color kept, flags
+    mapped by INST_TO_BOX_FLAGS, 'truncated' added when the box touches the frame."""
+    barrels = []
+    for r in inst_meta.get("barrels", []):
+        flags = {INST_TO_BOX_FLAGS[f] for f in r.get("flags", ()) if f in INST_TO_BOX_FLAGS}
+        if touches_frame(r["bbox"], shape):
+            flags.add("truncated")
+        barrels.append({"id": r["id"], "color": r["color"], "bbox": [int(v) for v in r["bbox"]], "flags": sorted(flags), "note": ""})
+    meta = {"version": BOXES_JSON_VERSION, "stem": inst_meta.get("stem", ""), "image_sha1": image_sha1, "reviewed": False,
+            "negative": not barrels, "clean": True, "source": "from_inst", "barrels": barrels}
+    validate_boxes(meta, shape)
+    return meta

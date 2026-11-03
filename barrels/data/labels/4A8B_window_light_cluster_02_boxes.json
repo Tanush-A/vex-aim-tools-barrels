@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_light_cluster_02",
+ "image_sha1": "863cd1ae46dd51bde5e0b2a006ed9446652eb8bb",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "from_inst",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    306,
+    119,
+    351,
+    170
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    351,
+    119,
+    390,
+    167
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    390,
+    116,
+    432,
+    163
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    443,
+    122,
+    499,
+    180
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

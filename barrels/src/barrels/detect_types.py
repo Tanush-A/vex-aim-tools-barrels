@@ -18,7 +18,8 @@ AIVISION_COLORS = {v: k for k, v in AIVISION_NAMES.items()}
 COLOR_NAMES = {ORANGE: "orange", BLUE: "blue"}
 COLOR_BY_NAME = {v: k for k, v in COLOR_NAMES.items()}
 AIVISION_SCALE = 2                       # aivision reports 320x240; the image is 640x480
-FLAGS = ("truncated", "occluded", "no_stripe", "top_only", "bottom_inferred")
+FLAGS = ("truncated", "occluded", "no_stripe", "top_only", "bottom_inferred",   # detector / v1.5 instance flags
+         "held", "bottom_estimated")                                              # v2 box-label flags (io.BOX_FLAGS)
 
 
 @dataclass(frozen=True)
@@ -138,3 +139,9 @@ def barrels_from_instances(inst: np.ndarray, meta: dict, mask: np.ndarray | None
             b = b.with_ground(cam)
         out.append(b)
     return out
+
+
+def barrels_from_boxes(meta: dict) -> list[Barrel]:
+    """Ground-truth Barrel list from a v2 box label dict (``io.load_boxes``): color, box and flags as drawn."""
+    return [Barrel(color=COLOR_BY_NAME[b["color"]], bbox=tuple(int(v) for v in b["bbox"]),
+                   flags=frozenset(b.get("flags", ())), source="gt") for b in meta.get("barrels", [])]
