@@ -1,0 +1,3 @@
+condition,n_frames,n_neg,neg_false_detections,orange_n_gt,orange_P,orange_R,orange_F1,orange_P_loose,orange_R_loose,blue_n_gt,blue_P,blue_R,blue_F1,blue_P_loose,blue_R_loose,mean_iou,bottom_err_median_px,bottom_err_p90_px,ground_proj_median_mm,ground_meas_median_mm,ground_meas_n,color_confusions
+ALL,12,0,0,22,—,0.000,0.000,—,0.000,12,—,0.000,0.000,—,0.000,—,—,—,—,—,0,0
+office_speckle_snap,12,0,0,22,—,0.000,0.000,—,0.000,12,—,0.000,0.000,—,0.000,—,—,—,—,—,0,0

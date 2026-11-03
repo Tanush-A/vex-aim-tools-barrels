@@ -1,0 +1,74 @@
+[
+ {
+  "color": "orange",
+  "bbox": [
+   306,
+   119,
+   352,
+   169
+  ],
+  "confidence": 0.7960308710033076,
+  "bottom_mid": [
+   329.0,
+   169.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 1961,
+  "source": "det1"
+ },
+ {
+  "color": "blue",
+  "bbox": [
+   354,
+   118,
+   395,
+   166
+  ],
+  "confidence": 0.7616352201257862,
+  "bottom_mid": [
+   374.5,
+   166.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 1698,
+  "source": "det1"
+ },
+ {
+  "color": "orange",
+  "bbox": [
+   395,
+   117,
+   431,
+   163
+  ],
+  "confidence": 0.8273127753303965,
+  "bottom_mid": [
+   413.0,
+   163.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 1232,
+  "source": "det1"
+ },
+ {
+  "color": "blue",
+  "bbox": [
+   443,
+   122,
+   498,
+   178
+  ],
+  "confidence": 0.7579591836734694,
+  "bottom_mid": [
+   470.5,
+   178.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 2571,
+  "source": "det1"
+ }
+]

@@ -4,6 +4,15 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-11-03 — Provisional camera preset from labeled boxes; detector step 1 is the demo
+
+- **Decision:** `geometry.AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon 76) — tilt re-fit from the 24 fully visible labeled barrels on the train frames with f held at 400 — is the detector's default camera until the `calib` session measures f and tilt directly. The October preset stays in the code for comparison. `constraints.md` #2/#3 annotated (doc update). The first detector (`detector.py`, step 1: blobs → count by expected width → bottom from the top row) is committed after Tanush's walkthrough as the thing to show today; the stripe anchor is step 2.
+- **Why:** with the preset every predicted bottom was ≈ 20 px too low and the detector scored 0.52; with the re-fit, 0.78 and bottoms within 1 px (`EXPERIMENTS.md` 2026-11-03). Fitting on train frames is allowed (no test frame used); it is a 1-parameter physical fit, labeled provisional.
+- **Who:** Claude Code, 2026-11-03; Tanush to acknowledge in the walkthrough.
+- **Alternatives:** free (f, tilt) fit (rejected — degenerate ridge; f = 298 is outside every measurement); wait for the calib frames (rejected — nothing to show today).
+
+---
+
 ## 2026-11-03 — v2.0 data = one table, one background; demo today; generalisation deferred
 
 - **Decision (1) data:** v2.0 is built and tested on one table and one background (Tanush's choice), with varied arrangements, positions and clutter — the 19-shot list in `DATA.md`, twice if time allows — plus the 12-frame `calib` session and a `horizon` frame. The three-table plan and the unseen-table hold-out move to v2.1.

@@ -2,10 +2,10 @@
  "version": 1,
  "stem": "4A8B_window_light_core_02",
  "image_sha1": "a1784e928091082a8a0d359013927c049acd269b",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,

@@ -1,0 +1,8 @@
+{
+ "cam": "4a8b",
+ "iou": 0.5,
+ "split": "filter:DAVE_",
+ "gt": "boxes",
+ "git": "7d0787e",
+ "pred": "/Users/tanush/Desktop/Celeste/vex-aim-tools/barrels/results/2026-11-03_dave_snaps/det_cc"
+}

@@ -2,9 +2,9 @@
  "version": 1,
  "stem": "4A8B_window_light_neg_02",
  "image_sha1": "a07c25483875b8d824f4368ee6acc2930c1a679e",
- "reviewed": false,
+ "reviewed": true,
  "negative": true,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": []
 }

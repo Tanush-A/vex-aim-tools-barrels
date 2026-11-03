@@ -2,10 +2,10 @@
  "version": 1,
  "stem": "4A8B_window_light_topstripe_01",
  "image_sha1": "01cf52df8f62496070bbb75f33ab431bdb3da495",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,
@@ -17,7 +17,8 @@
     480
    ],
    "flags": [
-    "truncated"
+    "truncated",
+    "bottom_estimated"
    ],
    "note": ""
   }

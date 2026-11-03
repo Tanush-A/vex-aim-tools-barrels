@@ -1,0 +1,13 @@
+name,condition,negative,orange_n_gt,orange_tp,orange_fp,orange_fn,orange_ignored,orange_tp_loose,orange_fp_loose,orange_fn_loose,blue_n_gt,blue_tp,blue_fp,blue_fn,blue_ignored,blue_tp_loose,blue_fp_loose,blue_fn_loose,color_confusions
+DAVE_office_speckle_snap_00,office_speckle_snap,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_01,office_speckle_snap,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_02,office_speckle_snap,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_03,office_speckle_snap,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_04,office_speckle_snap,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_05,office_speckle_snap,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_06,office_speckle_snap,0,3,0,0,2,1,0,0,2,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_07,office_speckle_snap,0,3,0,0,2,1,0,0,2,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_08,office_speckle_snap,0,3,0,0,3,0,0,0,3,1,0,0,0,1,0,0,0,0
+DAVE_office_speckle_snap_09,office_speckle_snap,0,3,0,0,3,0,0,0,3,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_10,office_speckle_snap,0,2,0,0,2,0,0,0,2,1,0,0,1,0,0,0,1,0
+DAVE_office_speckle_snap_11,office_speckle_snap,0,2,0,0,2,0,0,0,2,1,0,0,0,1,0,0,0,0

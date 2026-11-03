@@ -2,10 +2,10 @@
  "version": 1,
  "stem": "4A8B_window_light_cluster_02",
  "image_sha1": "863cd1ae46dd51bde5e0b2a006ed9446652eb8bb",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,
@@ -25,7 +25,7 @@
    "bbox": [
     351,
     119,
-    390,
+    398,
     167
    ],
    "flags": [],
@@ -40,7 +40,9 @@
     432,
     163
    ],
-   "flags": [],
+   "flags": [
+    "occluded"
+   ],
    "note": ""
   },
   {
@@ -49,8 +51,8 @@
    "bbox": [
     443,
     122,
-    499,
-    180
+    500,
+    179
    ],
    "flags": [],
    "note": ""

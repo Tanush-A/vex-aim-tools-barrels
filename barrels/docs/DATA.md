@@ -189,6 +189,10 @@ Then assign splits **right away**, before any method sees the frames (labels are
 
 Masks are not needed for v2. Optionally paint `_mask.png` on two frames per table (`label_tool.py --filter <surface>`) as a segmentation sanity check.
 
+## Dave's snapshots (barrels.zip, 2026-09-28; imported 2026-11-03)
+
+20 frames from Dave's robot in his office: `DAVE_office_speckle_snap_00–11` (a speckled gray-pink desk, window + room light; 12 frames with his ground-truth boxes) and `DAVE_office_dark_snap_12–19` (a dark table, warm dim light, 5–7 barrels, a hand; no ground truth). Imported by `tools/import_dave_zip.py ~/Downloads/barrels.zip`; his boxes were drawn in a separate `<snap>_ground_truth.png` (yellow = orange barrel, green = blue) and are recovered pixel-exactly as the difference from the raw snapshot → `<stem>_boxes.json` with `source: "dave_gt"`, `clean: false` (office clutter; unknown). His notes: `docs/DAVE-barrels-zip-notes.md` (his barrel size is 25 × 22 mm; ours measured 24 × 25.5). Scenes: 6 near-identical mid-range pairs (00–05), then close-ups with a lid filling the bottom of the frame (06–11). **Outside check only: in no split, never tuned on** (`EXPERIMENTS.md` 2026-11-03: the v1 segmentation finds nothing on them).
+
 ## Splits
 
 Fixed **train / dev / test**; test is held out early and **never used for tuning** (see `EVAL.md`). Machine-readable copy: `data/splits.json`, written by `tools/make_splits.py` (stratified by condition, seeded, append-only — a stem never moves once assigned). Summary here:
@@ -207,6 +211,6 @@ Fixed **train / dev / test**; test is held out early and **never used for tuning
 | set | location | count | status |
 |---|---|---|---|
 | Home color baselines (10/7) | `barrels/data/raw/4A8B_*_wood_*.png` (moved from repo-root `color_data/` 2026-10-14; `top&stripe` renamed `topstripe`) | 19 PNG, wood desk, 3 lamp directions × 3 warmths | Unlabeled; used for probe-based baselines (`EXPERIMENTS.md` 2026-10-07). Not v1 training data (wood, direct lamp light) — later stress tests. |
-| Dave's barrels.zip (9/28) | not in repo | 20 snapshots; snap00–11 have GIMP-drawn GT boxes baked into pixels (not machine-readable) | Reference only; zip lacked `detect.py` + `bounding_boxes*.png` (asked Dave) |
+| Dave's barrels.zip (9/28) | `barrels/data/raw/DAVE_office_*_snap_NN.png` + 12 `_boxes.json` (imported 2026-11-03) | 20 snapshots, two tables; 12 with Dave's boxes (recovered from his separate ground-truth images) | Outside check, no split. v1 segmentation finds nothing on them (`EXPERIMENTS.md` 2026-11-03) |
 | v1 base set (10/19) | `barrels/data/raw/4A8B_window_light_*.png` | 21 PNG + masks + instances + boxes | Labeled; splits locked; boxes converted from instances 2026-11-03 (`reviewed: false`, Tanush to fix) |
 | v2.0 set (one table, one background) | to shoot (`v2 capture plan`) | 19–38 frames + 12 `calib` + `horizon` | Not captured yet (plan cut to one table 2026-11-03) |

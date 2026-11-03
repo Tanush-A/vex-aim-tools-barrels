@@ -2,10 +2,10 @@
  "version": 1,
  "stem": "4A8B_window_light_close_01",
  "image_sha1": "508c112d1b1c17fcbd4a78bc66c6cdcbf20b8ee4",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,

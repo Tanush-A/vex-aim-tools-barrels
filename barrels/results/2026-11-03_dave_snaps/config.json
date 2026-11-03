@@ -1,0 +1,37 @@
+{
+ "model": "/Users/tanush/Desktop/Celeste/vex-aim-tools/barrels/results/2026-10-20_v1_test_adaptive/config.json",
+ "cam": "AIM_4A8B6118_BOXFIT",
+ "cfg": {
+  "min_area_px": 20,
+  "close_px": 3,
+  "bottom_tol": 0.15,
+  "bottom_tol_min_px": 4,
+  "width_min": 0.4,
+  "width_max": 1.6,
+  "split_search": 0.25,
+  "min_width_px": 16.0
+ },
+ "frames": [
+  "DAVE_office_dark_snap_12",
+  "DAVE_office_dark_snap_13",
+  "DAVE_office_dark_snap_14",
+  "DAVE_office_dark_snap_15",
+  "DAVE_office_dark_snap_16",
+  "DAVE_office_dark_snap_17",
+  "DAVE_office_dark_snap_18",
+  "DAVE_office_dark_snap_19",
+  "DAVE_office_speckle_snap_00",
+  "DAVE_office_speckle_snap_01",
+  "DAVE_office_speckle_snap_02",
+  "DAVE_office_speckle_snap_03",
+  "DAVE_office_speckle_snap_04",
+  "DAVE_office_speckle_snap_05",
+  "DAVE_office_speckle_snap_06",
+  "DAVE_office_speckle_snap_07",
+  "DAVE_office_speckle_snap_08",
+  "DAVE_office_speckle_snap_09",
+  "DAVE_office_speckle_snap_10",
+  "DAVE_office_speckle_snap_11"
+ ],
+ "git": "7d0787e"
+}

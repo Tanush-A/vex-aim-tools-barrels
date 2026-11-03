@@ -164,6 +164,9 @@ class CameraModel:
 NOMINAL = CameraModel()                                      # Dave's 23 deg / 400 px
 AIM_4A8B6118 = CameraModel(f=404.0, tilt_deg=23.3)           # best single fit, 2026-10-19 (horizon 66)
 AIM_4A8B6118_RANGE = {"f": (355.0, 405.0), "tilt_deg": (21.5, 25.5)}   # the honest ranges (EXPERIMENTS.md 2026-10-19)
+AIM_4A8B6118_BOXFIT = CameraModel(f=400.0, tilt_deg=22.25)   # PROVISIONAL 2026-11-03: tilt re-fit from 24 labeled train
+                                                              # barrels with f held at 400 (horizon 76); the preset above put
+                                                              # bottoms ~20 px too low. Replaced by the v2 calib session (M4).
 WORLDMAP_CURRENT = CameraModel(f=400.0, tilt_deg=23.7)       # aim_kin.py's live constant (another robot)
 
 

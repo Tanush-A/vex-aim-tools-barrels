@@ -82,7 +82,7 @@ The boxes are what will later feed the robot's world map, which relies on the **
 
 A list of barrels; for each: **color** (orange | blue) and **box** `[x0, y0, x1, y1]` in image pixels. The box is the **full barrel** — lid top to the base's contact with the table, bulge to bulge — drawn **as if whatever hides part of the barrel were transparent**, then **clipped to the frame**. A barrel whose bottom is below the frame therefore gets a box that ends at the frame edge; a barrel that fits in the frame gets its whole box.
 
-Drawn output: the image with each box as a thin rectangle in the barrel's class color. Nothing else is drawn.
+Drawn output: the image with each box as a thin (1 px) rectangle in a color that says the class but stands out from the barrels — yellow for an orange barrel, green for a blue one, Dave's convention from his ground-truth images (Tanush 2026-11-03). Nothing else is drawn.
 
 Kept with each box internally but **not shown**: the inferred distance, which edges were seen vs inferred, a confidence. They are there for the world map later (`detect_types.Barrel`).
 

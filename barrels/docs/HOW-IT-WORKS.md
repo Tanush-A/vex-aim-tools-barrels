@@ -2,59 +2,190 @@
 
 Written for Tanush, so he can explain the detector to Dave without help. One section per **main** module: color segmentation, camera geometry, the detector, the detection eval. Side tools (labelers, importers, viewers) are not covered — they are allowed to be black boxes. Rule since 2026-11-02 (`DECISIONS.md`): every commit that changes main code updates its section here and gets a walkthrough in chat first.
 
-Each section: *what it does*, *the idea* (why it works), *where it lives* (the file and the two or three functions that matter), *how to run it*, *what can go wrong*.
+Every number in this file is a real number from the code or from a real frame, so you can check it: `4A8B_window_light_touch_02` (three touching barrels, orange–blue–orange, about 18 cm away) is the worked example throughout.
 
----
+## 0. The whole thing in one paragraph
+
+A photo comes in (640 × 480). **Section 1** looks at every pixel and says "barrel orange", "barrel blue" or "other", producing a *class mask* — an image the same size holding 0, 1 or 2 per pixel. **Section 3** takes that mask, groups the barrel pixels into blobs, works out how many barrels each blob is and where each barrel's edges are, using the camera geometry from **section 2** whenever an edge cannot be seen. Out comes a list of barrels, each with a color and a box, and the photo is written back with the boxes drawn on it. **Section 4** is how we score that against hand-drawn truth. The one command that does 1 → 3:
+
+```
+python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png
+```
+
+Nothing in this chain learns anything from the photo it is looking at. The only "learned" numbers are two color boxes in section 1, fit once from labeled frames; everything else is either computed fresh from the image (the saturation floor, the wall model) or is physics (barrel size, camera height, tilt).
 
 ## 1. Color segmentation — `src/barrels/pipeline.py` (v1, frozen at config `afd85483`)
 
-**What it does.** Takes one image and labels every pixel as barrel-orange, barrel-blue, or other. This is the front end of everything after it; the detector works on these pixel labels, not on the raw image.
+**What it does.** Takes one image and labels every pixel as barrel-orange (1), barrel-blue (2), or other (0). This is the front end of everything after it; the detector works on these pixel labels, not on the raw image. (A fourth value, 255 = "ignore", exists only in hand-painted label masks for glare we did not want to score.)
 
-**The idea.** Four cheap tests, each throwing out pixels that cannot be barrel:
+**The idea.** A pixel has to survive a chain of cheap tests to be called barrel. Each test throws out pixels that *cannot* be barrel; the last test decides which color the survivors are.
 
-1. **Horizon gate.** Nothing above row 50 can be a barrel: the camera (43 mm up) is higher than a barrel is tall (24 mm), so every barrel standing on the table appears below the horizon line. Those top rows are therefore guaranteed background, which the next two tests exploit.
-2. **Saturation floor.** Barrels are vivid; tables, walls and glare are grayish. "Saturation" here is simply max(R, G, B) − min(R, G, B). The floor is not a fixed number: the image's own background rows say how colorful the background is, and the floor is set a margin above that. A warm-lit room with a yellowish wall gets a higher floor by itself. Computed fresh for every image.
-3. **Wall model.** From the same background rows, a robust estimate (median and spread) of the background color; pixels within a few spreads of it are rejected. Also per image.
-4. **Color boxes.** The one thing learned from labels: for each class, a box in RGB space (the 1st–99th percentile range of labeled barrel pixels that survive the gates). A surviving pixel inside the orange box is orange, inside the blue box is blue; in both, the redder one wins.
+1. **Horizon gate.** Nothing above row 50 can be a barrel. The camera is 43 mm above the table and a barrel is 24 mm tall, so every barrel standing on the table appears below the horizon line, which for our robot is around row 76 (section 2). Row 50 is a safe margin above that. Those top rows are therefore *guaranteed background*, which the next two tests exploit.
+2. **Saturation floor.** Barrels are vivid; tables, walls and glare are grayish. "Saturation" here is simply max(R, G, B) − min(R, G, B), a number from 0 to 255. The floor is not a fixed number: the program takes rows 0–50 (guaranteed background), finds the 99.5th percentile of their saturation (i.e. "how colorful is the most colorful 0.5 % of the background"), adds a margin of 10, and clamps the result to between 20 and 120. Any pixel below that floor is out. On `touch_02` the floor comes out at 48; on `core_01`, 55. A warm-lit room with a yellowish wall gets a higher floor by itself, with nothing changed in the code. This is what "adaptive thresholds, no image correction" means in practice.
+3. **Wall model.** From the same background rows, a robust estimate (median and spread, per channel) of the background color, fit on the low-saturation background pixels; any pixel within 2.5 spreads of that color is rejected. Also per image. This catches bluish or warm walls that pass the floor.
+4. **Brightness gate.** Any pixel whose brightest channel is below 40 is out: in near-black pixels the color is noise. This changes nothing on a light table; it exists for dark ones.
+5. **Color boxes — the only learned part.** For each class, a box in RGB space: the 1st-to-99th percentile range of hand-labeled barrel pixels that survived the gates above, fit once on the 16 training frames. The frozen numbers are orange = R 74–211, G 14–121, B 4–104 and blue = R 0–127, G 11–110, B 36–185. A surviving pixel inside the orange box is orange, inside the blue box is blue; if it is inside both, the redder one (R > B) is orange. Outside both, it is other.
 
-A brightness gate (reject near-black pixels, where color is noise) sits alongside; it changes nothing on light tables and exists for dark ones. A "table model" built from the bottom rows exists as a switch but is off: a close barrel's shadow fools it.
+A "table model" built from the bottom rows, mirroring the wall model, exists as a switch but is **off**: a close barrel's shadow sits in those rows and fools it.
 
-**Why the boxes alone don't work.** Barrel pixels in RGB form a smear along the brightness axis, so a box wide enough to include shadowed faces also includes table and wall. The floor and the wall model do the separating; the boxes only decide orange vs blue among the survivors.
+**Worked example.** Take a pixel on the shaded lower face of the blue barrel in `touch_02`, say RGB (30, 45, 110). Row ≈ 160, below 50: passes the horizon gate. Saturation 110 − 30 = 80 ≥ 48: passes the floor. Nothing like the gray-blue wall (the wall median is around (120, 125, 135) with a spread of a few units): passes the wall model. Brightest channel 110 ≥ 40: passes. Inside the blue box (R 0–127, G 11–110, B 36–185) and outside the orange box (B 110 > 104): **blue**. Now a slightly darker pixel on the same face, (25, 30, 60): saturation 35 < 48 — thrown out by the floor. That is the main v1 miss, and it is why the detector (section 3) must be able to fill in a bottom edge the mask does not show.
 
-**Where it lives.** `Config` (every knob; defaults = the frozen v1 config), `Frame.from_image` (the image plus its saturation and brightness planes), `fit(frames, masks, cfg)` → `Model` (learns the two boxes from labeled frames), `segment(frame, model)` → mask + an info dict (which floor it used, and so on).
+**Why the boxes alone don't work.** Barrel pixels in RGB form a long smear along the brightness axis (bright lit face, dark shaded face), so a box wide enough to include the shadowed faces also includes a lot of table and wall. The floor and the wall model do the separating; the boxes only decide orange vs blue among the survivors.
 
-**How to run it.** `python barrels/tools/segment_image.py image.png` writes the orange, blue, class-mask and overlay images to `results/segment_image/`. The fitted model is `results/2026-10-20_v1_test_adaptive/config.json`.
+**Where it lives.** `Config` (every knob; defaults = the frozen v1 config; `horizon_row=50, s_min_mode="band", s_band_q=99.5, s_band_margin=10, s_min_lo=20, s_min_hi=120, v_min=40, bg_prior=True, k_bg=2.5, table_prior=False, box_space="rgb", box_pct=(1, 99), tie="rb_sign"`). `Frame.from_image(bgr)` (the image plus its saturation and brightness planes). `effective_s_min(frame, cfg)` (the per-image floor). `fit(frames, masks, cfg)` → `Model` (learns the two boxes; done once, saved in `results/2026-10-20_v1_test_adaptive/config.json`). `segment(frame, model)` → the mask + an info dict (`s_min_eff` is the floor it used).
 
-**What can go wrong.** Shadowed lower faces of blue barrels fall below the saturation floor (the main v1 miss). Skin lands inside the orange box. Under a strong color cast the fixed RGB boxes can miss while the floor and wall model adapt — this is why v2 allows one re-fit of the boxes on frames from all tables.
+**How to run it.** `python barrels/tools/segment_image.py image.png` writes the orange, blue, class-mask and overlay images to `results/segment_image/`.
 
-**Numbers.** Held-out test: orange IoU 0.84, blue 0.81, zero false pixels on the empty frame (`EXPERIMENTS.md` 2026-10-20).
+**What can go wrong.** Shadowed lower faces of blue barrels fall below the saturation floor (the main miss; `far_02`'s middle orange barrel loses its lower face the same way). Skin lands inside the orange box — hands are orange to this program. Under a strong color cast the fixed RGB boxes can miss while the floor and wall model adapt; v2 allows one re-fit of the boxes on more frames if that happens.
+
+**Numbers.** Held-out test: orange IoU 0.84, blue 0.81, zero false pixels on the empty frame (`EXPERIMENTS.md` 2026-10-20). (IoU for pixels = correct barrel pixels ÷ (correct + missed + falsely added).)
 
 ## 2. Camera geometry — `src/barrels/geometry.py` (v1.5)
 
 **What it does.** Converts between image rows and real-world distances for this robot's camera, and says how big a barrel should look at any place in the image.
 
-**The idea.** The camera is a pinhole at a known height (43.47 mm), tilted down by a known angle (about 23°), with a known focal length (about 400 px). With those three numbers, a point on the table at a given distance appears at a row you can compute, and the other way round. Because the barrel's size is known (24 mm tall, 25.5 mm at the bulge, stripe at mid-height), every row has an expected barrel width and height. So seeing any one part of a barrel — top edge, stripe, or width — tells you how far away it is, and therefore where every other edge must be. Two subtleties: the box's top is the lid's *far* edge and its bottom is the base's *near* edge, so they are at slightly different distances; and rows are not linear in height, so the stripe's center row is not the average of its top and bottom rows.
+**The idea.** The camera is a pinhole at a known height above the table (h = 43.47 mm), tilted down by an angle θ, with a focal length f that says how many pixels one radian of view is (≈ 400 px). A point on the table at horizontal distance d in front of the camera is seen at an angle atan(h / d) below horizontal; subtract the tilt, and the row it lands on is
 
-**Where it lives.** `CameraModel` (f, tilt, height) with `horizon_row`, `row_to_ground_distance`, `point_row(d, z)`, `barrel_rows(d_axis)` → the top, stripe and bottom rows and the width of a barrel at that distance, and the inverses `bottom_row_from_top_row`, `bottom_row_from_stripe_row`, `bottom_row_from_width`. Presets: `AIM_4A8B6118` (our robot, f 404 / tilt 23.3), `NOMINAL`, and the honest range `AIM_4A8B6118_RANGE`. `image_to_ground` reproduces the robot's own ground projection; kept for later, not used in v2.
+    row = 240 + f · tan( atan(h / d) − θ )
 
-**How to run it.** `python -m barrels.geometry --tilt 23.3 --f 404` prints the table in `constraints.md`.
+(240 is the image center row.) Run it backwards and a row gives a distance:
 
-**What can go wrong.** f and tilt for our robot are known only to about ±10 % (three methods disagree). Close to the robot, small tilt errors move rows a lot. v2 M4 fits both from the known-distance `calib` frames.
+    d = h / tan( atan((row − 240) / f) + θ )
 
-**Numbers to remember.** Horizon row ≈ 66–70. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
+A point that is not on the table but at height z (the top of a barrel) uses h − z instead of h. Two consequences worth holding in your head: rows near the horizon are very far away and a one-row change there is many millimetres, while rows near the bottom of the frame are close and a row is a fraction of a millimetre; and the **horizon row** — where a point infinitely far away lands — is 240 − f · tan θ, which for our numbers is **row 76**. Nothing on the table can appear above it.
 
-## 3. The detector — `src/barrels/detect_stripe.py` (v2, to be written)
+**The barrel.** 24 mm tall, 25.5 mm across at the bulge, 18 mm across at the ends, stripe 6 mm tall centred at mid-height. The box's top is the *far* edge of the lid (9 mm beyond the barrel's axis), its bottom is the *near* edge of the base (9 mm in front of the axis), so top and bottom are at slightly different distances. `barrel_rows(d_axis)` applies all of that and returns the top row, the stripe's rows, the bottom row and the width in pixels for a barrel whose axis is d_axis away. With the current camera:
 
-Filled in step by step as v2 M6 lands. Planned sections: the stripe finder; a barrel from its stripe (color, distance, expected box); stripeless candidates and the size-and-shape check; carving boxes out of merged blobs; bottom-edge precedence; clipping and drawing.
+| barrel axis distance | top row | stripe rows | bottom row | width px | height px |
+|---|---|---|---|---|---|
+| 50 mm | 212 | 348–390 | 422 | 204 | 210 |
+| 100 mm | 154 | 211–235 | 263 | 102 | 109 |
+| 150 mm | 131 | 166–183 | 204 | 68 | 73 |
+| 200 mm | 118 | 143–156 | 174 | 51 | 55 |
+| 300 mm | 105 | 121–130 | 142 | 34 | 37 |
+| 400 mm | 98 | 110–116 | 126 | 26 | 28 |
 
-Until then, `detect_cc.py` is the deliberately dumb reference: one box per connected blob of barrel pixels. It merges touching barrels by design and exists only to set the floor the real detector must beat.
+So a barrel at 20 cm is about 51 px wide and 55 px tall with its bottom at row 174; seeing *any one* of those — the top row, the stripe, the width, the bottom — tells you the distance, and from the distance every other number in that row of the table. That is the whole trick the detector uses. The inverses are `bottom_row_from_top_row`, `bottom_row_from_stripe_row`, `bottom_row_from_width`, `expected_barrel_width_px(bottom_row=…)`, `expected_barrel_height_px(bottom_row=…)`.
+
+**Worked example.** In `touch_02` the left orange barrel's top row is 122. Backwards through the formula with z = 24 mm: the lid's far edge is 191 mm from the camera, so the axis is 182 mm away, so the base's near edge is 173 mm away, which lands on row 182.6. The segmentation saw the bottom at row 175: 7.6 px higher than predicted, which is within what we expect from the camera numbers (next paragraph), so the seen bottom is believed.
+
+**Where it lives.** `CameraModel(f, tilt_deg, height_mm)` with `horizon_row()`, `row_to_ground_distance(row)`, `point_row(d, z)`, `barrel_rows(d_axis)`, the inverses above, and `image_to_ground(u, v)` (reproduces the robot's own ground projection; kept for the world map later, not used in v2). Presets: `AIM_4A8B6118_BOXFIT` (the current default, f 400 / tilt 22.25°), `AIM_4A8B6118` (the October measurement, f 404 / tilt 23.3°), `NOMINAL` (Dave's 23° / 400), and the honest range `AIM_4A8B6118_RANGE`.
+
+**How to run it.** `python -m barrels.geometry --tilt 22.25 --f 400` prints the table in `constraints.md` for any camera numbers.
+
+**What can go wrong.** The tilt and focal length are only known to a few percent, and close to the robot small tilt errors move rows a lot (at 5 cm, 1° of tilt is ≈ 7 px). The known-distance `calib` frames (v2 M4) measure both properly.
+
+**Update 2026-11-03 — the preset was off.** On the labeled frames the October camera (f 404, tilt 23.3°, horizon row 66) put every predicted bottom edge about 20 px too low: the top row said "this barrel is closer than it is". Re-fitting the tilt from 24 labeled, fully visible barrels on the train frames (f held at 400, the known barrel height and width as the ruler) gives tilt 22.25°, horizon row 76 — inside the band measured in October. With it, predicted bottoms land within about 5 px of the truth. That is the provisional preset `AIM_4A8B6118_BOXFIT`, now the detector's default, until the known-distance `calib` session measures it properly. Note what the boxes actually pin down: the horizon row, not f and tilt separately (they trade off along a ridge: f 356 with tilt 24.75° fits exactly as well as f 400 with 22.25°). `experiments/2026-11-03_geo_boxfit/`, `EXPERIMENTS.md` 2026-11-03.
+
+**Numbers to remember.** Horizon row ≈ 76. A barrel at 20 cm is ≈ 51 px wide. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
+
+## 3. The detector — `src/barrels/detector.py` (v2 step 1, 2026-11-03)
+
+**What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` when the bottom edge was computed rather than seen; `truncated` when the box reaches a frame edge), `area` (how many mask pixels it came from) and `source` (`"det1"`). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, same signature as the dumb reference `detect_cc.detect`, so either can be plugged into `detect_image.py` or the experiment scripts. `draw(image, barrels)` paints a 1-px rectangle per barrel — yellow for an orange barrel, green for a blue one, so the lines stand out from the barrels — and nothing else: the v2 deliverable image.
+
+Nothing is remembered between images and nothing is fit per image. The seven numbers in `DetConfig` were written down before the first run and have not been tuned.
+
+### Step 1 — blobs (`find_blobs`)
+
+Take every pixel that is orange *or* blue (both at once, so a barrel's body and its stripe land in the same blob). Run a 3 × 3 *morphological close* over it — "fill any hole or gap up to 3 px wide" — so a shaded, speckled face does not break a barrel into two or three bits. Then find the 8-connected components (groups of touching barrel pixels; diagonal touching counts). Throw away components under 20 px (specks). For each surviving blob, record its bounding box and how many of its pixels were orange and how many blue.
+
+*`touch_02`:* the mask has 3409 orange and 2337 blue pixels. They form **two** blobs: one at x 149–237, y 122–178 (88 px wide, 56 tall, 1763 orange / 1884 blue — this is the orange *and* blue barrel merged, because the orange barrel's blue stripe touches the blue barrel's body, exactly the case Dave's notes call "color adjacency"), and one at x 240–288, y 122–175 (48 wide, 1646 orange / 453 blue — the right orange barrel on its own; the 453 blue are its stripe).
+
+### Step 2 — how many barrels is this blob? (`expected_width_px`, `split_blob`)
+
+Section 2 says how wide one barrel is at the blob's distance. Which distance? If the blob's bottom is inside the frame, its bottom row gives the distance (the base sits on the table, and the bottom row of a thing on the table is the most reliable distance cue). If the blob touches the frame's bottom edge, the real bottom is somewhere below the frame and the row is meaningless, so the top row is used instead (`expected_width_px` makes that choice).
+
+Divide the blob's width by that expected width and round to the nearest whole number: that is how many barrels stand side by side in the blob. One → done. Two or more → cut the blob into that many pieces. Where to cut: not at the exact halfway point but at the *narrowest column* near it — barrels bulge in the middle, so two touching barrels have a waist where they meet, and the column with the fewest barrel pixels in a window of ± a quarter barrel-width around the equal-spacing point is that waist (if several columns tie, the one nearest the equal-spacing point wins). Each piece gets its own tight box around its own pixels and its own orange/blue counts, and its **color is whichever count is larger** — that is the body color, because the stripe is always the minority of a barrel's pixels.
+
+*`touch_02`, first blob:* bottom row 178 → the expected barrel width at that row is 53.4 px. 88 ÷ 53.4 = 1.65 → rounds to **2** barrels. The narrowest column near x = 193 is found and the blob is cut there: piece A, x 149–193, 1301 orange / 335 blue → **orange**; piece B, x 193–237, 462 orange / 1549 blue → **blue**. Second blob: 48 ÷ 51.8 = 0.93 → **1** barrel, 1646 orange / 453 blue → orange. Three barrels, correct colors, at this point without the geometry having drawn a single edge.
+
+### Step 3 — the bottom edge (`predicted_bottom`, `resolve_bottom`)
+
+This is the step that exists because the bottom edge is the one the world map will use and the one most often hidden (shadow, another barrel, clutter, the frame edge). The top row of a piece says how far away the barrel is — a 24 mm-tall thing whose top appears at that row can only be at one distance — and from the distance, section 2 says where its base must be: that is `predicted_bottom(cam, top_row)`. Then `resolve_bottom` compares the predicted bottom with the bottom the mask shows:
+
+- If they agree to within a tolerance — 15 % of the predicted box height, but never less than 4 px — the seen bottom is kept (it was seen; the geometry is only a check).
+- If they disagree, the mask's bottom is wrong for one of the known reasons (a shadowed face made the blob too short, a reflection below the barrel made it too tall, an occluder hides the base) and the **predicted bottom replaces it**, with the flag `bottom_inferred`.
+- Exception: when both the seen bottom and the predicted one are at or below the frame edge, the box is simply cut at the frame (no inference needed, nothing visible to infer from).
+- Finally the bottom is clipped to the frame and any box touching a frame edge gets `truncated`.
+
+*`touch_02`, piece A:* top row 122 → axis 182 mm away → predicted bottom 182.6. Seen bottom 175. Tolerance = max(4, 0.15 × (182.6 − 122)) = 9.1 px; the difference is 7.6 → **seen bottom kept**, no flag. Same for the other two (differences 9.5 and 7.6 against tolerances 9.5 and 9.1).
+
+*`far_02`, the middle orange barrel:* top row 106 → 290 mm → predicted bottom 144.4; the mask's bottom is 136 because the shaded lower face fell below the saturation floor; tolerance 5.8; difference 8.4 → **bottom replaced by 144**, flagged `bottom_inferred`. The hand-labeled truth has the bottom at 137, so here the inference overshot by 7 px: at 30 cm the camera numbers are good to about 5 px and the tolerance is only 6, so the geometry can "correct" a bottom that was in fact right. That is a known weakness of step 1 at far range (see "What can go wrong").
+
+### Shape checks — is this piece barrel-shaped for its row?
+
+After the bottom is settled, the expected width at that bottom row is computed once more and the piece must satisfy all of:
+
+- expected width ≥ 16 px, i.e. the barrel is nearer than about 60 cm (anything "smaller" would be off the far end of a table — or above the horizon, where the expected width is infinite or zero);
+- piece width between 0.4 × and 1.6 × the expected width (narrower is a sliver — a stripe fragment, a reflection edge; wider is not one barrel).
+
+*`far_02`:* the hand resting on the table edge produces orange specks around rows 60–85, near the horizon. Expected width there is 1.8–4.4 px → **all dropped** by the 16 px rule. That is how the hand's fingers disappear without any "skin detector".
+
+### The code, in call order
+
+| function | one line |
+|---|---|
+| `DetConfig` | the seven numbers (below) |
+| `Blob` | a blob: `bbox`, its pixel mask, `n_orange`, `n_blue` |
+| `find_blobs(mask, cfg)` | step 1 |
+| `expected_width_px(bbox, cam, frame_h)` | one barrel's width at this blob's distance (bottom row if in frame, else top row) |
+| `split_blob(blob, mask, cam, cfg)` | step 2: how many, cut at the waists, re-box and re-count each piece |
+| `predicted_bottom(cam, top_row)` | where the base must be, given the top row |
+| `resolve_bottom(bbox, cam, frame_h, cfg)` | step 3: seen vs predicted, clip, flags |
+| `detect(mask, cfg, cam)` | the loop: for each blob, for each piece → bottom → shape checks → `Barrel`; sorted left to right |
+| `draw(image, barrels)` | the output image (yellow = orange barrel, green = blue barrel, 1 px) |
+
+`detect` itself is about twenty lines; read it with the table above beside it.
+
+### The seven numbers (`DetConfig`)
+
+| name | value | what it is | why this value |
+|---|---|---|---|
+| `min_area_px` | 20 | drop blobs smaller than this | the same speck threshold the v1.5 auto-split used; a real barrel is never this small inside the 60 cm range |
+| `close_px` | 3 | close gaps up to this wide before finding blobs | 1–2 px speckle gaps inside shaded faces; larger would start merging neighbours |
+| `bottom_tol` | 0.15 | seen bottom trusted within this fraction of the predicted height | the camera numbers are good to ≈ 5–10 % of a barrel's height; 15 % leaves room without accepting a shadow-shortened box (those are 30 %+ short) |
+| `bottom_tol_min_px` | 4 | …and never less than this many pixels | far barrels are 30 px tall; 15 % of that is 4.5 px, about the labeling precision |
+| `width_min` | 0.4 | a piece narrower than this × expected width is a sliver | a half-hidden barrel is still ≥ 0.5 wide; stripe fragments and edges are < 0.3 |
+| `width_max` | 1.6 | a piece wider than this × expected width is not one barrel | after splitting, nothing legitimate should be wider than ≈ 1.2; 1.6 is slack |
+| `min_width_px` | 16 | expected width below this → not on the table | 16 px ≈ 64 cm away, past the far end of any table we use; it also kills everything at the horizon |
+| `split_search` | 0.25 | look for the waist within ± this × expected width of the equal-spacing cut | the waist is within a few px of the midpoint for same-size barrels; a quarter width tolerates one barrel being slightly closer |
+
+### How to run and how to score
+
+```
+python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png
+```
+
+writes `barrels/results/detect_image/4A8B_window_light_touch_02_boxes.png` and prints one line per barrel: color, box, and "bottom seen" / "bottom inferred from top row" / "cut by frame". `--json` also writes `<stem>_det.json` (the `Barrel` records) so a folder of them can be scored with `tools/eval_boxes.py --pred DIR`. The experiment that produced the numbers below is `python barrels/experiments/2026-11-03_det_step1/run.py`; it writes `results/2026-11-03_det_step1/` with one sheet per frame (our boxes in class colors, the hand-labeled truth in thin white) and the score tables.
+
+### What can go wrong — and what step 2 (the stripe) is for
+
+- **Same-color occlusion.** A barrel partly behind another of the same color merges into one blob with it, and the width rule cannot tell "one barrel in front of another" from "one wide blob": `occl_01` and `occl_02` are missed. Four barrels bunched together (`cluster_01`) come out as two.
+- **Anything orange or blue of about the right size gets a box.** The shape checks only ask "is this barrel-sized for its row", not "is this a barrel". A hand that *touches* a barrel is worse: in `far_02` the fingers merge with the right blue barrel into one blob whose top row is at the hand, so the geometry thinks the barrel is 2.5 m away and throws it out — a real barrel lost because of a hand.
+- **Far range.** At 30 cm the tolerance (6 px) is about the size of the camera error (5 px), so the geometry can overrule a seen bottom that was right (`far_02`, 7 px). The calibration session will shrink the camera error; the tolerance may also need to be looser far away.
+
+The stripe anchor (step 2, next) attacks the first two directly: a band of one color sandwiched between the other color above and below, at the height the geometry expects, proves "this is a barrel", gives one barrel per stripe even inside a merged blob, and refuses hands and other orange or blue objects.
+
+### Numbers to remember
+
+Train frames, provisional on three counts (the camera was fit on these same frames; the pixels come from a segmentation model fit on these frames; the truth boxes are the unreviewed automatic instances), `EXPERIMENTS.md` 2026-11-03:
+
+| | step 1 | dumb floor (one box per blob) |
+|---|---|---|
+| mean F1 over the two colors | **0.78** | 0.46 |
+| F1 orange / blue | 0.83 / 0.73 | 0.34 / 0.58 |
+| overlap of matched boxes with the truth (IoU) | 0.87 | 0.75 |
+| bottom-edge error, median | 1 px | 1 px |
+| boxes drawn on the two empty frames | 0 | 0 |
+
+Same pixels for both rows; the difference is steps 2 and 3. With the October camera instead of the re-fit one, step 1 scored 0.52 with bottoms 21 px off — the geometry, not the logic, was the limit.
 
 ## 4. Detection eval — `src/barrels/eval_det.py`
 
 **What it does.** Scores predicted boxes against the hand-drawn boxes: for each image, which predictions match which true barrels, and from that precision, recall and F1 per color, plus how far off the bottom edges are.
 
-**The idea.** A prediction and a true box match only if they have the same color, overlap enough (intersection over union ≥ 0.5) and their bottom edges agree within a tenth of the barrel's height. Matching is greedy: the best-overlapping eligible pair is taken first, then the next, so each true barrel is used at most once. What is left over is either false (an extra box) or missed (a barrel with no box). On frames with no barrels every box is false. *(The bottom-edge condition and box ground truth arrive in v2 M2; the current code still reads instance masks and ignores occluded barrels.)*
+**The idea.** A prediction and a true box *match* only if they have the same color and overlap enough — intersection over union ≥ 0.5, i.e. the overlapping area is at least half the area the two boxes cover together. Matching is greedy: the most confident prediction takes the best-overlapping free truth box, then the next, so each true barrel is used at most once. What is left over is either a *false* box (a prediction with no truth) or a *miss* (a truth with no prediction). On frames with no barrels every box is false. Per color: precision = matches ÷ boxes drawn, recall = matches ÷ true barrels, F1 = their harmonic mean (2PR ÷ (P + R)), and the headline number is the mean of the orange and blue F1. Today's code still ignores true barrels flagged occluded / truncated / top-only (they count neither as hits nor as misses) — the old VOC convention; the v2 rule (`EVAL.md`: every barrel counts, and the bottom edge must be within a tenth of the box height) arrives with M2 together with the box labels.
 
-**Where it lives.** `evaluate_frame`, `aggregate`, `write_results`, `score`. CLI: `tools/eval_boxes.py --pred DIR --split test`.
+**Where it lives.** `evaluate_frame(name, preds, gts, cam)` → per-frame counts and the list of matches with their IoU and bottom-row error; `aggregate` pools frames per condition and overall; `write_results` writes `summary.md`, `summary.csv`, `per_image.csv` (counts per frame) and `per_barrel.csv` (every match, miss and false box with its IoU and bottom error); `score` reduces a run to one dict for sweeps (primary = mean F1; any false box on an empty frame disqualifies). CLI: `tools/eval_boxes.py --pred DIR --split train`.
 
-**What can go wrong.** The true bottom edge of a hidden base is itself a human estimate, so bottom-edge error is reported separately for `bottom_estimated` boxes.
+**What can go wrong.** The true bottom edge of a hidden base is itself a human estimate, so bottom-edge error will be reported separately for `bottom_estimated` boxes. Five test frames hold about ten barrels, so the test number will be coarse: one miss moves recall by 10 %.

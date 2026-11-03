@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "DAVE_office_speckle_snap_07",
+ "image_sha1": "8df7fd3cf658e460fe987ed8b0b7fb6bfc9fcffa",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "dave_gt",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    133,
+    341,
+    543,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "line BGR (77,229,244)"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    197,
+    127,
+    241,
+    172
+   ],
+   "flags": [],
+   "note": "line BGR (40,217,226)"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    246,
+    125,
+    284,
+    164
+   ],
+   "flags": [],
+   "note": "line BGR (53,217,76)"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    380,
+    134,
+    433,
+    191
+   ],
+   "flags": [],
+   "note": "line BGR (40,218,229)"
+  }
+ ]
+}

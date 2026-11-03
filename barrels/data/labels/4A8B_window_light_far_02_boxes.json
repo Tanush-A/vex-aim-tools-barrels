@@ -2,10 +2,10 @@
  "version": 1,
  "stem": "4A8B_window_light_far_02",
  "image_sha1": "689fa1f7de2547037cae93f7ed8b9673ca2f9cde",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,
@@ -23,12 +23,14 @@
    "id": 2,
    "color": "orange",
    "bbox": [
-    250,
+    244,
     105,
     273,
     135
    ],
-   "flags": [],
+   "flags": [
+    "occluded"
+   ],
    "note": ""
   },
   {
@@ -47,9 +49,9 @@
    "id": 4,
    "color": "blue",
    "bbox": [
-    435,
-    108,
-    465,
+    433,
+    106,
+    468,
     139
    ],
    "flags": [],

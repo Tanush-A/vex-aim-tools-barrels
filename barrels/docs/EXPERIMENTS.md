@@ -14,6 +14,64 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-11-03 — Dave's 20 snapshots (his robot, his office): the v1 segmentation finds nothing — the front end is the bottleneck on a new scene
+
+- **Hypothesis:** on frames from a different robot and tables never seen, segmentation + step 1 still box the mid-range barrels; the close-ups and the dark table are where it breaks.
+- **Method / params:** `tools/import_dave_zip.py` (20 `DAVE_office_{speckle,dark}_snap_NN` frames; Dave's 12 drawn ground-truth boxes recovered as the pixels that differ between his `_ground_truth.png` and the raw snapshot, yellow = orange barrel, green = blue); `experiments/2026-11-03_dave_snaps/run.py`: frozen v1 `afd85483` + `detector.detect` (and the CC floor), scored with `eval_boxes.py --gt-boxes` (IoU ≥ 0.5 rule). **Outside check: no split, nothing tuned.** Results: `results/2026-11-03_dave_snaps/` (`boxes/` = the drawn output for all 20, `overlay/` = the segmentation, `2026-11-03_dave_snaps_step1/` = the score).
+- **Results:** **0 barrels on all 20 frames**, 0 of 34 ground-truth barrels found. The segmentation outputs **zero orange and zero blue pixels** on every frame. Cause: the per-image saturation floor is derived from rows 0–50 ("guaranteed background"), and in Dave's office those rows hold a cluttered shelf with colorful objects, so the floor comes out at 96–120 (the clamp) instead of ≈ 50; the wall model, fit on the same rows, rejects the rest.
+- **Diagnostic (not a tuning run; 12 labeled frames, step 1 on top):**
+
+| segmentation variant | floor | barrel px (o / b) | hits o / b of 20 / 10 | false boxes | primary |
+|---|---|---|---|---|---|
+| v1 as is (band floor + wall model) | 96–120 | 0 / 0 | 0 / 0 | 0 | 0.00 |
+| fixed floor 50 (the v1 fallback option) | 50 | 13 k / 80 k | 2 / 1 | 13 | 0.13 |
+| fixed floor 50, wall model off | 50 | 262 k / 284 k | 8 / 7 | 67 | 0.30 |
+| band floor, wall model off | 96–120 | 170 k / 127 k | 11 / 2 | 38 | 0.29 |
+
+Even with the adaptive parts switched off the pink speckled desk floods the orange class (262 k orange pixels in 12 frames): the fixed RGB boxes do not separate Dave's desk from barrel orange either.
+- **Takeaway:** the v1 front end does not transfer to Dave's office at all, for two reasons the v1 data could not show: (1) "rows above the horizon are plain background" is false in a cluttered room — both adaptive stages are built on it; (2) the RGB boxes admit his desk. The detector logic cannot be judged on these frames until the segmentation is redone. This is exactly Dave's 2026-10-30 condition for going back to the segmentation ("only if its flaws actually cost detections"): they cost all of them. His close-up frames (lid filling the frame, bottom far below it) and his dark warm-lit table are additional cases our data does not have.
+- **Next:** decide the segmentation redesign with Dave (v2.1 pulled forward): background statistics that do not rely on the top rows; barrel-referenced color rather than fixed boxes; test on Dave's 12 + our frames. Keep Dave's frames as an outside check, not tuning data.
+
+---
+
+## 2026-11-03 — Detector step 1 (blobs → count by expected width → bottom from the top row) vs the CC floor — PROVISIONAL
+
+- **Hypothesis (stated first):** counting barrels by the expected width and filling hidden bottoms from the top row lifts detection F1 well above the connected-components floor on the same pixels, because the floor's losses were merged touching barrels and shadow-shortened boxes, not misplaced edges.
+- **Method / params:** `experiments/2026-11-03_det_step1/run.py`; `detector.DetConfig()` defaults (close 3 px, min blob 20 px, bottom tolerance 15 % / 4 px, width window 0.4–1.6×, min expected width 16 px; none tuned); camera `AIM_4A8B6118_BOXFIT` (below). Both arms run the frozen v1 model `afd85483` on each frame; arm `cc` = `detect_cc`, arm `step1` = `detector.detect`. Scored with the existing `eval_det` (IoU ≥ 0.5, VOC-style ignores; the v2 bottom-edge rule is M2) against the **unreviewed auto-split instances**. Results: `results/2026-11-03_det_step1/` (sheets: boxes in class color, truth in white).
+- **Data / split:** the 16 train frames. No test frames touched.
+- **Results:**
+
+| arm | primary (mean F1) | F1 orange / blue | mean IoU of matches | bottom-row err (median px) | neg false det |
+|---|---|---|---|---|---|
+| cc (floor) | 0.461 | 0.341 / 0.581 | 0.750 | 1.0 | 0 |
+| step 1 | **0.780** | 0.833 / 0.727 | 0.868 | 1.0 | 0 |
+
+With the old preset camera (f 404 / tilt 23.3) step 1 scored 0.519 and its bottom edges were 21 px off (median): the geometry, not the detector logic, was the limit — see the next entry.
+- **Takeaway:** as predicted. Touching rows (`touch_02`, `cluster_02`) now split correctly; shadow-shortened boxes are extended to the right bottom. What remains: same-color occlusion (`occl_01`, `occl_02`: the blob holds two barrels one behind the other, width says one) and `cluster_01` (4 bunched barrels → 2 found). The hand in `far_02`/`core_03` leaves one false box each (barrel-sized skin blobs). Provisional ×3: the camera was fit on these frames, the pixels come from a model fit on these frames, the instances are unreviewed.
+- **Next:** step 2 = the stripe anchor (one barrel per stripe inside merged blobs; "barrel" ≠ "orange thing"); M2 eval under the v2 rule on Tanush's box labels; the calib session replaces the box-fit camera.
+
+---
+
+## 2026-11-03 — Camera re-fit from labeled boxes: the preset put bottoms ≈ 20 px too low
+
+- **Hypothesis:** the preset `AIM_4A8B6118` (f 404, tilt 23.3°, horizon 66) is inconsistent with the labeled barrels; one (f, tilt) makes both the barrel height and the barrel width per row consistent with the known barrel (24 × 25.5 mm) and camera height (43.47 mm).
+- **Method / params:** `experiments/2026-11-03_geo_boxfit/run.py`: the 24 unflagged (fully visible) GT instances on the train frames; for each, the model must reproduce the bottom row from the top row and the width at the bottom row; grid over f 280–460, tilt 15–32°; also tilt alone with f held at the two independently measured values (356 from widths, 400 from aim_fsm). Results: `results/2026-11-03_geo_boxfit/fit.json`.
+- **Results (predicted − measured, px):**
+
+| camera | f | tilt | horizon | bottom err mean / |med| / p90 | width err mean / |med| / p90 |
+|---|---|---|---|---|---|
+| preset 4A8B | 404 | 23.30 | 66.0 | +13.5 / 19.6 / 27.7 | +7.4 / 7.4 / 22.8 |
+| nominal | 400 | 23.00 | 70.2 | +7.7 / 13.7 / 21.9 | +5.3 / 5.7 / 20.7 |
+| free fit | 298 | 29.00 | 74.8 | 0.0 / 6.2 / 14.2 | +0.1 / 3.0 / 16.5 |
+| f = 356 | 356 | 24.75 | 75.9 | −0.5 / 5.6 / 13.7 | +1.5 / 2.7 / 17.1 |
+| **f = 400 (adopted)** | 400 | 22.25 | 76.4 | −0.8 / 5.3 / 13.4 | +2.3 / 3.1 / 17.7 |
+
+The cost surface is flat along a ridge (everything from f 280 to 460 is within 10 % of the best with the matching tilt): **the boxes pin the horizon row (≈ 75–76), not f and tilt separately.**
+- **Takeaway:** the October preset's horizon (66) is 10 rows too high for these frames; every fit agrees on ≈ 76, inside the measured 55–100 band. Adopted as the **provisional** preset `AIM_4A8B6118_BOXFIT` (f 400 kept — Dave: f ≈ 400, varies little between robots — tilt 22.25°). The p90 of 13–17 px is the unreviewed instance boxes as much as the camera.
+- **Next:** the 12-frame `calib` session (known distances) fixes f and tilt independently; then retire the box fit.
+
+---
+
 ## 2026-10-28 — Pixel cleanup flags on v1 (LOSO CV): a tie, v1 unchanged
 
 - **Hypothesis (stated first):** a tie — v1's false pixels are hundreds-of-pixel lid reflections and edge halos, its misses are shadowed faces; speck removal and hole filling touch neither.

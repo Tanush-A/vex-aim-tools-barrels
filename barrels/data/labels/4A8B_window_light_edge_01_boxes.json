@@ -2,10 +2,10 @@
  "version": 1,
  "stem": "4A8B_window_light_edge_01",
  "image_sha1": "dc27a09761bbe1c0d32a67c1470dffae4b6c36a1",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,

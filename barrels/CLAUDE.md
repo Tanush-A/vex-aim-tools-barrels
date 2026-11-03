@@ -11,7 +11,7 @@ Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork
 ## Environment
 
 - macOS, Python 3.13, venv at `~/Desktop/Celeste/env` (OpenCV, numpy, pytest). The `barrels` package is installed editable: `pip install -e barrels` from the repo root. Tests: `cd barrels && python -m pytest`. Robot ops: `docs/RUNBOOK.md`.
-- Code layout: `src/barrels/` (io, labeling, priors, boxfit, pipeline, cv, eval, splits, viz; v1.5 adds geometry, instances, detect_types, eval_det, cleanup, detect_cc, worldmap_bridge; v2 adds detect_stripe), `tools/` (label_tool, instance_tool, box_tool, segment_image, detect_image, eval_masks, eval_boxes, import_snaps, make_splits, attach_measured), `experiments/`, `tests/`.
+- Code layout: `src/barrels/` (io, labeling, priors, boxfit, pipeline, cv, eval, splits, viz; v1.5 adds geometry, instances, detect_types, eval_det, cleanup, detect_cc, worldmap_bridge; v2 adds detector), `tools/` (label_tool, instance_tool, box_tool, segment_image, detect_image, eval_masks, eval_boxes, import_snaps, make_splits, attach_measured), `experiments/`, `tests/`.
 - Small hand-taken image sets are **committed to git** under `barrels/data/`.
 
 ## The docs and when to touch them
@@ -59,6 +59,7 @@ Every piece of algorithm work follows:
 - **Reproducibility:** every experiment = a script + config committed to git; generated outputs in `results/<date>_<name>/` (big artifacts gitignored).
 - **No image correction.** Adaptive thresholds, per Dave (decision 2026-10-07).
 - **Main code is explained before it is committed (2026-11-02):** changes to pipeline, geometry, the detector or the eval get a plain-English walkthrough in chat that Tanush acknowledges, and their section of `docs/HOW-IT-WORKS.md` is updated in the same commit. Side tools (labelers, importers) are exempt. Dave: Tanush must be able to explain the main program himself.
+- **Converse first, then code (2026-11-03).** Claude Code is a teammate, not a job runner. When Tanush asks a question or says a line about what to do, reply in chat and stop: answer the question, agree the plan, *then* code and update docs. Never leave a question unanswered while editing files, and a one-line message from Tanush is a conversation turn, not a go signal.
 - **Restate the plan:** Tanush asks questions mid-task. When moving to a new step, restate the current plan **in full** — never "see above."
 - **One email to Dave per finished task** (Tanush sends; Claude drafts).
 

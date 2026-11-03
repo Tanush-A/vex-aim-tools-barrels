@@ -3,6 +3,7 @@
 
     python barrels/tools/eval_boxes.py --pred DIR --split test --name det_x [--cam 4a8b] [--sheets]
     python barrels/tools/eval_boxes.py --pred-masks DIR --split train --name det_cc_gt      # masks -> CC detector first
+    python barrels/tools/eval_boxes.py --pred DIR --stems filter:DAVE_ --gt-boxes --name dave   # v2 box labels as truth, frames by name
 
 Predictions: <stem>_det.json (a list of Barrel dicts) in --pred, or class masks in --pred-masks run
 through the connected-components reference detector. Ground truth: data/labels/<stem>_inst.{png,json}.
@@ -24,8 +25,11 @@ from barrels import cv, detect_types as dtp, eval_det as ed, geometry as geo, io
 CAMS = {"nominal": geo.NOMINAL, "4a8b": geo.AIM_4A8B6118}
 
 
-def load_gt(stem: str, labels_dir: Path, cam: geo.CameraModel) -> list[dtp.Barrel] | None:
+def load_gt(stem: str, labels_dir: Path, cam: geo.CameraModel, boxes: bool = False) -> list[dtp.Barrel] | None:
+    """Ground truth from <stem>_boxes.json (v2 box labels) when ``boxes``, else from the v1.5 instances."""
     try:
+        if boxes:
+            return [b.with_ground(cam) for b in dtp.barrels_from_boxes(io.load_boxes(stem, labels_dir, check_image=False))]
         inst, meta = io.load_instances(stem, labels_dir)
     except FileNotFoundError:
         return None
@@ -57,6 +61,8 @@ def main(argv=None) -> int:
     g.add_argument("--pred", type=Path, help="folder of <stem>_det.json")
     g.add_argument("--pred-masks", type=Path, help="folder of predicted class masks (<stem>_pred.png or <stem>_mask.png)")
     ap.add_argument("--split", default="test", choices=(*splits.SPLIT_NAMES, "all"))
+    ap.add_argument("--stems", default="", help="instead of a split: comma-separated stems, or a substring filter over data/raw with 'filter:<text>'")
+    ap.add_argument("--gt-boxes", action="store_true", help="ground truth from <stem>_boxes.json (v2) instead of the instances")
     ap.add_argument("--name", required=True)
     ap.add_argument("--labels", type=Path, default=io.LABELS_DIR)
     ap.add_argument("--raw", type=Path, default=io.RAW_DIR)
@@ -67,13 +73,18 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
     cam = CAMS[args.cam]
     sp = splits.load_splits()
-    stems = sorted({x for v in sp.values() for x in v}) if args.split == "all" else sorted(sp.get(args.split, []))
+    if args.stems.startswith("filter:"):
+        stems = sorted(p.stem for p in io.list_images(args.raw) if args.stems[7:] in p.name)
+    elif args.stems:
+        stems = sorted(x for x in args.stems.split(",") if x)
+    else:
+        stems = sorted({x for v in sp.values() for x in v}) if args.split == "all" else sorted(sp.get(args.split, []))
     results, skipped = [], []
     out_dir = cv.fresh_dir(args.out / f"{dt.date.today().isoformat()}_{args.name}")
     if args.sheets:
         (out_dir / "sheets").mkdir()
     for stem in stems:
-        gts = load_gt(stem, args.labels, cam)
+        gts = load_gt(stem, args.labels, cam, boxes=args.gt_boxes)
         if gts is None:
             skipped.append(stem); continue
         if args.pred is not None:
@@ -97,7 +108,7 @@ def main(argv=None) -> int:
     if not results:
         print("nothing to evaluate"); return 1
     md, _, _ = ed.write_results(results, out_dir, title=f"{args.name} on {args.split} ({len(results)} frames, cam {args.cam})")
-    json.dump({"cam": args.cam, "iou": args.iou, "split": args.split, "git": cv.git_hash(), "pred": str(args.pred or args.pred_masks)}, (out_dir / "config.json").open("w"), indent=1)
+    json.dump({"cam": args.cam, "iou": args.iou, "split": args.stems or args.split, "gt": "boxes" if args.gt_boxes else "instances", "git": cv.git_hash(), "pred": str(args.pred or args.pred_masks)}, (out_dir / "config.json").open("w"), indent=1)
     print(md.read_text()); print("written to", out_dir)
     return 0
 

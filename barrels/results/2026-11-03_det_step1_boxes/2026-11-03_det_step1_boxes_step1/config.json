@@ -1,0 +1,8 @@
+{
+ "cam": "4a8b",
+ "iou": 0.5,
+ "split": "train",
+ "gt": "boxes",
+ "git": "7d0787e",
+ "pred": "results/2026-11-03_det_step1/det_step1"
+}

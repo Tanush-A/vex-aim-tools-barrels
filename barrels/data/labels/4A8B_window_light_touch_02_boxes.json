@@ -2,28 +2,30 @@
  "version": 1,
  "stem": "4A8B_window_light_touch_02",
  "image_sha1": "f328444cd35928d001e5e67f19b1680fd961906d",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
- "source": "from_inst",
+ "source": "from_inst+manual",
  "barrels": [
   {
    "id": 1,
    "color": "orange",
    "bbox": [
     148,
-    125,
+    121,
     192,
     176
    ],
-   "flags": [],
+   "flags": [
+    "occluded"
+   ],
    "note": ""
   },
   {
    "id": 2,
    "color": "blue",
    "bbox": [
-    153,
+    187,
     122,
     240,
     178

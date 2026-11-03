@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "DAVE_office_speckle_snap_01",
+ "image_sha1": "87399f3cf420be2f2df5253efcf422355b148287",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "dave_gt",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    146,
+    162,
+    309,
+    297
+   ],
+   "flags": [],
+   "note": "line BGR (95,225,135)"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    385,
+    158,
+    573,
+    289
+   ],
+   "flags": [],
+   "note": "line BGR (56,221,232)"
+  }
+ ]
+}

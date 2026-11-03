@@ -1,0 +1,54 @@
+{
+ "model": "/Users/tanush/Desktop/Celeste/vex-aim-tools/barrels/results/2026-10-20_v1_test_adaptive/config.json",
+ "cam": "AIM_4A8B6118_BOXFIT",
+ "cfg": {
+  "min_area_px": 20,
+  "close_px": 3,
+  "bottom_tol": 0.15,
+  "bottom_tol_min_px": 4,
+  "width_min": 0.4,
+  "width_max": 1.6,
+  "split_search": 0.25,
+  "min_width_px": 16.0
+ },
+ "split": "train",
+ "git": "7d0787e",
+ "summary": {
+  "cc": {
+   "P_o": 0.2413793103448276,
+   "R_o": 0.5833333333333334,
+   "F1_o": 0.34146341463414637,
+   "F1loose_o": 0.4390243902439025,
+   "P_b": 0.5,
+   "R_b": 0.6923076923076923,
+   "F1_b": 0.5806451612903226,
+   "F1loose_b": 0.7333333333333334,
+   "primary": 0.46105428796223447,
+   "neg_false_detections": 0,
+   "mean_iou": 0.7502982446054736,
+   "bottom_err_median_px": 1.0,
+   "ground_proj_median_mm": 3.0720832534342746,
+   "ground_meas_median_mm": 3.0720832534342746,
+   "color_confusions": 0,
+   "disqualified": false
+  },
+  "step1": {
+   "P_o": 0.8333333333333334,
+   "R_o": 0.8333333333333334,
+   "F1_o": 0.8333333333333334,
+   "F1loose_o": 0.5833333333333334,
+   "P_b": 0.8888888888888888,
+   "R_b": 0.6153846153846154,
+   "F1_b": 0.7272727272727274,
+   "F1loose_b": 0.8181818181818181,
+   "primary": 0.7803030303030304,
+   "neg_false_detections": 0,
+   "mean_iou": 0.8675753379150088,
+   "bottom_err_median_px": 1.0,
+   "ground_proj_median_mm": 2.3086219425580135,
+   "ground_meas_median_mm": 2.3086219425580135,
+   "color_confusions": 0,
+   "disqualified": false
+  }
+ }
+}
