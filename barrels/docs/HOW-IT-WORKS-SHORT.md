@@ -1,6 +1,8 @@
-# HOW-IT-WORKS, the short version
+# HOW-IT-WORKS, the short version — start here
 
-One page to refresh from before explaining the detector. The long version with worked numbers is `HOW-IT-WORKS.md`. State as of 2026-11-05 (the stripe step is the detector).
+One page to understand (or re-explain) the detector. The long form with worked numbers is `HOW-IT-WORKS.md`; the diagrams of how the files fit are `ARCHITECTURE.md`. State as of 2026-11-05 (the stripe step is the detector).
+
+**Naming note.** `EXPERIMENTS.md`, `DECISIONS.md` and `TODO.md` call the stripe step "detector step 2" (it was the second thing built, after "step 1" = blobs → count → bottom edge). In the two HOW-IT-WORKS files the detector is explained as four steps, and the stripe is **step 4**. Same thing.
 
 ## The chain
 
@@ -17,13 +19,13 @@ Nothing learns from the photo it is looking at. The only learned numbers are two
 
 Every pixel becomes orange (1), blue (2) or other (0). A pixel survives a chain of cheap tests: not above row 50 (above the horizon, nothing is a barrel); saturation, max(R,G,B) − min(R,G,B), above a floor set **per image** from the top rows (how colorful is the background here, plus a margin; ≈ 48–55 on our table); not close to the wall's color, also estimated from the top rows; brighter than 40. Survivors inside the orange RGB box are orange, inside the blue box blue.
 
-Known weakness, now with evidence: the two per-image parts assume the top rows are plain wall. In Dave's office they are a cluttered shelf, the floor jumps to 96–120, and **zero** barrel pixels come out on all 20 of his frames. That is the next big fix.
+Known weakness, with evidence: the two per-image parts assume the top rows are plain wall. In Dave's office they are a cluttered shelf, the floor jumps to 96–120, and **zero** barrel pixels come out on all 20 of his frames. That is the next big fix (`TODO.md`, P0).
 
 ## 2. Camera geometry (`geometry.py`)
 
 Pinhole camera 43.47 mm above the table, tilted down 22.25°, focal length 400 px. Two formulas: a point at distance d and height z lands on row `240 + f·tan(atan((h − z)/d) − tilt)`, and backwards a row gives a distance. The barrel is 24 mm tall, 25.5 mm wide at the bulge, stripe 6 mm at mid-height. So for a barrel at any distance the geometry says its top row, stripe rows, bottom row and width (`barrel_rows`); and seeing any one of those tells you the distance and therefore all the others. At 20 cm: 51 px wide, 55 tall, bottom at row 174. Horizon row 76.
 
-The tilt was corrected today: the October estimate (23.3°) put every predicted bottom ≈ 20 px too low; fitting from 24 labeled barrels gives 22.25°. Labeled boxes pin the horizon row, not f and tilt separately; the known-distance calibration frames do that.
+The tilt was corrected on 2026-11-03: the October estimate (23.3°) put every predicted bottom ≈ 20 px too low; fitting from 24 labeled barrels gives 22.25°. Labeled boxes pin the horizon row, not f and tilt separately; the known-distance calibration frames will do that.
 
 ## 3. The detector (`detector.py`)
 
@@ -41,16 +43,22 @@ The tilt was corrected today: the October estimate (23.3°) put every predicted 
 
 A predicted box matches a true box if same color and overlap (intersection over union) ≥ 0.5; greedy, each true barrel used once. Precision = hits ÷ boxes drawn; recall = hits ÷ barrels; F1 blends them; the headline is the mean of the orange and blue F1. The v2 rule (`--rule v2`) adds "bottom edge within a tenth of the box height" and counts every barrel, occluded ones included; a box on a clean empty frame disqualifies.
 
+## 5. On the robot (`live/BarrelViewer.fsm`, `worldmap_bridge.py`)
+
+A twenty-line aim_fsm state machine: once a second, take `robot.camera_image`, hand it to `BarrelDetectorHook.view`, show the result with Dave's `imshow`. The hook converts RGB → BGR, runs sections 1 and 3, draws with `detector.draw`, converts back. `tm seg` / `tm boxes` / `tm both` at the `C>` prompt switch the view. Run: `cd barrels/live && genfsm BarrelViewer.fsm && simple_cli BarrelViewer` (`RUNBOOK.md`).
+
 ## What code to read, in order
 
 | file | lines | read | what you'll see |
 |---|---|---|---|
-| `tools/detect_image.py` | 75 | all | the whole chain in 10 lines: load model → segment → detect → draw |
+| `tools/detect_image.py` | 72 | all | the whole chain in 10 lines: load model → segment → detect → draw |
 | `src/barrels/detector.py` | 395 | `DetConfig` (l. 28), `find_blobs` (69), `expected_width_px` (92), `split_blob` (105), `predicted_bottom` (140), `resolve_bottom` (150), `detect_step1` (170); then `find_stripes` (212), `barrel_from_stripe` (289), `detect` (345), `draw` (388) | the detector, in the order of this page |
 | `src/barrels/geometry.py` | 199 | `horizon_row` (61), `point_row` (65), `row_to_ground_distance` (71), `barrel_rows` (117), the presets (≈ 165) | the two formulas and the barrel table |
 | `src/barrels/detect_types.py` | 147 | the `Barrel` dataclass at the top | what one detected barrel is |
 | `src/barrels/pipeline.py` | 293 | `Config` (39), `effective_s_min` (158), `segment` (252) | the per-image floor and the pixel tests; skip `fit` |
-| `src/barrels/eval_det.py` | 429 | `box_iou`, `match_greedy`, `evaluate_frame` | how a hit is decided |
+| `src/barrels/eval_det.py` | 429 | `box_iou`, `match_best_first`, `evaluate_frame` | how a hit is decided |
+| `src/barrels/worldmap_bridge.py` | ≈ 130 | `BarrelDetectorHook` | the live feed's one function: RGB in, drawn RGB out |
+| `live/BarrelViewer.fsm` | ≈ 40 | all | the state machine |
 | `experiments/2026-11-03_det_step2/run.py` | 84 | all | how the numbers above are produced; the sheets |
 | `experiments/2026-11-03_geo_boxfit/run.py` | 97 | `residuals`, `main` | the tilt re-fit |
 

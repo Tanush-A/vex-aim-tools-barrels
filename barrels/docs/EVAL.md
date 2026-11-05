@@ -1,6 +1,6 @@
 # EVAL.md — metrics + protocol
 
-**Version:** v1 (2026-10-14; protocol detailed 2026-10-19); **v2 detection rule + splits added 2026-11-02; one-table v2.0 splits 2026-11-03** (`DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. Open question for Dave: what counts as "good" (targets)? See `STATUS.md`.
+**Version:** v1 (2026-10-14; protocol detailed 2026-10-19); **v2 detection rule + splits added 2026-11-02; one-table v2.0 splits 2026-11-03** (`DECISIONS.md`). Foundation doc — change only via a logged entry in `DECISIONS.md`. The v2 detection rule (bottom of this file) is the one that matters now; the per-pixel section is how the frozen segmentation was judged.
 
 ## Metrics
 
@@ -52,7 +52,7 @@ Ground truth = one **box per physical barrel** (`DATA.md`, box labels): the full
 - **Reported alongside:** matched-pair IoU; bottom-edge error (px, signed, positive = predicted lower; and as a fraction of box height), split by whether the labeler saw the bottom (`bottom_estimated` boxes are themselves a guess); barrel-count error per frame; color confusions (class-agnostic IoU matches with the wrong color).
 - **Aggregation:** per condition (light × surface), per arrangement (scene tag), ALL, and — once a second table exists (v2.1) — **separately for the unseen table** (below). Per-image numbers in the results folder.
 - **Floor:** the connected-components baseline (`detect_cc.py`), never tuned, re-scored under this rule.
-- **Implementation:** `src/barrels/eval_det.py`, `tools/eval_boxes.py` — to be updated for box ground truth and the bottom-edge condition (v2 M2). The 15 mm loose criterion and the projected/measured ground errors stay in the code for later; they are not part of the v2 score.
+- **Implementation (since 2026-11-03):** `src/barrels/eval_det.py` (`evaluate_frame(..., rule="v2")`, `match_best_first`), `tools/eval_boxes.py --pred DIR --rule v2`. The v1 rule (IoU only, occluded/truncated truth ignored) stays the tools' default so every earlier number reproduces; the numbers we report are v2. The 15 mm loose criterion and the projected/measured ground errors stay in the code for the world map later; they are not part of the v2 score.
 
 ### v2 splits
 

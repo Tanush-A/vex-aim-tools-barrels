@@ -4,6 +4,13 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-11-05 — Doc cleanup (doc update): `PROBLEM.md` records the display-only live view; stale write-ups archived; the bridge defaults to the current detector
+
+- **Decision:** no scope change beyond what the 2026-11-03 entry already logged; the docs now say it. `PROBLEM.md` has a "this is the spec" banner, marks its v1 section as the record of the frozen front end, notes that the segmentation redesign is in v2.0 (it costs every detection on Dave's frames, Dave's own condition) and that a display-only live view on the robot is in scope while world-map wiring stays out; its milestone list matches `TODO.md`. `MEETING-2026-10-28.md`, the two `OVERNIGHT-*.md`, `Post-v1-SUMMARY.md` and the v1 capture plan from `DATA.md` moved to `docs/archive/`. `STATUS.md` is one screen; `HOW-IT-WORKS-SHORT.md` is the entry page; `ARCHITECTURE.md` (diagrams) and `barrels/README.md` are new. `worldmap_bridge.BarrelDetectorHook` now defaults to the current detector (`detector.detect`, `DetConfig()`) and camera (`AIM_4A8B6118_BOXFIT`) instead of the CC floor and the October preset, with `BarrelDetectorHook.default()` loading the frozen v1 model; `detect_image.py` and the live feed share that one definition.
+- **Why:** Tanush, 2026-11-04: everything human-readable and clean before new code lands; the live feed needs one place that defines "the detector as it stands" so the photo path and the robot path cannot drift apart.
+- **Who:** Tanush (ask), Claude Code (edits), 2026-11-05.
+- **Alternatives:** leave the bridge on the CC floor and configure the detector in the `.fsm` (rejected — two definitions of the default); delete the old write-ups (rejected — they are the record of October; archived instead).
+
 ## 2026-11-05 — The stripe step is the detector; the live feed lives in `barrels/live/`
 
 - **Decision:** `DetConfig.require_stripe=True` is the default: `detector.detect` = every stripe is a barrel, plus the stripeless pieces that could not show a stripe (frame bottom reached, or the expected stripe under 4 px). Steps 1–3 alone stay available (`require_stripe=False`, `detect_image.py --step1`) and the two earlier experiments are pinned to them. The v2 scoring rule (`eval_det.py rule="v2"`, decided 2026-11-02) is the number we report; the v1 rule stays as the default of the tools so every earlier number reproduces. The robot-side program for the live feed is `barrels/live/BarrelViewer.fsm`, run from that folder with `genfsm` / `simple_cli`.

@@ -12,6 +12,26 @@ One entry per experiment, newest first. Template:
 - **Next:**
 ```
 
+## Index (newest first; the headline of each entry)
+
+| date | experiment | headline |
+|---|---|---|
+| 2026-11-03 eve | **Detector step 2 (the stripe) vs steps 1–3 vs the floor**, Tanush's boxes | v2 rule: floor 0.43 → steps 1–3 0.71 → **stripe 0.91**; overlap rule 0.48 / 0.86 / 0.97; misses = hidden stripes. Re-run 2026-11-05: identical |
+| 2026-11-03 | **Dave's 20 snapshots** (outside check) | **0 barrel pixels on all 20**: the per-image floor and wall model assume plain top rows; the pink desk floods orange. The front end is the bottleneck |
+| 2026-11-03 | Detector step 1 vs the CC floor (auto instances; provisional) | 0.78 vs 0.46 mean F1; bottoms within 1 px |
+| 2026-11-03 | Camera re-fit from labeled boxes | the October preset put bottoms ≈ 20 px low; boxes pin horizon row ≈ 76 (tilt 22.25° at f 400), not f and tilt separately → `AIM_4A8B6118_BOXFIT` |
+| 2026-10-28 | Pixel cleanup flags (LOSO CV) | tie (best +0.010); v1 unchanged |
+| 2026-10-28 | Detection floor: CC reference detector (provisional) | 0.63 with perfect pixels, 0.45 with v1's: touching barrels merge |
+| 2026-10-22 | Where v1's errors come from | 21 % of blue lost to the saturation floor (shadowed faces); orange FPs = lid reflections + the hand; table prior off is right |
+| 2026-10-20 | Per-image saturation floor vs fixed; synthetic shift probe; second test run | tie on real data (0.809 vs 0.810); under a cool cast the fixed floor floods negatives (7.7 %), the band floor stays at 0; test 0.843 / 0.813 |
+| 2026-10-20 | v1.5 arms: barrel-referenced re-fit, YUV chroma box | no gain with one light (re-fit −0.07, YUV tie); kept behind flags |
+| 2026-10-20 | v1 on the held-out test set (once) | orange IoU 0.844, blue 0.811, 0 false pixels on the negative |
+| 2026-10-20 | v1 RGB box: ablations and sweeps (LOSO CV) | final `ee36a1e9`, CV 0.810; floor + wall prior do the work; box alone 0.04; horizon 90 rejected (hand); table prior off |
+| 2026-10-20 | Barrel color distribution in RGB | brightness-elongated smears; a box alone admits 55–86 % of table/wall |
+| 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
+| 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
+| 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
 ---
 
 ## 2026-11-03 (evening) — Detector step 2, the stripe anchor, vs step 1 vs the floor, on Tanush's reviewed boxes

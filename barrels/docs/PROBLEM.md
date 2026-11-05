@@ -1,8 +1,14 @@
-# PROBLEM.md — v1 spec: barrel color segmentation (+ v2.0 spec: draw the boxes)
+# PROBLEM.md — the spec
+
+> **This file is the spec.** It says what we are building and what is out of scope; `EVAL.md` says how it is scored and `constraints.md` lists the physical facts we exploit. The three are foundation docs: they change only through a dated entry in `DECISIONS.md`. **The live spec is the v2 section below**; the v1 section is kept as the record of the frozen front end.
+
+# v1 — barrel color segmentation (frozen 2026-10-20)
 
 **Version:** v1 (2026-10-14; v1 frozen at config `afd85483` 2026-10-20). **v2.0 spec appended 2026-11-02** (agreed with Dave 2026-10-30; replaces the 2026-10-28 proposal). Foundation doc — change only via a logged entry in `DECISIONS.md`. Source: Dave meeting 2026-10-07 + Tanush's scope decisions 2026-10-14.
 
 ## Task
+
+*(Record of v1. The v1 method ships unchanged as the front end of v2; the "planned v1.5" ideas below were tried on 2026-10-20 and tied, so v1 stayed as it was — `EXPERIMENTS.md`.)*
 
 Given one camera frame from the VEX AIM robot, decide **per pixel**: is this pixel part of a barrel, and if so, is it barrel-orange or barrel-blue? This is step 1 toward a full detector that will eventually replace the vendor "aivision" detector, whose unreliable barrel detection is a real problem robot users face right now.
 
@@ -103,7 +109,7 @@ Everything above; all four hidden-bottom cases; a held barrel is detected like a
 
 ## Out of scope (v2.0)
 
-Ground positions, the world map, the aivision spec, running on the robot; knocked-over barrels; wood tables; temporal tracking across frames; learned detectors; confidence shown to the user; per-pixel polish beyond the one re-fit — if the segmentation turns out to be the bottleneck, fixing it becomes v2.1 (Dave 2026-10-30: only if its flaws actually cost detections).
+Ground positions, the world map, the aivision spec; knocked-over barrels; wood tables; temporal tracking across frames; learned detectors; confidence shown to the user; per-pixel polish beyond the one re-fit — if the segmentation turns out to be the bottleneck, fixing it becomes v2.1 (Dave 2026-10-30: only if its flaws actually cost detections) — **it is: on Dave's frames it costs every detection, so the redesign was pulled into v2.0 on 2026-11-03.** A **display-only live view** of the boxes on the robot's own camera is *in* scope since 2026-11-03 (Dave; `DECISIONS.md`): it draws on the image and touches nothing downstream. Wiring into the world map stays out.
 
 ## Success criteria
 
@@ -111,6 +117,6 @@ Ground positions, the world map, the aivision spec, running on the robot; knocke
 
 ## Milestones
 
-1. **v2.0** (this spec): box labels + tool, the eval rule, one-table data + calibration frames, geometry calibration, segmentation check, the stripe-anchored detector, one test run, results to Dave. Plan: `STATUS.md`.
+1. **v2.0** (this spec), in the order of `TODO.md`: ~~box labels + tool~~, ~~the eval rule~~, ~~the stripe-anchored detector~~ (all 2026-11-03), ~~the live view on the robot~~ (2026-11-05), the segmentation redesign, one-table data + calibration frames, the geometry calibration, hidden-stripe barrels, one test run, results to Dave.
 2. **v2.1 — generalise:** more tables (white / beige / black), an unseen-table hold-out, the one segmentation re-fit if a table needs it, and fixing the segmentation where it is the bottleneck.
 3. **Later, when Dave says:** ground positions from the stored distances; wiring into the robot — the bridge stub and the aivision spec shape already exist (`worldmap_bridge.py`).

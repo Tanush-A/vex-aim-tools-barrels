@@ -4,14 +4,14 @@
 
 A robust **barrel detector for the VEX AIM robot**, replacing the unreliable vendor detector ("aivision"). Research project: Tanush Aggarwal (CMU SCS, `Tanush-A`) with Prof. David Touretzky (dst@cs.cmu.edu), ~10 hrs/week, fall 2026.
 
-**Current scope (v2.0): barrel detection = one still image in, the same image out with one box per barrel in its color, on the laptop** (spec: the v2 section of `docs/PROBLEM.md`, agreed with Dave 2026-10-30). v1 per-pixel segmentation is frozen (config `afd85483`) as the front end; the v1.5 infrastructure (geometry, eval, `Barrel` type) is in place. Ground positions, the world map, the aivision spec and running on the robot are **out until Dave says so**. **Never correct the image itself (no white balance)**. Plain-English guide to the main code: `docs/HOW-IT-WORKS.md`.
+**Current scope (v2.0): barrel detection = one still image in, the same image out with one box per barrel in its color** (spec: the v2 section of `docs/PROBLEM.md`, agreed with Dave 2026-10-30), plus a **display-only live view** of those boxes on the robot's camera (Dave 2026-11-03; `barrels/live/`). v1 per-pixel segmentation is frozen (config `afd85483`) as the front end, and its redesign is the next task (it finds nothing on Dave's frames). The stripe-anchored detector is the default since 2026-11-05. Ground positions, the world map and the aivision spec are **out until Dave says so**. **Never correct the image itself (no white balance)**. Plain-English guide to the main code: `docs/HOW-IT-WORKS-SHORT.md` (one page) → `docs/HOW-IT-WORKS.md`; diagrams: `docs/ARCHITECTURE.md`.
 
-Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork `Tanush-A/vex-aim-tools-barrels`, branch `barrels`; upstream `touretzkyds/vex-aim-tools`) is the **single source of truth** — the claude.ai Project only mirrors `CLAUDE.md` + `barrels/docs/` via manual GitHub sync.
+Everything lives in `barrels/`; the only place that imports `aim_fsm` is `barrels/live/` (the live feed). The repo (fork `Tanush-A/vex-aim-tools-barrels`, branch `barrels`; upstream `touretzkyds/vex-aim-tools`) is the **single source of truth** — the claude.ai Project only mirrors `CLAUDE.md` + `barrels/docs/` via manual GitHub sync.
 
 ## Environment
 
 - macOS, Python 3.13, venv at `~/Desktop/Celeste/env` (OpenCV, numpy, pytest). The `barrels` package is installed editable: `pip install -e barrels` from the repo root. Tests: `cd barrels && python -m pytest`. Robot ops: `docs/RUNBOOK.md`.
-- Code layout: `src/barrels/` (io, labeling, priors, boxfit, pipeline, cv, eval, splits, viz; v1.5 adds geometry, instances, detect_types, eval_det, cleanup, detect_cc, worldmap_bridge; v2 adds detector), `tools/` (label_tool, instance_tool, box_tool, segment_image, detect_image, eval_masks, eval_boxes, import_snaps, make_splits, attach_measured), `experiments/`, `tests/`.
+- Code layout: `src/barrels/` (io, labeling, priors, boxfit, pipeline, cv, eval, splits, viz; v1.5 adds geometry, instances, detect_types, eval_det, cleanup, detect_cc, worldmap_bridge; v2 adds detector), `tools/` (label_tool, instance_tool, box_tool, segment_image, detect_image, eval_masks, eval_boxes, import_snaps, import_dave_zip, make_splits, attach_measured), `live/` (BarrelViewer.fsm + the generated .py; run with `genfsm` / `simple_cli` from that folder), `experiments/`, `results/`, `tests/`. Module table and diagrams: `docs/ARCHITECTURE.md`; reader's entry point: `barrels/README.md`.
 - Small hand-taken image sets are **committed to git** under `barrels/data/`.
 
 ## The docs and when to touch them
@@ -35,7 +35,9 @@ Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork
 | `docs/DATA.md` | Before capturing or using data | Datasets/labels/splits change |
 | `docs/RUNBOOK.md` | Operating the robot | Procedures/gotchas change |
 | `docs/NOTES-INBOX.md` | Start of session (triage it) | Tanush pastes in notes from phone/browser chats |
-| `docs/HOW-IT-WORKS.md` | Before touching main code (pipeline, geometry, detector, eval) | In the same commit as any main-code change |
+| `docs/HOW-IT-WORKS-SHORT.md` → `docs/HOW-IT-WORKS.md` | Before touching main code (pipeline, geometry, detector, eval); SHORT is the one-page entry, the long form has the worked numbers | In the same commit as any main-code change (both files) |
+| `docs/ARCHITECTURE.md`, `README.md` | When a file, folder or command is added or renamed | Same commit |
+| `docs/archive/` | Never needed; the record of October (meeting briefs, overnight summaries, the v1 summary, the v1 capture plan) | Move a doc here when it stops being current; never edit it there |
 | `docs/NAVIGATOR.md` | Start of every session (after `STATUS.md`) | **Never** — navigator-owned, read-only for Claude Code. Act on its open requests; reply via `STATUS.md` or `NOTES-INBOX.md` |
 
 ## Workflow loop

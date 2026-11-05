@@ -1,6 +1,6 @@
 # HOW-IT-WORKS.md — the main code, in plain English
 
-Written for Tanush, so he can explain the detector to Dave without help. One section per **main** module: color segmentation, camera geometry, the detector, the detection eval. Side tools (labelers, importers, viewers) are not covered — they are allowed to be black boxes. Rule since 2026-11-02 (`DECISIONS.md`): every commit that changes main code updates its section here and gets a walkthrough in chat first.
+Written for Tanush, so he can explain the detector to Dave without help. One section per **main** module: color segmentation, camera geometry, the detector, the detection eval, plus the live feed. Side tools (labelers, importers) are not covered — they are allowed to be black boxes. The one-page version is `HOW-IT-WORKS-SHORT.md`; the file-level diagrams are `ARCHITECTURE.md`. Naming: what the lab notebook calls "detector step 2" (the stripe) is **step 4** of section 3 here. Rule since 2026-11-02 (`DECISIONS.md`): every commit that changes main code updates its section here and gets a walkthrough in chat first.
 
 Every number in this file is a real number from the code or from a real frame, so you can check it: `4A8B_window_light_touch_02` (three touching barrels, orange–blue–orange, about 18 cm away) is the worked example throughout.
 
@@ -73,17 +73,17 @@ So a barrel at 20 cm is about 51 px wide and 55 px tall with its bottom at row 1
 
 **How to run it.** `python -m barrels.geometry --tilt 22.25 --f 400` prints the table in `constraints.md` for any camera numbers.
 
-**What can go wrong.** The tilt and focal length are only known to a few percent, and close to the robot small tilt errors move rows a lot (at 5 cm, 1° of tilt is ≈ 7 px). The known-distance `calib` frames (v2 M4) measure both properly.
+**What can go wrong.** The tilt and focal length are only known to a few percent, and close to the robot small tilt errors move rows a lot (at 5 cm, 1° of tilt is ≈ 7 px). The known-distance `calib` frames (the calibration session, `TODO.md` P1) will measure both properly.
 
 **Update 2026-11-03 — the preset was off.** On the labeled frames the October camera (f 404, tilt 23.3°, horizon row 66) put every predicted bottom edge about 20 px too low: the top row said "this barrel is closer than it is". Re-fitting the tilt from 24 labeled, fully visible barrels on the train frames (f held at 400, the known barrel height and width as the ruler) gives tilt 22.25°, horizon row 76 — inside the band measured in October. With it, predicted bottoms land within about 5 px of the truth. That is the provisional preset `AIM_4A8B6118_BOXFIT`, now the detector's default, until the known-distance `calib` session measures it properly. Note what the boxes actually pin down: the horizon row, not f and tilt separately (they trade off along a ridge: f 356 with tilt 24.75° fits exactly as well as f 400 with 22.25°). `experiments/2026-11-03_geo_boxfit/`, `EXPERIMENTS.md` 2026-11-03.
 
 **Numbers to remember.** Horizon row ≈ 76. A barrel at 20 cm is ≈ 51 px wide. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
 
-## 3. The detector — `src/barrels/detector.py` (v2 step 1, 2026-11-03)
+## 3. The detector — `src/barrels/detector.py` (v2; steps 1–3 built 2026-11-03, the stripe step the default since 2026-11-05)
 
-**What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` when the bottom edge was computed rather than seen; `truncated` when the box reaches a frame edge), `area` (how many mask pixels it came from) and `source` (`"det1"`). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, same signature as the dumb reference `detect_cc.detect`, so either can be plugged into `detect_image.py` or the experiment scripts. `draw(image, barrels)` paints a 1-px rectangle per barrel — yellow for an orange barrel, green for a blue one, so the lines stand out from the barrels — and nothing else: the v2 deliverable image.
+**What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` / `top_inferred` when that edge was computed rather than seen; `occluded` when the stripe was partly hidden and the full box drawn anyway; `truncated` when the box reaches a frame edge), `area` (how many mask pixels it came from) and `source` (`"det2"` for a barrel found from its stripe, `"det1"` for a stripeless piece). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, same signature as the dumb reference `detect_cc.detect`, so either can be plugged into `detect_image.py` or the experiment scripts. `draw(image, barrels)` paints a 1-px rectangle per barrel — yellow for an orange barrel, green for a blue one, so the lines stand out from the barrels — and nothing else: the v2 deliverable image.
 
-Nothing is remembered between images and nothing is fit per image. The seven numbers in `DetConfig` were written down before the first run and have not been tuned.
+Nothing is remembered between images and nothing is fit per image. The numbers in `DetConfig` (table below) were written down before the first run and have not been tuned.
 
 ### Step 1 — blobs (`find_blobs`)
 
@@ -156,7 +156,7 @@ Steps 1–3 box anything barrel-colored and barrel-sized. Step 4 adds the one th
 
 `detect` itself is about twenty lines; read it with the table above beside it.
 
-### The seven numbers (`DetConfig`)
+### The numbers (`DetConfig`)
 
 | name | value | what it is | why this value |
 |---|---|---|---|
@@ -194,19 +194,16 @@ Step 4 (the stripe) attacks the first two directly and fixed them on the train f
 
 ### Numbers to remember
 
-Train frames, provisional on three counts (the camera was fit on these same frames; the pixels come from a segmentation model fit on these frames; the truth boxes are the unreviewed automatic instances), `EXPERIMENTS.md` 2026-11-03:
+16 train frames, same pixels (frozen `afd85483`) and camera for every row, Tanush's hand-fixed boxes as the truth (`EXPERIMENTS.md` 2026-11-03 evening; re-run 2026-11-05, identical):
 
-| | step 1 | dumb floor (one box per blob) |
-|---|---|---|
-| mean F1 over the two colors | **0.78** | 0.46 |
-| F1 orange / blue | 0.83 / 0.73 | 0.34 / 0.58 |
-| overlap of matched boxes with the truth (IoU) | 0.87 | 0.75 |
-| bottom-edge error, median | 1 px | 1 px |
-| boxes drawn on the two empty frames | 0 | 0 |
+| | full detector (steps 1–4) | steps 1–3 | floor (one box per blob) |
+|---|---|---|---|
+| mean F1, **v2 rule** (every barrel counts, bottom within a tenth of the height) | **0.91** (orange 0.87 / blue 0.96) | 0.71 | 0.43 |
+| mean F1, overlap-only rule | 0.97 | 0.86 | 0.48 |
+| matched bottoms within 1 px | 23 of 25 | | |
+| boxes drawn on the two empty frames | 0 | 0 | 0 |
 
-Same pixels for both rows; the difference is steps 2 and 3. With the October camera instead of the re-fit one, step 1 scored 0.52 with bottoms 21 px off — the geometry, not the logic, was the limit.
-
-**Against Tanush's hand-fixed boxes (2026-11-03 evening):** overlap rule — floor 0.48, step 1 **0.86**, step 4 **0.97**. **v2 rule** (every barrel counts, bottom edge within a tenth of the height) — floor 0.43, step 1 **0.71**, step 4 **0.91** (orange 0.87, blue 0.96); 23 of 25 matched bottoms within 1 px. The misses are the barrels whose stripe is entirely hidden (`cluster_01`, `occl_01`, `occl_02`). `EXPERIMENTS.md` 2026-11-03 (step 2 entry).
+The misses are the barrels whose stripe is entirely hidden (`cluster_01`, `occl_01`, `occl_02`). Two caveats: the camera was fit on these same frames (one physical number), and the pixels come from a segmentation model fit on these frames. With the October camera instead of the re-fit one, steps 1–3 scored 0.52 with bottoms 21 px off — the geometry, not the logic, was the limit then.
 
 ## 4. Detection eval — `src/barrels/eval_det.py`
 
@@ -216,4 +213,18 @@ Same pixels for both rows; the difference is steps 2 and 3. With the October cam
 
 **Where it lives.** `evaluate_frame(name, preds, gts, cam, rule="v1"|"v2", clean=…)` → per-frame counts and the list of matches with their IoU and bottom-row error; `bottom_tol_px` / `bottom_within_tol` (the v2 bottom condition); `match_greedy` (v1) and `match_best_first` (v2); `aggregate` pools frames per condition, per scene and overall; `write_results` writes `summary.md`, `summary.csv`, `per_image.csv` (counts per frame) and `per_barrel.csv` (every match, miss and false box with its IoU and bottom error); `score` reduces a run to one dict for sweeps (primary = mean F1; `disqualified` when a clean empty frame got a box). CLI: `tools/eval_boxes.py --pred DIR --split train --gt-boxes --rule v2`.
 
-**What can go wrong.** The true bottom edge of a hidden base is itself a human estimate, so bottom-edge error will be reported separately for `bottom_estimated` boxes. Five test frames hold about ten barrels, so the test number will be coarse: one miss moves recall by 10 %.
+**What can go wrong.** The true bottom edge of a hidden base is itself a human estimate, so bottom-edge error is reported separately for `bottom_estimated` boxes (`per_barrel.csv`). Five test frames hold about ten barrels, so the test number will be coarse: one miss moves recall by 10 %.
+
+## 5. The live feed — `live/BarrelViewer.fsm` + `src/barrels/worldmap_bridge.py` (2026-11-05)
+
+**What it does.** Shows sections 1 and 3 on the robot's own camera, once a second, in a window on the laptop. Dave's ask from the 2026-11-03 meeting. Display only: the world map still runs on the vendor detector.
+
+**The idea.** aim_fsm programs are state machines: *nodes* do something when entered, *transitions* move between nodes when an event happens. Ours has two node types. `ShowFrame` reads `robot.camera_image` (the latest frame, RGB), hands it to the hook, and calls `imshow`. A one-second timer (`=T(1)=>`) re-enters `ShowFrame`, so the window refreshes once a second. `SetMode` changes which picture is shown; it is reached by a text message (`tm seg` at the `C>` prompt fires `=TM('seg')=>`) and returns to the loop at once (`=N=>`). The whole machine is four lines in `$setup{}`; `genfsm` turns them into the Python that wires nodes to transitions (`live/BarrelViewer.py`, committed so `simple_cli BarrelViewer` works without regenerating).
+
+**The hook.** `BarrelDetectorHook` holds the three things the detector needs — the frozen segmentation model (`afd85483`), the detector and its config (`detector.detect`, `DetConfig()`), the camera preset (`AIM_4A8B6118_BOXFIT`) — and `default()` builds that exact combination, so "the detector as it stands" is defined in one place and `tools/detect_image.py` loads the same model file. `view(image_rgb, mode)` is the live frame's whole path: RGB → BGR (OpenCV's order, what the pipeline takes), `segment` (section 1), `detect` (section 3), then `detector.draw` for `"boxes"` (the v2 output image: yellow = orange barrel, green = blue, 1 px), `viz.overlay` for `"seg"` (the class mask blended over the image), or both; then BGR → RGB because `imshow` wants RGB. A test checks that `view` produces pixel-for-pixel what `detect_image.py` writes for the same frame.
+
+**Where it lives.** `live/BarrelViewer.fsm` (≈ 40 lines, half of them the docstring); `worldmap_bridge.BarrelDetectorHook` with `default()`, `segment`, `on_image` (barrels), `view` (picture), `annotate`; `wb.DEFAULT_MODEL` (the model file), `wb.VIEWS`. The rest of `worldmap_bridge.py` is the parked world-map route (`barrels_to_aivision_items`, `with_items`).
+
+**How to run it.** `RUNBOOK.md`: `cd barrels/live && genfsm BarrelViewer.fsm && simple_cli BarrelViewer`; `tm seg` / `tm boxes` / `tm both`; Ctrl+\ to quit. ≈ 60 ms per frame on the laptop.
+
+**What can go wrong.** On a scene like Dave's office the segmentation finds nothing (section 1), so the boxes view is just the camera image; `tm seg` shows why (no tint) — that is what the segmentation redesign is for. The camera preset is fit for Tanush's robot; on another robot the predicted bottoms will be off by the tilt difference. If the window never appears, no frame has arrived yet (the console says so); if it freezes, `restart img_thread`. Untested on the robot as of this writing (built offline against the committed frames); the first run is Tanush's.

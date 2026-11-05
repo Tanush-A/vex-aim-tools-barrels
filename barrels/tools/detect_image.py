@@ -20,7 +20,7 @@ import cv2
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from barrels import detect_cc, detector as det, geometry as geo, io, pipeline as pl, worldmap_bridge as wb  # noqa: E402
 
-DEFAULT_MODEL = io.PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"
+DEFAULT_MODEL = wb.DEFAULT_MODEL                                   # the frozen v1 model afd85483; shared with the live feed
 DEFAULT_OUT = io.PKG_ROOT / "results" / "detect_image"
 CAMS = {"boxfit": geo.AIM_4A8B6118_BOXFIT, "4a8b": geo.AIM_4A8B6118, "nominal": geo.NOMINAL}
 

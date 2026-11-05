@@ -1,53 +1,34 @@
-# STATUS.md — current state
+# STATUS.md — where we are
 
-**Updated:** 2026-11-05 (step 2 + v2 rule committed; stripe step is the default). Plain-English code guide: `docs/HOW-IT-WORKS-SHORT.md` (entry) → `docs/HOW-IT-WORKS.md`. Task list: `docs/TODO.md`.
+**Updated:** 2026-11-05 (doc cleanup; live feed built). One screen by design: history lives in `EXPERIMENTS.md` and `DECISIONS.md`, the task list in `TODO.md`, the code guide in `HOW-IT-WORKS-SHORT.md`.
 
-## Where we are
+## State
 
-- **v1 (per-pixel segmentation) done, frozen at `afd85483`:** test orange IoU 0.843, blue 0.813, zero false pixels on the negative frame. Details: `EXPERIMENTS.md` 2026-10-20/22, `Post-v1-SUMMARY.md`.
-- **v1.5 (detection scaffolding) done:** `geometry.py`, instances, `Barrel` type, `eval_det.py`, CC reference detector (floor), world-map bridge stub. The measured set and the instance review were superseded on 2026-11-02 by box labels.
-- **v2.0 spec (2026-11-02, `PROBLEM.md`):** one still image in, the same image with one box per barrel out, on the laptop; bottom edge first; hidden bottoms from the geometry; clip to the frame. **Cut to one table / one background on 2026-11-03** (timeline); generalisation is v2.1.
-- **2026-11-03, committed (7d0787e):** M1 — `_boxes.json` format + validator (`io.py`), `tools/box_tool.py` (drag / edit edges / flags / `--from-inst`), the 21 v1 frames converted to provisional boxes (`reviewed: false`), `make_splits.py --v2`.
-- **2026-11-03, committed (272abb0) after the walkthrough:** `detector.py` step 1 (blobs → how many barrels by the expected width → bottom edge from the top row, clipped), `tools/detect_image.py image.png → <stem>_boxes.png`, the provisional camera `AIM_4A8B6118_BOXFIT` (the preset put bottoms ≈ 20 px too low). On the 16 train frames: mean F1 **0.78** vs the floor's 0.46, bottom edge within 1 px, nothing drawn on empty frames (`EXPERIMENTS.md` 2026-11-03, provisional ×3: camera fit on these frames, pixels from a model fit on these frames, unreviewed instances).
+- **The detector works on the simple data.** One image in, boxes out (`tools/detect_image.py`). Steps: frozen v1 color segmentation → stripe-anchored detector (default since 2026-11-05) → bottom edge from the geometry when hidden. 16 train frames, Tanush's boxes, v2 rule: **0.91** mean F1 (orange 0.87, blue 0.96), 23 of 25 bottoms within 1 px, nothing drawn on empty frames; floor 0.43. Last committed detector change: fc2c98c.
+- **The front end does not transfer.** On Dave's 20 office frames the v1 segmentation outputs zero barrel pixels: both adaptive stages assume the rows above the horizon are plain wall, and his shelf is not; his pink desk then floods orange. This is the blocker for any new scene (`EXPERIMENTS.md` 2026-11-03).
+- **Known misses on our data:** a barrel whose stripe is entirely hidden behind another (`cluster_01`, `occl_01`, `occl_02`); an orange-behind-blue band in `occl_02`.
+- **Camera:** provisional preset `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon 76), fit from labeled boxes; the known-distance calibration session will replace it.
+- **Live feed:** `live/BarrelViewer.fsm` shows the boxes (or the segmentation) on the robot's camera once a second (`RUNBOOK.md`). Untested on the robot as of this writing — first run is Tanush's.
 
-- **2026-11-03, Dave's 20 snapshots imported** (`tools/import_dave_zip.py`, his 12 ground-truth box sets recovered exactly, `DATA.md`). **Outside check result: the v1 segmentation outputs zero barrel pixels on all 20** — both adaptive stages assume the rows above the horizon are plain background, and his office shelf is cluttered and colorful (floor 96–120 instead of ≈ 50); with the adaptive parts off, his pink desk floods the orange class. The front end, not the detector logic, is the bottleneck on a new scene (`EXPERIMENTS.md` 2026-11-03). Meeting brief: `docs/MEETING-2026-11-03.md`.
+## Now (order set after the 2026-11-03 meeting)
 
-- **2026-11-03 evening, built; walked through and committed 2026-11-05 — now the default:** detector step 2 — the stripe anchor (`find_stripes`, `barrel_from_stripe`, `DetConfig.require_stripe=True`; `detect_image.py --step1` for steps 1–3 alone). On the train frames against Tanush's hand-fixed boxes: overlap rule floor 0.48 → step 1 0.86 → **step 2 0.97**; **v2 rule** (every barrel counts, bottom condition) floor 0.43 → step 1 0.71 → **step 2 0.91**; touching rows, the hand and partly hidden barrels with a visible stripe are solved; a barrel whose stripe is entirely hidden is still missed (`EXPERIMENTS.md` 2026-11-03 evening). **The v2 scoring rule is implemented** (`eval_det.py` `rule="v2"`, `eval_boxes.py --rule v2`; 167 tests), committed with step 2.
+1. ~~Doc cleanup~~ done 2026-11-05.
+2. **Live feed on the robot** — built 2026-11-05; Tanush runs it, reports what the camera shows.
+3. **Segmentation redesign** — the front end that finds nothing on Dave's frames. Candidates and the pre-registration rule: `TODO.md`.
+4. Then the remaining box work: hidden-stripe barrels, calibration session, one test run, one email to Dave.
 
-## Now (order set after the 2026-11-03 meeting; details in `TODO.md`)
+## Tanush's part
 
-1. **Doc cleanup** — everything human-readable; archive the stale files; `STATUS.md` to one screen; `README.md`.
-2. **Live feed on the robot** — `barrels/live/BarrelViewer.fsm`: grab `robot.camera_image`, segment + detect, draw, `imshow`; segmentation view too (Dave's `ImageChomper.fsm` pattern).
-3. **Segmentation redesign** — the v1 front end finds nothing on Dave's frames.
-4. Then the remaining box work: hidden stripe, calibration session, the one test run.
+Shoot the one-table session + 12 `calib` frames + `horizon` (`DATA.md`); label boxes (`box_tool.py`, ≈ 30 s/frame); run the live feed and say what it shows.
 
-## Next — two tracks in parallel (Tanush's data is the bottleneck)
+## Open questions for Dave
 
-| track | step | who | needs |
-|---|---|---|---|
-| T1 | **Shoot** one table / one background: the 19-shot list in `DATA.md`, twice if time (≈ 45 min), + 12 `calib` + `horizon`; import; `make_splits.py --v2 --filter 4A8B_<light>_<surface>`; commit | Tanush | — |
-| T2 | **Label boxes** on the new frames + the calib frames (≈ 30 s/frame); fix the 21 converted frames | Tanush | M1 (done) |
-| C2 | **Eval under the v2 rule** (box GT, bottom-edge condition, every GT counts, clean-negative disqualification, per-scene report); re-score the floor and step 1. **Walkthrough.** | Claude | T2 for the 21 frames |
-| C3 | **Detector step 2 — the stripe anchor:** one barrel per stripe inside merged blobs; "barrel" ≠ "orange thing" (fixes `occl_*`, `cluster_01`, the hand). Scene-held-out CV on train. **Walkthrough.** | Claude | — (starts now) |
-| C4 | **Geometry calibration** from the `calib` frames → replaces `AIM_4A8B6118_BOXFIT`; update `constraints.md` #2/#3/#7. **Walkthrough.** | Claude | T1 |
-| C5 | Segmentation check on the new frames (overlays; the one re-fit only if needed) | Claude | T1 |
-| C6 | Retune step 2 with the new train frames (same CV); **one test run** (5 locked + new test frames); `EXPERIMENTS.md`; recap; short email to Dave | Claude drafts, Tanush sends | T2, C2–C5 |
+Which of his scenes to handle first (cluttered shelf, pink desk, dark warm table, lid filling the frame); calibration once or per robot; knocked-over barrels ever; is "bottom within a tenth of the height" the right tolerance; does his `detect.py` from the zip still exist.
 
-## Open questions for Dave (v2)
+## Parked (not v2.0)
 
-- **Segmentation redesign (pulled forward from v2.1):** on Dave's frames the v1 front end finds nothing. Redo the background statistics without the "top rows are plain wall" assumption, and the color model without fixed RGB boxes? Which of his scenes matter most (cluttered shelf, pink desk, dark warm table, lid filling the frame)?
-- **Knocked-over barrels:** upright only in v2; does a barrel on its side ever need detecting?
-- **Per-robot calibration:** one (f, tilt) for every robot, or the 12 `calib` frames per robot? (Dave 2026-10-30: f should not differ much.) Today's finding: the labeled barrels pin the horizon row (≈ 76), not f and tilt separately.
-- **"Drawn correctly" tolerance:** bottom edge within a tenth of the barrel height; fine, or tighter?
-
-## Parked until the world map comes back (not v2)
-
-Integration route (display vs replace aivision), latency, worldmap's 22 mm / 11 mm / `1.1·w` pad vs the measured barrel, ground-position targets in mm, the `measured` split, the skin-vs-orange hue test, Dave's `detect.py` / Lab 6 material, the `openvocab` / `depthmap` branches. v2.1: more tables, the unseen-table hold-out.
-
-## Navigator requests
-
-N-001…N-004 and the 2026-10-14 review notes: all done. Nothing open.
+World-map integration (display vs replace aivision, latency, worldmap's 22 mm / 11 mm / 1.1·w pad), ground positions in mm and the `measured` split, more tables and the unseen-table hold-out (v2.1), skin-vs-orange hue test, the `openvocab` / `depthmap` branches. Navigator requests: none open.
 
 ## Blockers
 
-None. The live feed needs the robot on and `setup.zsh` sourced (`RUNBOOK.md`).
+None. The live feed needs the robot on and `setup.zsh` sourced.

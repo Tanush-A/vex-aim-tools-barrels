@@ -1,48 +1,46 @@
-"""Bridge from our detections to the robot's world map (NOT WIRED into aim_fsm; v1.5 stub).
+"""Where our detector meets the robot: the hook the live feed runs, and the world-map route for later.
 
-What aim_fsm reads: ``worldmap.make_new_aiv_objects`` consumes
-``robot.robot0.status['aivision']['objects']['items']``, a list of dicts with exactly the keys
-``Barrel.to_aivision_spec`` produces (``type_str='aiobj'``, ``name`` OrangeBarrel/BlueBarrel,
-``originx, originy, width, height`` in 320x240 units, optional string ``id``). It projects the
-bottom-edge midpoint (height padded to max(h, 1.1·w)) to the ground with a hardcoded tilt/focal
-length, steps 11 mm along the bearing, and drops anything farther than 300 mm.
+Live feed (built 2026-11-05, ``barrels/live/BarrelViewer.fsm``): an aim_fsm state machine grabs
+``robot.camera_image`` (640x480 **RGB**) once a second and shows ``BarrelDetectorHook.view(image, mode)``
+with aim_fsm's PyQt ``imshow``. ``view`` is the whole chain — RGB→BGR, the frozen v1 segmentation, the
+detector, ``detector.draw`` (yellow = orange barrel, green = blue), BGR→RGB — so the robot path and the
+photo path (``tools/detect_image.py``) run exactly the same code. ``BarrelDetectorHook.default()`` is "the
+detector as it stands": the frozen v1 model (config afd85483), ``detector.detect`` with ``DetConfig()``
+(the stripe step), camera ``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
+(the class mask blended over the image), ``"both"``.
 
-Where a detector can run on the host: ``StateMachineProgram.user_image(image, gray)`` receives
-every decoded frame (``robot.camera_image``, 640x480 **RGB**); ``user_annotate(image)`` may return
-a drawn-on frame for the camera viewer. Sample program (not part of the package):
+Channel order: inside ``barrels`` an image array is BGR (OpenCV's order); the robot and ``imshow`` speak
+RGB; this module converts at the boundary and nowhere else.
 
-    class BarrelDemo(StateMachineProgram):
-        def __init__(self):
-            super().__init__()
-            self.hook = BarrelDetectorHook.load(Path("barrels/results/2026-10-20_v1_test_adaptive/config.json"))
-            self.barrels = []
-        def user_image(self, image, gray):
-            self.barrels = self.hook.on_image(image)
-        def user_annotate(self, image):
-            return self.hook.annotate(image, self.barrels)
-
-Two integration routes, neither chosen yet (question for Dave, STATUS.md):
-  display only  — the program above; the world map keeps using aivision.
-  replace       — write ``with_items(robot.robot0.status, barrels_to_aivision_items(barrels))``
-                  before ``world_map.update`` runs; bypasses the vendor detector, so latency, the
-                  ``check_spec_indicates_held`` box thresholds, and worldmap's 22 mm diameter /
-                  1.1·w pad all need agreeing first.
+The world-map route (NOT wired; parked until Dave says so — ``PROBLEM.md`` v2 out of scope):
+``worldmap.make_new_aiv_objects`` consumes ``robot.robot0.status['aivision']['objects']['items']``, a list
+of dicts with exactly the keys ``Barrel.to_aivision_spec`` produces (``type_str='aiobj'``, ``name``
+OrangeBarrel/BlueBarrel, ``originx, originy, width, height`` in 320x240 units, optional string ``id``). It
+projects the bottom-edge midpoint (height padded to max(h, 1.1·w)) to the ground with a hardcoded tilt/focal
+length, steps 11 mm along the bearing, and drops anything farther than 300 mm. To replace the vendor detector
+one would write ``with_items(robot.robot0.status, barrels_to_aivision_items(barrels))`` before
+``world_map.update`` runs; latency, the ``check_spec_indicates_held`` thresholds and worldmap's 22 mm
+diameter / 1.1·w pad all need agreeing first. ``draw_boxes`` draws in that aivision style (2 px, barrel
+colors) for comparing against the vendor boxes in the camera viewer.
 """
 from __future__ import annotations
 
 import copy
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Callable
 
 import cv2
 import numpy as np
 
 from . import boxfit as bf
-from . import detect_cc, geometry as geo, pipeline as pl
+from . import detector as det, geometry as geo, pipeline as pl, viz
 from .detect_types import AIVISION_SCALE, Barrel
-from .io import BLUE, ORANGE
+from .io import BLUE, ORANGE, PKG_ROOT
 
+DEFAULT_MODEL = PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"   # the frozen v1 model, config afd85483
+VIEWS = ("boxes", "seg", "both")
 BOX_COLORS_RGB = {"OrangeBarrel": (255, 128, 0), "BlueBarrel": (0, 100, 255)}
 
 
@@ -59,8 +57,8 @@ def with_items(status: dict | None, items: list[dict]) -> dict:
 
 
 def draw_boxes(image_rgb: np.ndarray, barrels: list[Barrel], scale: int = AIVISION_SCALE) -> np.ndarray:
-    """Draw the aivision-style boxes. Uses viewer.camera_overlay.draw_aiobj_boxes when the repo root
-    is importable (same look as the vendor boxes), else the same rectangles via cv2."""
+    """Draw the aivision-style boxes (2 px, barrel colors). Uses viewer.camera_overlay.draw_aiobj_boxes when
+    the repo root is importable (same look as the vendor boxes), else the same rectangles via cv2."""
     items = barrels_to_aivision_items(barrels)
     try:
         from viewer.camera_overlay import draw_aiobj_boxes  # type: ignore
@@ -76,16 +74,31 @@ def draw_boxes(image_rgb: np.ndarray, barrels: list[Barrel], scale: int = AIVISI
         return out
 
 
+def _to_bgr(image_rgb: np.ndarray) -> np.ndarray:
+    return np.ascontiguousarray(image_rgb[..., ::-1])
+
+
+def _to_rgb(image_bgr: np.ndarray) -> np.ndarray:
+    return np.ascontiguousarray(image_bgr[..., ::-1])
+
+
 @dataclass
 class BarrelDetectorHook:
-    """v1 segmentation + a detector on a live frame. Not wired into aim_fsm (see the module docstring)."""
+    """The detector on a live (RGB) frame: segmentation model + detector + camera, in one object.
+
+    ``default()`` = the detector as it stands (frozen v1 model, the stripe step, the provisional camera).
+    ``on_image`` returns the barrels; ``view`` returns the picture to show. Both take and give RGB.
+    """
     model: pl.Model
-    cam: geo.CameraModel = geo.AIM_4A8B6118
-    detector: object = detect_cc.detect
-    det_cfg: object = detect_cc.CCConfig()
+    cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT
+    detector: Callable = det.detect
+    det_cfg: object = field(default_factory=det.DetConfig)
+    last_mask: np.ndarray | None = field(default=None, repr=False)
+    last_barrels: list[Barrel] = field(default_factory=list, repr=False)
+    _size_warned: bool = field(default=False, repr=False)
 
     @classmethod
-    def load(cls, config_json: Path | str, cam: geo.CameraModel = geo.AIM_4A8B6118) -> "BarrelDetectorHook":
+    def load(cls, config_json: Path | str, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, **kw) -> "BarrelDetectorHook":
         """From a results config.json that carries a fitted 'model' (as final_test.py writes)."""
         d = json.load(Path(config_json).open())
         m = d["model"]
@@ -93,12 +106,42 @@ class BarrelDetectorHook:
         boxes = {int(k): bf.Box.from_dict(v) for k, v in m["boxes"].items()}
         model = pl.Model(cfg=cfg, boxes=boxes, inner={int(k): bf.Box.from_dict(v) for k, v in m.get("inner", {}).items()},
                          outer={int(k): bf.Box.from_dict(v) for k, v in m.get("outer", {}).items()}, fit_info=m.get("fit_info", {}))
-        return cls(model=model, cam=cam)
+        return cls(model=model, cam=cam, **kw)
+
+    @classmethod
+    def default(cls, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> "BarrelDetectorHook":
+        """The detector as it stands: frozen v1 model afd85483 + detector.detect (DetConfig()) + the given camera."""
+        return cls.load(DEFAULT_MODEL, cam=cam)
+
+    def segment(self, image_rgb: np.ndarray) -> np.ndarray:
+        """The class mask (0 other, 1 orange, 2 blue) of an RGB frame; also kept as ``last_mask``."""
+        if image_rgb.shape[:2] != (480, 640) and not self._size_warned:
+            print(f"BarrelDetectorHook: {image_rgb.shape[1]}x{image_rgb.shape[0]} frame; the model and geometry assume 640x480")
+            self._size_warned = True
+        frame = pl.Frame.from_image(_to_bgr(image_rgb))       # the pipeline takes BGR (OpenCV order)
+        mask, _ = pl.segment(frame, self.model)
+        self.last_mask = mask
+        return mask
 
     def on_image(self, image_rgb: np.ndarray) -> list[Barrel]:
-        frame = pl.Frame.from_image(np.ascontiguousarray(image_rgb[..., ::-1]))     # pipeline expects BGR
-        mask, _ = pl.segment(frame, self.model)
-        return self.detector(mask, self.det_cfg, cam=self.cam)
+        """Segment, then detect. The barrels are also kept as ``last_barrels``."""
+        mask = self.segment(image_rgb)
+        self.last_barrels = self.detector(mask, self.det_cfg, cam=self.cam)
+        return self.last_barrels
+
+    def view(self, image_rgb: np.ndarray, mode: str = "boxes") -> np.ndarray:
+        """The picture to show for an RGB frame, as RGB uint8: ``boxes`` (the v2 output image, yellow/green 1-px
+        rectangles), ``seg`` (the class mask blended over the image: orange, blue), or ``both``."""
+        if mode not in VIEWS:
+            raise ValueError(f"mode must be one of {VIEWS}, got {mode!r}")
+        barrels = self.on_image(image_rgb)
+        bgr = _to_bgr(image_rgb)
+        if mode in ("seg", "both"):
+            bgr = viz.overlay(bgr, self.last_mask)
+        if mode in ("boxes", "both"):
+            bgr = det.draw(bgr, barrels)
+        return _to_rgb(bgr)
 
     def annotate(self, image_rgb: np.ndarray, barrels: list[Barrel]) -> np.ndarray:
-        return draw_boxes(image_rgb, barrels)
+        """RGB frame with the v2 boxes drawn (``detector.draw``: yellow = orange barrel, green = blue)."""
+        return _to_rgb(det.draw(_to_bgr(image_rgb), barrels))
