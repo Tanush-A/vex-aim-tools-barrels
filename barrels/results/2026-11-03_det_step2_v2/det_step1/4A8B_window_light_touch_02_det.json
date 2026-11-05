@@ -1,0 +1,56 @@
+[
+ {
+  "color": "orange",
+  "bbox": [
+   149,
+   122,
+   193,
+   175
+  ],
+  "confidence": 0.7952322738386308,
+  "bottom_mid": [
+   171.0,
+   175.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 1785,
+  "source": "det1"
+ },
+ {
+  "color": "blue",
+  "bbox": [
+   193,
+   124,
+   237,
+   178
+  ],
+  "confidence": 0.7702635504724018,
+  "bottom_mid": [
+   215.0,
+   178.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 2139,
+  "source": "det1"
+ },
+ {
+  "color": "orange",
+  "bbox": [
+   240,
+   122,
+   288,
+   175
+  ],
+  "confidence": 0.784182944259171,
+  "bottom_mid": [
+   264.0,
+   175.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 2223,
+  "source": "det1"
+ }
+]

@@ -20,7 +20,7 @@ Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork
 
 | Doc | Read when | Update when |
 |---|---|---|
-| `docs/PROBLEM.md` | Starting any task — it defines v1 | A scope decision is made (log it first) |
+| `docs/PROBLEM.md` | Starting any task — **this is the spec** (v1 section, then the v2 section) | A scope decision is made (log it first) |
 | `docs/constraints.md` | Designing an algorithm or experiment | A fact is measured / an unknown is resolved |
 | `docs/EVAL.md` | Before running or judging any experiment | The metrics/protocol change (log it first) |
 
@@ -29,6 +29,7 @@ Everything lives in `barrels/`, independent of `aim_fsm` for now. The repo (fork
 | Doc | Read when | Update when |
 |---|---|---|
 | `docs/STATUS.md` | Start of every session | End of every session + whenever next-steps change |
+| `docs/TODO.md` | Start of every session, after `STATUS.md` | **Every time a task starts, finishes or changes priority** — same moment as `STATUS.md`; done items move to its Done list with the date |
 | `docs/EXPERIMENTS.md` | Before designing a new experiment (what's been tried?) | Every experiment, immediately after it runs |
 | `docs/DECISIONS.md` | When wondering "why is it like this?" | Every decision, dated, with alternatives |
 | `docs/DATA.md` | Before capturing or using data | Datasets/labels/splits change |
@@ -65,7 +66,7 @@ Every piece of algorithm work follows:
 
 ## End-of-session checklist
 
-1. Update `STATUS.md` (state, next steps, open questions, blockers).
+1. Update `STATUS.md` (state, next steps, open questions, blockers) and `TODO.md` (tick, add, re-rank).
 2. Log any experiments in `EXPERIMENTS.md`, decisions in `DECISIONS.md`.
 3. Triage anything new in `NOTES-INBOX.md`; check `NAVIGATOR.md` requests and mark done ones in `STATUS.md` by ID.
 4. **Commit and push** (docs included — the claude.ai mirror depends on it).

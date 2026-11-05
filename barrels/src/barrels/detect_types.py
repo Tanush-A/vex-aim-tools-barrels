@@ -18,8 +18,8 @@ AIVISION_COLORS = {v: k for k, v in AIVISION_NAMES.items()}
 COLOR_NAMES = {ORANGE: "orange", BLUE: "blue"}
 COLOR_BY_NAME = {v: k for k, v in COLOR_NAMES.items()}
 AIVISION_SCALE = 2                       # aivision reports 320x240; the image is 640x480
-FLAGS = ("truncated", "occluded", "no_stripe", "top_only", "bottom_inferred",   # detector / v1.5 instance flags
-         "held", "bottom_estimated")                                              # v2 box-label flags (io.BOX_FLAGS)
+FLAGS = ("truncated", "occluded", "no_stripe", "top_only", "bottom_inferred", "top_inferred",   # detector / v1.5 flags
+         "held", "bottom_estimated")                                                              # v2 box-label flags (io.BOX_FLAGS)
 
 
 @dataclass(frozen=True)

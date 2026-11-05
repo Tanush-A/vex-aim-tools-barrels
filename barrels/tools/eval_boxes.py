@@ -4,10 +4,13 @@
     python barrels/tools/eval_boxes.py --pred DIR --split test --name det_x [--cam 4a8b] [--sheets]
     python barrels/tools/eval_boxes.py --pred-masks DIR --split train --name det_cc_gt      # masks -> CC detector first
     python barrels/tools/eval_boxes.py --pred DIR --stems filter:DAVE_ --gt-boxes --name dave   # v2 box labels as truth, frames by name
+    python barrels/tools/eval_boxes.py --pred DIR --split train --gt-boxes --rule v2 --name det_v2  # EVAL.md v2 rule (bottom edge, no ignores)
 
 Predictions: <stem>_det.json (a list of Barrel dicts) in --pred, or class masks in --pred-masks run
-through the connected-components reference detector. Ground truth: data/labels/<stem>_inst.{png,json}.
-Frames without instances are skipped and listed. Writes results/<date>_<name>/.
+through the connected-components reference detector. Ground truth: data/labels/<stem>_inst.{png,json}, or
+with --gt-boxes the v2 box labels <stem>_boxes.json (whose ``clean`` flag feeds the v2 disqualification).
+--rule picks the eval_det rule (v1 = IoU + VOC ignores, the default; v2 = EVAL.md 2026-11-02).
+Frames without ground truth / prediction are skipped and listed. Writes results/<date>_<name>/.
 """
 from __future__ import annotations
 
@@ -25,16 +28,18 @@ from barrels import cv, detect_types as dtp, eval_det as ed, geometry as geo, io
 CAMS = {"nominal": geo.NOMINAL, "4a8b": geo.AIM_4A8B6118}
 
 
-def load_gt(stem: str, labels_dir: Path, cam: geo.CameraModel, boxes: bool = False) -> list[dtp.Barrel] | None:
-    """Ground truth from <stem>_boxes.json (v2 box labels) when ``boxes``, else from the v1.5 instances."""
+def load_gt(stem: str, labels_dir: Path, cam: geo.CameraModel, boxes: bool = False) -> tuple[list[dtp.Barrel], bool] | None:
+    """(ground truth, clean): from <stem>_boxes.json (v2 box labels, ``clean`` as labeled, default true) when
+    ``boxes``, else from the v1.5 instances (clean = true). None when there is no label."""
     try:
         if boxes:
-            return [b.with_ground(cam) for b in dtp.barrels_from_boxes(io.load_boxes(stem, labels_dir, check_image=False))]
+            label = io.load_boxes(stem, labels_dir, check_image=False)
+            return [b.with_ground(cam) for b in dtp.barrels_from_boxes(label)], bool(label.get("clean", True))
         inst, meta = io.load_instances(stem, labels_dir)
     except FileNotFoundError:
         return None
     mask = io.load_mask(labels_dir / f"{stem}_mask.png")
-    return dtp.barrels_from_instances(inst, meta, mask, cam=cam)
+    return dtp.barrels_from_instances(inst, meta, mask, cam=cam), True
 
 
 def draw_sheet(img, preds: list[dtp.Barrel], gts: list[dtp.Barrel], matched_pred: set[int]):
@@ -68,6 +73,7 @@ def main(argv=None) -> int:
     ap.add_argument("--raw", type=Path, default=io.RAW_DIR)
     ap.add_argument("--cam", choices=sorted(CAMS), default="4a8b")
     ap.add_argument("--iou", type=float, default=ed.IOU_THR)
+    ap.add_argument("--rule", choices=ed.RULES, default="v1", help="eval_det rule: v1 (IoU + VOC ignores, default) or v2 (EVAL.md: + bottom edge, every barrel counts, clean negatives disqualify)")
     ap.add_argument("--sheets", action="store_true")
     ap.add_argument("--out", type=Path, default=io.PKG_ROOT / "results")
     args = ap.parse_args(argv)
@@ -84,9 +90,10 @@ def main(argv=None) -> int:
     if args.sheets:
         (out_dir / "sheets").mkdir()
     for stem in stems:
-        gts = load_gt(stem, args.labels, cam, boxes=args.gt_boxes)
-        if gts is None:
+        gt = load_gt(stem, args.labels, cam, boxes=args.gt_boxes)
+        if gt is None:
             skipped.append(stem); continue
+        gts, clean = gt
         if args.pred is not None:
             pj = args.pred / f"{stem}_det.json"
             if not pj.exists():
@@ -98,17 +105,17 @@ def main(argv=None) -> int:
             if pm is None:
                 skipped.append(stem); continue
             preds = detect_cc.detect(io.load_mask(pm), cam=cam)
-        r = ed.evaluate_frame(stem, preds, gts, cam, iou_thr=args.iou)
+        r = ed.evaluate_frame(stem, preds, gts, cam, iou_thr=args.iou, rule=args.rule, clean=clean)
         results.append(r)
         if args.sheets:
             img = io.load_image(next(p for p in args.raw.glob(f"{stem}.*") if p.suffix.lower() in io.IMAGE_SUFFIXES))
             cv2.imwrite(str(out_dir / "sheets" / f"{stem}.png"), draw_sheet(img, preds, gts, {m.pred_idx for m in r.matches}))
     if skipped:
-        print(f"skipped {len(skipped)} (no instances / no prediction): {skipped}")
+        print(f"skipped {len(skipped)} (no ground truth / no prediction): {skipped}")
     if not results:
         print("nothing to evaluate"); return 1
-    md, _, _ = ed.write_results(results, out_dir, title=f"{args.name} on {args.split} ({len(results)} frames, cam {args.cam})")
-    json.dump({"cam": args.cam, "iou": args.iou, "split": args.stems or args.split, "gt": "boxes" if args.gt_boxes else "instances", "git": cv.git_hash(), "pred": str(args.pred or args.pred_masks)}, (out_dir / "config.json").open("w"), indent=1)
+    md, _, _ = ed.write_results(results, out_dir, title=f"{args.name} on {args.split} ({len(results)} frames, cam {args.cam}, rule {args.rule})")
+    json.dump({"cam": args.cam, "iou": args.iou, "rule": args.rule, "split": args.stems or args.split, "gt": "boxes" if args.gt_boxes else "instances", "git": cv.git_hash(), "pred": str(args.pred or args.pred_masks)}, (out_dir / "config.json").open("w"), indent=1)
     print(md.read_text()); print("written to", out_dir)
     return 0
 

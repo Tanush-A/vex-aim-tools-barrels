@@ -14,6 +14,36 @@ One entry per experiment, newest first. Template:
 
 ---
 
+## 2026-11-03 (evening) — Detector step 2, the stripe anchor, vs step 1 vs the floor, on Tanush's reviewed boxes
+
+- **Hypothesis (stated first):** anchoring on the stripe recovers the barrels step 1 lost to same-color occlusion and removes the hand's false boxes, without losing the touching rows step 1 already splits.
+- **Method / params:** `experiments/2026-11-03_det_step2/run.py`; `detector.DetConfig(require_stripe=True)` with the stripe numbers written down first (core height 0.45–1.6 × expected, band ≤ 3 ×, width ≥ 0.4 barrel, merge > 1.4, full < 0.8, min stripe 4 px); same pixels (frozen `afd85483`) and camera (`AIM_4A8B6118_BOXFIT`) for all arms. **Ground truth = Tanush's hand-fixed `_boxes.json`** (11 of 21 files changed from the automatic split). Rules: v1 (IoU ≥ 0.5, occluded/truncated GT ignored) and v2 (`EVAL.md`; implemented in `eval_det.py` the same evening). Results: `results/2026-11-03_det_step2/` (sheets: boxes yellow/green, truth white, stripes found in magenta).
+- **Data / split:** the 16 train frames. No test frames touched.
+- **Results:**
+
+| arm | primary (mean F1) | F1 orange / blue | mean IoU | bottom err (median px) | neg false det |
+|---|---|---|---|---|---|
+| floor (one box per blob) | 0.484 | 0.368 / 0.600 | 0.734 | 1 | 0 |
+| step 1 (width + top row) | 0.862 | 0.824 / 0.900 | 0.857 | 1 | 0 |
+| **step 2 (stripe)** | **0.971** | 0.941 / 1.000 | 0.829 | 1 | 0 |
+
+**Under the v2 rule** (every barrel counts, bottom edge within max(3 px, 10 % of height); `results/2026-11-03_det_step2_v2/`):
+
+| arm | primary (mean F1) | F1 orange / blue | mean IoU | bottom err seen · estimated (median px, n) | neg false det |
+|---|---|---|---|---|---|
+| floor | 0.427 | 0.292 / 0.562 | 0.753 | 1 | 0 |
+| step 1 | 0.709 | 0.600 / 0.818 | 0.879 | 1 (16) · 0 (2) | 0 |
+| **step 2** | **0.913** | 0.867 / 0.960 | 0.829 | 1 (23) · 0 (2) | 0 |
+
+Per scene under v2, step 2: every scene perfect except `cluster` (orange 2 of 4, one false) and `occl` (one of two in each frame) — the barrels whose stripe is entirely hidden. 23 of 25 matched bottoms are within 1 px; the two `bottom_estimated` boxes (`top_01`, `topstripe_01`, cut by the frame) are exact.
+
+Two intermediate versions scored 0.72: the band around a stripe includes the unlabeled shadow below it, so testing the *band's* height against the expected stripe height rejected most real stripes; measuring the stripe's colored core (10th–90th percentile rows) and taking its median row as the stripe's centre fixed that. Step 1 against the same fixed boxes: 0.862 (was 0.780 against the automatic boxes — Tanush's edits mostly fixed boxes the detector had right).
+- **Takeaway:** as predicted for touching rows (`touch_02`, `cluster_02`: all found, no width rule needed), the hand (`far_02`, `core_03`: no false boxes left) and partial occlusion where the back barrel's stripe shows (`occl_01`, `occl_02`: one of the pair each). Not solved: a barrel whose stripe is entirely hidden (`cluster_01`: 2 of 4 missed + 1 false; one each in `occl_01`/`occl_02`) — those are ignored under the v1 rule, so the 0.97 flatters; the v2 rule will count them. Same-color occlusion is therefore half-solved: visible stripe → found with a full box; hidden stripe → nothing.
+- **2026-11-05 follow-up:** walkthrough acknowledged; **the stripe step is the default** (`DetConfig.require_stripe=True`; `detect_image.py --step1` = steps 1–3 alone; the step-1 and Dave-snapshot experiments pinned to `require_stripe=False`). Both rules re-run at the new commit — every number identical (`results/2026-11-03_det_step2/`, `_v2/` regenerated; the old files differed only by the columns the v2 evaluator added).
+- **Next:** ~~a walkthrough of step 2 for Tanush; then make it the default (it beats step 1 under both rules)~~ done 2026-11-05. For hidden stripes: a body-only candidate is allowed when it sits directly above a found barrel of the same color and is barrel-sized for its row (the "behind" case), to be pre-registered before trying.
+
+---
+
 ## 2026-11-03 — Dave's 20 snapshots (his robot, his office): the v1 segmentation finds nothing — the front end is the bottleneck on a new scene
 
 - **Hypothesis:** on frames from a different robot and tables never seen, segmentation + step 1 still box the mid-range barrels; the close-ups and the dark table are where it breaks.

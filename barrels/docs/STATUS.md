@@ -1,6 +1,6 @@
 # STATUS.md — current state
 
-**Updated:** 2026-11-03 15:55 (box tool + first detector built for Tanush's 16:15–18:00 window). Plain-English code guide: `docs/HOW-IT-WORKS.md`.
+**Updated:** 2026-11-05 (step 2 + v2 rule committed; stripe step is the default). Plain-English code guide: `docs/HOW-IT-WORKS-SHORT.md` (entry) → `docs/HOW-IT-WORKS.md`. Task list: `docs/TODO.md`.
 
 ## Where we are
 
@@ -8,16 +8,18 @@
 - **v1.5 (detection scaffolding) done:** `geometry.py`, instances, `Barrel` type, `eval_det.py`, CC reference detector (floor), world-map bridge stub. The measured set and the instance review were superseded on 2026-11-02 by box labels.
 - **v2.0 spec (2026-11-02, `PROBLEM.md`):** one still image in, the same image with one box per barrel out, on the laptop; bottom edge first; hidden bottoms from the geometry; clip to the frame. **Cut to one table / one background on 2026-11-03** (timeline); generalisation is v2.1.
 - **2026-11-03, committed (7d0787e):** M1 — `_boxes.json` format + validator (`io.py`), `tools/box_tool.py` (drag / edit edges / flags / `--from-inst`), the 21 v1 frames converted to provisional boxes (`reviewed: false`), `make_splits.py --v2`.
-- **2026-11-03, built, awaiting Tanush's walkthrough before commit (main code):** `detector.py` step 1 (blobs → how many barrels by the expected width → bottom edge from the top row, clipped), `tools/detect_image.py image.png → <stem>_boxes.png`, the provisional camera `AIM_4A8B6118_BOXFIT` (the preset put bottoms ≈ 20 px too low). On the 16 train frames: mean F1 **0.78** vs the floor's 0.46, bottom edge within 1 px, nothing drawn on empty frames (`EXPERIMENTS.md` 2026-11-03, provisional ×3: camera fit on these frames, pixels from a model fit on these frames, unreviewed instances).
+- **2026-11-03, committed (272abb0) after the walkthrough:** `detector.py` step 1 (blobs → how many barrels by the expected width → bottom edge from the top row, clipped), `tools/detect_image.py image.png → <stem>_boxes.png`, the provisional camera `AIM_4A8B6118_BOXFIT` (the preset put bottoms ≈ 20 px too low). On the 16 train frames: mean F1 **0.78** vs the floor's 0.46, bottom edge within 1 px, nothing drawn on empty frames (`EXPERIMENTS.md` 2026-11-03, provisional ×3: camera fit on these frames, pixels from a model fit on these frames, unreviewed instances).
 
 - **2026-11-03, Dave's 20 snapshots imported** (`tools/import_dave_zip.py`, his 12 ground-truth box sets recovered exactly, `DATA.md`). **Outside check result: the v1 segmentation outputs zero barrel pixels on all 20** — both adaptive stages assume the rows above the horizon are plain background, and his office shelf is cluttered and colorful (floor 96–120 instead of ≈ 50); with the adaptive parts off, his pink desk floods the orange class. The front end, not the detector logic, is the bottleneck on a new scene (`EXPERIMENTS.md` 2026-11-03). Meeting brief: `docs/MEETING-2026-11-03.md`.
 
-## Today (16:15–18:00): something to show that Tanush fully understands
+- **2026-11-03 evening, built; walked through and committed 2026-11-05 — now the default:** detector step 2 — the stripe anchor (`find_stripes`, `barrel_from_stripe`, `DetConfig.require_stripe=True`; `detect_image.py --step1` for steps 1–3 alone). On the train frames against Tanush's hand-fixed boxes: overlap rule floor 0.48 → step 1 0.86 → **step 2 0.97**; **v2 rule** (every barrel counts, bottom condition) floor 0.43 → step 1 0.71 → **step 2 0.91**; touching rows, the hand and partly hidden barrels with a visible stripe are solved; a barrel whose stripe is entirely hidden is still missed (`EXPERIMENTS.md` 2026-11-03 evening). **The v2 scoring rule is implemented** (`eval_det.py` `rule="v2"`, `eval_boxes.py --rule v2`; 167 tests), committed with step 2.
 
-1. Tanush reads `HOW-IT-WORKS.md` §1–§3 (≈ 25 min) and runs `python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png` (and `far_02`, `cluster_02`, `close_01`, `neg_01`).
-2. Walkthrough in chat: questions until he can explain the three steps and the camera fix himself; then the commit.
-3. If time: fix the 21 converted box labels (`box_tool.py --filter window_light`, ≈ 15 min) — stretch occluded boxes to the full barrel, flag `bottom_estimated`.
-4. Not today: shooting, the test split (evaluated once, later, with one pre-chosen config).
+## Now (order set after the 2026-11-03 meeting; details in `TODO.md`)
+
+1. **Doc cleanup** — everything human-readable; archive the stale files; `STATUS.md` to one screen; `README.md`.
+2. **Live feed on the robot** — `barrels/live/BarrelViewer.fsm`: grab `robot.camera_image`, segment + detect, draw, `imshow`; segmentation view too (Dave's `ImageChomper.fsm` pattern).
+3. **Segmentation redesign** — the v1 front end finds nothing on Dave's frames.
+4. Then the remaining box work: hidden stripe, calibration session, the one test run.
 
 ## Next — two tracks in parallel (Tanush's data is the bottleneck)
 
@@ -48,4 +50,4 @@ N-001…N-004 and the 2026-10-14 review notes: all done. Nothing open.
 
 ## Blockers
 
-Tanush's walkthrough acknowledgement → commit of `detector.py` / `geometry.py` / `detect_image.py`.
+None. The live feed needs the robot on and `setup.zsh` sourced (`RUNBOOK.md`).

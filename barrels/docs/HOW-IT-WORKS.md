@@ -121,6 +121,20 @@ After the bottom is settled, the expected width at that bottom row is computed o
 
 *`far_02`:* the hand resting on the table edge produces orange specks around rows 60–85, near the horizon. Expected width there is 1.8–4.4 px → **all dropped** by the 16 px rule. That is how the hand's fingers disappear without any "skin detector".
 
+### Step 4 — the stripe is the barrel (`find_stripes`, `barrel_from_stripe`; built 2026-11-03, the default since 2026-11-05)
+
+Steps 1–3 box anything barrel-colored and barrel-sized. Step 4 adds the one thing that proves "barrel": the **stripe**, a band of the other color around the middle. With it, every stripe is one barrel, wherever the blob boundaries happen to fall, so touching and partly hidden barrels separate by themselves, and an orange thing without a stripe is not a barrel.
+
+*Finding stripes.* Take the orange pixels as "body" (then repeat with blue). For every column, note where body pixels exist above and below. A **band** is a connected region of non-body pixels that has body above it *and* below it in every one of its columns — that is the sandwich. The band's pixels are either blue (a proper stripe) or unlabeled (a stripe the segmentation lost to shadow): either counts, and the ratio sets the confidence. The band must have stripe proportions for its row: the height of its colored core (10th-to-90th percentile of its blue rows) between 0.45 and 1.6 × the stripe height the geometry expects there, the whole band (core plus shadow) at most 3 ×, and the band at least 0.4 barrel-widths wide and not taller than wide. A band wider than 1.4 barrels is the merged stripes of touching same-color barrels (their stripes meet at the bulges) and is cut into equal parts.
+
+*A barrel from its stripe.* The stripe's middle row (the median row of its colored pixels) gives the distance; the distance gives the full box the geometry predicts: top, bottom and width (section 2's table). Then the seen body extent in the stripe's own columns — walked upward from the band and downward from it while body pixels keep coming, gaps of 3 rows allowed — supplies the top and bottom when they agree with the prediction within the same 15 % tolerance as step 3; otherwise the predicted edge is drawn and flagged (`top_inferred`, `bottom_inferred`). A stripe narrower than 0.8 barrel-widths is partly hidden: the box is widened to a full barrel, on the side where something barrel-colored borders the stripe (the occluder), and flagged `occluded`. Clip, `truncated` as before.
+
+*Stripeless pieces.* The step-1 pieces are then only kept where no stripe barrel already covers them **and** a stripe could not have been seen: the piece reaches the frame bottom (a close barrel, stripe below the frame — `topstripe_01`, `top_01`) or the expected stripe at that distance is thinner than 4 px. Everything else without a stripe is dropped — the hand, a tomato, a reflection.
+
+*`touch_02`:* three bands found — blue between orange at x 152–191, orange between blue at 189–235, blue between orange at 241–288 — three barrels, no width rule needed. *`cluster_01`:* three of the four bunched barrels have a visible stripe and come out right; the fourth, directly behind another of the same color, shows no stripe and is missed (and the width rule, no longer trusted alone, is not allowed to guess it). That is the honest limit: **a barrel whose stripe is completely hidden is not found.**
+
+*Status.* The default since 2026-11-05 (`DetConfig.require_stripe=True`): it beat steps 1–3 on the train frames under both rules (below). `detect_image.py --step1` runs steps 1–3 alone for comparison.
+
 ### The code, in call order
 
 | function | one line |
@@ -132,7 +146,12 @@ After the bottom is settled, the expected width at that bottom row is computed o
 | `split_blob(blob, mask, cam, cfg)` | step 2: how many, cut at the waists, re-box and re-count each piece |
 | `predicted_bottom(cam, top_row)` | where the base must be, given the top row |
 | `resolve_bottom(bbox, cam, frame_h, cfg)` | step 3: seen vs predicted, clip, flags |
-| `detect(mask, cfg, cam)` | the loop: for each blob, for each piece → bottom → shape checks → `Barrel`; sorted left to right |
+| `detect_step1(mask, cfg, cam)` | steps 1–3: for each blob, for each piece → bottom → shape checks → `Barrel`; sorted left to right |
+| `Stripe` | a band: body color, box, colored and dark pixel counts, centre row |
+| `find_stripes(mask, cam, cfg)` | step 4a: the sandwich bands that have stripe proportions for their row |
+| `_body_extent(mask, body, x0, x1, y0, y1)` | seen top and bottom of the body in the stripe's columns |
+| `barrel_from_stripe(stripe, mask, cam, cfg)` | step 4b: the full box from the stripe's row; seen edges when they agree |
+| `detect(mask, cfg, cam)` | the entry point: stripe barrels + the stripeless pieces that could not show a stripe; with `require_stripe=False`, steps 1–3 alone |
 | `draw(image, barrels)` | the output image (yellow = orange barrel, green = blue barrel, 1 px) |
 
 `detect` itself is about twenty lines; read it with the table above beside it.
@@ -149,6 +168,13 @@ After the bottom is settled, the expected width at that bottom row is computed o
 | `width_max` | 1.6 | a piece wider than this × expected width is not one barrel | after splitting, nothing legitimate should be wider than ≈ 1.2; 1.6 is slack |
 | `min_width_px` | 16 | expected width below this → not on the table | 16 px ≈ 64 cm away, past the far end of any table we use; it also kills everything at the horizon |
 | `split_search` | 0.25 | look for the waist within ± this × expected width of the equal-spacing cut | the waist is within a few px of the midpoint for same-size barrels; a quarter width tolerates one barrel being slightly closer |
+| `require_stripe` | on | step 4 on/off | on since 2026-11-05: step 4 beat steps 1–3 under both rules; `--step1` in the CLI turns it off |
+| `stripe_h_min` / `stripe_h_max` | 0.45 / 1.6 | the stripe core's height as a fraction of the expected stripe height | segmentation erodes a stripe by a pixel or two each side (far: 9 px → 5–7); 1.6 keeps a slightly fat band, excludes an upper body (1.5 ×) read as a band |
+| `band_h_max` | 3.0 | the whole band (core + shadow) at most this × the expected stripe height | shadow below a stripe can double the band; a band 3 × tall is a whole barrel face, not a stripe |
+| `stripe_w_min` | 0.4 | a band narrower than this × a barrel width is not a stripe | a stripe hidden more than 60 % cannot place its barrel reliably |
+| `stripe_merge` | 1.4 | a band wider than this × a barrel is several merged stripes | touching same-color barrels' stripes meet at the bulges; cut evenly |
+| `stripe_full` | 0.8 | a stripe narrower than this × a barrel is partly hidden → widen to a full barrel | a free-standing stripe is 0.85–1.05 widths after erosion |
+| `min_stripe_px` | 4 | stripes thinner than this cannot be resolved → stripeless pieces allowed | 4 px is the expected stripe at ≈ 60 cm, the far end of a table |
 
 ### How to run and how to score
 
@@ -156,15 +182,15 @@ After the bottom is settled, the expected width at that bottom row is computed o
 python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png
 ```
 
-writes `barrels/results/detect_image/4A8B_window_light_touch_02_boxes.png` and prints one line per barrel: color, box, and "bottom seen" / "bottom inferred from top row" / "cut by frame". `--json` also writes `<stem>_det.json` (the `Barrel` records) so a folder of them can be scored with `tools/eval_boxes.py --pred DIR`. The experiment that produced the numbers below is `python barrels/experiments/2026-11-03_det_step1/run.py`; it writes `results/2026-11-03_det_step1/` with one sheet per frame (our boxes in class colors, the hand-labeled truth in thin white) and the score tables.
+writes `barrels/results/detect_image/4A8B_window_light_touch_02_boxes.png` and prints one line per barrel: color, box, and how its edges were decided — "bottom seen" or "bottom inferred", "top inferred", "partly hidden, full box drawn", "cut by frame", and whether it came "from its stripe" or was a stripeless piece ("no stripe seen"). `--step1` runs steps 1–3 alone. `--json` also writes `<stem>_det.json` (the `Barrel` records) so a folder of them can be scored with `tools/eval_boxes.py --pred DIR [--rule v2]`. The experiment that produced the numbers below is `python barrels/experiments/2026-11-03_det_step2/run.py [--rule v2]`; it writes `results/2026-11-03_det_step2[_v2]/` with one sheet per frame (our boxes yellow/green, the hand-drawn truth in thin white, the stripes found in magenta) and the score tables for the floor, steps 1–3 and the full detector.
 
-### What can go wrong — and what step 2 (the stripe) is for
+### What went wrong with steps 1–3 — and what step 4 (the stripe) fixed
 
 - **Same-color occlusion.** A barrel partly behind another of the same color merges into one blob with it, and the width rule cannot tell "one barrel in front of another" from "one wide blob": `occl_01` and `occl_02` are missed. Four barrels bunched together (`cluster_01`) come out as two.
 - **Anything orange or blue of about the right size gets a box.** The shape checks only ask "is this barrel-sized for its row", not "is this a barrel". A hand that *touches* a barrel is worse: in `far_02` the fingers merge with the right blue barrel into one blob whose top row is at the hand, so the geometry thinks the barrel is 2.5 m away and throws it out — a real barrel lost because of a hand.
 - **Far range.** At 30 cm the tolerance (6 px) is about the size of the camera error (5 px), so the geometry can overrule a seen bottom that was right (`far_02`, 7 px). The calibration session will shrink the camera error; the tolerance may also need to be looser far away.
 
-The stripe anchor (step 2, next) attacks the first two directly: a band of one color sandwiched between the other color above and below, at the height the geometry expects, proves "this is a barrel", gives one barrel per stripe even inside a merged blob, and refuses hands and other orange or blue objects.
+Step 4 (the stripe) attacks the first two directly and fixed them on the train frames (which is why it is the default): a band of one color sandwiched between the other color above and below, at the height the geometry expects, proves "this is a barrel", gives one barrel per stripe even inside a merged blob, and refuses hands and other orange or blue objects. What remains is a barrel whose stripe is entirely hidden behind another barrel.
 
 ### Numbers to remember
 
@@ -180,12 +206,14 @@ Train frames, provisional on three counts (the camera was fit on these same fram
 
 Same pixels for both rows; the difference is steps 2 and 3. With the October camera instead of the re-fit one, step 1 scored 0.52 with bottoms 21 px off — the geometry, not the logic, was the limit.
 
+**Against Tanush's hand-fixed boxes (2026-11-03 evening):** overlap rule — floor 0.48, step 1 **0.86**, step 4 **0.97**. **v2 rule** (every barrel counts, bottom edge within a tenth of the height) — floor 0.43, step 1 **0.71**, step 4 **0.91** (orange 0.87, blue 0.96); 23 of 25 matched bottoms within 1 px. The misses are the barrels whose stripe is entirely hidden (`cluster_01`, `occl_01`, `occl_02`). `EXPERIMENTS.md` 2026-11-03 (step 2 entry).
+
 ## 4. Detection eval — `src/barrels/eval_det.py`
 
 **What it does.** Scores predicted boxes against the hand-drawn boxes: for each image, which predictions match which true barrels, and from that precision, recall and F1 per color, plus how far off the bottom edges are.
 
-**The idea.** A prediction and a true box *match* only if they have the same color and overlap enough — intersection over union ≥ 0.5, i.e. the overlapping area is at least half the area the two boxes cover together. Matching is greedy: the most confident prediction takes the best-overlapping free truth box, then the next, so each true barrel is used at most once. What is left over is either a *false* box (a prediction with no truth) or a *miss* (a truth with no prediction). On frames with no barrels every box is false. Per color: precision = matches ÷ boxes drawn, recall = matches ÷ true barrels, F1 = their harmonic mean (2PR ÷ (P + R)), and the headline number is the mean of the orange and blue F1. Today's code still ignores true barrels flagged occluded / truncated / top-only (they count neither as hits nor as misses) — the old VOC convention; the v2 rule (`EVAL.md`: every barrel counts, and the bottom edge must be within a tenth of the box height) arrives with M2 together with the box labels.
+**The idea.** A prediction and a true box *match* only if they have the same color and overlap enough — intersection over union ≥ 0.5, i.e. the overlapping area is at least half the area the two boxes cover together. Matching is greedy: the most confident prediction takes the best-overlapping free truth box, then the next, so each true barrel is used at most once. What is left over is either a *false* box (a prediction with no truth) or a *miss* (a truth with no prediction). On frames with no barrels every box is false. Per color: precision = matches ÷ boxes drawn, recall = matches ÷ true barrels, F1 = their harmonic mean (2PR ÷ (P + R)), and the headline number is the mean of the orange and blue F1. That is the **v1 rule**, which also ignores true barrels flagged occluded / truncated / top-only (they count neither as hits nor as misses). The **v2 rule** (`EVAL.md`, in the code since 2026-11-03 evening, `rule="v2"`) is stricter in two ways: a match also needs the predicted bottom edge within max(3 px, a tenth of the true box height), and **every** true barrel counts — occluded, truncated, held, all of them; the flags only split the error reports (bottom error for seen vs `bottom_estimated` boxes). Matching under v2 takes the highest-overlap eligible pair first. A false box on an empty frame marked `clean` (nothing orange or blue in it) disqualifies the configuration outright. Scores are also broken down per scene tag.
 
-**Where it lives.** `evaluate_frame(name, preds, gts, cam)` → per-frame counts and the list of matches with their IoU and bottom-row error; `aggregate` pools frames per condition and overall; `write_results` writes `summary.md`, `summary.csv`, `per_image.csv` (counts per frame) and `per_barrel.csv` (every match, miss and false box with its IoU and bottom error); `score` reduces a run to one dict for sweeps (primary = mean F1; any false box on an empty frame disqualifies). CLI: `tools/eval_boxes.py --pred DIR --split train`.
+**Where it lives.** `evaluate_frame(name, preds, gts, cam, rule="v1"|"v2", clean=…)` → per-frame counts and the list of matches with their IoU and bottom-row error; `bottom_tol_px` / `bottom_within_tol` (the v2 bottom condition); `match_greedy` (v1) and `match_best_first` (v2); `aggregate` pools frames per condition, per scene and overall; `write_results` writes `summary.md`, `summary.csv`, `per_image.csv` (counts per frame) and `per_barrel.csv` (every match, miss and false box with its IoU and bottom error); `score` reduces a run to one dict for sweeps (primary = mean F1; `disqualified` when a clean empty frame got a box). CLI: `tools/eval_boxes.py --pred DIR --split train --gt-boxes --rule v2`.
 
 **What can go wrong.** The true bottom edge of a hidden base is itself a human estimate, so bottom-edge error will be reported separately for `bottom_estimated` boxes. Five test frames hold about ten barrels, so the test number will be coarse: one miss moves recall by 10 %.

@@ -1,0 +1,38 @@
+[
+ {
+  "color": "blue",
+  "bbox": [
+   240,
+   123,
+   290,
+   178
+  ],
+  "confidence": 0.7476145038167938,
+  "bottom_mid": [
+   265.0,
+   178.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 2258,
+  "source": "det1"
+ },
+ {
+  "color": "orange",
+  "bbox": [
+   293,
+   122,
+   341,
+   175
+  ],
+  "confidence": 0.7787193973634652,
+  "bottom_mid": [
+   317.0,
+   175.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 2228,
+  "source": "det1"
+ }
+]

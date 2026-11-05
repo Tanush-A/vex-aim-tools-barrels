@@ -1,0 +1,20 @@
+[
+ {
+  "color": "blue",
+  "bbox": [
+   311,
+   143,
+   384,
+   232
+  ],
+  "confidence": 0.9097938144329897,
+  "bottom_mid": [
+   347.5,
+   232.0
+  ],
+  "ground_xy_mm": null,
+  "flags": [],
+  "area": 1552,
+  "source": "det2"
+ }
+]

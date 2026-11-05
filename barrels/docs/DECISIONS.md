@@ -4,6 +4,20 @@ Short records: decision, why, who, alternatives. Newest first.
 
 ---
 
+## 2026-11-05 — The stripe step is the detector; the live feed lives in `barrels/live/`
+
+- **Decision:** `DetConfig.require_stripe=True` is the default: `detector.detect` = every stripe is a barrel, plus the stripeless pieces that could not show a stripe (frame bottom reached, or the expected stripe under 4 px). Steps 1–3 alone stay available (`require_stripe=False`, `detect_image.py --step1`) and the two earlier experiments are pinned to them. The v2 scoring rule (`eval_det.py rule="v2"`, decided 2026-11-02) is the number we report; the v1 rule stays as the default of the tools so every earlier number reproduces. The robot-side program for the live feed is `barrels/live/BarrelViewer.fsm`, run from that folder with `genfsm` / `simple_cli`.
+- **Why:** on the 16 train frames against Tanush's boxes the stripe step beat steps 1–3 under both rules (overlap 0.97 vs 0.86; v2 0.91 vs 0.71), with nothing drawn on the empty frames (`EXPERIMENTS.md` 2026-11-03 evening, re-run 2026-11-05 with identical numbers). Walkthrough acknowledged by Tanush 2026-11-05. For the `.fsm`: `simple_cli` imports the program from the current directory, so any folder works; `barrels/live/` keeps every piece of barrel work in `barrels/` (decision 2026-10-14) and off Dave's repo root, and `setup.zsh` puts `aim_fsm`, `genfsm` and `simple_cli` on the path from anywhere.
+- **Who:** Tanush (ack + location), 2026-11-05; Claude Code proposed.
+- **Alternatives:** keep the stripe step opt-in until a test run (rejected — the test run comes after the hidden-stripe fix, and the demo should show the better detector); the repo root next to `Celeste.fsm`, Dave's convention (rejected — Dave's territory; works, so it can move later); `barrels/tools/` (rejected — `genfsm` drops a generated `.py` beside the source, better kept apart from the CLI scripts).
+
+## 2026-11-03 — After the meeting with Dave: live feed first, then segmentation, then the rest of the boxes
+
+- **Decision:** order of work after the step-2 commit: (1) clean up the docs; (2) **a live feed on the robot** — a state machine that grabs `robot.camera_image` once a second (or on a key), runs segmentation + detector, draws the boxes with OpenCV and shows them with `imshow`, with a segmentation view too; (3) the segmentation redesign; (4) the remaining box work (hidden stripe, calibration, the one test run). Doc cleanup first was Tanush's addition (everything human-readable before new code lands).
+- **Why:** Dave wants to see the boxes on the robot's own camera, live, before more offline work; the pattern is his `ImageChomper.fsm` (lecture 1, cognitive robotics): `genfsm X.fsm` → `simple_cli X`. The meeting confirmed the boxes work on the simple data, so the bottleneck moves to the front end on real scenes, which the live feed exposes directly.
+- **Who:** Dave (meeting 2026-11-03), order set by Tanush 2026-11-04.
+- **Alternatives:** segmentation redesign first (rejected — the live feed is a day's work and is the tool for judging the segmentation on new scenes); shoot more one-table frames (rejected — the simple data already works).
+
 ## 2026-11-03 — Provisional camera preset from labeled boxes; detector step 1 is the demo
 
 - **Decision:** `geometry.AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon 76) — tilt re-fit from the 24 fully visible labeled barrels on the train frames with f held at 400 — is the detector's default camera until the `calib` session measures f and tilt directly. The October preset stays in the code for comparison. `constraints.md` #2/#3 annotated (doc update). The first detector (`detector.py`, step 1: blobs → count by expected width → bottom from the top row) is committed after Tanush's walkthrough as the thing to show today; the stripe anchor is step 2.

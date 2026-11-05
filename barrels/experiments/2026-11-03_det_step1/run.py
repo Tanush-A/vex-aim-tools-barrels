@@ -14,6 +14,7 @@ today; the v2 box rule comes with M2). No test frames are touched.
 """
 from __future__ import annotations
 
+import dataclasses
 import json
 import sys
 from pathlib import Path
@@ -26,6 +27,9 @@ from barrels import cv, detect_cc, detector as det, detect_types as dtp, eval_de
 MODEL = io.PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"
 OUT = io.PKG_ROOT / "results" / "2026-11-03_det_step1"
 
+
+# pinned 2026-11-05: this experiment was step 1 alone; the stripe step became the detector's default afterwards
+CFG1 = dataclasses.replace(det.DetConfig(), require_stripe=False)
 
 def main() -> int:
     cam = geo.AIM_4A8B6118_BOXFIT          # provisional camera (experiments/2026-11-03_geo_boxfit)
@@ -40,7 +44,7 @@ def main() -> int:
         mask, _ = pl.segment(pl.Frame.from_image(img), hook.model)
         inst, meta = io.load_instances(stem)
         gts = dtp.barrels_from_instances(inst, meta, io.load_mask(io.LABELS_DIR / f"{stem}_mask.png"), cam=cam)
-        preds = {"cc": detect_cc.detect(mask, cam=cam), "step1": det.detect(mask, cam=cam)}
+        preds = {"cc": detect_cc.detect(mask, cam=cam), "step1": det.detect(mask, CFG1, cam)}
         scenes[stem] = io.parse_name(stem)["scene"]
         for arm, p in preds.items():
             detect_cc.write_detections(out / f"det_{arm}", stem, p)
@@ -54,7 +58,7 @@ def main() -> int:
     for arm in res:
         ed.write_results(res[arm], out / arm, title=f"{arm} on train (16 frames, 4A8B boxfit camera)")
         summary[arm] = ed.score(res[arm], scenes)
-    json.dump({"model": str(MODEL), "cam": "AIM_4A8B6118_BOXFIT", "cfg": det.DetConfig().to_dict(), "split": "train", "git": cv.git_hash(), "summary": summary},
+    json.dump({"model": str(MODEL), "cam": "AIM_4A8B6118_BOXFIT", "cfg": CFG1.to_dict(), "split": "train", "git": cv.git_hash(), "summary": summary},
               (out / "config.json").open("w"), indent=1)
     print(f"{'arm':6} {'primary':>8} {'F1_o':>6} {'F1_b':>6} {'IoU':>6} {'bottom err px':>14} {'neg FD':>7}")
     for arm, s in summary.items():

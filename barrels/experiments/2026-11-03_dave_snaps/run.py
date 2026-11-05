@@ -13,6 +13,7 @@ tools/eval_boxes.py (IoU >= 0.5 rule, box ground truth). No split, no tuning.
 """
 from __future__ import annotations
 
+import dataclasses
 import json
 import subprocess
 import sys
@@ -27,6 +28,9 @@ MODEL = io.PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"
 OUT = io.PKG_ROOT / "results" / "2026-11-03_dave_snaps"
 
 
+# pinned 2026-11-05: this experiment was step 1 alone; the stripe step became the detector's default afterwards
+CFG1 = dataclasses.replace(det.DetConfig(), require_stripe=False)
+
 def main() -> int:
     cam = geo.AIM_4A8B6118_BOXFIT
     hook = wb.BarrelDetectorHook.load(MODEL, cam=cam)
@@ -36,14 +40,14 @@ def main() -> int:
     for p in frames:
         img = io.load_image(p)
         mask, info = pl.segment(pl.Frame.from_image(img), hook.model)
-        preds = {"step1": det.detect(mask, cam=cam), "cc": detect_cc.detect(mask, cam=cam)}
+        preds = {"step1": det.detect(mask, CFG1, cam), "cc": detect_cc.detect(mask, cam=cam)}
         for arm, b in preds.items():
             detect_cc.write_detections(out / f"det_{arm}", p.stem, b)
         cv2.imwrite(str(out / "boxes" / f"{p.stem}_boxes.png"), det.draw(img, preds["step1"]))
         ov = (img * 0.35).astype("uint8"); ov[mask == io.ORANGE] = (0, 128, 255); ov[mask == io.BLUE] = (255, 100, 0)
         cv2.imwrite(str(out / "overlay" / f"{p.stem}_overlay.png"), ov)
         print(f"{p.stem}: floor {info.get('s_min_eff')}, {len(preds['step1'])} barrel(s): " + ", ".join(f"{b.color_name[0]}{list(b.bbox)}{'*' if 'bottom_inferred' in b.flags else ''}" for b in preds["step1"]))
-    json.dump({"model": str(MODEL), "cam": "AIM_4A8B6118_BOXFIT", "cfg": det.DetConfig().to_dict(), "frames": [p.stem for p in frames], "git": cv.git_hash()},
+    json.dump({"model": str(MODEL), "cam": "AIM_4A8B6118_BOXFIT", "cfg": CFG1.to_dict(), "frames": [p.stem for p in frames], "git": cv.git_hash()},
               (out / "config.json").open("w"), indent=1)
     for arm in ("step1", "cc"):
         subprocess.run([sys.executable, str(io.PKG_ROOT / "tools" / "eval_boxes.py"), "--pred", str(out / f"det_{arm}"), "--stems", "filter:DAVE_",
