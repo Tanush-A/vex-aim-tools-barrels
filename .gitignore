@@ -14,3 +14,6 @@ barrels/data/raw/*_overlay.png
 barrels/data/raw/*_orange.png
 barrels/data/raw/*_blue.png
 barrels/data/raw/*_boxes.png
+
+# recordings (tm rec): hundreds of frames per clip, kept local; DATA.md lists them
+barrels/data/recordings/
