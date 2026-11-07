@@ -1,0 +1,257 @@
+{
+ "git": "091a616",
+ "model": "/Users/tanush/Desktop/Celeste/vex-aim-tools/barrels/results/2026-10-20_v1_test_adaptive/config.json",
+ "cam": "AIM_4A8B6118_BOXFIT",
+ "det_cfg": {
+  "min_area_px": 20,
+  "close_px": 3,
+  "bottom_tol": 0.15,
+  "bottom_tol_min_px": 4,
+  "width_min": 0.4,
+  "width_max": 1.6,
+  "split_search": 0.25,
+  "min_width_px": 16.0,
+  "require_stripe": true,
+  "stripe_h_min": 0.45,
+  "stripe_h_max": 1.6,
+  "band_h_max": 3.0,
+  "stripe_w_min": 0.4,
+  "stripe_merge": 1.4,
+  "stripe_full": 0.8,
+  "min_stripe_px": 4.0
+ },
+ "floor40_cfg": {
+  "horizon_row": 50,
+  "bg_rows": [
+   0,
+   50
+  ],
+  "table_rows": 80,
+  "s_min": 40,
+  "s_min_blue": null,
+  "v_min": 40,
+  "s_min_mode": "fixed",
+  "s_band_q": 99.5,
+  "s_band_margin": 10.0,
+  "s_band_source": "bg",
+  "s_min_lo": 20,
+  "s_min_hi": 120,
+  "table_prior": false,
+  "bg_prior": true,
+  "k_table": 3.0,
+  "k_bg": 2.5,
+  "prior_fit": "lowsat",
+  "scale_floor": 4.0,
+  "prior_min_frac": 0.3,
+  "box_space": "rgb",
+  "box_pct": [
+   1.0,
+   99.0
+  ],
+  "fit_after_gates": true,
+  "fit_max_px_per_image": 3000,
+  "tie": "rb_sign",
+  "seed": 0,
+  "refit": null,
+  "min_blob_px": 0,
+  "open_px": 0,
+  "fill_holes": false
+ },
+ "stems": [
+  "4A8B_campus_light_close_01",
+  "4A8B_campus_light_cluster_02",
+  "4A8B_campus_light_clutter_02",
+  "4A8B_campus_light_core_01",
+  "4A8B_campus_light_edge_01",
+  "4A8B_campus_light_far_01",
+  "4A8B_campus_light_hand_02",
+  "4A8B_campus_light_held_01",
+  "4A8B_campus_light_neg_02",
+  "4A8B_campus_light_neg_03",
+  "4A8B_campus_light_neg_04",
+  "4A8B_campus_light_neg_05",
+  "4A8B_campus_light_occl_02",
+  "4A8B_campus_light_plain_01",
+  "4A8B_campus_light_plain_02",
+  "4A8B_campus_light_room_01",
+  "4A8B_campus_light_room_03",
+  "4A8B_campus_light_top_01",
+  "4A8B_campus_light_topstripe_01",
+  "4A8B_campus_light_touch_02",
+  "4A8B_campus_light_window_01"
+ ],
+ "expected": {
+  "_note": "barrels of each body color in the frame, counted by eye from the raw frames (Claude, 2026-11-07); superseded by Tanush's box labels when they exist. held_01: a blue barrel in the kicker (lid only) plus clutter.",
+  "4A8B_campus_light_close_01": {
+   "orange": 1,
+   "blue": 0
+  },
+  "4A8B_campus_light_cluster_02": {
+   "orange": 2,
+   "blue": 2
+  },
+  "4A8B_campus_light_clutter_02": {
+   "orange": 1,
+   "blue": 2
+  },
+  "4A8B_campus_light_core_01": {
+   "orange": 2,
+   "blue": 2
+  },
+  "4A8B_campus_light_edge_01": {
+   "orange": 1,
+   "blue": 0
+  },
+  "4A8B_campus_light_far_01": {
+   "orange": 2,
+   "blue": 2
+  },
+  "4A8B_campus_light_hand_02": {
+   "orange": 1,
+   "blue": 1
+  },
+  "4A8B_campus_light_held_01": {
+   "orange": 0,
+   "blue": 1
+  },
+  "4A8B_campus_light_neg_02": {
+   "orange": 0,
+   "blue": 0
+  },
+  "4A8B_campus_light_neg_03": {
+   "orange": 0,
+   "blue": 0
+  },
+  "4A8B_campus_light_neg_04": {
+   "orange": 0,
+   "blue": 0
+  },
+  "4A8B_campus_light_neg_05": {
+   "orange": 0,
+   "blue": 0
+  },
+  "4A8B_campus_light_occl_02": {
+   "orange": 0,
+   "blue": 1
+  },
+  "4A8B_campus_light_plain_01": {
+   "orange": 1,
+   "blue": 1
+  },
+  "4A8B_campus_light_plain_02": {
+   "orange": 1,
+   "blue": 1
+  },
+  "4A8B_campus_light_room_01": {
+   "orange": 1,
+   "blue": 1
+  },
+  "4A8B_campus_light_room_03": {
+   "orange": 1,
+   "blue": 1
+  },
+  "4A8B_campus_light_top_01": {
+   "orange": 1,
+   "blue": 0
+  },
+  "4A8B_campus_light_topstripe_01": {
+   "orange": 1,
+   "blue": 0
+  },
+  "4A8B_campus_light_touch_02": {
+   "orange": 0,
+   "blue": 2
+  },
+  "4A8B_campus_light_window_01": {
+   "orange": 1,
+   "blue": 1
+  }
+ },
+ "judgments": {
+  "_note": "Hand verdicts from the sheets and the stage probes (Claude, 2026-11-07). verdict: ok = right count and placement; seg = the segmentation left the barrel without body pixels (prior / floor / box), so no stripe could be anchored; det = body pixels were there and the stripe step failed; seg+det = both. Mechanisms named: 'prior' = the background prior fit on the top 50 rows, 'floor' = the per-image saturation floor from the same rows, 'box' = the RGB class box, 'glued shadow' = unlabeled shadow attached to the stripe makes its band too tall (pre-registered detector flaw b), 'wrong color' = a box of the other color (flaw c).",
+  "4A8B_campus_light_close_01": {
+   "verdict": "seg+det",
+   "notes": "shaded right half of the orange body unlabeled (prior: 17 % of shaded orange survives); the blue stripe's band then includes that shadow, 72 rows vs 55 allowed: glued shadow"
+  },
+  "4A8B_campus_light_cluster_02": {
+   "verdict": "seg",
+   "notes": "both blue bodies 5 % labeled (prior + floor 69); near orange shaded half unlabeled; no stripe has body above and below"
+  },
+  "4A8B_campus_light_clutter_02": {
+   "verdict": "seg",
+   "notes": "floor at its clamp 120 (clutter in the top rows): blue 0 px, orange body partial; the orange glue-stick cap and the pill-bottle cap are labeled orange but draw no box"
+  },
+  "4A8B_campus_light_core_01": {
+   "verdict": "seg+det",
+   "notes": "big blue barrel: body 43 % labeled, stripe band 97 rows vs 72 allowed (glued shadow); far small orange outside the orange box (20 %); touching pair: two ORANGE boxes, one on the blue barrel (wrong color), its own blue stripe dropped (band 52 vs 46, glued shadow)"
+  },
+  "4A8B_campus_light_edge_01": {
+   "verdict": "seg",
+   "notes": "orange body at the frame edge labeled only on its lit part; no stripe anchored"
+  },
+  "4A8B_campus_light_far_01": {
+   "verdict": "seg",
+   "notes": "3 of 4 right (2 orange, 1 blue); the second blue barrel's body 34-47 % labeled (prior + floor 71), no band closed around its stripe"
+  },
+  "4A8B_campus_light_hand_02": {
+   "verdict": "ok",
+   "notes": "both boxes right; the hand is not labeled orange (floor 57 kept skin out); the blue box is widened as 'occluded' because the stripe's labeled part is narrow"
+  },
+  "4A8B_campus_light_held_01": {
+   "verdict": "seg",
+   "notes": "held barrel (lid only, bottom of frame): 87 blue px of a 60k-px lid; floor at clamp 120 from the clutter. Out of the v2 arrangements; recorded only"
+  },
+  "4A8B_campus_light_neg_02": {
+   "verdict": "ok",
+   "notes": "laptop lid: nothing labeled, nothing drawn"
+  },
+  "4A8B_campus_light_neg_03": {
+   "verdict": "ok",
+   "notes": "empty table, room behind: 8 orange px, nothing drawn"
+  },
+  "4A8B_campus_light_neg_04": {
+   "verdict": "ok",
+   "notes": "clutter: nothing drawn"
+  },
+  "4A8B_campus_light_neg_05": {
+   "verdict": "ok",
+   "notes": "orange cap + orange glue stick labeled orange (1255 px), no box: nothing sandwiches a band. The detector did its job here"
+  },
+  "4A8B_campus_light_occl_02": {
+   "verdict": "seg",
+   "notes": "blue barrel behind the marker: 51 blue px"
+  },
+  "4A8B_campus_light_plain_01": {
+   "verdict": "seg+det",
+   "notes": "orange right; blue barrel: body 41-69 % labeled, its stripe band 67 rows vs 62 allowed (glued shadow)"
+  },
+  "4A8B_campus_light_plain_02": {
+   "verdict": "seg+det",
+   "notes": "as plain_01 at 15 cm: orange right, blue missed"
+  },
+  "4A8B_campus_light_room_01": {
+   "verdict": "seg",
+   "notes": "blue body 0 % (prior rejects 71 % of the frame: top rows are a dark room, scale 42-52 per channel; floor 86 > the body's saturation 52-71); orange body 33 %"
+  },
+  "4A8B_campus_light_room_03": {
+   "verdict": "seg",
+   "notes": "both barrels at 25 cm: 111 orange px, 0 blue px"
+  },
+  "4A8B_campus_light_top_01": {
+   "verdict": "ok",
+   "notes": "lid only: a det1 box covering the labeled part of the lid (the shaded half unlabeled, so the box is narrow); acceptable for the out-of-scope 'top' arrangement"
+  },
+  "4A8B_campus_light_topstripe_01": {
+   "verdict": "ok",
+   "notes": "det1 box on the lid; shaded half unlabeled; stripe at the frame bottom not used"
+  },
+  "4A8B_campus_light_touch_02": {
+   "verdict": "seg",
+   "notes": "two blue bodies 4-7 % labeled (prior), orange stripes partly: nothing to anchor"
+  },
+  "4A8B_campus_light_window_01": {
+   "verdict": "seg+det",
+   "notes": "orange: band 35 rows vs 27 (glued shadow); blue: stripe band 25 px wide vs 26 required (0.4 of a barrel) \u2014 a one-pixel miss on a partly labeled stripe"
+  }
+ }
+}

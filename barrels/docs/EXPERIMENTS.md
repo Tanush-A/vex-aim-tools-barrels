@@ -16,6 +16,7 @@ One entry per experiment, newest first. Template:
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-07 | **Campus attribution** (21 train frames of the campus session, count-level truth) | 7 right, 9 segmentation-only, 5 segmentation + detector, 0 detector-only. The two top-row stages (background prior, saturation floor) and the RGB boxes remove the blue bodies and the shaded orange faces in a real room; where bodies survive the stripe step works, and its one failure is the pre-registered 'glued shadow'. **Segmentation first** |
 | 2026-11-06 | **First live run** (Tanush's screenshots; a diagnosis, approximate) | the stripe step took a dark gap under a false orange smear for a *shadowed* stripe (the floating box) and dropped the real stripe (band + glued shadow 92 rows, 83 allowed); the blue barrel right in every frame; the segmentation labels the laptop lid's edge, a barrel's glow and skin orange. Raw frames needed |
 | 2026-11-03 eve | **Detector step 2 (the stripe) vs steps 1–3 vs the floor**, Tanush's boxes | v2 rule: floor 0.43 → steps 1–3 0.71 → **stripe 0.91**; overlap rule 0.48 / 0.86 / 0.97; misses = hidden stripes. Re-run 2026-11-05: identical |
 | 2026-11-03 | **Dave's 20 snapshots** (outside check) | **0 barrel pixels on all 20**: the per-image floor and wall model assume plain top rows; the pink desk floods orange. The front end is the bottleneck |
@@ -32,6 +33,29 @@ One entry per experiment, newest first. Template:
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-07 — Campus attribution: segmentation or detector, on the real frames (count-level truth)
+
+- **Setting:** the 31 frames of the campus session (`DATA.md` → Session 2026-11-07) imported as `4A8B_campus_light_*`, split at import (10 test, 21 train); only the 21 train frames are used here. No box labels yet, so the truth is count-level: the barrels of each body color in the frame, counted by eye (`experiments/2026-11-07_campus_attribution/expected.json`). The detector as it stands (frozen v1 model afd85483 → stripe step, camera `AIM_4A8B6118_BOXFIT`) on each frame; per frame the segmentation's own numbers (the saturation floor it chose, the background prior's rejection rate, barrel pixels), the stripe finder's verdict on every band, a four-panel sheet (raw, tint, boxes + stripes, pixels in a color box that the floor removed), and one diagnostic arm with the floor fixed at 40. Hand verdicts per frame in `judgments.json`, merged into `results/2026-11-07_campus_attribution/summary.md`. Hand-picked barrel rectangles were also pushed through the stages one at a time (numbers below; the probe script is in the chat log, the mechanism is the same as the per-frame table).
+- **Result:** 21 frames: **7 right** (the 4 negatives, `hand_02`, the two lid-only shots), **9 segmentation only**, **5 segmentation + detector**, **0 detector only**.
+
+| frame | expected O/B | floor | orange px | blue px | boxes O/B | verdict |
+|---|---|---|---|---|---|---|
+| room_01 | 1/1 | 86 | 505 | 0 | 0/0 | seg: blue body 0 % labeled |
+| room_03 | 1/1 | 83 | 111 | 0 | 0/0 | seg |
+| plain_01 / plain_02 | 1/1 | 49 / 50 | 7306 / 3205 | 5112 / 2313 | 1/0 | seg+det: blue body 41–69 % labeled; its stripe's band 67 rows vs 62 allowed |
+| core_01 | 2/2 | 73 | 2573 | 4883 | 2/0 | seg+det: big blue band 97 vs 72; far orange outside the box; a wrong-color box on the pair |
+| far_01 | 2/2 | 71 | 1553 | 823 | 2/1 | seg: the 4th barrel's body 34–47 % labeled |
+| cluster_02, touch_02, occl_02, edge_01, clutter_02, held_01 | | 68–120 | | 0–132 | 0/0 | seg: blue bodies 0–7 % labeled |
+| close_01, window_01 | 1/0, 1/1 | 67, 49 | | | 0/0 | seg+det: shaded faces unlabeled, bands too tall (72 vs 55; 35 vs 27) |
+| neg_02–05 | 0/0 | 33–120 | 0–1255 | 0 | 0/0 | ok: orange clutter labeled in neg_05, no band, no box |
+
+- **Where the pixels go** (hand-picked rectangles, fraction surviving each stage: in the RGB box → + horizon / brightness / saturation floor → + background prior): room_01 blue body **0.80 → 0.00 → 0.00** (floor 86 against a body saturation of 52–71); cluster_02 blue **0.98 → 0.69 → 0.05**, touch_02 blue **1.00 → 0.58 → 0.05**, far_01 blue **0.95 → 0.75 → 0.40**; cluster_02 orange lit half **0.89 → 0.88 → 0.85** vs its shaded half **0.99 → 0.96 → 0.17**; core_01 far small orange (RGB 225/128/50) **0.20** in the box at all. The background prior's band statistics on these frames: median ≈ (40–60, 40–65, 35–50), scale 35–52 per channel (home: ≈ 16–22), i.e. with a dark room in the top 50 rows it rejects everything within about ±100–130 of dark gray at k 2.5 — 30–71 % of each frame, navy blue and shaded orange included. The saturation floor from the same rows is 67–120 here (home 44–55; 120 is its clamp, hit when clutter or the laptop sits in those rows).
+- **The detector's share:** where a body was labeled above and below its stripe, the stripe step found it (far_01 3 of 3 anchored, hand_02 2 of 2, plain_01's orange). Every detector-level failure is pre-registered flaw (b): unlabeled shadow glued to the stripe makes its band taller than 3 × the expected stripe height (core_01 ×2, plain_01, close_01, window_01's orange), plus one flaw-(c) case (core_01: an orange box on the blue barrel of the touching pair, its band blue pixels between the orange stripe below and the orange neighbour above) and one marginal width miss (window_01 blue: 25 px vs 26 required). Flaw (a) — a dark gap taken for a stripe — did not fire on these frames; it did in the 2026-11-06 screenshots. No box on any negative; the orange clutter (a cap, a glue stick) is labeled orange and correctly left unboxed.
+- **Takeaway:** the front end is most of it. Every stage that made v1 "adaptive" assumes the top 50 rows are a plain wall and the barrels are the only saturated thing: in a real room both are false, and the stages then remove the barrels themselves. The two detector flaws are real but secondary and already pre-registered. **Order: segmentation redesign first (P0-4), detector hardening (b) and (c) alongside.**
+- **Next:** the segmentation probe below (hue + HSV-saturation boxes, no top-row stages); the pre-registered rule for adopting a new front end is in that entry.
 
 ---
 

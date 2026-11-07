@@ -1,0 +1,22 @@
+stem,scene,exp_orange,exp_blue,s_min_eff,band_sat_pct,bg_rejected,table_rejected,orange_px,blue_px,boxes_orange,boxes_blue,lost_orange_px,lost_blue_px,f40_orange_px,f40_blue_px,f40_boxes_orange,f40_boxes_blue,verdict,notes
+4A8B_campus_light_close_01,close,1,0,67,57.0,0.492,nan,6108,425,0,0,32,20,6905,498,0,0,seg+det,"shaded right half of the orange body unlabeled (prior: 17 % of shaded orange survives); the blue stripe's band then includes that shadow, 72 rows vs 55 allowed: glued shadow"
+4A8B_campus_light_cluster_02,cluster,2,2,69,59.0,0.382,nan,2040,29,0,0,59,0,2099,29,0,0,seg,both blue bodies 5 % labeled (prior + floor 69); near orange shaded half unlabeled; no stripe has body above and below
+4A8B_campus_light_clutter_02,clutter,1,2,120,134.0,0.411,nan,1868,0,0,0,408,0,2359,0,0,0,seg,"floor at its clamp 120 (clutter in the top rows): blue 0 px, orange body partial; the orange glue-stick cap and the pill-bottle cap are labeled orange but draw no box"
+4A8B_campus_light_core_01,core,2,2,73,63.0,0.463,nan,2573,4883,2,0,158,301,2852,5110,1,0,seg+det,"big blue barrel: body 43 % labeled, stripe band 97 rows vs 72 allowed (glued shadow); far small orange outside the orange box (20 %); touching pair: two ORANGE boxes, one on the blue barrel (wrong color), its own blue stripe dropped (band 52 vs 46, glued shadow)"
+4A8B_campus_light_edge_01,edge,1,0,73,63.0,0.345,nan,1022,0,0,0,53,0,1124,0,0,0,seg,orange body at the frame edge labeled only on its lit part; no stripe anchored
+4A8B_campus_light_far_01,far,2,2,71,61.0,0.427,nan,1553,823,2,1,11,29,1619,851,3,1,seg,"3 of 4 right (2 orange, 1 blue); the second blue barrel's body 34-47 % labeled (prior + floor 71), no band closed around its stripe"
+4A8B_campus_light_hand_02,hand,1,1,57,47.0,0.293,nan,2165,1439,1,1,473,974,2428,1886,1,1,ok,both boxes right; the hand is not labeled orange (floor 57 kept skin out); the blue box is widened as 'occluded' because the stripe's labeled part is narrow
+4A8B_campus_light_held_01,held,0,1,120,132.0,0.495,nan,1200,87,0,0,440,678,1798,314,0,0,seg,"held barrel (lid only, bottom of frame): 87 blue px of a 60k-px lid; floor at clamp 120 from the clutter. Out of the v2 arrangements; recorded only"
+4A8B_campus_light_neg_02,neg,0,0,33,23.0,0.382,nan,0,0,0,0,0,0,0,0,0,0,ok,"laptop lid: nothing labeled, nothing drawn"
+4A8B_campus_light_neg_03,neg,0,0,92,82.0,0.311,nan,8,0,0,0,48,0,51,0,0,0,ok,"empty table, room behind: 8 orange px, nothing drawn"
+4A8B_campus_light_neg_04,neg,0,0,83,73.0,0.346,nan,0,0,0,0,163,3,100,0,0,0,ok,clutter: nothing drawn
+4A8B_campus_light_neg_05,neg,0,0,120,126.0,0.361,nan,1255,0,0,0,716,12,2099,10,0,0,ok,"orange cap + orange glue stick labeled orange (1255 px), no box: nothing sandwiches a band. The detector did its job here"
+4A8B_campus_light_occl_02,occl,0,1,74,64.0,0.392,nan,141,51,0,0,5,5,146,31,0,0,seg,blue barrel behind the marker: 51 blue px
+4A8B_campus_light_plain_01,plain,1,1,49,39.0,0.3,nan,7306,5112,1,0,2201,1970,7414,5448,1,0,seg+det,"orange right; blue barrel: body 41-69 % labeled, its stripe band 67 rows vs 62 allowed (glued shadow)"
+4A8B_campus_light_plain_02,plain,1,1,50,40.0,0.307,nan,3205,2313,1,0,1732,1424,3270,2630,1,0,seg+det,"as plain_01 at 15 cm: orange right, blue missed"
+4A8B_campus_light_room_01,room,1,1,86,76.0,0.711,nan,505,0,0,0,37,0,588,0,0,0,seg,"blue body 0 % (prior rejects 71 % of the frame: top rows are a dark room, scale 42-52 per channel; floor 86 > the body's saturation 52-71); orange body 33 %"
+4A8B_campus_light_room_03,room,1,1,83,73.0,0.715,nan,111,0,0,0,2,0,126,0,0,0,seg,"both barrels at 25 cm: 111 orange px, 0 blue px"
+4A8B_campus_light_top_01,top,1,0,67,57.0,0.554,nan,11794,0,1,0,0,0,22030,0,1,0,ok,"lid only: a det1 box covering the labeled part of the lid (the shaded half unlabeled, so the box is narrow); acceptable for the out-of-scope 'top' arrangement"
+4A8B_campus_light_topstripe_01,topstripe,1,0,67,57.0,0.468,nan,16892,8,1,0,283,778,20289,574,1,0,ok,det1 box on the lid; shaded half unlabeled; stripe at the frame bottom not used
+4A8B_campus_light_touch_02,touch,0,2,68,58.0,0.331,nan,257,132,0,0,2,8,259,140,0,0,seg,"two blue bodies 4-7 % labeled (prior), orange stripes partly: nothing to anchor"
+4A8B_campus_light_window_01,window,1,1,49,39.0,0.297,nan,2445,1414,0,0,6471,7486,2541,1487,0,0,seg+det,orange: band 35 rows vs 27 (glued shadow); blue: stripe band 25 px wide vs 26 required (0.4 of a barrel) — a one-pixel miss on a partly labeled stripe
