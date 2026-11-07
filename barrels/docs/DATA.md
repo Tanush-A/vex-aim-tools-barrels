@@ -11,7 +11,7 @@ Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, labe
 - **robot:** short id, e.g. `4A8B` (= AIM-4A8B6118); `DAVE` for Dave's snapshots.
 - **light:** the source — `window`, `overhead`, `lamp`, `bounce` (indirect), `dim`, `side`, `mixed`, or the home-lamp tags `{up,at,away}{cool,mid,warm}`.
 - **surface:** `light` (the white matte table), `beige`, `black`, `wood`, `floor`, `paper`, … (extend as needed).
-- **scene:** `core` (orange + blue touching ~15 cm, one far, one close) · `far` · `close` · `top` (lid only) · `topstripe` (lid + stripe, bottom below the frame) · `touch` · `occl` · `cluster` · `edge` · `glare` · `shadow` · `clutter` · `held` (in the kicker) · `neg` (no barrels) · `calib` (one barrel straight ahead at a measured distance) · `ruler` · `horizon` (a mark at camera height on a far wall) · backdrop scenes since 2026-11-06: `room` (the open room behind the barrels), `hand` (a hand and laptop behind), `board` (the plain grey board behind), `window` (a bright window or lamp behind).
+- **scene:** `core` (orange + blue touching ~15 cm, one far, one close) · `far` · `close` · `top` (lid only) · `topstripe` (lid + stripe, bottom below the frame) · `touch` · `occl` · `cluster` · `edge` · `glare` · `shadow` · `clutter` · `held` (in the kicker) · `neg` (no barrels) · `calib` (one barrel straight ahead at a measured distance) · `ruler` · `horizon` (a mark at camera height on a far wall) · backdrop scenes since 2026-11-06: `room` (the open room behind the barrels), `hand` (a hand and laptop behind), `plain` (a plain flat backdrop right behind the barrels, e.g. the back of a laptop), `window` (a bright window or lamp behind).
 - **nn:** two-digit counter per (robot, light, surface, scene).
 
 **Capture:** `tm save` in the live programs (`RUNBOOK.md`), or the camera viewer's key `s`; both write `snapshots/robot_snapN.png` (under `barrels/live/` for the live programs). **Import right away** with `tools/import_snaps.py --src barrels/live/snapshots --scenes …` (it renames in shooting order; the viewer's counter restarts each session and would overwrite, so use one or the other in a session). `tm rec` writes ten-second sequences to `snapshots/rec_<stamp>/` for replaying the multi-frame view offline; they are not frames to label unless imported one by one.
@@ -108,40 +108,70 @@ Fixed **train / test**; dev is empty by design; test is **never used for tuning*
 
 ## Session 2026-11-07 (campus): the plan
 
-**Why.** The first live run (2026-11-06) failed in ways the committed frames cannot show: a grey board behind the barrels, the room, a hand, harsh light. These frames are the dev set for the segmentation redesign and the detector hardening, the one-table list is the v2.0 dataset as planned, the recordings test the multi-frame view, the calibration frames replace the provisional camera. ≈ 1 h on campus plus the import.
+**Why.** The first live run (2026-11-06) failed in ways the committed frames cannot show: a plain backdrop (the back of the laptop) right behind the barrels, the open room, a hand, harsh light. These frames are the dev set for the segmentation redesign and the detector hardening; part B is the standard 19-shot list agreed on 2026-11-03, never shot until now; the recordings test the multi-frame view. **No calibration this session** (no ruler): the calibration paragraph above stays for a day with one. ≈ 45 min on campus plus the import.
 
-**Take:** the robot (charged) and its cable; laptop + charger; every barrel you have (at least two orange, two blue); the grey board; a ruler or tape with mm marks (≥ 30 cm); a sticky note, tape and a pen (the horizon mark); a handful of clutter objects, mostly not orange or blue, plus one orange and one blue object that are not barrels (pen, cap, notebook, fruit); your phone for a photo of each block's layout.
+**Take:** the robot (charged) and its cable; laptop + charger (its lid is the plain backdrop); every barrel you have; a handful of clutter objects, mostly not orange or blue, plus one orange and one blue object that are not barrels (pen, cap, notebook, fruit); your phone for one photo of each part's layout.
 
-**Before the first shot.** `source setup.zsh`, `cd vex-aim-tools/barrels/live`, `simple_cli BarrelViewer`; make sure `barrels/live/snapshots/` is empty (a fresh session) and that the table, light and robot do not change for the whole session. Shoot the list **in this order**, `tm save` for each; retake a bad shot at once and delete its `robot_snapN.png` before importing. Glance at `tm seg` if you like, but shoot the list as written: never choose a shot by what the detector does with it.
+**Before the first shot.** `source setup.zsh`, `cd vex-aim-tools/barrels/live`, `simple_cli BarrelViewer`; `barrels/live/snapshots/` must be empty. Keep the table, the light and the robot fixed for the whole session. One photo per line below, in this order, `tm save` each; retake a bad shot at once and delete its `robot_snapN.png` before importing; do not use the camera viewer's `s` key in the same session. Glance at `tm seg` if you like, but shoot the list as written: never choose a shot by what the detector does with it. With only two barrels, do the "three" and "all" shots with two.
+
+**Part A — the scenes that broke the live run** (the open room behind unless said; one orange and one blue barrel are enough)
 
 | # | scene | shot |
 |---|---|---|
-| **A — the scenes that broke the live run** (the room as it is, no board unless said) | | |
-| 1–3 | `room` | an orange and a blue barrel ~15 cm apart, the open room behind; three layouts (one with a barrel at ~8 cm, one at ~25 cm) |
-| 4–5 | `hand` | as yesterday: a hand and laptop behind the barrels; in the second the hand rests on the table next to a barrel |
-| 6–8 | `board` | the grey board behind; both barrels at ~8, ~15, ~25 cm |
-| 9–10 | `window` | a bright window or lamp behind the barrels, if there is one (else skip and note it) |
-| 11–12 | `neg` | no barrels: the room behind; then the board behind |
-| **B — the one-table list** (the room behind; the table above) | | |
-| 13–31 | `core`,`core`,`far`,`close`,`topstripe`,`top`,`touch`,`touch`,`occl`,`occl`,`cluster`,`cluster`,`edge`,`clutter`,`clutter`,`neg`,`neg`,`neg`,`held` | exactly the 19 shots of the table above, in that order (`held` only if the robot can hold one; else skip and note it) |
-| **C — recordings** (`tm rec`, ten seconds each; you may switch to `simple_cli BarrelTracker` to watch it; note the order) | | |
-| r1 | static | two barrels at ~15 cm, nothing moves |
-| r2 | pan | turn the robot slowly by hand, about 30° over the ten seconds, the barrels staying in view |
-| r3 | enter / leave | slide a barrel into the view from the side and out again |
-| r4 | occlusion | wave a hand across the barrels twice |
-| **D — calibration** (one **orange** barrel; `show viewer` gives the crosshair, then `tm save`) | | |
-| 32–43 | `calib` ×12 | the barrel centred on the vertical crosshair; ruler zero at the robot's front edge; the **near edge of the base at table level** at 0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm (the bulge overhangs the base by ≈ 3.75 mm, slide the ruler under); ruler out of frame before saving |
-| 44 | `horizon` | a mark 43.47 mm above the table on a wall ≥ 1 m away, centred (skip if no wall) |
+| 1 | `room` | orange and blue about 15 cm away, a hand's width apart, the open room behind |
+| 2 | `room` | the same two, one at about 8 cm, the other at about 25 cm |
+| 3 | `room` | the same two side by side at about 25 cm |
+| 4 | `hand` | yesterday's scene: a hand and the laptop behind the barrels |
+| 5 | `hand` | the same, the hand resting on the table right next to a barrel |
+| 6 | `plain` | the laptop lid right behind the barrels as yesterday, barrels at about 8 cm |
+| 7 | `plain` | the same, barrels at about 15 cm |
+| 8 | `plain` | the same, barrels at about 25 cm |
+| 9 | `window` | a bright window or lamp behind the barrels (skip if there is none) |
+| 10 | `window` | the same at another distance (skip if none) |
+| 11 | `neg` | no barrels, the room behind |
+| 12 | `neg` | no barrels, the laptop lid behind |
 
-**Then, the same day** (fill in the light and surface tags; drop from `--scenes` anything you skipped, in the same order as the files):
+**Part B — the standard dataset list** (the 19 shots of the v2.0 table above; the room behind, normal light)
+
+| # | scene | shot |
+|---|---|---|
+| 13 | `core` | an orange and a blue barrel touching at about 15 cm; one more far at about 30 cm; one close at about 7 cm |
+| 14 | `core` | the same idea rearranged: swap which colors are near and far |
+| 15 | `far` | all barrels 25–30 cm away, spread out |
+| 16 | `close` | one barrel about 5 cm away, whole body visible |
+| 17 | `topstripe` | one barrel 2–3 cm away: lid and stripe visible, bottom below the frame |
+| 18 | `top` | one barrel against the bumper: lid only |
+| 19 | `touch` | three barrels touching in a row at about 15 cm, mixed colors |
+| 20 | `touch` | two barrels of the same color touching, side by side |
+| 21 | `occl` | a barrel at about 10 cm partly hiding one at about 20 cm behind it |
+| 22 | `occl` | a barrel partly hidden behind a clutter object |
+| 23 | `cluster` | all barrels bunched 15–25 cm away, some touching |
+| 24 | `cluster` | the same, rearranged |
+| 25 | `edge` | one barrel half out of the frame at the left or right edge |
+| 26 | `clutter` | barrels among varied clutter, nothing else orange or blue |
+| 27 | `clutter` | barrels among clutter, an orange or blue object right next to a barrel of the same color |
+| 28 | `neg` | the empty table |
+| 29 | `neg` | clutter only, nothing orange or blue |
+| 30 | `neg` | clutter including an orange and a blue object, no barrels |
+| 31 | `held` | a barrel in the kicker (skip if the robot cannot hold one) |
+
+**Part C — recordings** (`tm rec`, ten seconds each; `simple_cli BarrelTracker` if you want to watch the persistence rule; note the order)
+
+| | shot |
+|---|---|
+| r1 static | two barrels at about 15 cm, nothing moves |
+| r2 pan | turn the robot slowly by hand, about 30° over the ten seconds, the barrels staying in view |
+| r3 enter / leave | slide a barrel into the view from the side and out again |
+| r4 occlusion | wave a hand across the barrels twice |
+
+**Then, the same day** (fill in the light tag; drop from `--scenes` anything you skipped, keeping the order of the files):
 
 ```zsh
-python barrels/tools/import_snaps.py --src barrels/live/snapshots --light <overhead|window|…> --surface <light|…> --scenes \
-room,room,room,hand,hand,board,board,board,window,window,neg,neg,core,core,far,close,topstripe,top,touch,touch,occl,occl,cluster,cluster,edge,clutter,clutter,neg,neg,neg,held,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,horizon --dry-run
+python barrels/tools/import_snaps.py --src barrels/live/snapshots --light <overhead|window|…> --surface light --scenes \
+room,room,room,hand,hand,plain,plain,plain,window,window,neg,neg,core,core,far,close,topstripe,top,touch,touch,occl,occl,cluster,cluster,edge,clutter,clutter,neg,neg,neg,held --dry-run
 # then without --dry-run
-python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>     # before any method sees the frames
-python barrels/tools/box_tool.py --filter <light>_<surface>                   # ≈ 45 frames, ≈ 30 s each; calib frames too
+python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_light      # before any method sees the frames
+python barrels/tools/box_tool.py --filter <light>_light                    # ≈ 31 frames, ≈ 30 s each
 ```
 
-Write `data/calib.csv` (`stem, d_ruler_mm`) for the 12 calib frames in order. Move the `rec_<stamp>/` folders somewhere safe (they are gitignored) and say which is which. Commit `data/raw/`, `data/labels/`, `data/splits.json`, `data/calib.csv`.
-
+Keep the `rec_<stamp>/` folders out of git (they are ignored) and say which is which. Commit `data/raw/`, `data/labels/`, `data/splits.json`.

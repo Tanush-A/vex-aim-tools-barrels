@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Diagnostic for the first live run (2026-11-06): Tanush's screenshots of the live window, no raw frames yet.
 
-screens/: three "both" views (segmentation tint + boxes) with a grey board as the backdrop (board_a/b/c), one raw
+screens/: three "both" views (segmentation tint + boxes) with the back of Tanush's laptop as a plain backdrop (board_a/b/c — "board" in the names means the laptop lid), one raw
 frame of the hand-and-laptop scene (hand_raw) and its "seg" view (hand_seg). The screenshots are hand-cropped and
 scaled, so each is resized to 640x480 — an approximation, not the frame the robot saw.
 
