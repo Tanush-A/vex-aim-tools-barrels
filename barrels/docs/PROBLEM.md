@@ -109,7 +109,7 @@ Everything above; all four hidden-bottom cases; a held barrel is detected like a
 
 ## Out of scope (v2.0)
 
-Ground positions, the world map, the aivision spec; knocked-over barrels; wood tables; temporal tracking across frames; learned detectors; confidence shown to the user; per-pixel polish beyond the one re-fit — if the segmentation turns out to be the bottleneck, fixing it becomes v2.1 (Dave 2026-10-30: only if its flaws actually cost detections) — **it is: on Dave's frames it costs every detection, so the redesign was pulled into v2.0 on 2026-11-03.** A **display-only live view** of the boxes on the robot's own camera is *in* scope since 2026-11-03 (Dave; `DECISIONS.md`): it draws on the image and touches nothing downstream. Wiring into the world map stays out.
+Ground positions, the world map, the aivision spec; knocked-over barrels; wood tables; temporal tracking that feeds anything downstream (a display-only persistence of boxes over frames in the live view, `BarrelTracker`, is allowed since 2026-11-06, `DECISIONS.md`: it changes what is shown, never the per-image answer this spec and `EVAL.md` score); learned detectors; confidence shown to the user; per-pixel polish beyond the one re-fit — if the segmentation turns out to be the bottleneck, fixing it becomes v2.1 (Dave 2026-10-30: only if its flaws actually cost detections) — **it is: on Dave's frames it costs every detection, so the redesign was pulled into v2.0 on 2026-11-03.** A **display-only live view** of the boxes on the robot's own camera is *in* scope since 2026-11-03 (Dave; `DECISIONS.md`): it draws on the image and touches nothing downstream. Wiring into the world map stays out.
 
 ## Success criteria
 
@@ -117,6 +117,6 @@ Ground positions, the world map, the aivision spec; knocked-over barrels; wood t
 
 ## Milestones
 
-1. **v2.0** (this spec), in the order of `TODO.md`: ~~box labels + tool~~, ~~the eval rule~~, ~~the stripe-anchored detector~~ (all 2026-11-03), ~~the live view on the robot~~ (2026-11-05), the segmentation redesign, one-table data + calibration frames, the geometry calibration, hidden-stripe barrels, one test run, results to Dave.
+1. **v2.0** (this spec), in the order of `TODO.md`: ~~box labels + tool~~, ~~the eval rule~~, ~~the stripe-anchored detector~~ (all 2026-11-03), ~~the live view on the robot~~ (2026-11-05; first run and the multi-frame variant 2026-11-06), the segmentation redesign, one-table data + calibration frames, the geometry calibration, hidden-stripe barrels, one test run, results to Dave.
 2. **v2.1 — generalise:** more tables (white / beige / black), an unseen-table hold-out, the one segmentation re-fit if a table needs it, and fixing the segmentation where it is the bottleneck.
 3. **Later, when Dave says:** ground positions from the stored distances; wiring into the robot — the bridge stub and the aivision spec shape already exist (`worldmap_bridge.py`).

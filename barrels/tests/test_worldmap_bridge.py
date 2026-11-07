@@ -71,3 +71,28 @@ def test_view_on_a_real_frame_matches_the_photo_path():
         pass
     else:
         raise AssertionError("bad mode accepted")
+
+
+def test_render_draws_the_barrels_it_is_given_and_raw_ones_in_white():
+    hook = wb.BarrelDetectorHook.default()
+    bgr = io.load_image(io.RAW_DIR / "4A8B_window_light_touch_02.png")
+    rgb = np.ascontiguousarray(bgr[..., ::-1])
+    barrels = hook.on_image(rgb)
+    assert (hook.render(rgb, barrels, "boxes") == hook.view(rgb, "boxes")).all()      # view = on_image + render
+    given = [Barrel(color=io.BLUE, bbox=(10, 10, 50, 60))]
+    out = hook.render(rgb, given, "boxes")
+    assert tuple(out[10, 10]) == (0, 255, 0) and tuple(out[10, 49]) == (0, 255, 0)     # green = blue barrel, where we said
+    for b in barrels:                                                                  # this frame's own boxes are not drawn
+        x0, y0, _, _ = b.bbox
+        assert tuple(out[y0, x0]) == tuple(rgb[y0, x0])
+    out = hook.render(rgb, given, "boxes", raw=barrels)
+    for b in barrels:
+        x0, y0, _, _ = b.bbox
+        assert tuple(out[y0, x0]) == (255, 255, 255)                                   # ... unless asked for, in white
+    seg = hook.render(rgb, given, "seg")
+    assert (seg == np.ascontiguousarray(viz.overlay(bgr, hook.last_mask)[..., ::-1])).all()   # seg: tint only, no boxes
+    try:
+        hook.render(rgb, given, "nope")
+        assert False, "bad mode accepted"
+    except ValueError:
+        pass

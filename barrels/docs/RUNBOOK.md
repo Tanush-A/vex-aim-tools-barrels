@@ -1,6 +1,6 @@
 # RUNBOOK.md — robot setup / ops
 
-**Updated:** 2026-11-05 (the live feed). Tanush's robot: **AIM-4A8B6118**.
+**Updated:** 2026-11-06 (two live programs; `tm save` / `tm rec`). Tanush's robot: **AIM-4A8B6118**.
 
 ## Standard startup
 
@@ -15,21 +15,32 @@ simple_cli                       # or: simple_cli Celeste / simple_cli Lab6a
 
 `setup.zsh` lives outside the repo (it holds credentials); never commit it.
 
-## The live barrel feed (`barrels/live/BarrelViewer.fsm`)
+## The live barrel feed (`barrels/live/`)
+
+Two programs, same detector, same commands; pick one:
 
 ```zsh
 cd ~/Desktop/Celeste/vex-aim-tools/barrels/live
-genfsm BarrelViewer.fsm          # only after editing the .fsm — writes BarrelViewer.py next to it (committed)
-simple_cli BarrelViewer          # connects, starts the machine; a window "barrels" opens after the first frame
+simple_cli BarrelViewer          # the per-frame answer, once a second: what tools/detect_image.py would say about each frame
+simple_cli BarrelTracker         # boxes that persist: a barrel is shown after 3 of the last 4 frames agree (5 frames a second)
+genfsm BarrelViewer.fsm          # only after editing a .fsm — rewrites the .py next to it (both .py files are committed)
 ```
 
-- Once a second the robot's image is shown with our boxes: **yellow = orange barrel, green = blue barrel**, 1 px. The console prints one line when the barrel count changes.
-- At the `C>` prompt: `tm seg` shows the color segmentation blended over the image (orange / blue tint = what the front end calls barrel), `tm boxes` goes back to the boxes, `tm both` shows both.
-- It runs the detector exactly as `tools/detect_image.py` does (same frozen model, same detector, same camera preset); a frame takes ≈ 60 ms on the laptop.
-- `simple_cli` must be started **from `barrels/live/`**: it imports the program from the current directory. From anywhere else: `simple_cli` then `runfsm('BarrelViewer')` after `cd`-ing there, or add the folder to `PYTHONPATH`.
-- To grab the frame you are looking at as a PNG, `show viewer` opens the camera viewer and `s` saves `snapshots/robot_snapN.png` (rename / import per `DATA.md`). The live window itself has no save key.
+At the `C>` prompt (both programs):
+
+| command | does |
+|---|---|
+| `tm boxes` / `tm seg` / `tm both` | the boxes (default; yellow = orange barrel, green = blue, 1 px) / the segmentation tint / both |
+| `tm save` | writes the current raw frame as `snapshots/robot_snapN.png` under `barrels/live/` (the camera viewer's naming; N continues past existing files, never overwrites) |
+| `tm rec` | writes every frame for ten seconds (at most ten a second) into `snapshots/rec_<stamp>/frame_NNN.png` + `frames.json` (time and frame count per file) |
+| `tm raw` | BarrelTracker only: also draw this frame's own boxes in white, to compare with the persisting ones |
+
+- The console prints one line when the number of barrels shown changes, one when a frame is saved, one when a recording finishes.
+- `snapshots/` is gitignored. **Import the keepers right away:** `python barrels/tools/import_snaps.py --src barrels/live/snapshots --light … --surface … --scenes …` (`DATA.md`); delete a bad `robot_snapN.png` before importing. Do not mix `tm save` with the camera viewer's `s` key in one session: the viewer's counter restarts at 0 and would overwrite. Recordings are for replaying the multi-frame view offline; keep the folder until that is done.
+- Both programs run the detector exactly as `tools/detect_image.py` does (same frozen model, detector, camera preset); ≈ 60 ms per frame on the laptop. The 3-of-4 rule is `src/barrels/tracker.py` (`TrackConfig`); saving is `src/barrels/capture.py`.
+- `simple_cli` must be started **from `barrels/live/`**: it imports the program and `barrel_live.py` (what the two share) from the current directory. From elsewhere: `simple_cli`, then `cd` there and `runfsm('BarrelViewer')`.
 - Quit with **Ctrl+\** before powering the robot off (below). If the window stops updating, `restart img_thread` at the prompt restarts the camera stream.
-- Edit → test cycle: change the `.fsm`, run `genfsm` again, then `runfsm('BarrelViewer')` at the prompt (reloads the module). If `simple_cli` warns that the `.py` is older than the `.fsm`, you forgot `genfsm`.
+- Edit → test cycle: change the `.fsm`, run `genfsm` again, then `runfsm('BarrelViewer')` at the prompt (reloads that module; a change to `barrel_live.py` needs `simple_cli` restarted). If `simple_cli` warns that the `.py` is older than the `.fsm`, you forgot `genfsm`.
 
 ## Networking
 

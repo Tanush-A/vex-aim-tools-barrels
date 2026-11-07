@@ -16,6 +16,7 @@ One entry per experiment, newest first. Template:
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-06 | **First live run** (Tanush's screenshots; a diagnosis, approximate) | the stripe step took a dark gap under a false orange smear for a *shadowed* stripe (the floating box) and dropped the real stripe (band + glued shadow 92 rows, 83 allowed); the blue barrel right in every frame; the segmentation labels a board edge, a barrel's glow and skin orange. Raw frames needed |
 | 2026-11-03 eve | **Detector step 2 (the stripe) vs steps 1–3 vs the floor**, Tanush's boxes | v2 rule: floor 0.43 → steps 1–3 0.71 → **stripe 0.91**; overlap rule 0.48 / 0.86 / 0.97; misses = hidden stripes. Re-run 2026-11-05: identical |
 | 2026-11-03 | **Dave's 20 snapshots** (outside check) | **0 barrel pixels on all 20**: the per-image floor and wall model assume plain top rows; the pink desk floods orange. The front end is the bottleneck |
 | 2026-11-03 | Detector step 1 vs the CC floor (auto instances; provisional) | 0.78 vs 0.46 mean F1; bottoms within 1 px |
@@ -31,6 +32,23 @@ One entry per experiment, newest first. Template:
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-06 — First live run: the detector off the training table, from Tanush's screenshots (a diagnosis, not a tuning run)
+
+- **Setting:** Tanush ran `live/BarrelViewer.fsm` on campus: a white table, barrels ≈ 7–15 cm away, first with the room and his hand and laptop behind them, then with a grey board as a plain backdrop. He sent screenshots of the window (hand-cropped and scaled): one raw frame of the hand scene, its `seg` view, three `both` views with the board. No raw frames exist yet, so this is a diagnosis: `experiments/2026-11-06_live_first_run/run.py` resizes each screenshot to 640×480, rebuilds the class mask from the overlay tint, runs the stripe finder's tests on it band by band (the same tests as `detector.find_stripes`), then `detector.detect`. Results: `results/2026-11-06_live_first_run/summary.md`; the screenshots are in `screens/`.
+- **What the window showed:** with the board, the blue barrel boxed correctly in all three frames; the orange barrel boxed correctly in one (`board_b`), and in the other two a small yellow box floating above and left of it, the barrel itself unboxed. The segmentation tint: false orange along the board/table edge, on the glow the orange barrel throws on the table, on a metal rack and, in the room scene, on skin and the laptop edge; the orange barrel's shaded side and lid highlight unlabeled; the navy end of its blue stripe unlabeled.
+- **What the rebuilt masks say** (`board_a`; approximate):
+
+| band between orange above and below | size | stripe-colored px | unlabeled px | verdict |
+|---|---|---|---|---|
+| the dark gap under the smear at the board edge, above the lid | 37×23 | 0 | 707 | kept as a *shadowed* stripe → the floating box (x 294–372, y 134–222; the screenshot's box sits at ≈ 295–373, 143–229) |
+| the real blue stripe, with the unlabeled shadow glued to it | 162×92 | 3645 | 2758 | dropped: band 92 rows, 83 allowed (3 × the expected stripe height) |
+
+  `board_c` the same (band 111 rows, 75 allowed). `board_b`'s rebuilt mask gives no orange box where the live run gave a correct one, so the reconstruction is not exact — one more reason for raw frames. The hand-scene screenshot run through the real live path segments to **nothing**: the crop moved the hand into the top 50 rows, the per-image saturation floor taken from those rows came out at its clamp (120 for both classes) and no pixel passed — while the live window had segmented that scene. Not what the robot saw, but a clean demonstration of the top-row dependence the Dave-frames entry found.
+- **Takeaway:** two detector flaws, both fit to the 16 train frames: (1) a band with no stripe-colored pixels counts as a shadowed stripe (added 2026-11-03 for stripes too dark to label), so any dark gap between orange above and orange below is a barrel; (2) the band is one connected component of everything non-body between body above and body below, so unlabeled shadow touching a real stripe makes its band too tall and the stripe is rejected. And two segmentation flaws the committed frames do not contain: false orange on a board edge, on a barrel's glow and on skin; shaded barrel faces unlabeled. The geometry did its job: it drew the box a barrel with *that* stripe would have.
+- **Next:** raw frames (session 2026-11-07, `DATA.md`); the same analysis on real masks (`TODO.md` P0-2); then the pre-registered hardening (P0-3) and the segmentation redesign (P0-4). The multi-frame program built the same day (`BarrelTracker`) removes one-frame boxes but not these: the floating box is there frame after frame.
 
 ---
 

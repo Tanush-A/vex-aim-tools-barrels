@@ -7,7 +7,8 @@ detector, ``detector.draw`` (yellow = orange barrel, green = blue), BGRâ†’RGB â€
 photo path (``tools/detect_image.py``) run exactly the same code. ``BarrelDetectorHook.default()`` is "the
 detector as it stands": the frozen v1 model (config afd85483), ``detector.detect`` with ``DetConfig()``
 (the stripe step), camera ``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
-(the class mask blended over the image), ``"both"``.
+(the class mask blended over the image), ``"both"``. ``render`` is ``view`` with the barrels supplied, for the
+multi-frame program ``live/BarrelTracker.fsm`` (``barrels.tracker``) that shows boxes which persist over frames.
 
 Channel order: inside ``barrels`` an image array is BGR (OpenCV's order); the robot and ``imshow`` speak
 RGB; this module converts at the boundary and nowhere else.
@@ -132,12 +133,24 @@ class BarrelDetectorHook:
     def view(self, image_rgb: np.ndarray, mode: str = "boxes") -> np.ndarray:
         """The picture to show for an RGB frame, as RGB uint8: ``boxes`` (the v2 output image, yellow/green 1-px
         rectangles), ``seg`` (the class mask blended over the image: orange, blue), or ``both``."""
+        barrels = self.on_image(image_rgb)
+        return self.render(image_rgb, barrels, mode)
+
+    def render(self, image_rgb: np.ndarray, barrels: list[Barrel], mode: str = "boxes",
+               raw: list[Barrel] | None = None) -> np.ndarray:
+        """The picture for an RGB frame given the barrels to draw: ``view`` passes this frame's answer; the
+        multi-frame program (``live/BarrelTracker.fsm``) passes the tracked barrels and, when asked, this frame's
+        own answer as ``raw``, drawn in white 1 px so the two can be compared. The segmentation shown for ``seg`` /
+        ``both`` is the one ``on_image`` / ``segment`` last computed."""
         if mode not in VIEWS:
             raise ValueError(f"mode must be one of {VIEWS}, got {mode!r}")
-        barrels = self.on_image(image_rgb)
         bgr = _to_bgr(image_rgb)
-        if mode in ("seg", "both"):
+        if mode in ("seg", "both") and self.last_mask is not None:
             bgr = viz.overlay(bgr, self.last_mask)
+        if raw:
+            for b in raw:
+                x0, y0, x1, y1 = b.bbox
+                cv2.rectangle(bgr, (x0, y0), (x1 - 1, y1 - 1), (255, 255, 255), 1)
         if mode in ("boxes", "both"):
             bgr = det.draw(bgr, barrels)
         return _to_rgb(bgr)

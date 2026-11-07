@@ -1,0 +1,58 @@
+"""BarrelTracker: boxes that persist over frames (Tanush's ask, 2026-11-06). BarrelViewer.fsm answers every frame on
+its own; this program runs the same detector five times a second and shows a barrel only once it has been seen in
+3 of the last 4 frames, keeps it through a missed frame, and forgets it after 4 misses in a row (barrels.tracker,
+rule in its docstring). One-frame false boxes never appear; a barrel the segmentation drops for a frame does not
+blink. The per-image answer itself is unchanged: `tm raw` overlays it in white for comparison.
+
+Run (robot on, setup.zsh sourced, docs/RUNBOOK.md):
+
+    cd barrels/live
+    genfsm BarrelTracker.fsm         # writes BarrelTracker.py next to this file (only needed after editing the .fsm)
+    simple_cli BarrelTracker
+
+At the C> prompt:  tm seg | tm boxes | tm both   -> what to show (tracked boxes: yellow = orange barrel, green = blue)
+                   tm raw                        -> also draw this frame's own boxes in white (again to hide them)
+                   tm save / tm rec              -> raw frame(s) to snapshots/ (see barrel_live.py)
+Quit with Ctrl+\\ before powering the robot off.
+
+The state machine is BarrelViewer's with a 0.2 s loop and one more node (ToggleRaw). ShowFrame only works when
+a new camera frame has arrived since the last tick, so the 3-of-4 count is over distinct frames.
+"""
+from aim_fsm import *
+from barrel_live import BarrelLive
+from barrels import tracker
+
+
+class BarrelTracker(BarrelLive):
+    def __init__(self):
+        super().__init__()
+        self.tracker = tracker.Tracker()      # TrackConfig(): 3 of the last 4 frames, overlap >= 0.3, forget after 4 misses
+        self.show_raw = False
+
+    class ShowFrame(StateNode):
+        def start(self, event=None):
+            super().start(event)
+            program = self.parent
+            image = program.new_frame()
+            if image is None:
+                return
+            raw = program.hook.on_image(image)                 # this frame's own answer
+            shown = program.tracker.update(raw)                # what the last frames agree on
+            imshow("barrels (tracked)", program.hook.render(image, shown, program.mode, raw=raw if program.show_raw else None))
+            program.report(shown)
+
+    class ToggleRaw(StateNode):
+        def start(self, event=None):
+            super().start(event)
+            self.parent.show_raw = not self.parent.show_raw
+            print(f"BarrelTracker: per-frame boxes {'shown in white' if self.parent.show_raw else 'hidden'}")
+
+    $setup{
+        loop: self.ShowFrame() =T(0.2)=> loop
+        loop =TM('boxes')=> self.SetMode('boxes') =N=> loop
+        loop =TM('seg')=> self.SetMode('seg') =N=> loop
+        loop =TM('both')=> self.SetMode('both') =N=> loop
+        loop =TM('raw')=> self.ToggleRaw() =N=> loop
+        loop =TM('save')=> self.Save() =N=> loop
+        loop =TM('rec')=> self.Record() =N=> loop
+    }

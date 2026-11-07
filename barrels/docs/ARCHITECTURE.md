@@ -49,12 +49,14 @@ flowchart LR
         A1["tools/detect_image.py photo.png"] --> A2["io.load_image → BGR array"] --> CHAIN1["segment → detect → draw"] --> A3["results/detect_image/‹stem›_boxes.png<br/>+ one line per barrel"]
     end
     subgraph LIVE["live — the robot (built 2026-11-05)"]
-        B1["live/BarrelViewer.fsm<br/>(aim_fsm state machine, 1 s loop)"] --> B2["robot.camera_image<br/>640×480 RGB"] --> B3["worldmap_bridge.BarrelDetectorHook.view<br/>RGB→BGR · segment → detect → draw · BGR→RGB"] --> B4["imshow('barrels', …)<br/>Dave's PyQt window"]
-        B5["tm boxes / tm seg / tm both<br/>at the C› prompt"] -.switch view.-> B3
+        B1["live/BarrelViewer.fsm<br/>(per frame, 1 s loop)"] --> B2["robot.camera_image<br/>640×480 RGB"] --> B3["worldmap_bridge.BarrelDetectorHook.view<br/>RGB→BGR · segment → detect → draw · BGR→RGB"] --> B4["imshow('barrels', …)<br/>Dave's PyQt window"]
+        B6["live/BarrelTracker.fsm<br/>(0.2 s loop)"] --> B2
+        B3 -. on_image: this frame's barrels .-> B7["tracker.Tracker.update<br/>shown after 3 of the last 4 frames"] -. render .-> B4
+        B5["tm boxes / seg / both · tm save / rec<br/>at the C› prompt"] -.switch view · save raw frames.-> B3
     end
 ```
 
-Everything robot-specific sits in `worldmap_bridge.py` (the hook) and `live/BarrelViewer.fsm` (twenty lines of state machine). The detector never knows which door it came through.
+Everything robot-specific sits in `worldmap_bridge.py` (the hook), `live/barrel_live.py` (what the two programs share: the hook, the view modes, `tm save` / `tm rec`) and the two `.fsm` files (a dozen lines of state machine each). `tracker.py` (the 3-of-4 persistence `BarrelTracker` shows) and `capture.py` (saving raw frames) are plain Python with tests. The detector never knows which door it came through, and the per-frame answer is the same in both programs.
 
 **Channel order.** OpenCV reads, writes and draws in BGR, so inside `barrels` an image array is BGR. `pipeline.Frame.from_image` splits it into named R, G, B planes at once, so the actual color math and every number in the docs are RGB. The robot and Dave's `imshow` speak RGB; the hook converts on the way in and on the way out, two lines in total.
 
@@ -78,14 +80,16 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | data | `io.py` | load / save images, masks, strokes, instances, **box labels**; filename parsing; validators | `load_image`, `load_mask`, `load_boxes`, `save_boxes`, `parse_name`, `PKG_ROOT` |
 | data | `labeling.py`, `instances.py` | scribble-and-grow masks; the automatic per-barrel split (superseded by boxes 2026-11-02, files kept) | `grow`, `split_instances` |
 | data | `viz.py` | overlays and the spec's flat-color output images | `overlay`, `render_outputs`, `debug_sheet` |
-| robot | `worldmap_bridge.py` | the hook the live feed runs: frozen model + detector + camera, RGB in / RGB out; the aivision-dict route for later | `BarrelDetectorHook`, `barrels_to_aivision_items`, `with_items` |
+| robot | `worldmap_bridge.py` | the hook the live feed runs: frozen model + detector + camera, RGB in / RGB out (`view` = `on_image` + `render`); the aivision-dict route for later | `BarrelDetectorHook`, `barrels_to_aivision_items`, `with_items` |
+| robot | `tracker.py` | the multi-frame view: a barrel is shown after 3 of the last 4 frames, kept through a miss, forgotten after 4 in a row; box = per-edge median of recent boxes | `Tracker`, `TrackConfig` |
+| robot | `capture.py` | `tm save` / `tm rec`: raw frames to `snapshots/` in the camera viewer's naming; timed recordings with `frames.json` | `FrameCapture` |
 
 Outside `src/`:
 
 | folder | contents |
 |---|---|
 | `tools/` | one CLI per job: `detect_image.py` (the detector on a photo), `segment_image.py` (the segmentation alone), `eval_boxes.py` / `eval_masks.py` (score a folder of predictions), `box_tool.py` (draw truth boxes), `label_tool.py` / `instance_tool.py` (v1 masks, v1.5 instances), `import_snaps.py` / `import_dave_zip.py` (bring frames in), `make_splits.py`, `attach_measured.py` |
-| `live/` | `BarrelViewer.fsm` and the `BarrelViewer.py` that `genfsm` writes from it |
+| `live/` | `BarrelViewer.fsm` (per frame) and `BarrelTracker.fsm` (persisting boxes) with the `.py` files `genfsm` writes from them; `barrel_live.py`, the base both share (hook, view modes, `tm save` / `tm rec`) |
 | `experiments/‹date›_‹name›/run.py` | one script per experiment; every number in the docs comes from one of these |
 | `results/‹date›_‹name›/` | what the experiments write: `config.json` (with the git hash), `summary.md/csv`, `per_image.csv`, `per_barrel.csv`; sheets are gitignored |
 | `data/raw/`, `data/labels/`, `data/splits.json` | the frames, their labels (`_boxes.json` is the truth; `_mask.png`, `_inst.*` are the v1/v1.5 labels), the split assignment |
@@ -125,7 +129,7 @@ vex-aim-tools/                 Dave's upstream (aim_fsm, viewer, genfsm, simple_
     ├── pyproject.toml         `pip install -e barrels` from the repo root
     ├── src/barrels/           the package (table above)
     ├── tools/                 CLIs
-    ├── live/                  the robot program (BarrelViewer.fsm → .py)
+    ├── live/                  the robot programs (BarrelViewer.fsm, BarrelTracker.fsm → .py; barrel_live.py shared)
     ├── experiments/           one folder per experiment
     ├── results/               what they wrote (summaries committed, images not)
     ├── data/                  frames, labels, splits

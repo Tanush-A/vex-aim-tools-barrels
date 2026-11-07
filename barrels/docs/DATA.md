@@ -1,6 +1,6 @@
 # DATA.md — the frames, their labels, the splits, what to shoot
 
-**Updated:** 2026-11-05 (doc cleanup: the v1 capture plan moved to `archive/DATA-v1-capture-plan.md`). Before capturing or using data, read this; new frames are assigned to a split at import, before any method sees them.
+**Updated:** 2026-11-06 (`tm save` capture; the 2026-11-07 campus session plan at the end). Before capturing or using data, read this; new frames are assigned to a split at import, before any method sees them.
 
 ## Storage and naming
 
@@ -11,10 +11,10 @@ Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, labe
 - **robot:** short id, e.g. `4A8B` (= AIM-4A8B6118); `DAVE` for Dave's snapshots.
 - **light:** the source — `window`, `overhead`, `lamp`, `bounce` (indirect), `dim`, `side`, `mixed`, or the home-lamp tags `{up,at,away}{cool,mid,warm}`.
 - **surface:** `light` (the white matte table), `beige`, `black`, `wood`, `floor`, `paper`, … (extend as needed).
-- **scene:** `core` (orange + blue touching ~15 cm, one far, one close) · `far` · `close` · `top` (lid only) · `topstripe` (lid + stripe, bottom below the frame) · `touch` · `occl` · `cluster` · `edge` · `glare` · `shadow` · `clutter` · `held` (in the kicker) · `neg` (no barrels) · `calib` (one barrel straight ahead at a measured distance) · `ruler` · `horizon` (a mark at camera height on a far wall).
+- **scene:** `core` (orange + blue touching ~15 cm, one far, one close) · `far` · `close` · `top` (lid only) · `topstripe` (lid + stripe, bottom below the frame) · `touch` · `occl` · `cluster` · `edge` · `glare` · `shadow` · `clutter` · `held` (in the kicker) · `neg` (no barrels) · `calib` (one barrel straight ahead at a measured distance) · `ruler` · `horizon` (a mark at camera height on a far wall) · backdrop scenes since 2026-11-06: `room` (the open room behind the barrels), `hand` (a hand and laptop behind), `board` (the plain grey board behind), `window` (a bright window or lamp behind).
 - **nn:** two-digit counter per (robot, light, surface, scene).
 
-**Capture:** camera viewer, key `s` → `snapshots/robot_snapN.png`. **The counter resets each session — import right away** with `tools/import_snaps.py --scenes …` (it renames in shooting order). Robot ops: `RUNBOOK.md`.
+**Capture:** `tm save` in the live programs (`RUNBOOK.md`), or the camera viewer's key `s`; both write `snapshots/robot_snapN.png` (under `barrels/live/` for the live programs). **Import right away** with `tools/import_snaps.py --src barrels/live/snapshots --scenes …` (it renames in shooting order; the viewer's counter restarts each session and would overwrite, so use one or the other in a session). `tm rec` writes ten-second sequences to `snapshots/rec_<stamp>/` for replaying the multi-frame view offline; they are not frames to label unless imported one by one.
 
 ## Labels
 
@@ -76,7 +76,7 @@ python barrels/tools/box_tool.py --filter <light>_<surface>                   # 
 
 If a shot is bad, retake it immediately and delete the bad `robot_snapN.png` before importing; the tool pairs files with the scene list in order, so the counts must match. Commit `data/raw/`, `data/labels/` and `data/splits.json`.
 
-**Calibration session** (once per robot until Dave says otherwise; his "lookup table"): one **orange** barrel centred on the vertical crosshair, ruler zero at the robot's front edge, distance to the **near edge of the base at table level** (the bulge overhangs it by ≈ 3.75 mm — slide the ruler under): **0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm** → 12 `calib` frames in that order, ruler out of frame before `s`. Plus one `horizon` frame if a wall ≥ 1 m away is available: a mark **43.47 mm** above the table, centred. Import with `--scenes calib×12,horizon`; the distances go in `data/calib.csv` (`stem, d_ruler_mm`). Geometry-only, no split. **Box the calib frames too** (`box_tool.py --filter calib`): their top row, bottom row and width are what the calibration fits f and tilt from (`TODO.md`, P1).
+**Calibration session** (once per robot until Dave says otherwise; his "lookup table"): one **orange** barrel centred on the vertical crosshair, ruler zero at the robot's front edge, distance to the **near edge of the base at table level** (the bulge overhangs it by ≈ 3.75 mm — slide the ruler under): **0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm** → 12 `calib` frames in that order, ruler out of frame before `s`. Plus one `horizon` frame if a wall ≥ 1 m away is available: a mark **43.47 mm** above the table, centred. Import with `--scenes` listing `calib` twelve times, then `horizon` (the importer takes no repeat count); the distances go in `data/calib.csv` (`stem, d_ruler_mm`). Geometry-only, no split. **Box the calib frames too** (`box_tool.py --filter calib`): their top row, bottom row and width are what the calibration fits f and tilt from (`TODO.md`, P1).
 
 ## Dave's snapshots (barrels.zip, 2026-09-28; imported 2026-11-03)
 
@@ -105,3 +105,43 @@ Fixed **train / test**; dev is empty by design; test is **never used for tuning*
 | v2.0 one-table set | to shoot (above) | 19–38 + 12 `calib` + `horizon` | not captured yet |
 
 **Wood-desk calib distances** (front edge → barrel near edge, measured 2026-10-19): `calib_01` 50 mm (138 px wide), `calib_02` 100 (78), `calib_03` 150 (55), `calib_04` 200 (42), `calib_05` 300 (28). The camera sits ≈ 3 mm behind the front edge (`aim_kin.py`); with the 25.5 mm bulge these widths give f ≈ 356, the ruler marks ≈ 405: `constraints.md` #2.
+
+## Session 2026-11-07 (campus): the plan
+
+**Why.** The first live run (2026-11-06) failed in ways the committed frames cannot show: a grey board behind the barrels, the room, a hand, harsh light. These frames are the dev set for the segmentation redesign and the detector hardening, the one-table list is the v2.0 dataset as planned, the recordings test the multi-frame view, the calibration frames replace the provisional camera. ≈ 1 h on campus plus the import.
+
+**Take:** the robot (charged) and its cable; laptop + charger; every barrel you have (at least two orange, two blue); the grey board; a ruler or tape with mm marks (≥ 30 cm); a sticky note, tape and a pen (the horizon mark); a handful of clutter objects, mostly not orange or blue, plus one orange and one blue object that are not barrels (pen, cap, notebook, fruit); your phone for a photo of each block's layout.
+
+**Before the first shot.** `source setup.zsh`, `cd vex-aim-tools/barrels/live`, `simple_cli BarrelViewer`; make sure `barrels/live/snapshots/` is empty (a fresh session) and that the table, light and robot do not change for the whole session. Shoot the list **in this order**, `tm save` for each; retake a bad shot at once and delete its `robot_snapN.png` before importing. Glance at `tm seg` if you like, but shoot the list as written: never choose a shot by what the detector does with it.
+
+| # | scene | shot |
+|---|---|---|
+| **A — the scenes that broke the live run** (the room as it is, no board unless said) | | |
+| 1–3 | `room` | an orange and a blue barrel ~15 cm apart, the open room behind; three layouts (one with a barrel at ~8 cm, one at ~25 cm) |
+| 4–5 | `hand` | as yesterday: a hand and laptop behind the barrels; in the second the hand rests on the table next to a barrel |
+| 6–8 | `board` | the grey board behind; both barrels at ~8, ~15, ~25 cm |
+| 9–10 | `window` | a bright window or lamp behind the barrels, if there is one (else skip and note it) |
+| 11–12 | `neg` | no barrels: the room behind; then the board behind |
+| **B — the one-table list** (the room behind; the table above) | | |
+| 13–31 | `core`,`core`,`far`,`close`,`topstripe`,`top`,`touch`,`touch`,`occl`,`occl`,`cluster`,`cluster`,`edge`,`clutter`,`clutter`,`neg`,`neg`,`neg`,`held` | exactly the 19 shots of the table above, in that order (`held` only if the robot can hold one; else skip and note it) |
+| **C — recordings** (`tm rec`, ten seconds each; you may switch to `simple_cli BarrelTracker` to watch it; note the order) | | |
+| r1 | static | two barrels at ~15 cm, nothing moves |
+| r2 | pan | turn the robot slowly by hand, about 30° over the ten seconds, the barrels staying in view |
+| r3 | enter / leave | slide a barrel into the view from the side and out again |
+| r4 | occlusion | wave a hand across the barrels twice |
+| **D — calibration** (one **orange** barrel; `show viewer` gives the crosshair, then `tm save`) | | |
+| 32–43 | `calib` ×12 | the barrel centred on the vertical crosshair; ruler zero at the robot's front edge; the **near edge of the base at table level** at 0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm (the bulge overhangs the base by ≈ 3.75 mm, slide the ruler under); ruler out of frame before saving |
+| 44 | `horizon` | a mark 43.47 mm above the table on a wall ≥ 1 m away, centred (skip if no wall) |
+
+**Then, the same day** (fill in the light and surface tags; drop from `--scenes` anything you skipped, in the same order as the files):
+
+```zsh
+python barrels/tools/import_snaps.py --src barrels/live/snapshots --light <overhead|window|…> --surface <light|…> --scenes \
+room,room,room,hand,hand,board,board,board,window,window,neg,neg,core,core,far,close,topstripe,top,touch,touch,occl,occl,cluster,cluster,edge,clutter,clutter,neg,neg,neg,held,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,horizon --dry-run
+# then without --dry-run
+python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>     # before any method sees the frames
+python barrels/tools/box_tool.py --filter <light>_<surface>                   # ≈ 45 frames, ≈ 30 s each; calib frames too
+```
+
+Write `data/calib.csv` (`stem, d_ruler_mm`) for the 12 calib frames in order. Move the `rec_<stamp>/` folders somewhere safe (they are gitignored) and say which is which. Commit `data/raw/`, `data/labels/`, `data/splits.json`, `data/calib.csv`.
+

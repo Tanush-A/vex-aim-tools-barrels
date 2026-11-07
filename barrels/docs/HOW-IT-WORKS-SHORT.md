@@ -43,9 +43,9 @@ The tilt was corrected on 2026-11-03: the October estimate (23.3°) put every pr
 
 A predicted box matches a true box if same color and overlap (intersection over union) ≥ 0.5; greedy, each true barrel used once. Precision = hits ÷ boxes drawn; recall = hits ÷ barrels; F1 blends them; the headline is the mean of the orange and blue F1. The v2 rule (`--rule v2`) adds "bottom edge within a tenth of the box height" and counts every barrel, occluded ones included; a box on a clean empty frame disqualifies.
 
-## 5. On the robot (`live/BarrelViewer.fsm`, `worldmap_bridge.py`)
+## 5. On the robot (`live/`, `worldmap_bridge.py`, `tracker.py`)
 
-A twenty-line aim_fsm state machine: once a second, take `robot.camera_image`, hand it to `BarrelDetectorHook.view`, show the result with Dave's `imshow`. The hook converts RGB → BGR, runs sections 1 and 3, draws with `detector.draw`, converts back. `tm seg` / `tm boxes` / `tm both` at the `C>` prompt switch the view. Run: `cd barrels/live && genfsm BarrelViewer.fsm && simple_cli BarrelViewer` (`RUNBOOK.md`).
+Two small aim_fsm state machines on one base (`live/barrel_live.py`). **`BarrelViewer`**: once a second, take `robot.camera_image`, hand it to `BarrelDetectorHook.view`, show the result with Dave's `imshow`; every frame is answered on its own, exactly as a photo is. **`BarrelTracker`**: five times a second, the same detector, but a barrel is shown only once it has been seen in 3 of the last 4 frames, stays through a missed frame and is forgotten after 4 misses in a row (`tracker.py`; the box drawn is the median of the recent ones), so one-frame blips never show and a barrel lost for a frame does not blink. The hook converts RGB → BGR, runs sections 1 and 3, draws with `detector.draw`, converts back. At the `C>` prompt: `tm seg` / `tm boxes` / `tm both` switch the view, `tm save` / `tm rec` write raw frames to `live/snapshots/` for importing, `tm raw` (tracker only) overlays the per-frame boxes in white. Run: `cd barrels/live && simple_cli BarrelViewer` or `simple_cli BarrelTracker` (`RUNBOOK.md`). First live run 2026-11-06: the programs work; the detector failed off the training table, in both the segmentation and the stripe step (`EXPERIMENTS.md` 2026-11-06).
 
 ## What code to read, in order
 
@@ -57,9 +57,10 @@ A twenty-line aim_fsm state machine: once a second, take `robot.camera_image`, h
 | `src/barrels/detect_types.py` | 147 | the `Barrel` dataclass at the top | what one detected barrel is |
 | `src/barrels/pipeline.py` | 293 | `Config` (39), `effective_s_min` (158), `segment` (252) | the per-image floor and the pixel tests; skip `fit` |
 | `src/barrels/eval_det.py` | 429 | `box_iou`, `match_best_first`, `evaluate_frame` | how a hit is decided |
-| `src/barrels/worldmap_bridge.py` | ≈ 130 | `BarrelDetectorHook` | the live feed's one function: RGB in, drawn RGB out |
-| `live/BarrelViewer.fsm` | ≈ 40 | all | the state machine |
+| `src/barrels/worldmap_bridge.py` | ≈ 150 | `BarrelDetectorHook` (`view`, `render`) | the live feed's one function: RGB in, drawn RGB out |
+| `live/BarrelViewer.fsm`, `live/BarrelTracker.fsm` | ≈ 50 each | all | the two state machines (half docstring); `live/barrel_live.py` is what they share |
+| `src/barrels/tracker.py` | ≈ 110 | the docstring, `Tracker.update` | the 3-of-4 rule |
 | `experiments/2026-11-03_det_step2/run.py` | 84 | all | how the numbers above are produced; the sheets |
 | `experiments/2026-11-03_geo_boxfit/run.py` | 97 | `residuals`, `main` | the tilt re-fit |
 
-Side tools you can treat as black boxes: `tools/box_tool.py`, `tools/import_snaps.py`, `tools/import_dave_zip.py`, `tools/make_splits.py`, `tools/segment_image.py`.
+Side tools you can treat as black boxes: `tools/box_tool.py`, `tools/import_snaps.py`, `tools/import_dave_zip.py`, `tools/make_splits.py`, `tools/segment_image.py`, `src/barrels/capture.py` (`tm save` / `tm rec`).
