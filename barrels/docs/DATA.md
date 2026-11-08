@@ -102,11 +102,14 @@ Fixed **train / test**; dev is empty by design; test is **never used for tuning*
 | wood-desk geometry frames (2026-10-19) | `data/raw/4A8B_upcool_wood_{calib_01–05,ruler_01}.png` | 6 | camera measurement only (`EXPERIMENTS.md` 2026-10-19); distances below |
 | home color baselines (2026-10-07) | `data/raw/4A8B_*_wood_*.png` | 19, wood desk, 3 lamp directions × 3 warmths | unlabeled; probe-based baselines only; later stress tests |
 | Dave's barrels.zip (2026-09-28) | `data/raw/DAVE_office_*_snap_NN.png` + 12 `_boxes.json` | 20 | outside check, no split |
-| v2.0 one-table set | to shoot (above) | 19–38 + 12 `calib` + `horizon` | not captured yet |
+| **campus session 2026-11-07** | `data/raw/4A8B_campus_light_*.png` (light tag `campus`: a glass-walled campus study room, daylight + ceiling lights, white table) | 31 frames: part A 12 (`room` 3, `hand` 2, `plain` 3, `window` 2, `neg` 2), part B 19 (`core` 2, `far`, `close`, `topstripe`, `top`, `touch` 2, `occl` 2, `cluster` 2, `edge`, `clutter` 2, `neg` 3, `held`) | split at import (`make_splits.py --v2`): **10 test, 21 train**; **no box labels yet** (`box_tool.py --filter campus_light`, Tanush); four barrels (two orange-bodied, two blue-bodied) |
+| recordings 2026-11-07 | `data/recordings/2026-11-07_campus/{r1_static,r2_pan,r3_enter_leave,r4_hand_occlusion}/` (gitignored, local to Tanush's laptop) | 54 / 63 / 60 / 61 frames at ≈ 6 a second, `frames.json` each | for replaying the multi-frame view (`experiments/2026-11-07_rec_replay/`); the room and the clutter box behind the barrels |
 
 **Wood-desk calib distances** (front edge → barrel near edge, measured 2026-10-19): `calib_01` 50 mm (138 px wide), `calib_02` 100 (78), `calib_03` 150 (55), `calib_04` 200 (42), `calib_05` 300 (28). The camera sits ≈ 3 mm behind the front edge (`aim_kin.py`); with the 25.5 mm bulge these widths give f ≈ 356, the ruler marks ≈ 405: `constraints.md` #2.
 
 ## Session 2026-11-07 (campus): the plan
+
+**Shot as planned, 2026-11-07, 13:27–14:51** — all 31 frames and the four recordings, in order, imported the same day as `4A8B_campus_light_*` (light tag `campus`), split 10 test / 21 train; the recordings moved to `data/recordings/2026-11-07_campus/` (ignored). Four barrels were available (two of each body color), so the "three" and "all" shots have three or four. The `hand` shots are the laptop open and facing the robot with a hand resting on its keyboard edge (shot 4) and flat on the table by the orange barrel (shot 5). Box labels are the next step (`box_tool.py --filter campus_light`). The plan below is kept as the record of what each frame is.
 
 **Why.** The first live run (2026-11-06) failed in ways the committed frames cannot show: a plain backdrop (the back of the laptop) right behind the barrels, the open room, a hand, harsh light. These frames are the dev set for the segmentation redesign and the detector hardening; part B is the standard 19-shot list agreed on 2026-11-03, never shot until now; the recordings test the multi-frame view. **No calibration this session** (no ruler): the calibration paragraph above stays for a day with one. ≈ 45 min on campus plus the import.
 

@@ -16,6 +16,10 @@ One entry per experiment, newest first. Template:
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-08 | **The hs color model, pre-registered sweep** (24 configs; branch `wip/redesign`) | home LOSO v2 0.93–0.95 at the 15th–20th-percentile S floor (v1 0.93), 0.65–0.69 at the 5th (the bluish home wall); campus 14–19 of 21 right (v1 8); nothing on any negative except two 5th-percentile configs. **The pre-registered rule picked the 5th-percentile config (campus 19/21, home 0.69): the rule ignored the home score — a flaw in the rule.** Runner-up `s15 h5-95 m4`: home 0.93, campus 17/21, Dave 0.53. Not adopted: labels + walkthrough first |
+| 2026-11-08 | **Detector hardening** (a–d; branch `wip/redesign`) | v1 pixels: home 0.91 → **0.93**, campus 7 → 8; hue pixels: home 0.57 → **0.78**, Dave 0.31 → 0.40, campus 12 → **15** / 21, extra-box frames 5 → 1, negatives clean. The dark-gap path back on makes every number worse |
+| 2026-11-07 | **Segmentation probe: hue sector + HSV-saturation floor** (two iterations) | plain percentile boxes on hue wrap (orange 2–168) → boxes everywhere; done properly (hue shifted, S floor from the 10th percentile, 5–95 hue): campus 12 / 21 right (v1 7), Dave 0.31 (v1 0), negatives clean, **but home 0.57** — the bluish home wall (S ≤ 110) enters the blue class at an S floor of 92 and the old finder boxes its dark gaps. Led to the hardening and the sweep |
+| 2026-11-07 | **Recordings replayed** (4 clips, detector vs the 3-of-4 view) | the detector as it stands finds almost nothing in the clips (room + clutter behind): 0 raw boxes in the static and enter/leave clips, 7 one-frame blips in the pan and hand clips, all 7 suppressed by the tracker, one track shown after 2 frames. **The clips cannot judge the tracker until the front end is replaced**; re-run then |
 | 2026-11-07 | **Campus attribution** (21 train frames of the campus session, count-level truth) | 7 right, 9 segmentation-only, 5 segmentation + detector, 0 detector-only. The two top-row stages (background prior, saturation floor) and the RGB boxes remove the blue bodies and the shaded orange faces in a real room; where bodies survive the stripe step works, and its one failure is the pre-registered 'glued shadow'. **Segmentation first** |
 | 2026-11-06 | **First live run** (Tanush's screenshots; a diagnosis, approximate) | the stripe step took a dark gap under a false orange smear for a *shadowed* stripe (the floating box) and dropped the real stripe (band + glued shadow 92 rows, 83 allowed); the blue barrel right in every frame; the segmentation labels the laptop lid's edge, a barrel's glow and skin orange. Raw frames needed |
 | 2026-11-03 eve | **Detector step 2 (the stripe) vs steps 1–3 vs the floor**, Tanush's boxes | v2 rule: floor 0.43 → steps 1–3 0.71 → **stripe 0.91**; overlap rule 0.48 / 0.86 / 0.97; misses = hidden stripes. Re-run 2026-11-05: identical |
@@ -33,6 +37,79 @@ One entry per experiment, newest first. Template:
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-08 — The hs color model: pre-registered sweep of its three fit parameters (branch `wip/redesign`)
+
+- **Hypothesis:** a per-class hue sector plus a floor on HSV saturation, both read off the labeled home frames, with no top-row stage, finds the bodies v1 loses in a real room while the hardened detector keeps false boxes at zero. Open from the probe: how high the S floor must be to keep the bluish home wall (S ≤ 110 in the blue hue sector) out without losing shaded blue bodies (S 60–130 on the far campus barrels), and how much hue slack orange needs (home labels 5–10, campus daylight 7–13).
+- **Method / params:** `experiments/2026-11-08_seg_hs/run.py`; `pipeline.Config(color_model="hs")` with `hs_s_pct ∈ {5, 10, 15, 20}` × `hs_h_pct ∈ {(2, 98), (5, 95)}` × `hs_h_margin ∈ {0, 2, 4}` = 24 configs; detector `DetConfig()` (hardened, below), camera `AIM_4A8B6118_BOXFIT`. Home = leave-one-scene-out over the 16 train frames (fit on the other scenes; v2 rule on Tanush's boxes; pixel IoU on the masks); campus = one model fit on all 16 home frames, count-level on the 21 train frames (`expected.json`) and boxes on the 4 negatives; Dave = the same model on his 12 labeled frames (indicative only: his boxes group touching barrels). **Selection rule, fixed before the run:** 0 home false detections (LOSO) and 0 boxes on the campus negatives, then most campus frames right, then home v2, then the lower S percentile. No test frame loaded. Results: `results/2026-11-08_seg_hs/summary.md`.
+- **Results** (home v2 / campus right of 21 / campus negative boxes / Dave v2; v1 row = frozen `afd85483` with the same hardened detector):
+
+| config | home LOSO v2 (o / b) | campus right | campus neg boxes | Dave v2 |
+|---|---|---|---|---|
+| v1 `afd85483` + hardened detector | 0.93 (0.90 / 0.96) | 8 | 0 | 0.00 |
+| hs s5 h5-95 m2 **(the rule's pick)** | **0.69** (0.90 / 0.48) | **19** | 0 | 0.34 |
+| hs s5 h5-95 m4 | 0.68 (0.87 / 0.50) | 19 | 0 | 0.54 |
+| hs s10 h5-95 m4 | 0.78 (0.90 / 0.67) | 18 | 0 | 0.51 |
+| hs s15 h5-95 m4 (runner-up) | **0.93** (0.90 / 0.96) | **17** | 0 | **0.53** |
+| hs s15 h2-98 m0 | **0.95** (0.93 / 0.96) | 16 | 0 | 0.43 |
+| hs s15 h5-95 m2 | 0.95 (0.93 / 0.96) | 16 | 0 | 0.44 |
+| hs s20 … (6 configs) | 0.91–0.95 | 14–16 | 0 | 0.40–0.55 |
+| hs s5 h2-98 m0/m2/m4 | 0.65–0.67 | 14–15 | 1–4 | 0.36–0.53 |
+
+  Fitted numbers, `s15 h5-95 m4`: orange hue 1–14 (OpenCV 0–179), S ≥ 174; blue hue 101–121, S ≥ 113. Its four campus misses: `edge_01` (the barrel half out of the frame, its stripe cut), `occl_02` (a barrel behind the marker, no stripe visible), `room_01` (the small blue barrel at 25 cm: its orange stripe falls under the orange S floor of 174; the 5th-percentile floor, 140, keeps it) and `room_03` (an extra blue box: the blue chair in the room). The 5th-percentile configs get those but let the home wall into the blue class (S floor 64): false blue boxes on the home *positive* frames (cluster, core, far scenes), which the two home negatives do not show.
+- **Takeaway:** (1) The model works where v1 does not: at the 15th-percentile floor it matches v1 at home (0.93 vs 0.93) and gets 17 of 21 campus frames right against v1's 8, with nothing on any negative; on Dave's frames the pink desk stays unlabeled and the bodies are found (the detection numbers there are limited by his per-group boxes and his camera, not the pixels). (2) The S floor is the whole blue story: 64 lets the wall in, 113 keeps it out; orange needs 2–4 units of hue slack toward yellow for daylight. (3) **The pre-registered selection rule was wrong**: it optimised the campus count and only tie-broke on the home score, so it picked a config that is a regression at home. Reported as the rule said, not adopted. (4) The orange and blue floors want different percentiles (orange lower, for the far blue barrels' stripes; blue higher, for the wall): a per-class percentile is the obvious next sweep, and it needs Tanush's box labels on the campus frames to be judged properly instead of by counts.
+- **Next:** Tanush boxes the 31 campus frames (`box_tool.py --filter campus_light`); then one sweep with per-class S percentiles under a rule written with him first (proposed: home LOSO v2 ≥ 0.91, 0 boxes on every negative, then the campus v2 score); walkthrough of `pipeline.py`'s hs branch and the detector hardening; adoption decision in `DECISIONS.md`; then `DEFAULT_MODEL` changes and the live programs follow for free.
+
+---
+
+## 2026-11-08 — Detector hardening (a–d), on the pre-registered flaws (branch `wip/redesign`)
+
+- **Hypothesis:** on the 16 home train frames with the frozen v1 pixels the hardened detector scores within 0.02 of the old one under the v2 rule; on the campus train frames it fixes the five "seg+det" frames whose bodies are labeled and removes the wrong-color box; under the hue segmentation it removes the false boxes on the home wall and lifts blue.
+- **Method / params:** `experiments/2026-11-08_det_hardening/run.py`. `DetConfig` fields, each reversible: (a) `dark_stripe=False` — a gap with no stripe-colored pixel is not a stripe; (b) `stripe_mode="cores"` — a stripe is a connected component of the other color whose every pixel has body color within 3 stripe heights above and below (the old `"bands"` finder kept for comparison); (c) `body_min=0.1` — in the stripe's columns, outside the stripe rows, the box must hold more body color than stripe color and at least 10 % body; (d) `height_min/max = 0.5/1.5` — a stripeless piece must be barrel-tall as well as barrel-wide (added after the hue model's `core_01` sheet showed a blue jacket above the table edge boxed as a far barrel; post hoc, flagged as such). Arms old / new / new+dark under two front ends (v1; the probe's hue model). Home train (v2), Dave 12 (v2), campus train (counts). Tests: 5 new synthetic cases in `tests/test_detector.py` (183 tests pass).
+- **Results:**
+
+| front end | detector | home train v2 (o / b) | Dave 12 v2 | campus right / 21 | campus neg boxes | frames with an extra box |
+|---|---|---|---|---|---|---|
+| v1 | old (bands) | 0.91 (0.87 / 0.96) | 0.00 | 7 | 0 | 0 |
+| v1 | **new** | **0.93** (0.90 / 0.96) | 0.00 | 8 | 0 | 0 |
+| v1 | new + dark gaps | 0.93 (0.93 / 0.92) | 0.00 | 8 | 0 | 1 |
+| hue (probe) | old (bands) | 0.57 (0.81 / 0.33) | 0.31 | 12 | 0 | 5 |
+| hue (probe) | **new** | **0.78** (0.93 / 0.63) | **0.40** | **15** | 0 | 1 |
+| hue (probe) | new + dark gaps | 0.67 (0.90 / 0.44) | 0.37 | 10 | 1 | 8 |
+
+- **Takeaway:** every change pays or is neutral; the dark-gap path is harmful under both front ends and stays off. With v1 pixels the gain is small because v1 rarely labels enough body for a stripe to be sandwiched at all (the attribution's point); with the hue pixels it is large: the glued-shadow cases (`plain_01`, `close_01`, `window_01`, the pair in `core_01`) come back and the wall's dark gaps stop being barrels. The residual blue loss at home under the hue model (0.63) is the wall entering the blue class, a segmentation matter settled by the S floor in the sweep above.
+- **Next:** walkthrough (`HOW-IT-WORKS.md` §3 "The hardening"); merge with the hs decision.
+
+---
+
+## 2026-11-07 — Segmentation probe: hue sector + HSV-saturation floor per class, no top-row stages (two iterations)
+
+- **Hypothesis:** the three stages that lose the barrels in a real room — the background prior, the per-image saturation floor (both from the top 50 rows) and the RGB boxes — are all brightness-bound; hue and HSV saturation ((max − min)/max) are not. Fit per-class boxes in (hue, S) on the home train masks, keep only the horizon and brightness gates.
+- **Method / params:** `experiments/2026-11-07_seg_hs_probe/run.py`, two iterations, both committed. **First** (git 9563b50): plain 1–99 / 2–98 percentile boxes on (H, S) → orange hue 2–168, blue 5–170 — hue is circular and dark labeled pixels have random hue, so the sectors covered most of the circle and blue boxes appeared everywhere (22 on the 4 campus negatives, home 0.52). **Second**: hue shifted by +30 for orange so its sector does not wrap, S floor = a percentile (5 / 10) of the labeled pixels' S, hue sector = percentiles (2–98 / 5–95) of the pixels above that floor. Detector of the day (bands), camera BOXFIT; home train v2, Dave 12 v2, campus train counts; no test frame.
+- **Results (second iteration):**
+
+| arm | home train v2 (o / b) | home neg FD | Dave 12 v2 | campus right / 21 | campus neg boxes |
+|---|---|---|---|---|---|
+| v1 | 0.91 (0.87 / 0.96) | 0 | 0.00 | 7 | 0 |
+| S floor 5th pct, hue 2–98 | 0.42 (0.83 / 0.01) | 25 | 0.28 | 10 | 12 |
+| S floor 10th pct, hue 2–98 | 0.50 (0.86 / 0.14) | 4 | 0.24 | 10 | 2 |
+| **S floor 10th pct (orange ≥ 163, blue ≥ 92), hue 5–95 (orange 5–10, blue 104–118)** | 0.57 (0.81 / 0.33) | 0 | **0.31** | **12** | **0** |
+
+  Pixel distributions behind it (home labels, V ≥ 40): orange hue 5–95 % = 4–11, S median 212; blue hue 5–95 % = 87–124 (central half 108–112), S median 224, 5th percentile 64; home *background* pixels in the blue hue sector with S ≥ 80: 8.9 % of all background pixels (the bluish-gray wall), with S ≥ 100: 1.4 %; campus negatives in the orange sector with S ≥ 100: 0.6 %, in the blue sector: 0.3 %. Campus barrel bodies: blue S 129–221, orange shaded S 223, far orange S 198, skin S 149 (hue 13).
+- **Takeaway:** the direction is right (campus 12 vs 7, Dave above zero for the first time, negatives clean), the home score is not: the wall enters the blue class at an S floor of 92 and the old stripe finder then boxes its dark gaps (flaw a) while glued shadow vetoes real stripes (flaw b) — the band logs on `core_01` and `touch_02` show exactly these two. So the hardening had to come first, and the S floor had to be swept. Both done the next day (above).
+- **Next:** done — see the two 2026-11-08 entries.
+
+---
+
+## 2026-11-07 — The four recordings replayed: per-frame detector vs the 3-of-4 view
+
+- **Hypothesis:** the one-frame boxes Tanush saw live are removed by `tracker.Tracker` (3 of the last 4 frames) and real barrels stay shown through a missed frame.
+- **Method / params:** `experiments/2026-11-07_rec_replay/run.py`: every frame of the four clips (`data/recordings/2026-11-07_campus/`, 54–63 frames each at ≈ 6 a second) through the detector as it stands (frozen v1 → stripe step, BOXFIT camera) = "raw", and through the tracker (`TrackConfig()` defaults) = "shown". Raw blip = a raw box matched (same color, IoU ≥ 0.3) to nothing in the frame before or after. Count-level; no labels.
+- **Results:** r1 static (two barrels, nothing moves): **0 raw boxes in all 54 frames**. r2 pan: raw 0–1 per color, 6 count changes, 2 blips, 0 shown; one track shown after 2 frames. r3 enter/leave: 0 raw boxes. r4 hand: raw 0–1, 9 count changes, 5 blips, all suppressed, nothing shown.
+- **Takeaway:** the clips were shot with the room and the clutter box behind the barrels, where the attribution says the front end finds nothing — so they say nothing about the tracker yet, except that it suppressed all 7 blips offered. Keep the folders; replay again once the front end is replaced (the script is ready).
+- **Next:** re-run after the hs decision; add the lag and stickiness numbers to the `BarrelTracker` report (TODO P0-5).
 
 ---
 
