@@ -40,6 +40,25 @@ A "table model" built from the bottom rows, mirroring the wall model, exists as 
 
 **Numbers.** Held-out test: orange IoU 0.84, blue 0.81, zero false pixels on the empty frame (`EXPERIMENTS.md` 2026-10-20). (IoU for pixels = correct barrel pixels ÷ (correct + missed + falsely added).)
 
+### The "hs" color model — the redesign candidate (2026-11-08, branch `wip/redesign`, not yet the default)
+
+**Why.** On the campus frames (2026-11-07) tests 2 and 3 above removed the barrels themselves: with a dark, cluttered room in rows 0–50 the floor came out at 67–120 and the wall model's spread at 35–52 per channel, so navy-blue bodies (saturation 52–84) and shaded orange faces were rejected as "background" — blue bodies 0–7 % labeled in nine frames (`EXPERIMENTS.md` 2026-11-07, attribution). Every adaptive part assumed the top rows are a plain wall and the barrels the only colorful thing in the picture.
+
+**The idea.** Describe a barrel color by two numbers that do not change with brightness, and read both off the labeled frames once:
+
+- **Hue** (the position on the color circle, OpenCV units 0–179): orange barrels sit at about 5–12, blue ones at 104–118, in the home frames and on campus alike. Hue is computed from the ratios of R, G and B, so a lit face and a shaded face of the same barrel have the same hue. Orange sits next to the wrap at 0/180, so its hue is rotated by +30 before taking percentiles (a sector 3–13 would otherwise read as "3 to 168").
+- **HSV saturation**, S = (max − min) / max, 0–255: how far from gray a color is *relative to its brightness*. A navy-blue shaded face (RGB 12, 45, 85) has S = 219 even though v1's max − min is only 73; a bluish-gray wall (160, 150, 140 or so) stays under 110. This is the number that separates a dark barrel from a gray wall, which v1's max − min could not.
+
+Per class: the S floor = the `hs_s_pct` percentile of the labeled pixels' S; the hue sector = the `hs_h_pct` percentiles of the labeled pixels above that floor, widened by `hs_h_margin` on each side. Then a pixel is that class when it is below row 50, brighter than 40, inside the sector and above the floor; in both → the redder one is orange (the same tie rule). **No per-image floor, no wall model, no table model**: nothing is estimated from the image being segmented.
+
+**Worked numbers** (fit on the 16 home train frames, `hs_s_pct=15, hs_h_pct=(5, 95), hs_h_margin=4`, config `…`, the sweep's runner-up): orange hue 1–14, S ≥ 174; blue hue 101–121, S ≥ 113. The campus `room_01` blue body (RGB ≈ 12, 45, 85; hue 108, S 219) passes; the home wall in the blue hue sector (S ≤ 110) does not; skin on the campus hand (hue 13, S 149) fails the orange floor; the orange glue-stick cap (hue 9, S 222) passes — and is then refused by the detector because nothing sandwiches a band in it.
+
+**Where it lives.** `Config(color_model="hs", hs_s_pct, hs_h_pct, hs_h_margin)`; `Frame.hs(shift)` (the hue/saturation planes, cached per shift); `fit_hs` (called by `fit`); the `"hs"` branch at the top of `segment`. The fields are omitted from the config hash at their defaults, so every v1 hash (`afd85483` included) is unchanged. `pipeline.HUE_SHIFT` = {orange: 30, blue: 0}.
+
+**What the sweep said** (`EXPERIMENTS.md` 2026-11-08, `experiments/2026-11-08_seg_hs/`; home = leave-one-scene-out, campus = count-level): the S floor is the whole game for blue at home — at the 5th percentile (S ≥ 64) the wall produces false blue boxes on the positive frames (blue F1 0.48), at the 15th (S ≥ 113) it is gone (0.96) with the campus barrels still found; orange needs hue slack toward yellow (the campus barrels in daylight read hue 7–13 against 5–10 at home), so a margin of 2–4 units. Not adopted yet: the pre-registered selection rule chose the 5th-percentile floor by the campus count and ignored the home score, which is a flaw in the rule, not the data; the decision waits for Tanush's box labels on the campus frames and the walkthrough.
+
+**What can go wrong.** Hue is noise where S is low, so dark low-saturation pixels are excluded by the floor rather than by hue; the orange sector (1–14) touches skin and wood hue — the S floor (≥ 174) is what keeps skin out, and wood tables are out of scope; a bright blue object in the room (a jacket, a chair) is labeled blue, and only the detector's stripe and size checks keep it from becoming a barrel.
+
 ## 2. Camera geometry — `src/barrels/geometry.py` (v1.5)
 
 **What it does.** Converts between image rows and real-world distances for this robot's camera, and says how big a barrel should look at any place in the image.
@@ -79,7 +98,7 @@ So a barrel at 20 cm is about 51 px wide and 55 px tall with its bottom at row 1
 
 **Numbers to remember.** Horizon row ≈ 76. A barrel at 20 cm is ≈ 51 px wide. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
 
-## 3. The detector — `src/barrels/detector.py` (v2; steps 1–3 built 2026-11-03, the stripe step the default since 2026-11-05)
+## 3. The detector — `src/barrels/detector.py` (v2; steps 1–3 built 2026-11-03, the stripe step the default since 2026-11-05, hardened 2026-11-08 on branch `wip/redesign`)
 
 **What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` / `top_inferred` when that edge was computed rather than seen; `occluded` when the stripe was partly hidden and the full box drawn anyway; `truncated` when the box reaches a frame edge), `area` (how many mask pixels it came from) and `source` (`"det2"` for a barrel found from its stripe, `"det1"` for a stripeless piece). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, same signature as the dumb reference `detect_cc.detect`, so either can be plugged into `detect_image.py` or the experiment scripts. `draw(image, barrels)` paints a 1-px rectangle per barrel — yellow for an orange barrel, green for a blue one, so the lines stand out from the barrels — and nothing else: the v2 deliverable image.
 
@@ -135,6 +154,17 @@ Steps 1–3 box anything barrel-colored and barrel-sized. Step 4 adds the one th
 
 *Status.* The default since 2026-11-05 (`DetConfig.require_stripe=True`): it beat steps 1–3 on the train frames under both rules (below). `detect_image.py --step1` runs steps 1–3 alone for comparison.
 
+### The hardening (2026-11-08, branch `wip/redesign`, awaiting walkthrough)
+
+The campus attribution (`EXPERIMENTS.md` 2026-11-07) confirmed the two flaws pre-registered after the first live run and found a third; a fourth showed up under the new color model. Each is a `DetConfig` field, so the 2026-11-05 behaviour stays reproducible (`stripe_mode="bands"`, `body_min=0`, `height_max=0`).
+
+- **(a) A dark gap is not a stripe** (`dark_stripe=False`). The 2026-11-03 finder accepted a band with *no* stripe-colored pixel as a "shadowed stripe". On the laptop-lid scene that made a floating box out of the dark gap under a false orange smear; under the hue model it made boxes out of gaps in the patchily labeled home wall. Off by default; `dark_stripe=True` restores it.
+- **(b) The stripe is measured from its own pixels** (`stripe_mode="cores"`). The old band was *everything that is not body color* between body above and below, so unlabeled shadow glued to a stripe made its band taller than 3 × the expected stripe height and the stripe was dropped (campus `core_01`, `plain_01`, `close_01`, `window_01`). Now a stripe is a connected component of the *other* color whose every pixel has body color within 3 stripe heights above **and** below it (the sandwich, pixel by pixel — so a stripe touching a neighbouring barrel's body is cut from that body), with the same proportions checks as before on the component itself: height 0.45–1.6 × the expected stripe height, at least 0.4 barrels wide, not taller than wide; wider than 1.4 barrels → cut evenly as before. Shadow around the stripe changes nothing because it is never part of the component.
+- **(c) A box must hold body color** (`body_min=0.1`). In the stripe's own columns, outside the stripe rows, the box must contain more body-colored than stripe-colored pixels, and at least 10 % body color. `core_01`'s pair: the blue barrel's body, lying between its own orange stripe below and the orange neighbour's bulge above, had been boxed as an orange barrel.
+- **(d) A stripeless piece must be barrel-tall** (`height_min=0.5, height_max=1.5`). Step 3's shape checks looked at width only; a blue jacket above the table edge in `core_01`, 24 px wide and 45 tall with its bottom just under the horizon, passed as a "far barrel whose stripe is too thin to see". Now the piece's height must also be 0.5–1.5 × the barrel height the geometry expects at its bottom row (skipped for pieces cut by the frame edge).
+
+*Numbers* (`experiments/2026-11-08_det_hardening/`, same pixels and camera for every row): with the frozen v1 pixels, home train v2 **0.91 → 0.93** (orange 0.87 → 0.90, blue 0.96 unchanged, nothing on the negatives) and the campus train frames 7 → 8 right; under the hue model (probe fit) home **0.57 → 0.78**, Dave's 12 frames 0.31 → 0.40, campus 12 → 15 of 21 right, frames with an extra box 5 → 1, nothing on the four campus negatives. With the dark-gap path back on, every number is worse (home 0.67, campus 10, boxes on a negative).
+
 ### The code, in call order
 
 | function | one line |
@@ -148,9 +178,10 @@ Steps 1–3 box anything barrel-colored and barrel-sized. Step 4 adds the one th
 | `resolve_bottom(bbox, cam, frame_h, cfg)` | step 3: seen vs predicted, clip, flags |
 | `detect_step1(mask, cfg, cam)` | steps 1–3: for each blob, for each piece → bottom → shape checks → `Barrel`; sorted left to right |
 | `Stripe` | a band: body color, box, colored and dark pixel counts, centre row |
-| `find_stripes(mask, cam, cfg)` | step 4a: the sandwich bands that have stripe proportions for their row |
+| `find_stripes(mask, cam, cfg)` | step 4a: dispatches on `stripe_mode` — `_find_stripes_cores` (default: components of the other color sandwiched pixel by pixel, 2026-11-08) or `_find_stripes_bands` (the 2026-11-03 non-body bands) |
+| `_reach_by_row(cam, h, cfg)`, `_closed`, `_split_merged` | helpers of the cores finder: how far body color may be from a stripe at each row; a closed class mask; cutting a merged stripe region into one `Stripe` per barrel |
 | `_body_extent(mask, body, x0, x1, y0, y1)` | seen top and bottom of the body in the stripe's columns |
-| `barrel_from_stripe(stripe, mask, cam, cfg)` | step 4b: the full box from the stripe's row; seen edges when they agree |
+| `barrel_from_stripe(stripe, mask, cam, cfg)` | step 4b: the full box from the stripe's row; seen edges when they agree; refused when the box holds too little body color (`body_min`) |
 | `detect(mask, cfg, cam)` | the entry point: stripe barrels + the stripeless pieces that could not show a stripe; with `require_stripe=False`, steps 1–3 alone |
 | `draw(image, barrels)` | the output image (yellow = orange barrel, green = blue barrel, 1 px) |
 
@@ -175,6 +206,10 @@ Steps 1–3 box anything barrel-colored and barrel-sized. Step 4 adds the one th
 | `stripe_merge` | 1.4 | a band wider than this × a barrel is several merged stripes | touching same-color barrels' stripes meet at the bulges; cut evenly |
 | `stripe_full` | 0.8 | a stripe narrower than this × a barrel is partly hidden → widen to a full barrel | a free-standing stripe is 0.85–1.05 widths after erosion |
 | `min_stripe_px` | 4 | stripes thinner than this cannot be resolved → stripeless pieces allowed | 4 px is the expected stripe at ≈ 60 cm, the far end of a table |
+| `stripe_mode` | cores | how stripes are found: from their own pixels (`cores`, 2026-11-08) or as non-body bands (`bands`, 2026-11-03) | hardening (b) above |
+| `dark_stripe` | off | accept a gap with no stripe-colored pixel as a shadowed stripe | hardening (a): the floating boxes of the first live run were such gaps |
+| `body_min` | 0.1 | least body-color fraction in the stripe's columns outside the stripe rows (and body must outnumber stripe color) | hardening (c); 0.1 keeps heavily shadowed barrels whose faces are mostly unlabeled |
+| `height_min` / `height_max` | 0.5 / 1.5 | a stripeless piece's height as a fraction of the expected barrel height at its bottom row | hardening (d): the width check alone took a jacket; 0.5–1.5 matches the width band |
 
 ### How to run and how to score
 

@@ -92,14 +92,46 @@ def test_stripe_found_and_barrel_rebuilt_from_it():
     assert all(abs(a - b) <= 2 for a, b in zip(out[0].bbox, truth))
 
 
-def test_shadowed_stripe_still_anchors_the_barrel():
+def test_dark_gap_alone_is_not_a_stripe_unless_asked():
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_barrel(mask, 150, 320, body=io.BLUE)
     r = CAM.barrel_rows(150)
     mask[int(round(r.stripe_top)):int(round(r.stripe_bottom)), :] = 0       # the orange stripe went dark
-    out = det.detect(mask, CFG2, CAM)
+    assert det.detect(mask, CFG2, CAM) == []                                 # hardening (a): a gap with no stripe pixel is not a stripe
+    out = det.detect(mask, dataclasses.replace(CFG2, dark_stripe=True), CAM)  # the 2026-11-03 behaviour, on request
     assert len(out) == 1 and out[0].color == io.BLUE and out[0].confidence < 1.0
-    assert all(abs(a - b) <= 2 for a, b in zip(out[0].bbox, truth))
+    out = det.detect(mask, dataclasses.replace(CFG2, stripe_mode="bands"), CAM)   # and the old finder still does it
+    assert len(out) == 1 and out[0].color == io.BLUE
+
+
+def test_shadow_glued_to_the_stripe_does_not_veto_it():
+    """Hardening (b): the lower face below the stripe is unlabeled (shadow), the base row is labeled again."""
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 150, 320, body=io.ORANGE)
+    r = CAM.barrel_rows(150)
+    st, sb, top, bottom = int(round(r.stripe_top)), int(round(r.stripe_bottom)), truth[1], truth[3]
+    mask[top + 4:st, truth[0]:truth[2]] = 0                                  # both faces dark: only 4 body rows at the top ...
+    mask[sb:bottom - 4, truth[0]:truth[2]] = 0                               # ... and 4 at the base survive around the stripe
+    assert det.detect(mask, dataclasses.replace(CFG2, stripe_mode="bands"), CAM) == []   # the old finder: band (stripe + shadow) too tall
+    out = det.detect(mask, CFG2, CAM)
+    assert len(out) == 1 and out[0].color == io.ORANGE and out[0].source == "det2"
+    assert abs(out[0].bbox[3] - truth[3]) <= 3
+
+
+def test_box_must_hold_body_color():
+    """Hardening (c): a blue barrel's body between two orange things is not an orange barrel."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(150)
+    W = r.width_px
+    top, bottom = int(round(r.top)), int(round(r.bottom))
+    st, sb = int(round(r.stripe_top)), int(round(r.stripe_bottom))
+    x0, x1 = int(round(320 - W / 2)), int(round(320 + W / 2))
+    mask[top:bottom, x0:x1] = io.BLUE                                        # a blue body ...
+    mask[st - 3:st, x0:x1] = io.ORANGE                                       # ... with a thin orange rim right above its middle band ...
+    mask[sb:sb + 3, x0:x1] = io.ORANGE                                       # ... and right below it: a blue 'stripe' between orange
+    assert any(b.color == io.ORANGE for b in det.detect(mask, dataclasses.replace(CFG2, body_min=0.0), CAM))   # without (c): an orange box
+    out = det.detect(mask, CFG2, CAM)
+    assert not any(b.color == io.ORANGE for b in out)                        # with (c): the box would be blue, not orange -> no orange box
 
 
 def test_same_color_barrel_behind_another_gets_its_full_box():
@@ -142,3 +174,18 @@ def test_touching_same_color_pair_gives_two_stripes():
     out = det.detect(mask, CFG2, CAM)
     assert len(out) == 2 and all(o.color == io.BLUE and o.source == "det2" for o in out)
     assert abs(out[0].bbox[2] - a[2]) <= 3 and abs(out[1].bbox[0] - b[0]) <= 3
+
+
+def test_stripeless_piece_must_be_barrel_tall():
+    """Hardening (d): a blue blob of barrel width whose bottom sits just below the horizon but which is twice as tall
+    as a barrel there (a jacket above the table edge, campus core_01) is not a barrel; the width check alone took it."""
+    cam = geo.AIM_4A8B6118_BOXFIT
+    mask = np.zeros((480, 640), np.uint8)
+    mask[75:120, 309:333] = io.BLUE                                          # 24 wide, 45 tall, bottom row 120 (horizon 76)
+    assert det.detect(mask, CFG2, cam) == []
+    assert len(det.detect(mask, dataclasses.replace(CFG2, height_max=0.0), cam)) == 1   # the pre-2026-11-08 check (width only) took it
+    H = cam.expected_barrel_height_px(bottom_row=120)
+    mask[:] = 0
+    mask[120 - int(round(H)):120, 309:333] = io.BLUE                         # the same blob at a barrel's height passes the shape checks ...
+    assert len(det.detect_step1(mask, CFG2, cam)) == 1
+    assert det.detect(mask, CFG2, cam) == []                                 # ... but a stripe (5.8 px here) could have been seen, so no box

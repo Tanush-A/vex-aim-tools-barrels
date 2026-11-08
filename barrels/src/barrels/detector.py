@@ -8,6 +8,12 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
                        body color above and below, of the height the geometry expects at that row, proves
                        "barrel" and gives one barrel per stripe — inside merged blobs too. Stripeless pieces
                        survive only where a stripe cannot be seen (below the frame, or too far to resolve).
+  hardening (2026-11-08, from the campus attribution)  the stripe is found from its own colored pixels
+                       (``stripe_mode="cores"``), so unlabeled shadow glued to it cannot make it "too tall"; a
+                       dark gap with no stripe-colored pixel is not a stripe unless ``dark_stripe`` is on; and
+                       a box must hold enough body color in the stripe's columns (``body_min``), so a blue
+                       barrel's body between two orange things is not an orange barrel. ``stripe_mode="bands"``
+                       is the 2026-11-03 finder, kept for comparison.
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -43,6 +49,16 @@ class DetConfig:
     stripe_merge: float = 1.4    # a band wider than this x one barrel is the merged stripes of touching same-color barrels
     stripe_full: float = 0.8     # a stripe narrower than this x the barrel width is partly hidden -> box widened to a full barrel
     min_stripe_px: float = 4.0   # when the expected stripe is thinner than this, a stripe cannot be resolved -> stripeless allowed
+    # hardening (2026-11-08)
+    stripe_mode: str = "cores"   # "cores": the stripe = a component of stripe-colored pixels with body above and below (default);
+                                 # "bands": the 2026-11-03 finder (a non-body gap between body above and below), for comparison
+    dark_stripe: bool = False    # cores mode: also accept a gap with no stripe-colored pixel at all (a stripe lost to shadow) — off:
+                                 # on the first live run such gaps under false orange were the floating boxes
+    height_min: float = 0.5      # a stripeless piece (step 1) must also be between these multiples of the barrel height the geometry
+    height_max: float = 1.5      # expects at its row (added 2026-11-08 after a blue jacket above the table edge passed the width check; 0 = off)
+    body_min: float = 0.1        # in the stripe's columns, outside the stripe rows, the box must hold more body-colored pixels than
+                                 # stripe-colored ones and at least this fraction of body color; else the stripe belongs to something
+                                 # else (a blue barrel's body between two orange things is not an orange barrel). 0 = off
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -180,6 +196,10 @@ def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.Camera
                 continue                                   # above the horizon or too far to be on the table
             if not (cfg.width_min * W <= (x1 - x0) <= cfg.width_max * W):
                 continue                                   # a sliver, or too wide to be one barrel
+            if cfg.height_max > 0 and y1 < h and y0 > 0:
+                H = cam.expected_barrel_height_px(bottom_row=y1)
+                if math.isfinite(H) and not (cfg.height_min * H <= (y1 - y0) <= cfg.height_max * H):
+                    continue                               # barrel-wide but not barrel-tall: not a barrel (a jacket, a strip of wall)
             if x0 == 0 or x1 == w or y0 == 0:
                 flags.add("truncated")
             n_o, n_b = piece.n_orange, piece.n_blue
@@ -209,11 +229,120 @@ def _stripe_geometry(cam: geo.CameraModel, center_row: float):
     return d, cam.barrel_rows(d)
 
 
+def _closed(bm: np.ndarray, cfg: DetConfig) -> np.ndarray:
+    """A class mask with gaps up to close_px filled, as bool."""
+    bm = bm.astype(np.uint8)
+    if cfg.close_px >= 3:
+        k = cfg.close_px if cfg.close_px % 2 else cfg.close_px + 1
+        bm = cv2.morphologyEx(bm, cv2.MORPH_CLOSE, np.ones((k, k), np.uint8))
+    return bm.astype(bool)
+
+
+def _split_merged(sel: np.ndarray, mask: np.ndarray, other: int, body: int, x: int, bw: int, W: float, cfg: DetConfig,
+                  n_dark_of) -> list[Stripe]:
+    """One Stripe per barrel from a stripe region ``sel``: a region wider than stripe_merge x one barrel is the
+    merged stripes of touching same-color barrels and is cut into equal parts."""
+    k = int(round(bw / W)) if bw > cfg.stripe_merge * W else 1
+    edges = [x + round(j * bw / k) for j in range(k + 1)]
+    out = []
+    for a, b in zip(edges[:-1], edges[1:]):
+        part = sel.copy(); part[:, :a] = False; part[:, b:] = False
+        ys, xs = np.where(part)
+        if len(xs) == 0:
+            continue
+        ys_o = np.where(part & (mask == other))[0]
+        center = float(np.median(ys_o)) + 0.5 if len(ys_o) >= 0.25 * part.sum() else (ys.min() + ys.max() + 1) / 2
+        bbox = (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
+        out.append(Stripe(body, bbox, int((mask[part] == other).sum()), n_dark_of(part, bbox), center))
+    return out
+
+
 def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig()) -> list[Stripe]:
-    """Bands that are not the body color, with body color above AND below them in every column, whose height
-    is what the geometry expects of a stripe at that row and whose width is at least a good part of a barrel.
-    Found once with orange as the body (blue or dark band = an orange barrel's stripe) and once with blue.
-    A band wider than one barrel is the merged stripes of touching same-color barrels and is cut evenly."""
+    """The stripes in the mask, one per barrel, found as ``cfg.stripe_mode`` says: ``"cores"`` (default since
+    2026-11-08) anchors on the stripe-colored pixels themselves, ``"bands"`` (2026-11-03) on the non-body gap."""
+    if cfg.stripe_mode == "bands":
+        return _find_stripes_bands(mask, cam, cfg)
+    if cfg.stripe_mode != "cores":
+        raise ValueError(f"stripe_mode must be 'cores' or 'bands', got {cfg.stripe_mode!r}")
+    return _find_stripes_cores(mask, cam, cfg)
+
+
+def _reach_by_row(cam: geo.CameraModel, h: int, cfg: DetConfig) -> np.ndarray:
+    """For every image row: how far (in rows) the body color may be from a stripe centred there and still be
+    "right above / right below" it — band_h_max x the stripe height the geometry expects at that row; -1 where
+    no barrel can have its stripe (at or above the horizon)."""
+    reach = np.full(h, -1.0)
+    for r in range(h):
+        g = _stripe_geometry(cam, r + 0.5)
+        if g is not None:
+            reach[r] = cfg.band_h_max * (g[1].stripe_bottom - g[1].stripe_top)
+    return reach
+
+
+def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) -> list[Stripe]:
+    """A stripe is a connected component of the *other* color whose every pixel has body color above AND below it
+    within band_h_max x the expected stripe height for its row (the sandwich, pixel by pixel — so a stripe that
+    touches a neighbouring barrel's body is cut from it), with stripe proportions for its row: height between
+    stripe_h_min and stripe_h_max x the expected stripe height, at least stripe_w_min of a barrel wide, not taller
+    than wide. Only the stripe's own pixels are measured, so shadow the segmentation left unlabeled around it
+    changes nothing. With ``dark_stripe`` on, a gap with no stripe-colored pixel at all but body above and below
+    at the right spacing also counts (the 2026-11-03 'shadowed stripe')."""
+    h, w = mask.shape
+    out: list[Stripe] = []
+    rows_idx = np.arange(h)[:, None]
+    reach = _reach_by_row(cam, h, cfg)[:, None]
+    for body in (ORANGE, BLUE):
+        other = BLUE if body == ORANGE else ORANGE
+        bm = _closed(mask == body, cfg)
+        om = _closed(mask == other, cfg) & ~bm
+        up = np.maximum.accumulate(np.where(bm, rows_idx, -10 ** 6), axis=0)              # last body row at or above
+        dn = np.minimum.accumulate(np.where(bm, rows_idx, 10 ** 6)[::-1], axis=0)[::-1]   # first body row at or below
+        sandwich = ((rows_idx - up) <= reach) & ((dn - rows_idx) <= reach)
+        cands = [om & sandwich]
+        if cfg.dark_stripe:
+            cands.append((mask == 0) & ~bm & ~om & sandwich)
+        for ci, cand in enumerate(cands):
+            n, lab, st, _ = cv2.connectedComponentsWithStats(cand.astype(np.uint8), connectivity=8)
+            for i in range(1, n):
+                x, y, bw, bh, area = (int(v) for v in st[i])
+                if area < cfg.min_area_px:
+                    continue
+                sel = lab == i
+                ys = np.where(sel)[0]
+                g = _stripe_geometry(cam, float(np.median(ys)) + 0.5)
+                if g is None:
+                    continue
+                d, rows = g
+                W, Hs = rows.width_px, rows.stripe_bottom - rows.stripe_top
+                if W < cfg.min_width_px or Hs < cfg.min_stripe_px:
+                    continue
+                core_h = np.percentile(ys, 90) - np.percentile(ys, 10) + 1
+                if not (cfg.stripe_h_min * Hs <= core_h <= cfg.stripe_h_max * Hs):
+                    continue
+                if bw < cfg.stripe_w_min * W or bw < core_h:
+                    continue
+                if ci == 1 and (mask[sel] == other).any():
+                    continue                                   # a dark gap touching real stripe pixels is handled by them
+
+                def n_dark_of(part, bbox, _ci=ci):
+                    if _ci == 1:
+                        return int(part.sum())                 # the whole dark gap is the 'stripe'
+                    x0, y0, x1, y1 = bbox                      # unlabeled pixels inside the stripe's own box (its shadowed part)
+                    return int((mask[y0:y1, x0:x1] == 0).sum())
+                parts = _split_merged(sel, mask, other, body, x, bw, W, cfg, n_dark_of)
+                if ci == 1:
+                    parts = [Stripe(s.body, s.bbox, 0, s.n_dark, s.center_row) for s in parts]
+                out.extend(parts)
+    return sorted(out, key=lambda s: s.bbox[0])
+
+
+def _find_stripes_bands(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig()) -> list[Stripe]:
+    """The 2026-11-03 finder (``stripe_mode="bands"``). Bands that are not the body color, with body color above
+    AND below them in every column, whose height is what the geometry expects of a stripe at that row and whose
+    width is at least a good part of a barrel. Found once with orange as the body (blue or dark band = an orange
+    barrel's stripe) and once with blue. A band wider than one barrel is the merged stripes of touching same-color
+    barrels and is cut evenly. Its two known flaws (a dark gap alone counts; shadow glued to a stripe makes its
+    band too tall) are why ``"cores"`` replaced it."""
     h, w = mask.shape
     out: list[Stripe] = []
     for body in (ORANGE, BLUE):
@@ -329,6 +458,16 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     top, bottom = max(0, top), min(h, bottom)
     if bx1 - bx0 < 2 or bottom - top < 2:
         return None
+    if cfg.body_min > 0:
+        # hardening (c), 2026-11-08: in the stripe's own columns, outside the stripe rows, the box must hold more body
+        # color than stripe color and at least body_min of body color — a stripe-colored thing with the other barrel
+        # color above and below it is not this body's barrel
+        cols = mask[top:bottom, x0:x1]
+        outside = np.ones(cols.shape[0], bool); outside[max(0, y0 - top):max(0, y1 - top)] = False
+        region = cols[outside]
+        other = BLUE if s.body == ORANGE else ORANGE
+        if region.size and ((region == s.body).sum() < (region == other).sum() or (region == s.body).mean() < cfg.body_min):
+            return None
     if bx0 == 0 or bx1 == w or top == 0 or bottom == h:
         flags.add("truncated")
     conf = 0.5 + 0.5 * s.n_other / max(1, s.n_other + s.n_dark)   # a labeled stripe is surer than a dark band

@@ -150,3 +150,32 @@ def test_band_mode_segments_like_fixed_on_clean_scene():
     assert info["s_min_mode"] == "band" and 20 <= info["s_min_eff"] <= 120
     assert iou(m_band, ms[0], io.ORANGE) > 0.95 and iou(m_band, ms[0], io.BLUE) > 0.95
     assert (m_band == m_fixed).mean() > 0.98
+
+
+def test_hs_model_fits_a_sector_and_a_floor_and_segments_by_them():
+    """The "hs" color model: hue sector + HSV-saturation floor per class, nothing per image."""
+    import cv2
+    img = np.full((480, 640, 3), (200, 200, 200), np.uint8)                   # a light gray scene (BGR)
+    img[100:200, 100:200] = (20, 90, 220)                                      # an orange patch (B, G, R)
+    img[100:200, 300:400] = (190, 90, 20)                                      # a blue patch
+    img[250:300, 100:400] = (160, 150, 140)                                    # a bluish-gray 'wall' strip: hue near blue, low S
+    mask = np.zeros((480, 640), np.uint8); mask[100:200, 100:200] = io.ORANGE; mask[100:200, 300:400] = io.BLUE
+    cfg = pl.Config(color_model="hs", hs_s_pct=10, hs_h_pct=(2, 98), hs_h_margin=2)
+    model = pl.fit([pl.Frame.from_image(img)], [mask], cfg)
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    for c, (y, x) in ((io.ORANGE, (150, 150)), (io.BLUE, (150, 350))):
+        h, s = float(hsv[y, x, 0]), float(hsv[y, x, 1])
+        box = model.boxes[c]
+        assert box.lo[0] <= (h + pl.HUE_SHIFT[c]) % 180 <= box.hi[0] and box.lo[1] <= s <= box.hi[1] == 255.0
+    out, info = pl.segment(pl.Frame.from_image(img), model)
+    assert info["color_model"] == "hs" and "band_sat_pct" not in info                    # no per-image floor, no priors
+    assert (out[100:200, 100:200] == io.ORANGE).mean() > 0.99 and (out[100:200, 300:400] == io.BLUE).mean() > 0.99
+    assert (out[250:300, 100:400] == io.OTHER).all() and (out[0:50] == io.OTHER).all()  # the gray wall and the rows above the horizon stay out
+
+
+def test_hs_fields_do_not_change_old_hashes_and_round_trip():
+    base = pl.Config()
+    assert pl.Config(color_model="rgb_box", hs_s_pct=10.0).short_hash() == base.short_hash()
+    hs = pl.Config(color_model="hs", hs_s_pct=15, hs_h_pct=(5, 95), hs_h_margin=3)
+    assert hs.short_hash() != base.short_hash()
+    assert pl.Config.from_dict(hs.to_dict()) == hs

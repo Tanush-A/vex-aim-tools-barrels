@@ -1,9 +1,14 @@
-"""v1 barrel segmentation pipeline (docs/PROBLEM.md): per-pixel gates + per-image priors +
-per-class color boxes fit on labeled training pixels.
+"""Barrel color segmentation (docs/PROBLEM.md): per-pixel gates + per-class color models fit on labeled
+training pixels. Two color models (``Config.color_model``):
 
-Stages (each a config flag; off = no-op, so ablations are just configs):
+  "rgb_box" (v1, frozen at config afd85483): per-image priors + per-class RGB boxes.
     horizon gate -> brightness gate -> table prior -> background prior
     -> per class: saturation floor AND inside the class box -> tie rule -> mask {0,1,2}
+  "hs" (2026-11-08, the redesign candidate after the campus attribution): per class a hue sector and a floor on
+    HSV saturation (S = (max-min)/max, which a shaded face keeps and a gray wall never reaches), both read off the
+    labeled training pixels as percentiles; only the horizon and brightness gates remain, nothing is adapted per
+    image — the top-row priors and the per-image saturation floor are what removed the barrels in a real room.
+    horizon gate -> brightness gate -> per class: hue in sector AND S >= floor -> tie rule -> mask {0,1,2}
 
 No image correction anywhere: pixel values are never rescaled; the priors compare pixels to
 band statistics and the boxes are fixed thresholds. Frames with no barrels need no special
@@ -15,6 +20,7 @@ import hashlib
 import json
 from dataclasses import asdict, dataclass, field, replace
 
+import cv2
 import numpy as np
 
 from . import boxfit as bf
@@ -22,6 +28,7 @@ from . import priors
 from .io import BLUE, ORANGE, OTHER
 
 CLASSES = (ORANGE, BLUE)
+HUE_SHIFT = {ORANGE: 30, BLUE: 0}        # orange's hue (~5-12) sits next to the 0/180 wrap; +30 makes its sector contiguous
 
 
 @dataclass(frozen=True)
@@ -72,8 +79,14 @@ class Config:
     min_blob_px: int = 0
     open_px: int = 0
     fill_holes: bool = False
+    # the "hs" color model (2026-11-08); omitted from the hash at their defaults, like the cleanup fields
+    color_model: str = "rgb_box"            # "rgb_box" (v1) | "hs" (hue sector + HSV-saturation floor per class; priors and s_min unused)
+    hs_s_pct: float = 10.0                  # hs: the class's S floor = this percentile of its labeled pixels' S
+    hs_h_pct: tuple[float, float] = (2.0, 98.0)   # hs: the hue sector = these percentiles of the labeled pixels above the S floor ...
+    hs_h_margin: float = 0.0                # hs: ... widened by this many hue units (OpenCV 0-179) on each side
 
-    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes")
+    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes", "color_model", "hs_s_pct", "hs_h_pct", "hs_h_margin")
+    _DEFAULTS = {"min_blob_px": 0, "open_px": 0, "fill_holes": False, "color_model": "rgb_box", "hs_s_pct": 10.0, "hs_h_pct": (2.0, 98.0), "hs_h_margin": 0.0}
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -81,7 +94,7 @@ class Config:
     @classmethod
     def from_dict(cls, d: dict) -> "Config":
         d = dict(d)
-        for key in ("bg_rows", "box_pct"):
+        for key in ("bg_rows", "box_pct", "hs_h_pct"):
             if key in d and d[key] is not None:
                 d[key] = tuple(d[key])
         if d.get("refit") is not None:
@@ -93,9 +106,8 @@ class Config:
 
     def short_hash(self) -> str:
         d = self.to_dict()
-        defaults = {"min_blob_px": 0, "open_px": 0, "fill_holes": False}
         for k in self._HASH_OMIT_AT_DEFAULT:
-            if d.get(k) == defaults[k]:
+            if d.get(k) == self._DEFAULTS[k]:
                 d.pop(k, None)
         return hashlib.sha1(json.dumps(d, sort_keys=True).encode()).hexdigest()[:8]
 
@@ -111,11 +123,23 @@ class Frame:
     sat: np.ndarray      # HxW int16, max - min
     val: np.ndarray      # HxW int16, max channel
     uv: np.ndarray | None = None   # HxWx2 float32 YUV chroma, lazily built
+    _hs: dict = field(default_factory=dict, repr=False)   # hue shift -> HxWx2 float32 (shifted hue, HSV saturation), lazily built
 
     @classmethod
     def from_image(cls, bgr: np.ndarray) -> "Frame":
         rgb = bgr[..., ::-1].astype(np.int16)
         return cls(bgr=bgr, rgb=rgb, sat=(rgb.max(-1) - rgb.min(-1)).astype(np.int16), val=rgb.max(-1).astype(np.int16))
+
+    def hs(self, shift: int = 0) -> np.ndarray:
+        """(hue, HSV saturation) per pixel, OpenCV units (H 0-179, S 0-255), the hue rotated by ``shift`` so a class
+        sitting at the 0/180 wrap (orange) gets a contiguous sector."""
+        if shift not in self._hs:
+            hsv = cv2.cvtColor(np.ascontiguousarray(self.bgr), cv2.COLOR_BGR2HSV)
+            out = hsv[..., :2].astype(np.float32)
+            if shift:
+                out[..., 0] = (out[..., 0] + shift) % 180
+            self._hs[shift] = out
+        return self._hs[shift]
 
     @property
     def shape(self) -> tuple[int, int]:
@@ -199,9 +223,35 @@ def _prior_keep(frame: Frame, cfg: Config, info: dict, s_floor: int) -> np.ndarr
 
 # ---------------------------------------------------------------- fit
 
+def fit_hs(frames: list[Frame], masks: list[np.ndarray], cfg: Config) -> Model:
+    """The "hs" color model: per class, the S floor is the ``hs_s_pct`` percentile of the labeled pixels' HSV
+    saturation (pixels past the horizon and brightness gates), and the hue sector the ``hs_h_pct`` percentiles of
+    the labeled pixels above that floor, widened by ``hs_h_margin``. Stored as a Box in (shifted hue, S)."""
+    boxes, info = {}, {}
+    for c in CLASSES:
+        px = []
+        for frame, mask in zip(frames, masks):
+            sel = (mask == c) & _fixed_keep(frame, cfg)
+            px.append(frame.hs(HUE_SHIFT[c])[sel])
+        f = np.concatenate(px) if px else np.zeros((0, 2), np.float32)
+        if len(f) == 0:
+            raise ValueError(f"no training pixels for class {c}")
+        s_lo = float(np.percentile(f[:, 1], cfg.hs_s_pct))
+        hh = f[f[:, 1] >= s_lo, 0]
+        h_lo, h_hi = (float(np.percentile(hh, q)) for q in cfg.hs_h_pct)
+        boxes[c] = bf.Box((h_lo - cfg.hs_h_margin, s_lo), (h_hi + cfg.hs_h_margin, 255.0))
+        info[str(c)] = {"n_px": int(len(f)), "box": boxes[c].to_dict(), "hue_shift": HUE_SHIFT[c],
+                        "hue_unshifted": [h_lo - cfg.hs_h_margin - HUE_SHIFT[c], h_hi + cfg.hs_h_margin - HUE_SHIFT[c]]}
+    return Model(cfg=cfg, boxes=boxes, fit_info=info)
+
+
 def fit(frames: list[Frame], masks: list[np.ndarray], cfg: Config) -> Model:
-    """Fit the per-class boxes on labeled training frames (pixels sampled after the fixed gates
-    when cfg.fit_after_gates, capped per image so no frame dominates)."""
+    """Fit the color model on labeled training frames. "rgb_box": per-class boxes (pixels sampled after the fixed
+    gates when cfg.fit_after_gates, capped per image so no frame dominates). "hs": ``fit_hs``."""
+    if cfg.color_model == "hs":
+        return fit_hs(frames, masks, cfg)
+    if cfg.color_model != "rgb_box":
+        raise ValueError(f"unknown color_model {cfg.color_model!r}")
     rng = np.random.default_rng(cfg.seed)
     samples: dict[int, list[np.ndarray]] = {c: [] for c in CLASSES}
     for frame, mask in zip(frames, masks):
@@ -255,19 +305,25 @@ def segment(frame: Frame, model: Model) -> tuple[np.ndarray, dict]:
     info: dict = {}
     keep = _fixed_keep(frame, cfg)
     info["after_fixed_gates"] = int(keep.sum())
-    smin, s_info = effective_s_min(frame, cfg)
-    info.update(s_info)
-    keep &= _prior_keep(frame, cfg, info, smin[ORANGE])
-    info["after_priors"] = int(keep.sum())
-    feats = frame.features(cfg.box_space)
     cand = {}
-    for c in CLASSES:
-        base = keep & (frame.sat >= smin[c])
-        box = model.boxes[c]
-        if cfg.refit is not None and model.inner:
-            box = _refit_box(feats, base, model, c, info)
-        cand[c] = base & bf.in_box(feats, box)
-        info[f"cand_{c}"] = int(cand[c].sum())
+    if cfg.color_model == "hs":
+        info["color_model"] = "hs"                        # no priors, no per-image floor: the sector and the S floor are the model
+        for c in CLASSES:
+            cand[c] = keep & bf.in_box(frame.hs(HUE_SHIFT[c]), model.boxes[c])
+            info[f"cand_{c}"] = int(cand[c].sum())
+    else:
+        smin, s_info = effective_s_min(frame, cfg)
+        info.update(s_info)
+        keep &= _prior_keep(frame, cfg, info, smin[ORANGE])
+        info["after_priors"] = int(keep.sum())
+        feats = frame.features(cfg.box_space)
+        for c in CLASSES:
+            base = keep & (frame.sat >= smin[c])
+            box = model.boxes[c]
+            if cfg.refit is not None and model.inner:
+                box = _refit_box(feats, base, model, c, info)
+            cand[c] = base & bf.in_box(feats, box)
+            info[f"cand_{c}"] = int(cand[c].sum())
     both = cand[ORANGE] & cand[BLUE]
     info["both"] = int(both.sum())
     if both.any():
