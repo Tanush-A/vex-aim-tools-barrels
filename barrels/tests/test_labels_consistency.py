@@ -33,7 +33,7 @@ def test_box_labels_valid_and_match_image(stem):
     scene = io.parse_name(stem)["scene"]
     if scene == "neg":
         assert meta["negative"] and not meta["barrels"]
-    elif scene not in ("calib", "ruler", "horizon"):
+    elif scene not in ("calib", "ruler", "horizon", "held"):      # held: a barrel in the kicker may be left unboxed (Tanush, 2026-11-08)
         assert meta["barrels"], "a positive frame with no boxes"
 
 
