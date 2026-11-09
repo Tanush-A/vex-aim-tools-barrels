@@ -1,6 +1,31 @@
 # DATA.md — the frames, their labels, the splits, what to shoot
 
-**Updated:** 2026-11-06 (`tm save` capture; the 2026-11-07 campus session plan at the end). Before capturing or using data, read this; new frames are assigned to a split at import, before any method sees them.
+**Updated:** 2026-11-09 (doc cleanup; the step-3 shoot plan added as a draft). Before capturing or using data, read "Now"; new frames are assigned to a split at import, before any method sees them.
+
+## Now (2026-11-09)
+
+**What we have** (tags as in `TODO.md`): HOME 21 (16 train / 5 test, masks + boxes) · CAMPUS 31 (21 / 10, boxes) · DAVE 20 (12 boxed by Dave, grouped; indicative only) · WOOD 24 unlabeled (5 calib + 19 lamp-color) · REC 4 campus recordings · 1 live frame. Test frames are never loaded except in a planned test look. Full table: "Dataset index" below.
+
+**The three commands** (details in "Storage and naming" and "Labels"):
+
+```zsh
+python barrels/tools/import_snaps.py --src barrels/live/snapshots --light <tag> --surface <tag> --scenes a,b,c --dry-run   # then without --dry-run
+python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>     # at once, before any method sees the frames
+python barrels/tools/box_tool.py --filter <light>_<surface>                   # draw the boxes (≈ 30 s a frame; `g` = expected size at the cursor)
+```
+
+**Next shoot: the multi-setting set (TODO step 3) — draft, Claude finalizes with Tanush before shooting.** Purpose: generalize (light, table, clutter, occlusion) and feed the histograms (TODO 8) and the slider labels (TODO 10). One import per (light, surface) session, same scene tags everywhere, so every set scores per scenario.
+
+| sessions | ≥ 3 lights × ≥ 3 surfaces, as many as time allows: lights `window` (day), `overhead` (fluorescent), `lamp` (warm), `dim`; surfaces `light` (white), `wood`, one dark or `beige` |
+|---|---|
+| per session, 16 shots | `close` ×3 (base at ≈ 0, 10, 20 mm past the bumper — the kicker/close-up cases), `occl` ×3 (a barrel hiding ≈ 25 / 50 / 75 % of one behind it), `occl` ×1 (behind clutter), `touch` ×2 (mixed; same color), `cluster` ×1, `clutter` ×2 (one with orange/blue non-barrels), `neg` ×2 (empty; clutter incl. orange + blue objects), `held` ×1, `far` ×1 |
+| once, any session with a ruler | `calib` ×12 (0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm to the base's near edge, one orange barrel on the crosshair, ruler out of frame) + `horizon` ×1 (a mark 43.47 mm above the table on a wall ≥ 1 m away); distances in `data/calib.csv` |
+| per session, 1 recording | `tm rec`, a slow pan with a hand passing once |
+| then | import → `make_splits --v2` → box → commit `data/raw`, `data/labels`, `data/splits.json` |
+
+Everything below is the reference: naming, label formats and rules, splits, the dataset index, and the record of past sessions.
+
+---
 
 ## Storage and naming
 
@@ -48,9 +73,40 @@ Single-channel PNG: **0** other, **1** barrel orange (orange body or the orange 
 
 Per-barrel ids derived from the masks by an automatic split (`src/barrels/instances.py`, stripe-seeded watershed) plus click edits (`tools/instance_tool.py`). Kept in the repo because the box labels were converted from them; no longer edited or needed. `io.load_instances` refuses stale files.
 
-## What to shoot next (v2.0: one table, one background)
+## Splits
 
-Decided 2026-11-03 (timeline): one table and one background, not wood, whatever light is there, tagged honestly. Variety comes from arrangements, positions and clutter. Shoot the list **once at minimum, twice if time** (second pass: different clutter, positions, distances). Clutter is Tanush's own, mostly not orange/blue, with a few orange/blue distractors. Barrels upright. Shoot in this order in one session:
+Fixed **train / test**; dev is empty by design; test is **never used for tuning** (`EVAL.md`). `data/splits.json` is written by `tools/make_splits.py` (seeded, append-only — a stem never moves once assigned).
+
+| split | images |
+|---|---|
+| test (5, locked 2026-10-19) | `window_light_core_04`, `window_light_edge_02`, `window_light_far_01`, `window_light_neg_03`, `window_light_touch_01` |
+| train (16) | all other `4A8B_window_light_*`: close 01–02, cluster 01–02, core 01–03, edge_01, far_02, neg 01–02, occl 01–02, top_01, topstripe_01, touch_02 — tuned by leave-one-scene-out CV |
+| v2.0 frames | assigned at import by `make_splits.py --v2`: one frame per scene tag with ≥ 2 frames → test, the rest → train |
+| not in any split | `calib`, `ruler`, `horizon` (geometry only); Dave's 20 frames (outside check); the 19 wood-desk frames (unlabeled) |
+| `measured` | defined 2026-10-28 for mm positions, never shot; parked with the world map (`DECISIONS.md` 2026-11-02) |
+
+## Dataset index
+
+| set | location | count | status |
+|---|---|---|---|
+| v1 base set (2026-10-19, CMU) | `data/raw/4A8B_window_light_*.png` | 21 frames + masks + instances + **boxes** | labeled and reviewed; splits locked; the training and test data |
+| wood-desk geometry frames (2026-10-19) | `data/raw/4A8B_upcool_wood_{calib_01–05,ruler_01}.png` | 6 | camera measurement only (`EXPERIMENTS.md` 2026-10-19); distances below |
+| home color baselines (2026-10-07) | `data/raw/4A8B_*_wood_*.png` | 19, wood desk, 3 lamp directions × 3 warmths | unlabeled; probe-based baselines only; later stress tests |
+| Dave's barrels.zip (2026-09-28) | `data/raw/DAVE_office_*_snap_NN.png` + 12 `_boxes.json` | 20 | outside check, no split |
+| **campus session 2026-11-07** | `data/raw/4A8B_campus_light_*.png` (light tag `campus`: a glass-walled campus study room, daylight + ceiling lights, white table) | 31 frames: part A 12 (`room` 3, `hand` 2, `plain` 3, `window` 2, `neg` 2), part B 19 (`core` 2, `far`, `close`, `topstripe`, `top`, `touch` 2, `occl` 2, `cluster` 2, `edge`, `clutter` 2, `neg` 3, `held`) | split at import (`make_splits.py --v2`): **10 test, 21 train**; **boxed by Tanush 2026-11-08** (incl. `held_01`); four barrels (two orange-bodied, two blue-bodied) |
+| live frame 2026-11-09 | `live/snapshots/robot_snap0.png` (local; Dave's desk) | 1 | the close-up-under-a-far-barrel case; import if wanted |
+| **NEW — multi-setting set (TODO 3)** | not shot yet; plan below | — | — |
+| recordings 2026-11-07 | `data/recordings/2026-11-07_campus/{r1_static,r2_pan,r3_enter_leave,r4_hand_occlusion}/` (gitignored, local to Tanush's laptop) | 54 / 63 / 60 / 61 frames at ≈ 6 a second, `frames.json` each | for replaying the multi-frame view (`experiments/2026-11-07_rec_replay/`); the room and the clutter box behind the barrels |
+
+**Wood-desk calib distances** (front edge → barrel near edge, measured 2026-10-19): `calib_01` 50 mm (138 px wide), `calib_02` 100 (78), `calib_03` 150 (55), `calib_04` 200 (42), `calib_05` 300 (28). The camera sits ≈ 3 mm behind the front edge (`aim_kin.py`); with the 25.5 mm bulge these widths give f ≈ 356, the ruler marks ≈ 405: `constraints.md` #2.
+
+## Dave's snapshots (barrels.zip, 2026-09-28; imported 2026-11-03)
+
+20 frames from Dave's robot in his office: `DAVE_office_speckle_snap_00–11` (speckled gray-pink desk, window + room light; 12 frames with his ground-truth boxes) and `DAVE_office_dark_snap_12–19` (dark table, warm dim light, 5–7 barrels, a hand; no truth). `tools/import_dave_zip.py ~/Downloads/barrels.zip`; his boxes (yellow = orange barrel, green = blue, drawn in `<snap>_ground_truth.png`) are recovered pixel-exactly as the difference from the raw snapshot → `_boxes.json` with `source: "dave_gt"`, `clean: false`. His notes: `DAVE-barrels-zip-notes.md`. **Outside check only: in no split, never tuned on.** The v1 segmentation finds nothing on them (`EXPERIMENTS.md` 2026-11-03).
+
+## Record: the v2.0 one-table shot list (2026-11-03; shot on campus 2026-11-07; superseded by the multi-setting plan above)
+
+Decided 2026-11-03 (timeline): one table and one background, not wood (wood in scope since 2026-11-09), whatever light is there, tagged honestly. Variety comes from arrangements, positions and clutter. Shoot the list **once at minimum, twice if time** (second pass: different clutter, positions, distances). Clutter is Tanush's own, mostly not orange/blue, with a few orange/blue distractors. Barrels upright. Shoot in this order in one session:
 
 | # | scene | shot |
 |---|---|---|
@@ -78,36 +134,7 @@ If a shot is bad, retake it immediately and delete the bad `robot_snapN.png` bef
 
 **Calibration session** (once per robot until Dave says otherwise; his "lookup table"): one **orange** barrel centred on the vertical crosshair, ruler zero at the robot's front edge, distance to the **near edge of the base at table level** (the bulge overhangs it by ≈ 3.75 mm — slide the ruler under): **0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm** → 12 `calib` frames in that order, ruler out of frame before `s`. Plus one `horizon` frame if a wall ≥ 1 m away is available: a mark **43.47 mm** above the table, centred. Import with `--scenes` listing `calib` twelve times, then `horizon` (the importer takes no repeat count); the distances go in `data/calib.csv` (`stem, d_ruler_mm`). Geometry-only, no split. **Box the calib frames too** (`box_tool.py --filter calib`): their top row, bottom row and width are what the calibration fits f and tilt from (`TODO.md`, P1).
 
-## Dave's snapshots (barrels.zip, 2026-09-28; imported 2026-11-03)
-
-20 frames from Dave's robot in his office: `DAVE_office_speckle_snap_00–11` (speckled gray-pink desk, window + room light; 12 frames with his ground-truth boxes) and `DAVE_office_dark_snap_12–19` (dark table, warm dim light, 5–7 barrels, a hand; no truth). `tools/import_dave_zip.py ~/Downloads/barrels.zip`; his boxes (yellow = orange barrel, green = blue, drawn in `<snap>_ground_truth.png`) are recovered pixel-exactly as the difference from the raw snapshot → `_boxes.json` with `source: "dave_gt"`, `clean: false`. His notes: `DAVE-barrels-zip-notes.md`. **Outside check only: in no split, never tuned on.** The v1 segmentation finds nothing on them (`EXPERIMENTS.md` 2026-11-03).
-
-## Splits
-
-Fixed **train / test**; dev is empty by design; test is **never used for tuning** (`EVAL.md`). `data/splits.json` is written by `tools/make_splits.py` (seeded, append-only — a stem never moves once assigned).
-
-| split | images |
-|---|---|
-| test (5, locked 2026-10-19) | `window_light_core_04`, `window_light_edge_02`, `window_light_far_01`, `window_light_neg_03`, `window_light_touch_01` |
-| train (16) | all other `4A8B_window_light_*`: close 01–02, cluster 01–02, core 01–03, edge_01, far_02, neg 01–02, occl 01–02, top_01, topstripe_01, touch_02 — tuned by leave-one-scene-out CV |
-| v2.0 frames | assigned at import by `make_splits.py --v2`: one frame per scene tag with ≥ 2 frames → test, the rest → train |
-| not in any split | `calib`, `ruler`, `horizon` (geometry only); Dave's 20 frames (outside check); the 19 wood-desk frames (unlabeled) |
-| `measured` | defined 2026-10-28 for mm positions, never shot; parked with the world map (`DECISIONS.md` 2026-11-02) |
-
-## Dataset index
-
-| set | location | count | status |
-|---|---|---|---|
-| v1 base set (2026-10-19, CMU) | `data/raw/4A8B_window_light_*.png` | 21 frames + masks + instances + **boxes** | labeled and reviewed; splits locked; the training and test data |
-| wood-desk geometry frames (2026-10-19) | `data/raw/4A8B_upcool_wood_{calib_01–05,ruler_01}.png` | 6 | camera measurement only (`EXPERIMENTS.md` 2026-10-19); distances below |
-| home color baselines (2026-10-07) | `data/raw/4A8B_*_wood_*.png` | 19, wood desk, 3 lamp directions × 3 warmths | unlabeled; probe-based baselines only; later stress tests |
-| Dave's barrels.zip (2026-09-28) | `data/raw/DAVE_office_*_snap_NN.png` + 12 `_boxes.json` | 20 | outside check, no split |
-| **campus session 2026-11-07** | `data/raw/4A8B_campus_light_*.png` (light tag `campus`: a glass-walled campus study room, daylight + ceiling lights, white table) | 31 frames: part A 12 (`room` 3, `hand` 2, `plain` 3, `window` 2, `neg` 2), part B 19 (`core` 2, `far`, `close`, `topstripe`, `top`, `touch` 2, `occl` 2, `cluster` 2, `edge`, `clutter` 2, `neg` 3, `held`) | split at import (`make_splits.py --v2`): **10 test, 21 train**; **no box labels yet** (`box_tool.py --filter campus_light`, Tanush); four barrels (two orange-bodied, two blue-bodied) |
-| recordings 2026-11-07 | `data/recordings/2026-11-07_campus/{r1_static,r2_pan,r3_enter_leave,r4_hand_occlusion}/` (gitignored, local to Tanush's laptop) | 54 / 63 / 60 / 61 frames at ≈ 6 a second, `frames.json` each | for replaying the multi-frame view (`experiments/2026-11-07_rec_replay/`); the room and the clutter box behind the barrels |
-
-**Wood-desk calib distances** (front edge → barrel near edge, measured 2026-10-19): `calib_01` 50 mm (138 px wide), `calib_02` 100 (78), `calib_03` 150 (55), `calib_04` 200 (42), `calib_05` 300 (28). The camera sits ≈ 3 mm behind the front edge (`aim_kin.py`); with the 25.5 mm bulge these widths give f ≈ 356, the ruler marks ≈ 405: `constraints.md` #2.
-
-## Session 2026-11-07 (campus): the plan
+## Record: session 2026-11-07 (campus), the plan as shot
 
 **Shot as planned, 2026-11-07, 13:27–14:51** — all 31 frames and the four recordings, in order, imported the same day as `4A8B_campus_light_*` (light tag `campus`), split 10 test / 21 train; the recordings moved to `data/recordings/2026-11-07_campus/` (ignored). Four barrels were available (two of each body color), so the "three" and "all" shots have three or four. The `hand` shots are the laptop open and facing the robot with a hand resting on its keyboard edge (shot 4) and flat on the table by the orange barrel (shot 5). Box labels are the next step (`box_tool.py --filter campus_light`). The plan below is kept as the record of what each frame is.
 

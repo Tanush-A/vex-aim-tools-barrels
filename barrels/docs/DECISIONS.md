@@ -2,12 +2,29 @@
 
 Short records: decision, why, who, alternatives. Newest first.
 
+## Standing decisions — what is in force now (2026-11-09)
+
+| rule | since | entry |
+|---|---|---|
+| **Never correct the image** (no white balance); thresholds adapt or are invariant, the image is untouched | 2026-10-07 | below |
+| **Front end = the hs model** `eb863d84` (hue sector + HSV-saturation floor per class, fit once on the home frames); v1 `afd85483` is history | 2026-11-09 | 2026-11-09 |
+| **The stripe is the barrel anchor**; stripeless pieces only where a stripe could not be seen; hardening a–g in force | 2026-11-05 / 2026-11-09 | 2026-11-05, 2026-11-09 |
+| **Score = the v2 rule** (IoU ≥ 0.5 + bottom within a tenth of the height, every barrel counts, clean-negative box disqualifies); width ratio reported alongside | 2026-11-02 / 2026-11-09 | 2026-11-02 |
+| **Test frames are looked at only when planned in advance**; this week twice (TODO 9b, 10b); nothing tuned on them | 2026-10-19 / 2026-11-09 | 2026-10-19, 2026-11-09 |
+| **Scope: any table incl. wood, any light, clutter; upright barrels; frames may be empty**; world map / aivision spec out until Dave says | 2026-10-30 / 2026-11-09 | 2026-11-02, 2026-11-09 |
+| **Selection rules are written before a sweep runs**; a rule that picks a regressing config is reported as a rule flaw, not re-picked | 2026-10-19 / 2026-11-08 | 2026-11-08 |
+| **Main code is explained before it lands** (pipeline, geometry, detector, eval): plain-English walkthrough Tanush acknowledges; HOW-IT-WORKS in the same commit | 2026-11-02 | `CLAUDE.md` |
+| **Docs first, repo is the single source of truth**; every claim from a committed script + `results/` + an `EXPERIMENTS.md` entry; small data in git | 2026-10-14 | 2026-10-14 |
+| **Display-only persistence in the live view is allowed** (`BarrelTracker`); nothing temporal feeds the per-image answer | 2026-11-06 | 2026-11-06 |
+
+Dated entries below, newest first.
+
 ---
 
 ## 2026-11-09 — The hs color model is the front end; hardening a–g merged; wood in scope; two planned test looks
 
-- **Decision:** (1) `pipeline.Config(color_model="hs", hs_s_pct=(5, 15), hs_h_pct=(5, 95), hs_h_margin=2)`, config `eb863d84`, fit once on the 16 home train frames and saved as `results/2026-11-09_hs_candidate/config.json`, is `worldmap_bridge.DEFAULT_MODEL`: what `detect_image.py`, `segment_image.py` and both live programs run. v1 `afd85483` stays loadable (`V1_MODEL`, `--model`, `BARRELS_MODEL`). (2) The detector hardening (a)–(g) (`DetConfig` fields `dark_stripe`, `stripe_mode`, `body_min`, `height_min/max`, frame-edge hidden side, `body_width`, `cover_rows`) is merged: `barrels` fast-forwarded to `wip/redesign`. (3) The selection rule proposed in `OVERNIGHT-2026-11-08.md` (home LOSO v2 ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile) is accepted as the rule that picked it. (4) **Wood tables are in scope** (Tanush: "generalize to everything"); `PROBLEM.md`'s out-of-scope line is amended, Dave hears it in the next email. (5) **Two looks at the test frames this week**, planned in advance: after the extreme-occlusion work (TODO 9b) and after the adaptive thresholding (10b); nothing is tuned on them in between.
-- **Why:** campus train v2 0.99 vs 0.41 for the v1 front end, home 0.93 unchanged, nothing on any real negative of either session or on Dave's desk (`EXPERIMENTS.md` 2026-11-08 later, 2026-11-09 ×2). The live run with Dave on 2026-11-09 ran this front end via `BARRELS_MODEL` and found two detector bugs (thin boxes (f), the close-up under a far barrel (g)), both fixed and measured the same day. Walkthrough: Tanush read `OVERNIGHT-2026-11-08.md` §6 and the (f) paragraph and acknowledged ("understood", 2026-11-09); (g) is reviewed at TODO step 4.
+- **Decision:** (1) `pipeline.Config(color_model="hs", hs_s_pct=(5, 15), hs_h_pct=(5, 95), hs_h_margin=2)`, config `eb863d84`, fit once on the 16 home train frames and saved as `results/2026-11-09_hs_candidate/config.json`, is `worldmap_bridge.DEFAULT_MODEL`: what `detect_image.py`, `segment_image.py` and both live programs run. v1 `afd85483` stays loadable (`V1_MODEL`, `--model`, `BARRELS_MODEL`). (2) The detector hardening (a)–(g) (`DetConfig` fields `dark_stripe`, `stripe_mode`, `body_min`, `height_min/max`, frame-edge hidden side, `body_width`, `cover_rows`) is merged: `barrels` fast-forwarded to `wip/redesign`. (3) The selection rule proposed in `archive/OVERNIGHT-2026-11-08.md` (home LOSO v2 ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile) is accepted as the rule that picked it. (4) **Wood tables are in scope** (Tanush: "generalize to everything"); `PROBLEM.md`'s out-of-scope line is amended, Dave hears it in the next email. (5) **Two looks at the test frames this week**, planned in advance: after the extreme-occlusion work (TODO 9b) and after the adaptive thresholding (10b); nothing is tuned on them in between.
+- **Why:** campus train v2 0.99 vs 0.41 for the v1 front end, home 0.93 unchanged, nothing on any real negative of either session or on Dave's desk (`EXPERIMENTS.md` 2026-11-08 later, 2026-11-09 ×2). The live run with Dave on 2026-11-09 ran this front end via `BARRELS_MODEL` and found two detector bugs (thin boxes (f), the close-up under a far barrel (g)), both fixed and measured the same day. Walkthrough: Tanush read `archive/OVERNIGHT-2026-11-08.md` §6 and the (f) paragraph and acknowledged ("understood", 2026-11-09); (g) is reviewed at TODO step 4.
 - **Alternatives:** keep v1 and add a third per-image stage (rejected: the per-image stages are what failed in a real room); a per-image hue correction (deferred to TODO 8/10, after the histograms show whether hue actually moves); a single S percentile for both classes (rejected: `s15` loses the far blue barrels' orange stripes, `s5` lets the home wall into blue).
 - **Open:** a barrel touching the kicker got no box live (no frame saved); a bright blue object at the frame edge above the table gets a persistent false box (TODO 9); the fixed thresholds under a strong color cast (TODO 8/10).
 - **Who:** Tanush (decisions 1–5, 2026-11-09); Claude Code (measurements, implementation).

@@ -1,16 +1,8 @@
 # EXPERIMENTS.md — lab notebook
 
-One entry per experiment, newest first. Template:
+One entry per experiment, newest first; the index is the fast path, the entries carry the tables. Template at the bottom.
 
-```
-## YYYY-MM-DD — <name>
-- **Hypothesis:**
-- **Method / params:** (script + config path)
-- **Data / split:**
-- **Results:** (table)
-- **Takeaway:**
-- **Next:**
-```
+**Now (2026-11-09):** the front end is the hs model `eb863d84` and the detector has hardening a–g. Numbers that define the state: campus train v2 **0.99** vs 0.41 for the v1 front end, home LOSO **0.93**, no false detection on any negative of either session, median box width / true width 0.96 (entries 2026-11-08 later, 2026-11-09 ×2). Test frames: untouched since the v1 pixel test of 2026-10-20.
 
 ## Index (newest first; the headline of each entry)
 
@@ -80,7 +72,7 @@ One entry per experiment, newest first. Template:
 
 - **Setting:** Tanush boxed all 31 campus frames (`data/labels/4A8B_campus_light_*_boxes.json`; his counts matched the eyeball counts of the attribution except `held_01`, which he left without a box at first and boxed later the same evening as a blue barrel without the `held` flag; the sweep was re-run after that, and the table below is the re-run, with the first run's difference noted). The 21 train frames are now scored under the v2 rule like the home frames; the 10 test frames are untouched. The hardened detector gained (e): a stripe cut by the frame edge is hidden on that side, so the full box is drawn into the edge (`edge_01` had been widened leftward onto the table).
 - **Hypothesis:** a per-class S floor — orange at the 5th–10th percentile (the far blue barrels' orange stripes), blue at the 15th–20th (the bluish home wall) — keeps home ≥ 0.91, draws nothing on any negative of either session, and beats the single-percentile runner-up on the campus v2 score.
-- **Method / params:** `experiments/2026-11-08_seg_hs_v2/run.py`; `pipeline.Config(color_model="hs", hs_s_pct=(orange, blue), hs_h_pct=(5, 95), hs_h_margin=m)`, orange ∈ {5, 10, 15} × blue ∈ {10, 15, 20} × m ∈ {2, 4} = 18; baselines v1 + old detector (= `barrels`), v1 + hardened, and the count-level runner-up `s15 h5-95 m4`. Home = LOSO over the 16 train frames (v2 + pixel IoU); campus = one model fit on all 16 home frames, v2 on the 21 train frames (`held_01`: a negative in the first run, a positive in the re-run); Dave indicative. **Proposed rule** (OVERNIGHT-2026-11-08, not yet agreed): home ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile.
+- **Method / params:** `experiments/2026-11-08_seg_hs_v2/run.py`; `pipeline.Config(color_model="hs", hs_s_pct=(orange, blue), hs_h_pct=(5, 95), hs_h_margin=m)`, orange ∈ {5, 10, 15} × blue ∈ {10, 15, 20} × m ∈ {2, 4} = 18; baselines v1 + old detector (= `barrels`), v1 + hardened, and the count-level runner-up `s15 h5-95 m4`. Home = LOSO over the 16 train frames (v2 + pixel IoU); campus = one model fit on all 16 home frames, v2 on the 21 train frames (`held_01`: a negative in the first run, a positive in the re-run); Dave indicative. **Proposed rule** (`archive/OVERNIGHT-2026-11-08.md`, accepted 2026-11-09): home ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile.
 - **Results** (mean F1 under the v2 rule):
 
 | config | home LOSO (o / b) | **campus train** (o / b) | campus neg FD | Dave |
@@ -543,3 +535,18 @@ Synthetic shifts on held-out frames (primary; neg FP where non-zero):
 - **Method:** barrels at measured distances; compare `show objects` world-map positions vs. ruler.
 - **Results:** map distance accuracy ~1 cm at 9–14 cm (blue: real 87.5 mm vs map ~95; orange: 137.5 vs ~137). A few mm decides reachable vs. GoalCollides. **aivision consistently returns no box for close-range barrels** (occasional flicker) — the planner is blind right next to the robot. Untested: clustering/adjacency.
 - **Takeaway:** the close-range blindness is a concrete, reproducible vendor failure our detector should eventually fix; world-map math is decent when a box exists.
+
+---
+
+## Template
+
+```
+## YYYY-MM-DD — <name>
+- **Hypothesis:**
+- **Method / params:** (script + config path)
+- **Data / split:**
+- **Results:** (table)
+- **Takeaway:**
+- **Next:**
+```
+

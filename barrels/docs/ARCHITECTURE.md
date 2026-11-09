@@ -80,7 +80,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | data | `io.py` | load / save images, masks, strokes, instances, **box labels**; filename parsing; validators | `load_image`, `load_mask`, `load_boxes`, `save_boxes`, `parse_name`, `PKG_ROOT` |
 | data | `labeling.py`, `instances.py` | scribble-and-grow masks; the automatic per-barrel split (superseded by boxes 2026-11-02, files kept) | `grow`, `split_instances` |
 | data | `viz.py` | overlays and the spec's flat-color output images | `overlay`, `render_outputs`, `debug_sheet` |
-| robot | `worldmap_bridge.py` | the hook the live feed runs: frozen model + detector + camera, RGB in / RGB out (`view` = `on_image` + `render`); the aivision-dict route for later | `BarrelDetectorHook`, `barrels_to_aivision_items`, `with_items` |
+| robot | `worldmap_bridge.py` | the hook the live feed runs: the hs model (or `$BARRELS_MODEL`) + detector + camera, RGB in / RGB out (`view` = `on_image` + `render`); the aivision-dict route for later | `BarrelDetectorHook`, `barrels_to_aivision_items`, `with_items` |
 | robot | `tracker.py` | the multi-frame view: a barrel is shown after 3 of the last 4 frames, kept through a miss, forgotten after 4 in a row; box = per-edge median of recent boxes | `Tracker`, `TrackConfig` |
 | robot | `capture.py` | `tm save` / `tm rec`: raw frames to `snapshots/` in the camera viewer's naming; timed recordings with `frames.json` | `FrameCapture` |
 

@@ -20,7 +20,7 @@ Test frames (HOME 5, CAMPUS 10) are never loaded except in the one test run at t
 
 ## In order
 
-- [ ] **0. Walkthrough acknowledgement + merge** [Tanush reads, Claude merges]. `OVERNIGHT-2026-11-08.md` §6 plus the (f) paragraph in `HOW-IT-WORKS.md` §3; (g), the close-up fix, is reviewed at step 4. On "understood": adopt the hs candidate as the default (`DEFAULT_MODEL` → `results/2026-11-09_hs_candidate/config.json`), fast-forward `barrels` to `wip/redesign`, `BARRELS_MODEL` no longer needed. *Added by Claude: everything below builds on the branch, so it has to land.* Data: none.
+- [ ] **0. Walkthrough acknowledgement + merge** [Tanush reads, Claude merges]. `archive/OVERNIGHT-2026-11-08.md` §6 plus the (f) paragraph in `HOW-IT-WORKS.md` §3; (g), the close-up fix, is reviewed at step 4. On "understood": adopt the hs candidate as the default (`DEFAULT_MODEL` → `results/2026-11-09_hs_candidate/config.json`), fast-forward `barrels` to `wip/redesign`, `BARRELS_MODEL` no longer needed. *Added by Claude: everything below builds on the branch, so it has to land.* Data: none.
 
 - [ ] **1. Doc cleanup** [Claude]. The docs are long and convoluted; current facts must be findable in seconds (example: the tilt and focal length actually in use — `AIM_4A8B6118_BOXFIT`: f 400, tilt 22.25°, horizon row 76 — are buried in `constraints.md`). Every doc gets a short "current state" block at the top; history moves below a line or to `archive/`. Order: `constraints.md`, `STATUS.md`, `HOW-IT-WORKS-SHORT.md`, `DATA.md`, `EVAL.md`, `PROBLEM.md`, `CLAUDE.md`, `EXPERIMENTS.md` (index first, entries after), `DECISIONS.md`, `RUNBOOK.md`. Foundation docs change only via `DECISIONS.md`, so the cleanup there is layout, not content. Data: none.
 

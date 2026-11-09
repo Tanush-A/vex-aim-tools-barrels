@@ -1,5 +1,14 @@
 # CLAUDE.md — Barrel Detection (barrels/)
 
+## Start of session (read in this order, five minutes)
+
+1. `docs/STATUS.md` — one screen: what runs, the numbers, what is open.
+2. `docs/TODO.md` — the week's order; pick up the first unchecked item. **Converse first:** say what you are about to do and wait for a go.
+3. `docs/HOW-IT-WORKS-SHORT.md` — before touching pipeline, geometry, detector or eval.
+4. `docs/NAVIGATOR.md` and `docs/NOTES-INBOX.md` — act on open requests, triage notes.
+
+Current facts you will need: front end hs `eb863d84` (orange hue 3–13 S ≥ 140; blue 103–119 S ≥ 113); detector hardening a–g; camera `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon row 76, gate row 50); scores campus 0.99 / home 0.93; test frames HOME 5 + CAMPUS 10, two planned looks this week (TODO 9b, 10b). Every doc has a "Now" block at the top; the history is below it.
+
 ## What this project is
 
 A robust **barrel detector for the VEX AIM robot**, replacing the unreliable vendor detector ("aivision"). Research project: Tanush Aggarwal (CMU SCS, `Tanush-A`) with Prof. David Touretzky (dst@cs.cmu.edu), ~10 hrs/week, fall 2026.

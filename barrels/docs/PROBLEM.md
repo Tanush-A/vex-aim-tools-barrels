@@ -1,8 +1,75 @@
 # PROBLEM.md — the spec
 
-> **This file is the spec.** It says what we are building and what is out of scope; `EVAL.md` says how it is scored and `constraints.md` lists the physical facts we exploit. The three are foundation docs: they change only through a dated entry in `DECISIONS.md`. **The live spec is the v2 section below**; the v1 section is the record of the first front end (the `rgb_box` model, replaced by the hs model on 2026-11-09, `DECISIONS.md`).
+> **This file is the spec.** It says what we are building and what is out of scope; `EVAL.md` says how it is scored and `constraints.md` lists the physical facts we exploit. The three are foundation docs: they change only through a dated entry in `DECISIONS.md`.
 
-# v1 — barrel color segmentation (frozen 2026-10-20)
+## Now — the spec in one screen (2026-11-09)
+
+- **Task.** One 640 × 480 camera image in; the same image out with **one 1-px box around every barrel**, yellow for an orange-bodied barrel, green for a blue-bodied one, nothing else drawn. The bottom edge is the edge that must be right (the world map will use it later). A display-only live view of the boxes on the robot (`BarrelViewer`, `BarrelTracker`) is in scope; nothing downstream is touched.
+- **Input.** Any table (wood included since 2026-11-09), any light, clutter incl. orange/blue non-barrels, any arrangement: alone, touching, behind one another, cut by the frame, partly hidden, in the kicker, very close (stripe below the frame). The frame may contain no barrels.
+- **Method.** Pixels → barrel colors by the **hs model** (hue sector + HSV-saturation floor per class, fit once; nothing estimated from the image). **The stripe is the barrel anchor**: a band of the other color sandwiched by body color at the height the geometry expects gives one barrel, its color and its distance; the fixed camera turns one measured feature into the full box. Stripeless candidates survive only where a stripe could not be seen (bottom below the frame, too far) and must be barrel-sized. **Never correct the image.**
+- **Success.** The v2 rule in `EVAL.md`: a box is right when it overlaps the true box by ≥ ½ and its bottom edge is within a tenth of the height; score = mean F1 over colors; a box on a clean empty frame disqualifies. Tanush's own measure for the week: scenarios where the vendor detector fails and ours works.
+- **Out of scope.** Ground positions, the world map, the aivision spec (until Dave says); knocked-over barrels; learned detectors; tracking that feeds anything downstream; image correction (permanent).
+- **Where this came from.** v2.0 spec agreed with Dave 2026-10-30 and detailed 2026-11-02 (below). v1 (per-pixel segmentation, 2026-10) is the first front end, replaced by the hs model on 2026-11-09; its section is kept at the end as the record.
+
+---
+
+# v2 — barrel detection: draw the boxes
+
+**Version:** v2.0 spec (Dave meeting 2026-10-30, relayed by Tanush; details settled with Tanush 2026-11-02; `DECISIONS.md` 2026-11-02; one-table data 2026-11-03). Replaces the 2026-10-28 proposal. Foundation doc — change only via a logged decision.
+
+## Task
+
+Take one 640×480 camera image and give back the same image with **one box drawn around every barrel**, in the barrel's color. That is the whole deliverable: a still image in, a still image with boxes out, running on the laptop. Everything downstream of the boxes (the world map, the planners) is assumed correct and is **not touched** in v2.
+
+The boxes are what will later feed the robot's world map, which relies on the **bottom edge** of each box. So the bottom edge is the edge that has to be right.
+
+## Input
+
+- One 640×480 RGB frame (snapshot or live frame), as in v1.
+- The frame **may contain no barrels**. It may contain **clutter**, including other orange or blue objects; those must not get boxes.
+- Any table under whatever light is there. *(2026-11-09, `DECISIONS.md`: wood included — the goal is to generalize to every table, light and clutter; the earlier "one table, one background" v2.0 restriction of 2026-11-03 is lifted the same day.)*
+- Barrels are **upright** (a knocked-over barrel is a question for Dave). Any number of barrels in any arrangement: alone, touching (same or mixed colors), one behind another, cut by the frame edges, partly hidden by clutter, held in the robot's kicker.
+
+## Output
+
+A list of barrels; for each: **color** (orange | blue) and **box** `[x0, y0, x1, y1]` in image pixels. The box is the **full barrel** — lid top to the base's contact with the table, bulge to bulge — drawn **as if whatever hides part of the barrel were transparent**, then **clipped to the frame**. A barrel whose bottom is below the frame therefore gets a box that ends at the frame edge; a barrel that fits in the frame gets its whole box.
+
+Drawn output: the image with each box as a thin (1 px) rectangle in a color that says the class but stands out from the barrels — yellow for an orange barrel, green for a blue one, Dave's convention from his ground-truth images (Tanush 2026-11-03). Nothing else is drawn.
+
+Kept with each box internally but **not shown**: the inferred distance, which edges were seen vs inferred, a confidence. They are there for the world map later (`detect_types.Barrel`).
+
+## Method (constrained by design)
+
+- **Start from the v1 segmentation** (`afd85483`). *(Superseded 2026-11-09, `DECISIONS.md`: the front end is the hs model `eb863d84`, hue sector + HSV-saturation floor per class, fit once; no per-image estimation. Wood tables are in scope since the same date.)* Its per-image parts (saturation floor, wall model) stay adaptive at run time. Its fixed part — the two per-class RGB boxes — may be **re-fit once on training frames** (same method, new numbers, logged as an experiment; with v2.0's single table this is expected to stay unused). Nothing is fit per image or per table when an image is shown: the program must work on a frame from a table it has never seen.
+- **The stripe is the barrel anchor.** Color says "orange thing"; the stripe says "barrel". The stripe is a ring at mid-height, so it is visible from any side whenever the barrel's middle is visible. Find stripes first — a band of one color sandwiched by the other, at the height the geometry expects for that row — and each stripe gives one barrel, its color (the body color) and its distance.
+- **One good measurement plus the known shape gives the whole box.** Measure any one feature reliably — the top edge row, the stripe rows, the width — and the fixed camera (`geometry.py`) gives the distance, and from the distance every other edge. This is how the bottom edge is drawn when it cannot be seen: below the frame, in shadow, behind another barrel, behind clutter. All four cases are in scope.
+- **Bottom-edge precedence:** the seen bottom when it is trustworthy (it agrees with the size the geometry predicts); otherwise inferred from the top edge, then from the stripe, then from the width. Which edges were inferred is recorded.
+- **Stripeless candidates** (a very close barrel with its stripe below the frame; a hidden middle; a blue stripe lost in shadow) must pass a **size-and-shape check** for their row — a barrel at that row is about this wide and this tall — or they are dropped. A stripeless orange object of about barrel size can fool this; accepted for v2.0 and measured by the eval.
+- **Merged blobs:** when a barrel stands in front of or beside something of its own color, its box is carved out of the merged blob around its stripe at the expected size; the leftover pixels are judged on their own.
+- **Known-distance frames calibrate the geometry.** A dozen frames with one barrel at a measured distance from the bumper (from touching to the far end of the table) fit the focal length and tilt for this robot and check the formula where it is weakest, up close. This is Dave's "lookup table", built as a calibration so it is computable for any robot by shooting the same frames (Dave 2026-10-30: focal length should not differ much between robots).
+- **No image correction** (standing rule). **Nothing from the world map** — no ground positions as an output, no aivision spec — until Dave says so. The detector is one function, image in → barrels out, so wiring it in later or swapping the method is trivial.
+
+## In scope (v2.0)
+
+Everything above; all four hidden-bottom cases; a held barrel is detected like any other (Tanush: it sits barely off the ground); occluded barrels are reported with their inferred full box; zero boxes on frames without barrels, including frames with orange/blue clutter.
+
+## Out of scope (v2.0)
+
+Ground positions, the world map, the aivision spec; knocked-over barrels; ~~wood tables~~ (in scope since 2026-11-09); temporal tracking that feeds anything downstream (a display-only persistence of boxes over frames in the live view, `BarrelTracker`, is allowed since 2026-11-06, `DECISIONS.md`: it changes what is shown, never the per-image answer this spec and `EVAL.md` score); learned detectors; confidence shown to the user; per-pixel polish beyond the one re-fit — if the segmentation turns out to be the bottleneck, fixing it becomes v2.1 (Dave 2026-10-30: only if its flaws actually cost detections) — **it is: on Dave's frames it costs every detection, so the redesign was pulled into v2.0 on 2026-11-03.** A **display-only live view** of the boxes on the robot's own camera is *in* scope since 2026-11-03 (Dave; `DECISIONS.md`): it draws on the image and touches nothing downstream. Wiring into the world map stays out.
+
+## Success criteria
+
+"It works" = the held-out images come back with every barrel boxed correctly and nothing else boxed. The number for that is the v2 rule in `EVAL.md`: a box is correct when it overlaps the true box by at least half **and** its bottom edge is within a tenth of the barrel's image height (at least 3 px); the primary score is the mean over colors of F1 under that rule, reported per arrangement and on the held-out frames (per table × light and on an unseen table once there is more than one table, v2.1). Floor to beat: the connected-components baseline re-scored under the same rule.
+
+## Milestones
+
+1. **v2.0** (this spec), in the order of `TODO.md`: ~~box labels + tool~~, ~~the eval rule~~, ~~the stripe-anchored detector~~ (all 2026-11-03), ~~the live view on the robot~~ (2026-11-05; first run and the multi-frame variant 2026-11-06), the segmentation redesign, one-table data + calibration frames, the geometry calibration, hidden-stripe barrels, one test run, results to Dave.
+2. **v2.1 — generalise:** more tables (white / beige / black), an unseen-table hold-out, the one segmentation re-fit if a table needs it, and fixing the segmentation where it is the bottleneck.
+3. **Later, when Dave says:** ground positions from the stored distances; wiring into the robot — the bridge stub and the aivision spec shape already exist (`worldmap_bridge.py`).
+
+---
+
+# v1 — barrel color segmentation (the first front end, 2026-10; replaced 2026-11-09; record)
 
 **Version:** v1 (2026-10-14; v1 frozen at config `afd85483` 2026-10-20). **v2.0 spec appended 2026-11-02** (agreed with Dave 2026-10-30; replaces the 2026-10-28 proposal). Foundation doc — change only via a logged entry in `DECISIONS.md`. Source: Dave meeting 2026-10-07 + Tanush's scope decisions 2026-10-14.
 
@@ -64,59 +131,3 @@ Judged by the metrics and protocol in `EVAL.md` (per-pixel precision/recall/IoU 
 1. **v1:** RGB-box thresholds + saturation floor + brightness gate + table/background rejection + horizon gating, evaluated on the labeled light-table set (and reported on the warm black-table stress set). Includes the box-fullness report.
 2. **v1.5:** barrel-referenced adaptive thresholds (iterative re-fit using high-confidence barrel pixels).
 3. **Later:** other color spaces / threshold shapes; glare + shadow handling; close/top-only barrels; bounding boxes emitting the aivision spec shape (`OrangeBarrel`, `originx, originy, width, height`) so the detector can drop into `worldmap.py`.
-
----
-
-# v2 — barrel detection: draw the boxes
-
-**Version:** v2.0 spec (Dave meeting 2026-10-30, relayed by Tanush; details settled with Tanush 2026-11-02; `DECISIONS.md` 2026-11-02; one-table data 2026-11-03). Replaces the 2026-10-28 proposal. Foundation doc — change only via a logged decision.
-
-## Task
-
-Take one 640×480 camera image and give back the same image with **one box drawn around every barrel**, in the barrel's color. That is the whole deliverable: a still image in, a still image with boxes out, running on the laptop. Everything downstream of the boxes (the world map, the planners) is assumed correct and is **not touched** in v2.
-
-The boxes are what will later feed the robot's world map, which relies on the **bottom edge** of each box. So the bottom edge is the edge that has to be right.
-
-## Input
-
-- One 640×480 RGB frame (snapshot or live frame), as in v1.
-- The frame **may contain no barrels**. It may contain **clutter**, including other orange or blue objects; those must not get boxes.
-- Any table that is not wood, under whatever light is there (Dave 2026-10-24: don't bother with wood). **v2.0 is built and tested on one table and one background** with varied arrangements, positions and clutter (Tanush 2026-11-03, timeline); more tables are the v2.1 generalisation step.
-- Barrels are **upright** (a knocked-over barrel is a question for Dave). Any number of barrels in any arrangement: alone, touching (same or mixed colors), one behind another, cut by the frame edges, partly hidden by clutter, held in the robot's kicker.
-
-## Output
-
-A list of barrels; for each: **color** (orange | blue) and **box** `[x0, y0, x1, y1]` in image pixels. The box is the **full barrel** — lid top to the base's contact with the table, bulge to bulge — drawn **as if whatever hides part of the barrel were transparent**, then **clipped to the frame**. A barrel whose bottom is below the frame therefore gets a box that ends at the frame edge; a barrel that fits in the frame gets its whole box.
-
-Drawn output: the image with each box as a thin (1 px) rectangle in a color that says the class but stands out from the barrels — yellow for an orange barrel, green for a blue one, Dave's convention from his ground-truth images (Tanush 2026-11-03). Nothing else is drawn.
-
-Kept with each box internally but **not shown**: the inferred distance, which edges were seen vs inferred, a confidence. They are there for the world map later (`detect_types.Barrel`).
-
-## Method (constrained by design)
-
-- **Start from the v1 segmentation** (`afd85483`). *(Superseded 2026-11-09, `DECISIONS.md`: the front end is the hs model `eb863d84`, hue sector + HSV-saturation floor per class, fit once; no per-image estimation. Wood tables are in scope since the same date.)* Its per-image parts (saturation floor, wall model) stay adaptive at run time. Its fixed part — the two per-class RGB boxes — may be **re-fit once on training frames** (same method, new numbers, logged as an experiment; with v2.0's single table this is expected to stay unused). Nothing is fit per image or per table when an image is shown: the program must work on a frame from a table it has never seen.
-- **The stripe is the barrel anchor.** Color says "orange thing"; the stripe says "barrel". The stripe is a ring at mid-height, so it is visible from any side whenever the barrel's middle is visible. Find stripes first — a band of one color sandwiched by the other, at the height the geometry expects for that row — and each stripe gives one barrel, its color (the body color) and its distance.
-- **One good measurement plus the known shape gives the whole box.** Measure any one feature reliably — the top edge row, the stripe rows, the width — and the fixed camera (`geometry.py`) gives the distance, and from the distance every other edge. This is how the bottom edge is drawn when it cannot be seen: below the frame, in shadow, behind another barrel, behind clutter. All four cases are in scope.
-- **Bottom-edge precedence:** the seen bottom when it is trustworthy (it agrees with the size the geometry predicts); otherwise inferred from the top edge, then from the stripe, then from the width. Which edges were inferred is recorded.
-- **Stripeless candidates** (a very close barrel with its stripe below the frame; a hidden middle; a blue stripe lost in shadow) must pass a **size-and-shape check** for their row — a barrel at that row is about this wide and this tall — or they are dropped. A stripeless orange object of about barrel size can fool this; accepted for v2.0 and measured by the eval.
-- **Merged blobs:** when a barrel stands in front of or beside something of its own color, its box is carved out of the merged blob around its stripe at the expected size; the leftover pixels are judged on their own.
-- **Known-distance frames calibrate the geometry.** A dozen frames with one barrel at a measured distance from the bumper (from touching to the far end of the table) fit the focal length and tilt for this robot and check the formula where it is weakest, up close. This is Dave's "lookup table", built as a calibration so it is computable for any robot by shooting the same frames (Dave 2026-10-30: focal length should not differ much between robots).
-- **No image correction** (standing rule). **Nothing from the world map** — no ground positions as an output, no aivision spec — until Dave says so. The detector is one function, image in → barrels out, so wiring it in later or swapping the method is trivial.
-
-## In scope (v2.0)
-
-Everything above; all four hidden-bottom cases; a held barrel is detected like any other (Tanush: it sits barely off the ground); occluded barrels are reported with their inferred full box; zero boxes on frames without barrels, including frames with orange/blue clutter.
-
-## Out of scope (v2.0)
-
-Ground positions, the world map, the aivision spec; knocked-over barrels; wood tables; temporal tracking that feeds anything downstream (a display-only persistence of boxes over frames in the live view, `BarrelTracker`, is allowed since 2026-11-06, `DECISIONS.md`: it changes what is shown, never the per-image answer this spec and `EVAL.md` score); learned detectors; confidence shown to the user; per-pixel polish beyond the one re-fit — if the segmentation turns out to be the bottleneck, fixing it becomes v2.1 (Dave 2026-10-30: only if its flaws actually cost detections) — **it is: on Dave's frames it costs every detection, so the redesign was pulled into v2.0 on 2026-11-03.** A **display-only live view** of the boxes on the robot's own camera is *in* scope since 2026-11-03 (Dave; `DECISIONS.md`): it draws on the image and touches nothing downstream. Wiring into the world map stays out.
-
-## Success criteria
-
-"It works" = the held-out images come back with every barrel boxed correctly and nothing else boxed. The number for that is the v2 rule in `EVAL.md`: a box is correct when it overlaps the true box by at least half **and** its bottom edge is within a tenth of the barrel's image height (at least 3 px); the primary score is the mean over colors of F1 under that rule, reported per arrangement and on the held-out frames (per table × light and on an unseen table once there is more than one table, v2.1). Floor to beat: the connected-components baseline re-scored under the same rule.
-
-## Milestones
-
-1. **v2.0** (this spec), in the order of `TODO.md`: ~~box labels + tool~~, ~~the eval rule~~, ~~the stripe-anchored detector~~ (all 2026-11-03), ~~the live view on the robot~~ (2026-11-05; first run and the multi-frame variant 2026-11-06), the segmentation redesign, one-table data + calibration frames, the geometry calibration, hidden-stripe barrels, one test run, results to Dave.
-2. **v2.1 — generalise:** more tables (white / beige / black), an unseen-table hold-out, the one segmentation re-fit if a table needs it, and fixing the segmentation where it is the bottleneck.
-3. **Later, when Dave says:** ground positions from the stored distances; wiring into the robot — the bridge stub and the aivision spec shape already exist (`worldmap_bridge.py`).

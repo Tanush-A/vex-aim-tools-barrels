@@ -1,6 +1,19 @@
 # RUNBOOK.md — robot setup / ops
 
-**Updated:** 2026-11-06 (two live programs; `tm save` / `tm rec`). Tanush's robot: **AIM-4A8B6118**.
+**Updated:** 2026-11-09 (hs front end is the default; `BARRELS_MODEL`). Tanush's robot: **AIM-4A8B6118**.
+
+## Now — run the live view
+
+```zsh
+cd ~/Desktop/Celeste && source setup.zsh        # venv, aim_fsm, simple_cli, ROBOT=192.168.4.1 (AP mode)
+# export ROBOT=<ip>                             # only if the robot is on a wifi network instead
+ping -c 3 $ROBOT
+cd vex-aim-tools/barrels/live && simple_cli BarrelTracker     # or BarrelViewer (per frame, no persistence)
+```
+
+At `C>`: `tm boxes` / `tm seg` / `tm both` switch the view; `tm save` writes a raw frame to `snapshots/`; `tm rec` records ten seconds; `tm raw` (tracker) overlays the per-frame boxes. Quit with **Ctrl+\** before powering the robot off. Save a frame of anything that looks wrong and say which file.
+
+---
 
 ## Standard startup
 

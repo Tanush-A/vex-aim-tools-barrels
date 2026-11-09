@@ -1,6 +1,22 @@
-# constraints.md — known facts + unknowns to measure
+# constraints.md — the physical facts we exploit
 
-**Version:** v1 (2026-10-14; geometry measured 2026-10-19; close zone computed + v2 scene assumptions 2026-11-02; provisional camera 2026-11-03). Foundation doc — the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; log scope-relevant changes in `DECISIONS.md`.
+**Version:** v1 (2026-10-14) with additions through 2026-11-09. Foundation doc: the list of every exploitable constraint. Update when a fact is measured or an unknown resolved; scope changes via `DECISIONS.md`. **Read "Now" and stop unless you need the derivation.**
+
+## Now — the numbers in use (2026-11-09)
+
+| what | value in use | where it is set |
+|---|---|---|
+| camera preset | **`AIM_4A8B6118_BOXFIT`: f = 400 px, tilt = 22.25°, horizon row ≈ 76**, height 43.47 mm, 27 mm ahead of the robot's center, principal point (320, 240), 640 × 480 | `src/barrels/geometry.py` (presets); provisional until the ruler calibration in TODO step 3 |
+| how sure | f measured 355–405, tilt 21.5–25.5° (2026-10-19, methods disagree); the labeled boxes pin only the horizon row (76), not f and tilt separately (2026-11-03) | `EXPERIMENTS.md` 2026-10-19, 2026-11-03 |
+| horizon gate | nothing above **row 50** is a barrel (safe across every fit) | `pipeline.Config.horizon_row` |
+| barrel | **24 mm tall, 18 mm at lid and base, 25.5 mm at the bulge, 6 mm stripe** at mid-height; orange body + blue stripe, or blue body + orange stripe | measured 2026-10-19 |
+| expected size by distance | 7 cm: ≈ 146 px wide; 15 cm: ≈ 68; 20 cm: ≈ 51 wide, 55 tall, bottom row ≈ 174; 30 cm: ≈ 34. Bottom edge leaves the frame when the base is nearer than ≈ 28 mm | `python -m barrels.geometry` prints the table |
+| scene | upright barrels on the surface the robot drives on; frames may be empty; clutter incl. orange/blue objects expected; **any table, wood included (2026-11-09)**, any light | `PROBLEM.md` v2 |
+| other robots | cameras differ (color response, maybe geometry); calibrate per robot with the `calib` frames | unknowns #2, #3 |
+
+Everything below is the derivation and the record.
+
+---
 
 ## Camera / robot
 
@@ -46,7 +62,7 @@ Pinhole model: tilt θ below horizontal, focal length f, principal-point row c_y
 - Rows above the horizon: wall/background, never a barrel. Rows between the horizon and the visible table edge **can** contain barrels (seen against the wall).
 - **Frames may contain no barrels** (Dave, 2026-10-14). Every prior and every adaptive step must work on a barrel-free frame; `neg` scenes are in every capture set.
 - **Clutter is expected (v2):** ordinary objects, hands, and a few orange/blue objects used as distractors; all are negatives (must not be boxed). Nothing is placed specifically to fool the detector. The stripe is what distinguishes a barrel from another orange/blue object.
-- v1 data: white table, window light, no distractors. v2.0 data: one table and one background, varied arrangements and clutter (`DATA.md`; Tanush 2026-11-03). v2.1: more tables. Wood is out (Dave 2026-10-24). Goal: works on a table never seen in training.
+- v1 data: white table, window light, no distractors. v2.0 data: one table and one background, varied arrangements and clutter (`DATA.md`; Tanush 2026-11-03). v2.1: more tables. Wood was out (Dave 2026-10-24) and is **in scope since 2026-11-09** (`DECISIONS.md`). Goal: works on a table never seen in training.
 - Barrels are upright (knocked-over barrels: question for Dave). A barrel held in the robot's kicker sits barely off the ground (Tanush 2026-11-02) and is treated as on the ground.
 
 ## Known confusers (from the 10/7 baselines; details in `EXPERIMENTS.md`)
