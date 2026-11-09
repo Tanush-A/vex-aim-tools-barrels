@@ -61,6 +61,8 @@ class DetConfig:
     body_min: float = 0.1        # in the stripe's columns, outside the stripe rows, the box must hold more body-colored pixels than
                                  # stripe-colored ones and at least this fraction of body color; else the stripe belongs to something
                                  # else (a blue barrel's body between two orange things is not an orange barrel). 0 = off
+    cover_rows: bool = True      # (g) 2026-11-09: a stripe barrel "covers" a stripeless piece only if their boxes share rows as well as
+                                 # columns (a far barrel above a close-up hid the close-up). False = columns only (before 2026-11-09)
     body_width: float = 1.2      # (f) 2026-11-09: the box is as wide as the body pixels joined to the stripe above and below it, at
                                  # most this x the expected width; the stripe alone ran ~15 % narrow on big barrels. 0 = stripe width
 
@@ -549,7 +551,7 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     for p in pieces:
         # (g) 2026-11-09: a stripe barrel accounts for a piece only if the two boxes share rows as well as columns — a far
         # barrel standing above a close one in the picture used to "cover" it (live run with Dave: the close-up got no box)
-        if any(_x_overlap(p.bbox, o.bbox) > 0.3 and min(p.bbox[3], o.bbox[3]) > max(p.bbox[1], o.bbox[1]) for o in out):
+        if any(_x_overlap(p.bbox, o.bbox) > 0.3 and (not cfg.cover_rows or min(p.bbox[3], o.bbox[3]) > max(p.bbox[1], o.bbox[1])) for o in out):
             continue                                         # the stripe barrels already account for this piece
         g = _stripe_geometry(cam, (p.bbox[1] + p.bbox[3]) / 2)
         hs = (g[1].stripe_bottom - g[1].stripe_top) if g else math.inf

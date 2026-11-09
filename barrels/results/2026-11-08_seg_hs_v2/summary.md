@@ -1,13 +1,13 @@
 # The hs color model with per-class S floors, scored on Tanush's campus boxes (v2 rule)
 
-git 40c5eea; camera AIM_4A8B6118_BOXFIT; home = LOSO over the 16 home train frames; campus = 21 train frames, boxes by Tanush 2026-11-08 (held_01 boxed the same evening; the first run had it unboxed); Dave = 12 frames, indicative. Detector: hardened DetConfig() unless the row says old.
+git 7cd08c0; camera AIM_4A8B6118_BOXFIT; home = LOSO over the 16 home train frames; campus = 21 train frames, boxes by Tanush 2026-11-08 (held_01 boxed the same evening; the first run had it unboxed); Dave = 12 frames, indicative. Detector: hardened DetConfig() unless the row says old.
 
 Selection rule (proposed, written before the run): home v2 >= 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile.
 
 | config | hash | home v2 (o / b) | home neg FD | home px IoU o / b | **campus v2** (o / b) | campus neg FD | campus bottom err (median px) | Dave v2 (o / b) |
 |---|---|---|---|---|---|---|---|---|
-| v1 + old detector (barrels today) | eb863d84 | 0.84 (0.86 / 0.81) | 0 | 0.91 / 0.64 | **0.79** (0.83 / 0.75) | 5 | 1.5 | 0.27 (0.29 / 0.25) |
-| v1 + hardened detector | eb863d84 | 0.93 (0.90 / 0.96) | 0 | 0.91 / 0.64 | **0.99** (1.00 / 0.97) | 0 | 2.0 | 0.47 (0.47 / 0.47) |
+| v1 + old detector (barrels today) | afd85483 | 0.93 (0.90 / 0.96) | 0 | 0.90 / 0.71 | **0.41** (0.62 / 0.20) | 0 | 1.5 | 0.00 (0.00 / 0.00) |
+| v1 + hardened detector | afd85483 | 0.93 (0.90 / 0.96) | 0 | 0.90 / 0.71 | **0.39** (0.50 / 0.29) | 0 | 2.0 | 0.00 (0.00 / 0.00) |
 | hs s15 h5-95 m4 (count-level runner-up) | 310b6a40 | 0.93 (0.90 / 0.96) | 0 | 0.84 / 0.49 | **0.94** (0.97 / 0.91) | 0 | 2.0 | 0.59 (0.45 / 0.73) |
 | hs o5 b10 h5-95 m2 | 2721b4b6 | 0.78 (0.90 / 0.67) | 0 | 0.91 / 0.10 | **0.97** (1.00 / 0.94) | 0 | 1.0 | 0.52 (0.55 / 0.50) |
 | hs o5 b10 h5-95 m4 | a723d376 | 0.78 (0.87 / 0.69) | 0 | 0.92 / 0.09 | **0.97** (1.00 / 0.94) | 0 | 1.0 | 0.71 (0.69 / 0.73) |

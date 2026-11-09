@@ -50,7 +50,7 @@ probe = load_module("seg_hs_probe", HERE.parent / "2026-11-07_seg_hs_probe" / "r
 OUT = PKG_ROOT / "results" / "2026-11-08_det_hardening"
 CAM = geo.AIM_4A8B6118_BOXFIT
 EXPECTED = json.loads((HERE.parent / "2026-11-07_campus_attribution" / "expected.json").read_text())
-ARMS = {"old": dataclasses.replace(det.DetConfig(), stripe_mode="bands", body_min=0.0),
+ARMS = {"old": dataclasses.replace(det.DetConfig(), stripe_mode="bands", body_min=0.0, body_width=0.0, cover_rows=False),   # (f)/(g) off too since 2026-11-09, so "old" stays the 2026-11-05 detector
         "new": det.DetConfig(),
         "new+dark": dataclasses.replace(det.DetConfig(), dark_stripe=True)}
 

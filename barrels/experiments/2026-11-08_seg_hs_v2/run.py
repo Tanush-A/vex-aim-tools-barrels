@@ -44,7 +44,7 @@ from barrels.io import BLUE, ORANGE, PKG_ROOT  # noqa: E402
 OUT = PKG_ROOT / "results" / "2026-11-08_seg_hs_v2"
 CAM = geo.AIM_4A8B6118_BOXFIT
 DET_NEW = det.DetConfig()
-DET_OLD = dataclasses.replace(det.DetConfig(), stripe_mode="bands", body_min=0.0, height_max=0.0)
+DET_OLD = dataclasses.replace(det.DetConfig(), stripe_mode="bands", body_min=0.0, height_max=0.0, body_width=0.0, cover_rows=False)   # = the detector on `barrels` (2026-11-05)
 GRID = {"orange_pct": [5, 10, 15], "blue_pct": [10, 15, 20], "margin": [2, 4]}
 
 

@@ -16,6 +16,7 @@ One entry per experiment, newest first. Template:
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-09 | **Close-up under a far barrel got no box** (hardening (g); branch `wip/redesign`) | Live run with Dave, `live/snapshots/robot_snap0.png`: the stripeless close-up was dropped as "covered" by a far barrel in the same columns. `cover_rows=True`: cover needs shared rows too. Candidate unchanged (campus 0.99, home 0.93, 0 FD; Dave 0.44 → 0.47). With the *old* finder + v1 pixels the same change lets clutter pieces through (5 FD on campus negatives), so the baseline arm pins `cover_rows=False` |
 | 2026-11-09 | **Box width from the body, not the stripe** (hardening (f); branch `wip/redesign`) | Tanush saw thin boxes on `core_02`; the IoU ≥ 0.5 match passes a box 15 % too narrow. Box edges now from the body columns joined to the stripe (`body_width=1.2`), never into another stripe's columns. Campus train median width ratio **0.90 → 0.96**, worst 0.74 → 0.88; v2 score unchanged (0.99 / home 0.93). `width_ratio` added to the eval |
 | 2026-11-08 | **The hs model scored on Tanush's campus boxes, per-class S floors** (18 configs; branch `wip/redesign`) | campus train v2: **v1 0.41 → hs 0.99** (`o5 b15 h5-95 m2`: orange 1.00, blue 0.97), home LOSO 0.93 = v1, nothing drawn on the campus negatives or Dave's desk; Dave 0.44 (indicative). First run with `held_01` unboxed: 0.97 and the proposed rule returned no winner (the found held barrel counted as a false detection); re-run after Tanush boxed it the same evening: the rule picks `o5 b15 h5-95 m2`. Remaining miss: `occl_02`, stripe hidden. Decision = Tanush's |
 | 2026-11-08 | **Recordings replayed with the hs front end** | the detector now finds the barrels in every clip (static: 1 orange + 2 blue every frame — the second blue is blue clutter at the right frame edge, a persistent false box); 7 one-frame blips, all suppressed; every new track shown after 2 frames (the 3-of-4 rule); the hand clip loses and re-acquires the covered barrel as designed |
@@ -42,6 +43,21 @@ One entry per experiment, newest first. Template:
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
 
 ---
+
+## 2026-11-09 (later) — The close-up under a far barrel got no box (hardening (g); branch `wip/redesign`)
+
+- **Setting:** live run with Dave (`BARRELS_MODEL` = the hs candidate). A close-up orange barrel filling the bottom of the frame was segmented but got no box; a barrel touching the kicker likewise (no frame saved for that one). Frame saved: `live/snapshots/robot_snap0.png` (not in git: contains Dave's desk, import later if wanted).
+- **Diagnosis:** the close-up's stripe is cut by the frame bottom (34 × 19 px of blue at rows 461–480), so it rightly takes the stripeless step-1 route (`detect`: "stripe below the frame"), and step 1 finds it (x 128–394, y 250–480, truncated). `detect` then drops a stripeless piece when a stripe barrel "already accounts for it", testing **column** overlap only (`_x_overlap > 0.3`). The far blue barrel on the table behind (x 149–207, y 123–184) stands directly above the close-up in the picture: overlap 1.0, piece dropped. Erasing the far barrel from the mask gives the close-up its box. The detector on `barrels` has the same test.
+- **Change:** `DetConfig.cover_rows=True`: a stripe barrel covers a piece only if their boxes also share rows. Test: a far barrel above a close truncated one → both boxes; `cover_rows=False` → the old loss. Sweep re-run (`experiments/2026-11-08_seg_hs_v2/run.py`), the old-detector arm pinned to `body_width=0, cover_rows=False` so "barrels today" stays what runs on `barrels`:
+
+| arm | home LOSO v2 | campus v2 | campus neg FD | Dave |
+|---|---|---|---|---|
+| v1 + old detector (`barrels` today) | 0.93 | 0.41 | 0 | 0.00 |
+| hs `o5 b15 h5-95 m2` + hardened (a–g) | 0.93 | 0.99 | 0 | 0.47 (was 0.44) |
+| v1 + old finder but with (g) on (the un-pinned first re-run) | 0.84 | 0.79 | **5** | 0.27 |
+
+- **Takeaway:** (1) the close-up case is fixed on the saved frame (`detect_image.py` draws the orange box 128–394 × 250–480 and the blue one behind it). (2) The column-only test had been masking clutter pieces by accident: with the old finder and v1 pixels, (g) lets five false boxes onto campus negatives. With the hardened finder and the hs pixels nothing changes but the close-up, so (g) is safe only together with (a)–(f) — recorded here so nobody back-ports it alone. (3) The kicker case needs a saved frame before it is called the same bug.
+- **Next:** TODO item "fix close-ups" closes when Tanush confirms live; "touching the kicker" waits for a `tm save`.
 
 ## 2026-11-09 — Box width from the body, not the stripe (hardening (f); branch `wip/redesign`)
 

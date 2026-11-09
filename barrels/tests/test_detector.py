@@ -177,6 +177,8 @@ def test_far_barrel_above_a_close_one_does_not_hide_it():
     out = sorted(det.detect(mask, CFG2, CAM), key=lambda b: b.bbox[1])
     assert [b.color for b in out] == [io.BLUE, io.ORANGE]
     assert out[1].bbox[3] == 480 and "truncated" in out[1].flags
+    old = det.detect(mask, dataclasses.replace(CFG2, cover_rows=False), CAM)     # the pre-2026-11-09 rule loses the close one
+    assert [b.color for b in old] == [io.BLUE]
 
 
 def test_touching_same_color_pair_gives_two_stripes():
