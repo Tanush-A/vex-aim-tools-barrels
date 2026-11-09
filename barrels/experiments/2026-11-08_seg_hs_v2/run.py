@@ -14,13 +14,13 @@ runner-up (s15 h5-95 m4) on the campus v2 score.
 Grid: orange S pct in {5, 10, 15} x blue S pct in {10, 15, 20} x hue pct (5, 95) x hue margin in {2, 4} = 18 configs.
 Baselines: v1 afd85483 with the old (bands) detector = the detector on `barrels`; v1 with the hardened detector.
 Scores: home = leave-one-scene-out over the 16 home train frames (v2 rule, pixel IoU); campus = one model fit on all
-16 home frames, v2 rule on the 21 campus train frames (held_01, left unboxed by Tanush, counts as a negative);
+16 home frames, v2 rule on the 21 campus train frames (held_01: unboxed = a negative in the first run; boxed by Tanush later the same day as a blue barrel, no flag, so a positive in the re-run);
 Dave = his 12 frames, indicative only (his boxes group touching barrels). The 10 campus test frames and the 5 home
 test frames are never loaded.
 
 Selection rule — PROPOSED to Tanush in OVERNIGHT-2026-11-08.md, not yet agreed, written here before the run: home
 LOSO v2 >= 0.91; zero false detections on every negative frame of both sessions (home LOSO negatives, campus
-negatives incl. held_01); then the highest campus v2 score; ties by home v2, then the lower blue percentile.
+negatives); then the highest campus v2 score; ties by home v2, then the lower blue percentile.
 Whatever it picks is a candidate for the walkthrough, not an adoption. Results: results/2026-11-08_seg_hs_v2/.
 
     python barrels/experiments/2026-11-08_seg_hs_v2/run.py
@@ -117,7 +117,7 @@ def main() -> int:
     ok = [r for r in hs_rows if r["home_v2"] >= 0.91 and r["neg_total"] == 0]
     chosen = max(ok, key=lambda r: (r["campus_v2"], r["home_v2"], -(r["cfg"]["hs_s_pct"][1] if isinstance(r["cfg"]["hs_s_pct"], tuple) else r["cfg"]["hs_s_pct"]))) if ok else None
     md = ["# The hs color model with per-class S floors, scored on Tanush's campus boxes (v2 rule)", "",
-          f"git {bcv.git_hash()}; camera AIM_4A8B6118_BOXFIT; home = LOSO over the 16 home train frames; campus = 21 train frames, boxes by Tanush 2026-11-08 (held_01 unboxed = negative); Dave = 12 frames, indicative. "
+          f"git {bcv.git_hash()}; camera AIM_4A8B6118_BOXFIT; home = LOSO over the 16 home train frames; campus = 21 train frames, boxes by Tanush 2026-11-08 (held_01 boxed the same evening; the first run had it unboxed); Dave = 12 frames, indicative. "
           "Detector: hardened DetConfig() unless the row says old.", "",
           "Selection rule (proposed, written before the run): home v2 >= 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile.", "",
           "| config | hash | home v2 (o / b) | home neg FD | home px IoU o / b | **campus v2** (o / b) | campus neg FD | campus bottom err (median px) | Dave v2 (o / b) |", "|---|---|---|---|---|---|---|---|---|"]

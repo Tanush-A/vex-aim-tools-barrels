@@ -19,6 +19,7 @@ name,kind,color,gt_idx,pred_idx,iou,bottom_row_err_px,bottom_mid_err_px,ground_e
 4A8B_campus_light_far_01,false,,,1,,,,,,,,,
 4A8B_campus_light_hand_02,match,orange,1,1,0.8571,-1.0,3.2,2.473,2.473,1.723,-1.775,-0.016,
 4A8B_campus_light_hand_02,match,blue,0,0,0.6399,-3.0,11.9,8.734,8.734,5.042,7.132,-0.048,
+4A8B_campus_light_held_01,miss,,0,,,,,,,,,,
 4A8B_campus_light_occl_02,miss,,0,,,,,,,,,,
 4A8B_campus_light_plain_01,match,blue,0,0,0.8598,-2.0,6.8,2.738,2.738,1.243,2.439,-0.019,
 4A8B_campus_light_plain_01,match,orange,1,1,0.8130,-3.0,5.0,2.259,2.259,2.259,0.009,-0.031,
