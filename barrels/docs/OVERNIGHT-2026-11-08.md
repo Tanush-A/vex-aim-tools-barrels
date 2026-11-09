@@ -79,3 +79,32 @@ One question: your ground-truth boxes on the office snapshots enclose two touchi
 Next: box labels on the campus frames, a final sweep under a rule fixed in advance, then the live view with the new front end.
 
 Tanush
+
+
+---
+
+# Part 2 — after your labels (2026-11-08, second block)
+
+## The short version
+
+1. **Your boxes are committed** (31 files). Your counts matched mine on every train frame except `held_01`, where you drew nothing for the barrel in the kicker. Two small label questions below.
+2. **With real labels the campus number is now a proper v2 score.** On the 21 campus train frames the detector running on `barrels` today scores **0.41**. The candidate front end plus the hardened detector scores **0.97** (orange 1.00, blue 0.94). The home score is unchanged (0.93, leave-one-scene-out). Nothing is drawn on any real negative frame of either session, nor on Dave's pink desk.
+3. **The candidate is `hs o5 b15 h5-95 m2`**: orange saturation floor at the 5th percentile of the labeled pixels (S ≥ 140), blue at the 15th (S ≥ 113), hue sectors 3–13 and 103–119. The per-class floor was the follow-up I proposed in part 1, and it did what it was supposed to: a low orange floor keeps the orange stripes of the far blue barrels, a higher blue floor keeps your bluish home wall out.
+4. **What it still misses:** the barrel behind the marker in `occl_02` (its stripe is fully hidden; the known limit) and the barrel in the kicker in `held_01`, which it finds and you did not box — so it counts as a false detection. That one frame is why my proposed selection rule returns "no winner" as labeled; with `held_01` boxed (press `h` on it) or set aside, the rule picks the candidate above.
+5. **One more detector fix, (e):** `edge_01`'s half-visible barrel was boxed to the *left* of the barrel, onto the empty table, because the "partly hidden stripe" rule only knew about barrel-colored neighbours as the hidden side, not the frame edge. Now the frame edge counts as the hidden side. Test added; this is what lifted campus orange to 1.00.
+6. **The recordings, replayed with the candidate front end:** barrels found in every clip; all 7 one-frame blips suppressed; a new barrel is shown after 2 frames (the 3-of-4 rule needs three sightings); in the hand clip the covered barrel is dropped and re-shown as designed. One real problem: a blue object at the right frame edge just above the table is boxed as a blue barrel in *every* frame of the static clip, so the tracker shows it steadily. Persistent false boxes are not the tracker's job; that one needs a detector rule (likely: refuse a stripeless far piece touching a side edge). I have not added it — it should be pre-registered after you see it live.
+
+## Two label questions
+
+- **`held_01`.** Box the barrel in the kicker with the `h` (held) flag, or we write "held barrels are out of scope" into `PROBLEM.md` through `DECISIONS.md`. Either is fine; the eval needs one of them.
+- **`clean`.** You left `clean = true` on `neg_05` and `clutter_02`, which contain an orange cap and a glue stick. By the definition in `DATA.md` those frames are not clean (orange/blue clutter present). It only makes the standard stricter (a false box there would disqualify a config), so I left it as you set it. Say if you want it changed.
+
+## What I need from you
+
+1. The walkthrough (part 1 above; nothing in it changed except (e), which is one paragraph in `HOW-IT-WORKS.md` §3).
+2. Yes or no on the selection rule as proposed, and the `held_01` call.
+3. Then I adopt: fit once, save the config, point the default at it, and the live programs run it. Then you try `BarrelTracker` on campus and we look at the test frames exactly once.
+
+## Email to Dave — one sentence to add
+
+After "17 of 21 campus frames right against v1's 8 (count-level until I finish boxing them)": replace with "0.97 mean F1 on the 21 campus development frames against 0.41 for the current detector, under our v2 rule with my own box labels; the home-table score is unchanged at 0.93."
