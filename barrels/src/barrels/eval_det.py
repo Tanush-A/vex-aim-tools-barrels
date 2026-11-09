@@ -121,6 +121,7 @@ class Match:
     range_err_mm: float           # projected: pred x − gt x (forward)
     lateral_err_mm: float         # projected: pred y − gt y (left)
     bottom_err_frac: float = math.nan     # bottom_row_err_px / gt box height (v2 accepts |·| ≤ BOTTOM_TOL_FRAC, or BOTTOM_TOL_MIN_PX)
+    width_ratio: float = math.nan         # pred box width / gt box width (1 = right; the IoU match hides a box 15 % too thin)
     gt_flags: tuple[str, ...] = ()        # the ground truth's flags, sorted — reporting only
 
     @property
@@ -211,7 +212,7 @@ def evaluate_frame(name: str, preds: list[Barrel], gts: list[Barrel], cam: geo.C
         matches.append(Match(gi, pi, g.color, iou, b_err,
                              math.hypot(p.bottom_mid[0] - g.bottom_mid[0], p.bottom_mid[1] - g.bottom_mid[1]),
                              proj, meas, px - gx if math.isfinite(proj) else math.nan, py - gy if math.isfinite(proj) else math.nan,
-                             bottom_err_frac=b_err / g.height, gt_flags=tuple(sorted(g.flags))))
+                             bottom_err_frac=b_err / g.height, gt_flags=tuple(sorted(g.flags)), width_ratio=p.width / max(1, g.width)))
     for gi, g in enumerate(gts):
         if gi not in matched_g:
             if ignored[gi]:
@@ -287,6 +288,7 @@ class DetAggregate:
     ious: list = field(default_factory=list)
     bottom_errs: list = field(default_factory=list)          # px, all matches
     bottom_fracs: list = field(default_factory=list)         # bottom_err / gt height, all matches
+    width_ratios: list = field(default_factory=list)         # pred width / gt width, all matches
     bottom_by_case: dict = field(default_factory=lambda: {k: {"px": [], "frac": []} for k in BOTTOM_CASES})
     count_errs: list = field(default_factory=list)           # one per frame: n_pred − n_gt
     ground_proj: list = field(default_factory=list)
@@ -319,6 +321,7 @@ def aggregate(results: list[DetImageResult]) -> dict[str, DetAggregate]:
             a.count_errs.append(r.count_err)
             for m in r.matches:
                 a.ious.append(m.iou); a.bottom_errs.append(m.bottom_row_err_px); a.bottom_fracs.append(m.bottom_err_frac)
+                a.width_ratios.append(m.width_ratio)
                 case = a.bottom_by_case["estimated" if m.bottom_estimated else "seen"]
                 case["px"].append(m.bottom_row_err_px); case["frac"].append(m.bottom_err_frac)
                 a.ground_proj.append(m.ground_err_proj_mm); a.ground_meas.append(m.ground_err_mm)
@@ -353,13 +356,13 @@ def write_results(results: list[DetImageResult], out_dir: Path | str, title: str
     per_barrel = out_dir / "per_barrel.csv"
     with per_barrel.open("w", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["name", "kind", "color", "gt_idx", "pred_idx", "iou", "bottom_row_err_px", "bottom_mid_err_px", "ground_err_proj_mm", "ground_err_mm", "range_err_mm", "lateral_err_mm", "bottom_err_frac", "gt_flags"])
+        w.writerow(["name", "kind", "color", "gt_idx", "pred_idx", "iou", "bottom_row_err_px", "bottom_mid_err_px", "ground_err_proj_mm", "ground_err_mm", "range_err_mm", "lateral_err_mm", "bottom_err_frac", "width_ratio", "gt_flags"])
         for r in results:
             for m in r.matches:
                 w.writerow([r.name, "match", NAMES[m.color], m.gt_idx, m.pred_idx, f"{m.iou:.4f}", f"{m.bottom_row_err_px:.1f}", f"{m.bottom_mid_err_px:.1f}", _f(m.ground_err_proj_mm), _f(m.ground_err_mm), _f(m.range_err_mm), _f(m.lateral_err_mm),
-                            _f(m.bottom_err_frac), " ".join(m.gt_flags)])
+                            _f(m.bottom_err_frac), _f(m.width_ratio), " ".join(m.gt_flags)])
             for gi in r.unmatched_gt:
-                w.writerow([r.name, "miss", "", gi, "", "", "", "", "", "", "", "", "", ""])
+                w.writerow([r.name, "miss", "", gi, "", "", "", "", "", "", "", "", "", "", ""])
             for pi in r.unmatched_pred:
                 w.writerow([r.name, "false", "", "", pi, "", "", "", "", "", "", "", "", ""])
     summary_csv = out_dir / "summary.csv"
@@ -383,17 +386,19 @@ def write_results(results: list[DetImageResult], out_dir: Path | str, title: str
     lines = [f"# {title or out_dir.name}", "",
              f"Detection metrics (EVAL.md). {_rule_text(rule)} Loose = projected ground position within {CENTER_TOL_MM:g} mm (not part of the v2 score). "
              f"Errors are over matched pairs (|·| median / p90); bottom err seen · est. splits them by the GT box's bottom_estimated flag; count err = n_pred − n_gt per frame.", "",
-             "| condition | frames (neg, clean) | neg false det (on clean) | orange n / P / R / F1 | blue n / P / R / F1 | loose P/R o · b | mean IoU | bottom err px | bottom err seen · est. px (n) | bottom err frac | count err mean (abs) | ground proj mm | ground meas mm (n) | color conf |",
-             "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+             "| condition | frames (neg, clean) | neg false det (on clean) | orange n / P / R / F1 | blue n / P / R / F1 | loose P/R o · b | mean IoU | bottom err px | bottom err seen · est. px (n) | bottom err frac | width ratio median (min) | count err mean (abs) | ground proj mm | ground meas mm (n) | color conf |",
+             "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for a in aggs.values():
         po, ro, fo = a.prf(ORANGE); pb, rb, fb = a.prf(BLUE)
         plo, rlo, _ = a.prf(ORANGE, True); plb, rlb, _ = a.prf(BLUE, True)
         be, gp, gm = _stats(a.bottom_errs), _stats(a.ground_proj), _stats(a.ground_meas)
         bf, bs, bst, ce = _stats(a.bottom_fracs), _stats(a.bottom_by_case["seen"]["px"]), _stats(a.bottom_by_case["estimated"]["px"]), _stats(a.count_errs)
+        wr = [x for x in a.width_ratios if math.isfinite(x)]
+        wr_s = f"{_f(float(np.median(wr)))} ({_f(min(wr))})" if wr else "—"
         lines.append(f"| {a.key} | {a.n_frames} ({a.n_negative}, {a.n_clean_negative}) | {a.neg_false_detections} ({a.neg_clean_false_detections}) | "
                      f"{a.counts[ORANGE]['n_gt']} / {_f(po)} / {_f(ro)} / {_f(fo)} | {a.counts[BLUE]['n_gt']} / {_f(pb)} / {_f(rb)} / {_f(fb)} | "
                      f"{_f(plo)}/{_f(rlo)} · {_f(plb)}/{_f(rlb)} | {_f(float(np.mean(a.ious)) if a.ious else math.nan)} | {_f(be['median'])} / {_f(be['p90'])} | "
-                     f"{_f(bs['median'])} ({bs['n']}) · {_f(bst['median'])} ({bst['n']}) | {_f(bf['median'])} | {_f(ce['mean'])} ({_f(ce['mean_abs'])}) | "
+                     f"{_f(bs['median'])} ({bs['n']}) · {_f(bst['median'])} ({bst['n']}) | {_f(bf['median'])} | {wr_s} | {_f(ce['mean'])} ({_f(ce['mean_abs'])}) | "
                      f"{_f(gp['median'])} / {_f(gp['p90'])} | {_f(gm['median'])} ({gm['n']}) | {a.color_confusions} |")
     lines += ["", "Per-image counts: `per_image.csv`; every match/miss/false: `per_barrel.csv`.", ""]
     md.write_text("\n".join(lines))
@@ -418,6 +423,9 @@ def score(results: list[DetImageResult], scenes: dict[str, str], out_scope: tupl
     s["mean_iou"] = float(np.mean(a.ious)) if a.ious else math.nan
     s["bottom_err_median_px"] = _stats(a.bottom_errs)["median"]
     s["bottom_err_frac_median"] = _stats(a.bottom_fracs)["median"]
+    wr = [x for x in a.width_ratios if math.isfinite(x)]
+    s["width_ratio_median"] = float(np.median(wr)) if wr else math.nan
+    s["width_ratio_min"] = float(min(wr)) if wr else math.nan
     s["bottom_err_seen_median_px"] = _stats(a.bottom_by_case["seen"]["px"])["median"]
     s["bottom_err_est_median_px"] = _stats(a.bottom_by_case["estimated"]["px"])["median"]
     s["count_err_mean"] = _stats(a.count_errs)["mean"]

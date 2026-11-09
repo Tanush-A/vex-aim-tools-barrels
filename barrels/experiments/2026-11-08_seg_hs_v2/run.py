@@ -24,6 +24,7 @@ negatives); then the highest campus v2 score; ties by home v2, then the lower bl
 Whatever it picks is a candidate for the walkthrough, not an adoption. Results: results/2026-11-08_seg_hs_v2/.
 
     python barrels/experiments/2026-11-08_seg_hs_v2/run.py
+    python barrels/experiments/2026-11-08_seg_hs_v2/run.py --body-width 0   # (f) off: the box as wide as the stripe (before 2026-11-09); results/..._bw0
 """
 from __future__ import annotations
 
@@ -62,7 +63,14 @@ def score(stem, mask, dcfg):
     return preds, gts, ed.evaluate_frame(stem, preds, gts, CAM, rule="v2", clean=label.get("clean", True))
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    import argparse
+    global OUT, DET_NEW
+    ap = argparse.ArgumentParser(); ap.add_argument("--body-width", type=float, default=None, help="DetConfig.body_width override (0 = stripe-wide boxes, before (f))")
+    args = ap.parse_args(argv)
+    if args.body_width is not None:
+        DET_NEW = dataclasses.replace(DET_NEW, body_width=args.body_width)
+        OUT = OUT.with_name(OUT.name + f"_bw{args.body_width:g}")
     OUT.mkdir(parents=True, exist_ok=True)
     sp = splits.load_splits()
     home = sorted(s for s in sp["train"] if s.startswith("4A8B_window_light"))

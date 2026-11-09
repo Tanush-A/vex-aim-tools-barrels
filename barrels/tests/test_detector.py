@@ -191,6 +191,34 @@ def test_stripeless_piece_must_be_barrel_tall():
     assert det.detect(mask, CFG2, cam) == []                                 # ... but a stripe (5.8 px here) could have been seen, so no box
 
 
+def test_box_is_as_wide_as_the_body_not_the_stripe():
+    """(f) 2026-11-09: a stripe whose outer columns went dark must not make the box thinner than the barrel."""
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 100, 320, body=io.BLUE)
+    x0, top, x1, bottom = truth
+    r = CAM.barrel_rows(100)
+    sy0, sy1 = int(round(r.stripe_top)), int(round(r.stripe_bottom))
+    trim = int(round(0.08 * (x1 - x0)))
+    mask[sy0:sy1, x0:x0 + trim] = 0; mask[sy0:sy1, x1 - trim:x1] = 0      # the stripe's outer 8 % per side unlabeled (still a "full" stripe)
+    out = det.detect(mask, CFG2, CAM)
+    assert len(out) == 1 and out[0].color == io.BLUE
+    assert abs(out[0].bbox[0] - x0) <= 2 and abs(out[0].bbox[2] - x1) <= 2
+    thin = det.detect(mask, dataclasses.replace(CFG2, body_width=0.0), CAM)     # the old rule: stripe width
+    assert len(thin) == 1 and (thin[0].bbox[2] - thin[0].bbox[0]) <= 0.86 * (x1 - x0)
+
+
+def test_body_width_cannot_stretch_into_a_touching_neighbour():
+    """Two touching same-color barrels: each box stays about one barrel wide."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(100); W = r.width_px
+    a = paint_barrel(mask, 100, 320 - W / 2, body=io.ORANGE)
+    b = paint_barrel(mask, 100, 320 + W / 2, body=io.ORANGE)
+    out = sorted(det.detect(mask, CFG2, CAM), key=lambda z: z.bbox[0])
+    assert len(out) == 2
+    for z, truth in zip(out, (a, b)):
+        assert (z.bbox[2] - z.bbox[0]) <= 1.25 * W and abs((z.bbox[0] + z.bbox[2]) / 2 - (truth[0] + truth[2]) / 2) <= 0.15 * W
+
+
 def test_stripe_cut_by_the_frame_edge_widens_into_the_edge():
     """Hardening (e): a barrel half out of the frame on the right — the full box goes to the frame edge, not leftward."""
     mask = np.zeros((480, 640), np.uint8)

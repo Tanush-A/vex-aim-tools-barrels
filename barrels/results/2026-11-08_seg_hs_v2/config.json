@@ -1,5 +1,5 @@
 {
- "git": "a3bf874",
+ "git": "b96d39b",
  "grid": {
   "orange_pct": [
    5,
@@ -37,7 +37,8 @@
   "dark_stripe": false,
   "height_min": 0.5,
   "height_max": 1.5,
-  "body_min": 0.1
+  "body_min": 0.1,
+  "body_width": 1.2
  },
  "det_old": {
   "min_area_px": 20,
@@ -60,7 +61,8 @@
   "dark_stripe": false,
   "height_min": 0.5,
   "height_max": 0.0,
-  "body_min": 0.0
+  "body_min": 0.0,
+  "body_width": 1.2
  },
  "home": [
   "4A8B_window_light_close_01",
@@ -185,7 +187,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 0.0,
-    "body_min": 0.0
+    "body_min": 0.0,
+    "body_width": 1.2
    },
    "hash": "afd85483",
    "home_v2": 0.9282758620689655,
@@ -369,7 +372,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "afd85483",
    "home_v2": 0.9282758620689655,
@@ -553,7 +557,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "310b6a40",
    "home_v2": 0.9316129032258065,
@@ -568,8 +573,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 2.0,
    "neg_total": 0,
-   "dave_v2": 0.5303030303030303,
-   "dave_F1_o": 0.3333333333333333,
+   "dave_v2": 0.5636363636363636,
+   "dave_F1_o": 0.39999999999999997,
    "dave_F1_b": 0.7272727272727272,
    "model": {
     "1": {
@@ -702,7 +707,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "2721b4b6",
    "home_v2": 0.7816091954022989,
@@ -851,7 +857,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "a723d376",
    "home_v2": 0.7770833333333333,
@@ -1000,7 +1007,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "eb863d84",
    "home_v2": 0.9282758620689655,
@@ -1149,7 +1157,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "a48bf068",
    "home_v2": 0.9133333333333333,
@@ -1298,7 +1307,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "2051edc8",
    "home_v2": 0.9282758620689655,
@@ -1447,7 +1457,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "d961061d",
    "home_v2": 0.9133333333333333,
@@ -1596,7 +1607,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "f9315806",
    "home_v2": 0.8,
@@ -1745,7 +1757,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "1cbe9591",
    "home_v2": 0.7849462365591398,
@@ -1760,8 +1773,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 1.5,
    "neg_total": 0,
-   "dave_v2": 0.5063492063492063,
-   "dave_F1_o": 0.4571428571428572,
+   "dave_v2": 0.5634920634920635,
+   "dave_F1_o": 0.5714285714285714,
    "dave_F1_b": 0.5555555555555556,
    "model": {
     "1": {
@@ -1894,7 +1907,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "c5ffacc8",
    "home_v2": 0.9466666666666668,
@@ -2043,7 +2057,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "df4d1cf4",
    "home_v2": 0.9316129032258065,
@@ -2058,8 +2073,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 2.0,
    "neg_total": 0,
-   "dave_v2": 0.5571847507331378,
-   "dave_F1_o": 0.3870967741935484,
+   "dave_v2": 0.5894428152492668,
+   "dave_F1_o": 0.45161290322580644,
    "dave_F1_b": 0.7272727272727272,
    "model": {
     "1": {
@@ -2192,7 +2207,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "e0aab108",
    "home_v2": 0.9133333333333333,
@@ -2341,7 +2357,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "7373477a",
    "home_v2": 0.9316129032258065,
@@ -2356,8 +2373,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 2.0,
    "neg_total": 0,
-   "dave_v2": 0.5408348457350272,
-   "dave_F1_o": 0.3448275862068965,
+   "dave_v2": 0.5753176043557169,
+   "dave_F1_o": 0.41379310344827586,
    "dave_F1_b": 0.7368421052631579,
    "model": {
     "1": {
@@ -2490,7 +2507,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "f5b31c72",
    "home_v2": 0.8,
@@ -2639,7 +2657,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "26ab7445",
    "home_v2": 0.7849462365591398,
@@ -2654,8 +2673,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 2.0,
    "neg_total": 0,
-   "dave_v2": 0.4396284829721362,
-   "dave_F1_o": 0.3529411764705882,
+   "dave_v2": 0.5278637770897833,
+   "dave_F1_o": 0.5294117647058824,
    "dave_F1_b": 0.5263157894736842,
    "model": {
     "1": {
@@ -2788,7 +2807,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "ed30e893",
    "home_v2": 0.9466666666666668,
@@ -2937,7 +2957,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "c06cd6ce",
    "home_v2": 0.9316129032258065,
@@ -2952,8 +2973,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 2.0,
    "neg_total": 0,
-   "dave_v2": 0.5303030303030303,
-   "dave_F1_o": 0.3333333333333333,
+   "dave_v2": 0.5636363636363636,
+   "dave_F1_o": 0.39999999999999997,
    "dave_F1_b": 0.7272727272727272,
    "model": {
     "1": {
@@ -3086,7 +3107,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "9bc3a373",
    "home_v2": 0.9133333333333333,
@@ -3235,7 +3257,8 @@
     "dark_stripe": false,
     "height_min": 0.5,
     "height_max": 1.5,
-    "body_min": 0.1
+    "body_min": 0.1,
+    "body_width": 1.2
    },
    "hash": "f5038969",
    "home_v2": 0.9316129032258065,
@@ -3250,8 +3273,8 @@
    "campus_negFD": 0,
    "campus_bottom_med": 2.0,
    "neg_total": 0,
-   "dave_v2": 0.5112781954887218,
-   "dave_F1_o": 0.28571428571428575,
+   "dave_v2": 0.5469924812030075,
+   "dave_F1_o": 0.35714285714285715,
    "dave_F1_b": 0.7368421052631579,
    "model": {
     "1": {

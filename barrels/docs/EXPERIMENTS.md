@@ -16,6 +16,7 @@ One entry per experiment, newest first. Template:
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-09 | **Box width from the body, not the stripe** (hardening (f); branch `wip/redesign`) | Tanush saw thin boxes on `core_02`; the IoU ≥ 0.5 match passes a box 15 % too narrow. Box edges now from the body columns joined to the stripe (`body_width=1.2`), never into another stripe's columns. Campus train median width ratio **0.90 → 0.96**, worst 0.74 → 0.88; v2 score unchanged (0.99 / home 0.93). `width_ratio` added to the eval |
 | 2026-11-08 | **The hs model scored on Tanush's campus boxes, per-class S floors** (18 configs; branch `wip/redesign`) | campus train v2: **v1 0.41 → hs 0.99** (`o5 b15 h5-95 m2`: orange 1.00, blue 0.97), home LOSO 0.93 = v1, nothing drawn on the campus negatives or Dave's desk; Dave 0.44 (indicative). First run with `held_01` unboxed: 0.97 and the proposed rule returned no winner (the found held barrel counted as a false detection); re-run after Tanush boxed it the same evening: the rule picks `o5 b15 h5-95 m2`. Remaining miss: `occl_02`, stripe hidden. Decision = Tanush's |
 | 2026-11-08 | **Recordings replayed with the hs front end** | the detector now finds the barrels in every clip (static: 1 orange + 2 blue every frame — the second blue is blue clutter at the right frame edge, a persistent false box); 7 one-frame blips, all suppressed; every new track shown after 2 frames (the 3-of-4 rule); the hand clip loses and re-acquires the covered barrel as designed |
 | 2026-11-08 | **The hs color model, pre-registered sweep** (24 configs; branch `wip/redesign`) | home LOSO v2 0.93–0.95 at the 15th–20th-percentile S floor (v1 0.93), 0.65–0.69 at the 5th (the bluish home wall); campus 14–19 of 21 right (v1 8); nothing on any negative except two 5th-percentile configs. **The pre-registered rule picked the 5th-percentile config (campus 19/21, home 0.69): the rule ignored the home score — a flaw in the rule.** Runner-up `s15 h5-95 m4`: home 0.93, campus 17/21, Dave 0.53. Not adopted: labels + walkthrough first |
@@ -41,6 +42,23 @@ One entry per experiment, newest first. Template:
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
 
 ---
+
+## 2026-11-09 — Box width from the body, not the stripe (hardening (f); branch `wip/redesign`)
+
+- **Setting:** Tanush ran the candidate front end on the campus frames with `detect_image.py` and found the boxes "too thin" (`core_02`, most frames). Measured: box width / his label width 0.83–0.85 on the big barrels, because `barrel_from_stripe` copied the box's left and right edges from the stripe's columns, and a stripe's outermost pixels curve away from the camera and go dark. The segmentation itself reached the body's edge (columns 62–181 vs label 59–186 on `core_02`'s big orange barrel). Today's detector on `barrels` has the same flaw; it was invisible at home because the barrels were small. The v2 rule did not see it either: an IoU ≥ 0.5 match passes a box 15 % too thin.
+- **Hypothesis (stated before the change):** taking the box edges from the body-colored columns joined to the stripe lifts the median width ratio on the 21 campus train frames from about 0.85 to above 0.95 without changing the v2 score or adding a false detection.
+- **Method:** `detector._body_columns` (walk outward from the stripe while a column holds ≥ 2 body pixels in the box's rows outside the stripe rows, gaps of 2 columns allowed; columns under another found stripe are never added; at most `body_width` = 1.2 × the expected width, trimmed evenly). Only for a "full" stripe; the partly-hidden path keeps the geometry's width. `eval_det.Match.width_ratio` and `width_ratio` columns in `per_barrel.csv` / the summary table / `score()` so the quantity is reported from now on. Before/after from `experiments/2026-11-08_seg_hs_v2/run.py` (`--body-width 0` = before → `results/2026-11-08_seg_hs_v2_bw0/`). Two tests (a stripe with dark outer columns gives the full box; a touching same-color pair stays one barrel wide each).
+- **Results** (`hs o5 b15 h5-95 m2`, 21 campus train frames, 34 matched barrels):
+
+| | width ratio median | worst | campus v2 | home LOSO v2 | neg FD |
+|---|---|---|---|---|---|
+| before (`body_width=0`, the stripe's width) | 0.90 | 0.74 | 0.99 | 0.93 | 0 |
+| **after (`body_width=1.2`)** | **0.96** | **0.88** | 0.99 | 0.93 | 0 |
+| v1 + old detector (`barrels` today), for reference | 0.95 (on the 8 it finds) | 0.57 | 0.41 | 0.93 | 0 |
+
+  The median was 0.90, not the 0.85 I quoted from four frames (the far barrels were already close to right; the big ones were the 0.83s). The residual 4 % is the shaded edge the segmentation does not label (about 4 px per side on a 120 px barrel); the partly-hidden path's boxes come out 1.09–1.12 wide, which is the provisional camera's expected width running large (calibration, P1).
+- **Takeaway:** (1) the flaw was in the box rule, not the pixels, and it is in the detector on `barrels` today as well; (2) the score could not see it, so the eval now reports the width ratio next to the score; (3) an eyeball on the pictures found in a minute what two weekends of scores did not — every result from now on gets its contact sheet looked at before it is reported.
+- **Next:** Tanush's live run with Dave with `BARRELS_MODEL` set (RUNBOOK); the walkthrough acknowledgement covers (f) too.
 
 ## 2026-11-08 (later) — The hs model with per-class S floors, scored on Tanush's campus boxes (branch `wip/redesign`)
 

@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-08, evening (Tanush's campus boxes are in, `held_01` included; the redesign candidate scores 0.99 on the campus train frames against 0.41 for what runs today and the proposed selection rule picks it; everything waits on branch `wip/redesign` for his walkthrough acknowledgement). One screen by design: history lives in `EXPERIMENTS.md` and `DECISIONS.md`, the task list in `TODO.md`, the code guide in `HOW-IT-WORKS-SHORT.md`, the plain-English account of the overnight block in `OVERNIGHT-2026-11-08.md`.
+**Updated:** 2026-11-09 (hardening (f): boxes as wide as the body, median width ratio 0.90 → 0.96; the candidate front end can be run live with `BARRELS_MODEL`, RUNBOOK). Previous: 2026-11-08, evening (Tanush's campus boxes are in, `held_01` included; the redesign candidate scores 0.99 on the campus train frames against 0.41 for what runs today and the proposed selection rule picks it; everything waits on branch `wip/redesign` for his walkthrough acknowledgement). One screen by design: history lives in `EXPERIMENTS.md` and `DECISIONS.md`, the task list in `TODO.md`, the code guide in `HOW-IT-WORKS-SHORT.md`, the plain-English account of the overnight block in `OVERNIGHT-2026-11-08.md`.
 
 ## State
 

@@ -61,6 +61,8 @@ class DetConfig:
     body_min: float = 0.1        # in the stripe's columns, outside the stripe rows, the box must hold more body-colored pixels than
                                  # stripe-colored ones and at least this fraction of body color; else the stripe belongs to something
                                  # else (a blue barrel's body between two orange things is not an orange barrel). 0 = off
+    body_width: float = 1.2      # (f) 2026-11-09: the box is as wide as the body pixels joined to the stripe above and below it, at
+                                 # most this x the expected width; the stripe alone ran ~15 % narrow on big barrels. 0 = stripe width
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -417,7 +419,40 @@ def _body_extent(mask: np.ndarray, body: int, x0: int, x1: int, y0: int, y1: int
     return top, bottom
 
 
-def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig()) -> Barrel | None:
+def _body_columns(mask: np.ndarray, body: int, x0: int, x1: int, top: int, bottom: int, y0: int, y1: int,
+                  cap_px: float, others: tuple = (), min_px: int = 2, max_gap: int = 2) -> tuple[int, int]:
+    """Left and right edge of the body color joined to the stripe: starting from the stripe's columns x0..x1, walk
+    outward while columns in rows top..bottom (the stripe rows y0..y1 excluded) hold at least min_px body pixels,
+    allowing gaps of max_gap columns. Columns under another found stripe (`others`, their x-ranges) are never
+    added: they are a touching same-color neighbour's. The result is at most cap_px wide (trimmed evenly around the
+    stripe)."""
+    rows = np.ones(bottom - top, bool); rows[max(0, y0 - top):max(0, y1 - top)] = False
+    cols = ((mask[top:bottom] == body) & rows[:, None]).sum(axis=0) >= min_px
+    for ox0, ox1 in others:
+        cols[max(0, ox0):max(0, ox1)] = False
+    w = len(cols)
+    bx0, gap, c = x0, 0, x0 - 1
+    while c >= 0 and gap <= max_gap:
+        if cols[c]:
+            bx0, gap = c, 0
+        else:
+            gap += 1
+        c -= 1
+    bx1, gap, c = x1, 0, x1
+    while c < w and gap <= max_gap:
+        if cols[c]:
+            bx1, gap = c + 1, 0
+        else:
+            gap += 1
+        c += 1
+    if bx1 - bx0 > cap_px:
+        cx = (x0 + x1) / 2
+        bx0, bx1 = max(bx0, int(round(cx - cap_px / 2))), min(bx1, int(round(cx + cap_px / 2)))
+    return bx0, bx1
+
+
+def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                       others: tuple = ()) -> Barrel | None:
     """One barrel from its stripe. The stripe's row gives the distance; the distance gives the full box the
     geometry predicts (top, bottom, width). The seen body extent above and below the stripe is used for an
     edge when it agrees with the prediction, otherwise the prediction is drawn and the edge flagged. A stripe
@@ -457,8 +492,12 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     bottom = bottom_seen
     if abs(bottom_seen - rows.bottom) > tol and not (bottom_seen >= h and rows.bottom >= h):
         bottom = int(round(rows.bottom)); flags.add("bottom_inferred")
-    bx0, bx1 = max(0, bx0), min(w, bx1)
     top, bottom = max(0, top), min(h, bottom)
+    if "occluded" not in flags and cfg.body_width > 0 and bottom - top >= 2:
+        # (f) 2026-11-09: the stripe's outermost pixels curve away from the camera and go dark, so a box as wide as the
+        # stripe runs ~15 % narrow on big barrels; the body pixels joined to the stripe give the barrel's real extent
+        bx0, bx1 = _body_columns(mask, s.body, x0, x1, top, bottom, y0, y1, cap_px=cfg.body_width * W, others=others)
+    bx0, bx1 = max(0, bx0), min(w, bx1)
     if bx1 - bx0 < 2 or bottom - top < 2:
         return None
     if cfg.body_min > 0:
@@ -496,8 +535,9 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     if not cfg.require_stripe:
         return pieces
     out: list[Barrel] = []
-    for s in find_stripes(mask, cam, cfg):
-        b = barrel_from_stripe(s, mask, cam, cfg)
+    stripes = find_stripes(mask, cam, cfg)
+    for s in stripes:
+        b = barrel_from_stripe(s, mask, cam, cfg, others=tuple((o.bbox[0], o.bbox[2]) for o in stripes if o is not s))
         if b is None:
             continue
         dup = next((o for o in out if o.color == b.color and box_iou(o.bbox, b.bbox) > 0.5), None)

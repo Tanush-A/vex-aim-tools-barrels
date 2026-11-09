@@ -200,7 +200,7 @@ def test_v2_aggregate_keys_and_summary(tmp_path):
     head = csv_s.read_text().splitlines()
     assert head[0].startswith("condition,n_frames,n_neg,neg_false_detections,orange_n_gt") and "bottom_est_median_px" in head[0] and head[1].endswith(",v2")
     assert csv_i.read_text().splitlines()[0].endswith("color_confusions,scene,clean,count_err")
-    assert "bottom_err_frac,gt_flags" in (tmp_path / "v2" / "per_barrel.csv").read_text().splitlines()[0]
+    assert "bottom_err_frac,width_ratio,gt_flags" in (tmp_path / "v2" / "per_barrel.csv").read_text().splitlines()[0]
 
 
 def test_v1_rule_explicit_equals_default_and_keys_unchanged(tmp_path):
