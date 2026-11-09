@@ -81,7 +81,7 @@ class Config:
     fill_holes: bool = False
     # the "hs" color model (2026-11-08); omitted from the hash at their defaults, like the cleanup fields
     color_model: str = "rgb_box"            # "rgb_box" (v1) | "hs" (hue sector + HSV-saturation floor per class; priors and s_min unused)
-    hs_s_pct: float = 10.0                  # hs: the class's S floor = this percentile of its labeled pixels' S
+    hs_s_pct: float | tuple[float, float] = 10.0   # hs: the class's S floor = this percentile of its labeled pixels' S; a pair = (orange, blue)
     hs_h_pct: tuple[float, float] = (2.0, 98.0)   # hs: the hue sector = these percentiles of the labeled pixels above the S floor ...
     hs_h_margin: float = 0.0                # hs: ... widened by this many hue units (OpenCV 0-179) on each side
 
@@ -97,6 +97,8 @@ class Config:
         for key in ("bg_rows", "box_pct", "hs_h_pct"):
             if key in d and d[key] is not None:
                 d[key] = tuple(d[key])
+        if isinstance(d.get("hs_s_pct"), list):
+            d["hs_s_pct"] = tuple(d["hs_s_pct"])
         if d.get("refit") is not None:
             r = dict(d["refit"])
             for key in ("inner_pct", "pct", "outer_pct"):
@@ -236,7 +238,8 @@ def fit_hs(frames: list[Frame], masks: list[np.ndarray], cfg: Config) -> Model:
         f = np.concatenate(px) if px else np.zeros((0, 2), np.float32)
         if len(f) == 0:
             raise ValueError(f"no training pixels for class {c}")
-        s_lo = float(np.percentile(f[:, 1], cfg.hs_s_pct))
+        s_pct = cfg.hs_s_pct[0 if c == ORANGE else 1] if isinstance(cfg.hs_s_pct, tuple) else cfg.hs_s_pct
+        s_lo = float(np.percentile(f[:, 1], s_pct))
         hh = f[f[:, 1] >= s_lo, 0]
         h_lo, h_hi = (float(np.percentile(hh, q)) for q in cfg.hs_h_pct)
         boxes[c] = bf.Box((h_lo - cfg.hs_h_margin, s_lo), (h_hi + cfg.hs_h_margin, 255.0))

@@ -1,0 +1,87 @@
+{
+ "git": "e881cf2",
+ "front": "hs color model (o5,b15,m4, fit on the home train masks) + hardened detector DetConfig()",
+ "track_cfg": {
+  "window": 4,
+  "min_hits": 3,
+  "iou_min": 0.3,
+  "max_misses": 4,
+  "smooth": 3
+ },
+ "det_cfg": {
+  "min_area_px": 20,
+  "close_px": 3,
+  "bottom_tol": 0.15,
+  "bottom_tol_min_px": 4,
+  "width_min": 0.4,
+  "width_max": 1.6,
+  "split_search": 0.25,
+  "min_width_px": 16.0,
+  "require_stripe": true,
+  "stripe_h_min": 0.45,
+  "stripe_h_max": 1.6,
+  "band_h_max": 3.0,
+  "stripe_w_min": 0.4,
+  "stripe_merge": 1.4,
+  "stripe_full": 0.8,
+  "min_stripe_px": 4.0,
+  "stripe_mode": "cores",
+  "dark_stripe": false,
+  "height_min": 0.5,
+  "height_max": 1.5,
+  "body_min": 0.1
+ },
+ "seg_cfg": {
+  "horizon_row": 50,
+  "bg_rows": [
+   0,
+   50
+  ],
+  "table_rows": 80,
+  "s_min": 40,
+  "s_min_blue": null,
+  "v_min": 40,
+  "s_min_mode": "fixed",
+  "s_band_q": 99.5,
+  "s_band_margin": 10.0,
+  "s_band_source": "bg",
+  "s_min_lo": 20,
+  "s_min_hi": 120,
+  "table_prior": true,
+  "bg_prior": true,
+  "k_table": 3.0,
+  "k_bg": 3.0,
+  "prior_fit": "lowsat",
+  "scale_floor": 4.0,
+  "prior_min_frac": 0.3,
+  "box_space": "rgb",
+  "box_pct": [
+   1.0,
+   99.0
+  ],
+  "fit_after_gates": true,
+  "fit_max_px_per_image": 3000,
+  "tie": "rb_sign",
+  "seed": 0,
+  "refit": null,
+  "min_blob_px": 0,
+  "open_px": 0,
+  "fill_holes": false,
+  "color_model": "hs",
+  "hs_s_pct": [
+   5.0,
+   15.0
+  ],
+  "hs_h_pct": [
+   5,
+   95
+  ],
+  "hs_h_margin": 4.0
+ },
+ "clips": {
+  "r1_static": "two barrels at about 15 cm, nothing moves",
+  "r2_pan": "the robot turned slowly by hand, barrels in view",
+  "r3_enter_leave": "a barrel slid into the view from the side and out again",
+  "r4_hand_occlusion": "a hand waved across the barrels twice"
+ }
+}

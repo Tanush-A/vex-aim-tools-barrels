@@ -179,3 +179,14 @@ def test_hs_fields_do_not_change_old_hashes_and_round_trip():
     hs = pl.Config(color_model="hs", hs_s_pct=15, hs_h_pct=(5, 95), hs_h_margin=3)
     assert hs.short_hash() != base.short_hash()
     assert pl.Config.from_dict(hs.to_dict()) == hs
+
+
+def test_hs_s_pct_can_differ_per_class():
+    img = np.full((480, 640, 3), (200, 200, 200), np.uint8)
+    img[100:200, 100:200] = (20, 90, 220); img[100:200, 300:400] = (190, 90, 20)
+    mask = np.zeros((480, 640), np.uint8); mask[100:200, 100:200] = io.ORANGE; mask[100:200, 300:400] = io.BLUE
+    one = pl.fit([pl.Frame.from_image(img)], [mask], pl.Config(color_model="hs", hs_s_pct=10))
+    two = pl.fit([pl.Frame.from_image(img)], [mask], pl.Config(color_model="hs", hs_s_pct=(10, 50)))
+    assert two.boxes[io.ORANGE].lo[1] == one.boxes[io.ORANGE].lo[1] and two.boxes[io.BLUE].lo[1] >= one.boxes[io.BLUE].lo[1]
+    cfg = pl.Config(color_model="hs", hs_s_pct=(5, 15))
+    assert pl.Config.from_dict(cfg.to_dict()) == cfg

@@ -17,11 +17,16 @@ program BarrelTracker would show. Reported per clip:
 Counts only: the recordings have no labels and the clips were shot to try the persistence rule, not to score the
 detector. Results: results/2026-11-07_rec_replay/ (summary.md + per_frame.csv committed; images gitignored).
 
-    python barrels/experiments/2026-11-07_rec_replay/run.py
+    python barrels/experiments/2026-11-07_rec_replay/run.py                      # the detector on `barrels` (frozen v1, old finder)
+    python barrels/experiments/2026-11-07_rec_replay/run.py --front hs --out 2026-11-08_rec_replay_hs
+        # 2026-11-08: the hs color model (fit on the 16 home train masks with the config given by --hs, default
+        # the per-class candidate) and the hardened detector; results in results/<--out>/
 """
 from __future__ import annotations
 
+import argparse
 import csv
+import dataclasses
 import json
 import sys
 from pathlib import Path
@@ -31,11 +36,21 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "src"))
-from barrels import cv as bcv, detector as det, tracker as tr, worldmap_bridge as wb  # noqa: E402
+from barrels import cv as bcv, detector as det, io, pipeline as pl, splits, tracker as tr, worldmap_bridge as wb  # noqa: E402
 from barrels.io import BLUE, ORANGE, PKG_ROOT  # noqa: E402
 
 REC = PKG_ROOT / "data" / "recordings" / "2026-11-07_campus"
 OUT = PKG_ROOT / "results" / "2026-11-07_rec_replay"
+
+
+def hs_hook(spec: str) -> wb.BarrelDetectorHook:
+    """A hook running the hs color model fit on the home train masks: spec = 'o5,b15,m4' (S percentiles, hue margin)."""
+    kv = dict(x.strip()[0:1] and (x.strip()[0], float(x.strip()[1:])) for x in spec.split(","))
+    cfg = pl.Config(color_model="hs", hs_s_pct=(kv["o"], kv["b"]), hs_h_pct=(5, 95), hs_h_margin=kv["m"])
+    home = sorted(s for s in splits.load_splits()["train"] if s.startswith("4A8B_window_light"))
+    frames = [pl.Frame.from_image(io.load_image(io.find_image(s))) for s in home]
+    masks = [io.load_mask(io.mask_path(io.find_image(s))) for s in home]
+    return wb.BarrelDetectorHook(model=pl.fit(frames, masks, cfg), det_cfg=det.DetConfig())
 CLIPS = {"r1_static": "two barrels at about 15 cm, nothing moves", "r2_pan": "the robot turned slowly by hand, barrels in view",
          "r3_enter_leave": "a barrel slid into the view from the side and out again", "r4_hand_occlusion": "a hand waved across the barrels twice"}
 
@@ -44,11 +59,25 @@ def matched(b, others, iou=0.3) -> bool:
     return any(o.color == b.color and det.box_iou(o.bbox, b.bbox) >= iou for o in others)
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    global OUT
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--front", choices=("v1", "hs"), default="v1")
+    ap.add_argument("--hs", default="o5,b15,m4", help="hs config: orange S pct, blue S pct, hue margin")
+    ap.add_argument("--out", default=None, help="results folder name (default 2026-11-07_rec_replay)")
+    args = ap.parse_args(argv)
+    if args.out:
+        OUT = PKG_ROOT / "results" / args.out
     OUT.mkdir(parents=True, exist_ok=True)
-    hook = wb.BarrelDetectorHook.default()
+    if args.front == "hs":
+        hook = hs_hook(args.hs)
+        front = f"hs color model ({args.hs}, fit on the home train masks) + hardened detector DetConfig()"
+    else:
+        hook = wb.BarrelDetectorHook.default()
+        hook.det_cfg = dataclasses.replace(det.DetConfig(), stripe_mode="bands", body_min=0.0, height_max=0.0) if hasattr(det.DetConfig(), "stripe_mode") else det.DetConfig()
+        front = "frozen v1 model + the 2026-11-05 detector (as on `barrels`)"
     md = ["# Recordings 2026-11-07 replayed: per-frame detector vs the 3-of-4 view", "",
-          f"git {bcv.git_hash()}; detector as it stands (frozen v1 model, stripe step, boxfit camera); TrackConfig {tr.TrackConfig().__dict__}.", "",
+          f"git {bcv.git_hash()}; front end: {front}; camera boxfit; TrackConfig {tr.TrackConfig().__dict__}.", "",
           "| clip | frames | raw O/B per frame (median, min–max) | raw count changes | raw blips | blips shown | shown O/B per frame (median, min–max) | shown count changes | lag frames (new tracks) |",
           "|---|---|---|---|---|---|---|---|---|"]
     rows = []
@@ -121,7 +150,7 @@ def main() -> int:
     (OUT / "summary.md").write_text("\n".join(md))
     with (OUT / "per_frame.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
-    json.dump({"git": bcv.git_hash(), "track_cfg": tr.TrackConfig().__dict__, "det_cfg": hook.det_cfg.to_dict(), "clips": CLIPS}, (OUT / "config.json").open("w"), indent=1)
+    json.dump({"git": bcv.git_hash(), "front": front, "track_cfg": tr.TrackConfig().__dict__, "det_cfg": hook.det_cfg.to_dict(), "seg_cfg": hook.model.cfg.to_dict(), "clips": CLIPS}, (OUT / "config.json").open("w"), indent=1)
     print("\n".join(md)); print(f"\nwrote {OUT}")
     return 0
 
