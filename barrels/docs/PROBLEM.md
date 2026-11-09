@@ -1,6 +1,6 @@
 # PROBLEM.md — the spec
 
-> **This file is the spec.** It says what we are building and what is out of scope; `EVAL.md` says how it is scored and `constraints.md` lists the physical facts we exploit. The three are foundation docs: they change only through a dated entry in `DECISIONS.md`. **The live spec is the v2 section below**; the v1 section is kept as the record of the frozen front end.
+> **This file is the spec.** It says what we are building and what is out of scope; `EVAL.md` says how it is scored and `constraints.md` lists the physical facts we exploit. The three are foundation docs: they change only through a dated entry in `DECISIONS.md`. **The live spec is the v2 section below**; the v1 section is the record of the first front end (the `rgb_box` model, replaced by the hs model on 2026-11-09, `DECISIONS.md`).
 
 # v1 — barrel color segmentation (frozen 2026-10-20)
 
@@ -94,7 +94,7 @@ Kept with each box internally but **not shown**: the inferred distance, which ed
 
 ## Method (constrained by design)
 
-- **Start from the v1 segmentation** (`afd85483`). Its per-image parts (saturation floor, wall model) stay adaptive at run time. Its fixed part — the two per-class RGB boxes — may be **re-fit once on training frames** (same method, new numbers, logged as an experiment; with v2.0's single table this is expected to stay unused). Nothing is fit per image or per table when an image is shown: the program must work on a frame from a table it has never seen.
+- **Start from the v1 segmentation** (`afd85483`). *(Superseded 2026-11-09, `DECISIONS.md`: the front end is the hs model `eb863d84`, hue sector + HSV-saturation floor per class, fit once; no per-image estimation. Wood tables are in scope since the same date.)* Its per-image parts (saturation floor, wall model) stay adaptive at run time. Its fixed part — the two per-class RGB boxes — may be **re-fit once on training frames** (same method, new numbers, logged as an experiment; with v2.0's single table this is expected to stay unused). Nothing is fit per image or per table when an image is shown: the program must work on a frame from a table it has never seen.
 - **The stripe is the barrel anchor.** Color says "orange thing"; the stripe says "barrel". The stripe is a ring at mid-height, so it is visible from any side whenever the barrel's middle is visible. Find stripes first — a band of one color sandwiched by the other, at the height the geometry expects for that row — and each stripe gives one barrel, its color (the body color) and its distance.
 - **One good measurement plus the known shape gives the whole box.** Measure any one feature reliably — the top edge row, the stripe rows, the width — and the fixed camera (`geometry.py`) gives the distance, and from the distance every other edge. This is how the bottom edge is drawn when it cannot be seen: below the frame, in shadow, behind another barrel, behind clutter. All four cases are in scope.
 - **Bottom-edge precedence:** the seen bottom when it is trustworthy (it agrees with the size the geometry predicts); otherwise inferred from the top edge, then from the stripe, then from the width. Which edges were inferred is recorded.

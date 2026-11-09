@@ -45,16 +45,15 @@ def test_hook_runs_on_a_synthetic_scene(tmp_path):
 def test_default_hook_is_the_detector_as_it_stands():
     hook = wb.BarrelDetectorHook.default()
     assert hook.detector is det.detect and isinstance(hook.det_cfg, det.DetConfig) and hook.det_cfg.require_stripe
-    assert hook.cam == geo.AIM_4A8B6118_BOXFIT and hook.model.cfg.short_hash() == "afd85483"
+    assert hook.cam == geo.AIM_4A8B6118_BOXFIT and hook.model.cfg.short_hash() == "eb863d84" and hook.model.cfg.color_model == "hs"
 
 
 def test_barrels_model_env_var_swaps_the_default_front_end(monkeypatch):
-    hs = io.PKG_ROOT / "results" / "2026-11-09_hs_candidate" / "config.json"
-    monkeypatch.setenv(wb.MODEL_ENV, str(hs))
+    monkeypatch.setenv(wb.MODEL_ENV, str(wb.V1_MODEL))
     hook = wb.BarrelDetectorHook.default()
-    assert hook.model.cfg.color_model == "hs" and hook.model.cfg.short_hash() == "eb863d84"
+    assert hook.model.cfg.color_model == "rgb_box" and hook.model.cfg.short_hash() == "afd85483"
     monkeypatch.delenv(wb.MODEL_ENV)
-    assert wb.BarrelDetectorHook.default().model.cfg.short_hash() == "afd85483"
+    assert wb.BarrelDetectorHook.default().model.cfg.short_hash() == "eb863d84"
 
 
 def test_view_on_a_real_frame_matches_the_photo_path():

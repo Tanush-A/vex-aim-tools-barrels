@@ -3,7 +3,7 @@
 
     python barrels/tools/detect_image.py path/to/image.png [--out DIR] [--cam boxfit|4a8b|nominal] [--show] [--json] [--step1]
 
-Runs the frozen v1 segmentation (config afd85483), then the v2 detector (barrels.detector: the stripe step, with
+Runs the color segmentation (the hs model, config eb863d84, since 2026-11-09), then the v2 detector (barrels.detector: the stripe step, with
 step 1 for the stripeless cases), and writes <stem>_boxes.png into --out (default barrels/results/detect_image/).
 Prints one line per barrel: color, box, and how its edges were decided (seen / inferred / cut by the frame /
 occluded). --json also writes <stem>_det.json. --step1 runs step 1 alone (the detector before 2026-11-05).
@@ -20,7 +20,7 @@ import cv2
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from barrels import detect_cc, detector as det, geometry as geo, io, pipeline as pl, worldmap_bridge as wb  # noqa: E402
 
-DEFAULT_MODEL = wb.default_model_path()                           # the frozen v1 model afd85483 (or $BARRELS_MODEL); shared with the live feed
+DEFAULT_MODEL = wb.default_model_path()                           # the hs model eb863d84 (or $BARRELS_MODEL); shared with the live feed
 DEFAULT_OUT = io.PKG_ROOT / "results" / "detect_image"
 CAMS = {"boxfit": geo.AIM_4A8B6118_BOXFIT, "4a8b": geo.AIM_4A8B6118, "nominal": geo.NOMINAL}
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Run the v1 color segmentation (and the reference CC detector) on one image.
+"""Run the color segmentation (and the reference CC detector) on one image.
 
     python barrels/tools/segment_image.py path/to/image.png [--out DIR] [--model results/.../config.json] [--boxes]
 
-Loads the fitted v1 model (default: the one saved by the final test run, config afd85483), segments
+Loads a fitted color model (default: the hs model adopted 2026-11-09, config eb863d84; `--model results/2026-10-20_v1_test_adaptive/config.json` for v1), segments
 the image, and writes into --out (default barrels/results/segment_image/):
     <stem>_orange.png, <stem>_blue.png   the PROBLEM.md outputs (flat class color on gray)
     <stem>_overlay.png                   the image dimmed with the classes painted on
@@ -22,7 +22,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from barrels import detect_cc, geometry as geo, io, pipeline as pl, viz, worldmap_bridge as wb  # noqa: E402
 
-DEFAULT_MODEL = io.PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"
+DEFAULT_MODEL = io.PKG_ROOT / "results" / "2026-11-09_hs_candidate" / "config.json"      # = worldmap_bridge.DEFAULT_MODEL
 DEFAULT_OUT = io.PKG_ROOT / "results" / "segment_image"      # never next to the image: data/raw must hold only inputs
 
 

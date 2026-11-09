@@ -2,10 +2,10 @@
 
 Live feed (built 2026-11-05, ``barrels/live/BarrelViewer.fsm``): an aim_fsm state machine grabs
 ``robot.camera_image`` (640x480 **RGB**) once a second and shows ``BarrelDetectorHook.view(image, mode)``
-with aim_fsm's PyQt ``imshow``. ``view`` is the whole chain — RGB→BGR, the frozen v1 segmentation, the
+with aim_fsm's PyQt ``imshow``. ``view`` is the whole chain — RGB→BGR, the color segmentation, the
 detector, ``detector.draw`` (yellow = orange barrel, green = blue), BGR→RGB — so the robot path and the
 photo path (``tools/detect_image.py``) run exactly the same code. ``BarrelDetectorHook.default()`` is "the
-detector as it stands": the frozen v1 model (config afd85483), ``detector.detect`` with ``DetConfig()``
+detector as it stands": the hs color model (config eb863d84, adopted 2026-11-09), ``detector.detect`` with ``DetConfig()``
 (the stripe step), camera ``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
 (the class mask blended over the image), ``"both"``. ``render`` is ``view`` with the barrels supplied, for the
 multi-frame program ``live/BarrelTracker.fsm`` (``barrels.tracker``) that shows boxes which persist over frames.
@@ -41,7 +41,8 @@ from . import detector as det, geometry as geo, pipeline as pl, viz
 from .detect_types import AIVISION_SCALE, Barrel
 from .io import BLUE, ORANGE, PKG_ROOT
 
-DEFAULT_MODEL = PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"   # the frozen v1 model, config afd85483
+V1_MODEL = PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"        # the v1 rgb_box model, config afd85483 (the front end until 2026-11-09)
+DEFAULT_MODEL = PKG_ROOT / "results" / "2026-11-09_hs_candidate" / "config.json"         # the hs model o5 b15 h5-95 m2, config eb863d84, adopted 2026-11-09 (DECISIONS.md)
 MODEL_ENV = "BARRELS_MODEL"     # set to another results config.json to try a different front end without editing code
 
 
@@ -119,7 +120,7 @@ class BarrelDetectorHook:
 
     @classmethod
     def default(cls, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> "BarrelDetectorHook":
-        """The detector as it stands: frozen v1 model afd85483 + detector.detect (DetConfig()) + the given camera;
+        """The detector as it stands: the hs model eb863d84 + detector.detect (DetConfig()) + the given camera;
         with BARRELS_MODEL set in the environment, that model file instead (see default_model_path)."""
         path = default_model_path()
         if path != DEFAULT_MODEL:

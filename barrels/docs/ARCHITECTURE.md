@@ -37,7 +37,7 @@ The same thing in plain text:
                                                barrel size per row
 ```
 
-Numbers worth remembering: horizon row ≈ 76; a barrel at 20 cm is ≈ 51 px wide and 55 px tall; the frozen segmentation is config `afd85483`; the current detector scores **0.91** (mean F1, v2 rule) on the 16 train frames against 0.43 for one-box-per-blob.
+Numbers worth remembering: horizon row ≈ 76; a barrel at 20 cm is ≈ 51 px wide and 55 px tall; the front end is the hs model `eb863d84` (orange hue 3–13 S ≥ 140, blue hue 103–119 S ≥ 113); the detector scores **0.99** on the 21 campus train frames (v1 front end: 0.41) and **0.93** at home (mean F1, v2 rule).
 
 ## 2. The two front doors
 
@@ -114,7 +114,7 @@ Rules that keep the numbers honest (`EVAL.md`, `CLAUDE.md`): the 5 test frames a
 - **Mask values:** 0 other, 1 orange, 2 blue, 255 ignore (hand labels only). The orange stripe of a blue barrel is orange.
 - **Boxes:** `[x0, y0, x1, y1]`, half-open, in the 640×480 frame, clipped to it. A `Barrel.color` is the *body* color.
 - **Flags on a detected barrel:** `bottom_inferred`, `top_inferred` (edge drawn from the geometry), `occluded` (stripe partly hidden, full box drawn), `truncated` (touches the frame edge). `source` is `det2` for a stripe barrel, `det1` for a stripeless piece.
-- **Nothing is learned per image.** The two RGB boxes were fit once (`results/2026-10-20_v1_test_adaptive/config.json`, config `afd85483`); the saturation floor and wall model are computed fresh from each image; everything else is geometry.
+- **Nothing is learned per image.** The hue sector and saturation floor per class were fit once (`results/2026-11-09_hs_candidate/config.json`, config `eb863d84`, adopted 2026-11-09); nothing is estimated from the image being segmented; everything else is geometry. (v1, `afd85483`, estimated a saturation floor and a wall model per image from the top rows; that is what failed in real rooms.)
 - **Cameras:** `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon 76) is the default until the calibration session; `AIM_4A8B6118` is the October measurement; `NOMINAL` is Dave's 23° / 400.
 - **Config hashes:** a `pipeline.Config` hashes to an 8-character id; `afd85483` is pinned by a test so new fields cannot silently change it.
 - **Dates in names:** `experiments/` and `results/` folders start with the run date; a result folder is never overwritten (re-runs get a new name or the old one is moved aside).

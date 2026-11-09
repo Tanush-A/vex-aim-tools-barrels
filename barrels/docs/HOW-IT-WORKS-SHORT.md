@@ -1,6 +1,6 @@
 # HOW-IT-WORKS, the short version — start here
 
-One page to understand (or re-explain) the detector. The long form with worked numbers is `HOW-IT-WORKS.md`; the diagrams of how the files fit are `ARCHITECTURE.md`. State as of 2026-11-08 (the stripe step is the detector; the hardening and the hs color model live on branch `wip/redesign` until the walkthrough).
+One page to understand (or re-explain) the detector. The long form with worked numbers is `HOW-IT-WORKS.md`; the diagrams of how the files fit are `ARCHITECTURE.md`. State as of 2026-11-09 (the hs color model is the front end, the stripe step with hardening a–g is the detector; all on `barrels`).
 
 **Naming note.** `EXPERIMENTS.md`, `DECISIONS.md` and `TODO.md` call the stripe step "detector step 2" (it was the second thing built, after "step 1" = blobs → count → bottom edge). In the two HOW-IT-WORKS files the detector is explained as four steps, and the stripe is **step 4**. Same thing.
 
@@ -13,15 +13,15 @@ python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02
 python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png --step1    # steps 1–3 only, for comparison
 ```
 
-Nothing learns from the photo it is looking at. The only learned numbers are two color boxes, fit once from labeled frames. Everything else is computed fresh from the image or is physics: barrel size, camera height, tilt.
+Nothing learns from the photo it is looking at. The only learned numbers are two per color — a hue range and a saturation floor — fit once from labeled frames. Everything else is physics: barrel size, camera height, tilt.
 
-## 1. Color segmentation (`pipeline.py`, frozen since October)
+## 1. Color segmentation (`pipeline.py`, the hs model since 2026-11-09)
 
-Every pixel becomes orange (1), blue (2) or other (0). A pixel survives a chain of cheap tests: not above row 50 (above the horizon, nothing is a barrel); saturation, max(R,G,B) − min(R,G,B), above a floor set **per image** from the top rows (how colorful is the background here, plus a margin; ≈ 48–55 on our table); not close to the wall's color, also estimated from the top rows; brighter than 40. Survivors inside the orange RGB box are orange, inside the blue box blue.
+Every pixel becomes orange (1), blue (2) or other (0). A pixel is a barrel color when it is below row 50 (above the horizon nothing is a barrel), brighter than 40, its **hue** is inside the class's range and its **HSV saturation** ((max − min)/max: a shaded navy face keeps it high, a gray wall never reaches it) is above the class's floor. Orange: hue 3–13, S ≥ 140. Blue: hue 103–119, S ≥ 113. Those four numbers were read off the 16 labeled home frames once; nothing is estimated from the image being looked at. Scores: campus 0.99 vs 0.41 for the old front end, home 0.93 unchanged, nothing on any empty frame.
 
-Known weakness, with evidence: the two per-image parts assume the top rows are plain wall. In Dave's office they are a cluttered shelf, the floor jumps to 96–120, and **zero** barrel pixels come out on all 20 of his frames; on the campus frames (2026-11-07) the same two parts removed the blue bodies and the shaded orange faces in 14 of 21 frames.
+**What it replaced (v1, until 2026-11-09):** a saturation floor and a wall color estimated **per image** from the top 50 rows, then fixed RGB boxes. That assumed the top rows are a plain wall; in a real room (Dave's office, the campus study room) they are clutter, the floor jumped to 96–120, and the barrel bodies themselves were thrown away. Kept as `--model results/2026-10-20_v1_test_adaptive/config.json`; `HOW-IT-WORKS.md` §1, second half.
 
-**The candidate replacement (2026-11-08, branch `wip/redesign`, not yet default): the "hs" model.** Per class a *hue sector* and a floor on *HSV saturation* ((max − min)/max — a shaded navy face keeps it high, a gray wall never reaches it), both read off the labeled home frames once; only the horizon and brightness gates remain, nothing is estimated from the image. Fit with the 15th-percentile floor it scores home 0.93 (v1: 0.93) and gets 17 of 21 campus frames right (v1: 8), nothing on any negative. `HOW-IT-WORKS.md` §1, last subsection.
+**Open question (TODO steps 8 and 10):** the thresholds are fixed, so a strong color cast can move orange out of its hue range. The plan is to look at hue/saturation histograms across light settings first, then decide what an adaptive version keys on.
 
 ## 2. Camera geometry (`geometry.py`)
 

@@ -14,9 +14,30 @@ python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02
 
 Nothing in this chain learns anything from the photo it is looking at. The only "learned" numbers are two color boxes in section 1, fit once from labeled frames; everything else is either computed fresh from the image (the saturation floor, the wall model) or is physics (barrel size, camera height, tilt).
 
-## 1. Color segmentation — `src/barrels/pipeline.py` (v1, frozen at config `afd85483`)
+## 1. Color segmentation — `src/barrels/pipeline.py` (the hs color model, config `eb863d84`, the front end since 2026-11-09; v1 `afd85483` kept below as history)
 
 **What it does.** Takes one image and labels every pixel as barrel-orange (1), barrel-blue (2), or other (0). This is the front end of everything after it; the detector works on these pixel labels, not on the raw image. (A fourth value, 255 = "ignore", exists only in hand-painted label masks for glare we did not want to score.)
+
+### The "hs" color model — the front end (built 2026-11-08, adopted 2026-11-09)
+
+**Why.** On the campus frames (2026-11-07) tests 2 and 3 above removed the barrels themselves: with a dark, cluttered room in rows 0–50 the floor came out at 67–120 and the wall model's spread at 35–52 per channel, so navy-blue bodies (saturation 52–84) and shaded orange faces were rejected as "background" — blue bodies 0–7 % labeled in nine frames (`EXPERIMENTS.md` 2026-11-07, attribution). Every adaptive part assumed the top rows are a plain wall and the barrels the only colorful thing in the picture.
+
+**The idea.** Describe a barrel color by two numbers that do not change with brightness, and read both off the labeled frames once:
+
+- **Hue** (the position on the color circle, OpenCV units 0–179): orange barrels sit at about 5–12, blue ones at 104–118, in the home frames and on campus alike. Hue is computed from the ratios of R, G and B, so a lit face and a shaded face of the same barrel have the same hue. Orange sits next to the wrap at 0/180, so its hue is rotated by +30 before taking percentiles (a sector 3–13 would otherwise read as "3 to 168").
+- **HSV saturation**, S = (max − min) / max, 0–255: how far from gray a color is *relative to its brightness*. A navy-blue shaded face (RGB 12, 45, 85) has S = 219 even though v1's max − min is only 73; a bluish-gray wall (160, 150, 140 or so) stays under 110. This is the number that separates a dark barrel from a gray wall, which v1's max − min could not.
+
+Per class: the S floor = the `hs_s_pct` percentile of the labeled pixels' S; the hue sector = the `hs_h_pct` percentiles of the labeled pixels above that floor, widened by `hs_h_margin` on each side. Then a pixel is that class when it is below row 50, brighter than 40, inside the sector and above the floor; in both → the redder one is orange (the same tie rule). **No per-image floor, no wall model, no table model**: nothing is estimated from the image being segmented.
+
+**The adopted numbers** (fit once on the 16 home train frames, `hs_s_pct=(5, 15), hs_h_pct=(5, 95), hs_h_margin=2`, config `eb863d84`, saved in `results/2026-11-09_hs_candidate/config.json`): **orange hue 3–13, S ≥ 140; blue hue 103–119, S ≥ 113.** Two floors because orange wants a low one (the small dull orange stripe of a far blue barrel, `room_01`) and blue a higher one (the bluish home wall enters the blue class below S ≈ 110). The campus `room_01` blue body (RGB ≈ 12, 45, 85; hue 108, S 219) passes; the home wall in the blue hue sector (S ≤ 110) does not; skin on the campus hand (hue 13, S ≈ 149) passes the orange floor of 140 in places and is kept out of the boxes by the detector's stripe requirement; the orange glue-stick cap (hue 9, S 222) passes and is refused by the detector because nothing sandwiches a band in it.
+
+**Where it lives.** `worldmap_bridge.DEFAULT_MODEL` → the saved model file (what `detect_image.py`, `segment_image.py` and both live programs load; `BARRELS_MODEL` in the environment overrides it, `worldmap_bridge.V1_MODEL` is the old one). `Config(color_model="hs", hs_s_pct, hs_h_pct, hs_h_margin)`; `Frame.hs(shift)` (the hue/saturation planes, cached per shift); `fit_hs` (called by `fit`); the `"hs"` branch at the top of `segment`. The fields are omitted from the config hash at their defaults, so every v1 hash (`afd85483` included) is unchanged. `pipeline.HUE_SHIFT` = {orange: 30, blue: 0}.
+
+**How it was chosen** (`EXPERIMENTS.md` 2026-11-08 and 2026-11-08 later; `DECISIONS.md` 2026-11-09). 18 configurations (orange percentile 5/10/15 × blue 10/15/20 × margin 2/4), scored by a rule written before the run: home leave-one-scene-out v2 ≥ 0.91, zero false detections on every negative frame of both sessions, then the campus v2 score on Tanush's boxes. Winner `o5 b15 h5-95 m2`: **campus train 0.99** (v1: 0.41), home 0.93 (= v1), nothing on any negative, Dave's office 0.47 (indicative). An earlier count-level sweep's rule had picked a home-regressing config; that rule flaw is recorded, and the per-class floor was the fix.
+
+**What can go wrong.** Hue is noise where S is low, so dark low-saturation pixels are excluded by the floor rather than by hue; the orange sector (3–13) touches skin and wood hue — the S floor (140) removes most skin and the detector's stripe requirement the rest; wood tables (in scope since 2026-11-09) will segment as orange and are the detector's problem; a bright blue object in the room (a jacket, a chair) is labeled blue, and only the detector's stripe and size checks keep it from becoming a barrel.
+
+### v1 — the `rgb_box` model, the front end until 2026-11-09 (config `afd85483`; kept for the record, selectable with `--model results/2026-10-20_v1_test_adaptive/config.json`)
 
 **The idea.** A pixel has to survive a chain of cheap tests to be called barrel. Each test throws out pixels that *cannot* be barrel; the last test decides which color the survivors are.
 
@@ -39,25 +60,6 @@ A "table model" built from the bottom rows, mirroring the wall model, exists as 
 **What can go wrong.** Shadowed lower faces of blue barrels fall below the saturation floor (the main miss; `far_02`'s middle orange barrel loses its lower face the same way). Skin lands inside the orange box — hands are orange to this program. Under a strong color cast the fixed RGB boxes can miss while the floor and wall model adapt; v2 allows one re-fit of the boxes on more frames if that happens.
 
 **Numbers.** Held-out test: orange IoU 0.84, blue 0.81, zero false pixels on the empty frame (`EXPERIMENTS.md` 2026-10-20). (IoU for pixels = correct barrel pixels ÷ (correct + missed + falsely added).)
-
-### The "hs" color model — the redesign candidate (2026-11-08, branch `wip/redesign`, not yet the default)
-
-**Why.** On the campus frames (2026-11-07) tests 2 and 3 above removed the barrels themselves: with a dark, cluttered room in rows 0–50 the floor came out at 67–120 and the wall model's spread at 35–52 per channel, so navy-blue bodies (saturation 52–84) and shaded orange faces were rejected as "background" — blue bodies 0–7 % labeled in nine frames (`EXPERIMENTS.md` 2026-11-07, attribution). Every adaptive part assumed the top rows are a plain wall and the barrels the only colorful thing in the picture.
-
-**The idea.** Describe a barrel color by two numbers that do not change with brightness, and read both off the labeled frames once:
-
-- **Hue** (the position on the color circle, OpenCV units 0–179): orange barrels sit at about 5–12, blue ones at 104–118, in the home frames and on campus alike. Hue is computed from the ratios of R, G and B, so a lit face and a shaded face of the same barrel have the same hue. Orange sits next to the wrap at 0/180, so its hue is rotated by +30 before taking percentiles (a sector 3–13 would otherwise read as "3 to 168").
-- **HSV saturation**, S = (max − min) / max, 0–255: how far from gray a color is *relative to its brightness*. A navy-blue shaded face (RGB 12, 45, 85) has S = 219 even though v1's max − min is only 73; a bluish-gray wall (160, 150, 140 or so) stays under 110. This is the number that separates a dark barrel from a gray wall, which v1's max − min could not.
-
-Per class: the S floor = the `hs_s_pct` percentile of the labeled pixels' S; the hue sector = the `hs_h_pct` percentiles of the labeled pixels above that floor, widened by `hs_h_margin` on each side. Then a pixel is that class when it is below row 50, brighter than 40, inside the sector and above the floor; in both → the redder one is orange (the same tie rule). **No per-image floor, no wall model, no table model**: nothing is estimated from the image being segmented.
-
-**Worked numbers** (fit on the 16 home train frames, `hs_s_pct=15, hs_h_pct=(5, 95), hs_h_margin=4`, config `…`, the sweep's runner-up): orange hue 1–14, S ≥ 174; blue hue 101–121, S ≥ 113. The campus `room_01` blue body (RGB ≈ 12, 45, 85; hue 108, S 219) passes; the home wall in the blue hue sector (S ≤ 110) does not; skin on the campus hand (hue 13, S 149) fails the orange floor; the orange glue-stick cap (hue 9, S 222) passes — and is then refused by the detector because nothing sandwiches a band in it.
-
-**Where it lives.** `Config(color_model="hs", hs_s_pct, hs_h_pct, hs_h_margin)`; `Frame.hs(shift)` (the hue/saturation planes, cached per shift); `fit_hs` (called by `fit`); the `"hs"` branch at the top of `segment`. The fields are omitted from the config hash at their defaults, so every v1 hash (`afd85483` included) is unchanged. `pipeline.HUE_SHIFT` = {orange: 30, blue: 0}.
-
-**What the sweep said** (`EXPERIMENTS.md` 2026-11-08, `experiments/2026-11-08_seg_hs/`; home = leave-one-scene-out, campus = count-level): the S floor is the whole game for blue at home — at the 5th percentile (S ≥ 64) the wall produces false blue boxes on the positive frames (blue F1 0.48), at the 15th (S ≥ 113) it is gone (0.96) with the campus barrels still found; orange needs hue slack toward yellow (the campus barrels in daylight read hue 7–13 against 5–10 at home), so a margin of 2–4 units. Not adopted yet: the pre-registered selection rule chose the 5th-percentile floor by the campus count and ignored the home score, which is a flaw in the rule, not the data; the decision waits for Tanush's box labels on the campus frames and the walkthrough.
-
-**What can go wrong.** Hue is noise where S is low, so dark low-saturation pixels are excluded by the floor rather than by hue; the orange sector (1–14) touches skin and wood hue — the S floor (≥ 174) is what keeps skin out, and wood tables are out of scope; a bright blue object in the room (a jacket, a chair) is labeled blue, and only the detector's stripe and size checks keep it from becoming a barrel.
 
 ## 2. Camera geometry — `src/barrels/geometry.py` (v1.5)
 
@@ -98,7 +100,7 @@ So a barrel at 20 cm is about 51 px wide and 55 px tall with its bottom at row 1
 
 **Numbers to remember.** Horizon row ≈ 76. A barrel at 20 cm is ≈ 51 px wide. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
 
-## 3. The detector — `src/barrels/detector.py` (v2; steps 1–3 built 2026-11-03, the stripe step the default since 2026-11-05, hardened 2026-11-08 on branch `wip/redesign`)
+## 3. The detector — `src/barrels/detector.py` (v2; steps 1–3 built 2026-11-03, the stripe step the default since 2026-11-05, hardened a–g 2026-11-08/09)
 
 **What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` / `top_inferred` when that edge was computed rather than seen; `occluded` when the stripe was partly hidden and the full box drawn anyway; `truncated` when the box reaches a frame edge), `area` (how many mask pixels it came from) and `source` (`"det2"` for a barrel found from its stripe, `"det1"` for a stripeless piece). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, same signature as the dumb reference `detect_cc.detect`, so either can be plugged into `detect_image.py` or the experiment scripts. `draw(image, barrels)` paints a 1-px rectangle per barrel — yellow for an orange barrel, green for a blue one, so the lines stand out from the barrels — and nothing else: the v2 deliverable image.
 
@@ -154,7 +156,7 @@ Steps 1–3 box anything barrel-colored and barrel-sized. Step 4 adds the one th
 
 *Status.* The default since 2026-11-05 (`DetConfig.require_stripe=True`): it beat steps 1–3 on the train frames under both rules (below). `detect_image.py --step1` runs steps 1–3 alone for comparison.
 
-### The hardening (2026-11-08, branch `wip/redesign`, awaiting walkthrough)
+### The hardening (a–g; 2026-11-08/09, walkthrough acknowledged and merged 2026-11-09)
 
 The campus attribution (`EXPERIMENTS.md` 2026-11-07) confirmed the two flaws pre-registered after the first live run and found a third; a fourth showed up under the new color model. Each is a `DetConfig` field, so the 2026-11-05 behaviour stays reproducible (`stripe_mode="bands"`, `body_min=0`, `height_max=0`).
 

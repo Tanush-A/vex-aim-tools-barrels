@@ -26,7 +26,7 @@ simple_cli BarrelTracker         # boxes that persist: a barrel is shown after 3
 genfsm BarrelViewer.fsm          # only after editing a .fsm — rewrites the .py next to it (both .py files are committed)
 ```
 
-**Trying a candidate front end before it is adopted** (branch `wip/redesign`, 2026-11-09): set `BARRELS_MODEL` to a results `config.json` that carries a fitted model, and both programs and `tools/detect_image.py` use it instead of the frozen v1. The hs candidate: `export BARRELS_MODEL=~/Desktop/Celeste/vex-aim-tools/barrels/results/2026-11-09_hs_candidate/config.json` before `simple_cli`; `unset BARRELS_MODEL` to go back. The program prints which model it loaded.
+**Swapping the front end** (2026-11-09): the default is the hs model (`results/2026-11-09_hs_candidate/config.json`, adopted 2026-11-09). Set `BARRELS_MODEL` to another results `config.json` that carries a fitted model and both programs and `tools/detect_image.py` use that instead; e.g. the old v1 front end for a side-by-side: `export BARRELS_MODEL=~/Desktop/Celeste/vex-aim-tools/barrels/results/2026-10-20_v1_test_adaptive/config.json` before `simple_cli`; `unset BARRELS_MODEL` to go back. The program prints which model it loaded when it is not the default.
 
 At the `C>` prompt (both programs):
 
