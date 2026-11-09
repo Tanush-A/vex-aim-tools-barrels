@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_occl_02",
+ "image_sha1": "cffe85c7eb50b5c2ad55680a182bb2eb5b065f36",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    275,
+    123,
+    328,
+    180
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  }
+ ]
+}

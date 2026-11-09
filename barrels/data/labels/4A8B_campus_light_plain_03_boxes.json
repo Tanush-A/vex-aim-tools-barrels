@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_plain_03",
+ "image_sha1": "0c7e49516cf207d531dd4c2abaad8339f418445f",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    129,
+    118,
+    179,
+    167
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    373,
+    116,
+    417,
+    165
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

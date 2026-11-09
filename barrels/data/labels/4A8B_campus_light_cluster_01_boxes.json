@@ -1,0 +1,64 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_cluster_01",
+ "image_sha1": "efdf40e398e5a5cac06eeffb8b101b0f464861ba",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    237,
+    128,
+    296,
+    200
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    270,
+    136,
+    340,
+    214
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    292,
+    118,
+    334,
+    163
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    340,
+    125,
+    398,
+    185
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

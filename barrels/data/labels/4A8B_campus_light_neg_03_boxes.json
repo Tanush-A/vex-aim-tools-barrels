@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_neg_03",
+ "image_sha1": "d7d5aa787d9db1a28292c532a2f966cfa6547ad9",
+ "reviewed": true,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

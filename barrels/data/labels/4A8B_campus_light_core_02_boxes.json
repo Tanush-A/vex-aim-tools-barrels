@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_core_02",
+ "image_sha1": "872b9c33d5533d5b2497baafbf74f99c156f6b33",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    59,
+    164,
+    186,
+    299
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    239,
+    111,
+    273,
+    147
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    333,
+    131,
+    397,
+    201
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    395,
+    130,
+    463,
+    202
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

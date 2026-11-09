@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_hand_01",
+ "image_sha1": "8aef590175aaf3af42a109cbbd54f403ffae7039",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    128,
+    125,
+    189,
+    186
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    396,
+    126,
+    454,
+    185
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

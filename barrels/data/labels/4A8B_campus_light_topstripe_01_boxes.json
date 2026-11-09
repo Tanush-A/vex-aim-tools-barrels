@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_topstripe_01",
+ "image_sha1": "c423a940625d987b1ec9919259bfec798cf0b749",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    221,
+    238,
+    468,
+    477
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_room_01",
+ "image_sha1": "d12c2210cb9385f05d5a31b00ab5922336c92f24",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    64,
+    123,
+    125,
+    181
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    339,
+    120,
+    389,
+    176
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

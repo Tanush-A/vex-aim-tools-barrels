@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_touch_02",
+ "image_sha1": "64b15603a4f534f28e22ef45457e3996815aff3f",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    223,
+    123,
+    274,
+    178
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    273,
+    122,
+    324,
+    178
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

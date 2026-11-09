@@ -1,0 +1,49 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_clutter_01",
+ "image_sha1": "94a174ba4c13b7a3c5edd24b96dba310c038b3a0",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    201,
+    126,
+    257,
+    186
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    439,
+    123,
+    494,
+    181
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    473,
+    120,
+    522,
+    174
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_edge_01",
+ "image_sha1": "504d9a317ee3f1ba95c6b770d48e8e8db90ad55a",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    602,
+    143,
+    638,
+    228
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "version": 1,
+ "stem": "4A8B_campus_light_occl_01",
+ "image_sha1": "5c0087c9820a8fa5e96b631f0edbbf5c6463a8d9",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    274,
+    123,
+    326,
+    180
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    279,
+    146,
+    367,
+    244
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}
