@@ -166,6 +166,19 @@ def test_close_barrel_with_stripe_below_the_frame_is_kept_without_a_stripe():
     assert len(out) == 1 and out[0].bbox[3] == 480 and "truncated" in out[0].flags
 
 
+def test_far_barrel_above_a_close_one_does_not_hide_it():
+    """(g) 2026-11-09: the close-up with its stripe below the frame must keep its box even when a far barrel with a
+    stripe stands directly above it in the picture (same columns, different rows)."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(35)
+    x0, x1 = int(320 - r.width_px / 2), int(320 + r.width_px / 2)
+    mask[int(r.top):480, x0:x1] = io.ORANGE                 # the close one, stripe below the frame
+    paint_barrel(mask, 300, 320, body=io.BLUE)              # a far one, straight above it in the image
+    out = sorted(det.detect(mask, CFG2, CAM), key=lambda b: b.bbox[1])
+    assert [b.color for b in out] == [io.BLUE, io.ORANGE]
+    assert out[1].bbox[3] == 480 and "truncated" in out[1].flags
+
+
 def test_touching_same_color_pair_gives_two_stripes():
     mask = np.zeros((480, 640), np.uint8)
     W = CAM.barrel_rows(150).width_px

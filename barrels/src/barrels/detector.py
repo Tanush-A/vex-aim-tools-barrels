@@ -547,7 +547,9 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
             continue
         out.append(b)
     for p in pieces:
-        if any(_x_overlap(p.bbox, o.bbox) > 0.3 for o in out):
+        # (g) 2026-11-09: a stripe barrel accounts for a piece only if the two boxes share rows as well as columns — a far
+        # barrel standing above a close one in the picture used to "cover" it (live run with Dave: the close-up got no box)
+        if any(_x_overlap(p.bbox, o.bbox) > 0.3 and min(p.bbox[3], o.bbox[3]) > max(p.bbox[1], o.bbox[1]) for o in out):
             continue                                         # the stripe barrels already account for this piece
         g = _stripe_geometry(cam, (p.bbox[1] + p.bbox[3]) / 2)
         hs = (g[1].stripe_bottom - g[1].stripe_top) if g else math.inf
