@@ -7,8 +7,8 @@ Written for Tanush. One document, plain English. Section 1 is the answer, sectio
 - The live run failed because of the **color segmentation**, not the detector. Measured on your 21 campus train frames: 7 right, 9 wrong from segmentation alone, 5 from segmentation + detector, 0 from the detector alone.
 - v1's segmentation reads the top 50 rows of each image to learn the background. On the home table that is a plain wall; in the campus room it is chairs, people and windows, so it learns "dark gray is background" and a saturation floor two times too high, and it throws away the navy barrel bodies and the shaded orange faces.
 - I built a replacement front end (the **hs model**: fixed hue sector + HSV saturation floor per color, learned once from your 16 home frames, nothing estimated from the image) and hardened the detector in five places (a–e below).
-- With your boxes as ground truth, on the 21 campus train frames: **0.97** for the new front end + hardened detector vs **0.41** for what is on `barrels` today. Home score unchanged at 0.93. Nothing drawn on any real negative frame of either session, nor on Dave's pink desk.
-- **Nothing is switched on yet.** All code sits on branch `wip/redesign` (one commit on top of `barrels`). You read section 6, say "understood" or ask, make three small decisions (section 5), and I merge and adopt.
+- With your boxes as ground truth, on the 21 campus train frames: **0.99** for the new front end + hardened detector vs **0.41** for what is on `barrels` today (0.97 before you boxed `held_01`). Home score unchanged at 0.93. Nothing drawn on any real negative frame of either session, nor on Dave's pink desk.
+- **Nothing is switched on yet.** All code sits on branch `wip/redesign` (one commit on top of `barrels`). You read section 6, say "understood" or ask, make two small decisions (section 5), and I merge and adopt.
 
 ## 2. Everything that changed
 
@@ -16,7 +16,7 @@ Written for Tanush. One document, plain English. Section 1 is the answer, sectio
 
 - **31 campus frames imported** as `data/raw/4A8B_campus_light_*.png` (light tag `campus`, surface `light`), split at import into **10 test / 21 train** (`data/splits.json`, `make_splits.py --v2 --filter 4A8B_campus_light`). The 10 test frames were never loaded by anything. `DATA.md` has the set row and the session notes.
 - **4 recordings** moved to `barrels/data/recordings/2026-11-07_campus/{r1_static, r2_pan, r3_enter_leave, r4_hand_occlusion}/`. Too big for git; the repo-root `.gitignore` now excludes `barrels/data/recordings/`.
-- **Your 31 box label files** committed (`data/labels/4A8B_campus_light_*_boxes.json`). Your counts matched mine on every train frame except `held_01` (no box on the barrel in the kicker). `tests/test_labels_consistency.py` now allows `held` scenes to have no boxes so the suite stays green with that file as you drew it.
+- **Your 31 box label files** committed (`data/labels/4A8B_campus_light_*_boxes.json`). Your counts matched mine on every train frame except `held_01`, which you boxed later in the evening (blue barrel, no `held` flag, so it is an ordinary positive). `tests/test_labels_consistency.py` allows `held` scenes to have no boxes, which kept the suite green in between.
 
 ### 2b. Experiments and results (on `barrels`; scripts in `experiments/`, tables in `results/`, entries in `EXPERIMENTS.md`)
 
@@ -25,7 +25,7 @@ Written for Tanush. One document, plain English. Section 1 is the answer, sectio
 3. **`2026-11-07_seg_hs_probe`** — first try at a hue/saturation front end, on `barrels` with a local fit function. Found the hue wrap bug (orange's sector read "3 to 168" because orange sits next to hue 0); fixed by rotating orange hue +30 before taking percentiles. Showed the idea works: campus bodies appear, Dave's desk stays empty.
 4. **`2026-11-08_det_hardening`** (branch) — old vs new detector × old vs hs pixels. Home 0.91 → 0.93 with v1 pixels, 0.57 → 0.78 with hs pixels; turning the dark-gap path back on makes every number worse.
 5. **`2026-11-08_seg_hs`** (branch) — 24-config sweep of the hs model, leave-one-scene-out on home, campus at count level (before your boxes). Honest mistake recorded: the pre-registered selection rule picked a config that gets 19/21 campus right but drops home to 0.69 (your bluish wall enters the blue class, and the home negatives could not show it). Rule flaw logged in `DECISIONS.md`; nothing adopted from this run.
-6. **`2026-11-08_seg_hs_v2`** (branch) — 18 configs with **separate saturation percentiles for orange and blue** (orange 5/10/15 × blue 10/15/20 × hue margin 2/4), scored under the v2 rule with your boxes. This is where 0.97 vs 0.41 comes from. Candidate: **`hs o5 b15 h5-95 m2`** (orange hue 3–13, S ≥ 140; blue hue 103–119, S ≥ 113; config hash `eb863d84`). Proposed selection rule: home LOSO v2 ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile. As labeled it returns "no winner" only because `held_01` counts the found-but-unboxed barrel as a false detection; with that frame boxed or set aside it picks the candidate.
+6. **`2026-11-08_seg_hs_v2`** (branch) — 18 configs with **separate saturation percentiles for orange and blue** (orange 5/10/15 × blue 10/15/20 × hue margin 2/4), scored under the v2 rule with your boxes. This is where 0.99 vs 0.41 comes from. Candidate: **`hs o5 b15 h5-95 m2`** (orange hue 3–13, S ≥ 140; blue hue 103–119, S ≥ 113; config hash `eb863d84`). Proposed selection rule: home LOSO v2 ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile. Run twice: before your `held_01` box it returned "no winner" (every hs config finds the held barrel, which counted as a false detection; candidate 0.97). Re-run after your box: the detector's box matches yours at IoU 0.96 and the rule picks the candidate.
 7. **`2026-11-08_rec_replay_hs`** (branch) — the replay (item 2) with the candidate front end: barrels found in every clip, 0 blips shown, lag 2 frames, covered barrel in the hand clip dropped and re-acquired by design. One persistent false blue box on clutter at the right frame edge in the static clip (section 4).
 
 ### 2c. Main code (branch `wip/redesign`, awaiting your walkthrough; 216 tests pass)
@@ -58,7 +58,7 @@ Score = mean F1 over the two colors under the v2 rule (one box per barrel, match
 |---|---|---|---|---|
 | detector on `barrels` today (v1 front end) | 0.41 | 0.93 | 0.00 (finds nothing) | clean |
 | hardened detector, v1 front end | — | 0.93 | — | clean |
-| **hs `o5 b15 h5-95 m2` + hardened detector** | **0.97** (orange 1.00, blue 0.94) | **0.93** | 0.44 | clean |
+| **hs `o5 b15 h5-95 m2` + hardened detector** | **0.99** (orange 1.00, blue 0.97) | **0.93** | 0.44 | clean |
 
 Dave's frames are indicative only: his ground-truth boxes enclose touching barrels as one group, which the v2 rule penalizes.
 
@@ -67,7 +67,6 @@ Recordings with the candidate: tracker shows a new barrel after 2 frames (the 3-
 ## 4. Still wrong, and known
 
 - **`occl_02`** — the barrel behind the marker. Its stripe is fully hidden; the detector is stripe-anchored, so this is the known limit. A P1 idea is pre-registered in `TODO.md` (a stripeless body piece directly above a found barrel of the same color).
-- **`held_01`** — the barrel in the kicker is found and you did not box it, so it scores as a false detection. Needs your call (section 5).
 - **Persistent false blue box** in the static recording: a blue object at the right frame edge just above the table is boxed as a barrel in every frame. That is the stripeless-far path accepting an edge blob. Persistent boxes are not the tracker's job; this needs a detector rule, which I want to pre-register after you have seen it live (likely: refuse a stripeless far piece that touches a side edge).
 - **Mixed-color occlusion** (orange behind blue, `occl_02`): the back barrel's lower body reads as a band of the front barrel's color. P1.
 - **Calibration** not done (no ruler on 2026-11-07); the camera model is still the provisional box-fit one. P1.
@@ -76,12 +75,12 @@ Recordings with the candidate: tracker shows a new barrel after 2 frames (the 3-
 
 1. **Read section 6** (about 15 minutes). Reply "understood" or ask about whatever is unclear. This is the walkthrough the rules require before the branch can land on `barrels`.
 2. **Decide the selection rule.** Proposed: home leave-one-scene-out v2 ≥ 0.91, zero false detections on every negative frame of both sessions, then campus v2, then home v2, then the lower blue percentile. Yes or no.
-3. **Decide `held_01`.** Either open it in the box tool and box the barrel in the kicker with the `h` flag (one minute), or tell me "held barrels are out of scope" and I log it in `DECISIONS.md` and `PROBLEM.md`. Either works; the eval needs one.
+3. ~~Decide `held_01`.~~ Done: you boxed it this evening, and the re-run accepts it (IoU 0.96 with the detector's box).
 4. **Confirm the `clean` flags** on `neg_05` and `clutter_02`. They contain an orange cap and a glue stick, so by `DATA.md` they are not "clean", but leaving them `clean=true` only makes the standard stricter. Say "leave" or "change".
 5. **After I adopt** (I fit once, save the config, point the default at it, merge): run `simple_cli BarrelTracker` on the campus table, do a slow pan, let a hand pass in front, take two `tm rec` clips, and tell me in chat what you saw. Watch for the blue box at the right edge.
 6. **Send Dave the email** in section 7 after step 5 is done, so it has the live result in it.
 
-What I do once you answer 1–4: adopt the chosen config (fit on the 16 home train frames, save under `results/`, `worldmap_bridge.DEFAULT_MODEL` → it, HOW-IT-WORKS §1 rewritten with hs as the front end and v1 as history, `PROBLEM.md` banner via `DECISIONS.md`), fast-forward `barrels` to the branch, then one test run on the 10 campus + 5 home test frames, once, logged.
+What I do once you answer 1, 2 and 4: adopt the chosen config (fit on the 16 home train frames, save under `results/`, `worldmap_bridge.DEFAULT_MODEL` → it, HOW-IT-WORKS §1 rewritten with hs as the front end and v1 as history, `PROBLEM.md` banner via `DECISIONS.md`), fast-forward `barrels` to the branch, then one test run on the 10 campus + 5 home test frames, once, logged.
 
 ## 6. The walkthrough
 
@@ -129,7 +128,7 @@ Hi Dave,
 
 Quick update. I shot 31 frames and four short recordings on a campus table (room, hand, laptop lid, window, the standard arrangement list) and ran an attribution on the 21 development frames: 7 right, 9 wrong in the color segmentation alone, 5 in segmentation + detector, none in the detector alone. The cause is the two stages of the v1 segmentation that read the top rows of the image to estimate the background: in a real room they learn a wide dark gray and a high saturation floor and throw away the navy barrel bodies and the shaded orange faces. The detector itself holds up once it gets barrel pixels.
 
-The fix: describe each barrel color by hue and HSV saturation (both brightness-invariant), learned once from the labeled frames, with no per-image estimation at all, plus the detector hardening we had pre-registered (a dark gap is not a stripe; shadow glued to a stripe cannot veto it; a box must hold body color). Under our v2 rule with my own box labels it scores 0.97 mean F1 on the 21 campus development frames against 0.41 for the previous detector; the home-table score is unchanged at 0.93; nothing is drawn on any empty frame, and on your office frames it leaves the pink desk alone and finds the barrel bodies for the first time. [One sentence on what the live view did on campus.]
+The fix: describe each barrel color by hue and HSV saturation (both brightness-invariant), learned once from the labeled frames, with no per-image estimation at all, plus the detector hardening we had pre-registered (a dark gap is not a stripe; shadow glued to a stripe cannot veto it; a box must hold body color). Under our v2 rule with my own box labels it scores 0.99 mean F1 on the 21 campus development frames against 0.41 for the previous detector; the home-table score is unchanged at 0.93; nothing is drawn on any empty frame, and on your office frames it leaves the pink desk alone and finds the barrel bodies for the first time. [One sentence on what the live view did on campus.]
 
 One question: your ground-truth boxes on the office snapshots enclose two touching barrels in one box (e.g. snap_05). Was that your detector's design, or a labeling shortcut? It decides how I score your frames.
 
