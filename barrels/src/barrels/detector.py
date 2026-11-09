@@ -12,8 +12,10 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
                        (``stripe_mode="cores"``), so unlabeled shadow glued to it cannot make it "too tall"; a
                        dark gap with no stripe-colored pixel is not a stripe unless ``dark_stripe`` is on; and
                        a box must hold enough body color in the stripe's columns (``body_min``), so a blue
-                       barrel's body between two orange things is not an orange barrel. ``stripe_mode="bands"``
-                       is the 2026-11-03 finder, kept for comparison.
+                       barrel's body between two orange things is not an orange barrel; a stripeless piece must
+                       be barrel-tall; a stripe cut by the frame edge is hidden on that side, so its full box is
+                       drawn into the edge, not into the frame. ``stripe_mode="bands"`` is the 2026-11-03 finder,
+                       kept for comparison.
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -432,8 +434,9 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
         # partly hidden: widen to a full barrel on the side where something barrel-colored (the occluder)
         # borders the stripe; if neither or both sides are bordered, centre the full width on what is seen
         row = int(s.center_row)
-        left_hidden = x0 > 0 and mask[row, x0 - 1] in (ORANGE, BLUE)
-        right_hidden = x1 < w and mask[row, x1] in (ORANGE, BLUE)
+        # the hidden side: something barrel-colored borders the stripe there, or the frame edge cuts it (2026-11-08, (e))
+        left_hidden = x0 <= 0 or mask[row, x0 - 1] in (ORANGE, BLUE)
+        right_hidden = x1 >= w or mask[row, x1] in (ORANGE, BLUE)
         Wi = int(round(W))
         if left_hidden and not right_hidden:
             bx0, bx1 = x1 - Wi, x1

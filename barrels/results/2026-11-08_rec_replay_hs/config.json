@@ -1,6 +1,6 @@
 {
- "git": "e881cf2",
- "front": "hs color model (o5,b15,m4, fit on the home train masks) + hardened detector DetConfig()",
+ "git": "b16b6a7",
+ "front": "hs color model (o5,b15,m2, fit on the home train masks) + hardened detector DetConfig()",
  "track_cfg": {
   "window": 4,
   "min_hits": 3,
@@ -76,7 +76,7 @@
    5,
    95
   ],
-  "hs_h_margin": 4.0
+  "hs_h_margin": 2.0
  },
  "clips": {
   "r1_static": "two barrels at about 15 cm, nothing moves",

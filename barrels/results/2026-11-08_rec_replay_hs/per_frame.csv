@@ -109,7 +109,7 @@ r2_pan,frame_052.png,8.347,1,2,1,1
 r2_pan,frame_053.png,8.459,1,1,1,1
 r2_pan,frame_054.png,8.661,1,1,1,1
 r2_pan,frame_055.png,8.812,1,1,1,1
-r2_pan,frame_056.png,8.965,1,1,1,1
+r2_pan,frame_056.png,8.965,1,2,1,1
 r2_pan,frame_057.png,9.069,1,2,1,1
 r2_pan,frame_058.png,9.265,1,1,1,1
 r2_pan,frame_059.png,9.462,1,1,1,1
@@ -187,7 +187,7 @@ r4_hand_occlusion,frame_007.png,1.08,1,1,1,1
 r4_hand_occlusion,frame_008.png,1.217,1,1,1,1
 r4_hand_occlusion,frame_009.png,1.331,1,1,1,1
 r4_hand_occlusion,frame_010.png,1.486,1,1,1,1
-r4_hand_occlusion,frame_011.png,1.678,1,1,1,1
+r4_hand_occlusion,frame_011.png,1.678,1,2,1,1
 r4_hand_occlusion,frame_012.png,1.866,1,1,1,1
 r4_hand_occlusion,frame_013.png,1.986,1,1,1,1
 r4_hand_occlusion,frame_014.png,2.123,1,1,1,1
@@ -229,8 +229,8 @@ r4_hand_occlusion,frame_049.png,8.084,1,1,1,1
 r4_hand_occlusion,frame_050.png,8.187,1,1,1,1
 r4_hand_occlusion,frame_051.png,8.343,2,1,1,1
 r4_hand_occlusion,frame_052.png,8.486,2,1,1,1
-r4_hand_occlusion,frame_053.png,8.685,1,1,1,1
-r4_hand_occlusion,frame_054.png,8.828,1,1,1,1
+r4_hand_occlusion,frame_053.png,8.685,2,1,2,1
+r4_hand_occlusion,frame_054.png,8.828,1,1,2,1
 r4_hand_occlusion,frame_055.png,8.987,1,1,1,1
 r4_hand_occlusion,frame_056.png,9.189,1,1,1,1
 r4_hand_occlusion,frame_057.png,9.393,1,1,1,1

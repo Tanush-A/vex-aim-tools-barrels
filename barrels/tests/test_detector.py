@@ -189,3 +189,14 @@ def test_stripeless_piece_must_be_barrel_tall():
     mask[120 - int(round(H)):120, 309:333] = io.BLUE                         # the same blob at a barrel's height passes the shape checks ...
     assert len(det.detect_step1(mask, CFG2, cam)) == 1
     assert det.detect(mask, CFG2, cam) == []                                 # ... but a stripe (5.8 px here) could have been seen, so no box
+
+
+def test_stripe_cut_by_the_frame_edge_widens_into_the_edge():
+    """Hardening (e): a barrel half out of the frame on the right — the full box goes to the frame edge, not leftward."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(120)
+    W = r.width_px
+    truth = paint_barrel(mask, 120, 640 - W * 0.3)          # 30 % of the barrel inside the frame, the rest beyond x = 640
+    out = det.detect(mask, CFG2, CAM)
+    assert len(out) == 1 and "truncated" in out[0].flags
+    assert out[0].bbox[2] == 640 and abs(out[0].bbox[0] - truth[0]) <= 2   # left edge where the barrel starts, right edge at the frame

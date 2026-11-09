@@ -3,7 +3,7 @@ name,condition,negative,orange_n_gt,orange_tp,orange_fp,orange_fn,orange_ignored
 4A8B_campus_light_cluster_02,campus_light,0,2,2,0,0,0,2,0,0,2,2,0,0,0,2,0,0,0,cluster,1,0
 4A8B_campus_light_clutter_02,campus_light,0,1,1,0,0,0,1,0,0,2,2,0,0,0,2,0,0,0,clutter,1,0
 4A8B_campus_light_core_01,campus_light,0,2,2,0,0,0,2,0,0,2,2,0,0,0,2,0,0,0,core,1,0
-4A8B_campus_light_edge_01,campus_light,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,edge,1,0
+4A8B_campus_light_edge_01,campus_light,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,edge,1,0
 4A8B_campus_light_far_01,campus_light,0,2,2,0,0,0,2,0,0,2,2,0,0,0,2,0,0,0,far,1,0
 4A8B_campus_light_hand_02,campus_light,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1,0,0,0,hand,1,0
 4A8B_campus_light_held_01,campus_light,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,held,1,1
