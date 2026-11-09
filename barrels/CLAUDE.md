@@ -46,6 +46,7 @@ Everything lives in `barrels/`; the only place that imports `aim_fsm` is `barrel
 | `docs/NOTES-INBOX.md` | Start of session (triage it) | Tanush pastes in notes from phone/browser chats |
 | `docs/HOW-IT-WORKS-SHORT.md` → `docs/HOW-IT-WORKS.md` | Before touching main code (pipeline, geometry, detector, eval); SHORT is the one-page entry, the long form has the worked numbers | In the same commit as any main-code change (both files) |
 | `docs/ARCHITECTURE.md`, `README.md` | When a file, folder or command is added or renamed | Same commit |
+| `docs/HANDOFF.md` | Starting a fresh CLI session (it has the warm-up prompt and the agreements not written elsewhere) | When an agreement or a location changes |
 | `docs/archive/` | Never needed; the record of October (meeting briefs, overnight summaries, the v1 summary, the v1 capture plan) | Move a doc here when it stops being current; never edit it there |
 | `docs/NAVIGATOR.md` | Start of every session (after `STATUS.md`) | **Never** — navigator-owned, read-only for Claude Code. Act on its open requests; reply via `STATUS.md` or `NOTES-INBOX.md` |
 
