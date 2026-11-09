@@ -1,51 +1,50 @@
 # TODO.md — the live task list
 
-**Updated:** 2026-11-08, evening (campus boxes in, `held_01` included; the hs candidate scores 0.99 on the campus train frames against 0.41 today and the proposed rule picks it; next: Tanush's walkthrough and decision, then adoption). Rule (`CLAUDE.md`): updated every time a task starts, finishes or changes priority, at the same moment as `STATUS.md`. Done items move to the bottom with the date. P0 = this week, in order; P1 = next; P2 = parked but real. Owner in brackets.
+**Updated:** 2026-11-09, rewritten from Tanush's notes after the live run with Dave. **Draft — awaiting Tanush's approval of the order and the data step.** Current work only; history lives in `EXPERIMENTS.md`, `DECISIONS.md` and git. Rule (`CLAUDE.md`): updated every time a task starts, finishes or changes priority, with `STATUS.md`.
 
-## P0 (in this order)
+**Direction for the week (Tanush, 2026-11-09):** hue + HSV-saturation is the right front end. (1) Fix bugs. (2) Generalize: many light settings, table colors, clutter, occlusion. Claude's eval metrics stay; Tanush's own measure is "scenarios where the vendor detector fails and ours works". Everything on branch `wip/redesign` until the walkthrough is acknowledged.
 
-- [ ] **1. Walkthrough + decision on branch `wip/redesign`** [Tanush reads, Claude explains]. `docs/OVERNIGHT-2026-11-08.md` (§6) in plain English; `HOW-IT-WORKS.md` §1 (last subsection, the hs color model) and §3 ("The hardening", a–e) in full. Decide: (a) merge the detector hardening — six reversible `DetConfig` fields (a–f), home 0.91 → 0.93 with the old pixels; (b) the selection rule (proposed: home LOSO v2 ≥ 0.91, zero false detections on every negative of both sessions, then campus v2) — it picks `hs o5 b15 h5-95 m2` (campus v2 0.99, home 0.93); (c) ~~`held_01`~~ done: Tanush boxed it 2026-11-08 evening (blue, no flag); (d) `clean` on `neg_05` / `clutter_02` (orange cap, glue stick present) — stricter than the definition, fine if intended.
-- [ ] **2. Adopt the chosen front end** [Claude, after 1]. Fit once on the 16 home train frames, save to `results/2026-11-xx_hs_default/config.json`, `worldmap_bridge.DEFAULT_MODEL` → it, `detect_image.py` and both live programs follow; `HOW-IT-WORKS` §1 rewritten (hs as the front end, v1 as history); `PROBLEM.md` banner via `DECISIONS.md`. Merge = fast-forward of `barrels` to the branch.
-- [ ] **3. Both live programs on campus with the new front end** [Tanush]. `simple_cli BarrelViewer` vs `simple_cli BarrelTracker` in the room scene: one-frame boxes, lag, stickiness, a slow pan; two `tm rec` clips; report in chat. Numbers to compare with: `results/2026-11-08_rec_replay_hs/` (lag 2 frames, 0 blips shown, one persistent false blue box on clutter at the right frame edge).
-- [ ] **4. One test run** [Claude]: the 10 campus test frames + the 5 home test frames, the adopted config, once, logged in `EXPERIMENTS.md`, emailed to Dave.
-- [ ] **5. One email to Dave** [Claude drafts — draft in `OVERNIGHT-2026-11-08.md` §7, add the live result; Tanush sends].
+## Data sets (the tags used below)
 
-## P1 (after P0, rough order)
+| tag | what | labels | where |
+|---|---|---|---|
+| HOME | 21 frames, white table, window light (`4A8B_window_light_*`), 16 train / 5 test | masks + boxes | `data/raw/` |
+| CAMPUS | 31 frames, glass-walled study room, daylight (`4A8B_campus_light_*`), 21 train / 10 test | boxes | `data/raw/` |
+| DAVE | 20 office frames, pink desk, lamp (`DAVE_office_*`), 12 with boxes (grouped per touching pair) | boxes, indicative | `data/raw/` |
+| WOOD | 5 wood-desk frames (`4A8B_upcool_wood_calib_*`) + 19 lamp-color frames on wood, unlabeled | none | `data/raw/` |
+| REC | 4 campus recordings 2026-11-07 (static, pan, enter/leave, hand) | none | `data/recordings/` (local) |
+| LIVE-1109 | 1 frame from the run with Dave (close-up under a far barrel) | none | `live/snapshots/robot_snap0.png` (local) |
+| **NEW** | the multi-setting collection, step 3 below: not shot yet | boxes by Tanush; slider labels later (step 10) | — |
 
-- [ ] **Hidden-stripe barrels** (`cluster_01`, `occl_01`, `occl_02`) [Claude]. Pre-registered idea: allow a stripeless body piece when it sits directly above a found barrel of the same color and is barrel-sized for its row. Score under v2 before and after.
-- [ ] **Calibration session + fit** [Tanush shoots and boxes, with a ruler; Claude fits]. The 12 `calib` frames + `horizon` per `DATA.md` (not shot on 2026-11-07: no ruler); the fit script is like `experiments/2026-11-03_geo_boxfit/run.py` but with known distances. Replaces the provisional `AIM_4A8B6118_BOXFIT`; answers f vs tilt.
-- [ ] **Mixed-color occlusion** (an orange barrel behind a blue one): the back barrel's lower body reads as a band of the front barrel's body color; needs a rule that a band belongs to the body whose stripe height it matches, not both [Claude]. Seen in `occl_02`.
-- [ ] **One test run** (the 5 locked frames) with the detector of the day, one pre-chosen config, logged, emailed to Dave [Claude drafts, Tanush sends]. Only after P0 and the hidden-stripe item are settled, so the one look is not wasted.
-- [ ] **Fix `scene:far` tolerance**: at 30 cm the camera error (≈ 5 px) is about the size of the 15 % tolerance, so the geometry can overrule a correct seen bottom (`far_02`, 7 px) [Claude]. Likely resolved by the calibration; re-check after it.
-- [ ] **Dave's box labels are per group of touching barrels** (seen 2026-11-08 in `snap_05`: one box around two barrels). Ask Dave whether his detector boxed groups by design; until then his frames score only indicatively under the v2 rule [Tanush asks].
+Test frames (HOME 5, CAMPUS 10) are never loaded except in the one test run at the end.
 
-## P2
+## In order
 
-- [ ] Label the 8 unlabeled Dave frames (`DAVE_office_dark_snap_12–19`) with the box tool once the segmentation shows anything on them [Tanush].
-- [ ] Per-robot vs once calibration: decided by shooting the calib session on a second robot when one is available [Tanush + Dave].
-- [ ] Knocked-over barrels, wood tables, the world map, the aivision spec: out until Dave says (`PROBLEM.md`). The bridge stub `worldmap_bridge.py` already exists.
-- [ ] `NOTES-INBOX.md` triage and `NAVIGATOR.md` requests: nothing open as of 2026-11-06.
+- [ ] **0. Walkthrough acknowledgement + merge** [Tanush reads, Claude merges]. `OVERNIGHT-2026-11-08.md` §6 plus the (f) and (g) paragraphs in `HOW-IT-WORKS.md` §3. On "understood": adopt the hs candidate as the default (`DEFAULT_MODEL` → `results/2026-11-09_hs_candidate/config.json`), fast-forward `barrels` to `wip/redesign`, `BARRELS_MODEL` no longer needed. *Added by Claude: everything below builds on the branch, so it has to land.* Data: none.
 
-## Done
+- [ ] **1. Doc cleanup** [Claude]. The docs are long and convoluted; current facts must be findable in seconds (example: the tilt and focal length actually in use — `AIM_4A8B6118_BOXFIT`: f 400, tilt 22.25°, horizon row 76 — are buried in `constraints.md`). Every doc gets a short "current state" block at the top; history moves below a line or to `archive/`. Order: `constraints.md`, `STATUS.md`, `HOW-IT-WORKS-SHORT.md`, `DATA.md`, `EVAL.md`, `PROBLEM.md`, `CLAUDE.md`, `EXPERIMENTS.md` (index first, entries after), `DECISIONS.md`, `RUNBOOK.md`. Foundation docs change only via `DECISIONS.md`, so the cleanup there is layout, not content. Data: none.
 
-- 2026-11-09 — **Hardening (f)**: box width from the body columns joined to the stripe (`body_width=1.2`); campus median width ratio 0.90 → 0.96, score unchanged; `width_ratio` in the eval. **`BARRELS_MODEL`** env var runs a candidate front end in `detect_image.py` and the live programs; the hs candidate saved as `results/2026-11-09_hs_candidate/config.json`.
-- 2026-11-08 — **Campus frames boxed** by Tanush (31 files; `held_01` boxed in the evening). **hs model with per-class S floors scored under v2** on the branch (`experiments/2026-11-08_seg_hs_v2/`): campus train **0.99 vs 0.41** (today's detector; 0.97 before the `held_01` box), home 0.93 = v1, nothing on real negatives; the proposed rule picks `hs o5 b15 h5-95 m2`. Detector hardening (e) (frame-edge stripe) added. Recordings replayed with the hs front end: blips 0 shown, lag 2 frames.
+- [ ] **2. Move to the Claude Code CLI** [Claude writes, Tanush switches]. Tanush works better in the CLI (multiple sessions, easier context transfer). Deliverables: `docs/HANDOFF.md` with the context a fresh session needs (state, rules, where things are, open decisions, the current numbers), warm-up prompts per kind of session (experiment session, labeling session, doc session, live session), and the general to-dos; `CLAUDE.md` checked so a fresh session reads the right things first. Data: none.
 
-- 2026-11-08 — **Detector hardening implemented** on branch `wip/redesign` (`stripe_mode="cores"`, `dark_stripe=False`, `body_min=0.1`, `height_min/max`), 5 new tests (183 pass), `experiments/2026-11-08_det_hardening/`: home 0.91 → 0.93 (v1 pixels), 0.57 → 0.78 (hue pixels). Awaiting walkthrough (P0-2).
-- 2026-11-08 — **hs color model built and swept** on the branch (`pipeline.Config(color_model="hs")`, `experiments/2026-11-08_seg_hs/`): home LOSO 0.93–0.95 at the 15th–20th-percentile S floor, campus 16–17 / 21 right (v1 8), nothing on negatives. The pre-registered rule's pick (5th percentile) regresses at home — rule flaw recorded in `DECISIONS.md`. Not adopted (P0-2/3).
-- 2026-11-07 — **Recordings replayed** (`experiments/2026-11-07_rec_replay/`): the old front end finds nothing in the clips; the tracker suppressed all 7 blips offered. Re-run after the front end changes (P0-4).
-- 2026-11-07 — **Attribution done** (`experiments/2026-11-07_campus_attribution/`, `EXPERIMENTS.md`): 21 train frames, 7 ok / 9 segmentation / 5 segmentation + detector / 0 detector; mechanisms = the two top-row stages and the RGB boxes; the detector's share = the pre-registered glued-shadow flaw plus one wrong-color box. Segmentation first.
-- 2026-11-07 — **Campus capture session** (Tanush): all 31 frames + 4 recordings as planned; imported as `4A8B_campus_light_*`, split 10 test / 21 train (`DATA.md`).
+- [ ] **3. Collect data: the multi-setting set (NEW)** [Tanush shoots and boxes; Claude writes the shot list first]. One session plan, one import, one labeling pass. Needed by 6, 7, 8, 9, 10 below. Contents (draft, Claude finalizes in `DATA.md` before shooting): ≥ 3 light settings (window day, overhead fluorescent, warm lamp; dim if possible) × ≥ 2 table colors (white, a dark or beige table; wood as an out-of-scope probe only) × the scenario list: `close` 0–30 mm in steps (the close-up and kicker cases), `occl` at 25 / 50 / 75 % hidden by a barrel and by clutter, `touch`, `cluster`, `clutter` incl. orange/blue non-barrels, `neg` per setting, `held`/kicker. Plus one `calib` set with a ruler (P1 for a month) and one `horizon` frame. One recording per setting. Boxes with `box_tool.py` (`--cam boxfit`). Data: produces NEW.
 
-- 2026-11-06 — **First live run** (Tanush, campus table, the back of his laptop as a plain backdrop): window, modes and the robot link work. The detector did not: a floating orange box above the orange barrel, the barrel itself missed, false orange on skin and a laptop edge. Diagnosed from the screenshots (`experiments/2026-11-06_live_first_run/`, `EXPERIMENTS.md`): the stripe finder accepted a dark gap under a false orange smear as a shadowed stripe and rejected the real stripe (band too tall). Raw frames come 2026-11-07.
-- 2026-11-06 — **Multi-frame live program + frame capture**: `live/BarrelTracker.fsm` (a barrel is shown after 3 of the last 4 frames; `src/barrels/tracker.py`), `tm save` / `tm rec` in both programs (`src/barrels/capture.py`), `live/barrel_live.py` as the shared base, `BarrelDetectorHook.render`; 178 tests. Decision logged; `PROBLEM.md` out-of-scope line amended (display-only persistence allowed).
-- 2026-11-05 — **Live feed built** (`live/BarrelViewer.fsm` + generated `.py`; `BarrelDetectorHook.default()` / `view()`; detector defaults moved into the hook so the photo path and the robot path share one definition; RUNBOOK + HOW-IT-WORKS §5).
-- 2026-11-05 — **Doc cleanup**: `PROBLEM.md` banner + v2 scope/milestones current; `MEETING-2026-10-28`, `OVERNIGHT-*`, `Post-v1-SUMMARY` and the v1 capture plan archived; `STATUS.md` one screen; `HOW-IT-WORKS-SHORT.md` the entry page; `ARCHITECTURE.md` (diagrams) and `barrels/README.md` new; stale "to build" sentences removed; `EXPERIMENTS.md` index; `CLAUDE.md` doc map.
-- 2026-11-05 — Walkthrough of detector step 2 and the v2 scoring rule acknowledged by Tanush; committed. **The stripe step is now the default** (`DetConfig.require_stripe=True`, `detect_image.py --step1` for steps 1–3 alone); the step-2 experiment re-run under both rules, numbers identical. `.fsm` location for the live feed decided: `barrels/live/`.
-- 2026-11-03 — v2 scoring rule implemented (`eval_det.py` `rule="v2"`, `eval_boxes.py --rule v2`, 9 tests).
-- 2026-11-03 — Detector step 2, the stripe anchor: train v2-rule 0.91 vs step 1 0.71 vs floor 0.43.
-- 2026-11-03 — `HOW-IT-WORKS.md` rewritten with worked numbers; `HOW-IT-WORKS-SHORT.md` one-pager with the reading map; `MEETING-2026-11-03.md`.
-- 2026-11-03 — Dave's barrels.zip imported (20 frames, 12 recovered box sets); finding: v1 segmentation outputs nothing on them (`EXPERIMENTS.md`).
-- 2026-11-03 — Tanush reviewed the 21 box labels (11 files changed).
-- 2026-11-03 — Detector step 1 + provisional camera committed (272abb0); box tool, box-label IO, `make_splits --v2` committed (7d0787e).
-- 2026-11-02 — v2.0 spec (`PROBLEM.md` v2 section), v2 eval rule (`EVAL.md`), box label format and capture plan (`DATA.md`), decision log entry.
+- [ ] **4. Fix close-ups** [Claude; done in code 2026-11-09, (g) `cover_rows`; closes when Tanush confirms live]. The close-up under a far barrel now gets its box (LIVE-1109). Open: a barrel touching the kicker — needs a `tm save` of it (same route, probably the same bug). Data: LIVE-1109, HOME `close_*`, CAMPUS `close_01`, NEW `close`.
+
+- [ ] **5. Fix `tm seg` in the live programs** [Claude; side tool, no walkthrough]. `tm seg` opens a second window with only the segmented pixels; the main window dims every pixel not classified as a barrel color. Data: none (live).
+
+- [ ] **6. Clean up the eval** [Claude; eval = main code, walkthrough]. Many sets (HOME, CAMPUS, DAVE, soon NEW) and many tables make it hard to see what is better where. One command (`tools/eval_boxes.py` or a new `tools/report.py`) and the test suite's summary print **one table**: rows = data set × scenario tag, columns = found / missed / false / width ratio / bottom error, for the candidate and for the baseline side by side, with the delta. Metrics unchanged (`EVAL.md`); presentation condensed. Data: HOME, CAMPUS, DAVE train frames; NEW when it exists.
+
+- [ ] **7. Occlusion, the less extreme cases** [Claude; detector, walkthrough]. Live with Dave, a barrel with half its body showing got no box. Expected limit was "stripe fully hidden"; this is worse. First reproduce on frames (CAMPUS `occl_01/02`, `cluster_01`, LIVE frames if saved), attribute (stripe not found? found and refused by `body_min`/`stripe_w_min`? covered by the front barrel's box?), then fix with a pre-registered rule. Data: CAMPUS occl/cluster, HOME occl, NEW `occl` 25/50 %.
+
+- [ ] **8. Histograms: look, then decide** [Claude writes the tool; Tanush looks]. For a frame or a set, every pixel into a 2-D hue × saturation histogram (start 16 × 16, try others), displayed two ways: a 3-D bar plot with each bar in its own color (matplotlib) if it works easily, else two 2-D images (counts in gray, color of the bin). Overlay the labeled-barrel pixels vs the rest. Purpose: see how much H and S actually move between light settings and tables, as the ground for an adaptive hs model. Deliverable: `tools/hs_hist.py` + a short note with the pictures and what they show; then decide what the adaptation should key on. Data: HOME, CAMPUS, DAVE, WOOD (19 lamp frames: 3 directions × 3 warmths, exactly the lighting variation), NEW.
+
+- [ ] **9. Occlusion, the extreme cases** [Claude; detector, walkthrough]. Stripe fully hidden (CAMPUS `occl_02`, `cluster_01`), mixed-color stacking (the back barrel's body reads as a band of the front one). Pre-registered idea: a stripeless body piece directly above a found barrel of the same color, barrel-sized for its row, is a barrel. Best effort this week. Data: CAMPUS occl/cluster, NEW `occl` 75 %.
+
+- [ ] **10. Slider labeling + the adaptive-threshold plan** [Claude builds; Tanush labels; then plan together]. A tool with H and S sliders per class on one image, segmentation updating live; Tanush picks the setting that minimizes false pixels while keeping the barrels; the chosen thresholds per frame are saved as labels (`<stem>_hs.json`). Those per-frame thresholds, plotted against the frame's histogram (step 8), are the data for the adaptive model: what in the frame's H/S distribution predicts the right threshold. Deliverable: `tools/hs_slider.py`, the labels, and a written plan (hypothesis, rule, how it is scored) before any adaptive code. Data: NEW primarily; HOME, CAMPUS, DAVE, WOOD for the spread.
+
+## After the list (when the week's items are done)
+
+- [ ] **One test run** [Claude]: HOME 5 + CAMPUS 10 test frames, the adopted config, once, logged. *Claude's addition.*
+- [ ] **Email to Dave** [Claude drafts, Tanush sends]: the week's result in his terms (where the vendor detector fails and ours works). Ask about his grouped boxes. *Claude's addition.*
+- [ ] **Blue clutter at the frame edge above the table** (REC r1): a persistent false box; pre-register a rule once seen live again.
+- [ ] Wood tables: out of scope (Dave). WOOD frames are used only for lighting variation in step 8.
