@@ -1,0 +1,181 @@
+{
+ "name": "hs o5 b15 h5-95 m2 (candidate, not adopted)",
+ "config": {
+  "horizon_row": 50,
+  "bg_rows": [
+   0,
+   50
+  ],
+  "table_rows": 80,
+  "s_min": 40,
+  "s_min_blue": null,
+  "v_min": 40,
+  "s_min_mode": "fixed",
+  "s_band_q": 99.5,
+  "s_band_margin": 10.0,
+  "s_band_source": "bg",
+  "s_min_lo": 20,
+  "s_min_hi": 120,
+  "table_prior": true,
+  "bg_prior": true,
+  "k_table": 3.0,
+  "k_bg": 3.0,
+  "prior_fit": "lowsat",
+  "scale_floor": 4.0,
+  "prior_min_frac": 0.3,
+  "box_space": "rgb",
+  "box_pct": [
+   1.0,
+   99.0
+  ],
+  "fit_after_gates": true,
+  "fit_max_px_per_image": 3000,
+  "tie": "rb_sign",
+  "seed": 0,
+  "refit": null,
+  "min_blob_px": 0,
+  "open_px": 0,
+  "fill_holes": false,
+  "color_model": "hs",
+  "hs_s_pct": [
+   5,
+   15
+  ],
+  "hs_h_pct": [
+   5,
+   95
+  ],
+  "hs_h_margin": 2
+ },
+ "config_hash": "eb863d84",
+ "git": "e996da0",
+ "fit_frames": [
+  "4A8B_window_light_close_01",
+  "4A8B_window_light_close_02",
+  "4A8B_window_light_cluster_01",
+  "4A8B_window_light_cluster_02",
+  "4A8B_window_light_core_01",
+  "4A8B_window_light_core_02",
+  "4A8B_window_light_core_03",
+  "4A8B_window_light_edge_01",
+  "4A8B_window_light_far_02",
+  "4A8B_window_light_neg_01",
+  "4A8B_window_light_neg_02",
+  "4A8B_window_light_occl_01",
+  "4A8B_window_light_occl_02",
+  "4A8B_window_light_top_01",
+  "4A8B_window_light_topstripe_01",
+  "4A8B_window_light_touch_02"
+ ],
+ "model": {
+  "cfg": {
+   "horizon_row": 50,
+   "bg_rows": [
+    0,
+    50
+   ],
+   "table_rows": 80,
+   "s_min": 40,
+   "s_min_blue": null,
+   "v_min": 40,
+   "s_min_mode": "fixed",
+   "s_band_q": 99.5,
+   "s_band_margin": 10.0,
+   "s_band_source": "bg",
+   "s_min_lo": 20,
+   "s_min_hi": 120,
+   "table_prior": true,
+   "bg_prior": true,
+   "k_table": 3.0,
+   "k_bg": 3.0,
+   "prior_fit": "lowsat",
+   "scale_floor": 4.0,
+   "prior_min_frac": 0.3,
+   "box_space": "rgb",
+   "box_pct": [
+    1.0,
+    99.0
+   ],
+   "fit_after_gates": true,
+   "fit_max_px_per_image": 3000,
+   "tie": "rb_sign",
+   "seed": 0,
+   "refit": null,
+   "min_blob_px": 0,
+   "open_px": 0,
+   "fill_holes": false,
+   "color_model": "hs",
+   "hs_s_pct": [
+    5,
+    15
+   ],
+   "hs_h_pct": [
+    5,
+    95
+   ],
+   "hs_h_margin": 2
+  },
+  "boxes": {
+   "1": {
+    "lo": [
+     33.0,
+     140.0
+    ],
+    "hi": [
+     43.0,
+     255.0
+    ]
+   },
+   "2": {
+    "lo": [
+     103.0,
+     113.0
+    ],
+    "hi": [
+     119.0,
+     255.0
+    ]
+   }
+  },
+  "inner": {},
+  "outer": {},
+  "fit_info": {
+   "1": {
+    "n_px": 133895,
+    "box": {
+     "lo": [
+      33.0,
+      140.0
+     ],
+     "hi": [
+      43.0,
+      255.0
+     ]
+    },
+    "hue_shift": 30,
+    "hue_unshifted": [
+     3.0,
+     13.0
+    ]
+   },
+   "2": {
+    "n_px": 40579,
+    "box": {
+     "lo": [
+      103.0,
+      113.0
+     ],
+     "hi": [
+      119.0,
+      255.0
+     ]
+    },
+    "hue_shift": 0,
+    "hue_unshifted": [
+     103.0,
+     119.0
+    ]
+   }
+  }
+ }
+}

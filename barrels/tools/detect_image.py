@@ -20,7 +20,7 @@ import cv2
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from barrels import detect_cc, detector as det, geometry as geo, io, pipeline as pl, worldmap_bridge as wb  # noqa: E402
 
-DEFAULT_MODEL = wb.DEFAULT_MODEL                                   # the frozen v1 model afd85483; shared with the live feed
+DEFAULT_MODEL = wb.default_model_path()                           # the frozen v1 model afd85483 (or $BARRELS_MODEL); shared with the live feed
 DEFAULT_OUT = io.PKG_ROOT / "results" / "detect_image"
 CAMS = {"boxfit": geo.AIM_4A8B6118_BOXFIT, "4a8b": geo.AIM_4A8B6118, "nominal": geo.NOMINAL}
 
@@ -28,7 +28,7 @@ CAMS = {"boxfit": geo.AIM_4A8B6118_BOXFIT, "4a8b": geo.AIM_4A8B6118, "nominal": 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("image", type=Path)
-    ap.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="results config.json with the fitted v1 'model'")
+    ap.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="results config.json with a fitted 'model' (v1 or hs); default $BARRELS_MODEL or the frozen v1")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     ap.add_argument("--cam", choices=sorted(CAMS), default="boxfit", help="camera model (boxfit = provisional 2026-11-03 fit)")
     ap.add_argument("--json", action="store_true", help="also write <stem>_det.json (for eval_boxes.py --pred)")

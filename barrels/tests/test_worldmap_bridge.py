@@ -48,6 +48,15 @@ def test_default_hook_is_the_detector_as_it_stands():
     assert hook.cam == geo.AIM_4A8B6118_BOXFIT and hook.model.cfg.short_hash() == "afd85483"
 
 
+def test_barrels_model_env_var_swaps_the_default_front_end(monkeypatch):
+    hs = io.PKG_ROOT / "results" / "2026-11-09_hs_candidate" / "config.json"
+    monkeypatch.setenv(wb.MODEL_ENV, str(hs))
+    hook = wb.BarrelDetectorHook.default()
+    assert hook.model.cfg.color_model == "hs" and hook.model.cfg.short_hash() == "eb863d84"
+    monkeypatch.delenv(wb.MODEL_ENV)
+    assert wb.BarrelDetectorHook.default().model.cfg.short_hash() == "afd85483"
+
+
 def test_view_on_a_real_frame_matches_the_photo_path():
     """The live path (RGB in, RGB out) must give exactly the boxes and pixels tools/detect_image.py gives."""
     bgr = io.load_image(io.RAW_DIR / "4A8B_window_light_touch_02.png")

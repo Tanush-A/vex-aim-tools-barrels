@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
@@ -41,6 +42,13 @@ from .detect_types import AIVISION_SCALE, Barrel
 from .io import BLUE, ORANGE, PKG_ROOT
 
 DEFAULT_MODEL = PKG_ROOT / "results" / "2026-10-20_v1_test_adaptive" / "config.json"   # the frozen v1 model, config afd85483
+MODEL_ENV = "BARRELS_MODEL"     # set to another results config.json to try a different front end without editing code
+
+
+def default_model_path() -> Path:
+    """DEFAULT_MODEL, unless the environment variable BARRELS_MODEL names another results config.json (for trying
+    a candidate front end in tools/detect_image.py and the live programs before it is adopted)."""
+    return Path(os.environ[MODEL_ENV]) if os.environ.get(MODEL_ENV) else DEFAULT_MODEL
 VIEWS = ("boxes", "seg", "both")
 BOX_COLORS_RGB = {"OrangeBarrel": (255, 128, 0), "BlueBarrel": (0, 100, 255)}
 
@@ -111,8 +119,12 @@ class BarrelDetectorHook:
 
     @classmethod
     def default(cls, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> "BarrelDetectorHook":
-        """The detector as it stands: frozen v1 model afd85483 + detector.detect (DetConfig()) + the given camera."""
-        return cls.load(DEFAULT_MODEL, cam=cam)
+        """The detector as it stands: frozen v1 model afd85483 + detector.detect (DetConfig()) + the given camera;
+        with BARRELS_MODEL set in the environment, that model file instead (see default_model_path)."""
+        path = default_model_path()
+        if path != DEFAULT_MODEL:
+            print(f"BarrelDetectorHook: using {MODEL_ENV}={path}")
+        return cls.load(path, cam=cam)
 
     def segment(self, image_rgb: np.ndarray) -> np.ndarray:
         """The class mask (0 other, 1 orange, 2 blue) of an RGB frame; also kept as ``last_mask``."""
