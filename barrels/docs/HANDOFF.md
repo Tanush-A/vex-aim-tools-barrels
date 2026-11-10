@@ -51,4 +51,4 @@ until I say go. Converse first.
 
 ## Per-session memory
 
-The VS Code sessions kept a small memory folder at `~/.claude/projects/-Users-tanush-Desktop-Celeste/memory/`; a copy sits at `~/.claude/projects/-Users-tanush-Desktop-Celeste-vex-aim-tools-barrels/memory/` for sessions started in `barrels/`. Everything in it is also in this file.
+The VS Code sessions kept a small memory folder at `~/.claude/projects/-Users-tanush-Desktop-Celeste/memory/`. A CLI session started in `barrels/` reads the folder named after the **git repo root**, `~/.claude/projects/-Users-tanush-Desktop-Celeste-vex-aim-tools/memory/` (checked 2026-11-09; the `...-barrels` copy is not loaded). The five notes were copied there on 2026-11-09. Everything in them is also in this file.

@@ -2,7 +2,7 @@
 
 **Updated:** 2026-11-09, rewritten from Tanush's notes after the live run with Dave. Order approved by Tanush 2026-11-09. Current work only; history lives in `EXPERIMENTS.md`, `DECISIONS.md` and git. Rule (`CLAUDE.md`): updated every time a task starts, finishes or changes priority, with `STATUS.md`.
 
-**Direction for the week (Tanush, 2026-11-09):** hue + HSV-saturation is the right front end. (1) Fix bugs. (2) Generalize: many light settings, table colors, clutter, occlusion. Claude's eval metrics stay; Tanush's own measure is "scenarios where the vendor detector fails and ours works". Everything on branch `wip/redesign` until the walkthrough is acknowledged.
+**Direction for the week (Tanush, 2026-11-09):** hue + HSV-saturation is the right front end. (1) Fix bugs. (2) Generalize: many light settings, table colors, clutter, occlusion. Claude's eval metrics stay; Tanush's own measure is "scenarios where the vendor detector fails and ours works". Main code that awaits a walkthrough goes on a `wip/<name>` branch (`HANDOFF.md`); `wip/redesign` was merged at step 0.
 
 ## Data sets (the tags used below)
 
