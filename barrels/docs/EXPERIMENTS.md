@@ -8,6 +8,9 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-11 | **A barrel hidden at the side: narrow stripe + hidden side from the body** (pre-registered; branch `wip/occlusion`) | `stripe_w_min` 0.4 → 0.25 with switch (h) finds campus `occl_02` (campus 34 → 35 of 35 found, IoU 0.68), +1 on Dave, 4 real edge barrels in the recordings, nothing lost, no false box on home / campus / Dave. But 2 false boxes on the 25 wood frames → condition 4 fails → **not adopted**, defaults unchanged, switches off. Tanush decides. |
+| 2026-11-11 | **Occlusion attribution** (branch `wip/occlusion`) | 37 train frames: 5 misses, all occluded (5 of 10 occluded barrels found). 1 = hidden at the side by a non-barrel, stripe refused by the width test (16 px vs 21.4 needed; the live miss); 4 = behind a barrel of the other color, stripe merges with the front body, refused for height (step 9). |
+| 2026-11-11 | **Eval report: one table** (TODO 6; branch `wip/eval-report`) | `tools/report.py`: set × scenario, candidate vs baseline with the delta. Reproduces home 0.93, campus 0.99, Dave 0.47; v1 + today's detector 0.39, v1 + 2026-11-05 detector 0.41. Every home / campus miss is in an `occl` or `cluster` row. |
 | 2026-11-09 | **Close-up under a far barrel got no box** (hardening (g); branch `wip/redesign`) | Live run with Dave, `live/snapshots/robot_snap0.png`: the stripeless close-up was dropped as "covered" by a far barrel in the same columns. `cover_rows=True`: cover needs shared rows too. Candidate unchanged (campus 0.99, home 0.93, 0 FD; Dave 0.44 → 0.47). With the *old* finder + v1 pixels the same change lets clutter pieces through (5 FD on campus negatives), so the baseline arm pins `cover_rows=False` |
 | 2026-11-09 | **Box width from the body, not the stripe** (hardening (f); branch `wip/redesign`) | Tanush saw thin boxes on `core_02`; the IoU ≥ 0.5 match passes a box 15 % too narrow. Box edges now from the body columns joined to the stripe (`body_width=1.2`), never into another stripe's columns. Campus train median width ratio **0.90 → 0.96**, worst 0.74 → 0.88; v2 score unchanged (0.99 / home 0.93). `width_ratio` added to the eval |
 | 2026-11-08 | **The hs model scored on Tanush's campus boxes, per-class S floors** (18 configs; branch `wip/redesign`) | campus train v2: **v1 0.41 → hs 0.99** (`o5 b15 h5-95 m2`: orange 1.00, blue 0.97), home LOSO 0.93 = v1, nothing drawn on the campus negatives or Dave's desk; Dave 0.44 (indicative). First run with `held_01` unboxed: 0.97 and the proposed rule returned no winner (the found held barrel counted as a false detection); re-run after Tanush boxed it the same evening: the rule picks `o5 b15 h5-95 m2`. Remaining miss: `occl_02`, stripe hidden. Decision = Tanush's |
@@ -33,6 +36,86 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-11 — A barrel hidden at the side: narrow stripe + hidden side from the body (pre-registered; branch `wip/occlusion`)
+
+**Hypothesis** (`experiments/2026-11-11_occl_narrow_stripe/PREREG.md`, committed before the run, 194bc1c). The side-occlusion miss is the width floor: `stripe_w_min` 0.4 → 0.25 finds it without new false boxes (a stripe is about a quarter barrel-width tall and "not taller than wide" already binds below that). With the lower floor the box needs a better side rule: (h) `occl_body_side`, the hidden side read from the body columns joined to the stripe.
+
+**Method.** `experiments/2026-11-11_occl_narrow_stripe/run.py`; configs base, w25, w25h, h; report-only w35, w30, w20. Adopted hs model `eb863d84`, camera `AIM_4A8B6118_BOXFIT`, v2 rule. Acceptance: (1) no found barrel lost on HOME / CAMPUS, (2) no false box added there, (3) Dave not lower, (4) every box added on unlabeled frames is a real barrel by eye, (5) `occl_02` found. Prefer w25h, then w25; if neither passes, nothing is adopted.
+
+**Data.** Train frames only: HOME 16 (adopted model on its own fit frames, so not the LOSO headline; for comparing configs only), CAMPUS 21, DAVE 12 (indicative). Unlabeled: WOOD 25, REC 238 frames, LIVE 1. Test frames never loaded.
+
+**Results** (`results/2026-11-11_occl_narrow_stripe/`: `summary.md`, `changes.csv`, `by_eye.md`).
+
+| config | HOME found / false / missed | CAMPUS | Dave | mean IoU of found, HOME / CAMPUS | `occl_02` | added on WOOD / REC |
+|---|---|---|---|---|---|---|
+| base | 25 / 1 / 4 (0.91) | 34 / 0 / 1 (0.99) | 0.47 | 0.878 / 0.865 | missed | — |
+| w25 | 25 / 1 / 4 | 35 / 0 / 0 (1.00) | 0.49 | 0.878 / 0.855 | found, IoU 0.51 | 2 / 4 |
+| **w25h** | 25 / 1 / 4 | 35 / 0 / 0 (1.00) | 0.49 | 0.888 / 0.859 | found, IoU 0.68 | 2 / 4 |
+| h | 25 / 1 / 4 | 34 / 0 / 1 | 0.47 | 0.888 / 0.864 | missed | 0 / 0 |
+| w35, w30 | as base | as base | 0.49 | | missed | 0 / 0, 2 / 1 |
+| w20 | 25 / **2** / 4 (0.89) | 35 / 0 / 0 | 0.49 | | found | 2 / 7 |
+
+(h) moves 18 WOOD boxes (median largest-edge shift 8 px, max 38) and 72 REC boxes (median 2 px, max 12), removes none.
+
+By eye, the 8 boxes w25 / w25h add: 6 real (campus `occl_02`; Dave `speckle_snap_10`; `r2_pan` 034, 035; `r3_enter_leave` 014, 047: barrels entering at the right frame edge), **2 false, both on wood** (`atwarm_wood_core_01`: a second box on half of an orange barrel where the table segments as orange; `upmid_wood_core_01`: an orange box on a far blue barrel).
+
+**Takeaway.** Conditions 1, 2, 3, 5 pass; **4 fails** on two wood frames. By the pre-registered rule nothing is adopted: `stripe_w_min` stays 0.4, `occl_body_side` stays off, the code is on `wip/occlusion` behind the switches. Wherever the color model works the change only adds real barrels; on wood the front end already fails (61 boxes on 25 frames at base). One labeled frame carries the gain, so the evidence is thin both ways.
+
+**Next.** Tanush decides: keep off until the wood front end exists, or adopt now. Re-run on the step-3 `occl` 25 / 50 / 75 % shots. The other-color occlusion is step 9.
+
+---
+
+## 2026-11-11 — Occlusion attribution: which test refuses each missed barrel (branch `wip/occlusion`)
+
+**Hypothesis** (in the script header, before the run). The misses are occluded barrels and die in one of three places: no stripe candidate, a candidate refused by a proportion test or `body_min`, or a box drawn in the wrong place.
+
+**Method.** `experiments/2026-11-11_occl_attribution/run.py`. The detector got an optional reason log (`detect(..., log=[])`; answers unchanged, tested). For every truth barrel left unmatched under the v2 rule: the log entries overlapping its box and the pixels inside it; cause by a fixed order.
+
+**Data.** HOME 16 + CAMPUS 21 train frames, adopted model. Test frames never loaded (so campus `occl_01` and `cluster_01`, which are test frames, are not in this).
+
+**Results** (`results/2026-11-11_occl_attribution/`).
+
+| set | frames | barrels | found | missed | false | occluded | occluded found |
+|---|---|---|---|---|---|---|---|
+| HOME | 16 | 29 | 25 | 4 | 1 | 6 | 2 |
+| CAMPUS | 21 | 35 | 34 | 1 | 0 | 4 | 3 |
+
+| missed barrel | cause | numbers |
+|---|---|---|
+| campus `occl_02` blue, behind the robot | stripe refused: `width` | stripe 16 px wide, barrel 53.6 px, floor 0.4 → 21.4 px |
+| home `occl_01` blue, `occl_02` orange | stripe refused: `height` | the stripe joins the front barrel's body of the same color: 28–29 px tall, 15 expected |
+| home `cluster_01`, two orange | stripe refused: `height` (19 px vs 11); a blue sliver between them passes as a stripe and gives the one false box | |
+
+**Takeaway.** Two failures, not one. Side occlusion by a non-barrel is a width-floor problem (step 7; "half a barrel showing" is right at the 0.4 floor because a stripe is ~15 % narrower than its barrel). Occlusion by a barrel of the other color is the mixed-color stacking of step 9: 4 of the 5 misses. No miss is a segmentation failure. `live/snapshots/robot_snap0.png` is the close-up case (g), not an occlusion case; no frame of the live occlusion miss was saved.
+
+**Next.** The narrow-stripe experiment above; step 9 for the stacking.
+
+---
+
+## 2026-11-11 — Eval report: one table (TODO 6; branch `wip/eval-report`)
+
+**Purpose.** No new method. Many sets and many per-experiment tables made it hard to see what is better where. One command shows data set × scenario rows with a candidate and a baseline side by side, and its per-set headline numbers must reproduce the published ones. Metrics unchanged (EVAL.md v2 rule, `eval_det`).
+
+**Method.** `src/barrels/report.py` + `tools/report.py`; script `experiments/2026-11-11_eval_report/run.py`. Candidate = hs `eb863d84` + `DetConfig()`. Baseline = v1 `afd85483` + the same detector; second table = v1 + the 2026-11-05 detector (`stripe_mode=bands,body_min=0,height_max=0,body_width=0,cover_rows=false`). Home scored leave-one-scene-out (model re-fit per fold); other sets with the stored model.
+
+**Data.** Train frames only: HOME 16, CAMPUS 21; DAVE 12 (indicative, in no split). Test frames refused by the tool, never opened.
+
+**Results** (`results/2026-11-11_eval_report/`): found / missed / false, score.
+
+| Set | Candidate (hs + today) | v1 + today's detector | v1 + 2026-11-05 detector |
+|---|---|---|---|
+| HOME (LOSO) | 25 / 4 / 0, **0.93** | 25 / 4 / 0, 0.93 | 25 / 4 / 0, 0.93 |
+| CAMPUS | 34 / 1 / 0, **0.99** | 9 / 26 / 1, 0.39 | 10 / 25 / 1, 0.41 |
+| DAVE* | 11 / 23 / 2, **0.47** | 0 / 34 / 0, 0.00 | 0 / 34 / 0, 0.00 |
+
+False boxes on negative frames: 0 for every arm and set. Candidate median width ratio 0.98 / 0.96 / 0.96, median bottom error 1.0 / 2.0 / 1.0 px (home / campus / Dave).
+
+**Takeaway.** The published numbers reproduce (0.93, 0.99, 0.47; "v1 0.41" is v1 with the 2026-11-05 detector, v1 with today's detector is 0.39, both as logged 2026-11-08). Every candidate miss on home and campus is in an occlusion or cluster scenario, and v1 misses the same home barrels, so the front end is not the cause. Edge frames give wide boxes (width ratio 1.29 home, 1.50 campus). Scenario rows are one or two frames each: they show where, not how much.
+
+**Next.** `tools/report.py --cand-det ... --base-model default` is the standard comparison from here on; NEW sessions appear as their own row group once they have box labels and a split.
 
 ---
 
