@@ -1,6 +1,6 @@
 # DATA.md — the frames, their labels, the splits, what to shoot
 
-**Updated:** 2026-11-09 (doc cleanup; the step-3 shoot plan added as a draft). Before capturing or using data, read "Now"; new frames are assigned to a split at import, before any method sees them.
+**Updated:** 2026-11-11 (the step-3 shoot plan agreed; shoot from it). Before capturing or using data, read "Now"; new frames are assigned to a split at import, before any method sees them.
 
 ## Now (2026-11-09)
 
@@ -14,14 +14,17 @@ python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>     # a
 python barrels/tools/box_tool.py --filter <light>_<surface>                   # draw the boxes (≈ 30 s a frame; `g` = expected size at the cursor)
 ```
 
-**Next shoot: the multi-setting set (TODO step 3) — draft, Claude finalizes with Tanush before shooting.** Purpose: generalize (light, table, clutter, occlusion) and feed the histograms (TODO 8) and the slider labels (TODO 10). One import per (light, surface) session, same scene tags everywhere, so every set scores per scenario.
+**Next shoot: the multi-setting set (TODO step 3) — agreed with Tanush 2026-11-11; shoot from this.** Purpose: generalize (light, table, clutter, occlusion) and feed the histograms (TODO 8) and the slider labels (TODO 10). Two tiers: **full sessions** (every scenario, for the detector work and the test look at 9b) and **sweep sessions** (three frames each, for the hue/saturation spread). One import per (light, surface) session, same scene tags everywhere, so every set scores per scenario.
 
-| sessions | ≥ 3 lights × ≥ 3 surfaces, as many as time allows: lights `window` (day), `overhead` (fluorescent), `lamp` (warm), `dim`; surfaces `light` (white), `wood`, one dark or `beige` |
+| full sessions (16 shots + 1 recording each) | surface `light` (white): `window`, `overhead`, `sun` if available · `wood`: `lampwarm7`, `lampcool7`, `lampwarm1` · `glass`: `lampwarm7`, `lampcool1` · `black`: `window`, `sun` if available. ≈ 15 min to shoot, 8 min to box, each |
 |---|---|
-| per session, 16 shots | `close` ×3 (base at ≈ 0, 10, 20 mm past the bumper — the kicker/close-up cases), `occl` ×3 (a barrel hiding ≈ 25 / 50 / 75 % of one behind it), `occl` ×1 (behind clutter), `touch` ×2 (mixed; same color), `cluster` ×1, `clutter` ×2 (one with orange/blue non-barrels), `neg` ×2 (empty; clutter incl. orange + blue objects), `held` ×1, `far` ×1 |
-| once, any session with a ruler | `calib` ×12 (0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm to the base's near edge, one orange barrel on the crosshair, ruler out of frame) + `horizon` ×1 (a mark 43.47 mm above the table on a wall ≥ 1 m away); distances in `data/calib.csv` |
-| per session, 1 recording | `tm rec`, a slow pan with a hand passing once |
-| then | import → `make_splits --v2` → box → commit `data/raw`, `data/labels`, `data/splits.json` |
+| per full session, 16 shots | `close` ×3 (base at ≈ 0, 10, 20 mm past the bumper — the kicker/close-up cases), `occl` ×3 (a barrel hiding ≈ 25 / 50 / 75 % of one behind it), `occl` ×1 (behind clutter), `touch` ×2 (mixed; same color), `cluster` ×1, `clutter` ×2 (one with orange/blue non-barrels), `neg` ×2 (empty; clutter incl. orange + blue objects), `held` ×1, `far` ×1 |
+| per full session, 1 recording | `tm rec`, a slow pan with a hand passing once |
+| sweep sessions (3 shots each, no recording) | the lamp ladder on `wood` and on `glass`: temperatures lowest / middle / highest × brightness lowest / middle / highest = 9 settings per surface (the lamp has 6–7 steps of each; adjacent steps barely move the histogram). Shots: `core` (orange + blue touching ≈ 15 cm, one far, one close), `clutter`, `neg`. ≈ 90 s to box a setting |
+| light tags | `window`, `overhead`, `sun`, and `lamp{warm,mid,cool}{1,4,7}` for the ladder (`1` = dimmest, `7` = brightest; use the real step number if the lamp has 6). No underscores inside a tag |
+| once, any session with a ruler | `calib` ×12 (0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm to the base's near edge, one orange barrel on the crosshair, ruler out of frame) + `horizon` ×1 (a mark 43.47 mm above the table on a wall ≥ 1 m away); distances in `data/calib.csv` (`stem,distance_mm`). Why: labeled boxes pin only the horizon row; f and tilt separately need known distances, and the close-zone numbers the close-up fix relies on were computed, never measured |
+| glass | the barrel's reflection and whatever is under the table both show; box rule unchanged: reflections are not barrel |
+| then | import → `make_splits --v2` → box → commit `data/raw`, `data/labels`, `data/splits.json`. Full sessions first (they unblock 6, 7, 9b), sweeps after |
 
 Everything below is the reference: naming, label formats and rules, splits, the dataset index, and the record of past sessions.
 

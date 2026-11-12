@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-09 evening. The hs color model is the front end and the hardened detector (a–g) is on `barrels` (walkthrough acknowledged, fast-forward merge). The week's plan is `TODO.md` (order approved by Tanush). Steps 0 and 1 done (merge; doc cleanup: every doc opens with a "Now" block). Step 2 done (`docs/HANDOFF.md`): the next session starts in the Claude Code CLI. Next: TODO step 3 (the shoot plan in `DATA.md`, finalize with Tanush) and step 4 (close-up review).
+**Updated:** 2026-11-11. Session moved to the Claude Code CLI. The step-3 shot list is agreed and in `DATA.md` ("Next shoot"); Tanush shoots it. Meanwhile, unattended: step 5 (`tm seg`), step 6 (eval report, `wip/eval-report`), step 7 (occlusion, `wip/occlusion`); 6 and 7 merge only after Tanush's "understood". Summary will be `docs/OVERNIGHT-2026-11-11.md`. Before that (2026-11-09): hs color model + hardened detector (a–g) on `barrels`; steps 0–2 done.
 
 ## State
 
@@ -13,7 +13,7 @@
 
 ## Now (`TODO.md`, in order)
 
-0–2 done → **3 collect data** (plan draft in `DATA.md`) → 3 collect data → 4 close-ups (code done, live confirm) → 5 `tm seg` → 6 eval cleanup → 7 occlusion (less extreme) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
+0–2 done → **3 collect data** (Tanush; list in `DATA.md`) ∥ **5, 6, 7** (Claude, now) → 4 close-ups (code done, live confirm) → 5 `tm seg` → 6 eval cleanup → 7 occlusion (less extreme) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
 
 ## Tanush's part
 
