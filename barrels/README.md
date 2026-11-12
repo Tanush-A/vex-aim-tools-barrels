@@ -14,13 +14,14 @@ pip install -e barrels                     # once, from the repo root; the packa
 ## The commands
 
 ```zsh
-cd barrels && python -m pytest                                              # 1. the tests (infrastructure only)
+cd barrels && python -m pytest                                              # 1. the tests (infrastructure only); a full run ends with the eval report table (≈ 15 s; BARRELS_NO_REPORT=1 skips it)
 python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png   # 2. the detector on a photo → results/detect_image/<stem>_boxes.png
 python barrels/tools/segment_image.py barrels/data/raw/4A8B_window_light_touch_02.png  # 3. the color segmentation alone → results/segment_image/
 python barrels/experiments/2026-11-08_seg_hs_v2/run.py                      # 4. reproduce the headline numbers (v1 front end vs hs, home + campus, ≈ 1 min)
 cd barrels/live && simple_cli BarrelViewer                                  # 5. live on the robot, per frame (robot on, setup.zsh sourced; docs/RUNBOOK.md)
 cd barrels/live && simple_cli BarrelTracker                                 # 5b. live, boxes that persist (shown after 3 of the last 4 frames agree)
 python barrels/tools/box_tool.py --filter window                            # 6. draw the ground-truth boxes on new frames
+python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
 ```
 
 `detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`).

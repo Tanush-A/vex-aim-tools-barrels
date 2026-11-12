@@ -75,6 +75,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | detector | `detect_types.py` | one detected barrel and its conversions (incl. the aivision dict the world map reads) | `Barrel`, `barrels_from_boxes` |
 | detector | `detect_cc.py` | the floor: one box per connected blob, never tuned | `detect`, `write_detections` |
 | scoring ★ | `eval_det.py` | box matching and metrics under the v1 and v2 rules; result tables | `evaluate_frame`, `match_best_first`, `aggregate`, `write_results`, `score` |
+| scoring ★ | `report.py` | the one table (2026-11-11): data set × scenario rows, a candidate arm and a baseline arm (color-model file + `DetConfig` overrides) side by side with the difference; refuses test frames; numbers from `eval_det` unchanged | `select_frames`, `refuse_test_frames`, `Arm`, `run_arm`, `summarize`, `build_rows`, `make_report`, `format_text`, `write_all` |
 | scoring | `eval.py` | the v1 per-pixel metrics (IoU per class, negative-frame FP rate) | `evaluate_image`, `aggregate` |
 | analysis | `hshist.py` | hue × saturation histograms per set of frames (TODO 8): body / rest pixels from the boxes, where the colors sit, the ceiling of an H × S lookup, the pictures; feeds nothing in the detector | `SetHist`, `region_masks`, `recall_at_flood`, `figure_set`, `figure_bars` |
 | scoring | `splits.py`, `cv.py` | fixed splits (`data/splits.json`), leave-one-scene-out folds, sweeps, `fresh_dir`, `git_hash` | `loso_folds`, `cross_validate`, `run_configs`, `assign_holdout_per_scene`, `assign_holdout_by_scene` (a set shot under several lights: all lights of one arrangement share a split) |
@@ -89,12 +90,12 @@ Outside `src/`:
 
 | folder | contents |
 |---|---|
-| `tools/` | one CLI per job: `detect_image.py` (the detector on a photo), `segment_image.py` (the segmentation alone), `eval_boxes.py` / `eval_masks.py` (score a folder of predictions), `box_tool.py` (draw truth boxes), `copy_boxes.py` (copy hand-drawn boxes to the other lights of a fixed scene, unreviewed), `label_tool.py` / `instance_tool.py` (v1 masks, v1.5 instances), `import_snaps.py` / `import_dave_zip.py` (bring frames in), `make_splits.py`, `attach_measured.py`, `hs_hist.py` (hue × saturation histogram pictures of a set) |
+| `tools/` | one CLI per job: `detect_image.py` (the detector on a photo), `segment_image.py` (the segmentation alone), `eval_boxes.py` / `eval_masks.py` (score a folder of predictions), `report.py` (the one table: candidate vs baseline per data set × scenario), `box_tool.py` (draw truth boxes), `copy_boxes.py` (copy hand-drawn boxes to the other lights of a fixed scene, unreviewed), `label_tool.py` / `instance_tool.py` (v1 masks, v1.5 instances), `import_snaps.py` / `import_dave_zip.py` (bring frames in), `make_splits.py`, `attach_measured.py`, `hs_hist.py` (hue × saturation histogram pictures of a set) |
 | `live/` | `BarrelViewer.fsm` (per frame) and `BarrelTracker.fsm` (persisting boxes) with the `.py` files `genfsm` writes from them; `barrel_live.py`, the base both share (hook, view modes, `tm save` / `tm rec`) |
 | `experiments/‹date›_‹name›/run.py` | one script per experiment; every number in the docs comes from one of these |
 | `results/‹date›_‹name›/` | what the experiments write: `config.json` (with the git hash), `summary.md/csv`, `per_image.csv`, `per_barrel.csv`; sheets are gitignored |
 | `data/raw/`, `data/labels/`, `data/splits.json` | the frames, their labels (`_boxes.json` is the truth; `_mask.png`, `_inst.*` are the v1/v1.5 labels), the split assignment |
-| `tests/` | unit tests for the infrastructure (IO, metrics, geometry, the detector's mechanics on synthetic masks); algorithms are judged by experiments, not tests |
+| `tests/` | unit tests for the infrastructure (IO, metrics, geometry, the detector's mechanics on synthetic masks); algorithms are judged by experiments, not tests. `conftest.py` prints the eval report table at the end of a full run (train frames, ≈ 15 s; `BARRELS_NO_REPORT=1` skips it) |
 
 ## 4. The experiment loop
 
