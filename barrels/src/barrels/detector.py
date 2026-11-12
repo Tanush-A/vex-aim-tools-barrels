@@ -65,6 +65,8 @@ class DetConfig:
                                  # columns (a far barrel above a close-up hid the close-up). False = columns only (before 2026-11-09)
     body_width: float = 1.2      # (f) 2026-11-09: the box is as wide as the body pixels joined to the stripe above and below it, at
                                  # most this x the expected width; the stripe alone ran ~15 % narrow on big barrels. 0 = stripe width
+    occl_body_side: bool = False # (h) 2026-11-11: a partly hidden stripe says where the barrel is, not which side of it is hidden; with
+                                 # this on, the body color joined to the stripe decides (see barrel_from_stripe). False = before
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -486,24 +488,6 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     x0, y0, x1, y1 = s.bbox
     W = rows.width_px
     flags: set[str] = set()
-    if (x1 - x0) < cfg.stripe_full * W:
-        # partly hidden: widen to a full barrel on the side where something barrel-colored (the occluder)
-        # borders the stripe; if neither or both sides are bordered, centre the full width on what is seen
-        row = int(s.center_row)
-        # the hidden side: something barrel-colored borders the stripe there, or the frame edge cuts it (2026-11-08, (e))
-        left_hidden = x0 <= 0 or mask[row, x0 - 1] in (ORANGE, BLUE)
-        right_hidden = x1 >= w or mask[row, x1] in (ORANGE, BLUE)
-        Wi = int(round(W))
-        if left_hidden and not right_hidden:
-            bx0, bx1 = x1 - Wi, x1
-        elif right_hidden and not left_hidden:
-            bx0, bx1 = x0, x0 + Wi
-        else:
-            cx = (x0 + x1) / 2
-            bx0, bx1 = int(round(cx - W / 2)), int(round(cx + W / 2))
-        flags.add("occluded")
-    else:
-        bx0, bx1 = x0, x1
     top_seen, bottom_seen = _body_extent(mask, s.body, x0, x1, y0, y1)
     H = rows.bottom - rows.top
     tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
@@ -513,6 +497,34 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     bottom = bottom_seen
     if abs(bottom_seen - rows.bottom) > tol and not (bottom_seen >= h and rows.bottom >= h):
         bottom = int(round(rows.bottom)); flags.add("bottom_inferred")
+    if (x1 - x0) < cfg.stripe_full * W:
+        # partly hidden: widen to a full barrel on the side where something barrel-colored (the occluder)
+        # borders the stripe; if neither or both sides are bordered, centre the full width on what is seen
+        row = int(s.center_row)
+        # the hidden side: something barrel-colored borders the stripe there, or the frame edge cuts it (2026-11-08, (e))
+        left_hidden = x0 <= 0 or mask[row, x0 - 1] in (ORANGE, BLUE)
+        right_hidden = x1 >= w or mask[row, x1] in (ORANGE, BLUE)
+        Wi = int(round(W))
+        sx0, sx1 = x0, x1                                  # what is seen of the barrel, left to right
+        if cfg.occl_body_side and min(h, bottom) - max(0, top) >= 2:
+            # (h) 2026-11-11: the body above and below the stripe often shows more of the barrel than the stripe does
+            # (an occluder with a slanted edge, a stripe end lost to shadow). Take the body columns joined to the
+            # stripe; a span wider than a barrel can be is a same-color neighbour's body and is not trusted.
+            cx0, cx1 = _body_columns(mask, s.body, x0, x1, max(0, top), min(h, bottom), y0, y1, cap_px=math.inf, others=others)
+            if cx1 - cx0 <= cfg.body_width * W:
+                sx0, sx1 = min(cx0, x0), max(cx1, x1)
+        if (sx1 - sx0) >= cfg.stripe_full * W:
+            bx0, bx1 = sx0, sx1                            # the body shows (nearly) the whole width: that is the box
+        elif left_hidden and not right_hidden:
+            bx0, bx1 = sx1 - Wi, sx1
+        elif right_hidden and not left_hidden:
+            bx0, bx1 = sx0, sx0 + Wi
+        else:
+            cx = (sx0 + sx1) / 2
+            bx0, bx1 = int(round(cx - W / 2)), int(round(cx + W / 2))
+        flags.add("occluded")
+    else:
+        bx0, bx1 = x0, x1
     top, bottom = max(0, top), min(h, bottom)
     if "occluded" not in flags and cfg.body_width > 0 and bottom - top >= 2:
         # (f) 2026-11-09: the stripe's outermost pixels curve away from the camera and go dark, so a box as wide as the
