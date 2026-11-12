@@ -70,7 +70,7 @@ def main() -> int:
     sets = frame_sets()
     labeled = ("HOME", "CAMPUS", "DAVE")
     res = {c: {s: [] for s in labeled} for c in CONFIGS}
-    stats = {c: {s: {"frames": 0, "boxes": 0, "added": 0, "removed": 0, "moved": 0, "tp": 0, "fp": 0, "fn": 0, "lost": 0, "gained": 0} for s in sets} for c in CONFIGS}
+    stats = {c: {s: {"frames": 0, "boxes": 0, "added": 0, "removed": 0, "moved": 0, "tp": 0, "fp": 0, "fn": 0, "lost": 0, "gained": 0, "ious": [], "move_px": []} for s in sets} for c in CONFIGS}
     changes, occl02 = [], {}
     for set_name, items in sets.items():
         for stem, path in items:
@@ -92,6 +92,7 @@ def main() -> int:
                     pairs = ed.match_best_first(preds[c], gts, lambda p, g: ed.box_iou(p.bbox, g.bbox), ed.IOU_THR, same_class=True,
                                                 eligible=lambda p, g: ed.bottom_within_tol(p, g))
                     hits[c] = {gi for _, gi, _ in pairs}
+                    st["ious"] += [round(float(v), 3) for _, _, v in pairs]
             for c in CONFIGS:
                 if c == "base":
                     continue
@@ -99,6 +100,7 @@ def main() -> int:
                 added = [p for p in preds[c] if not any(same(p, b) for b in preds["base"])]
                 removed = [b for b in preds["base"] if not any(same(p, b) for p in preds[c])]
                 moved = [p for p in preds[c] if any(same(p, b) and p.bbox != b.bbox for b in preds["base"])]
+                st["move_px"] += [max(abs(a - b) for a, b in zip(p.bbox, next(b for b in preds["base"] if same(p, b)).bbox)) for p in moved]
                 st["added"] += len(added); st["removed"] += len(removed); st["moved"] += len(moved)
                 if set_name in labeled:
                     st["lost"] += len(hits["base"] - hits[c]); st["gained"] += len(hits[c] - hits["base"])
@@ -142,21 +144,21 @@ def main() -> int:
     md = ["# A barrel hidden at the side: lower stripe-width floor, hidden side from the body", "",
           f"git {bcv.git_hash()}; adopted color model; v2 rule; train frames only. Rule and hypothesis: `experiments/2026-11-11_occl_narrow_stripe/PREREG.md`.", "",
           "## Labeled frames", "",
-          "| config | HOME v2 (found / false / missed) | CAMPUS v2 (found / false / missed) | Dave v2 | barrels lost vs base | barrels gained vs base | `occl_02` barrel (IoU) |", "|---|---|---|---|---|---|---|"]
+          "| config | HOME v2 (found / false / missed) | CAMPUS v2 (found / false / missed) | Dave v2 | barrels lost vs base | barrels gained vs base | mean IoU of found barrels, HOME / CAMPUS | `occl_02` barrel (IoU) |", "|---|---|---|---|---|---|---|---|"]
     for c in CONFIGS:
         h, cm, d = stats[c]["HOME"], stats[c]["CAMPUS"], stats[c]["DAVE"]
         md.append(f"| {c} | {scores[c]['HOME']['primary']:.2f} ({h['tp']} / {h['fp']} / {h['fn']}) | {scores[c]['CAMPUS']['primary']:.2f} ({cm['tp']} / {cm['fp']} / {cm['fn']}) | "
-                  f"{scores[c]['DAVE']['primary']:.2f} ({d['tp']} / {d['fp']} / {d['fn']}) | {h['lost'] + cm['lost']} | {h['gained'] + cm['gained']} | "
+                  f"{scores[c]['DAVE']['primary']:.2f} ({d['tp']} / {d['fp']} / {d['fn']}) | {h['lost'] + cm['lost']} | {h['gained'] + cm['gained']} | {np.mean(h['ious']):.3f} / {np.mean(cm['ious']):.3f} | "
                   f"{'found' if occl02[c]['found'] else 'missed'} ({occl02[c]['iou']:.2f}) |")
     md += ["", "HOME here uses the adopted model on all 16 home frames (the model was fit on them), so it is not the leave-one-scene-out headline number; it is only for comparing detector configs.", "",
            "## Unlabeled frames: boxes against `base`", "",
-           "| config | set | frames | boxes | added | removed | moved |", "|---|---|---|---|---|---|---|"]
+           "| config | set | frames | boxes | added | removed | moved | largest edge shift of a moved box (median / max px) |", "|---|---|---|---|---|---|---|---|"]
     for c in CONFIGS:
         for s in sets:
             if s in labeled or not stats[c][s]["frames"]:
                 continue
             st = stats[c][s]
-            md.append(f"| {c} | {s} | {st['frames']} | {st['boxes']} | {st['added']} | {st['removed']} | {st['moved']} |")
+            md.append(f"| {c} | {s} | {st['frames']} | {st['boxes']} | {st['added']} | {st['removed']} | {st['moved']} | {(str(int(np.median(st['move_px']))) + ' / ' + str(max(st['move_px']))) if st['move_px'] else ''} |")
     md += ["", "## Acceptance (conditions 1, 2, 3, 5 by the script; 4 by eye)", ""]
     for c, conds in verdict.items():
         md.append(f"- **{c}**: " + "; ".join(f"{k}: {'by eye' if v is None else ('pass' if v else 'FAIL')}" for k, v in conds.items()))
