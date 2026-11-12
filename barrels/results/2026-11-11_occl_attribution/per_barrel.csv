@@ -1,0 +1,12 @@
+set,stem,gt,color,bbox,flags,found,cause,detail,body_px,stripe_px,body_frac,stripe_frac
+CAMPUS,4A8B_campus_light_cluster_02,4,blue,"[379, 117, 419, 163]",occluded,True,found,,942,316,0.512,0.172
+CAMPUS,4A8B_campus_light_clutter_02,3,blue,"[475, 122, 522, 174]",occluded,True,found,,1209,471,0.495,0.193
+CAMPUS,4A8B_campus_light_occl_02,1,blue,"[275, 123, 328, 180]",occluded,False,stripe_refused:width,"stripe (278, 148, 294, 160) {'core_h': 9.0, 'expected_w': 53.58}",636,163,0.211,0.054
+HOME,4A8B_window_light_cluster_01,1,orange,"[313, 115, 356, 164]",occluded,False,misplaced,"box (339, 109, 378, 153) iou 0.20 flags ['occluded', 'top_inferred']",784,771,0.372,0.366
+HOME,4A8B_window_light_cluster_01,3,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,False,misplaced,"box (339, 109, 378, 153) iou 0.21 flags ['occluded', 'top_inferred']",403,646,0.225,0.36
+HOME,4A8B_window_light_cluster_01,0,orange,"[339, 109, 378, 153]",occluded+top_inferred,False,false_box,det2,0,0,0,0
+HOME,4A8B_window_light_cluster_02,3,orange,"[390, 116, 432, 163]",occluded,True,found,,885,330,0.448,0.167
+HOME,4A8B_window_light_far_02,2,orange,"[244, 105, 273, 135]",occluded,True,found,,434,169,0.499,0.194
+HOME,4A8B_window_light_occl_01,2,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,False,stripe_refused:height,"stripe (388, 145, 421, 182) {'core_h': 29.0, 'expected_stripe_h': 15.35}",784,894,0.387,0.442
+HOME,4A8B_window_light_occl_02,2,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,False,stripe_refused:height,"stripe (398, 143, 439, 182) {'core_h': 28.0, 'expected_stripe_h': 15.35}",652,880,0.322,0.435
+HOME,4A8B_window_light_touch_02,1,orange,"[148, 121, 192, 176]",occluded,True,found,,1275,327,0.527,0.135

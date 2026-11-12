@@ -86,6 +86,14 @@ class Blob:
         return self.bbox[3] - self.bbox[1]
 
 
+def _note(log: list | None, stage: str, why: str, bbox, **values) -> None:
+    """Diagnostics only: when a caller passes a list as ``log``, every candidate the detector drops (and every
+    one it keeps, why="kept") is appended to it as a dict. With log=None (the default everywhere) nothing happens;
+    the answer never depends on it. Used by the attribution experiments to say *which* test refused a barrel."""
+    if log is not None:
+        log.append({"stage": stage, "why": why, "bbox": tuple(int(v) for v in bbox), **values})
+
+
 # ---------------------------------------------------------------- step 1a: blobs
 
 def find_blobs(mask: np.ndarray, cfg: DetConfig = DetConfig()) -> list[Blob]:
@@ -189,7 +197,8 @@ def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = De
 
 # ---------------------------------------------------------------- the detector
 
-def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> list[Barrel]:
+def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
+                 log: list | None = None) -> list[Barrel]:
     """Step 1 alone: class mask (0 other / 1 orange / 2 blue / 255 ignore) -> barrels, one per barrel-shaped piece."""
     h, w = mask.shape
     out = []
@@ -199,12 +208,15 @@ def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.Camera
             y1, flags = resolve_bottom(piece.bbox, cam, h, cfg)
             W = cam.expected_barrel_width_px(bottom_row=y1) if y1 < h else expected_width_px((x0, y0, x1, h), cam, h)
             if not math.isfinite(W) or W < cfg.min_width_px:
+                _note(log, "piece", "too_far", (x0, y0, x1, y1), expected_w=W)
                 continue                                   # above the horizon or too far to be on the table
             if not (cfg.width_min * W <= (x1 - x0) <= cfg.width_max * W):
+                _note(log, "piece", "width", (x0, y0, x1, y1), expected_w=W)
                 continue                                   # a sliver, or too wide to be one barrel
             if cfg.height_max > 0 and y1 < h and y0 > 0:
                 H = cam.expected_barrel_height_px(bottom_row=y1)
                 if math.isfinite(H) and not (cfg.height_min * H <= (y1 - y0) <= cfg.height_max * H):
+                    _note(log, "piece", "height", (x0, y0, x1, y1), expected_h=H)
                     continue                               # barrel-wide but not barrel-tall: not a barrel (a jacket, a strip of wall)
             if x0 == 0 or x1 == w or y0 == 0:
                 flags.add("truncated")
@@ -263,14 +275,14 @@ def _split_merged(sel: np.ndarray, mask: np.ndarray, other: int, body: int, x: i
     return out
 
 
-def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig()) -> list[Stripe]:
+def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), log: list | None = None) -> list[Stripe]:
     """The stripes in the mask, one per barrel, found as ``cfg.stripe_mode`` says: ``"cores"`` (default since
     2026-11-08) anchors on the stripe-colored pixels themselves, ``"bands"`` (2026-11-03) on the non-body gap."""
     if cfg.stripe_mode == "bands":
         return _find_stripes_bands(mask, cam, cfg)
     if cfg.stripe_mode != "cores":
         raise ValueError(f"stripe_mode must be 'cores' or 'bands', got {cfg.stripe_mode!r}")
-    return _find_stripes_cores(mask, cam, cfg)
+    return _find_stripes_cores(mask, cam, cfg, log)
 
 
 def _reach_by_row(cam: geo.CameraModel, h: int, cfg: DetConfig) -> np.ndarray:
@@ -285,7 +297,7 @@ def _reach_by_row(cam: geo.CameraModel, h: int, cfg: DetConfig) -> np.ndarray:
     return reach
 
 
-def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) -> list[Stripe]:
+def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, log: list | None = None) -> list[Stripe]:
     """A stripe is a connected component of the *other* color whose every pixel has body color above AND below it
     within band_h_max x the expected stripe height for its row (the sandwich, pixel by pixel — so a stripe that
     touches a neighbouring barrel's body is cut from it), with stripe proportions for its row: height between
@@ -311,21 +323,27 @@ def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) 
             n, lab, st, _ = cv2.connectedComponentsWithStats(cand.astype(np.uint8), connectivity=8)
             for i in range(1, n):
                 x, y, bw, bh, area = (int(v) for v in st[i])
+                sb = (x, y, x + bw, y + bh)
                 if area < cfg.min_area_px:
+                    _note(log, "stripe", "area", sb, body=body, area=area)
                     continue
                 sel = lab == i
                 ys = np.where(sel)[0]
                 g = _stripe_geometry(cam, float(np.median(ys)) + 0.5)
                 if g is None:
+                    _note(log, "stripe", "no_geometry", sb, body=body)
                     continue
                 d, rows = g
                 W, Hs = rows.width_px, rows.stripe_bottom - rows.stripe_top
                 if W < cfg.min_width_px or Hs < cfg.min_stripe_px:
+                    _note(log, "stripe", "too_far", sb, body=body, expected_w=W, expected_stripe_h=Hs)
                     continue
                 core_h = np.percentile(ys, 90) - np.percentile(ys, 10) + 1
                 if not (cfg.stripe_h_min * Hs <= core_h <= cfg.stripe_h_max * Hs):
+                    _note(log, "stripe", "height", sb, body=body, core_h=float(core_h), expected_stripe_h=Hs)
                     continue
                 if bw < cfg.stripe_w_min * W or bw < core_h:
+                    _note(log, "stripe", "width", sb, body=body, core_h=float(core_h), expected_w=W)
                     continue
                 if ci == 1 and (mask[sel] == other).any():
                     continue                                   # a dark gap touching real stripe pixels is handled by them
@@ -454,7 +472,7 @@ def _body_columns(mask: np.ndarray, body: int, x0: int, x1: int, top: int, botto
 
 
 def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                       others: tuple = ()) -> Barrel | None:
+                       others: tuple = (), log: list | None = None) -> Barrel | None:
     """One barrel from its stripe. The stripe's row gives the distance; the distance gives the full box the
     geometry predicts (top, bottom, width). The seen body extent above and below the stripe is used for an
     edge when it agrees with the prediction, otherwise the prediction is drawn and the edge flagged. A stripe
@@ -462,6 +480,7 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     h, w = mask.shape
     g = _stripe_geometry(cam, s.center_row)
     if g is None:
+        _note(log, "barrel", "no_geometry", s.bbox, body=s.body)
         return None
     d, rows = g
     x0, y0, x1, y1 = s.bbox
@@ -501,6 +520,7 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
         bx0, bx1 = _body_columns(mask, s.body, x0, x1, top, bottom, y0, y1, cap_px=cfg.body_width * W, others=others)
     bx0, bx1 = max(0, bx0), min(w, bx1)
     if bx1 - bx0 < 2 or bottom - top < 2:
+        _note(log, "barrel", "empty_box", s.bbox, body=s.body)
         return None
     if cfg.body_min > 0:
         # hardening (c), 2026-11-08: in the stripe's own columns, outside the stripe rows, the box must hold more body
@@ -511,6 +531,8 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
         region = cols[outside]
         other = BLUE if s.body == ORANGE else ORANGE
         if region.size and ((region == s.body).sum() < (region == other).sum() or (region == s.body).mean() < cfg.body_min):
+            _note(log, "barrel", "body_min", s.bbox, body=s.body, box=(bx0, top, bx1, bottom),
+                  body_frac=float((region == s.body).mean()), other_frac=float((region == other).mean()))
             return None
     if bx0 == 0 or bx1 == w or top == 0 or bottom == h:
         flags.add("truncated")
@@ -525,7 +547,8 @@ def _x_overlap(a: tuple, b: tuple) -> float:
     return inter / max(1, min(a[2] - a[0], b[2] - b[0]))
 
 
-def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> list[Barrel]:
+def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
+           log: list | None = None) -> list[Barrel]:
     """Class mask (0 other / 1 orange / 2 blue / 255 ignore) -> barrels. Same signature as detect_cc.detect.
 
     Step 2: every stripe is a barrel. Step-1 pieces (barrel-colored, barrel-sized) are then only kept where
@@ -533,17 +556,19 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     bottom (the stripe is below the frame) or the expected stripe is too thin to resolve at that distance.
     With cfg.require_stripe=False this is step 1 alone (the detector before 2026-11-05; ``detect_image.py --step1``)."""
     h, w = mask.shape
-    pieces = detect_step1(mask, cfg, cam)
+    pieces = detect_step1(mask, cfg, cam, log)
     if not cfg.require_stripe:
         return pieces
     out: list[Barrel] = []
-    stripes = find_stripes(mask, cam, cfg)
+    stripes = find_stripes(mask, cam, cfg, log)
     for s in stripes:
-        b = barrel_from_stripe(s, mask, cam, cfg, others=tuple((o.bbox[0], o.bbox[2]) for o in stripes if o is not s))
+        b = barrel_from_stripe(s, mask, cam, cfg, others=tuple((o.bbox[0], o.bbox[2]) for o in stripes if o is not s), log=log)
         if b is None:
             continue
+        _note(log, "barrel", "kept", s.bbox, body=s.body, box=b.bbox)
         dup = next((o for o in out if o.color == b.color and box_iou(o.bbox, b.bbox) > 0.5), None)
         if dup is not None:
+            _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=b.bbox)
             if b.confidence > dup.confidence:
                 out.remove(dup); out.append(b)
             continue
@@ -552,11 +577,14 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
         # (g) 2026-11-09: a stripe barrel accounts for a piece only if the two boxes share rows as well as columns — a far
         # barrel standing above a close one in the picture used to "cover" it (live run with Dave: the close-up got no box)
         if any(_x_overlap(p.bbox, o.bbox) > 0.3 and (not cfg.cover_rows or min(p.bbox[3], o.bbox[3]) > max(p.bbox[1], o.bbox[1])) for o in out):
+            _note(log, "piece", "covered", p.bbox, body=p.color)
             continue                                         # the stripe barrels already account for this piece
         g = _stripe_geometry(cam, (p.bbox[1] + p.bbox[3]) / 2)
         hs = (g[1].stripe_bottom - g[1].stripe_top) if g else math.inf
         if p.bbox[3] >= h or hs < cfg.min_stripe_px:
             out.append(p)                                    # stripe below the frame, or too far to resolve one
+        else:
+            _note(log, "piece", "stripeless", p.bbox, body=p.color, expected_stripe_h=hs)
     return sorted(out, key=lambda b: b.bbox[0])
 
 
