@@ -10,6 +10,8 @@
 4. **Negatives:** any box on a negative frame is a false positive; a box on a *clean* negative (no orange/blue clutter) **disqualifies** the config.
 5. **Splits:** train = everything but the test frames; **test (HOME 5 + CAMPUS 10) is looked at only when planned in advance** — this week twice, `TODO.md` 9b and 10b. Tuning uses leave-one-scene-out over the train frames; selection rules are written down before a sweep runs.
 
+**The one table** (2026-11-11; presentation only, the rule above is unchanged): `python barrels/tools/report.py` prints data set × scenario rows with found / missed / false / width ratio / bottom error for a candidate and a baseline side by side and the difference, the headline score per data set and the clean-negative disqualifier; train frames only (test frames are refused unless `--split test` is given for a planned look). `--help` shows how to choose the two arms. Code: `src/barrels/report.py`.
+
 Commands: `python barrels/tools/eval_boxes.py --pred DIR --split train --gt-boxes --rule v2`; the experiment scripts call `eval_det.evaluate_frame(..., rule="v2")` directly. Code: `src/barrels/eval_det.py`.
 
 Everything below is the full statement and the record.
