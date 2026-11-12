@@ -1,0 +1,241 @@
+config,set,frame,change,color,bbox,flags
+w25h,HOME,4A8B_window_light_cluster_01,added,orange,"[353, 109, 392, 153]",occluded+top_inferred
+w25h,HOME,4A8B_window_light_cluster_01,removed,orange,"[339, 109, 378, 153]",occluded+top_inferred
+h,HOME,4A8B_window_light_cluster_01,added,orange,"[353, 109, 392, 153]",occluded+top_inferred
+h,HOME,4A8B_window_light_cluster_01,removed,orange,"[339, 109, 378, 153]",occluded+top_inferred
+w25h,HOME,4A8B_window_light_cluster_02,moved,orange,"[394, 117, 430, 162]",occluded
+h,HOME,4A8B_window_light_cluster_02,moved,orange,"[394, 117, 430, 162]",occluded
+w25h,HOME,4A8B_window_light_edge_01,moved,blue,"[0, 132, 47, 197]",occluded+truncated
+h,HOME,4A8B_window_light_edge_01,moved,blue,"[0, 132, 47, 197]",occluded+truncated
+w20 (report only),HOME,4A8B_window_light_occl_01,added,blue,"[401, 112, 444, 157]",occluded
+w20 (report only),HOME,4A8B_window_light_occl_01,moved,orange,"[344, 134, 419, 228]",
+w25h,HOME,4A8B_window_light_touch_02,moved,orange,"[149, 123, 191, 174]",occluded
+h,HOME,4A8B_window_light_touch_02,moved,orange,"[149, 123, 191, 174]",occluded
+w25h,CAMPUS,4A8B_campus_light_cluster_02,moved,blue,"[375, 117, 421, 166]",occluded
+h,CAMPUS,4A8B_campus_light_cluster_02,moved,blue,"[375, 117, 421, 166]",occluded
+w25h,CAMPUS,4A8B_campus_light_clutter_02,moved,blue,"[481, 122, 533, 171]",occluded
+h,CAMPUS,4A8B_campus_light_clutter_02,moved,blue,"[481, 122, 533, 171]",occluded
+w25h,CAMPUS,4A8B_campus_light_core_01,moved,orange,"[247, 110, 279, 144]",occluded
+h,CAMPUS,4A8B_campus_light_core_01,moved,orange,"[247, 110, 279, 144]",occluded
+w25h,CAMPUS,4A8B_campus_light_edge_01,moved,orange,"[584, 144, 640, 227]",occluded+truncated
+h,CAMPUS,4A8B_campus_light_edge_01,moved,orange,"[584, 144, 640, 227]",occluded+truncated
+w25h,CAMPUS,4A8B_campus_light_far_01,moved,orange,"[198, 116, 235, 160]",occluded
+h,CAMPUS,4A8B_campus_light_far_01,moved,orange,"[198, 116, 235, 160]",occluded
+w25,CAMPUS,4A8B_campus_light_occl_02,added,blue,"[259, 127, 313, 178]",occluded
+w25h,CAMPUS,4A8B_campus_light_occl_02,added,blue,"[267, 127, 321, 178]",occluded
+w20 (report only),CAMPUS,4A8B_campus_light_occl_02,added,blue,"[259, 127, 313, 178]",occluded
+w25h,CAMPUS,4A8B_campus_light_room_03,moved,blue,"[180, 112, 214, 152]",occluded
+w25h,CAMPUS,4A8B_campus_light_room_03,moved,orange,"[217, 112, 250, 150]",occluded
+h,CAMPUS,4A8B_campus_light_room_03,moved,blue,"[180, 112, 214, 152]",occluded
+h,CAMPUS,4A8B_campus_light_room_03,moved,orange,"[217, 112, 250, 150]",occluded
+w25h,DAVE,DAVE_office_speckle_snap_06,moved,orange,"[384, 126, 433, 189]",occluded+top_inferred
+h,DAVE,DAVE_office_speckle_snap_06,moved,orange,"[384, 126, 433, 189]",occluded+top_inferred
+w25,DAVE,DAVE_office_speckle_snap_10,added,orange,"[399, 176, 525, 306]",occluded
+w25h,DAVE,DAVE_office_speckle_snap_10,added,orange,"[384, 176, 516, 306]",occluded
+w35 (report only),DAVE,DAVE_office_speckle_snap_10,added,orange,"[399, 176, 525, 306]",occluded
+w30 (report only),DAVE,DAVE_office_speckle_snap_10,added,orange,"[399, 176, 525, 306]",occluded
+w20 (report only),DAVE,DAVE_office_speckle_snap_10,added,orange,"[399, 176, 525, 306]",occluded
+w25h,WOOD (unlabeled),4A8B_atcool_wood_glare_01,moved,blue,"[197, 145, 275, 232]",occluded
+h,WOOD (unlabeled),4A8B_atcool_wood_glare_01,moved,blue,"[197, 145, 275, 232]",occluded
+w25h,WOOD (unlabeled),4A8B_atcool_wood_glare_02,moved,orange,"[178, 152, 277, 259]",bottom_inferred+occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_atcool_wood_glare_02,moved,blue,"[195, 141, 276, 233]",occluded
+h,WOOD (unlabeled),4A8B_atcool_wood_glare_02,moved,orange,"[178, 152, 277, 259]",bottom_inferred+occluded+top_inferred
+h,WOOD (unlabeled),4A8B_atcool_wood_glare_02,moved,blue,"[195, 141, 276, 233]",occluded
+w25h,WOOD (unlabeled),4A8B_atmid_wood_core_01,moved,orange,"[132, 127, 193, 195]",bottom_inferred+occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_atmid_wood_core_01,moved,blue,"[133, 122, 183, 175]",occluded
+w25h,WOOD (unlabeled),4A8B_atmid_wood_core_01,moved,blue,"[302, 105, 328, 133]",occluded
+h,WOOD (unlabeled),4A8B_atmid_wood_core_01,moved,orange,"[132, 127, 193, 195]",bottom_inferred+occluded+top_inferred
+h,WOOD (unlabeled),4A8B_atmid_wood_core_01,moved,blue,"[133, 122, 183, 175]",occluded
+h,WOOD (unlabeled),4A8B_atmid_wood_core_01,moved,blue,"[302, 105, 328, 133]",occluded
+w25h,WOOD (unlabeled),4A8B_atmid_wood_shadow_01,moved,orange,"[180, 166, 284, 293]",bottom_inferred+occluded+top_inferred
+h,WOOD (unlabeled),4A8B_atmid_wood_shadow_01,moved,orange,"[180, 166, 284, 293]",bottom_inferred+occluded+top_inferred
+w25,WOOD (unlabeled),4A8B_atwarm_wood_core_01,added,orange,"[248, 166, 369, 295]",bottom_inferred+occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_atwarm_wood_core_01,added,orange,"[248, 166, 369, 295]",bottom_inferred+occluded+top_inferred
+w30 (report only),WOOD (unlabeled),4A8B_atwarm_wood_core_01,added,orange,"[248, 166, 369, 295]",bottom_inferred+occluded+top_inferred
+w20 (report only),WOOD (unlabeled),4A8B_atwarm_wood_core_01,added,orange,"[248, 166, 369, 295]",bottom_inferred+occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_awaymid_wood_core_01,moved,orange,"[136, 127, 194, 195]",bottom_inferred+occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_awaymid_wood_core_01,moved,blue,"[302, 104, 333, 134]",occluded
+h,WOOD (unlabeled),4A8B_awaymid_wood_core_01,moved,orange,"[136, 127, 194, 195]",bottom_inferred+occluded+top_inferred
+h,WOOD (unlabeled),4A8B_awaymid_wood_core_01,moved,blue,"[302, 104, 333, 134]",occluded
+w25h,WOOD (unlabeled),4A8B_awaywarm_wood_core_01,moved,blue,"[139, 123, 185, 174]",occluded
+h,WOOD (unlabeled),4A8B_awaywarm_wood_core_01,moved,blue,"[139, 123, 185, 174]",occluded
+w25h,WOOD (unlabeled),4A8B_upcool_wood_calib_01,moved,orange,"[253, 179, 392, 326]",bottom_inferred+occluded
+h,WOOD (unlabeled),4A8B_upcool_wood_calib_01,moved,orange,"[253, 179, 392, 326]",bottom_inferred+occluded
+w25h,WOOD (unlabeled),4A8B_upcool_wood_calib_02,moved,orange,"[281, 143, 361, 229]",bottom_inferred+occluded
+h,WOOD (unlabeled),4A8B_upcool_wood_calib_02,moved,orange,"[281, 143, 361, 229]",bottom_inferred+occluded
+w25h,WOOD (unlabeled),4A8B_upcool_wood_calib_03,moved,orange,"[291, 130, 348, 188]",bottom_inferred+occluded
+h,WOOD (unlabeled),4A8B_upcool_wood_calib_03,moved,orange,"[291, 130, 348, 188]",bottom_inferred+occluded
+w25h,WOOD (unlabeled),4A8B_upcool_wood_calib_04,moved,orange,"[297, 120, 340, 166]",bottom_inferred+occluded
+h,WOOD (unlabeled),4A8B_upcool_wood_calib_04,moved,orange,"[297, 120, 340, 166]",bottom_inferred+occluded
+w25h,WOOD (unlabeled),4A8B_upcool_wood_core_01,moved,blue,"[254, 106, 281, 136]",occluded
+h,WOOD (unlabeled),4A8B_upcool_wood_core_01,moved,blue,"[254, 106, 281, 136]",occluded
+w25h,WOOD (unlabeled),4A8B_upmid_wood_cluster_01,moved,blue,"[234, 133, 298, 211]",occluded
+h,WOOD (unlabeled),4A8B_upmid_wood_cluster_01,moved,blue,"[234, 133, 298, 211]",occluded
+w25,WOOD (unlabeled),4A8B_upmid_wood_core_01,added,orange,"[282, 108, 320, 144]",occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_upmid_wood_core_01,added,orange,"[286, 108, 324, 144]",occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_upmid_wood_core_01,moved,orange,"[132, 127, 192, 195]",bottom_inferred+occluded+top_inferred
+w25h,WOOD (unlabeled),4A8B_upmid_wood_core_01,moved,blue,"[298, 107, 330, 134]",occluded
+h,WOOD (unlabeled),4A8B_upmid_wood_core_01,moved,orange,"[132, 127, 192, 195]",bottom_inferred+occluded+top_inferred
+h,WOOD (unlabeled),4A8B_upmid_wood_core_01,moved,blue,"[298, 107, 330, 134]",occluded
+w30 (report only),WOOD (unlabeled),4A8B_upmid_wood_core_01,added,orange,"[282, 108, 320, 144]",occluded+top_inferred
+w20 (report only),WOOD (unlabeled),4A8B_upmid_wood_core_01,added,orange,"[282, 108, 320, 144]",occluded+top_inferred
+w25h,REC (unlabeled),r1_static/frame_000,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_000,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_001,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_001,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_002,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_002,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_003,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_003,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_004,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_004,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_005,moved,blue,"[601, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_005,moved,blue,"[601, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_006,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_006,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_007,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_007,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_008,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_008,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_009,moved,blue,"[601, 121, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_009,moved,blue,"[601, 121, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_010,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_010,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_011,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_011,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_012,moved,blue,"[600, 122, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_012,moved,blue,"[600, 122, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_013,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_013,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_014,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_014,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_015,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_015,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_016,moved,blue,"[609, 121, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_016,moved,blue,"[609, 121, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_017,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_017,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_018,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_018,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_019,moved,blue,"[601, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_019,moved,blue,"[601, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_020,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_020,moved,blue,"[601, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_021,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_021,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_022,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_022,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_023,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_023,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_024,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_024,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_025,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_025,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_026,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_026,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_027,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_027,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_028,moved,blue,"[608, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_028,moved,blue,"[608, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_029,moved,blue,"[609, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_029,moved,blue,"[609, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_030,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_030,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_031,moved,blue,"[608, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_031,moved,blue,"[608, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_032,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_032,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_033,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_033,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_034,moved,blue,"[609, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_034,moved,blue,"[609, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_035,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_035,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_036,moved,blue,"[609, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_036,moved,blue,"[609, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_037,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_037,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_038,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_038,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_039,moved,blue,"[609, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_039,moved,blue,"[609, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_040,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_040,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_041,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_041,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_042,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_042,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_043,moved,blue,"[608, 121, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_043,moved,blue,"[608, 121, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_044,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_044,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_045,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_045,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_046,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_046,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_047,moved,blue,"[601, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_047,moved,blue,"[601, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_048,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_048,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_049,moved,blue,"[608, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_049,moved,blue,"[608, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_050,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_050,moved,blue,"[600, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_051,moved,blue,"[608, 120, 640, 169]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_051,moved,blue,"[608, 120, 640, 169]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_052,moved,blue,"[608, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_052,moved,blue,"[608, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r1_static/frame_053,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r1_static/frame_053,moved,blue,"[600, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_025,moved,blue,"[599, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_025,moved,blue,"[599, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_027,moved,blue,"[598, 120, 640, 170]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_027,moved,blue,"[598, 120, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_028,moved,blue,"[606, 120, 640, 171]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_028,moved,blue,"[606, 120, 640, 171]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_029,moved,blue,"[606, 122, 640, 170]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_029,moved,blue,"[606, 122, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_030,moved,blue,"[609, 120, 640, 171]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_030,moved,blue,"[609, 120, 640, 171]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_031,moved,blue,"[612, 123, 640, 170]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_031,moved,blue,"[612, 123, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_032,moved,blue,"[603, 121, 640, 170]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_032,moved,blue,"[603, 121, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_033,moved,blue,"[604, 122, 640, 171]",occluded+truncated
+h,REC (unlabeled),r2_pan/frame_033,moved,blue,"[604, 122, 640, 171]",occluded+truncated
+w25,REC (unlabeled),r2_pan/frame_034,added,blue,"[609, 123, 640, 170]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_034,added,blue,"[607, 123, 640, 170]",occluded+truncated
+w20 (report only),REC (unlabeled),r2_pan/frame_034,added,blue,"[609, 123, 640, 170]",occluded+truncated
+w25,REC (unlabeled),r2_pan/frame_035,added,blue,"[626, 123, 640, 171]",occluded+truncated
+w25h,REC (unlabeled),r2_pan/frame_035,added,blue,"[624, 123, 640, 171]",occluded+truncated
+w20 (report only),REC (unlabeled),r2_pan/frame_035,added,blue,"[626, 123, 640, 171]",occluded+truncated
+w20 (report only),REC (unlabeled),r2_pan/frame_036,added,blue,"[611, 117, 640, 171]",occluded+top_inferred+truncated
+w25h,REC (unlabeled),r2_pan/frame_052,moved,blue,"[269, 111, 310, 160]",occluded+top_inferred
+h,REC (unlabeled),r2_pan/frame_052,moved,blue,"[269, 111, 310, 160]",occluded+top_inferred
+w25h,REC (unlabeled),r2_pan/frame_056,moved,blue,"[273, 110, 313, 160]",occluded+top_inferred
+h,REC (unlabeled),r2_pan/frame_056,moved,blue,"[273, 110, 313, 160]",occluded+top_inferred
+w25h,REC (unlabeled),r2_pan/frame_057,moved,blue,"[282, 111, 323, 160]",occluded+top_inferred
+h,REC (unlabeled),r2_pan/frame_057,moved,blue,"[282, 111, 323, 160]",occluded+top_inferred
+w20 (report only),REC (unlabeled),r3_enter_leave/frame_013,added,orange,"[597, 142, 640, 215]",occluded+truncated
+w25,REC (unlabeled),r3_enter_leave/frame_014,added,orange,"[592, 138, 640, 216]",occluded+truncated
+w25h,REC (unlabeled),r3_enter_leave/frame_014,added,orange,"[590, 138, 640, 216]",occluded+truncated
+w30 (report only),REC (unlabeled),r3_enter_leave/frame_014,added,orange,"[592, 138, 640, 216]",occluded+truncated
+w20 (report only),REC (unlabeled),r3_enter_leave/frame_014,added,orange,"[592, 138, 640, 216]",occluded+truncated
+w25h,REC (unlabeled),r3_enter_leave/frame_015,moved,orange,"[583, 138, 640, 218]",occluded+truncated
+h,REC (unlabeled),r3_enter_leave/frame_015,moved,orange,"[583, 138, 640, 218]",occluded+truncated
+w25h,REC (unlabeled),r3_enter_leave/frame_045,moved,orange,"[574, 137, 640, 224]",occluded+truncated
+h,REC (unlabeled),r3_enter_leave/frame_045,moved,orange,"[574, 137, 640, 224]",occluded+truncated
+w25h,REC (unlabeled),r3_enter_leave/frame_046,moved,orange,"[583, 140, 640, 222]",occluded+truncated
+h,REC (unlabeled),r3_enter_leave/frame_046,moved,orange,"[583, 140, 640, 222]",occluded+truncated
+w25,REC (unlabeled),r3_enter_leave/frame_047,added,orange,"[593, 141, 640, 220]",occluded+truncated
+w25h,REC (unlabeled),r3_enter_leave/frame_047,added,orange,"[590, 141, 640, 220]",occluded+truncated
+w20 (report only),REC (unlabeled),r3_enter_leave/frame_047,added,orange,"[593, 141, 640, 220]",occluded+truncated
+w20 (report only),REC (unlabeled),r4_hand_occlusion/frame_000,added,orange,"[403, 104, 436, 140]",bottom_inferred+occluded+top_inferred
+w25h,REC (unlabeled),r4_hand_occlusion/frame_033,moved,orange,"[272, 115, 317, 158]",occluded
+w25h,REC (unlabeled),r4_hand_occlusion/frame_033,moved,orange,"[402, 104, 441, 143]",occluded+top_inferred
+h,REC (unlabeled),r4_hand_occlusion/frame_033,moved,orange,"[272, 115, 317, 158]",occluded
+h,REC (unlabeled),r4_hand_occlusion/frame_033,moved,orange,"[402, 104, 441, 143]",occluded+top_inferred
+w25h,REC (unlabeled),r4_hand_occlusion/frame_042,moved,blue,"[400, 114, 436, 158]",occluded
+h,REC (unlabeled),r4_hand_occlusion/frame_042,moved,blue,"[400, 114, 436, 158]",occluded
+w25h,REC (unlabeled),r4_hand_occlusion/frame_047,moved,orange,"[409, 110, 442, 142]",occluded
+h,REC (unlabeled),r4_hand_occlusion/frame_047,moved,orange,"[409, 110, 442, 142]",occluded

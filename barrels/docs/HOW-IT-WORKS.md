@@ -171,6 +171,19 @@ The campus attribution (`EXPERIMENTS.md` 2026-11-07) confirmed the two flaws pre
 
 *Numbers* (`experiments/2026-11-08_det_hardening/`, same pixels and camera for every row; before (e), which changes only frame-edge barrels): with the frozen v1 pixels, home train v2 **0.91 → 0.93** (orange 0.87 → 0.90, blue 0.96 unchanged, nothing on the negatives) and the campus train frames 7 → 8 right; under the hue model (probe fit) home **0.57 → 0.78**, Dave's 12 frames 0.31 → 0.40, campus 12 → 15 of 21 right, frames with an extra box 5 → 1, nothing on the four campus negatives. With the dark-gap path back on, every number is worse (home 0.67, campus 10, boxes on a negative).
 
+### Occlusion, step 7 (2026-11-11, branch `wip/occlusion`; awaiting walkthrough; **defaults unchanged**)
+
+What was asked: live with Dave a barrel with half its body showing got no box. What was done, in order:
+
+1. **The reason log.** `detect`, `detect_step1`, `find_stripes` and `barrel_from_stripe` take an optional `log` list. When given, every candidate the detector drops is appended with the name of the test that dropped it (`area`, `height`, `width`, `too_far`, `body_min`, `covered`, `stripeless`, …) and the numbers it compared; kept stripes are logged as `kept`. With `log=None` (the default, and what every tool and the robot use) nothing is recorded. The answer is the same either way (tested).
+2. **Attribution** (`experiments/2026-11-11_occl_attribution/`). On the 37 train frames the detector misses 5 barrels, all occluded, of 10 occluded ones. Two different causes:
+   - *Hidden at the side by something that is not a barrel* (1: campus `occl_02`, behind the robot). The stripe is found, 16 px wide; the barrel is 53.6 px wide there; the width test wants 0.4 × 53.6 = 21.4 px. Refused by `stripe_w_min`. A stripe is ~15 % narrower than its barrel, so "half a barrel showing" sits right at this limit: that is the live miss.
+   - *Behind a barrel of the other color* (4: home `occl_01`, `occl_02`, two in `cluster_01`). The back barrel's stripe has the front barrel's body color, the two join into one patch, and the patch is too tall to be a stripe (28–29 px against 15 expected). Refused by `height`. This is "mixed-color stacking", TODO step 9, not touched.
+3. **The fix that was tried** (`experiments/2026-11-11_occl_narrow_stripe/`, rule written first in its `PREREG.md`):
+   - `stripe_w_min` 0.4 → 0.25. Why a quarter: a stripe is about a quarter as tall as the barrel is wide and the finder already refuses a stripe taller than wide, so below a quarter width the width test adds nothing.
+   - **(h) `occl_body_side`** (new switch, off). A narrow stripe says where the barrel is, not which side is hidden. Before: widen to a full barrel toward a barrel-colored neighbour, else centre on the stripe. With (h): first take the body-colored columns joined to the stripe above and below it (the same walk as (f)). If they already span 0.8 of a barrel, that span is the box. Otherwise widen that span by the old rule. A span wider than 1.2 barrels is a same-color neighbour and is ignored. On `occl_02` the robot's edge slants, so the blue body below the stripe shows almost the whole width: IoU with the truth 0.51 centred, 0.68 with (h).
+4. **Result.** Both changes together find `occl_02` (campus 34 → 35 of 35 found), one more of Dave's barrels, and four real barrels entering at the frame edge in the recordings; no barrel lost, no false box on any home, campus or Dave frame. But they add **2 false boxes on the 25 wood frames** (where the table itself reads orange). The pre-registered rule said every added box must be a real barrel, so **nothing is adopted**: the defaults are as on `barrels`. Whether to switch them on before the wood front end is fixed is an open decision (STATUS).
+
 ### The code, in call order
 
 | function | one line |
@@ -208,7 +221,8 @@ The campus attribution (`EXPERIMENTS.md` 2026-11-07) confirmed the two flaws pre
 | `require_stripe` | on | step 4 on/off | on since 2026-11-05: step 4 beat steps 1–3 under both rules; `--step1` in the CLI turns it off |
 | `stripe_h_min` / `stripe_h_max` | 0.45 / 1.6 | the stripe core's height as a fraction of the expected stripe height | segmentation erodes a stripe by a pixel or two each side (far: 9 px → 5–7); 1.6 keeps a slightly fat band, excludes an upper body (1.5 ×) read as a band |
 | `band_h_max` | 3.0 | the whole band (core + shadow) at most this × the expected stripe height | shadow below a stripe can double the band; a band 3 × tall is a whole barrel face, not a stripe |
-| `stripe_w_min` | 0.4 | a band narrower than this × a barrel width is not a stripe | a stripe hidden more than 60 % cannot place its barrel reliably |
+| `stripe_w_min` | 0.4 | a band narrower than this × a barrel width is not a stripe | a stripe hidden more than 60 % cannot place its barrel reliably. 0.25 tried 2026-11-11 (finds campus `occl_02`, adds 2 false boxes on wood): not adopted |
+| `occl_body_side` | False | (h) a partly hidden stripe's box takes the body columns joined to the stripe before widening | 2026-11-11, `wip/occlusion`; off: only useful together with a lower `stripe_w_min` |
 | `stripe_merge` | 1.4 | a band wider than this × a barrel is several merged stripes | touching same-color barrels' stripes meet at the bulges; cut evenly |
 | `stripe_full` | 0.8 | a stripe narrower than this × a barrel is partly hidden → widen to a full barrel | a free-standing stripe is 0.85–1.05 widths after erosion |
 | `min_stripe_px` | 4 | stripes thinner than this cannot be resolved → stripeless pieces allowed | 4 px is the expected stripe at ≈ 60 cm, the far end of a table |

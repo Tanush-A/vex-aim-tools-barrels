@@ -243,3 +243,42 @@ def test_stripe_cut_by_the_frame_edge_widens_into_the_edge():
     out = det.detect(mask, CFG2, CAM)
     assert len(out) == 1 and "truncated" in out[0].flags
     assert out[0].bbox[2] == 640 and abs(out[0].bbox[0] - truth[0]) <= 2   # left edge where the barrel starts, right edge at the frame
+
+
+def _barrel_behind_a_slanted_edge(seen_at_stripe=0.3, seen_at_bottom=0.95):
+    """A blue barrel whose right part is hidden by something that is not barrel-colored and whose edge slants
+    (like the robot's body in campus occl_02): the stripe shows `seen_at_stripe` of the width, the bottom more."""
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 150, 320, body=io.BLUE)
+    x0, top, x1, bottom = truth
+    r = CAM.barrel_rows(150)
+    mid = (r.stripe_top + r.stripe_bottom) / 2
+    for y in range(top, bottom):
+        frac = seen_at_stripe + (seen_at_bottom - seen_at_stripe) * max(0.0, (y - mid) / (bottom - mid))
+        mask[y, x0 + int(round(frac * (x1 - x0))):] = 0
+    return mask, truth
+
+
+def test_log_names_the_refusing_test_and_never_changes_the_answer():
+    mask, truth = _barrel_behind_a_slanted_edge()
+    log = []
+    assert det.detect(mask, CFG2, CAM, log=log) == det.detect(mask, CFG2, CAM) == []    # 0.3 of a width: under stripe_w_min 0.4
+    assert any(e["stage"] == "stripe" and e["why"] == "width" and e["body"] == io.BLUE for e in log)
+    mask2 = np.zeros((480, 640), np.uint8); paint_barrel(mask2, 150, 320)
+    log = []
+    assert det.detect(mask2, CFG2, CAM, log=log) == det.detect(mask2, CFG2, CAM)
+    assert [e["why"] for e in log if e["stage"] == "barrel"] == ["kept"]
+
+
+def test_barrel_hidden_at_the_side_narrow_stripe_and_hidden_side_from_the_body():
+    mask, truth = _barrel_behind_a_slanted_edge()
+    narrow = dataclasses.replace(CFG2, stripe_w_min=0.25)
+    out = det.detect(mask, narrow, CAM)                              # the stripe is accepted; the box is centred on it
+    assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
+    centred = det.box_iou(out[0].bbox, truth)
+    out_h = det.detect(mask, dataclasses.replace(narrow, occl_body_side=True), CAM)
+    assert len(out_h) == 1 and "occluded" in out_h[0].flags          # (h): the body below the stripe shows the real extent
+    assert det.box_iou(out_h[0].bbox, truth) > max(0.8, centred)
+    # (h) changes nothing for a barrel that is not hidden
+    full = np.zeros((480, 640), np.uint8); paint_barrel(full, 150, 320)
+    assert det.detect(full, dataclasses.replace(CFG2, occl_body_side=True), CAM) == det.detect(full, CFG2, CAM)
