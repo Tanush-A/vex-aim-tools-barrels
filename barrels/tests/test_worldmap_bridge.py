@@ -72,7 +72,16 @@ def test_view_on_a_real_frame_matches_the_photo_path():
     assert (boxes[..., ::-1] == det.draw(bgr, barrels)).all()           # same pixels as the photo path, just RGB
     x0, y0, x1, y1 = barrels[0].bbox
     assert tuple(boxes[y0, x0]) == (255, 255, 0)                        # yellow in RGB = an orange barrel's box
-    assert (hook.view(rgb, "seg")[..., ::-1] == viz.overlay(bgr, mask)).all()
+    seg = hook.view(rgb, "seg")                                         # seg: non-barrel pixels dimmed, barrel pixels as they were
+    is_class = mask > 0
+    assert is_class.any() and (seg[is_class] == rgb[is_class]).all()
+    assert (seg[~is_class] == wb.seg_views(rgb, mask)[0][~is_class]).all() and seg[~is_class].mean() < 0.4 * rgb[~is_class].mean()
+    only = hook.seg_only()                                              # the second window: class colors on black, RGB
+    assert only.shape == rgb.shape and only.dtype == np.uint8 and only.flags["C_CONTIGUOUS"]
+    assert (only[mask == io.ORANGE] == (255, 128, 0)).all() and (only[mask == io.BLUE] == (0, 100, 255)).all()
+    assert not only[~is_class].any()
+    both = hook.view(rgb, "both")                                       # both: the dimmed frame with the boxes on it
+    assert tuple(both[y0, x0]) == (255, 255, 0) and (both[0, 0] == seg[0, 0]).all()
     try:
         hook.view(rgb, "nope")
     except ValueError:
@@ -98,9 +107,46 @@ def test_render_draws_the_barrels_it_is_given_and_raw_ones_in_white():
         x0, y0, _, _ = b.bbox
         assert tuple(out[y0, x0]) == (255, 255, 255)                                   # ... unless asked for, in white
     seg = hook.render(rgb, given, "seg")
-    assert (seg == np.ascontiguousarray(viz.overlay(bgr, hook.last_mask)[..., ::-1])).all()   # seg: tint only, no boxes
+    assert (seg == wb.seg_views(rgb, hook.last_mask)[0]).all()                         # seg: the dimmed frame only, no boxes
     try:
         hook.render(rgb, given, "nope")
         assert False, "bad mode accepted"
     except ValueError:
         pass
+
+
+def test_seg_views_dims_what_is_not_a_barrel_color_and_keeps_only_the_segmented_pixels():
+    image = np.full((4, 6, 3), 200, np.uint8)
+    image[..., 0] = 100                                   # every pixel (100, 200, 200)
+    image[3, 5] = (255, 255, 255)
+    mask = np.zeros((4, 6), np.uint8)
+    mask[0, :2] = io.ORANGE
+    mask[1, 2:4] = io.BLUE
+    mask[2, 0] = io.IGNORE                                # anything that is not orange/blue counts as "not a barrel color"
+    before = image.copy()
+    dimmed, only = wb.seg_views(image, mask, dim=0.5)
+    assert (image == before).all()                        # the input is not touched
+    for out in (dimmed, only):
+        assert out.shape == image.shape and out.dtype == np.uint8 and out.flags["C_CONTIGUOUS"]
+    is_class = (mask == io.ORANGE) | (mask == io.BLUE)
+    assert (dimmed[is_class] == image[is_class]).all()    # barrel-colored pixels at full brightness
+    assert (dimmed[~is_class][:-1] == (50, 100, 100)).all() and tuple(dimmed[3, 5]) == (128, 128, 128)   # the rest halved (rounded)
+    assert tuple(dimmed[2, 0]) == (50, 100, 100)
+    assert (only[is_class] == image[is_class]).all() and not only[~is_class].any()    # original colors on black
+    _, colored = wb.seg_views(image, mask, colors={io.ORANGE: (1, 2, 3), io.BLUE: (4, 5, 6)})
+    assert (colored[mask == io.ORANGE] == (1, 2, 3)).all() and (colored[mask == io.BLUE] == (4, 5, 6)).all()
+    assert not colored[~is_class].any()                   # class colors on black
+    default_dim, _ = wb.seg_views(image, mask)
+    assert tuple(default_dim[3, 0]) == (30, 60, 60) and wb.SEG_DIM == 0.3
+    empty_dim, empty_only = wb.seg_views(image, np.zeros((4, 6), np.uint8))           # no barrel pixels: all dim, all black
+    assert empty_dim.max() == 77 and not empty_only.any()
+    try:
+        wb.seg_views(image, np.zeros((5, 6), np.uint8))
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("size mismatch accepted")
+
+
+def test_seg_only_is_none_before_the_first_frame():
+    assert wb.BarrelDetectorHook.default().seg_only() is None

@@ -11,7 +11,7 @@ ping -c 3 $ROBOT
 cd vex-aim-tools/barrels/live && simple_cli BarrelTracker     # or BarrelViewer (per frame, no persistence)
 ```
 
-At `C>`: `tm boxes` / `tm seg` / `tm both` switch the view; `tm save` writes a raw frame to `snapshots/`; `tm rec` records ten seconds; `tm raw` (tracker) overlays the per-frame boxes. Quit with **Ctrl+\** before powering the robot off. Save a frame of anything that looks wrong and say which file.
+At `C>`: `tm boxes` / `tm seg` / `tm both` switch the view (`tm seg`: the main window dims everything that is not a barrel color and a second window shows only the segmented pixels); `tm save` writes a raw frame to `snapshots/`; `tm rec` records ten seconds; `tm raw` (tracker) overlays the per-frame boxes. Quit with **Ctrl+\** before powering the robot off. Save a frame of anything that looks wrong and say which file.
 
 ---
 
@@ -45,7 +45,7 @@ At the `C>` prompt (both programs):
 
 | command | does |
 |---|---|
-| `tm boxes` / `tm seg` / `tm both` | the boxes (default; yellow = orange barrel, green = blue, 1 px) / the segmentation tint / both |
+| `tm boxes` / `tm seg` / `tm both` | the boxes (default; yellow = orange barrel, green = blue, 1 px) / the segmentation: the main window dims every pixel not classified orange or blue (barrel-colored pixels stay at full brightness) and a second window, `barrels seg` or `barrels (tracked) seg`, shows only the classified pixels in their class color on black / the seg pair with the boxes on the main window. `tm boxes` closes the second window (within one refresh) |
 | `tm save` | writes the current raw frame as `snapshots/robot_snapN.png` under `barrels/live/` (the camera viewer's naming; N continues past existing files, never overwrites) |
 | `tm rec` | writes every frame for ten seconds (at most ten a second) into `snapshots/rec_<stamp>/frame_NNN.png` + `frames.json` (time and frame count per file) |
 | `tm raw` | BarrelTracker only: also draw this frame's own boxes in white, to compare with the persisting ones |

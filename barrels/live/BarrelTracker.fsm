@@ -11,6 +11,8 @@ Run (robot on, setup.zsh sourced, docs/RUNBOOK.md):
     simple_cli BarrelTracker
 
 At the C> prompt:  tm seg | tm boxes | tm both   -> what to show (tracked boxes: yellow = orange barrel, green = blue)
+                     (seg: the main window dims every pixel that is not a barrel color and a second window,
+                      "<title> seg", shows only the segmented pixels; both: the same with the boxes)
                    tm raw                        -> also draw this frame's own boxes in white (again to hide them)
                    tm save / tm rec              -> raw frame(s) to snapshots/ (see barrel_live.py)
 Quit with Ctrl+\\ before powering the robot off.
@@ -38,7 +40,7 @@ class BarrelTracker(BarrelLive):
                 return
             raw = program.hook.on_image(image)                 # this frame's own answer
             shown = program.tracker.update(raw)                # what the last frames agree on
-            imshow("barrels (tracked)", program.hook.render(image, shown, program.mode, raw=raw if program.show_raw else None))
+            program.show("barrels (tracked)", program.hook.render(image, shown, program.mode, raw=raw if program.show_raw else None))
             program.report(shown)
 
     class ToggleRaw(StateNode):

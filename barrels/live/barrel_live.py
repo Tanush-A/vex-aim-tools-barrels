@@ -6,7 +6,10 @@
 Both hold the detector as it stands (barrels.worldmap_bridge.BarrelDetectorHook.default()), the view modes, and
 the capture commands (barrels.capture). Commands at the C> prompt:
 
-    tm boxes | tm seg | tm both   which picture to show (boxes: yellow = orange barrel, green = blue; seg: the tint)
+    tm boxes | tm seg | tm both   which picture to show. boxes: yellow = orange barrel, green = blue. seg: the main
+                                  window dims every pixel not classified as a barrel color, and a second window
+                                  ("<title> seg") shows only the classified pixels, in their class color on black.
+                                  both: seg with the boxes on the main window. Back to boxes closes the second window.
     tm save                       write the current raw frame as snapshots/robot_snapN.png (like the camera viewer's s key)
     tm rec                        write every frame for ten seconds into snapshots/rec_<stamp>/ (+ frames.json)
 
@@ -27,6 +30,7 @@ class BarrelLive(StateMachineProgram):
         self.last_count = None
         self.last_frame = None                        # robot.frame_count of the frame last handed to the detector
         self.said_no_image = False
+        self.seg_window = None                        # title of the second (segmented-only) window while it is open
 
     def tag(self):
         return type(self).__name__
@@ -44,6 +48,19 @@ class BarrelLive(StateMachineProgram):
             return None
         self.last_frame = count
         return image
+
+    def show(self, title, picture):
+        """Show the main picture, and keep the second window in step with the mode: in seg / both it shows only the
+        segmented pixels (hook.seg_only()); in boxes it is closed. Called from ShowFrame, like the imshow it replaces
+        (Dave's imshow / destroyWindow queue the window work for the main thread themselves)."""
+        imshow(title, picture)
+        seg = self.hook.seg_only() if self.mode in wb.SEG_VIEWS else None
+        if seg is not None:
+            self.seg_window = f"{title} seg"
+            imshow(self.seg_window, seg)
+        elif self.seg_window is not None:
+            destroyWindow(self.seg_window)
+            self.seg_window = None
 
     def report(self, barrels):
         """One console line when the number of barrels shown changes (not every frame)."""
