@@ -23,7 +23,7 @@ cd barrels/live && simple_cli BarrelTracker                                 # 5b
 python barrels/tools/box_tool.py --filter window                            # 6. draw the ground-truth boxes on new frames
 ```
 
-`detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`).
+`detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`).
 
 ## Where to read
 

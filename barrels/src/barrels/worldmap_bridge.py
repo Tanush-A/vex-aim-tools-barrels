@@ -7,8 +7,11 @@ detector, ``detector.draw`` (yellow = orange barrel, green = blue), BGRâ†’RGB â€
 photo path (``tools/detect_image.py``) run exactly the same code. ``BarrelDetectorHook.default()`` is "the
 detector as it stands": the hs color model (config eb863d84, adopted 2026-11-09), ``detector.detect`` with ``DetConfig()``
 (the stripe step), camera ``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
-(the class mask blended over the image), ``"both"``. ``render`` is ``view`` with the barrels supplied, for the
+(the frame with every pixel that is not classified orange or blue dimmed; the live programs also open a second
+window with ``seg_only``: only the classified pixels, in their class color on black), ``"both"`` (the dimmed
+frame with the boxes on it, and the second window). ``render`` is ``view`` with the barrels supplied, for the
 multi-frame program ``live/BarrelTracker.fsm`` (``barrels.tracker``) that shows boxes which persist over frames.
+The image arithmetic of the seg view is ``seg_views`` (plain function, tested).
 
 Channel order: inside ``barrels`` an image array is BGR (OpenCV's order); the robot and ``imshow`` speak
 RGB; this module converts at the boundary and nowhere else.
@@ -51,6 +54,8 @@ def default_model_path() -> Path:
     a candidate front end in tools/detect_image.py and the live programs before it is adopted)."""
     return Path(os.environ[MODEL_ENV]) if os.environ.get(MODEL_ENV) else DEFAULT_MODEL
 VIEWS = ("boxes", "seg", "both")
+SEG_VIEWS = ("seg", "both")     # the modes that dim the main window and open the second (segmented-only) window
+SEG_DIM = 0.3                   # brightness kept by a pixel that is not a barrel color, in the seg view's main window
 BOX_COLORS_RGB = {"OrangeBarrel": (255, 128, 0), "BlueBarrel": (0, 100, 255)}
 
 
@@ -90,6 +95,32 @@ def _to_bgr(image_rgb: np.ndarray) -> np.ndarray:
 
 def _to_rgb(image_bgr: np.ndarray) -> np.ndarray:
     return np.ascontiguousarray(image_bgr[..., ::-1])
+
+
+def seg_views(image: np.ndarray, mask: np.ndarray, dim: float = SEG_DIM,
+              colors: dict[int, tuple[int, int, int]] | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """The two pictures of the live seg view (``tm seg``), from a frame and its class mask (0 other, 1 orange, 2 blue).
+
+    ``dimmed``   the frame with every pixel that is NOT classified orange or blue multiplied by ``dim`` (0.3: still
+                 readable, clearly darker); the classified pixels are untouched, at full brightness.
+    ``seg_only`` only the classified pixels on black: in their class color when ``colors`` (class -> color, in the
+                 image's own channel order) is given, else in their own color from the frame.
+
+    Nothing is corrected: the frame's pixels are either copied or darkened, never re-colored. The input is not changed.
+    Works in either channel order (the caller's ``colors`` must match it); both outputs are uint8, C-contiguous.
+    """
+    if image.shape[:2] != mask.shape:
+        raise ValueError(f"image {image.shape[:2]} and mask {mask.shape} differ in size")
+    is_class = (mask == ORANGE) | (mask == BLUE)
+    dimmed = (image.astype(np.float32) * dim + 0.5).astype(np.uint8)
+    dimmed[is_class] = image[is_class]
+    seg_only = np.zeros_like(image)
+    if colors is None:
+        seg_only[is_class] = image[is_class]
+    else:
+        for cls in (ORANGE, BLUE):
+            seg_only[mask == cls] = colors[cls]
+    return np.ascontiguousarray(dimmed), np.ascontiguousarray(seg_only)
 
 
 @dataclass
@@ -145,7 +176,8 @@ class BarrelDetectorHook:
 
     def view(self, image_rgb: np.ndarray, mode: str = "boxes") -> np.ndarray:
         """The picture to show for an RGB frame, as RGB uint8: ``boxes`` (the v2 output image, yellow/green 1-px
-        rectangles), ``seg`` (the class mask blended over the image: orange, blue), or ``both``."""
+        rectangles), ``seg`` (the frame with every pixel not classified orange/blue dimmed), or ``both`` (the dimmed
+        frame with the boxes). In ``seg`` / ``both`` the live programs show ``seg_only()`` in a second window."""
         barrels = self.on_image(image_rgb)
         return self.render(image_rgb, barrels, mode)
 
@@ -153,13 +185,13 @@ class BarrelDetectorHook:
                raw: list[Barrel] | None = None) -> np.ndarray:
         """The picture for an RGB frame given the barrels to draw: ``view`` passes this frame's answer; the
         multi-frame program (``live/BarrelTracker.fsm``) passes the tracked barrels and, when asked, this frame's
-        own answer as ``raw``, drawn in white 1 px so the two can be compared. The segmentation shown for ``seg`` /
-        ``both`` is the one ``on_image`` / ``segment`` last computed."""
+        own answer as ``raw``, drawn in white 1 px so the two can be compared. The segmentation used for ``seg`` /
+        ``both`` (which pixels stay bright) is the one ``on_image`` / ``segment`` last computed."""
         if mode not in VIEWS:
             raise ValueError(f"mode must be one of {VIEWS}, got {mode!r}")
         bgr = _to_bgr(image_rgb)
-        if mode in ("seg", "both") and self.last_mask is not None:
-            bgr = viz.overlay(bgr, self.last_mask)
+        if mode in SEG_VIEWS and self.last_mask is not None:
+            bgr = seg_views(bgr, self.last_mask)[0]
         if raw:
             for b in raw:
                 x0, y0, x1, y1 = b.bbox
@@ -167,6 +199,14 @@ class BarrelDetectorHook:
         if mode in ("boxes", "both"):
             bgr = det.draw(bgr, barrels)
         return _to_rgb(bgr)
+
+    def seg_only(self) -> np.ndarray | None:
+        """The second window of the seg view, as RGB: only the pixels the last ``segment`` / ``on_image`` classified,
+        in their class color (orange, blue: the colors of ``viz``) on black. None before the first frame."""
+        if self.last_mask is None:
+            return None
+        black = np.zeros((*self.last_mask.shape, 3), np.uint8)
+        return _to_rgb(seg_views(black, self.last_mask, colors={ORANGE: viz.ORANGE_BGR, BLUE: viz.BLUE_BGR})[1])
 
     def annotate(self, image_rgb: np.ndarray, barrels: list[Barrel]) -> np.ndarray:
         """RGB frame with the v2 boxes drawn (``detector.draw``: yellow = orange barrel, green = blue)."""
