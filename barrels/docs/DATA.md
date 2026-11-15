@@ -1,6 +1,6 @@
 # DATA.md — the frames, their labels, the splits, what to shoot
 
-**Updated:** 2026-11-11 (the step-3 shoot plan agreed; shoot from it). Before capturing or using data, read "Now"; new frames are assigned to a split at import, before any method sees them.
+**Updated:** 2026-11-15 (the step-3 shoot re-planned: campus white/overhead, home wood lamp ladder, home black/window; shoot from it). Before capturing or using data, read "Now"; new frames are assigned to a split at import, before any method sees them.
 
 ## Now (2026-11-09)
 
@@ -14,7 +14,40 @@ python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>     # a
 python barrels/tools/box_tool.py --filter <light>_<surface>                   # draw the boxes (≈ 30 s a frame; `g` = expected size at the cursor)
 ```
 
-**Next shoot: the multi-setting set (TODO step 3) — agreed with Tanush 2026-11-11; shoot from this.** Purpose: generalize (light, table, clutter, occlusion) and feed the histograms (TODO 8) and the slider labels (TODO 10). Two tiers: **full sessions** (every scenario, for the detector work and the test look at 9b) and **sweep sessions** (three frames each, for the hue/saturation spread). One import per (light, surface) session, same scene tags everywhere, so every set scores per scenario.
+**Next shoot: the multi-setting set (TODO step 3) — re-planned with Tanush 2026-11-15; shoot from this.** Three sessions, in any order; each is imported and checked on a contact sheet before the next starts (`live/snapshots/` must be empty at the start of a session). `tm save` per shot, strictly in the listed order; a bad shot is retaken at once and reported, not deleted. Dropped from the 2026-11-11 plan: the glass table, the white table at home, direct sun, the separate sweep tier (the wood session is the sweep).
+
+*Session A — campus, white table, overhead light (`4A8B_overhead_light_*`; a new spot, not the 2026-11-07 study room). 16 shots + the ruler set + 1 recording:*
+
+| # | scene | shot |
+|---|---|---|
+| 1 | `neg` | empty table |
+| 2 | `neg` | clutter including an orange and a blue object, no barrels |
+| 3 | `clutter` | barrels among clutter, nothing else orange or blue |
+| 4 | `clutter` | the same, the orange or blue object right next to a barrel of its color |
+| 5 | `occl` | a barrel partly hidden behind a clutter object |
+| 6–8 | `occl` | a barrel at ≈ 10 cm hiding ≈ 25 / 50 / 75 % of one at ≈ 20 cm |
+| 9 | `touch` | three touching in a row at ≈ 15 cm, mixed colors |
+| 10 | `touch` | two of the same color touching |
+| 11 | `cluster` | all four bunched at 15–25 cm |
+| 12 | `far` | all four spread out at 25–30 cm |
+| 13–15 | `close` | one barrel, base 0 / 10 / 20 mm past the bumper |
+| 16 | `held` | a barrel in the kicker |
+| 17–28 | `calib` | one orange barrel on the crosshair, near edge of the base at 0, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm; ruler out of frame (skip if no ruler; distances go in `data/calib.csv`) |
+| 29 | `horizon` | a mark 43.47 mm above the table on a wall ≥ 1 m away (skip if none) |
+| rec | — | `tm rec`: two barrels at ≈ 15 cm, a slow pan by hand, a hand passing once |
+
+```zsh
+python barrels/tools/import_snaps.py --src barrels/live/snapshots --light overhead --surface light --scenes \
+neg,neg,clutter,clutter,occl,occl,occl,occl,touch,touch,cluster,far,close,close,close,held,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,calib,horizon --dry-run   # then without --dry-run; drop what was skipped
+```
+
+*Session B — home, wood table, the lamp ladder (`4A8B_lamp{warm,mid,cool}{1,3,6}_wood_*`). 14 scenes × 9 lights = 126 shots + 1 recording.* The lamp is the only light (no ceiling light in the room): curtains closed or after dark, lamp pointed at the ceiling for the whole session; "lamp off" is a dark frame and is not shot. The lamp has 6 color steps and 6 brightness steps; `warm`/`mid`/`cool` = color step 1 / 3 / 6, the digit = brightness step 1 / 3 / 6. **The robot and the scene are not touched while the 9 lights are cycled.** Light order in every scene: `lampwarm1`, `lampwarm3`, `lampwarm6`, `lampmid1`, `lampmid3`, `lampmid6`, `lampcool1`, `lampcool3`, `lampcool6`. Scenes in order: `neg` (empty) · `neg` (clutter incl. orange + blue objects) · `clutter` (barrels added, the orange/blue object next to a barrel of its color) · `occl` (behind a clutter object) · `occl` 25 % · `occl` 50 % · `occl` 75 % · `touch` (three, mixed) · `touch` (two, same color) · `cluster` · `core` · `close` 0 mm · `close` 20 mm · `held`. Recording at `lampwarm6`. Import (Claude, after the session): the files are scene-major, the importer takes one light, so snapshot k (0-based, in order) is scene k // 9, light k % 9; the snapshots are sorted into one folder per light and `import_snaps.py` is run once per light with the 14-scene list. Count must be 126.
+
+*Session C — home, black table, window daylight, lamp off (`4A8B_window_black_*`). The 16 shots of session A (no ruler set) + 1 recording.*
+
+*Labeling.* Sessions A and C: every frame boxed (16 each, + the 13 geometry frames). Session B: the scene is identical under the 9 lights, so Tanush boxes each scene once (12 scenes with barrels) and his boxes are copied to the other 8 lights of that scene, after the contact sheet confirms nothing moved; the two `neg` scenes need only the negative flag. ≈ 57 frames to draw in total. *Splits (open, for the session that assigns them):* session B must be split by scene, not by frame — the same scene under another light in both train and test would leak.
+
+**The 2026-11-11 plan (superseded 2026-11-15, kept as the record).** Purpose: generalize (light, table, clutter, occlusion) and feed the histograms (TODO 8) and the slider labels (TODO 10). Two tiers: **full sessions** (every scenario, for the detector work and the test look at 9b) and **sweep sessions** (three frames each, for the hue/saturation spread). One import per (light, surface) session, same scene tags everywhere, so every set scores per scenario.
 
 | full sessions (16 shots + 1 recording each) | surface `light` (white): `window`, `overhead`, `sun` if available · `wood`: `lampwarm7`, `lampcool7`, `lampwarm1` · `glass`: `lampwarm7`, `lampcool1` · `black`: `window`, `sun` if available. ≈ 15 min to shoot, 8 min to box, each |
 |---|---|
