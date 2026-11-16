@@ -67,4 +67,4 @@ Two small aim_fsm state machines on one base (`live/barrel_live.py`). **`BarrelV
 | `experiments/2026-11-08_seg_hs_v2/run.py` | all | how the headline numbers are produced (v1 vs hs, home + campus) |
 | `experiments/2026-11-03_geo_boxfit/run.py` | `residuals`, `main` | the tilt re-fit |
 
-Side tools you can treat as black boxes: `tools/box_tool.py`, `tools/import_snaps.py`, `tools/import_dave_zip.py`, `tools/make_splits.py`, `tools/segment_image.py`, `src/barrels/capture.py` (`tm save` / `tm rec`).
+Side tools you can treat as black boxes: `tools/box_tool.py`, `tools/import_snaps.py`, `tools/import_dave_zip.py`, `tools/make_splits.py`, `tools/hs_hist.py` (+ `src/barrels/hshist.py`, the histogram look of 2026-11-16), `tools/segment_image.py`, `src/barrels/capture.py` (`tm save` / `tm rec`).

@@ -2,12 +2,13 @@
 
 One entry per experiment, newest first; the index is the fast path, the entries carry the tables. Template at the bottom.
 
-**Now (2026-11-09):** the front end is the hs model `eb863d84` and the detector has hardening a–g. Numbers that define the state: campus train v2 **0.99** vs 0.41 for the v1 front end, home LOSO **0.93**, no false detection on any negative of either session, median box width / true width 0.96 (entries 2026-11-08 later, 2026-11-09 ×2). Test frames: untouched since the v1 pixel test of 2026-10-20.
+**Now (2026-11-16):** step-3 frames split and looked at through H × S histograms (entry 2026-11-16): the fixed model keeps about half of the orange and a third of the blue body on wood. Before that (2026-11-09): the front end is the hs model `eb863d84` and the detector has hardening a–g. Numbers that define the state: campus train v2 **0.99** vs 0.41 for the v1 front end, home LOSO **0.93**, no false detection on any negative of either session, median box width / true width 0.96 (entries 2026-11-08 later, 2026-11-09 ×2). Test frames: untouched since the v1 pixel test of 2026-10-20.
 
 ## Index (newest first; the headline of each entry)
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-16 | **Hue × saturation histograms** (TODO 8; a look, nothing tuned) | On wood the fixed hs model misses the barrels rather than painting the table: it keeps 46–73 % of the orange body and 30–48 % of the blue, floods 0.3–2.5 %. Hue drifts half a sector (orange 9 → 11–14, blue 110 → 99–106), on the black table too; blue S falls to ~100 under the warm lamp. Ceiling of any H × S lookup at 1 % flood: blue 99–100 % everywhere, orange on wood 66–91 % (warm worst). Brightness 1 dies on the V ≥ 40 gate. |
 | 2026-11-11 | **A barrel hidden at the side: narrow stripe + hidden side from the body** (pre-registered; branch `wip/occlusion`) | `stripe_w_min` 0.4 → 0.25 with switch (h) finds campus `occl_02` (campus 34 → 35 of 35 found, IoU 0.68), +1 on Dave, 4 real edge barrels in the recordings, nothing lost, no false box on home / campus / Dave. But 2 false boxes on the 25 wood frames → condition 4 fails → **not adopted**, defaults unchanged, switches off. Tanush decides. |
 | 2026-11-11 | **Occlusion attribution** (branch `wip/occlusion`) | 37 train frames: 5 misses, all occluded (5 of 10 occluded barrels found). 1 = hidden at the side by a non-barrel, stripe refused by the width test (16 px vs 21.4 needed; the live miss); 4 = behind a barrel of the other color, stripe merges with the front body, refused for height (step 9). |
 | 2026-11-11 | **Eval report: one table** (TODO 6; branch `wip/eval-report`) | `tools/report.py`: set × scenario, candidate vs baseline with the delta. Reproduces home 0.93, campus 0.99, Dave 0.47; v1 + today's detector 0.39, v1 + 2026-11-05 detector 0.41. Every home / campus miss is in an `occl` or `cluster` row. |
@@ -36,6 +37,38 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-16 — Hue × saturation histograms: what moves between lights and tables (TODO 8)
+
+**Hypotheses** (in the script header, before the run). H1: the barrels' hue moves little between lights, their saturation a lot. H2: the wood table overlaps the orange body in H × S, so no H × S threshold separates them under at least the warm lamp. H3: at brightness 1 the fixed model fails on the V ≥ 40 gate, not on H or S.
+
+**Method.** `experiments/2026-11-16_hs_hist/run.py`, `src/barrels/hshist.py`, `tools/hs_hist.py`. Per set one fine histogram (hue 180 × S 128 × V 32) of the pixels below row 50, split by the hand-drawn boxes into orange body, blue body (the inner 0.6 × 0.8 of each unoccluded box, pixels within ±12 hue of the class's tallest peak) and the rest (outside every box + 4 px). HOME also from the masks, as a check of the box shortcut. Fixed model = adopted `eb863d84`. Ceiling = the best lookup in 36 × 32 H × S bins (and 36 × 32 × 8 with V) at 1 % of the non-barrel pixels painted, in-sample. Nothing tuned, nothing adopted.
+
+**Data.** Train frames only: HOME 16, CAMPUS 21, BLACK 10, wood ladder 90 (10 arrangements × 9 lamp settings). Splits assigned before the run; the 47 test frames are refused.
+
+**Results** (`results/2026-11-16_hs_hist/summary.md`; medians; "keeps" = share of the bright body pixels the fixed model labels; "ceiling" = best H × S / best H × S × V).
+
+| set | orange hue / S | keeps | ceiling | blue hue / S | keeps | ceiling (H × S) | rest hue / S | flood orange / blue |
+|---|---|---|---|---|---|---|---|---|
+| HOME (masks) | 9 / 213 | 93 % | 100 / 100 | 110 / 225 | 80 % | 92 | 57 / 31 | 0.1 / 0.0 % |
+| HOME (box cores) | 9 / 217 | 99 % | 100 / 100 | 110 / 231 | 97 % | 100 | 57 / 31 | 0.1 / 0.0 % |
+| CAMPUS | 9 / 217 | 98 % | 100 / 100 | 106 / 217 | 98 % | 100 | 66 / 19 | 0.3 / 0.3 % |
+| BLACK | 14 / 197 | 43 % | 99 / 100 | 99 / 149 | 16 % | 100 | 13 / 13 | 0.1 / 0.1 % |
+| wood warm 3 | 13 / 207 | 46 % | 66 / 80 | 105 / 97 | 43 % | 100 | 18 / 181 | 2.0 / 0.0 % |
+| wood warm 6 | 11 / 215 | 69 % | 72 / 76 | 106 / 111 | 46 % | 100 | 17 / 207 | 2.5 / 0.0 % |
+| wood mid 3 | 13 / 199 | 48 % | 82 / 89 | 103 / 103 | 33 % | 100 | 19 / 151 | 0.8 / 0.0 % |
+| wood mid 6 | 12 / 215 | 73 % | 80 / 90 | 101 / 133 | 30 % | 100 | 19 / 189 | 1.6 / 0.0 % |
+| wood cool 3 | 13 / 203 | 46 % | 89 / 95 | 103 / 161 | 48 % | 100 | 22 / 133 | 0.3 / 0.0 % |
+| wood cool 6 | 13 / 213 | 52 % | 91 / 97 | 101 / 195 | 31 % | 99 | 22 / 147 | 0.3 / 0.0 % |
+| wood brightness 1 (×3) | 11–12 / 207–215 | 87–93 % of the 18–30 % bright enough | 100 | too dark (1 % bright enough) | 0 % | — | 7–9 % bright enough | 0.1–0.2 / 0.0 % |
+
+Transfer (best H × S lookup of one set used on another): the home lookup on warm wood keeps 82–87 % of orange and paints 29–48 % of the rest; the warm-3 lookup at home keeps 46 %. The model's own percentile recipe re-fit per wood light would paint 36–87 % of the rest under warm and mid light (it never looks at the table).
+
+**Takeaway.** H1 half right: hue drifts 3–5 units (orange) and 4–11 (blue), both toward yellow/green, about the body's own spread and enough to leave a sector fit at home; S collapses for blue under warm light, not for orange. The black table under window light shifts the colors as much as the lamp does, so the camera's own exposure / white balance is a likely cause (untested). H2 holds: the orange ceiling is under 90 % in five of six bright wood settings; blue and the black table are a pure threshold-placement problem (ceiling 99–100 %). H3 holds. On wood the fixed model's failure is missed barrel pixels, not a flooded table (clutter aside: cardboard and wrappers are painted orange). The box-core shortcut reads a few points high (HOME 99 / 97 % against 93 / 80 % from the masks).
+
+**Next.** Note for Tanush: `docs/HS-HISTOGRAMS-2026-11-16.md` (pictures in `docs/img/hs_hist/`). Leads for the adaptive model, each to be pre-registered: the frame's own blue peak as the hue-shift estimate; the table peak as the scene reference; a brightness gate that follows the frame; and measuring where the detector stands on the wood train frames today (`tools/report.py`).
 
 ---
 
