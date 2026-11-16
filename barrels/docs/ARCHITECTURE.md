@@ -88,7 +88,7 @@ Outside `src/`:
 
 | folder | contents |
 |---|---|
-| `tools/` | one CLI per job: `detect_image.py` (the detector on a photo), `segment_image.py` (the segmentation alone), `eval_boxes.py` / `eval_masks.py` (score a folder of predictions), `box_tool.py` (draw truth boxes), `label_tool.py` / `instance_tool.py` (v1 masks, v1.5 instances), `import_snaps.py` / `import_dave_zip.py` (bring frames in), `make_splits.py`, `attach_measured.py` |
+| `tools/` | one CLI per job: `detect_image.py` (the detector on a photo), `segment_image.py` (the segmentation alone), `eval_boxes.py` / `eval_masks.py` (score a folder of predictions), `box_tool.py` (draw truth boxes), `copy_boxes.py` (copy hand-drawn boxes to the other lights of a fixed scene, unreviewed), `label_tool.py` / `instance_tool.py` (v1 masks, v1.5 instances), `import_snaps.py` / `import_dave_zip.py` (bring frames in), `make_splits.py`, `attach_measured.py` |
 | `live/` | `BarrelViewer.fsm` (per frame) and `BarrelTracker.fsm` (persisting boxes) with the `.py` files `genfsm` writes from them; `barrel_live.py`, the base both share (hook, view modes, `tm save` / `tm rec`) |
 | `experiments/‹date›_‹name›/run.py` | one script per experiment; every number in the docs comes from one of these |
 | `results/‹date›_‹name›/` | what the experiments write: `config.json` (with the git hash), `summary.md/csv`, `per_image.csv`, `per_barrel.csv`; sheets are gitignored |
