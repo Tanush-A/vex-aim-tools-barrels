@@ -8,6 +8,7 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-16 | **Ceiling check: per-frame thresholds read from the frame's own labels** (not a method) | With perfect per-frame thresholds today's detector finds 17 of 26 on the black table and 36 of 126 on bright wood (cool lamp 24 of 42, mid 10 of 42, warm 2 of 42), with 31 false boxes on wood; base 2 and 7. Per-image thresholds can lift black and cool light to about two thirds and do nothing under mid and warm lamps, where the orange range paints the table. Remaining misses: stripes in pieces (refused for width / height / area). |
 | 2026-11-16 | **The hs model fit on all train tables** (pre-registered; 3 arms, 2 runs) | **No arm passes.** Ranges wide enough to paint the barrels on wood paint the table too and cost home (0.93 → 0.66) ; ranges that keep home (0.89) and campus (0.93) leave wood unpainted. Best case found on black + bright wood: 28 of 152 (base 9). One fixed range for every table does not exist with this recipe. Nothing adopted. |
 | 2026-11-16 | **Today's detector on the new train frames** (baseline, `tools/report.py --base-model default --out detector_on_new_sets`; no entry below, the table is `results/2026-11-16_detector_on_new_sets/report.md`) | Wood, brightness 3 and 6 (60 frames): 7 of 126 barrels found, 3 false boxes. Brightness 1 (30 frames): 0 of 63. Black table (10 frames): 2 of 26. Home 0.93, campus 0.99, Dave 0.47 unchanged. |
 | 2026-11-16 | **Hue × saturation histograms** (TODO 8; a look, nothing tuned) | On wood the fixed hs model misses the barrels rather than painting the table: it keeps 46–73 % of the orange body and 30–48 % of the blue, floods 0.3–2.5 %. Hue drifts half a sector (orange 9 → 11–14, blue 110 → 99–106), on the black table too; blue S falls to ~100 under the warm lamp. Ceiling of any H × S lookup at 1 % flood: blue 99–100 % everywhere, orange on wood 66–91 % (warm worst). Brightness 1 dies on the V ≥ 40 gate. |
@@ -39,6 +40,34 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-16 — Ceiling check: per-frame thresholds set from the frame's own labels
+
+**Question** (script header, before the run). Before designing a per-image threshold estimator: if every frame's thresholds were perfect, how many barrels would today's detector find? Hypothesis: black + bright wood go from 9 of 152 to well over half.
+
+**Method.** `experiments/2026-11-16_hs_oracle/run.py`. Per frame and per color with an unoccluded box, the range is re-made from that frame's labeled pixels: `hue` (sector from the frame, S floor as adopted), `hue+sat` (the adopted recipe on the frame alone), `hue+sat+stripes` (added after the first run: a color's pixels include its stripes on the other color's barrels; without it a frame with only blue barrels kept the adopted orange range). Same detector. Not a method: the thresholds read the answer.
+
+**Data.** Train frames only (HOME 16, CAMPUS 21, BLACK 10, wood bright 60, wood dark 30).
+
+**Results** (`results/2026-11-16_hs_oracle/summary.md`; found / barrels (false boxes)).
+
+| set | base | hue | hue+sat | hue+sat+stripes |
+|---|---|---|---|---|
+| HOME (stored model, not LOSO) | 25 / 29 (1) | 25 / 29 (1) | 25 / 29 (5) | 25 / 29 (5) |
+| CAMPUS | 34 / 35 (0) | 33 / 35 (0) | 27 / 35 (0) | 30 / 35 (1) |
+| BLACK | 2 / 26 (0) | 6 / 26 (5) | 14 / 26 (1) | 17 / 26 (1) |
+| wood cool 3 + 6 | 4 / 42 (2) | 5 / 42 (2) | 20 / 42 (4) | 24 / 42 (7) |
+| wood mid 3 + 6 | 2 / 42 (0) | 3 / 42 (0) | 6 / 42 (9) | 10 / 42 (12) |
+| wood warm 3 + 6 | 1 / 42 (1) | 1 / 42 (1) | 3 / 42 (8) | 2 / 42 (12) |
+| wood brightness 1 | 0 / 63 | 0 / 63 | 0 / 63 | 0 / 63 |
+
+Misses left on black + bright wood with `hue+sat+stripes` (reason log): stripe too narrow 31, too flat or tall 16, no body right above and below 13, stripe not painted 11, too small 10, wrong place 9, body not painted 8.
+
+**Takeaway.** The hypothesis is wrong: the ceiling is 53 of 152, about a third. Per-image thresholds can at best bring the black table and the cool lamp to about two thirds; under the mid and warm lamps even label-perfect thresholds find almost nothing, because the orange range that fits the barrels there paints the wood table (sheets), and a blue barrel needs its orange stripe to be found. Moving the hue alone does almost nothing (9 → 15 of 152): the saturation floor matters more. Tight per-frame ranges cost a little on campus (34 → 30). Most remaining misses are stripes that come out in pieces, which is the detector's side.
+
+**Next.** Decide with Tanush: a per-image estimator is worth building for black + cool light only together with a detector that tolerates a stripe in pieces; mid / warm wood needs a way to find a blue barrel without its orange stripe (the blue body is separable everywhere).
 
 ---
 

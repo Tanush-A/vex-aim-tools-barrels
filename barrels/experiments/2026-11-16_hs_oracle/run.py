@@ -14,6 +14,10 @@ Arms (per frame, per color that has an unoccluded box in the frame; otherwise th
   hue       hue sector from this frame's body pixels (5th to 95th percentile, widened by 2); S floor as adopted.
   hue+sat   the adopted recipe on this frame alone: S floor = 5th (orange) / 15th (blue) percentile of the body
             pixels' S, hue sector from the pixels above it.
+  hue+sat+stripes  added after the first run (2026-11-16): the same, but a color's pixels also include the
+            stripes of that color on the other color's barrels (inside the other color's box cores, at this
+            color's hue peak). In the first run a frame with only blue barrels kept the adopted orange range, so
+            its orange stripes could stay unpainted; this arm closes that gap in the ceiling.
 Body pixels: home masks; elsewhere the box cores at the class's hue peak (as in 2026-11-16_hs_pooled, run 2).
 Train frames only; test frames are never opened.
 
@@ -43,8 +47,27 @@ _spec = importlib.util.spec_from_file_location("att", HERE.parent / "2026-11-11_
 att = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(att)
 
 OUT = PKG_ROOT / "results" / "2026-11-16_hs_oracle"
-ARMS = ("base", "hue", "hue+sat")
+ARMS = ("base", "hue", "hue+sat", "hue+sat+stripes")
 MIN_PX = 200
+
+
+def with_stripes(bgr: np.ndarray, barrels: list[dict], mask: np.ndarray, cfg: pl.Config) -> np.ndarray:
+    """``mask`` plus, per color, the pixels of that color inside the other color's box cores (its stripes)."""
+    from barrels import hshist as hh
+    h, s, v = hh.planes(bgr)
+    reg = hh.region_masks(h.shape, barrels)
+    out = mask.copy()
+    real = hh.unroll(np.arange(180))
+    for c, other in ((ORANGE, BLUE), (BLUE, ORANGE)):
+        sel = reg[other] & (v >= cfg.v_min) & (mask == 0)
+        sel[: max(0, cfg.horizon_row or 0)] = False
+        marg = np.bincount(h[sel], minlength=180).astype(float)
+        marg[(real < pooled.PEAK_RANGE[c][0]) | (real > pooled.PEAK_RANGE[c][1])] = 0
+        if marg.sum() < 50:
+            continue
+        peak = int(np.argmax(sum(np.roll(marg, k) for k in range(-2, 3))))
+        out[sel & (np.abs((h - peak + 90) % 180 - 90) <= hh.PEAK_HALF)] = c
+    return out
 
 
 def frame_model(arm: str, frame: pl.Frame, mask: np.ndarray, base: pl.Model) -> pl.Model:
@@ -81,7 +104,10 @@ def main() -> int:
         label = io.load_boxes(s)
         gts = dtp.barrels_from_boxes(label)
         for a in ARMS:
-            m = frame_model(a, data.frame[s], data.mask[s], base)
+            lab = data.mask[s]
+            if a == "hue+sat+stripes" and data.group[s] != "HOME":
+                lab = with_stripes(data.frame[s].bgr, label["barrels"], lab, base.cfg)
+            m = frame_model(a, data.frame[s], lab, base)
             mk = pl.segment(data.frame[s], m)[0]
             masks[a][s] = mk
             res[a][s] = rp.score_frame(s, mk, dcfg, pooled.CAM)
@@ -116,7 +142,7 @@ def main() -> int:
         L.append(f"- `{a}`: " + ", ".join(f"{k} {v}" for k, v in causes[a].most_common()))
     (OUT / "summary.md").write_text("\n".join(L) + "\n")
     json.dump({"git": bcv.git_hash(), "arms": ARMS, "min_px": MIN_PX, "frames": data.stems}, (OUT / "config.json").open("w"), indent=1)
-    for a in ("hue", "hue+sat"):
+    for a in ("hue", "hue+sat", "hue+sat+stripes"):
         cv2.imwrite(str(OUT / "sheets" / f"{a}_black.png"), pooled.sheet([s for s in data.stems if data.group[s] == "BLACK"], data, masks[a], a))
         cv2.imwrite(str(OUT / "sheets" / f"{a}_wood.png"), pooled.sheet(pooled.SHEET_WOOD, data, masks[a], a))
     print("\n".join(L))
