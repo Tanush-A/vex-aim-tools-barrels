@@ -16,7 +16,7 @@
 
 ## Now (`TODO.md`, in order)
 
-0–3 done → **8 histograms: Tanush looks, then we pick the adaptation lead** ∥ **5, 6, 7 wait on Tanush** (live check; "understood"; "understood" + decision), then merge in that order → 4 close-ups (code done, live confirm) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
+0–3 done → **8 histograms: Tanush looks, then we pick the adaptation lead** ∥ 5, 6, 7 merged 2026-11-16 (occlusion fix in the code but switched off); *before the merge:* **5, 6, 7 wait on Tanush** (live check; "understood"; "understood" + decision), then merge in that order → 4 close-ups (code done, live confirm) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
 
 ## Tanush's part
 

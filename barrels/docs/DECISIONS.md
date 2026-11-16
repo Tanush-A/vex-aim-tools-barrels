@@ -21,6 +21,15 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-16 (later) — Occlusion fix merged switched off; general case first; brightness 1 out
+
+- **Decision:** (1) `wip/occlusion` is merged with the defaults unchanged (`stripe_w_min` 0.4, `occl_body_side` False); the reason log (`detect(..., log=[])`) is in. (2) `wip/tm-seg` and `wip/eval-report` are merged. (3) Direction: make the general case work first (other tables, ordinary lights); orange barrels on a wood table under a warm lamp are the extreme case and are parked; lamp brightness 1 is unrealistic and is not a target. (4) First method to try: the same hs recipe fit on all train tables instead of home only; per-image thresholds from the frame's histogram only if that is not enough.
+- **Why:** the pre-registered narrow-stripe rule failed its by-eye condition on wood (2 false boxes), so it stays off. The histogram look (`EXPERIMENTS.md` 2026-11-16) shows blue and the black table are a threshold-placement problem (ceiling 99–100 %) while orange on warm wood overlaps the table. Tanush wants few moving parts and a method he can explain in a sentence.
+- **Alternatives:** table color as the reference for adaptation (rejected by Tanush: clutter hides the table); the frame's blue peak as the hue-shift estimate (kept in reserve, Tanush unsure).
+- **Who:** Tanush (2026-11-16: "seg looks good", "understood" on the eval table, "merge with switch off"); Claude Code.
+
+---
+
 ## 2026-11-16 — The wood lamp ladder is split by scene; the step-3 frames get their splits
 
 - **Decision:** (1) A set in which one arrangement is shot under several lights is split by **arrangement** (`{surface}_{scene}_{nn}`): all lights of an arrangement share a split; one arrangement per scene tag with ≥ 2 arrangements goes to test (`splits.assign_holdout_by_scene`, `make_splits.py --v2 --by-scene`, seed 0). Wood ladder: test = `neg_01`, `occl_03`, `touch_01` under all 9 lights (27 frames), train = the other 10 arrangements (90). (2) The black-table set uses the normal v2 rule: 5 test, 10 train. (3) The 12 ruler frames are in no split. (4) `EVAL.md` "v2 splits" gets the by-scene paragraph. Totals: train 137, test 47.
