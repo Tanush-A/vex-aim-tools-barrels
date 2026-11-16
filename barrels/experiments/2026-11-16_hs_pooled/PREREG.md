@@ -62,3 +62,13 @@ arm is **proposed, not adopted**: changing the default model is Tanush's decisio
 
 A winner whose gain comes from one scene tag only; false boxes concentrated on the wood table (the parked orange
 case leaking into the general one); a home or campus loss hidden inside the 0.02 band but all in one scenario.
+
+## Addendum after run 1 (2026-11-16): a flaw in the fit labels, fixed; run 2
+
+Run 1 (`results/2026-11-16_hs_pooled/run1/`): no arm passes. Its arms `all` and `blue` are not a fair test: in 20
+bright wood frames the tallest hue peak inside the blue box cores was the orange stripe, not the blue body, so
+7 % of the "blue" fit pixels were orange and the pooled blue range came out as hue 12 to 113 (the whole table
+painted blue). Arm `nowood` was not affected. Fix, the only change for run 2: the body peak of a class is looked
+for only on that class's side of the hue circle (orange: hue -30 to 45, blue: 75 to 150). Arms, scoring and
+acceptance are unchanged. This is a correction of the labels, found by looking at the fitted range and the
+sheets, not a choice made to improve a score; both runs are reported.

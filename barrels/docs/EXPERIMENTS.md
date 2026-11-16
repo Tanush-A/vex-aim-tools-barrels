@@ -8,6 +8,7 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-16 | **The hs model fit on all train tables** (pre-registered; 3 arms, 2 runs) | **No arm passes.** Ranges wide enough to paint the barrels on wood paint the table too and cost home (0.93 → 0.66) ; ranges that keep home (0.89) and campus (0.93) leave wood unpainted. Best case found on black + bright wood: 28 of 152 (base 9). One fixed range for every table does not exist with this recipe. Nothing adopted. |
 | 2026-11-16 | **Today's detector on the new train frames** (baseline, `tools/report.py --base-model default --out detector_on_new_sets`; no entry below, the table is `results/2026-11-16_detector_on_new_sets/report.md`) | Wood, brightness 3 and 6 (60 frames): 7 of 126 barrels found, 3 false boxes. Brightness 1 (30 frames): 0 of 63. Black table (10 frames): 2 of 26. Home 0.93, campus 0.99, Dave 0.47 unchanged. |
 | 2026-11-16 | **Hue × saturation histograms** (TODO 8; a look, nothing tuned) | On wood the fixed hs model misses the barrels rather than painting the table: it keeps 46–73 % of the orange body and 30–48 % of the blue, floods 0.3–2.5 %. Hue drifts half a sector (orange 9 → 11–14, blue 110 → 99–106), on the black table too; blue S falls to ~100 under the warm lamp. Ceiling of any H × S lookup at 1 % flood: blue 99–100 % everywhere, orange on wood 66–91 % (warm worst). Brightness 1 dies on the V ≥ 40 gate. |
 | 2026-11-11 | **A barrel hidden at the side: narrow stripe + hidden side from the body** (pre-registered; branch `wip/occlusion`) | `stripe_w_min` 0.4 → 0.25 with switch (h) finds campus `occl_02` (campus 34 → 35 of 35 found, IoU 0.68), +1 on Dave, 4 real edge barrels in the recordings, nothing lost, no false box on home / campus / Dave. But 2 false boxes on the 25 wood frames → condition 4 fails → **not adopted**, defaults unchanged, switches off. Tanush decides. |
@@ -38,6 +39,33 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 | 2026-10-19 | Camera geometry of AIM-4A8B6118 | f 355–405 px, tilt 21.5–25.5°, horizon row 55–100; gate at 50 |
 | 2026-10-07 | Color baselines: fixed HSV vs lighting | fails under warm light (blue stripe 17 % recall, wood 70 % flagged orange); adaptation needed |
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
+
+---
+
+## 2026-11-16 — The hs model fit on all train tables instead of home only (pre-registered)
+
+**Hypothesis** (`experiments/2026-11-16_hs_pooled/PREREG.md`, committed before the run, bb65914). The same recipe fit on all tables recovers blue and the black table without losing home or campus; orange on wood expected to cause trouble, hence an arm that widens blue only.
+
+**Method.** `experiments/2026-11-16_hs_pooled/run.py`. Arms: `base` (adopted), `all` (fit on home + campus + black + bright wood), `nowood` (home + campus + black), `blue` (orange from home, blue from all). Fit labels: home masks; elsewhere box cores at the class's hue peak. New arms scored leave-one-scene-tag-out over all sets; same detector. Acceptance: home ≥ 0.91 and campus ≥ 0.97; no box on a clean negative; then most barrels found on black + bright wood. **Two runs:** run 1 had a label flaw (in 20 wood frames the peak inside the blue cores was the orange stripe, so the pooled blue range came out as hue 12–113); run 2 looks for the peak on the class's side of the hue circle only. Both kept (`results/2026-11-16_hs_pooled/run1/`).
+
+**Data.** Train frames only: HOME 16, CAMPUS 21, BLACK 10, wood bright 60 (brightness 1: 30 frames, reported, never fit); Dave 12 indicative.
+
+**Results, run 2** (found / barrels (false boxes), score).
+
+| set | base | all | nowood | blue |
+|---|---|---|---|---|
+| ranges | o 3–13 S≥140; b 103–119 S≥113 | o 4–18 S≥126; b 95–113 S≥65 | o 4–17 S≥140; b 97–115 S≥131 | o 3–13 S≥140; b 95–113 S≥65 |
+| HOME | 25 / 29 (0), 0.93 | 20 / 29 (12), 0.66 | 24 / 29 (1), 0.89 | 21 / 29 (12), 0.68 |
+| CAMPUS | 34 / 35 (0), 0.99 | 33 / 35 (2), 0.94 | 32 / 35 (2), 0.93 | 33 / 35 (1), 0.96 |
+| BLACK | 2 / 26 (0), 0.12 | 10 / 26 (3), 0.46 | 4 / 26 (3), 0.23 | 2 / 26 (0), 0.12 |
+| WOOD bright | 7 / 126 (3), 0.10 | 18 / 126 (13), 0.23 | 10 / 126 (4), 0.14 | 19 / 126 (6), 0.25 |
+| DAVE* | 11 / 34 (2), 0.47 | 8 / 34 (3), 0.37 | 8 / 34 (1), 0.40 | 8 / 34 (3), 0.37 |
+
+Run 1: `all` 21 / 126 on bright wood with 204 false boxes, `blue` 21 / 126 with 134 (the blue label flaw); `nowood` identical to run 2.
+
+**Takeaway.** No arm passes condition 1, in either run; nothing is proposed. A blue floor low enough for the warm lamp (S ≥ 65) brings the bluish home wall back (12 false boxes at home); an orange sector wide enough for wood (to hue 18) paints the table. The reason log on the misses (`by_eye.md`): on the black table the barrels are painted but the stripe comes out in pieces, because the pale window highlight on the barrel tops is not body color and the stripe is accepted only where body sits right above and below it; on wood it is unpainted bodies and stripes. So a fixed range per color cannot serve every table, which is what the transfer tables of the histogram look said. H "pooled fit recovers blue and black": wrong.
+
+**Next.** Thresholds set per image from the frame's own histogram (Tanush's proposal, 2026-11-16), pre-registered, scored with the same table; the detector's "body right above and below the stripe" test against highlights is a second, separate lead.
 
 ---
 

@@ -28,6 +28,11 @@ CAM = geo.AIM_4A8B6118_BOXFIT
 ARMS = ("all", "nowood", "blue")
 GROUPS = ("HOME", "CAMPUS", "BLACK", "WOOD bright", "WOOD dark")
 TARGET = ("BLACK", "WOOD bright")
+# Run 2 (2026-11-16, after run 1): in 20 wood frames the tallest hue peak inside the blue box cores was the orange
+# stripe, not the blue body (a dull blue body spreads over many hues, the stripe is one sharp peak), so 7 % of the
+# "blue" fit pixels were orange and the pooled blue range came out as hue 12 to 113. The peak is now looked for
+# only on the class's own side of the hue circle (real OpenCV hue). Run 1 is kept in results/.../run1/.
+PEAK_RANGE = {ORANGE: (-30, 45), BLUE: (75, 150)}
 SHEET_WOOD = [f"4A8B_lamp{l}_wood_{s}" for l in ("cool3", "mid6", "warm6") for s in ("core_01", "cluster_01", "occl_02", "clutter_01")]
 
 
@@ -50,6 +55,10 @@ def body_mask(bgr: np.ndarray, barrels: list[dict], cfg: pl.Config) -> np.ndarra
         if sel.sum() < 50:
             continue
         marg = np.bincount(h[sel], minlength=180).astype(float)
+        real = hh.unroll(np.arange(180))
+        marg[(real < PEAK_RANGE[c][0]) | (real > PEAK_RANGE[c][1])] = 0      # run 2: the peak must be on the class's side of the hue circle
+        if marg.sum() < 50:
+            continue
         peak = int(np.argmax(sum(np.roll(marg, k) for k in range(-2, 3))))
         m[sel & (np.abs((h - peak + 90) % 180 - 90) <= hh.PEAK_HALF)] = c
     return m
