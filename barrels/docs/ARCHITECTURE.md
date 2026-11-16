@@ -76,7 +76,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | detector | `detect_cc.py` | the floor: one box per connected blob, never tuned | `detect`, `write_detections` |
 | scoring ★ | `eval_det.py` | box matching and metrics under the v1 and v2 rules; result tables | `evaluate_frame`, `match_best_first`, `aggregate`, `write_results`, `score` |
 | scoring | `eval.py` | the v1 per-pixel metrics (IoU per class, negative-frame FP rate) | `evaluate_image`, `aggregate` |
-| scoring | `splits.py`, `cv.py` | fixed splits (`data/splits.json`), leave-one-scene-out folds, sweeps, `fresh_dir`, `git_hash` | `loso_folds`, `cross_validate`, `run_configs`, `assign_holdout_per_scene` |
+| scoring | `splits.py`, `cv.py` | fixed splits (`data/splits.json`), leave-one-scene-out folds, sweeps, `fresh_dir`, `git_hash` | `loso_folds`, `cross_validate`, `run_configs`, `assign_holdout_per_scene`, `assign_holdout_by_scene` (a set shot under several lights: all lights of one arrangement share a split) |
 | data | `io.py` | load / save images, masks, strokes, instances, **box labels**; filename parsing; validators | `load_image`, `load_mask`, `load_boxes`, `save_boxes`, `parse_name`, `PKG_ROOT` |
 | data | `labeling.py`, `instances.py` | scribble-and-grow masks; the automatic per-barrel split (superseded by boxes 2026-11-02, files kept) | `grow`, `split_instances` |
 | data | `viz.py` | overlays and the spec's flat-color output images | `overlay`, `render_outputs`, `debug_sheet` |

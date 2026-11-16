@@ -13,6 +13,11 @@
         # not needed, run it right after import — one frame per scene with >= 2 frames -> test,
         # the rest -> train, dev empty. calib/ruler/horizon are never assigned.
 
+    python barrels/tools/make_splits.py --v2 --by-scene --filter 4A8B_lamp --dry-run
+        # a set where each arrangement is shot under several lights (the wood lamp ladder): the unit is the
+        # arrangement {surface}_{scene}_{nn}; all its lights go to the same split. One arrangement per scene
+        # tag with >= 2 arrangements -> test. --dry-run prints the assignment and writes nothing.
+
 Without --v2 only images that have a mask in data/labels are assigned. Once assigned a stem never
 moves (docs/EVAL.md: the test set is fixed and never tuned on).
 """
@@ -34,6 +39,8 @@ def main(argv=None) -> int:
     ap.add_argument("--exclude-scenes", default="", help="comma-separated scene tags never used for test")
     ap.add_argument("--v2", action="store_true", help="assign raw images matching --filter (no labels needed): 1 per scene -> test")
     ap.add_argument("--filter", default="", help="with --v2: only images whose name contains this (required)")
+    ap.add_argument("--by-scene", action="store_true", help="with --v2: keep every light of one arrangement (surface_scene_nn) in the same split")
+    ap.add_argument("--dry-run", action="store_true", help="with --v2: print the assignment, write nothing")
     ap.add_argument("--test-per-scene", type=int, default=1, help="with --v2: frames per scene group sent to test")
     args = ap.parse_args(argv)
 
@@ -43,8 +50,9 @@ def main(argv=None) -> int:
         current = sp.load_splits()
         stems = [p.stem for p in io.list_images() if args.filter in p.name]
         before = {x for v in current.values() for x in v}
-        new = sp.assign_holdout_per_scene(stems, current, seed=args.seed, n_test_per_scene=args.test_per_scene)
-        path = sp.save_splits(new)
+        rule = sp.assign_holdout_by_scene if args.by_scene else sp.assign_holdout_per_scene
+        new = rule(stems, current, args.seed, args.test_per_scene)
+        path = "(dry run, nothing written)" if args.dry_run else sp.save_splits(new)
         added = {s: [x for x in new[s] if x not in before] for s in sp.SPLIT_NAMES}
         skipped = [x for x in stems if x not in {y for v in new.values() for y in v}]
         print(f"{sum(len(v) for v in added.values())} newly assigned -> {path}")

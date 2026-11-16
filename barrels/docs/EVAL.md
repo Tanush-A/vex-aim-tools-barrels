@@ -8,7 +8,7 @@
 2. **A predicted box is correct** when it has the same color, overlaps the true box with **IoU ≥ 0.5**, and its bottom edge is within **max(3 px, 10 % of the true height)**. Greedy class-aware matching, highest IoU first. Every true barrel counts (occluded, truncated, held).
 3. **Score** = mean over the two colors of F1 (precision and recall pooled over frames). Reported next to it: matched IoU, bottom-edge error (px and fraction), **box width / true width** (median and worst; the IoU match alone passes a box 15 % too thin), count error, color confusions.
 4. **Negatives:** any box on a negative frame is a false positive; a box on a *clean* negative (no orange/blue clutter) **disqualifies** the config.
-5. **Splits:** train = everything but the test frames; **test (HOME 5 + CAMPUS 10) is looked at only when planned in advance** — this week twice, `TODO.md` 9b and 10b. Tuning uses leave-one-scene-out over the train frames; selection rules are written down before a sweep runs.
+5. **Splits:** train = everything but the test frames; **test (HOME 5 + CAMPUS 10 + wood ladder 27 + black 5, since 2026-11-16) is looked at only when planned in advance** — this week twice, `TODO.md` 9b and 10b. Tuning uses leave-one-scene-out over the train frames; selection rules are written down before a sweep runs.
 
 Commands: `python barrels/tools/eval_boxes.py --pred DIR --split train --gt-boxes --rule v2`; the experiment scripts call `eval_det.evaluate_frame(..., rule="v2")` directly. Code: `src/barrels/eval_det.py`.
 
@@ -34,6 +34,7 @@ Ground truth = one **box per physical barrel** (`DATA.md`, box labels): the full
 
 - The 21 v1 frames keep their split: the 16 pool frames → train, the locked 5-frame test stays test (this also keeps the v1 pixel test clean if the color ranges are re-fit).
 - New v2 frames are assigned **at import, before any method sees them**, by `tools/make_splits.py --v2 --filter <robot>_<light>_<surface>` (`splits.assign_holdout_per_scene`): within the session, **one frame per scene tag that has ≥ 2 frames goes to test**, the rest to train; dev stays empty. Tuning uses cross-validation that holds out whole scenes (as v1).
+- **A set where one arrangement is shot under several lights** (the wood lamp ladder, 2026-11-16; `DECISIONS.md` 2026-11-16): the unit of assignment is the **arrangement** `{surface}_{scene}_{nn}`, not the frame. All lights of an arrangement go to the same split (`make_splits.py --v2 --by-scene`, `splits.assign_holdout_by_scene`); one arrangement per scene tag that has ≥ 2 arrangements goes to test. Otherwise the same barrels in the same places would be in train under one lamp setting and in test under another, and the test score would be inflated. Cross-validation folds on such a set hold out whole arrangements too.
 - **v2.0 has one table** (decided 2026-11-03, timeline). The **unseen table** — a whole table × light session used for nothing but the final evaluation — is the v2.1 generalisation check, assigned the same way when that data is shot.
 - Calibration frames (`calib`, `ruler`, `horizon`) are geometry-only and in no split.
 - Selection rule as v1: primary metric; differences < 0.02 → simplest; at most two coordinate passes; test evaluated once per milestone with one pre-chosen config.

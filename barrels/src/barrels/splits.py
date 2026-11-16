@@ -154,3 +154,46 @@ def assign_holdout_per_scene(stems: list[str], splits: dict[str, list[str]] | No
         splits["test"] += items[:k]
         splits["train"] += items[k:]
     return splits
+
+
+def assign_holdout_by_scene(stems: list[str], splits: dict[str, list[str]] | None = None, seed: int = 0,
+                            n_test_scenes_per_tag: int = 1) -> dict[str, list[str]]:
+    """v2 assignment for a set where one arrangement is shot under several lights (the wood lamp ladder,
+    2026-11-16): the unit is the **arrangement** ``{surface}_{scene}_{nn}``, i.e. the same scene tag and number
+    under every light. All lights of an arrangement go to the same split, so the same barrels in the same
+    places never sit in train under one lamp setting and in test under another.
+
+    Same proportions as ``assign_holdout_per_scene``: every scene tag with more than
+    ``n_test_scenes_per_tag`` arrangements sends that many seeded-random arrangements (all their lights) to
+    test, the rest to train; tags with fewer go whole to train; dev gets nothing. calib/ruler/horizon are
+    never assigned, ``meas`` goes to measured. Refuses (ValueError) when part of an arrangement is already
+    assigned: existing assignments never move, and finishing a half-assigned arrangement would split it."""
+    splits = {s: list(v) for s, v in (splits or load_splits()).items()}
+    splits.setdefault("measured", [])
+    assigned = {x for v in splits.values() for x in v}
+    arrangements: dict[tuple[str, str], dict[str, list[str]]] = {}      # (surface, scene) -> nn -> stems
+    for s in sorted(set(stems)):
+        scene = _scene(s)
+        if scene in UNASSIGNED_SCENES:
+            continue
+        if scene in MEASURED_SCENES:
+            if s not in assigned:
+                splits["measured"].append(s)
+            continue
+        t = parse_name(s)
+        arrangements.setdefault((t["surface"], scene), {}).setdefault(t["nn"], []).append(s)
+    rng = random.Random(seed)
+    for tag in sorted(arrangements):
+        by_nn = arrangements[tag]
+        for nn, items in by_nn.items():
+            done = [x for x in items if x in assigned]
+            if done and len(done) < len(items):
+                raise ValueError(f"arrangement {tag[0]}_{tag[1]}_{nn} is partly assigned already ({done[:2]}...); "
+                                 f"its other lights cannot be placed without splitting it")
+        new = sorted(nn for nn, items in by_nn.items() if not any(x in assigned for x in items))
+        rng.shuffle(new)
+        k = n_test_scenes_per_tag if len(by_nn) > n_test_scenes_per_tag else 0
+        k = max(0, k - sum(1 for nn, items in by_nn.items() if items[0] in splits["test"]))
+        for i, nn in enumerate(new):
+            splits["test" if i < k else "train"] += by_nn[nn]
+    return splits

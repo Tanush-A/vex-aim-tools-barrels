@@ -77,3 +77,31 @@ def test_assign_holdout_per_scene_one_test_per_multiframe_scene():
     assert sorted(x for v in c.values() for x in v) == sorted(set(new) - set(stems("overhead_black_calib", 2)) | set(old["train"]) | set(old["test"]))
     two = sp.assign_holdout_per_scene(stems("lamp_beige_touch", 5), {s: [] for s in sp.SPLIT_NAMES}, n_test_per_scene=2)
     assert len(two["test"]) == 2 and len(two["train"]) == 3
+
+
+def test_assign_holdout_by_scene_keeps_every_light_of_an_arrangement_together():
+    lights = ["lampwarm1", "lampmid6", "lampcool3"]
+    scenes = {"neg": 2, "occl": 4, "core": 1}
+    new = [f"4A8B_{l}_wood_{sc}_{i:02d}" for l in lights for sc, n in scenes.items() for i in range(1, n + 1)]
+    new += ["4A8B_lampmid6_wood_calib_01", "4A8B_lampmid6_wood_calib_02"]
+    empty = {s: [] for s in sp.SPLIT_NAMES}
+    a = sp.assign_holdout_by_scene(new, empty, seed=0)
+    assert a == sp.assign_holdout_by_scene(new, empty, seed=0)                       # seeded
+    where = {x: s for s in sp.SPLIT_NAMES for x in a[s]}
+    assert not any("calib" in x for x in where) and not a["dev"]                     # geometry frames nowhere
+    arr = {}
+    for x, s in where.items():
+        arr.setdefault(x.split("_", 2)[2], set()).add(s)
+    assert all(len(v) == 1 for v in arr.values())                                    # one split per arrangement
+    test_arr = sorted(k for k, v in arr.items() if v == {"test"})
+    assert len(test_arr) == 2 and {k.split("_")[1] for k in test_arr} == {"neg", "occl"}    # one per tag with >= 2
+    assert len(a["test"]) == 2 * len(lights) and "wood_core_01" not in test_arr      # a lone arrangement trains
+    # append-only: a second run moves nothing and adds no second test arrangement for a tag that has one
+    more = new + [f"4A8B_{l}_wood_occl_05" for l in lights]
+    b = sp.assign_holdout_by_scene(more, a, seed=5)
+    assert all(set(a[s]) <= set(b[s]) for s in sp.SPLIT_NAMES) and len(b["test"]) == len(a["test"])
+    # a half-assigned arrangement is refused rather than split
+    half = {**empty, "train": ["4A8B_lampwarm1_wood_neg_01"]}
+    import pytest
+    with pytest.raises(ValueError):
+        sp.assign_holdout_by_scene(new, half, seed=0)

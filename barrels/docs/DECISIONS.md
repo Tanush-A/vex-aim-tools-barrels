@@ -21,6 +21,16 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-16 — The wood lamp ladder is split by scene; the step-3 frames get their splits
+
+- **Decision:** (1) A set in which one arrangement is shot under several lights is split by **arrangement** (`{surface}_{scene}_{nn}`): all lights of an arrangement share a split; one arrangement per scene tag with ≥ 2 arrangements goes to test (`splits.assign_holdout_by_scene`, `make_splits.py --v2 --by-scene`, seed 0). Wood ladder: test = `neg_01`, `occl_03`, `touch_01` under all 9 lights (27 frames), train = the other 10 arrangements (90). (2) The black-table set uses the normal v2 rule: 5 test, 10 train. (3) The 12 ruler frames are in no split. (4) `EVAL.md` "v2 splits" gets the by-scene paragraph. Totals: train 137, test 47.
+- **Why:** within a wood scene nothing moved but the lamp, so a per-light split puts the same arrangement in train and test and inflates the test score (raised by the shooting session's hand-off, 2026-11-16). The rule is the existing one ("one per scene tag with ≥ 2") with the arrangement as the unit, so the test share stays comparable (27 of 117 against 10 of 31 on campus).
+- **Alternatives:** split per light as the tool did (rejected: leakage); hold out whole lights instead (rejected for the test split: it tests an unseen lamp setting but still leaks arrangements; holding out a light is available as a cross-validation fold inside train); hold out a whole table as the test (that is the black table's role only in part: it has its own 5 test frames).
+- **Assigned before any method saw the frames:** the splits were written before the detector, the color model or any histogram was run on the new frames by Claude (Tanush saw the live view on wood while shooting; nothing was tuned).
+- **Who:** hand-off from the shooting session + Tanush ("keep cooking", 2026-11-16); Claude Code (rule, implementation, test).
+
+---
+
 ## 2026-11-09 — The hs color model is the front end; hardening a–g merged; wood in scope; two planned test looks
 
 - **Decision:** (1) `pipeline.Config(color_model="hs", hs_s_pct=(5, 15), hs_h_pct=(5, 95), hs_h_margin=2)`, config `eb863d84`, fit once on the 16 home train frames and saved as `results/2026-11-09_hs_candidate/config.json`, is `worldmap_bridge.DEFAULT_MODEL`: what `detect_image.py`, `segment_image.py` and both live programs run. v1 `afd85483` stays loadable (`V1_MODEL`, `--model`, `BARRELS_MODEL`). (2) The detector hardening (a)–(g) (`DetConfig` fields `dark_stripe`, `stripe_mode`, `body_min`, `height_min/max`, frame-edge hidden side, `body_width`, `cover_rows`) is merged: `barrels` fast-forwarded to `wip/redesign`. (3) The selection rule proposed in `archive/OVERNIGHT-2026-11-08.md` (home LOSO v2 ≥ 0.91, zero false detections on every negative of both sessions, then campus v2, then home v2, then the lower blue percentile) is accepted as the rule that picked it. (4) **Wood tables are in scope** (Tanush: "generalize to everything"); `PROBLEM.md`'s out-of-scope line is amended, Dave hears it in the next email. (5) **Two looks at the test frames this week**, planned in advance: after the extreme-occlusion work (TODO 9b) and after the adaptive thresholding (10b); nothing is tuned on them in between.

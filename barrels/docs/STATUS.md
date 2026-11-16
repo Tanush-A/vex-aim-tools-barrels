@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-11 (end of the unattended block). The step-3 shot list is agreed and in `DATA.md` ("Next shoot"); Tanush shoots it. Steps 5, 6, 7 are coded and pushed on `wip/tm-seg`, `wip/eval-report`, `wip/occlusion`; **nothing is merged, what runs is unchanged**. Summary, both walkthroughs and Tanush's action list: `docs/OVERNIGHT-2026-11-11.md`. Before that (2026-11-09): hs color model + hardened detector (a–g) on `barrels`; steps 0–2 done.
+**Updated:** 2026-11-16. **Step 3 is done:** wood lamp ladder 117 frames (13 scenes × 9 lamp settings), black table 15, ruler set 12, all boxed by Tanush; splits assigned (wood by scene 90 / 27, black 10 / 5; train 137, test 47). The three `wip/` branches are rebased on it. Step 8 (histograms) in progress; the email to Dave is skipped (Tanush). From 2026-11-11: Steps 5, 6, 7 are coded and pushed on `wip/tm-seg`, `wip/eval-report`, `wip/occlusion`; **nothing is merged, what runs is unchanged**. Summary, both walkthroughs and Tanush's action list: `docs/OVERNIGHT-2026-11-11.md`. Before that (2026-11-09): hs color model + hardened detector (a–g) on `barrels`; steps 0–2 done.
 
 ## State
 
@@ -9,16 +9,16 @@
 - **Live run with Dave (2026-11-09):** segmentation good; two detector bugs found and fixed the same day — boxes 15 % too thin (f), and a close-up under a far barrel got no box (g). Still open from that run: a barrel touching the kicker got no box (needs a `tm save`); partial occlusion worse than expected (TODO 7); a persistent false blue box on clutter at the frame edge (TODO 9).
 - **Unattended block 2026-11-11:** (5) `tm seg` second window + dimmed main window, untested on the robot. (6) `tools/report.py`, one table, reproduces 0.93 / 0.99 / 0.47. (7) the 5 train misses are all occluded barrels: 1 hidden at the side by a non-barrel (stripe 16 px, floor 21.4 px; the live miss), 4 behind a barrel of the other color (step 9). The pre-registered fix (`stripe_w_min` 0.25 + (h) `occl_body_side`) finds the one (campus 35 of 35) and adds only real barrels on home, campus, Dave and the recordings, but 2 false boxes on wood: not adopted, both switches off.
 - **Direction for the week (Tanush):** hs is the right front end; (1) fix bugs, (2) generalize — many light settings, table colors incl. wood, clutter, occlusion. His measure: scenarios where the vendor detector fails and ours works.
-- **Data:** HOME 21 (16/5), CAMPUS 31 (21/10), DAVE 20 (12 boxed), WOOD 24 unlabeled, 4 recordings, 1 live frame. Test frames untouched. The multi-setting collection is TODO step 3.
+- **Data:** HOME 21 (16/5), CAMPUS 31 (21/10), LADDER 117 (90/27, split by scene), BLACK 15 (10/5), CALIB 12 (ruler, 0–300 mm), DAVE 20 (12 boxed), WOOD 24 unlabeled, 6 recordings, 1 live frame. Test frames untouched. Live on wood (Tanush, while shooting): the detector gets almost nothing right, the expected gap for a color model fit on white-table frames; steps 8 and 10 are for that. The kicker case now has saved frames (`held_01` on wood, black, `calib_01`).
 - **Camera:** provisional; calibration with a ruler is inside the step-3 shoot.
 
 ## Now (`TODO.md`, in order)
 
-0–2 done → **3 collect data** (Tanush; list in `DATA.md`) → **5, 6, 7 wait on Tanush** (live check; "understood"; "understood" + decision), then merge in that order → 4 close-ups (code done, live confirm) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
+0–3 done → **8 histograms (Claude, now)** ∥ **5, 6, 7 wait on Tanush** (live check; "understood"; "understood" + decision), then merge in that order → 4 close-ups (code done, live confirm) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
 
 ## Tanush's part
 
-In order: shoot step 3 (`DATA.md`); live-check `tm seg` on `wip/tm-seg` and confirm the close-up fix (step 4) in the same sitting; read `OVERNIGHT-2026-11-11.md` §3 and say "understood" (step 6); read §4, say "understood" and decide: occlusion fix stays off until the wood front end exists (Claude's recommendation, what the pre-registered rule says) or goes on now; `tm save` the kicker case and any live occlusion miss when they happen.
+In order: live-check `tm seg` on `wip/tm-seg` and confirm the close-up fix (step 4) in the same sitting; read `OVERNIGHT-2026-11-11.md` §3 and say "understood" (step 6); read §4, say "understood" and decide: occlusion fix stays off until the wood front end exists (Claude's recommendation, what the pre-registered rule says) or goes on now; `tm save` the kicker case and any live occlusion miss when they happen.
 
 ## Open questions for Dave (for the step-8 email)
 
