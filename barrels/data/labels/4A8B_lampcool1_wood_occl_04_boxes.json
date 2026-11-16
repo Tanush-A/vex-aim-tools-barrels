@@ -1,0 +1,39 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool1_wood_occl_04",
+ "image_sha1": "fb77a3dcc270bef23e5781ae16c0cc7afc5c4c80",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    178,
+    128,
+    238,
+    186
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated",
+    "no_stripe"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    180,
+    150,
+    267,
+    243
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

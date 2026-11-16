@@ -1,0 +1,53 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_black_close_01",
+ "image_sha1": "66c3a9e540065380590200d04b12903df8f7e9db",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    0,
+    132,
+    51,
+    206
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    7,
+    127,
+    75,
+    189
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    77,
+    280,
+    430,
+    479
+   ],
+   "flags": [
+    "no_stripe"
+   ],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_wood_clutter_01",
+ "image_sha1": "855e4f2700c7af14a1ff1be1fe09516bd7ffe67f",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    35,
+    154,
+    144,
+    259
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    236,
+    118,
+    280,
+    166
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    377,
+    111,
+    410,
+    146
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    529,
+    123,
+    594,
+    184
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

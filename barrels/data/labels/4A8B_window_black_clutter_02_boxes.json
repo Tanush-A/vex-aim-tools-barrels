@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_black_clutter_02",
+ "image_sha1": "66ad481bd969e97e01b9e2628d88db8c27d1aa7c",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    135,
+    73,
+    212
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    246,
+    108,
+    276,
+    140
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    476,
+    126,
+    547,
+    188
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    530,
+    144,
+    639,
+    247
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

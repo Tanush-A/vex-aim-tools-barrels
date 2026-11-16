@@ -1,0 +1,53 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_black_held_01",
+ "image_sha1": "356c99cea32d5995cf95ec369f9bc6a008fd9df8",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    0,
+    132,
+    48,
+    208
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    3,
+    127,
+    73,
+    189
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    90,
+    327,
+    521,
+    477
+   ],
+   "flags": [
+    "held"
+   ],
+   "note": ""
+  }
+ ]
+}

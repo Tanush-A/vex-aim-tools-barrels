@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_wood_calib_04",
+ "image_sha1": "058ea7d16a3faa110d11116b5f65e7849eada6d9",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    176,
+    256,
+    458,
+    477
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

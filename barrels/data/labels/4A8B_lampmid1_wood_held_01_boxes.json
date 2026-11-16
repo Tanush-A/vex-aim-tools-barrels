@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid1_wood_held_01",
+ "image_sha1": "552af019952972a2d12096b4a7252d0fa670a6ef",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    97,
+    335,
+    514,
+    477
+   ],
+   "flags": [
+    "no_stripe"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

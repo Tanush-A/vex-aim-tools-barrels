@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm1_wood_neg_01",
+ "image_sha1": "f63a437c9d0816892a9a3bc320c23d09bc3446df",
+ "reviewed": true,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

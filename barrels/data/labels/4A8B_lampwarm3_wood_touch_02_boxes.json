@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm3_wood_touch_02",
+ "image_sha1": "52a235e7ed4e8b0da54d77da149b7adaeceaa3ed",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    170,
+    129,
+    232,
+    196
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    230,
+    129,
+    289,
+    194
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

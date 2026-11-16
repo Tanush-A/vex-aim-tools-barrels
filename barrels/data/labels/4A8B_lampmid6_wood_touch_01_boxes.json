@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_wood_touch_01",
+ "image_sha1": "cff56e6a0fba872377c59f6160245c43d1e936c5",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    99,
+    132,
+    164,
+    200
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    161,
+    132,
+    224,
+    198
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    222,
+    129,
+    283,
+    194
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

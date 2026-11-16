@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_black_touch_02",
+ "image_sha1": "ab89a91fc027d82d320569f95985ef6554974e22",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    237,
+    135,
+    307,
+    213
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    304,
+    136,
+    384,
+    219
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

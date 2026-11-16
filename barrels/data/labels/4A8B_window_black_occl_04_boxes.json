@@ -1,0 +1,38 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_black_occl_04",
+ "image_sha1": "3204a36080245b2dbfb3ed8bdb5ec00af262b16f",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    267,
+    129,
+    334,
+    193
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    269,
+    156,
+    377,
+    273
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

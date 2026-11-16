@@ -1,0 +1,26 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_wood_occl_01",
+ "image_sha1": "ef997d1f89bad50b64f42e67bca907e9df8f259a",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    212,
+    121,
+    256,
+    166
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

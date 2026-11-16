@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm1_wood_cluster_01",
+ "image_sha1": "0ae7e94e7a665d8bdbb00ea2f478369808b6d837",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    93,
+    125,
+    145,
+    176
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    151,
+    129,
+    213,
+    194
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    218,
+    125,
+    271,
+    182
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    270,
+    125,
+    322,
+    183
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

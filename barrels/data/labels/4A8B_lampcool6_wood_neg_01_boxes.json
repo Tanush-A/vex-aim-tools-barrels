@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_wood_neg_01",
+ "image_sha1": "f3c0f72666c27a4a990d0c50de3b38e94c2b5a5a",
+ "reviewed": true,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

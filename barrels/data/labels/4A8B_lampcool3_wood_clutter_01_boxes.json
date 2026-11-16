@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool3_wood_clutter_01",
+ "image_sha1": "cca5c96beecff0d26bbfbf8753c43c7d7476caea",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    35,
+    154,
+    144,
+    259
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    236,
+    118,
+    280,
+    166
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    377,
+    111,
+    410,
+    146
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    529,
+    123,
+    594,
+    184
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_wood_close_01",
+ "image_sha1": "1167f7d9dca4441e456294d68e171755953369e2",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    109,
+    239,
+    358,
+    479
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

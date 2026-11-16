@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid3_wood_neg_02",
+ "image_sha1": "97a02ab6d9aa4ee29de53d9aea742349a498a5e2",
+ "reviewed": true,
+ "negative": true,
+ "clean": false,
+ "source": "manual",
+ "barrels": []
+}

@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_black_touch_01",
+ "image_sha1": "49fad329c2d66b63acd50ebb5a121190c21eb805",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    244,
+    134,
+    318,
+    214
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    318,
+    134,
+    392,
+    217
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    392,
+    135,
+    472,
+    221
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}
