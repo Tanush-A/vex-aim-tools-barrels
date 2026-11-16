@@ -4,7 +4,7 @@
 
 ## Now (2026-11-09)
 
-**What we have** (tags as in `TODO.md`): HOME 21 (16 train / 5 test, masks + boxes) · CAMPUS 31 (21 / 10, boxes) · DAVE 20 (12 boxed by Dave, grouped; indicative only) · WOOD 24 unlabeled (5 calib + 19 lamp-color) · REC 4 campus recordings · 1 live frame. Test frames are never loaded except in a planned test look. Full table: "Dataset index" below.
+**What we have** (tags as in `TODO.md`): HOME 21 (16 train / 5 test, masks + boxes) · CAMPUS 31 (21 / 10, boxes) · DAVE 20 (12 boxed by Dave, grouped; indicative only) · WOOD 24 unlabeled (5 calib + 19 lamp-color) · REC 4 campus recordings · 1 live frame · **NEW (2026-11-16, step 3): 117 wood lamp-ladder frames (13 scenes × 9 lamp settings), 15 black-table window frames, 12 ruler `calib` frames; unsplit, unboxed; 2 recordings.** Test frames are never loaded except in a planned test look. Full table: "Dataset index" below.
 
 **The three commands** (details in "Storage and naming" and "Labels"):
 
@@ -15,6 +15,10 @@ python barrels/tools/box_tool.py --filter <light>_<surface>                   # 
 ```
 
 **Next shoot: the multi-setting set (TODO step 3) — re-planned with Tanush 2026-11-15; shoot from this.** Three sessions, in any order; each is imported and checked on a contact sheet before the next starts (`live/snapshots/` must be empty at the start of a session). `tm save` per shot, strictly in the listed order; a bad shot is retaken at once and reported, not deleted. Dropped from the 2026-11-11 plan: the glass table, the white table at home, direct sun, the separate sweep tier (the wood session is the sweep).
+
+**Status 2026-11-16: sessions B and C are shot and imported; session A's scene shots are dropped (Tanush + Claude): the white table is already the best-covered surface (HOME 21, CAMPUS 31) and the graded `occl` and `close` steps now exist on wood and black. What remains is the ruler set only (`calib` ×12 + `horizon` ×1, rows 17–29 of the table below), shot at home on the wood table under `lampmid6` (blinds closed, lamp at the ceiling) → `4A8B_lampmid6_wood_calib_01–12`, `4A8B_lampmid6_wood_horizon_01`, distances in `data/calib.csv`.** The session A plan is kept below as the record.
+
+**Ruler set as shot 2026-11-16, 13:50–14:04: 12 `calib` frames, the step-3 shoot is complete.** Distances (`data/calib.csv`, `stem,distance_mm`): 0 (seated in the kicker), 10, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm. 5 mm is not possible (the magnet seats the barrel); 10 mm was shot twice by accident, eleven minutes apart (`calib_02`, `calib_03`), both kept; no `horizon` frame (the horizon row stays pinned by the boxes). The tape measure stays in frame beside the barrel, base edge visible; its printed numbers (142 down to ≈ 133 away from the robot) are not the distances — those were set by hand from the robot's front edge. Lamp at mid color, brightness 6, but its tilt was adjusted since the morning session and the table reads redder than the morning `lampmid6` frames (lower-left table patch R/G/B ≈ 170/112/53 against ≈ 187/131/38), so do not use these frames as `lampmid6` color data. A person and a blue box are in the background. Barrel widths at 100 / 150 / 200 / 300 mm are within a few pixels of the 2026-10-19 wood calib frames (thumbnail estimate).
 
 *Session A — campus, white table, overhead light (`4A8B_overhead_light_*`; a new spot, not the 2026-11-07 study room). 16 shots + the ruler set + 1 recording:*
 
@@ -133,7 +137,7 @@ Fixed **train / test**; dev is empty by design; test is **never used for tuning*
 | live frame 2026-11-09 | `live/snapshots/robot_snap0.png` (local; Dave's desk) | 1 | the close-up-under-a-far-barrel case; import if wanted |
 | **NEW, session B — wood lamp ladder (2026-11-16, home)** | `data/raw/4A8B_lamp{warm,mid,cool}{1,3,6}_wood_*.png` | 117 = 13 scenes × 9 lights (`neg` 2, `clutter` 1, `occl` 4, `touch` 2, `cluster` 1, `core` 1, `held` 1, `close` 1 per light) + 1 recording | imported 2026-11-16; **no split assigned, no boxes yet**; as-shot notes under "Next shoot", session B |
 | **NEW, session C — black table, window light (2026-11-16, home)** | `data/raw/4A8B_window_black_*.png` | 15 (`neg` 2, `clutter` 2, `occl` 4, `touch` 2, `cluster` 1, `far` 1, `held` 1, `close` 2) + 1 recording | imported 2026-11-16; **no split assigned, no boxes yet**; as-shot notes under "Next shoot", session C |
-| **NEW, session A (campus white/overhead + ruler set)** | not shot yet; plan in "Next shoot" | — | — |
+| **NEW, ruler set (2026-11-16, home; replaces session A, whose campus scene shots were dropped)** | `data/raw/4A8B_lampmid6_wood_calib_01–12.png`, distances in `data/calib.csv` | 12: 0, 10, 10, 15, 20, 25, 30, 50, 100, 150, 200, 300 mm (no 5 mm, no `horizon`) | imported 2026-11-16; geometry only, no split; **not boxed yet**; as-shot notes under "Next shoot" |
 | recordings 2026-11-07 | `data/recordings/2026-11-07_campus/{r1_static,r2_pan,r3_enter_leave,r4_hand_occlusion}/` (gitignored, local to Tanush's laptop) | 54 / 63 / 60 / 61 frames at ≈ 6 a second, `frames.json` each | for replaying the multi-frame view (`experiments/2026-11-07_rec_replay/`); the room and the clutter box behind the barrels |
 
 **Wood-desk calib distances** (front edge → barrel near edge, measured 2026-10-19): `calib_01` 50 mm (138 px wide), `calib_02` 100 (78), `calib_03` 150 (55), `calib_04` 200 (42), `calib_05` 300 (28). The camera sits ≈ 3 mm behind the front edge (`aim_kin.py`); with the 25.5 mm bulge these widths give f ≈ 356, the ruler marks ≈ 405: `constraints.md` #2.
