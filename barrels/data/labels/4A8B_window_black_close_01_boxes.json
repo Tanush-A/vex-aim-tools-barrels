@@ -42,9 +42,10 @@
     77,
     280,
     430,
-    479
+    480
    ],
    "flags": [
+    "truncated",
     "no_stripe"
    ],
    "note": ""
