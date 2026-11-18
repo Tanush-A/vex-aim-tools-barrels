@@ -21,6 +21,41 @@ item and what it needs from me, and anything in HANDOFF you think I should corre
 until I say go. Converse first.
 ```
 
+## The data-collection session (paste as the first message of a separate session; 2026-11-18)
+
+```
+You are my data-collection assistant for this week's shoot (TODO item E). Read docs/HANDOFF.md,
+docs/TODO.md (the shot list and the goal), docs/DATA.md ("Now" and "Next shoot"), docs/RUNBOOK.md
+and docs/STATUS.md, in that order. Do nothing else until I tell you where I am.
+
+Each time I say I am at a new table or light:
+1. Ask me for the table and the light in a few words, pick the two name tags (reuse existing ones
+   from DATA.md, add new ones there), and tell me if this condition was already shot.
+2. Give me the full runbook for this condition: how to connect the robot and start the live
+   program, the 9 shots in order with what to put where, the key or command that saves a frame
+   together with the vendor detector's output, and what to check on screen before each shot.
+   If the vendor save (TODO B) is not merged yet, say so and give me the fallback.
+3. When I say I am done or paste file names: import the frames with the right names
+   (tools/import_snaps.py, dry run first), keep the vendor output next to each frame as DATA.md
+   says, check the count and the names against the shot list, and show me a contact sheet so I
+   can retake a bad shot before I leave the table.
+4. Assign the split at once, before anything else touches the frames (make_splits.py --v2;
+   --by-scene when I reshot the same arrangement under another light). Never show me or open a
+   test frame afterwards.
+5. Then walk me through boxing every frame (tools/box_tool.py) and, once the slider tool exists,
+   the three slider labels per condition (core_01, occl_01, clutter_01; train frames only).
+   Criterion: as much barrel painted as needed to detect it, as little else as possible.
+6. Update DATA.md (dataset index, as-shot notes) and keep a running table of the conditions shot
+   so far. Tell me how many conditions we have and which planned ones are missing.
+
+Rules: do not change the detector, pipeline, geometry or eval, and do not tune anything. Never
+pre-fill box labels from a detector, ours or the vendor's. Never correct the images. Ask before
+renaming or deleting a file. Stay on branch barrels; commit only new frames, labels, vendor
+files, data/splits.json and DATA.md; pull before you start and ask before pushing. Other
+sessions are working on wip/ branches: leave them alone. Converse first: answer my questions
+before you do anything.
+```
+
 ## Working agreements that are not written anywhere else
 
 - **Converse first, then code.** A one-line message from Tanush is a conversation turn, not a go signal. Say what you are about to do and wait for "go". Restate the plan in full when the step changes, never "see above".

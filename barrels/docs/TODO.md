@@ -1,54 +1,61 @@
-# TODO.md — the live task list
+# TODO.md — the plan for the week (meeting with Dave: Monday 2026-11-23)
 
-**Updated:** 2026-11-11. Rewritten 2026-11-09 from Tanush's notes after the live run with Dave; order approved by Tanush 2026-11-09. **2026-11-11: steps 5, 6, 7 worked unattended while Tanush shoots step 3. All three are coded and pushed on `wip/` branches, none merged; each waits on Tanush (5: live check; 6: "understood"; 7: "understood" + a decision). Summary and walkthroughs: `OVERNIGHT-2026-11-11.md`.** Current work only; history lives in `EXPERIMENTS.md`, `DECISIONS.md` and git. Rule (`CLAUDE.md`): updated every time a task starts, finishes or changes priority, with `STATUS.md`.
+**Updated:** 2026-11-18. Re-planned with Tanush after the 2026-11-16 meeting with Dave. This replaces the 2026-11-09 list; what that list finished is under "Done" at the bottom. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
 
-**Direction for the week (Tanush, 2026-11-09):** hue + HSV-saturation is the right front end. (1) Fix bugs. (2) Generalize: many light settings, table colors, clutter, occlusion. Claude's eval metrics stay; Tanush's own measure is "scenarios where the vendor detector fails and ours works". Main code that awaits a walkthrough goes on a `wip/<name>` branch (`HANDOFF.md`); `wip/redesign` was merged at step 0.
+## The goal
 
-## Data sets (the tags used below)
+A detector at least as good as the vendor's in the vendor's own conditions, and working in more ordinary conditions than the one we had (white table, normal light). Any win beyond that is a bonus.
 
-| tag | what | labels | where |
-|---|---|---|---|
-| HOME | 21 frames, white table, window light (`4A8B_window_light_*`), 16 train / 5 test | masks + boxes | `data/raw/` |
-| CAMPUS | 31 frames, glass-walled study room, daylight (`4A8B_campus_light_*`), 21 train / 10 test | boxes | `data/raw/` |
-| DAVE | 20 office frames, pink desk, lamp (`DAVE_office_*`), 12 with boxes (grouped per touching pair); no more data expected from Dave | boxes, indicative | `data/raw/` |
-| WOOD | 5 wood-desk frames (`4A8B_upcool_wood_calib_*`) + 19 lamp-color frames on wood, unlabeled. **Wood is in scope now** (Tanush 2026-11-09: generalize to everything; `PROBLEM.md` updated via `DECISIONS.md` in step 1) | none yet | `data/raw/` |
-| REC | 4 campus recordings 2026-11-07 (static, pan, enter/leave, hand) | none | `data/recordings/` (local) |
-| LIVE-1109 | 1 frame from the run with Dave (close-up under a far barrel) | none | `live/snapshots/robot_snap0.png` (local) |
-| **LADDER** | wood lamp ladder 2026-11-16: 13 arrangements × 9 lamp settings (`4A8B_lamp{warm,mid,cool}{1,3,6}_wood_*`), 90 train / 27 test **by scene** | boxes | `data/raw/` |
-| **BLACK** | black table, window light 2026-11-16 (`4A8B_window_black_*`), 15 frames, 10 train / 5 test | boxes | `data/raw/` |
-| CALIB | 12 ruler frames 0–300 mm (`4A8B_lampmid6_wood_calib_*`, `data/calib.csv`); geometry only, not `lampmid6` color data | boxes | `data/raw/` |
-
-Test frames (HOME 5, CAMPUS 10, LADDER 27, BLACK 5) are never loaded except in the planned test looks (9b, 10b).
+- **Occlusion gets fixed.**
+- **If the segmentation is good, the detector finds the barrel.** Checked as a test, not assumed.
+- **Never regress:** no scenario row of the eval table (`tools/report.py`) on home or campus may drop. A fix for one case that breaks another (close-ups, say) does not merge.
+- **Ordinary conditions only.** Parked as extreme: the orange wood table under a lamp, glare on the black table, lamp brightness 1. They stay in the eval table as report-only rows.
+- **Adaptive thresholds from evidence:** Tanush sets the best hue and saturation thresholds by hand per frame; if something in the frame's histogram predicts his settings, that relation becomes the adaptive rule.
 
 ## In order
 
-- [x] **0. Walkthrough acknowledgement + merge** (done 2026-11-09: "understood", hs adopted, `barrels` fast-forwarded) [Tanush reads, Claude merges]. `archive/OVERNIGHT-2026-11-08.md` §6 plus the (f) paragraph in `HOW-IT-WORKS.md` §3; (g), the close-up fix, is reviewed at step 4. On "understood": adopt the hs candidate as the default (`DEFAULT_MODEL` → `results/2026-11-09_hs_candidate/config.json`), fast-forward `barrels` to `wip/redesign`, `BARRELS_MODEL` no longer needed. *Added by Claude: everything below builds on the branch, so it has to land.* Data: none.
+| # | what | who | state |
+|---|---|---|---|
+| **A** | **The detector finds every barrel when the segmentation is good.** (1) Perfect masks in (the home masks), every barrel out. (2) Realistic masks in: the same with holes and eaten edges (simulated highlights and shadows), and the black-table frames with thresholds read from their labels. (3) Fix what fails: barrel behind a barrel of the other color (4 of the 5 white-table misses), a stripe that comes out in pieces, the side-occlusion switch. Also check the expected barrel size against the hand-drawn boxes (Tanush: `g` in the box tool was sometimes wrong). Detector = main code: `wip/` branch, walkthrough, merge on "understood". | Claude | started 2026-11-18 |
+| **B** | **Vendor detections saved with each frame.** One keypress stores the raw frame and what the vendor detector reported at that moment, so the eval table gets a vendor column. | Claude | started 2026-11-18; needs Tanush's live check |
+| **C** | **Shot list** (below, and `DATA.md`). | both | agreed 2026-11-18 |
+| **D** | **Slider tool.** Six numbers (hue low, hue high, saturation floor, per color), live segmentation and live boxes; saves `data/labels/<stem>_hs.json`. | Claude | started 2026-11-18 |
+| **E** | **Shoot, box, slider-label**, as tables and lights come up. Boxes on every frame; slider labels on three frames per condition (`core_01`, `occl_01`, `clutter_01`). Criterion: as much barrel painted as needed to detect it, as little else as possible. | Tanush | with the data session (prompt in `HANDOFF.md`) |
+| **F** | **Histogram against the hand-set thresholds.** Is there a relation? Each condition is one data point, so it needs about ten; tested by leaving whole conditions out. Runs on whatever conditions exist, re-run as data arrives. If the relation holds: the adaptive rule, pre-registered, scored with the eval table. | Claude | script started 2026-11-18 |
+| **G** | **Against the vendor, and one look at the test frames**, after the adaptive rule is in (or shown not to work). | Claude | Sunday 2026-11-22 |
 
-- [x] **1. Doc cleanup** [Claude] (done 2026-11-09: every doc opens with a "Now" block; `OVERNIGHT-2026-11-08` and `MEETING-2026-11-03` archived). The docs are long and convoluted; current facts must be findable in seconds (example: the tilt and focal length actually in use — `AIM_4A8B6118_BOXFIT`: f 400, tilt 22.25°, horizon row 76 — are buried in `constraints.md`). Every doc gets a short "current state" block at the top; history moves below a line or to `archive/`. Order: `constraints.md`, `STATUS.md`, `HOW-IT-WORKS-SHORT.md`, `DATA.md`, `EVAL.md`, `PROBLEM.md`, `CLAUDE.md`, `EXPERIMENTS.md` (index first, entries after), `DECISIONS.md`, `RUNBOOK.md`. Foundation docs change only via `DECISIONS.md`, so the cleanup there is layout, not content. Data: none.
+## Shot list: 9 shots per condition, about 6 minutes
 
-- [x] **2. Move to the Claude Code CLI** [Claude writes, Tanush switches] (done 2026-11-09: `docs/HANDOFF.md` with one warm-up prompt; next session starts in the CLI). Tanush works better in the CLI (multiple sessions, easier context transfer). Deliverables: `docs/HANDOFF.md` with the context a fresh session needs (state, rules, where things are, open decisions, the current numbers), warm-up prompts per kind of session (experiment session, labeling session, doc session, live session), and the general to-dos; `CLAUDE.md` checked so a fresh session reads the right things first. Data: none.
+A condition = one table under one light. Aim for ten or more conditions; few scenes each.
 
-- [x] **3. Collect data: the multi-setting set (NEW)** (done 2026-11-16: wood lamp ladder 117 = 13 scenes × 9 lamp settings, black table 15, ruler set 12, all boxed and reviewed by Tanush; split 2026-11-16, wood **by scene** 90 / 27, black 10 / 5; glass, white-at-home, sun, the campus session and the horizon frame dropped; `DATA.md`) [Tanush shot and boxed]. One session plan, one import, one labeling pass. Needed by 6, 7, 8, 9, 10 below. Contents (draft, Claude finalizes in `DATA.md` before shooting): ≥ 3 light settings (window day, overhead fluorescent, warm lamp; dim if possible) × ≥ 3 table surfaces (white, wood, a dark or beige one) × the scenario list: `close` 0–30 mm in steps (the close-up and kicker cases), `occl` at 25 / 50 / 75 % hidden by a barrel and by clutter, `touch`, `cluster`, `clutter` incl. orange/blue non-barrels, `neg` per setting, `held`/kicker. Plus one `calib` set with a ruler (P1 for a month) and one `horizon` frame. One recording per setting. Boxes with `box_tool.py` (`--cam boxfit`). Data: produces NEW.
+| # | name | shot |
+|---|---|---|
+| 1 | `neg_01` | empty table |
+| 2 | `neg_02` | clutter only, including one orange and one blue thing that is not a barrel |
+| 3 | `core_01` | four barrels spread out, mixed colors, near to far, nothing else |
+| 4 | `touch_01` | two or three touching, mixed colors |
+| 5 | `occl_01` | a barrel about half hidden behind a barrel of the other color, clutter in the background |
+| 6 | `occl_02` | a barrel about half hidden at the side by a clutter object |
+| 7 | `close_01` | one barrel about 2 cm from the bumper |
+| 8 | `edge_01` | one barrel cut by the left or right frame edge, one fully in view |
+| 9 | `clutter_01` | barrels among clutter, an orange or blue non-barrel right next to a barrel |
 
-- [ ] **4. Fix close-ups** [Claude; done in code 2026-11-09, (g) `cover_rows`; closes when Tanush confirms live]. The close-up under a far barrel now gets its box (LIVE-1109). Open: a barrel touching the kicker — needs a `tm save` of it (same route, probably the same bug). Data: LIVE-1109, HOME `close_*`, CAMPUS `close_01`, NEW `close`.
+Clutter is in shots 2, 5, 6 and 9. If the light can change without touching the table (overhead on and off, blinds), keep the arrangement and reshoot all nine: that is a second condition with the same scenes, and it is split by scene.
 
-- [x] **5. Fix `tm seg` in the live programs** *(merged 2026-11-16: Tanush ran it live, "seg looks good"; coded 2026-11-11, steps in `OVERNIGHT-2026-11-11.md` §2)* [Claude; side tool, no walkthrough]. `tm seg` opens a second window with only the segmented pixels; the main window dims every pixel not classified as a barrel color. Data: none (live).
+Conditions to try for: white table with window light, overhead light, both, sun, dim evening light; dark wood table with overhead and with window; gray table (yellow overhead); black table with window and with overhead; anything else ordinary. A new table: tell the data session, it adds the tags.
 
-- [x] **6. Clean up the eval** *(merged into `barrels` 2026-11-16 on Tanush's "understood"; done 2026-11-11 on `wip/eval-report`, f4f77c2: `tools/report.py`, reproduces 0.93 / 0.99 / 0.47; merges on Tanush's "understood", walkthrough in `OVERNIGHT-2026-11-11.md` §3)* [Claude; eval = main code, walkthrough]. Many sets (HOME, CAMPUS, DAVE, soon NEW) and many tables make it hard to see what is better where. One command (`tools/eval_boxes.py` or a new `tools/report.py`) and the test suite's summary print **one table**: rows = data set × scenario tag, columns = found / missed / false / width ratio / bottom error, for the candidate and for the baseline side by side, with the delta. Metrics unchanged (`EVAL.md`); presentation condensed. Data: HOME, CAMPUS, DAVE train frames; NEW when it exists.
+## Tanush's part
 
-- [x] **7. Occlusion, the less extreme cases** *(merged 2026-11-16 with the fix switched off, Tanush: "merge with switch off"; the reason log is in, `stripe_w_min` stays 0.4, `occl_body_side` stays False; re-check on the new `occl` train frames once the color step works there. 2026-11-11: reproduced and attributed; the pre-registered fix (`stripe_w_min` 0.25 + switch (h)) finds campus `occl_02` but adds 2 false boxes on wood, so it is **not adopted**, switches off. Open: Tanush's "understood" and his decision (keep off / adopt), `OVERNIGHT-2026-11-11.md` §4; re-check on the step-3 `occl` shots)* [Claude; detector, walkthrough]. Live with Dave, a barrel with half its body showing got no box. Expected limit was "stripe fully hidden"; this is worse. First reproduce on frames (CAMPUS `occl_01/02`, `cluster_01`, LIVE frames if saved), attribute (stripe not found? found and refused by `body_min`/`stripe_w_min`? covered by the front barrel's box?), then fix with a pre-registered rule. Data: CAMPUS occl/cluster, HOME occl, NEW `occl` 25/50 %.
-
-- [ ] **8. Histograms: look, then decide** *(tool, experiment and note done 2026-11-16: `tools/hs_hist.py`, `EXPERIMENTS.md` 2026-11-16, `docs/HS-HISTOGRAMS-2026-11-16.md`; Tanush 2026-11-16: brightness 1 is unrealistic, ignore it; no table-as-reference (clutter hides the table); unsure about the peak shift; **make the general case work first, orange on warm wood is the extreme case and is parked**. Baseline today (`results/2026-11-16_detector_on_new_sets/`): wood, six bright lights 7 of 126 barrels found, black 2 of 26. Tried 2026-11-16 (pre-registered): the same recipe fit on all train tables; **no arm passes** (wide ranges paint the wood table and the home wall, narrow ones leave wood unpainted; best 28 of 152 on black + bright wood). For Dave: `docs/HISTOGRAMS-FOR-DAVE.pdf` (3-D histograms per light and table). Next, to agree: thresholds per image from the frame's own histogram (Tanush's proposal); the email to Dave is skipped, Tanush 2026-11-16)* [Claude writes the tool; Tanush looks]. For a frame or a set, every pixel into a 2-D hue × saturation histogram (start 16 × 16, try others), displayed two ways: a 3-D bar plot with each bar in its own color (matplotlib) if it works easily, else two 2-D images (counts in gray, color of the bin). Overlay the labeled-barrel pixels vs the rest. Purpose: see how much H and S actually move between light settings and tables, as the ground for an adaptive hs model. Deliverable: `tools/hs_hist.py` + a short note with the pictures and what they show; then decide what the adaptation should key on. **Then the email to Dave** (Claude drafts, Tanush sends): the live run, the fixes, the histogram pictures, the generalization plan. Data: HOME, CAMPUS, DAVE, WOOD (19 lamp frames: 3 directions × 3 warmths, exactly the lighting variation), NEW.
-
-- [ ] **9. Occlusion, the extreme cases + the blue clutter at the frame edge** [Claude; detector, walkthrough]. Stripe fully hidden, mixed-color stacking (the back barrel's stripe joins the front barrel's body of the same color and is refused for height: **4 of the 5 train misses**, HOME `occl_01`, `occl_02`, `cluster_01` ×2, attributed 2026-11-11; CAMPUS `occl_02` turned out to be a narrow stripe, step 7), and the persistent false blue box on clutter at the right frame edge above the table (REC r1; pre-register the rule once seen live again). Pre-registered idea: a stripeless body piece directly above a found barrel of the same color, barrel-sized for its row, is a barrel. Best effort this week. Data: CAMPUS occl/cluster, REC r1, NEW `occl` 75 %.
-
-- [ ] **9b. Test run 1** [Claude]: HOME 5 + CAMPUS 10 test frames (+ NEW test frames once split), the detector as it stands after 9, once, logged in `EXPERIMENTS.md`. Nothing is tuned on it afterwards; the next look is 10b.
-
-- [ ] **10. Slider labeling + the adaptive-threshold plan** [Claude builds; Tanush labels; then plan together]. A tool with H and S sliders per class on one image, segmentation updating live; Tanush picks the setting that minimizes false pixels while keeping the barrels; the chosen thresholds per frame are saved as labels (`<stem>_hs.json`). Those per-frame thresholds, plotted against the frame's histogram (step 8), are the data for the adaptive model: what in the frame's H/S distribution predicts the right threshold. Deliverable: `tools/hs_slider.py`, the labels, and a written plan (hypothesis, rule, how it is scored) before any adaptive code. Data: NEW primarily; HOME, CAMPUS, DAVE, WOOD for the spread.
-
-- [ ] **10b. Test run 2** [Claude]: the same test frames after the adaptive thresholding lands, once, logged, side by side with 9b. Two looks at the test set in total this week, both planned here in advance (`EVAL.md` rule: never tune on it between the looks).
+1. Shoot (E) whenever a new table or light comes up; box every frame; slider-label three per condition once D is ready.
+2. Live checks when the robot is on: B (the vendor save), and the close-up fix: a barrel about 2 cm from the bumper with a far barrel behind it in the picture must get its box; a barrel seated in the kicker should too, and if it does not, `tm save` it.
+3. Read the walkthrough for A when it is ready and say "understood".
 
 ## Parked
 
-- Calibration with a ruler: inside step 3's shoot list; the fit afterwards replaces `AIM_4A8B6118_BOXFIT` (P1 for a month).
-- Dave's grouped boxes: his frames stay indicative; no more data expected from him.
+- Extreme conditions: orange wood under a lamp, black-table glare, brightness 1; finding blue barrels from the blue body alone (the idea for wood).
+- Ruler calibration (12 frames exist, `data/calib.csv`): un-parked only if A shows the expected sizes are off.
+- Whether the camera's auto exposure / white balance can be locked: a quick look, not a task.
+
+## Done (the 2026-11-09 list)
+
+0 walkthrough + merge of hs · 1 doc cleanup · 2 move to the CLI · 3 data: wood ladder 117, black 15, ruler 12 (2026-11-16) · 5 `tm seg` (merged 2026-11-16) · 6 eval table `tools/report.py` (merged 2026-11-16) · 7 side occlusion: explained, fix merged switched off (2026-11-16) · 8 histograms + `HISTOGRAMS-FOR-DAVE.pdf` (2026-11-16). Tried and not adopted 2026-11-16: one color range fit on all tables; ceiling check of per-frame thresholds (53 of 152 on black + bright wood). Not finished: 4 close-up live confirm (in "Tanush's part"), 9 barrel behind barrel (now A), 9b / 10b test looks (now G), 10 slider labels (now D, E, F).

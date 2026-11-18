@@ -21,6 +21,15 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-18 — The week's plan after the meeting with Dave: match the vendor, ordinary conditions, thresholds from hand labels
+
+- **Decision:** (1) Goal: at least as good as the vendor detector in its conditions, plus more ordinary conditions; never regress (no scenario row of the eval table on home or campus may drop). (2) Extreme conditions are parked: the orange wood table under a lamp, glare on the black table, lamp brightness 1; they stay as report-only rows. (3) "Good segmentation in, every barrel out" becomes a test of the detector (perfect masks, then realistic ones); occlusion is fixed inside that. (4) Adaptive thresholds come from evidence: Tanush sets hue and saturation thresholds by hand on three frames per condition (criterion: as much barrel painted as needed to detect it, as little else as possible), and a relation between the frame's histogram and his settings, tested by leaving whole conditions out, becomes the rule. (5) New data is conditions-first: 9 shots per condition, ten or more conditions; the vendor's detections are saved with every frame. (6) One planned look at the test frames, at the end of the week (replaces 9b / 10b). (7) The 2026-11-09 list is closed; `TODO.md` is rewritten.
+- **Why:** Dave and Tanush, 2026-11-16: the work of the last days chased extreme cases; the vendor detector works only in narrow lighting, so matching it there and adding ordinary conditions is the win. The 2026-11-16 experiments showed thresholds alone do not solve the extreme sets and that painted barrels can still be missed.
+- **Alternatives:** keep going on wood (parked); per-image thresholds from peaks or an overall histogram shift designed by hand (replaced by the label-then-correlate route, which tests the idea before building it).
+- **Who:** Tanush with Dave (2026-11-16), plan agreed with Claude 2026-11-18.
+
+---
+
 ## 2026-11-16 (later) — Occlusion fix merged switched off; general case first; brightness 1 out
 
 - **Decision:** (1) `wip/occlusion` is merged with the defaults unchanged (`stripe_w_min` 0.4, `occl_body_side` False); the reason log (`detect(..., log=[])`) is in. (2) `wip/tm-seg` and `wip/eval-report` are merged. (3) Direction: make the general case work first (other tables, ordinary lights); orange barrels on a wood table under a warm lamp are the extreme case and are parked; lamp brightness 1 is unrealistic and is not a target. (4) First method to try: the same hs recipe fit on all train tables instead of home only; per-image thresholds from the frame's histogram only if that is not enough.

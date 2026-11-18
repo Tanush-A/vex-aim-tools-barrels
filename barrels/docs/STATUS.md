@@ -1,29 +1,38 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-16. **Step 3 is done:** wood lamp ladder 117 frames (13 scenes × 9 lamp settings), black table 15, ruler set 12, all boxed by Tanush; splits assigned (wood by scene 90 / 27, black 10 / 5; train 137, test 47). The three `wip/` branches are rebased on it. Step 8: histogram tool, experiment and note done (`docs/HS-HISTOGRAMS-2026-11-16.md`), waiting on Tanush's look; the email to Dave is skipped (Tanush). From 2026-11-11: Steps 5, 6, 7 are coded and pushed on `wip/tm-seg`, `wip/eval-report`, `wip/occlusion`; **nothing is merged, what runs is unchanged**. Summary, both walkthroughs and Tanush's action list: `docs/OVERNIGHT-2026-11-11.md`. Before that (2026-11-09): hs color model + hardened detector (a–g) on `barrels`; steps 0–2 done.
+**Updated:** 2026-11-18. New plan for the week in `TODO.md` (agreed with Tanush after the 2026-11-16 meeting with Dave; next meeting Monday 2026-11-23). Started today: A (detector given good segmentation, occlusion), B (vendor capture), D (slider tool), F (histogram ↔ thresholds script), each on a `wip/` branch.
 
-## State
+## What runs
 
-- **What runs** (`worldmap_bridge.DEFAULT_MODEL`, `detect_image.py`, `BarrelViewer`, `BarrelTracker`): hs model `eb863d84` (orange hue 3–13 S ≥ 140, blue hue 103–119 S ≥ 113, fit once on the 16 home frames) → stripe detector with hardening a–g → provisional camera `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon row 76). `BARRELS_MODEL` in the environment swaps the model file; v1 is `results/2026-10-20_v1_test_adaptive/config.json`.
-- **Numbers** (v2 rule, train frames only): campus **0.99** (v1 front end: 0.41), home LOSO **0.93** (= v1), zero false detections on every negative of both sessions, Dave's office 0.47 (indicative, his boxes group touching barrels). Median box width / true width 0.96 on campus (was 0.90). Recordings: barrels found in all four clips, 0 blips shown, lag 2 frames.
-- **Live run with Dave (2026-11-09):** segmentation good; two detector bugs found and fixed the same day — boxes 15 % too thin (f), and a close-up under a far barrel got no box (g). Still open from that run: a barrel touching the kicker got no box (needs a `tm save`); partial occlusion worse than expected (TODO 7); a persistent false blue box on clutter at the frame edge (TODO 9).
-- **Unattended block 2026-11-11:** (5) `tm seg` second window + dimmed main window, untested on the robot. (6) `tools/report.py`, one table, reproduces 0.93 / 0.99 / 0.47. (7) the 5 train misses are all occluded barrels: 1 hidden at the side by a non-barrel (stripe 16 px, floor 21.4 px; the live miss), 4 behind a barrel of the other color (step 9). The pre-registered fix (`stripe_w_min` 0.25 + (h) `occl_body_side`) finds the one (campus 35 of 35) and adds only real barrels on home, campus, Dave and the recordings, but 2 false boxes on wood: not adopted, both switches off.
-- **Histograms (2026-11-16, train frames):** on wood the fixed model misses the barrels rather than painting the table: it keeps 46–73 % of the orange body and 30–48 % of the blue, floods 0.3–2.5 %. Hue drifts half a sector (orange 9 → 11–14, blue 110 → 99–106; on the black table too); blue S falls to ~100 under the warm lamp. Ceiling of any H × S rule at 1 % flood: blue 99–100 % everywhere (thresholds misplaced, fixable), orange on wood 66–91 % (the table overlaps it; the detector must carry the rest). Brightness 1 fails on the V ≥ 40 gate.
-- **Where the detector stands on the new train frames (2026-11-16, `tools/report.py`, now on `barrels`):** wood at brightness 3 and 6: 7 of 126 barrels found, 3 false boxes; black table: 2 of 26; home 0.93 and campus 0.99 unchanged. Tanush's direction the same day: general case first, orange on warm wood parked, brightness 1 ignored, fewer docs and one clean explanation.
-- **One fixed range for every table does not work (2026-11-16, pre-registered, `EXPERIMENTS.md`):** the hs recipe fit on all train tables fails its acceptance in all three arms; nothing adopted. Next to agree with Tanush: per-image thresholds from the frame's histogram. `docs/HISTOGRAMS-FOR-DAVE.pdf` holds the 3-D histograms per condition (`experiments/2026-11-16_hs_hist/for_dave.py`).
-- **Ceiling check (2026-11-16):** with thresholds read from each frame's own labels, today's detector finds 17 of 26 on black and 36 of 126 on bright wood (cool lamp 24 of 42, mid 10, warm 2). So per-image thresholds alone reach about a third of the new barrels; the rest is stripes in pieces and the wood table inside the orange range. The per-image estimator is not built yet; direction to agree with Tanush.
-- **Direction for the week (Tanush):** hs is the right front end; (1) fix bugs, (2) generalize — many light settings, table colors incl. wood, clutter, occlusion. His measure: scenarios where the vendor detector fails and ours works.
-- **Data:** HOME 21 (16/5), CAMPUS 31 (21/10), LADDER 117 (90/27, split by scene), BLACK 15 (10/5), CALIB 12 (ruler, 0–300 mm), DAVE 20 (12 boxed), WOOD 24 unlabeled, 6 recordings, 1 live frame. Test frames untouched. Live on wood (Tanush, while shooting): the detector gets almost nothing right, the expected gap for a color model fit on white-table frames; steps 8 and 10 are for that. The kicker case now has saved frames (`held_01` on wood, black, `calib_01`).
-- **Camera:** provisional; calibration with a ruler is inside the step-3 shoot.
+hs color model `eb863d84` (orange hue 3–13, S ≥ 140; blue hue 103–119, S ≥ 113; fit on the 16 home frames) → stripe detector, hardening a–g, with the reason log; side-occlusion fix in the code but switched off → provisional camera `AIM_4A8B6118_BOXFIT`. Live: `BarrelViewer`, `BarrelTracker`, `tm seg` with a second window. Eval: `python barrels/tools/report.py`.
 
-## Now (`TODO.md`, in order)
+## Numbers (train frames, v2 rule)
 
-0–3 done → **8 histograms: Tanush looks, then we pick the adaptation lead** ∥ 5, 6, 7 merged 2026-11-16 (occlusion fix in the code but switched off); *before the merge:* **5, 6, 7 wait on Tanush** (live check; "understood"; "understood" + decision), then merge in that order → 4 close-ups (code done, live confirm) → 8 histograms + email to Dave → 9 occlusion (extreme) + edge clutter → 9b test look 1 → 10 slider labels + adaptive plan → 10b test look 2.
+| set | found | note |
+|---|---|---|
+| home (white, window) | 25 of 29, score 0.93 | the 4 misses are occluded barrels |
+| campus (white) | 34 of 35, score 0.99 | the miss is the barrel behind the robot |
+| black table | 2 of 26 | parked as extreme (glare) |
+| wood, bright lamp | 7 of 126 | parked as extreme |
+| Dave's office | 11 of 34 (0.47) | indicative, his boxes group barrels |
+
+No false box on any clean empty frame. Test frames (47) untouched.
+
+## What we know (2026-11-16, `EXPERIMENTS.md`)
+
+- Barrel colors move between settings: hue by about half a range, blue loses saturation under a warm lamp; the black table shifts them as much as a lamp does.
+- One fixed color range for every table fails (wide paints the wood table and the home wall, tight misses the barrels).
+- Thresholds read from each frame's labels reach about two thirds on black and cool-lit wood, almost nothing under mid and warm lamps: thresholds alone are not enough there; many misses are stripes that come out in pieces.
+- The 5 white-table misses: 1 hidden at the side (width limit; fix exists, off), 4 behind a barrel of the other color (no fix yet; item A).
+
+## Now
+
+`TODO.md`: A → D → (Tanush: E as tables come up) → F as data arrives → G on Sunday. B before the first shoot.
 
 ## Tanush's part
 
-In order: look at `HS-HISTOGRAMS-2026-11-16.md` and pick the adaptation lead (or say "you pick"); live-check `tm seg` on `wip/tm-seg` and confirm the close-up fix (step 4) in the same sitting; read `OVERNIGHT-2026-11-11.md` §3 and say "understood" (step 6); read §4, say "understood" and decide: occlusion fix stays off until the wood front end exists (Claude's recommendation, what the pre-registered rule says) or goes on now; `tm save` the kicker case and any live occlusion miss when they happen.
+Shoot and label (E) with the data session (`HANDOFF.md` has its prompt); live-check B and the close-up fix; read A's walkthrough when it is ready.
 
-## Open questions for Dave (for the step-8 email)
+## Open questions
 
-Wood tables now in scope — fine? Which of his scenes to handle first; calibration once or per robot; knocked-over barrels ever; his grouped boxes (by design or shortcut); is a display-only persistence rule in the live view fine for the demo.
+Can the camera's auto exposure / white balance be locked (not asked yet)? Vendor detector: how its output is saved next to a frame (B).
