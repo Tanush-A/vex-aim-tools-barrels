@@ -309,12 +309,19 @@ def _join_pieces(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) -> list[l
     when (1) they share rows: the overlap is at least half the height of the shorter of the two, and (2) together they
     span no more than one barrel: body_width x the width a barrel has at that row. Two barrels cannot both have their
     stripe inside one barrel's width at the same rows, so such pieces are one stripe that a highlight, a shadow line or
-    a washed-out upper body cut. Returns the groups as lists of piece numbers."""
+    a washed-out upper body cut. A piece joins only if it has a shape a stripe can have: not taller than stripe_h_max
+    x the expected stripe height and not taller than wide (round 2: slivers of a barrel's own upper body between specks
+    are tall, and joined they passed for a stripe). Any other piece stays alone and is judged alone, as before.
+    Returns the groups as lists of piece numbers."""
     groups: list[list] = []                                      # [ids, x0, x1, y0, y1]
+    alone: list[list[int]] = []
     for i in sorted(range(1, len(st)), key=lambda i: (int(st[i][0]), int(st[i][1]))):
         x, y, bw, bh = (int(v) for v in st[i][:4])
         g = _stripe_geometry(cam, y + bh / 2)
-        span = max(cfg.body_width, 1.0) * g[1].width_px if g is not None else 0.0
+        if g is None or bh > bw or bh > cfg.stripe_h_max * (g[1].stripe_bottom - g[1].stripe_top):
+            alone.append([i])
+            continue
+        span = max(cfg.body_width, 1.0) * g[1].width_px
         for grp in reversed(groups):
             ids, gx0, gx1, gy0, gy1 = grp
             shared = min(gy1, y + bh) - max(gy0, y)
@@ -323,7 +330,7 @@ def _join_pieces(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) -> list[l
                 break
         else:
             groups.append([[i], x, x + bw, y, y + bh])
-    return [grp[0] for grp in groups]
+    return [grp[0] for grp in groups] + alone
 
 
 def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, log: list | None = None) -> list[Stripe]:
@@ -649,9 +656,10 @@ def caps_behind(mask: np.ndarray, found: list[Barrel], used: list[Stripe], cam: 
     3. what hides the rest is a barrel: at least half of the predicted box below the cap lies inside boxes of
        found barrels whose bottom edge is lower than this barrel's (they stand nearer).
 
-    The box: top = the cap's top row; sides = the cap's columns, widened to W toward the hidden side when the cap is
-    narrower than stripe_full x W (as for a partly hidden stripe); bottom = top + the height of a barrel as wide as
-    the cap when the whole width shows, else the bottom the top row predicts. No new threshold."""
+    The box: top = the cap's top row; sides = the cap's columns. A cap narrower than stripe_full x W is kept only
+    when exactly one side is hidden by a nearer found barrel or the frame edge, and is widened to W toward that side.
+    Bottom = top + the height of a barrel as wide as the cap when the whole width shows, else the bottom the top row
+    predicts; the cap's own color seen ending near that estimate (the usual tolerance) replaces it. No new threshold."""
     h, w = mask.shape
     out: list[Barrel] = []
     for c in (ORANGE, BLUE):
@@ -690,17 +698,28 @@ def caps_behind(mask: np.ndarray, found: list[Barrel], used: list[Stripe], cam: 
             if bw >= cfg.stripe_full * W:
                 bottom = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)   # the whole width shows: size from width
             else:
-                bottom = rows.bottom                         # hidden at a side too: size from the top row
+                # a narrow cap must be explained (round 2): exactly one side hidden, by a found barrel standing nearer (its box
+                # holds the pixel next to the cap at the cap's middle row) or by the frame edge. Neither side: the narrowness has
+                # no cause, not a cap. Both sides: a wedge between two barrels, neither its width nor its place can be measured.
                 row, Wi = y + bh // 2, int(round(W))
-                left_hidden = x <= 0 or mask[row, x - 1] in (ORANGE, BLUE)
-                right_hidden = x + bw >= w or mask[row, x + bw] in (ORANGE, BLUE)
-                if left_hidden and not right_hidden:
+
+                def hidden(px: int) -> bool:
+                    return px < 0 or px >= w or any(b.bbox[0] <= px < b.bbox[2] and b.bbox[1] <= row < b.bbox[3] and b.bbox[3] > y + bh
+                                                    for b in found)
+                left_hidden, right_hidden = hidden(x - 1), hidden(x + bw)
+                if left_hidden == right_hidden:
+                    _note(log, "cap", "both_sides" if left_hidden else "narrow", cb, body=c, expected_w=W)
+                    continue
+                bottom = rows.bottom                         # size from the top row
+                if left_hidden:
                     bx0 = bx1 - Wi
-                elif right_hidden and not left_hidden:
-                    bx1 = bx0 + Wi
                 else:
-                    cx = (bx0 + bx1) / 2
-                    bx0, bx1 = int(round(cx - W / 2)), int(round(cx + W / 2))
+                    bx1 = bx0 + Wi
+            # the seen bottom is used when it agrees (as in step 3): the cap's own color, in the cap's columns, ending near the estimate
+            col = (mask[:, x:x + bw] == c).any(axis=1)
+            near = [r for r in range(max(y + bh, int(round(bottom - tol))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
+            if near and not col[near[-1] + 1:near[-1] + 4].any():
+                bottom = near[-1] + 1
             bx0, bx1, bottom = max(0, bx0), min(w, bx1), min(h, int(round(bottom)))
             below = np.zeros((max(0, bottom - (y + bh)), bx1 - bx0), bool)       # where the rest of this barrel should be
             for b in found:

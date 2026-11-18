@@ -311,10 +311,61 @@ def test_stripe_under_a_washed_out_upper_body_is_one_stripe_with_stripe_join():
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_barrel(mask, 150, 320, body=io.BLUE)
     r = CAM.barrel_rows(150); W = truth[2] - truth[0]
-    mask[truth[1]:int(round(r.stripe_top)), truth[0] + int(0.15 * W):truth[2] - int(0.15 * W)] = 0   # the upper body pale in the middle 0.7
-    assert det.detect(mask, OLD, CAM) == []                          # the stripe has body above it only at its two ends: two slivers
+    mask[truth[1]:int(round(r.stripe_top)), truth[0] + int(0.25 * W):truth[2] - int(0.25 * W)] = 0   # the upper body pale in the middle half
+    assert det.detect(mask, OLD, CAM) == []                          # the stripe has body above it only at its two ends: each under the width floor
     out = det.detect(mask, JOIN, CAM)
     assert len(out) == 1 and out[0].color == io.BLUE and _close(out[0].bbox, truth)
+
+
+def test_stripe_join_does_not_join_pieces_that_are_taller_than_wide():
+    """Round 2: slivers of a body between specks are tall; a cut stripe's pieces are flat. Only flat pieces join."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(150)
+    x0, x1 = int(round(320 - r.width_px / 2)), int(round(320 + r.width_px / 2))
+    mask[int(round(r.top)):int(round(r.bottom)), x0:x1] = io.BLUE            # a blue body, no stripe
+    st, sb = int(round(r.stripe_top)), int(round(r.stripe_bottom))
+    for c in (x0 + 8, x0 + 24, x0 + 40):
+        mask[st:sb, c:c + 5] = io.ORANGE                                      # three orange slivers 5 px wide, a stripe tall, 0.55 of a barrel together
+    assert sb - st > 5
+    assert det.detect(mask, OLD, CAM) == [] and det.detect(mask, JOIN, CAM) == []
+
+
+def _cap(seen=0.55):
+    """The top of a blue barrel 22 cm away of which only the left `seen` shows (top row to the stripe's top)."""
+    r = CAM.barrel_rows(220)
+    mask = np.zeros((480, 640), np.uint8)
+    x0, n = 300, int(round(seen * r.width_px))
+    mask[int(round(r.top)):int(round(r.stripe_top)), x0:x0 + n] = io.BLUE
+    return mask, r, x0, n
+
+
+def test_narrow_cap_needs_one_side_hidden_by_a_found_barrel():
+    from barrels.detect_types import Barrel
+    mask, r, x0, n = _cap()
+    top, bottom, W = int(round(r.top)), int(round(r.bottom)), int(round(r.width_px))
+    right = Barrel(color=io.ORANGE, bbox=(x0 + n - 5, top + 2, x0 + n + 60, bottom + 20))      # a nearer barrel over the cap's right side
+    out = det.caps_behind(mask, [right], [], CAM, CAP)
+    assert len(out) == 1 and out[0].color == io.BLUE and {"occluded", "bottom_inferred"} <= out[0].flags
+    assert out[0].bbox[:3] == (x0, top, x0 + W) and abs(out[0].bbox[3] - bottom) <= 1          # widened to a full barrel toward the hidden side
+    below = Barrel(color=io.ORANGE, bbox=(x0 - 5, int(round(r.stripe_top)), x0 + 60, bottom + 20))   # a barrel below it only: no side is hidden
+    log = []
+    assert det.caps_behind(mask, [below], [], CAM, CAP, log) == [] and [e["why"] for e in log] == ["narrow"]
+    left = Barrel(color=io.ORANGE, bbox=(x0 - 60, top + 2, x0 + 5, bottom + 20))               # both sides hidden: a wedge between two barrels
+    log = []
+    assert det.caps_behind(mask, [left, right], [], CAM, CAP, log) == [] and [e["why"] for e in log] == ["both_sides"]
+
+
+def test_cap_uses_its_seen_bottom_when_it_agrees():
+    from barrels.detect_types import Barrel
+    mask, r, x0, n = _cap()
+    top, bottom = int(round(r.top)), int(round(r.bottom))
+    right = Barrel(color=io.ORANGE, bbox=(x0 + n - 5, top + 2, x0 + n + 60, bottom + 20))
+    mask[int(round(r.stripe_bottom)):bottom - 5, x0:x0 + 8] = io.BLUE        # its lower body shows beside the front barrel and ends 5 px above the estimate
+    out = det.caps_behind(mask, [right], [], CAM, CAP)
+    assert len(out) == 1 and out[0].bbox[3] == bottom - 5
+    mask[int(round(r.stripe_bottom)):bottom + 40, x0:x0 + 8] = io.BLUE       # blue running on far below the estimate is not this barrel's bottom
+    out = det.caps_behind(mask, [right], [], CAM, CAP)
+    assert out == [] or abs(out[0].bbox[3] - bottom) <= 1
 
 
 def test_stripe_join_joins_nothing_wider_than_one_barrel():

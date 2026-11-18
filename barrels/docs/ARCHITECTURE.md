@@ -71,7 +71,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | front end | `boxfit.py` | percentile RGB boxes and their diagnostics | `Box`, `fit_box`, `in_box`, `fullness`, `pca` |
 | front end | `cleanup.py` | speck removal / opening / hole filling; **off** (tie, 2026-10-28) | `apply` |
 | geometry ★ | `geometry.py` | pinhole camera: row ↔ distance, the barrel's rows and width at any distance, presets | `CameraModel`, `barrel_rows`, `horizon_row`, `AIM_4A8B6118_BOXFIT` |
-| detector ★ | `detector.py` | steps 1–4: blobs, count by width, bottom edge, the stripe; `draw` | `DetConfig`, `find_blobs`, `split_blob`, `resolve_bottom`, `find_stripes`, `barrel_from_stripe`, `detect`, `draw` |
+| detector ★ | `detector.py` | steps 1–4: blobs, count by width, bottom edge, the stripe; `draw`. Off by default (2026-11-18): `stripe_join` (a stripe in pieces), `cap_behind` (a barrel behind a found barrel) | `DetConfig`, `find_blobs`, `split_blob`, `resolve_bottom`, `find_stripes`, `barrel_from_stripe`, `caps_behind`, `detect`, `draw` |
 | detector | `detect_types.py` | one detected barrel and its conversions (incl. the aivision dict the world map reads) | `Barrel`, `barrels_from_boxes` |
 | detector | `detect_cc.py` | the floor: one box per connected blob, never tuned | `detect`, `write_detections` |
 | scoring ★ | `eval_det.py` | box matching and metrics under the v1 and v2 rules; result tables | `evaluate_frame`, `match_best_first`, `aggregate`, `write_results`, `score` |
