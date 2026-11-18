@@ -61,7 +61,7 @@ At the `C>` prompt (both programs):
 
 The robot's built-in detector ("aivision") runs on the robot all the time and its object list arrives in every status packet (about 20 a second): `robot.robot0.status['aivision']['objects']` = `{count, items}`; each item has `type_str` (`aiobj` for a model object, `tag` for an AprilTag), `id` (0 SportsBall, 1 BlueBarrel, 2 OrangeBarrel, 3 Robot), `name`, `originx`, `originy`, `width`, `height` (top-left corner and size, in **320×240** units: multiply by 2 for our 640×480 frame) and `score`. Nothing has to be requested or switched on, so reading it does not slow the image stream (tag detection, the slow one, stays off).
 
-`tm save` pairs each camera frame with the list that was current when the frame arrived and writes the three files of the table above. `barrels/tools/import_snaps.py` then moves the `.json` to `barrels/data/vendor/<stem>_vendor.json` under the frame's new name (the dry run shows it; the `_vendor.png` look-at copies stay in `snapshots/`, delete them when done). Schema: `DATA.md`, "Vendor detections".
+`tm save` pairs each camera frame with the list that was current when the frame arrived and writes the three files of the table above. `barrels/tools/import_snaps.py` then moves the `.json` to `barrels/data/vendor/<stem>_vendor.json` under the frame's new name (the dry run shows it; the `_vendor.png` look-at copies stay in `snapshots/`, delete them when done). Schema: `DATA.md`, "Vendor detections". Once the frames are imported, assigned to a split and boxed: `python barrels/tools/report.py --vendor` scores the vendor next to our detector on those frames (`HOW-IT-WORKS.md` §4).
 
 **First live check (once, before the first shoot that relies on it):**
 
