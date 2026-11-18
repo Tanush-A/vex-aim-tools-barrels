@@ -15,7 +15,7 @@ Refuses to run if the number of snapshots and scenes differ.
 A snapshot saved by `tm save` has robot_snapN_vendor.json next to it (what the robot's own detector reported for that
 frame). It is carried along under the frame's new name, to data/vendor/<stem>_vendor.json (the folder next to the
 destination; --vendor-dst to change). Snapshots without one are listed, not an error. The look-at copies
-(robot_snapN_vendor.png) are not data and stay where they are.
+(robot_snapN_vendor.png) are not data: they move to <src>/vendor_previews/ under the new names.
 """
 from __future__ import annotations
 
@@ -98,7 +98,7 @@ def main(argv=None) -> int:
         print(f"{src.name:>20}  ->  {short(dst)}" + (f"   + {short(vdst)}" if vdst else "   (no vendor file)"))
     print(f"vendor files: {len(vendor_plan)} of {len(plan)}" + (f"; none for {', '.join(p.name for p in no_vendor)}" if no_vendor else ""))
     if previews:
-        print(f"{len(previews)} look-at copies (robot_snapN_vendor.png) stay in {args.src}; they are not data")
+        print(f"{len(previews)} look-at copies (robot_snapN_vendor.png) go to {args.src / 'vendor_previews'}; they are not data")
     if args.dry_run:
         print("(dry run, nothing moved)")
         return 0
@@ -113,6 +113,12 @@ def main(argv=None) -> int:
         vendor_dst.mkdir(parents=True, exist_ok=True)
     for src, dst in vendor_plan:
         shutil.move(str(src), str(dst))
+    # the look-at copies leave the snapshot folder too (so it is empty for the next session), under the new names
+    for src, dst in plan:
+        pv = src.with_name(f"{src.stem}_vendor.png")
+        if pv.exists():
+            (args.src / "vendor_previews").mkdir(parents=True, exist_ok=True)
+            shutil.move(str(pv), str(args.src / "vendor_previews" / f"{dst.stem}_vendor.png"))
     print(f"moved {len(plan)} files to {args.dst}" + (f" and {len(vendor_plan)} vendor files to {vendor_dst}" if vendor_plan else ""))
     return 0
 

@@ -339,7 +339,8 @@ def test_import_moves_each_vendor_file_under_the_frames_new_stem(shoot, capsys):
     assert (io.load_image(raw / "4A8B_window_white_core_02.png")[..., ::-1] == rgb(2)).all()
     with pytest.raises(FileNotFoundError):
         io.load_vendor("4A8B_window_white_core_01", vendor)                                    # snapshot 1 had none: not an error
-    assert sorted(p.name for p in (tmp_path / "snapshots").iterdir()) == ["robot_snap0_vendor.png", "robot_snap2_vendor.png"]
+    assert [p.name for p in (tmp_path / "snapshots").iterdir()] == ["vendor_previews"]      # the snapshot folder is empty again
+    assert len(list((tmp_path / "snapshots" / "vendor_previews").glob("4A8B_window_white_*_vendor.png"))) == 2
     assert "2 vendor files" in capsys.readouterr().out
 
 
