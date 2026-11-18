@@ -67,9 +67,9 @@ class DetConfig:
                                  # most this x the expected width; the stripe alone ran ~15 % narrow on big barrels. 0 = stripe width
     occl_body_side: bool = False # (h) 2026-11-11: a partly hidden stripe says where the barrel is, not which side of it is hidden; with
                                  # this on, the body color joined to the stripe decides (see barrel_from_stripe). False = before
-    stripe_join: bool = False    # 2026-11-18: stripe pieces of one body color that share rows and together span no more than one barrel
+    stripe_join: bool = True     # 2026-11-18: stripe pieces of one body color that share rows and together span no more than one barrel
                                  # (body_width x the expected width) are one stripe: a highlight or a shadow line cut it. False = each piece alone
-    cap_behind: bool = False     # 2026-11-18: a body-colored top, barrel-wide and as tall as an upper body for its row, cut off by a found
+    cap_behind: bool = True      # 2026-11-18: a body-colored top, barrel-wide and as tall as an upper body for its row, cut off by a found
                                  # barrel standing nearer, is a barrel behind that one (see caps_behind). False = found from a stripe only
 
     def to_dict(self) -> dict:
