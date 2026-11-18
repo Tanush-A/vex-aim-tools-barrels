@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-18. New plan for the week in `TODO.md` (agreed with Tanush after the 2026-11-16 meeting with Dave; next meeting Monday 2026-11-23). Started today: A (detector given good segmentation, occlusion), B (vendor capture), D (slider tool), F (histogram ↔ thresholds script), each on a `wip/` branch.
+**Updated:** 2026-11-18. New plan for the week in `TODO.md` (agreed with Tanush after the 2026-11-16 meeting with Dave; next meeting Monday 2026-11-23). 2026-11-18 evening: B (vendor capture), D (slider tool) and F (histogram ↔ thresholds script) are merged; A (detector given good segmentation: barrel behind barrel, stripe in pieces) is built on `wip/detector-given-seg`, switches off, waiting on Tanush's walkthrough and decision. What runs is unchanged.
 
 ## What runs
 
