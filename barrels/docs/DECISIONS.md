@@ -21,6 +21,15 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-18 (later) — `stripe_join` and `cap_behind` on by default; calibration un-parked
+
+- **Decision:** (1) The two new detector parts are on by default and merged: `cap_behind` (a barrel behind a found barrel, from its visible top) and `stripe_join` (stripe pieces that share rows and fit in one barrel's width are one stripe). (2) The two boxes on which the pre-registered rule failed do not block it: black `occl_04` boxed 7 px below a hidden, hand-estimated bottom, and one wrong box in the wood clip. (3) The ruler calibration is un-parked, using the 12 frames already shot (no new shots).
+- **Why:** eval table home 25 → 27 of 29 with no false box, campus unchanged, no scenario row worse, nothing on any negative; perfect home masks 25 → 28 of 29 (`EXPERIMENTS.md` 2026-11-18). Tanush: 7 px on a hidden bottom is fine; the orange wood table is disregarded for now. The size check showed bottoms inferred from the top row 4–7 px low for far barrels.
+- **Alternatives:** keep both off until the rule passes by the letter (rejected by Tanush); adopt the side-occlusion switches with them (not yet: two boxes half off the barrel on a black-table clip; A2).
+- **Who:** Tanush ("understood, the two boxes dont block it", 2026-11-18); Claude Code (experiment, implementation).
+
+---
+
 ## 2026-11-18 — The week's plan after the meeting with Dave: match the vendor, ordinary conditions, thresholds from hand labels
 
 - **Decision:** (1) Goal: at least as good as the vendor detector in its conditions, plus more ordinary conditions; never regress (no scenario row of the eval table on home or campus may drop). (2) Extreme conditions are parked: the orange wood table under a lamp, glare on the black table, lamp brightness 1; they stay as report-only rows. (3) "Good segmentation in, every barrel out" becomes a test of the detector (perfect masks, then realistic ones); occlusion is fixed inside that. (4) Adaptive thresholds come from evidence: Tanush sets hue and saturation thresholds by hand on three frames per condition (criterion: as much barrel painted as needed to detect it, as little else as possible), and a relation between the frame's histogram and his settings, tested by leaving whole conditions out, becomes the rule. (5) New data is conditions-first: 9 shots per condition, ten or more conditions; the vendor's detections are saved with every frame. (6) One planned look at the test frames, at the end of the week (replaces 9b / 10b). (7) The 2026-11-09 list is closed; `TODO.md` is rewritten.
