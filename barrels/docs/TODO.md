@@ -1,28 +1,52 @@
 # TODO.md — the plan for the week (meeting with Dave: Monday 2026-11-23)
 
-**Updated:** 2026-11-18. Re-planned with Tanush after the 2026-11-16 meeting with Dave. This replaces the 2026-11-09 list; what that list finished is under "Done" at the bottom. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
+**Updated:** 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
 
 ## The goal
 
 A detector at least as good as the vendor's in the vendor's own conditions, and working in more ordinary conditions than the one we had (white table, normal light). Any win beyond that is a bonus.
 
 - **Occlusion gets fixed.**
-- **If the segmentation is good, the detector finds the barrel.** Checked as a test, not assumed.
+- **If the segmentation is good, the detector finds the barrel.** A measured test (`experiments/2026-11-18_det_given_seg`), not an assumption.
 - **Never regress:** no scenario row of the eval table (`tools/report.py`) on home or campus may drop. A fix for one case that breaks another (close-ups, say) does not merge.
 - **Ordinary conditions only.** Parked as extreme: the orange wood table under a lamp, glare on the black table, lamp brightness 1. They stay in the eval table as report-only rows.
 - **Adaptive thresholds from evidence:** Tanush sets the best hue and saturation thresholds by hand per frame; if something in the frame's histogram predicts his settings, that relation becomes the adaptive rule.
 
-## In order
+## Where the detector stands (train frames, 2026-11-18)
 
-| # | what | who | state |
-|---|---|---|---|
-| **A** | **The detector finds every barrel when the segmentation is good.** (1) Perfect masks in (the home masks), every barrel out. (2) Realistic masks in: the same with holes and eaten edges (simulated highlights and shadows), and the black-table frames with thresholds read from their labels. (3) Fix what fails: barrel behind a barrel of the other color (4 of the 5 white-table misses), a stripe that comes out in pieces, the side-occlusion switch. Also check the expected barrel size against the hand-drawn boxes (Tanush: `g` in the box tool was sometimes wrong). Detector = main code: `wip/` branch, walkthrough, merge on "understood". | Claude | **built 2026-11-18 on `wip/detector-given-seg`, not merged, both new switches off.** Barrel behind barrel (`cap_behind`) and stripe in pieces (`stripe_join`): home 25 → 27 of 29, no false box, campus unchanged; fails the written rule on two boxes (black `occl_04` 7 px low against an estimated label bottom; one wrong box in the wood clip). Waits on Tanush: read the walkthrough, decide whether those two block it. Open leads: side occlusion (hidden side only where a found barrel or the frame edge is), ruler calibration (bottoms 4–7 px low) |
-| **B** | **Vendor detections saved with each frame.** One keypress stores the raw frame and what the vendor detector reported at that moment, so the eval table gets a vendor column. | Claude | **merged 2026-11-18** (`tm save` writes `robot_snapN.png` + `robot_snapN_vendor.json` + a look-at `_vendor.png`; `import_snaps.py` carries the JSON to `data/vendor/`); not run on the robot yet: live check in `RUNBOOK.md`, first thing at the first shoot |
-| **C** | **Shot list** (below, and `DATA.md`). | both | agreed 2026-11-18 |
-| **D** | **Slider tool.** Six numbers (hue low, hue high, saturation floor, per color), live segmentation and live boxes; saves `data/labels/<stem>_hs.json`. | Claude | **merged 2026-11-18**: `python barrels/tools/hs_slider.py --filter <light>_<surface>` (keys in `DATA.md`, "Slider labels"); the window itself is unchecked until Tanush opens it |
-| **E** | **Shoot, box, slider-label**, as tables and lights come up. Boxes on every frame; slider labels on three frames per condition (`core_01`, `occl_01`, `clutter_01`). Criterion: as much barrel painted as needed to detect it, as little else as possible. | Tanush | with the data session (prompt in `HANDOFF.md`) |
-| **F** | **Histogram against the hand-set thresholds.** Is there a relation? Each condition is one data point, so it needs about ten; tested by leaving whole conditions out. Runs on whatever conditions exist, re-run as data arrives. If the relation holds: the adaptive rule, pre-registered, scored with the eval table. | Claude | **script merged 2026-11-18**, run 01 is a dry run (2 ordinary conditions, 8 needed); re-run with `python barrels/experiments/2026-11-18_hs_relation/run.py` as conditions and slider labels arrive |
-| **G** | **Against the vendor, and one look at the test frames**, after the adaptive rule is in (or shown not to work). | Claude | Sunday 2026-11-22 |
+| test | found |
+|---|---|
+| eval table, home | 27 of 29, no false box (was 25) |
+| eval table, campus | 34 of 35 |
+| perfect home masks in | 28 of 29 |
+| lightly / medium / heavily damaged masks in | 141 / 64 / 13 of 145 |
+| black table, thresholds read from the labels (extreme) | 19 of 26 |
+
+Still missed on the white tables: the barrel behind the robot (campus `occl_02`, side occlusion), and two barrels in home `cluster_01` (one shows only a wedge between two barrels).
+
+## Claude, now (none of this needs new data)
+
+| # | what | state |
+|---|---|---|
+| **A2** | **Side occlusion.** A barrel half hidden at the side by something that is not a barrel (campus `occl_02`, the live miss with Dave). The old fix (`stripe_w_min` 0.25 + `occl_body_side`) draws boxes half off the barrel because it takes the barrel's own body for the thing hiding it. New rule to try: a side counts as hidden only where a found barrel or the frame edge is, or where the body color visibly stops. Detector = main code: `wip/` branch, pre-registered, walkthrough. | started 2026-11-18 |
+| **A3** | **The misses left when the segmentation is good.** The wedge barrel in `cluster_01` (box it or accept it, with the reason); stripes eaten at far range; a highlight across a stripe (medium damage: 64 of 145). Same branch and rule as A2. | started 2026-11-18 |
+| **A4** | **Bottom edges 4 to 7 px low for far barrels: calibrate from the ruler frames.** The 12 `calib` frames and `data/calib.csv` exist; no new shots. New camera constants only if home and campus do not regress; then the `g` size guide in the box tool is right as well. Geometry = main code: `wip/` branch, walkthrough. | started 2026-11-18 |
+| **H** | **Vendor column in the eval table.** Reads `data/vendor/<stem>_vendor.json`, scores the vendor's boxes by the same rule against the same labels, next to ours. Ready before the first frames arrive. Eval = main code: `wip/` branch, walkthrough. | started 2026-11-18 |
+| **I** | **The never-regress rule as a command.** One command that compares the eval table with the stored numbers for home and campus, row by row, and fails on any drop. Run before every merge. With H. | started 2026-11-18 |
+| **F** | **Histogram against the hand-set thresholds.** Script merged; needs about 8 ordinary conditions. Re-run as conditions and slider labels arrive: `python barrels/experiments/2026-11-18_hs_relation/run.py`. If a relation holds: the adaptive rule, pre-registered, scored with the eval table. | waiting on data |
+| **G** | **Against the vendor, and one look at the test frames**, after the adaptive rule is in (or shown not to work). | Sunday 2026-11-22 |
+
+## Tanush
+
+1. **Start the data session** (prompt in `HANDOFF.md`).
+2. **First shoot, first two minutes: the vendor save.** `simple_cli BarrelTracker`, one orange and one blue barrel, `tm save`: the console line ends `vendor: 2 objects (OrangeBarrel, BlueBarrel)` and `robot_snapN_vendor.png` shows a tight box on each (`RUNBOOK.md`).
+3. **Same sitting: the close-up check.** A barrel about 2 cm from the bumper with a far barrel behind it in the picture: both get a box. A barrel seated in the kicker: if it gets no box, `tm save` it.
+4. **Shoot conditions**, 9 shots each (list below), as tables and lights come up. Two lights on one arrangement: same session.
+5. **Box every frame** (`box_tool.py`).
+6. **Slider labels**, three frames per condition (`core_01`, `occl_01`, `clutter_01`): `python barrels/tools/hs_slider.py --filter <light>_<surface>`. Criterion: as much barrel painted as needed to detect it, as little else as possible. On first open, check that a slider knob follows the mouse.
+7. **Tell Claude when a condition is in** (F is re-run each time).
+8. **Read the walkthroughs** for A2 / A3, A4 and H when they are ready; each merges on "understood".
+9. Optional, after A4: re-box the three hidden barrels whose boxes are no taller than wide (home `occl_02`, black `occl_02`, `occl_04`) with the corrected size guide.
 
 ## Shot list: 9 shots per condition, about 6 minutes
 
@@ -40,22 +64,14 @@ A condition = one table under one light. Aim for ten or more conditions; few sce
 | 8 | `edge_01` | one barrel cut by the left or right frame edge, one fully in view |
 | 9 | `clutter_01` | barrels among clutter, an orange or blue non-barrel right next to a barrel |
 
-Clutter is in shots 2, 5, 6 and 9. If the light can change without touching the table (overhead on and off, blinds), keep the arrangement and reshoot all nine: that is a second condition with the same scenes, and it is split by scene.
-
 Conditions to try for: white table with window light, overhead light, both, sun, dim evening light; dark wood table with overhead and with window; gray table (yellow overhead); black table with window and with overhead; anything else ordinary. A new table: tell the data session, it adds the tags.
-
-## Tanush's part
-
-1. Shoot (E) whenever a new table or light comes up; box every frame; slider-label three per condition once D is ready.
-2. Live checks when the robot is on: B (the vendor save), and the close-up fix: a barrel about 2 cm from the bumper with a far barrel behind it in the picture must get its box; a barrel seated in the kicker should too, and if it does not, `tm save` it.
-3. Read the walkthrough for A when it is ready and say "understood".
 
 ## Parked
 
 - Extreme conditions: orange wood under a lamp, black-table glare, brightness 1; finding blue barrels from the blue body alone (the idea for wood).
-- Ruler calibration (12 frames exist, `data/calib.csv`): un-parked only if A shows the expected sizes are off.
 - Whether the camera's auto exposure / white balance can be locked: a quick look, not a task.
 
-## Done (the 2026-11-09 list)
+## Done this week
 
-0 walkthrough + merge of hs · 1 doc cleanup · 2 move to the CLI · 3 data: wood ladder 117, black 15, ruler 12 (2026-11-16) · 5 `tm seg` (merged 2026-11-16) · 6 eval table `tools/report.py` (merged 2026-11-16) · 7 side occlusion: explained, fix merged switched off (2026-11-16) · 8 histograms + `HISTOGRAMS-FOR-DAVE.pdf` (2026-11-16). Tried and not adopted 2026-11-16: one color range fit on all tables; ceiling check of per-frame thresholds (53 of 152 on black + bright wood). Not finished: 4 close-up live confirm (in "Tanush's part"), 9 barrel behind barrel (now A), 9b / 10b test looks (now G), 10 slider labels (now D, E, F).
+- **2026-11-18:** A, the detector given good segmentation: the test, `cap_behind` (a barrel behind a found barrel, from its visible top) and `stripe_join` (a stripe in pieces), on by default and merged on Tanush's "understood" · B, `tm save` stores the vendor's detections with each frame (merged; live check open) · C, the shot list · D, the slider tool `tools/hs_slider.py` (merged; window unchecked) · F, the histogram-against-thresholds script (merged; dry run).
+- **Before (the 2026-11-09 list):** hs color model adopted · doc cleanup · move to the CLI · data: wood ladder 117, black 15, ruler 12 · `tm seg` · eval table `tools/report.py` · side occlusion explained, first fix off · histograms + `HISTOGRAMS-FOR-DAVE.pdf`. Tried and not adopted 2026-11-16: one color range fit on all tables; thresholds read from labels as a ceiling (53 of 152 on black + bright wood).
