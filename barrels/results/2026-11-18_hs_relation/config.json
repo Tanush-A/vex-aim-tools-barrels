@@ -1,0 +1,287 @@
+{
+ "date": "2026-11-18",
+ "git": "aa0fd0a",
+ "dry_run": true,
+ "min_conditions": 8,
+ "n_ordinary": 2,
+ "n_extreme": 7,
+ "model": "results/2026-11-09_hs_candidate/config.json",
+ "config_hash": "eb863d84",
+ "fixed": {
+  "orange_h_lo": 3.0,
+  "orange_h_hi": 13.0,
+  "orange_s_lo": 140.0,
+  "blue_h_lo": 103.0,
+  "blue_h_hi": 119.0,
+  "blue_s_lo": 113.0
+ },
+ "features": [
+  "v_mean",
+  "s_median",
+  "s_share100",
+  "blue_peak_h",
+  "blue_s_p90",
+  "orange_peak_h",
+  "orange_s_p90",
+  "ref_hue_shift",
+  "ref_s_scale"
+ ],
+ "thresholds": [
+  "orange_h_lo",
+  "orange_h_hi",
+  "orange_s_lo",
+  "blue_h_lo",
+  "blue_h_hi",
+  "blue_s_lo"
+ ],
+ "primary": {
+  "orange_h_lo": [
+   "orange_peak_h",
+   "ref_hue_shift"
+  ],
+  "orange_h_hi": [
+   "orange_peak_h",
+   "ref_hue_shift"
+  ],
+  "orange_s_lo": [
+   "orange_s_p90",
+   "ref_s_scale"
+  ],
+  "blue_h_lo": [
+   "blue_peak_h",
+   "ref_hue_shift"
+  ],
+  "blue_h_hi": [
+   "blue_peak_h",
+   "ref_hue_shift"
+  ],
+  "blue_s_lo": [
+   "blue_s_p90",
+   "ref_s_scale"
+  ]
+ },
+ "windows": {
+  "blue": [
+   85,
+   125
+  ],
+  "orange": [
+   -10,
+   30
+  ]
+ },
+ "s_color": 40,
+ "min_window_px": 200,
+ "shift_max": 20,
+ "reference": "window_light",
+ "box_arm": "hue+sat+stripes",
+ "n_perm": 20000,
+ "seed": 0,
+ "alpha": 0.05,
+ "targets": [
+  "box"
+ ],
+ "conditions": {
+  "campus_light": {
+   "class": "ordinary",
+   "stems": [
+    "4A8B_campus_light_close_01",
+    "4A8B_campus_light_cluster_02",
+    "4A8B_campus_light_clutter_02",
+    "4A8B_campus_light_core_01",
+    "4A8B_campus_light_edge_01",
+    "4A8B_campus_light_far_01",
+    "4A8B_campus_light_hand_02",
+    "4A8B_campus_light_held_01",
+    "4A8B_campus_light_neg_02",
+    "4A8B_campus_light_neg_03",
+    "4A8B_campus_light_neg_04",
+    "4A8B_campus_light_neg_05",
+    "4A8B_campus_light_occl_02",
+    "4A8B_campus_light_plain_01",
+    "4A8B_campus_light_plain_02",
+    "4A8B_campus_light_room_01",
+    "4A8B_campus_light_room_03",
+    "4A8B_campus_light_top_01",
+    "4A8B_campus_light_topstripe_01",
+    "4A8B_campus_light_touch_02",
+    "4A8B_campus_light_window_01"
+   ],
+   "hand_stems": []
+  },
+  "window_light": {
+   "class": "ordinary",
+   "stems": [
+    "4A8B_window_light_close_01",
+    "4A8B_window_light_close_02",
+    "4A8B_window_light_cluster_01",
+    "4A8B_window_light_cluster_02",
+    "4A8B_window_light_core_01",
+    "4A8B_window_light_core_02",
+    "4A8B_window_light_core_03",
+    "4A8B_window_light_edge_01",
+    "4A8B_window_light_far_02",
+    "4A8B_window_light_neg_01",
+    "4A8B_window_light_neg_02",
+    "4A8B_window_light_occl_01",
+    "4A8B_window_light_occl_02",
+    "4A8B_window_light_top_01",
+    "4A8B_window_light_topstripe_01",
+    "4A8B_window_light_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_lampcool3_wood_close_01",
+    "4A8B_lampcool3_wood_cluster_01",
+    "4A8B_lampcool3_wood_clutter_01",
+    "4A8B_lampcool3_wood_core_01",
+    "4A8B_lampcool3_wood_held_01",
+    "4A8B_lampcool3_wood_neg_02",
+    "4A8B_lampcool3_wood_occl_01",
+    "4A8B_lampcool3_wood_occl_02",
+    "4A8B_lampcool3_wood_occl_04",
+    "4A8B_lampcool3_wood_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_lampcool6_wood_close_01",
+    "4A8B_lampcool6_wood_cluster_01",
+    "4A8B_lampcool6_wood_clutter_01",
+    "4A8B_lampcool6_wood_core_01",
+    "4A8B_lampcool6_wood_held_01",
+    "4A8B_lampcool6_wood_neg_02",
+    "4A8B_lampcool6_wood_occl_01",
+    "4A8B_lampcool6_wood_occl_02",
+    "4A8B_lampcool6_wood_occl_04",
+    "4A8B_lampcool6_wood_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_lampmid3_wood_close_01",
+    "4A8B_lampmid3_wood_cluster_01",
+    "4A8B_lampmid3_wood_clutter_01",
+    "4A8B_lampmid3_wood_core_01",
+    "4A8B_lampmid3_wood_held_01",
+    "4A8B_lampmid3_wood_neg_02",
+    "4A8B_lampmid3_wood_occl_01",
+    "4A8B_lampmid3_wood_occl_02",
+    "4A8B_lampmid3_wood_occl_04",
+    "4A8B_lampmid3_wood_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_lampmid6_wood_close_01",
+    "4A8B_lampmid6_wood_cluster_01",
+    "4A8B_lampmid6_wood_clutter_01",
+    "4A8B_lampmid6_wood_core_01",
+    "4A8B_lampmid6_wood_held_01",
+    "4A8B_lampmid6_wood_neg_02",
+    "4A8B_lampmid6_wood_occl_01",
+    "4A8B_lampmid6_wood_occl_02",
+    "4A8B_lampmid6_wood_occl_04",
+    "4A8B_lampmid6_wood_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_lampwarm3_wood_close_01",
+    "4A8B_lampwarm3_wood_cluster_01",
+    "4A8B_lampwarm3_wood_clutter_01",
+    "4A8B_lampwarm3_wood_core_01",
+    "4A8B_lampwarm3_wood_held_01",
+    "4A8B_lampwarm3_wood_neg_02",
+    "4A8B_lampwarm3_wood_occl_01",
+    "4A8B_lampwarm3_wood_occl_02",
+    "4A8B_lampwarm3_wood_occl_04",
+    "4A8B_lampwarm3_wood_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_lampwarm6_wood_close_01",
+    "4A8B_lampwarm6_wood_cluster_01",
+    "4A8B_lampwarm6_wood_clutter_01",
+    "4A8B_lampwarm6_wood_core_01",
+    "4A8B_lampwarm6_wood_held_01",
+    "4A8B_lampwarm6_wood_neg_02",
+    "4A8B_lampwarm6_wood_occl_01",
+    "4A8B_lampwarm6_wood_occl_02",
+    "4A8B_lampwarm6_wood_occl_04",
+    "4A8B_lampwarm6_wood_touch_02"
+   ],
+   "hand_stems": []
+  },
+  "window_black": {
+   "class": "extreme",
+   "stems": [
+    "4A8B_window_black_close_02",
+    "4A8B_window_black_cluster_01",
+    "4A8B_window_black_clutter_02",
+    "4A8B_window_black_far_01",
+    "4A8B_window_black_held_01",
+    "4A8B_window_black_neg_01",
+    "4A8B_window_black_occl_02",
+    "4A8B_window_black_occl_03",
+    "4A8B_window_black_occl_04",
+    "4A8B_window_black_touch_02"
+   ],
+   "hand_stems": []
+  }
+ },
+ "excluded": {
+  "lampcool1_wood": [
+   "4A8B_lampcool1_wood_close_01",
+   "4A8B_lampcool1_wood_cluster_01",
+   "4A8B_lampcool1_wood_clutter_01",
+   "4A8B_lampcool1_wood_core_01",
+   "4A8B_lampcool1_wood_held_01",
+   "4A8B_lampcool1_wood_neg_02",
+   "4A8B_lampcool1_wood_occl_01",
+   "4A8B_lampcool1_wood_occl_02",
+   "4A8B_lampcool1_wood_occl_04",
+   "4A8B_lampcool1_wood_touch_02"
+  ],
+  "lampmid1_wood": [
+   "4A8B_lampmid1_wood_close_01",
+   "4A8B_lampmid1_wood_cluster_01",
+   "4A8B_lampmid1_wood_clutter_01",
+   "4A8B_lampmid1_wood_core_01",
+   "4A8B_lampmid1_wood_held_01",
+   "4A8B_lampmid1_wood_neg_02",
+   "4A8B_lampmid1_wood_occl_01",
+   "4A8B_lampmid1_wood_occl_02",
+   "4A8B_lampmid1_wood_occl_04",
+   "4A8B_lampmid1_wood_touch_02"
+  ],
+  "lampwarm1_wood": [
+   "4A8B_lampwarm1_wood_close_01",
+   "4A8B_lampwarm1_wood_cluster_01",
+   "4A8B_lampwarm1_wood_clutter_01",
+   "4A8B_lampwarm1_wood_core_01",
+   "4A8B_lampwarm1_wood_held_01",
+   "4A8B_lampwarm1_wood_neg_02",
+   "4A8B_lampwarm1_wood_occl_01",
+   "4A8B_lampwarm1_wood_occl_02",
+   "4A8B_lampwarm1_wood_occl_04",
+   "4A8B_lampwarm1_wood_touch_02"
+  ]
+ },
+ "hs_labels_not_used": [],
+ "train_without_boxes": []
+}
