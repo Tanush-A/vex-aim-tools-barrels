@@ -1,0 +1,192 @@
+set,light,stem,color,bbox,bottom_row,w,h,w_expected,h_expected,w_ratio,h_ratio,bottom_from_top_err_px
+CAMPUS,campus,4A8B_campus_light_close_01,orange,"[252, 182, 400, 357]",357,148,175,160.5,167.7,0.922,1.043,-20.0
+CAMPUS,campus,4A8B_campus_light_cluster_02,orange,"[235, 118, 280, 167]",167,45,49,47.4,51.5,0.949,0.952,6.0
+CAMPUS,campus,4A8B_campus_light_cluster_02,orange,"[285, 130, 349, 202]",202,64,72,66.8,72.1,0.959,0.999,0.2
+CAMPUS,campus,4A8B_campus_light_cluster_02,blue,"[342, 120, 391, 171]",171,49,51,49.6,53.8,0.988,0.948,6.8
+CAMPUS,campus,4A8B_campus_light_clutter_02,orange,"[202, 126, 255, 186]",186,53,60,57.8,62.6,0.916,0.958,6.4
+CAMPUS,campus,4A8B_campus_light_clutter_02,blue,"[438, 124, 495, 180]",180,57,56,54.5,59.1,1.045,0.948,7.5
+CAMPUS,campus,4A8B_campus_light_core_01,blue,"[90, 161, 208, 286]",286,118,125,115.9,123.1,1.018,1.016,-5.1
+CAMPUS,campus,4A8B_campus_light_core_01,orange,"[247, 110, 279, 145]",145,32,35,35.6,38.7,0.9,0.904,8.8
+CAMPUS,campus,4A8B_campus_light_core_01,blue,"[333, 131, 397, 200]",200,64,69,65.6,70.9,0.975,0.973,4.7
+CAMPUS,campus,4A8B_campus_light_core_01,orange,"[396, 131, 462, 202]",202,66,71,66.8,72.1,0.989,0.985,2.7
+CAMPUS,campus,4A8B_campus_light_edge_01,orange,"[602, 143, 638, 228]",228,36,85,81.6,87.6,0.441,0.97,6.6
+CAMPUS,campus,4A8B_campus_light_far_01,orange,"[196, 116, 238, 161]",161,42,45,44.2,48.0,0.951,0.938,7.1
+CAMPUS,campus,4A8B_campus_light_far_01,blue,"[240, 112, 273, 147]",147,33,35,36.6,39.9,0.901,0.878,11.6
+CAMPUS,campus,4A8B_campus_light_far_01,blue,"[318, 114, 357, 154]",154,39,40,40.4,43.9,0.966,0.911,9.3
+CAMPUS,campus,4A8B_campus_light_far_01,orange,"[379, 113, 414, 150]",150,35,37,38.2,41.6,0.916,0.889,11.0
+CAMPUS,campus,4A8B_campus_light_hand_02,blue,"[127, 124, 188, 187]",187,61,63,58.4,63.2,1.045,0.997,0.5
+CAMPUS,campus,4A8B_campus_light_hand_02,orange,"[393, 124, 451, 185]",185,58,61,57.3,62.0,1.012,0.983,2.5
+CAMPUS,campus,4A8B_campus_light_held_01,blue,"[97, 332, 512, 479]",479,415,147,245.0,247.5,1.694,0.594,338.7
+CAMPUS,campus,4A8B_campus_light_plain_01,blue,"[62, 149, 166, 255]",255,104,106,97.3,104.0,1.069,1.019,-5.1
+CAMPUS,campus,4A8B_campus_light_plain_01,orange,"[498, 145, 603, 243]",243,105,98,90.2,96.7,1.163,1.013,-3.3
+CAMPUS,campus,4A8B_campus_light_plain_02,blue,"[82, 131, 153, 204]",204,71,73,67.9,73.3,1.046,0.996,0.7
+CAMPUS,campus,4A8B_campus_light_plain_02,orange,"[419, 129, 486, 199]",199,67,70,65.1,70.3,1.029,0.996,0.7
+CAMPUS,campus,4A8B_campus_light_room_01,blue,"[64, 123, 125, 181]",181,61,58,55.1,59.7,1.108,0.972,4.1
+CAMPUS,campus,4A8B_campus_light_room_01,orange,"[339, 120, 389, 176]",176,50,56,52.3,56.7,0.956,0.987,1.8
+CAMPUS,campus,4A8B_campus_light_room_03,blue,"[179, 112, 216, 153]",153,37,41,39.8,43.3,0.929,0.946,5.6
+CAMPUS,campus,4A8B_campus_light_room_03,orange,"[215, 112, 252, 152]",152,37,40,39.3,42.8,0.942,0.935,6.6
+CAMPUS,campus,4A8B_campus_light_top_01,orange,"[160, 280, 493, 478]",478,333,198,244.3,246.8,1.363,0.802,155.0
+CAMPUS,campus,4A8B_campus_light_topstripe_01,orange,"[221, 238, 468, 477]",477,247,239,243.6,246.1,1.014,0.971,21.7
+CAMPUS,campus,4A8B_campus_light_touch_02,blue,"[223, 123, 274, 178]",178,51,55,53.4,57.9,0.955,0.95,7.1
+CAMPUS,campus,4A8B_campus_light_touch_02,blue,"[273, 122, 324, 178]",178,51,56,53.4,57.9,0.955,0.967,4.6
+CAMPUS,campus,4A8B_campus_light_window_01,blue,"[155, 132, 224, 202]",202,69,70,66.8,72.1,1.033,0.971,5.1
+CAMPUS,campus,4A8B_campus_light_window_01,orange,"[367, 130, 435, 203]",203,68,73,67.3,72.7,1.01,1.004,-0.8
+WOOD dark,lampcool1,4A8B_lampcool1_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD dark,lampcool1,4A8B_lampcool1_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD dark,lampcool1,4A8B_lampcool1_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD dark,lampcool1,4A8B_lampcool1_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD dark,lampcool1,4A8B_lampcool1_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD dark,lampcool1,4A8B_lampcool1_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD dark,lampcool1,4A8B_lampcool1_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD dark,lampcool1,4A8B_lampcool1_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD dark,lampcool1,4A8B_lampcool1_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD dark,lampcool1,4A8B_lampcool1_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD dark,lampcool1,4A8B_lampcool1_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD dark,lampcool1,4A8B_lampcool1_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD dark,lampcool1,4A8B_lampcool1_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD dark,lampcool1,4A8B_lampcool1_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD dark,lampmid1,4A8B_lampmid1_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD dark,lampmid1,4A8B_lampmid1_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD dark,lampmid1,4A8B_lampmid1_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD dark,lampmid1,4A8B_lampmid1_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD dark,lampmid1,4A8B_lampmid1_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD dark,lampmid1,4A8B_lampmid1_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD dark,lampmid1,4A8B_lampmid1_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD dark,lampmid1,4A8B_lampmid1_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD dark,lampmid1,4A8B_lampmid1_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD dark,lampmid1,4A8B_lampmid1_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD dark,lampmid1,4A8B_lampmid1_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD dark,lampmid1,4A8B_lampmid1_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD dark,lampmid1,4A8B_lampmid1_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD dark,lampmid1,4A8B_lampmid1_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD dark,lampwarm1,4A8B_lampwarm1_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD bright,lampcool3,4A8B_lampcool3_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD bright,lampcool3,4A8B_lampcool3_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD bright,lampcool3,4A8B_lampcool3_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD bright,lampcool3,4A8B_lampcool3_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD bright,lampcool3,4A8B_lampcool3_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD bright,lampcool3,4A8B_lampcool3_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD bright,lampcool3,4A8B_lampcool3_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD bright,lampcool3,4A8B_lampcool3_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD bright,lampcool3,4A8B_lampcool3_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD bright,lampcool3,4A8B_lampcool3_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD bright,lampcool3,4A8B_lampcool3_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD bright,lampcool3,4A8B_lampcool3_wood_occl_04,blue,"[186, 150, 272, 243]",243,86,93,90.2,96.7,0.953,0.962,9.4
+WOOD bright,lampcool3,4A8B_lampcool3_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD bright,lampcool3,4A8B_lampcool3_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD bright,lampcool6,4A8B_lampcool6_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD bright,lampcool6,4A8B_lampcool6_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD bright,lampcool6,4A8B_lampcool6_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD bright,lampcool6,4A8B_lampcool6_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD bright,lampcool6,4A8B_lampcool6_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD bright,lampcool6,4A8B_lampcool6_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD bright,lampcool6,4A8B_lampcool6_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD bright,lampcool6,4A8B_lampcool6_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD bright,lampcool6,4A8B_lampcool6_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD bright,lampcool6,4A8B_lampcool6_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD bright,lampcool6,4A8B_lampcool6_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD bright,lampcool6,4A8B_lampcool6_wood_occl_04,blue,"[186, 150, 271, 243]",243,85,93,90.2,96.7,0.942,0.962,9.4
+WOOD bright,lampcool6,4A8B_lampcool6_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD bright,lampcool6,4A8B_lampcool6_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD bright,lampmid3,4A8B_lampmid3_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD bright,lampmid3,4A8B_lampmid3_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD bright,lampmid3,4A8B_lampmid3_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD bright,lampmid3,4A8B_lampmid3_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD bright,lampmid3,4A8B_lampmid3_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD bright,lampmid3,4A8B_lampmid3_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD bright,lampmid3,4A8B_lampmid3_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD bright,lampmid3,4A8B_lampmid3_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD bright,lampmid3,4A8B_lampmid3_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD bright,lampmid3,4A8B_lampmid3_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD bright,lampmid3,4A8B_lampmid3_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD bright,lampmid3,4A8B_lampmid3_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD bright,lampmid3,4A8B_lampmid3_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD bright,lampmid3,4A8B_lampmid3_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD bright,lampmid6,4A8B_lampmid6_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD bright,lampmid6,4A8B_lampmid6_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD bright,lampmid6,4A8B_lampmid6_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD bright,lampmid6,4A8B_lampmid6_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD bright,lampmid6,4A8B_lampmid6_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD bright,lampmid6,4A8B_lampmid6_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD bright,lampmid6,4A8B_lampmid6_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD bright,lampmid6,4A8B_lampmid6_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD bright,lampmid6,4A8B_lampmid6_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD bright,lampmid6,4A8B_lampmid6_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD bright,lampmid6,4A8B_lampmid6_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD bright,lampmid6,4A8B_lampmid6_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD bright,lampmid6,4A8B_lampmid6_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD bright,lampmid6,4A8B_lampmid6_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD bright,lampwarm3,4A8B_lampwarm3_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_cluster_01,blue,"[93, 125, 145, 176]",176,52,51,52.3,56.7,0.994,0.899,13.9
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_cluster_01,orange,"[151, 129, 213, 194]",194,62,65,62.3,67.3,0.995,0.965,5.7
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_cluster_01,blue,"[218, 125, 271, 182]",182,53,57,55.6,60.3,0.953,0.946,7.9
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_cluster_01,orange,"[270, 125, 322, 183]",183,52,58,56.2,60.8,0.926,0.953,6.9
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_clutter_01,orange,"[35, 154, 144, 259]",259,109,105,99.7,106.4,1.094,0.986,3.7
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_clutter_01,blue,"[377, 111, 410, 146]",146,33,35,36.1,39.3,0.915,0.891,10.2
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_clutter_01,blue,"[529, 123, 594, 184]",184,65,61,56.7,61.4,1.146,0.993,1.1
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_core_01,blue,"[180, 130, 239, 195]",195,59,65,62.8,67.9,0.939,0.957,7.2
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_core_01,orange,"[237, 130, 295, 192]",192,58,62,61.2,66.2,0.948,0.937,10.2
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_core_01,blue,"[334, 109, 368, 144]",144,34,35,35.0,38.2,0.971,0.917,7.4
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_occl_02,blue,"[182, 148, 267, 244]",244,85,96,90.8,97.3,0.936,0.987,3.3
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_occl_04,blue,"[180, 150, 267, 243]",243,87,93,90.2,96.7,0.964,0.962,9.4
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_touch_02,orange,"[170, 129, 232, 196]",196,62,67,63.4,68.5,0.978,0.978,3.7
+WOOD bright,lampwarm6,4A8B_lampwarm6_wood_touch_02,orange,"[230, 129, 289, 194]",194,59,65,62.3,67.3,0.947,0.965,5.7
+BLACK,window,4A8B_window_black_cluster_01,blue,"[206, 122, 263, 182]",182,57,60,55.6,60.3,1.025,0.996,0.6
+BLACK,window,4A8B_window_black_cluster_01,orange,"[350, 128, 418, 199]",199,68,71,65.1,70.3,1.045,1.01,-1.7
+BLACK,window,4A8B_window_black_cluster_01,blue,"[418, 129, 485, 203]",203,67,74,67.3,72.7,0.995,1.018,-3.3
+BLACK,window,4A8B_window_black_clutter_02,orange,"[246, 108, 276, 140]",140,30,32,32.9,35.9,0.912,0.893,9.1
+BLACK,window,4A8B_window_black_clutter_02,blue,"[476, 126, 547, 188]",188,71,62,59.0,63.8,1.204,0.972,4.4
+BLACK,window,4A8B_window_black_far_01,blue,"[194, 115, 239, 160]",160,45,45,43.6,47.4,1.032,0.949,5.7
+BLACK,window,4A8B_window_black_far_01,orange,"[279, 112, 323, 157]",157,44,45,42.0,45.7,1.048,0.986,1.6
+BLACK,window,4A8B_window_black_far_01,orange,"[366, 114, 412, 158]",158,46,44,42.5,46.2,1.082,0.952,5.3
+BLACK,window,4A8B_window_black_far_01,blue,"[508, 116, 565, 166]",166,57,50,46.9,50.9,1.216,0.982,2.1
+BLACK,window,4A8B_window_black_occl_02,blue,"[269, 156, 378, 273]",273,109,117,108.0,115.0,1.009,1.017,-5.1
+BLACK,window,4A8B_window_black_occl_03,blue,"[270, 157, 376, 275]",275,106,118,109.2,116.3,0.971,1.015,-4.5
+BLACK,window,4A8B_window_black_occl_04,blue,"[269, 156, 377, 273]",273,108,117,108.0,115.0,1.0,1.017,-5.1
+BLACK,window,4A8B_window_black_touch_02,orange,"[237, 135, 307, 213]",213,70,78,73.0,78.6,0.959,0.992,1.6
+BLACK,window,4A8B_window_black_touch_02,orange,"[304, 136, 384, 219]",219,80,83,76.4,82.2,1.047,1.009,-1.9
+HOME,window,4A8B_window_light_close_01,orange,"[302, 143, 390, 235]",235,88,92,85.6,91.9,1.028,1.002,-0.4
+HOME,window,4A8B_window_light_close_02,blue,"[308, 141, 392, 231]",231,84,90,83.3,89.4,1.009,1.006,-1.4
+HOME,window,4A8B_window_light_cluster_01,blue,"[331, 119, 382, 171]",171,51,52,49.6,53.8,1.028,0.966,4.4
+HOME,window,4A8B_window_light_cluster_01,blue,"[388, 118, 437, 170]",170,49,52,49.0,53.2,0.999,0.977,3.0
+HOME,window,4A8B_window_light_cluster_02,orange,"[306, 119, 351, 170]",170,45,51,49.0,53.2,0.918,0.958,5.4
+HOME,window,4A8B_window_light_cluster_02,blue,"[351, 119, 398, 167]",167,47,48,47.4,51.5,0.991,0.932,8.4
+HOME,window,4A8B_window_light_cluster_02,blue,"[443, 122, 500, 179]",179,57,57,54.0,58.5,1.056,0.974,3.6
+HOME,window,4A8B_window_light_core_01,blue,"[239, 123, 290, 178]",178,51,55,53.4,57.9,0.955,0.95,7.1
+HOME,window,4A8B_window_light_core_01,orange,"[292, 121, 342, 176]",176,50,55,52.3,56.7,0.956,0.969,4.2
+HOME,window,4A8B_window_light_core_02,orange,"[368, 120, 418, 173]",173,50,53,50.7,55.0,0.987,0.964,4.8
+HOME,window,4A8B_window_light_core_02,blue,"[419, 120, 471, 175]",175,52,55,51.8,56.2,1.004,0.979,2.8
+HOME,window,4A8B_window_light_core_03,orange,"[317, 108, 346, 137]",137,29,29,31.3,34.1,0.927,0.85,12.1
+HOME,window,4A8B_window_light_far_02,blue,"[218, 106, 250, 144]",144,32,38,35.0,38.2,0.914,0.996,0.4
+HOME,window,4A8B_window_light_far_02,orange,"[333, 106, 363, 137]",137,30,31,31.3,34.1,0.959,0.908,7.4
+HOME,window,4A8B_window_light_far_02,blue,"[433, 106, 468, 139]",139,35,33,32.4,35.3,1.082,0.935,5.4
+HOME,window,4A8B_window_light_occl_01,orange,"[340, 139, 423, 229]",229,83,90,82.1,88.2,1.011,1.02,-4.4
+HOME,window,4A8B_window_light_occl_02,blue,"[393, 141, 478, 230]",230,85,89,82.7,88.8,1.028,1.002,-0.4
+HOME,window,4A8B_window_light_touch_02,blue,"[187, 122, 240, 178]",178,53,56,53.4,57.9,0.992,0.967,4.6
+HOME,window,4A8B_window_light_touch_02,orange,"[240, 122, 289, 174]",174,49,52,51.2,55.6,0.956,0.936,8.6
