@@ -1,0 +1,301 @@
+# The detector given good segmentation
+
+git 02920c3; v2 rule; train frames only; camera AIM_4A8B6118_BOXFIT. Cells: found / barrels (false boxes). Level 2 rows add up 5 seeds of the 16 HOME frames (29 barrels each).
+
+| level | scenario | in the rule | base | cap | join | cap+join | cap+join+side | side |
+|---|---|---|---|---|---|---|---|---|
+| 1 | perfect masks (HOME) | yes | 25 / 29 (0) | 27 / 29 (2) | 25 / 29 (0) | 27 / 29 (2) | 27 / 29 (2) | 25 / 29 (0) |
+| 2 | light | yes | 131 / 145 (0) | 141 / 145 (0) | 131 / 145 (0) | 141 / 145 (0) | 141 / 145 (0) | 131 / 145 (0) |
+| 2 | medium | yes | 36 / 145 (24) | 36 / 145 (27) | 114 / 145 (6) | 115 / 145 (11) | 122 / 145 (10) | 92 / 145 (16) |
+| 2 | heavy | yes | 12 / 145 (2) | 12 / 145 (2) | 30 / 145 (2) | 30 / 145 (2) | 33 / 145 (0) | 20 / 145 (1) |
+| 2s | top highlight 0.5 x 0.3 | report only | 130 / 145 (0) | 140 / 145 (2) | 131 / 145 (0) | 141 / 145 (2) | 141 / 145 (2) | 131 / 145 (0) |
+| 2s | top highlight 0.7 x 0.4 | report only | 112 / 145 (5) | 121 / 145 (5) | 135 / 145 (5) | 144 / 145 (5) | 144 / 145 (7) | 135 / 145 (15) |
+| 2s | stripe highlight 0.15 | report only | 85 / 145 (35) | 93 / 145 (41) | 125 / 145 (1) | 135 / 145 (11) | 135 / 145 (11) | 113 / 145 (34) |
+| 2s | stripe highlight 0.3 | report only | 57 / 145 (53) | 65 / 145 (57) | 124 / 145 (7) | 134 / 145 (14) | 136 / 145 (12) | 111 / 145 (31) |
+| 2s | stripe breaks 2 x 0.08 | report only | 61 / 145 (32) | 67 / 145 (35) | 125 / 145 (2) | 135 / 145 (12) | 135 / 145 (12) | 118 / 145 (30) |
+| 2s | edges 1 px | report only | 130 / 145 (0) | 140 / 145 (0) | 130 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 130 / 145 (0) |
+| 2s | edges 2 px | report only | 95 / 145 (0) | 95 / 145 (10) | 95 / 145 (0) | 95 / 145 (10) | 100 / 145 (15) | 100 / 145 (5) |
+| 2s | dropout 10 % | report only | 125 / 145 (0) | 135 / 145 (10) | 125 / 145 (0) | 135 / 145 (10) | 135 / 145 (10) | 125 / 145 (0) |
+| 2s | speckle 30 | report only | 125 / 145 (0) | 135 / 145 (10) | 125 / 145 (1) | 135 / 145 (10) | 135 / 145 (10) | 125 / 145 (0) |
+| 3a | CAMPUS, adopted color model | yes | 34 / 35 (0) | 34 / 35 (0) | 34 / 35 (0) | 34 / 35 (0) | 35 / 35 (0) | 35 / 35 (0) |
+| 3b | BLACK, thresholds from the frame's labels | yes | 17 / 26 (1) | 19 / 26 (2) | 17 / 26 (2) | 19 / 26 (3) | 19 / 26 (3) | 17 / 26 (1) |
+| 3c | wood cool lamp, thresholds from the frame's labels | report only | 24 / 42 (7) | 24 / 42 (8) | 30 / 42 (10) | 30 / 42 (12) | 30 / 42 (12) | 27 / 42 (9) |
+
+## What each damage level is (fractions of the barrel's box, W wide and H tall)
+
+- `light`: top_highlight (0.3, 0.2), erode_px 1, dropout 0.02, speckle 5
+- `medium`: top_highlight (0.5, 0.3), stripe_highlight 0.15, stripe_breaks (1, 0.06), erode_px 1, dropout 0.05, speckle 15
+- `heavy`: top_highlight (0.7, 0.4), stripe_highlight 0.3, stripe_breaks (2, 0.08), erode_px 2, dropout 0.1, speckle 30
+- `top highlight 0.5 x 0.3`: top_highlight (0.5, 0.3)
+- `top highlight 0.7 x 0.4`: top_highlight (0.7, 0.4)
+- `stripe highlight 0.15`: stripe_highlight 0.15
+- `stripe highlight 0.3`: stripe_highlight 0.3
+- `stripe breaks 2 x 0.08`: stripe_breaks (2, 0.08)
+- `edges 1 px`: erode_px 1
+- `edges 2 px`: erode_px 2
+- `dropout 10 %`: dropout 0.1
+- `speckle 30`: speckle 30
+
+## Which test refused the missed barrels (the detector's reason log)
+
+### `base`
+
+- 1 perfect masks (HOME): stripe_refused:height 4
+- 2 light: stripe_refused:height 14
+- 2 medium: stripe_refused:width 75, misplaced 24, stripe_refused:area 5, stripe_refused:height 5
+- 2 heavy: stripe_refused:width 51, stripe_not_sandwiched 32, stripe_refused:area 26, stripe_hidden 14, stripe_refused:height 7, misplaced 2, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 14, stripe_refused:width 1
+- 2s top highlight 0.7 x 0.4: stripe_refused:width 24, stripe_refused:height 5, misplaced 4
+- 2s stripe highlight 0.15: misplaced 35, stripe_refused:height 19, stripe_refused:width 6
+- 2s stripe highlight 0.3: misplaced 53, stripe_refused:width 18, stripe_refused:height 17
+- 2s stripe breaks 2 x 0.08: stripe_refused:width 37, misplaced 31, stripe_refused:height 16
+- 2s edges 1 px: stripe_refused:height 15
+- 2s edges 2 px: stripe_refused:height 40, stripe_refused:width 10
+- 2s dropout 10 %: stripe_refused:height 20
+- 2s speckle 30: stripe_refused:height 20
+- 3a CAMPUS, adopted color model: stripe_refused:width 1
+- 3b BLACK, thresholds from the frame's labels: stripe_refused:height 5, stripe_refused:width 2, misplaced 1, stripe_not_sandwiched 1
+- 3c wood cool lamp, thresholds from the frame's labels: stripe_refused:width 7, stripe_refused:height 5, stripe_not_sandwiched 4, misplaced 2
+
+### `cap`
+
+- 1 perfect masks (HOME): misplaced 2, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2 light: stripe_refused:height 4
+- 2 medium: stripe_refused:width 73, misplaced 26, stripe_refused:area 5, stripe_refused:height 5, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2 heavy: stripe_refused:width 51, stripe_not_sandwiched 32, stripe_refused:area 26, stripe_hidden 14, stripe_refused:height 7, misplaced 2, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 2, misplaced 2, stripe_refused:width 1, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2s top highlight 0.7 x 0.4: stripe_refused:width 24
+- 2s stripe highlight 0.15: misplaced 40, stripe_refused:height 6, stripe_refused:width 6, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 3
+- 2s stripe highlight 0.3: misplaced 56, stripe_refused:width 16, stripe_refused:height 8, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 2
+- 2s stripe breaks 2 x 0.08: stripe_refused:width 36, misplaced 34, stripe_refused:height 8, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 2
+- 2s edges 1 px: stripe_refused:height 5
+- 2s edges 2 px: stripe_refused:height 30, stripe_refused:width 10, misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 10
+- 2s dropout 10 %: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s speckle 30: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 3a CAMPUS, adopted color model: stripe_refused:width 1
+- 3b BLACK, thresholds from the frame's labels: stripe_refused:width 2, stripe_refused:height 2, misplaced 2, stripe_not_sandwiched 1, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 3c wood cool lamp, thresholds from the frame's labels: stripe_refused:width 7, stripe_not_sandwiched 4, stripe_refused:height 4, misplaced 3
+
+### `join`
+
+- 1 perfect masks (HOME): stripe_refused:height 4
+- 2 light: stripe_refused:height 14
+- 2 medium: stripe_refused:width 15, misplaced 8, stripe_refused:height 5, stripe_refused:area 3
+- 2 heavy: stripe_refused:width 34, stripe_not_sandwiched 32, stripe_refused:area 25, stripe_hidden 14, stripe_refused:height 7, misplaced 2, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 14
+- 2s top highlight 0.7 x 0.4: stripe_refused:height 5, misplaced 4, stripe_refused:width 1
+- 2s stripe highlight 0.15: stripe_refused:height 20
+- 2s stripe highlight 0.3: stripe_refused:height 15, misplaced 6, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 2
+- 2s stripe breaks 2 x 0.08: stripe_refused:height 20
+- 2s edges 1 px: stripe_refused:height 15
+- 2s edges 2 px: stripe_refused:height 40, stripe_refused:width 10
+- 2s dropout 10 %: stripe_refused:height 20
+- 2s speckle 30: stripe_refused:height 19, misplaced 1
+- 3a CAMPUS, adopted color model: stripe_refused:width 1
+- 3b BLACK, thresholds from the frame's labels: stripe_refused:height 5, misplaced 2, stripe_refused:width 1, stripe_not_sandwiched 1
+- 3c wood cool lamp, thresholds from the frame's labels: stripe_not_sandwiched 4, misplaced 4, stripe_refused:height 3, stripe_refused:width 1
+
+### `cap+join`
+
+- 1 perfect masks (HOME): misplaced 2, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2 light: stripe_refused:height 4
+- 2 medium: misplaced 13, stripe_refused:width 12, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 4, stripe_refused:area 3, stripe_refused:height 2
+- 2 heavy: stripe_refused:width 34, stripe_not_sandwiched 32, stripe_refused:area 25, stripe_hidden 14, stripe_refused:height 7, misplaced 2, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 2, misplaced 2, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2s top highlight 0.7 x 0.4: stripe_refused:width 1
+- 2s stripe highlight 0.15: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s stripe highlight 0.3: misplaced 11, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 4
+- 2s stripe breaks 2 x 0.08: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s edges 1 px: stripe_refused:height 5
+- 2s edges 2 px: stripe_refused:height 30, stripe_refused:width 10, misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 10
+- 2s dropout 10 %: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s speckle 30: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 4
+- 3a CAMPUS, adopted color model: stripe_refused:width 1
+- 3b BLACK, thresholds from the frame's labels: misplaced 3, stripe_refused:height 2, stripe_refused:width 1, stripe_not_sandwiched 1, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 3c wood cool lamp, thresholds from the frame's labels: misplaced 6, stripe_not_sandwiched 4, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1, stripe_refused:width 1, stripe_refused:height 1
+
+### `cap+join+side`
+
+- 1 perfect masks (HOME): misplaced 2, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2 light: stripe_refused:height 4
+- 2 medium: misplaced 11, stripe_refused:width 7, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 4, stripe_refused:area 3, stripe_refused:height 2
+- 2 heavy: stripe_refused:width 33, stripe_not_sandwiched 32, stripe_refused:area 25, stripe_hidden 14, stripe_refused:height 7, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 2, misplaced 2, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 2s top highlight 0.7 x 0.4: stripe_refused:width 1
+- 2s stripe highlight 0.15: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s stripe highlight 0.3: misplaced 9, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 4
+- 2s stripe breaks 2 x 0.08: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s edges 1 px: stripe_refused:height 5
+- 2s edges 2 px: stripe_refused:height 30, misplaced 15, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 10
+- 2s dropout 10 %: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 5
+- 2s speckle 30: misplaced 10, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 4
+- 3b BLACK, thresholds from the frame's labels: misplaced 3, stripe_refused:height 2, stripe_refused:width 1, stripe_not_sandwiched 1, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 3c wood cool lamp, thresholds from the frame's labels: misplaced 6, stripe_not_sandwiched 4, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1, stripe_refused:width 1, stripe_refused:height 1
+
+### `side`
+
+- 1 perfect masks (HOME): stripe_refused:height 4
+- 2 light: stripe_refused:height 14
+- 2 medium: stripe_refused:width 38, misplaced 5, stripe_refused:area 5, stripe_refused:height 5
+- 2 heavy: stripe_refused:width 45, stripe_not_sandwiched 32, stripe_refused:area 26, stripe_hidden 14, stripe_refused:height 7, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 14
+- 2s top highlight 0.7 x 0.4: stripe_refused:width 5, stripe_refused:height 5
+- 2s stripe highlight 0.15: stripe_refused:height 18, misplaced 12, stripe_refused:width 2
+- 2s stripe highlight 0.3: stripe_refused:height 16, misplaced 14, stripe_refused:width 4
+- 2s stripe breaks 2 x 0.08: stripe_refused:height 14, misplaced 8, stripe_refused:width 5
+- 2s edges 1 px: stripe_refused:height 15
+- 2s edges 2 px: stripe_refused:height 40, misplaced 5
+- 2s dropout 10 %: stripe_refused:height 20
+- 2s speckle 30: stripe_refused:height 20
+- 3b BLACK, thresholds from the frame's labels: stripe_refused:height 5, stripe_refused:width 2, misplaced 1, stripe_not_sandwiched 1
+- 3c wood cool lamp, thresholds from the frame's labels: stripe_refused:height 5, stripe_not_sandwiched 4, stripe_refused:width 3, misplaced 3
+
+## Level 1 and level 3: every missed barrel and every false box
+
+### `base`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [313, 115, 356, 164] | occluded | stripe_refused:height | stripe (314, 120, 351, 148) {'core_h': 20.0, 'expected_stripe_h': 11.03} |
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | stripe_refused:height | stripe (361, 120, 396, 147) {'core_h': 19.0, 'expected_stripe_h': 10.69} |
+| 1 perfect masks (HOME) | window_light_occl_01 | missed blue | [386, 115, 430, 161] | bottom_estimated+occluded | stripe_refused:height | stripe (386, 134, 428, 182) {'core_h': 32.0, 'expected_stripe_h': 15.02} |
+| 1 perfect masks (HOME) | window_light_occl_02 | missed orange | [395, 114, 441, 158] | bottom_estimated+occluded | stripe_refused:height | stripe (396, 133, 440, 183) {'core_h': 31.0, 'expected_stripe_h': 15.19} |
+| 3a CAMPUS | campus_light_occl_02 | missed blue | [275, 123, 328, 180] | occluded | stripe_refused:width | stripe (278, 148, 294, 160) {'core_h': 9.0, 'expected_w': 53.58} |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 35, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | stripe_refused:width | stripe (64, 154, 69, 162) {'core_h': 7.6, 'expected_w': 57.06} |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_02 | missed orange | [271, 122, 327, 178] | bottom_estimated+occluded | stripe_refused:height | stripe (286, 168, 326, 214) {'core_h': 37.0, 'expected_stripe_h': 18.97} |
+| 3b BLACK | window_black_occl_03 | missed orange | [283, 121, 338, 178] | bottom_estimated+occluded | stripe_refused:height | stripe (288, 168, 337, 214) {'core_h': 37.0, 'expected_stripe_h': 19.13} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | stripe_refused:height | stripe (268, 161, 335, 214) {'core_h': 35.0, 'expected_stripe_h': 18.97} |
+
+### `cap`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [313, 115, 356, 164] | occluded | misplaced | box (314, 117, 363, 171) iou 0.71 flags ['bottom_inferred', 'occluded'] |
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | misplaced | box (354, 117, 403, 171) iou 0.68 flags ['bottom_inferred', 'occluded'] |
+| 1 perfect masks (HOME) | window_light_cluster_01 | false orange | [314, 117, 363, 171] | bottom_inferred+occluded | false_box | det3 |
+| 1 perfect masks (HOME) | window_light_cluster_01 | false orange | [354, 117, 403, 171] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 163, box bottom 171 |
+| 3a CAMPUS | campus_light_occl_02 | missed blue | [275, 123, 328, 180] | occluded | stripe_refused:width | stripe (278, 148, 294, 160) {'core_h': 9.0, 'expected_w': 53.58} |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 35, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | stripe_refused:width | stripe (64, 154, 69, 162) {'core_h': 7.6, 'expected_w': 57.06} |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | misplaced | box (268, 128, 335, 200) iou 0.86 flags ['bottom_inferred', 'occluded'] |
+| 3b BLACK | window_black_occl_04 | false orange | [268, 128, 335, 200] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 193, box bottom 200 |
+
+### `join`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [313, 115, 356, 164] | occluded | stripe_refused:height | stripe (314, 120, 351, 148) {'core_h': 20.0, 'expected_stripe_h': 11.03} |
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | stripe_refused:height | stripe (361, 120, 396, 147) {'core_h': 19.0, 'expected_stripe_h': 10.69} |
+| 1 perfect masks (HOME) | window_light_occl_01 | missed blue | [386, 115, 430, 161] | bottom_estimated+occluded | stripe_refused:height | stripe (386, 134, 428, 182) {'core_h': 32.0, 'expected_stripe_h': 15.02} |
+| 1 perfect masks (HOME) | window_light_occl_02 | missed orange | [395, 114, 441, 158] | bottom_estimated+occluded | stripe_refused:height | stripe (396, 133, 440, 183) {'core_h': 31.0, 'expected_stripe_h': 15.19} |
+| 3a CAMPUS | campus_light_occl_02 | missed blue | [275, 123, 328, 180] | occluded | stripe_refused:width | stripe (278, 148, 294, 160) {'core_h': 9.0, 'expected_w': 53.58} |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 37, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | misplaced | box (32, 123, 89, 192) iou 0.45 flags ['occluded', 'top_inferred'] |
+| 3b BLACK | window_black_close_02 | false blue | [32, 123, 89, 192] | occluded+top_inferred | false_box | det2 |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_02 | missed orange | [271, 122, 327, 178] | bottom_estimated+occluded | stripe_refused:height | stripe (281, 168, 337, 214) {'core_h': 37.0, 'expected_stripe_h': 18.97} |
+| 3b BLACK | window_black_occl_03 | missed orange | [283, 121, 338, 178] | bottom_estimated+occluded | stripe_refused:height | stripe (288, 168, 384, 214) {'core_h': 37.0, 'expected_stripe_h': 19.13} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | stripe_refused:height | stripe (268, 161, 335, 214) {'core_h': 35.0, 'expected_stripe_h': 18.97} |
+
+### `cap+join`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [313, 115, 356, 164] | occluded | misplaced | box (314, 117, 363, 171) iou 0.71 flags ['bottom_inferred', 'occluded'] |
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | misplaced | box (354, 117, 403, 171) iou 0.68 flags ['bottom_inferred', 'occluded'] |
+| 1 perfect masks (HOME) | window_light_cluster_01 | false orange | [314, 117, 363, 171] | bottom_inferred+occluded | false_box | det3 |
+| 1 perfect masks (HOME) | window_light_cluster_01 | false orange | [354, 117, 403, 171] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 163, box bottom 171 |
+| 3a CAMPUS | campus_light_occl_02 | missed blue | [275, 123, 328, 180] | occluded | stripe_refused:width | stripe (278, 148, 294, 160) {'core_h': 9.0, 'expected_w': 53.58} |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 37, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | misplaced | box (32, 123, 89, 192) iou 0.45 flags ['occluded', 'top_inferred'] |
+| 3b BLACK | window_black_close_02 | false blue | [32, 123, 89, 192] | occluded+top_inferred | false_box | det2 |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | misplaced | box (268, 128, 335, 200) iou 0.86 flags ['bottom_inferred', 'occluded'] |
+| 3b BLACK | window_black_occl_04 | false orange | [268, 128, 335, 200] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 193, box bottom 200 |
+
+### `cap+join+side`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [313, 115, 356, 164] | occluded | misplaced | box (314, 117, 363, 171) iou 0.71 flags ['bottom_inferred', 'occluded'] |
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | misplaced | box (354, 117, 403, 171) iou 0.68 flags ['bottom_inferred', 'occluded'] |
+| 1 perfect masks (HOME) | window_light_cluster_01 | false orange | [314, 117, 363, 171] | bottom_inferred+occluded | false_box | det3 |
+| 1 perfect masks (HOME) | window_light_cluster_01 | false orange | [354, 117, 403, 171] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 163, box bottom 171 |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 37, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | misplaced | box (32, 123, 89, 192) iou 0.45 flags ['occluded', 'top_inferred'] |
+| 3b BLACK | window_black_close_02 | false blue | [32, 123, 89, 192] | occluded+top_inferred | false_box | det2 |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | misplaced | box (268, 128, 335, 200) iou 0.86 flags ['bottom_inferred', 'occluded'] |
+| 3b BLACK | window_black_occl_04 | false orange | [268, 128, 335, 200] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 193, box bottom 200 |
+
+### `side`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [313, 115, 356, 164] | occluded | stripe_refused:height | stripe (314, 120, 351, 148) {'core_h': 20.0, 'expected_stripe_h': 11.03} |
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | stripe_refused:height | stripe (361, 120, 396, 147) {'core_h': 19.0, 'expected_stripe_h': 10.69} |
+| 1 perfect masks (HOME) | window_light_occl_01 | missed blue | [386, 115, 430, 161] | bottom_estimated+occluded | stripe_refused:height | stripe (386, 134, 428, 182) {'core_h': 32.0, 'expected_stripe_h': 15.02} |
+| 1 perfect masks (HOME) | window_light_occl_02 | missed orange | [395, 114, 441, 158] | bottom_estimated+occluded | stripe_refused:height | stripe (396, 133, 440, 183) {'core_h': 31.0, 'expected_stripe_h': 15.19} |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 35, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | stripe_refused:width | stripe (64, 154, 69, 162) {'core_h': 7.6, 'expected_w': 57.06} |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_02 | missed orange | [271, 122, 327, 178] | bottom_estimated+occluded | stripe_refused:height | stripe (286, 168, 326, 214) {'core_h': 37.0, 'expected_stripe_h': 18.97} |
+| 3b BLACK | window_black_occl_03 | missed orange | [283, 121, 338, 178] | bottom_estimated+occluded | stripe_refused:height | stripe (288, 168, 337, 214) {'core_h': 37.0, 'expected_stripe_h': 19.13} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | stripe_refused:height | stripe (268, 161, 335, 214) {'core_h': 35.0, 'expected_stripe_h': 18.97} |
+
+# Expected barrel size against the hand-drawn boxes
+
+Camera `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25, horizon row 76). Train frames only. Boxes flagged occluded, truncated, held or bottom_estimated, and boxes touching the frame, are left out.
+Ratio = hand-drawn size / the size the camera model expects for a barrel whose bottom edge is at the box's bottom row (what `g` in the box tool draws). Median (10th to 90th percentile).
+`bottom from top` = the bottom row the detector predicts from the box's top row, minus the drawn bottom row, in px (+ = predicted lower).
+
+| set | boxes | width ratio | height ratio | bottom from top, px |
+|---|---|---|---|---|
+| HOME | 19 | 0.99 (0.93 to 1.03) | 0.97 (0.93 to 1.00) | 4.40 (-0.60 to 8.44) |
+| CAMPUS | 32 | 0.98 (0.92 to 1.10) | 0.97 (0.89 to 1.01) | 5.35 (-3.05 to 11.54) |
+| BLACK | 14 | 1.03 (0.96 to 1.17) | 0.99 (0.95 to 1.02) | 1.10 (-4.92 to 5.58) |
+| WOOD bright | 84 | 0.95 (0.93 to 1.09) | 0.96 (0.90 to 0.99) | 7.05 (3.30 to 10.20) |
+| WOOD dark | 42 | 0.96 (0.93 to 1.09) | 0.96 (0.90 to 0.99) | 7.05 (3.30 to 10.20) |
+| wood, all 9 lamp settings | 126 | 0.95 (0.93 to 1.09) | 0.96 (0.90 to 0.99) | 7.05 (3.30 to 10.20) |
+
+By distance (expected width: far under 35 px, mid 35 to 60, near over 60):
+
+| set | range | boxes | width ratio | height ratio | bottom from top, px |
+|---|---|---|---|---|---|
+| HOME | far | 3 | 0.96 (0.93 to 1.06) | 0.91 (0.86 to 0.93) | 7.40 (5.80 to 11.16) |
+| HOME | mid | 12 | 0.99 (0.92 to 1.03) | 0.97 (0.94 to 0.98) | 4.50 (2.82 to 8.27) |
+| HOME | near | 4 | 1.02 (1.01 to 1.03) | 1.00 (1.00 to 1.02) | -0.90 (-3.50 to -0.40) |
+| CAMPUS | mid | 17 | 0.95 (0.91 to 1.04) | 0.95 (0.90 to 0.98) | 6.60 (2.22 to 9.98) |
+| CAMPUS | near | 15 | 1.02 (0.94 to 1.28) | 1.00 (0.87 to 1.02) | 0.70 (-5.10 to 101.68) |
+| BLACK | far | 1 | 0.91 (0.91 to 0.91) | 0.89 (0.89 to 0.89) | 9.10 (9.10 to 9.10) |
+| BLACK | mid | 6 | 1.06 (1.03 to 1.21) | 0.98 (0.95 to 0.99) | 3.25 (1.10 to 5.50) |
+| BLACK | near | 7 | 1.00 (0.97 to 1.05) | 1.01 (1.00 to 1.02) | -3.30 (-5.10 to -0.38) |
+| WOOD | mid | 54 | 0.96 (0.92 to 1.15) | 0.93 (0.89 to 0.99) | 7.65 (1.10 to 13.90) |
+| WOOD | near | 72 | 0.95 (0.94 to 1.09) | 0.96 (0.94 to 0.99) | 5.70 (3.30 to 10.20) |

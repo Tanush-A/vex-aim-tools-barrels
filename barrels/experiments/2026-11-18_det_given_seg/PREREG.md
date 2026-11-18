@@ -144,3 +144,70 @@ from such a label by more than a tenth of the height counts as one miss **and** 
 kept as it is; boxes of this kind (same color, IoU ≥ 0.5 with a `bottom_estimated` label, bottom outside the
 tolerance) are also counted separately in the summary as "right barrel, bottom differs from the hand estimate",
 so the reader can see why an arm failed if it fails for this.
+
+---
+
+# Addendum, 2026-11-18: round 1 failed; round 2, written before round 2 was coded or run
+
+## Round 1 result (`results/2026-11-18_det_given_seg/round1/`; nothing adopted)
+
+Found / barrels (false boxes).
+
+| | base | cap | join | cap+join | cap+join+side | side |
+|---|---|---|---|---|---|---|
+| 1 perfect masks | 25 / 29 (0) | 27 / 29 (2) | 25 / 29 (0) | 27 / 29 (2) | 27 / 29 (2) | 25 / 29 (0) |
+| 2 light | 131 / 145 (0) | 141 (0) | 131 (0) | 141 (0) | 141 (0) | 131 (0) |
+| 2 medium | 36 / 145 (24) | 36 (27) | 114 (6) | 115 (11) | 122 (10) | 92 (16) |
+| 2 heavy | 12 / 145 (2) | 12 (2) | 30 (2) | 30 (2) | 33 (0) | 20 (1) |
+| 3a CAMPUS | 34 / 35 (0) | 34 (0) | 34 (0) | 34 (0) | 35 (0) | 35 (0) |
+| 3b BLACK | 17 / 26 (1) | 19 (2) | 17 (2) | 19 (3) | 19 (3) | 17 (1) |
+| eval table HOME, found / false | 25 / 0 | 27 / 0 | 25 / **4** | 27 / **4** | 27 / **4** | 25 / 0 |
+| eval table CAMPUS | 34 / 0 | 34 / 0 | 34 / 0 | 34 / 0 | 35 / 0 | 35 / 0 |
+| recordings, boxes appearing / wrong ones | | 3 / 3 | 13 / 10 | | | 5 / 0 |
+
+Every arm fails: `join` and the arms that hold it fail rule 1 (4 false boxes at HOME) and rule 5; `cap` fails
+rule 5 (3 wrong boxes), rule 3 (medium: not more found, 3 more false) and rule 4 (3b: one more false box).
+By the rule, nothing is adopted from round 1. `side` alone does what it did on 2026-11-11 (campus `occl_02`
+found, 5 real barrels in the recordings, nothing false at HOME or CAMPUS) but does not address level 1.
+
+## What was wrong with the two changes (from the round-1 reason logs and pictures)
+
+`cap_behind`:
+- The 3 wrong boxes in the recordings are all caps **narrower than a barrel with nothing hiding their sides**
+  (a 15 px patch above a barrel under a hand; table color above a barrel on wood). Round 1 widened any narrow cap
+  to a full barrel, "centred" when no side was bordered.
+- In `cluster_01` both hidden barrels are boxed (IoU 0.71, 0.68) but 7 to 8 px too low: a cap hidden at a side
+  gets its bottom from its top row, the estimate the size check found biased by +4 to +7 px. For the left one the
+  barrel's own bottom is in fact visible beside the front barrel and was not used.
+- Black `occl_04`: boxed with IoU 0.86, bottom 200 against a hand-estimated 193 (the label is 67 × 64). This is
+  the weak point declared above; it is not changed.
+
+`stripe_join`:
+- All 4 false boxes at HOME and the 3 in campus `r2_pan` are joined pieces that are **each taller than a stripe
+  or taller than wide**: slivers of a barrel's own upper body (3 × 10 px, 10 × 21 px) between specks. Alone each
+  fails "not taller than wide"; joined, the group is wide enough.
+- The black-table boxes drawn half off the barrel are a half-visible stripe widened to the wrong side: the
+  existing rule for a partly hidden stripe, which switch (h) `occl_body_side` replaces.
+
+## Round 2: the changes to the two designs (same switches, same rule, same arms)
+
+`cap_behind`, two changes:
+1. **A narrow cap must be explained.** A cap that shows less than `stripe_full` (0.8) of the expected width is
+   kept only when exactly one of its sides is hidden by a found barrel standing nearer (that barrel's box holds
+   the pixel next to the cap at the cap's middle row) or by the frame edge; the box is widened to W toward that
+   side. Hidden at neither side: not a cap (its narrowness has no cause). Hidden at both sides (a wedge between
+   two front barrels): no box, because neither its width nor its place can be measured; this stays a miss and is
+   reported as one.
+2. **The seen bottom is used when it agrees.** As in step 3: if the cap's own color appears in the cap's columns
+   near the estimated bottom (within the usual tolerance, 15 % of the height, at least 4 px) and ends there, that
+   seen bottom is the box bottom. Otherwise the estimate stays (height from width when the whole width shows,
+   from the top row when a side is hidden).
+
+`stripe_join`, one change: **a piece joins only if it has a shape a stripe can have**: not taller than
+`stripe_h_max` (1.6) × the expected stripe height, and not taller than wide. Small is allowed (that is what a
+cut stripe leaves); the minimum area, height and width are still asked of the joined whole. Known cost, accepted
+now: the two end slivers left by a wide highlight on the upper body are taller than wide and will not join.
+
+Arms, acceptance rule, adoption order: unchanged from above. This is a second attempt at the same rule, made
+after seeing round 1 on the train frames and the recordings; the test frames are untouched and remain the only
+unbiased check. Round 1's outputs are kept in `round1/`. There will be no round 3 in this experiment.

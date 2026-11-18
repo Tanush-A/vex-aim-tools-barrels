@@ -282,3 +282,113 @@ def test_barrel_hidden_at_the_side_narrow_stripe_and_hidden_side_from_the_body()
     # (h) changes nothing for a barrel that is not hidden
     full = np.zeros((480, 640), np.uint8); paint_barrel(full, 150, 320)
     assert det.detect(full, dataclasses.replace(CFG2, occl_body_side=True), CAM) == det.detect(full, CFG2, CAM)
+
+
+# ---------------------------------------------------------------- 2026-11-18: a stripe in pieces; a barrel behind a barrel of the other color
+
+OLD = dataclasses.replace(CFG2, stripe_join=False, cap_behind=False)     # the detector before 2026-11-18, spelled out
+JOIN = dataclasses.replace(OLD, stripe_join=True)
+CAP = dataclasses.replace(OLD, cap_behind=True)
+
+
+def _close(box, truth, px=2):
+    return all(abs(a - b) <= px for a, b in zip(box, truth))
+
+
+def test_stripe_cut_by_a_pale_slit_is_one_stripe_with_stripe_join():
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 150, 320)
+    r = CAM.barrel_rows(150); W = truth[2] - truth[0]
+    c = truth[0] + int(0.45 * W)
+    mask[int(r.stripe_top) - 2:int(r.stripe_bottom) + 3, c:c + int(0.15 * W)] = 0       # a highlight 0.15 of a barrel wide across the stripe
+    old = det.detect(mask, OLD, CAM)                                 # each piece alone: "partly hidden" stripes, boxes in the wrong place
+    assert not any(_close(b.bbox, truth) for b in old)
+    out = det.detect(mask, JOIN, CAM)
+    assert len(out) == 1 and out[0].color == io.ORANGE and _close(out[0].bbox, truth) and "occluded" not in out[0].flags
+
+
+def test_stripe_under_a_washed_out_upper_body_is_one_stripe_with_stripe_join():
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 150, 320, body=io.BLUE)
+    r = CAM.barrel_rows(150); W = truth[2] - truth[0]
+    mask[truth[1]:int(round(r.stripe_top)), truth[0] + int(0.15 * W):truth[2] - int(0.15 * W)] = 0   # the upper body pale in the middle 0.7
+    assert det.detect(mask, OLD, CAM) == []                          # the stripe has body above it only at its two ends: two slivers
+    out = det.detect(mask, JOIN, CAM)
+    assert len(out) == 1 and out[0].color == io.BLUE and _close(out[0].bbox, truth)
+
+
+def test_stripe_join_joins_nothing_wider_than_one_barrel():
+    W = CAM.barrel_rows(150).width_px
+    for gap in (0.0, 0.5):                                           # touching, and half a barrel apart: same color, same rows
+        mask = np.zeros((480, 640), np.uint8)
+        paint_barrel(mask, 150, 320 - (1 + gap) * W / 2 - 1, body=io.BLUE)
+        paint_barrel(mask, 150, 320 + (1 + gap) * W / 2 + 1, body=io.BLUE)
+        assert len(det.detect(mask, OLD, CAM)) == 2
+        assert det.detect(mask, JOIN, CAM) == det.detect(mask, OLD, CAM)
+    mask = np.zeros((480, 640), np.uint8); paint_barrel(mask, 150, 320)
+    assert det.detect(mask, JOIN, CAM) == det.detect(mask, OLD, CAM)          # and nothing changes for a whole stripe
+
+
+def _behind(dx):
+    """A blue barrel 22 cm away, and an orange one 15 cm away in front of it, dx px to the left of it."""
+    mask = np.zeros((480, 640), np.uint8)
+    back = paint_barrel(mask, 220, 320 + dx, body=io.BLUE)
+    front = paint_barrel(mask, 150, 320, body=io.ORANGE)
+    return mask, back, front
+
+
+def test_barrel_behind_one_of_the_other_color_is_found_from_its_cap():
+    for dx in (0, 15, 30):
+        mask, back, front = _behind(dx)
+        log = []
+        old = det.detect(mask, OLD, CAM, log=log)                    # the back barrel's orange stripe joins the front barrel's orange body
+        assert [b.color for b in old] == [io.ORANGE]
+        assert any(e["stage"] == "stripe" and e["why"] == "height" and e["body"] == io.BLUE for e in log)
+        out = det.detect(mask, CAP, CAM)
+        assert sorted(b.color for b in out) == [io.ORANGE, io.BLUE]
+        b = next(b for b in out if b.color == io.BLUE)
+        assert det.box_iou(b.bbox, back) > 0.9 and abs(b.bbox[3] - back[3]) <= 2      # full box, bottom from the cap's width
+        assert {"occluded", "bottom_inferred"} <= b.flags and b.source == "det3"
+        assert [o for o in out if o.color == io.ORANGE] == old                        # the front barrel is untouched
+
+
+def test_cap_needs_a_found_barrel_in_front_of_it():
+    mask, back, front = _behind(0)
+    r = CAM.barrel_rows(220)
+    alone = np.zeros((480, 640), np.uint8)
+    alone[back[1]:int(round(r.stripe_top)), back[0]:back[2]] = io.BLUE          # the same cap with nothing below it
+    assert det.detect(alone, CAP, CAM) == []
+    lower = mask[front[1]:]
+    lower[lower == io.BLUE] = 0                                                  # the front barrel loses its stripe:
+    assert det.detect(mask, OLD, CAM) == []                                      # ... it is not found any more,
+    assert det.detect(mask, CAP, CAM) == []                                      # ... so the cap above it is not a barrel either
+
+
+def test_tall_body_colored_thing_above_a_barrel_is_not_a_cap():
+    mask = np.zeros((480, 640), np.uint8)
+    front = paint_barrel(mask, 100, 320, body=io.ORANGE)                # a near barrel: its top is low in the picture
+    r = CAM.barrel_rows(220)
+    top, W = int(round(r.top)), r.width_px
+    assert front[1] - top > 1.5 * (r.stripe_top - r.top)                # from a 22 cm barrel's top row down to the near barrel: far more than an upper body
+    mask[top:front[1], int(320 - W / 2):int(320 + W / 2)] = io.BLUE     # blue of barrel width for that row, all the way down to the front barrel
+    log = []
+    out = det.detect(mask, CAP, CAM, log=log)
+    assert [b.color for b in out] == [io.ORANGE]
+    assert any(e["stage"] == "cap" and e["why"] == "height" for e in log)
+
+
+def test_cap_behind_changes_nothing_when_no_barrel_is_hidden():
+    W = CAM.barrel_rows(150).width_px
+    scenes = []
+    m = np.zeros((480, 640), np.uint8); paint_barrel(m, 150, 320); scenes.append(m)                      # one barrel
+    m = np.zeros((480, 640), np.uint8)                                                                   # orange, blue, orange touching
+    for k, body in ((-1, io.ORANGE), (0, io.BLUE), (1, io.ORANGE)):
+        paint_barrel(m, 150, 320 + k * (W + 1), body=body)
+    scenes.append(m)
+    m = np.zeros((480, 640), np.uint8)                                                                   # same color behind (stripe shows)
+    paint_barrel(m, 220, 350, body=io.ORANGE); paint_barrel(m, 150, 320, body=io.ORANGE); scenes.append(m)
+    m = np.zeros((480, 640), np.uint8)                                                                   # a far barrel above a close-up
+    r = CAM.barrel_rows(35); m[int(r.top):480, int(320 - r.width_px / 2):int(320 + r.width_px / 2)] = io.ORANGE
+    paint_barrel(m, 300, 320, body=io.BLUE); scenes.append(m)
+    for m in scenes:
+        assert det.detect(m, CAP, CAM) == det.detect(m, OLD, CAM)

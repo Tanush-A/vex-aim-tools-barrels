@@ -151,8 +151,16 @@ def run_scenario(sc: Scenario, dcfg: det.DetConfig, images, sheet_dir: Path | No
                          "bbox": list(g.bbox), "flags": "+".join(sorted(g.flags)), "cause": cause, "detail": detail})
         for pi in res.unmatched_pred:
             p = preds[pi]
+            # PREREG, "a known weak point": a box on the right barrel whose bottom differs from a hand-estimated hidden bottom
+            est = [gts[gi] for gi in res.unmatched_gt if gts[gi].color == p.color and "bottom_estimated" in gts[gi].flags
+                   and ed.box_iou(p.bbox, gts[gi].bbox) >= ed.IOU_THR]
+            cause = "false_box"
+            if est:
+                cause = "right_barrel_bottom_differs_from_hand_estimate"
+                causes["(of the misses and false boxes: right barrel, bottom differs from the hand estimate)"] += 1
             rows.append({"scenario": sc.key, "stem": stem, "tag": tag, "kind": "false", "color": dtp.COLOR_NAMES[p.color],
-                         "bbox": list(p.bbox), "flags": "+".join(sorted(p.flags)), "cause": "false_box", "detail": p.source})
+                         "bbox": list(p.bbox), "flags": "+".join(sorted(p.flags)), "cause": cause,
+                         "detail": p.source + (f"; label bottom {est[0].bbox[3]}, box bottom {p.bbox[3]}" if est else "")})
         if sheet_dir is not None and tag in ("", "seed0") and (res.unmatched_gt or res.unmatched_pred):
             sheet_dir.mkdir(parents=True, exist_ok=True)
             name = f"{sc.level}_{sc.name.split(',')[0].replace(' ', '-')}_{stem.replace('4A8B_', '')}.png"

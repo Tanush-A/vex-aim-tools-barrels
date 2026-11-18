@@ -56,7 +56,7 @@ def main(argv=None) -> int:
         if "top_inferred" in b.flags: how.append("top inferred")
         if "occluded" in b.flags: how.append("partly hidden, full box drawn")
         if "truncated" in b.flags: how.append("cut by frame")
-        how.append("from its stripe" if b.source == "det2" else "no stripe seen")
+        how.append({"det2": "from its stripe", "det3": "from its top, behind a found barrel"}.get(b.source, "no stripe seen"))
         print(f"  {b.color_name:6}  x {x0}-{x1}  y {y0}-{y1}  {', '.join(how)}")
     if not barrels:
         print("  no barrels")

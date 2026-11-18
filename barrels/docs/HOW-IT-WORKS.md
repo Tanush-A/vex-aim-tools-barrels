@@ -184,6 +184,10 @@ What was asked: live with Dave a barrel with half its body showing got no box. W
    - **(h) `occl_body_side`** (new switch, off). A narrow stripe says where the barrel is, not which side is hidden. Before: widen to a full barrel toward a barrel-colored neighbour, else centre on the stripe. With (h): first take the body-colored columns joined to the stripe above and below it (the same walk as (f)). If they already span 0.8 of a barrel, that span is the box. Otherwise widen that span by the old rule. A span wider than 1.2 barrels is a same-color neighbour and is ignored. On `occl_02` the robot's edge slants, so the blue body below the stripe shows almost the whole width: IoU with the truth 0.51 centred, 0.68 with (h).
 4. **Result.** Both changes together find `occl_02` (campus 34 → 35 of 35 found), one more of Dave's barrels, and four real barrels entering at the frame edge in the recordings; no barrel lost, no false box on any home, campus or Dave frame. But they add **2 false boxes on the 25 wood frames** (where the table itself reads orange). The pre-registered rule said every added box must be a real barrel, so **nothing is adopted**: the defaults are as on `barrels`. Whether to switch them on before the wood front end is fixed is an open decision (STATUS).
 
+### The detector given good segmentation (2026-11-18, branch `wip/detector-given-seg`; awaiting walkthrough)
+
+Round 1 of `experiments/2026-11-18_det_given_seg` (rule in its `PREREG.md`) added two switches, both **off**: `stripe_join` (stripe pieces that share rows and fit in one barrel's width are one stripe, `_join_pieces`) and `cap_behind` (a body-colored top of barrel width, cut off by a found barrel standing nearer, is a barrel behind it, `caps_behind`). Both failed the rule in round 1 (wrong boxes on the recordings; `stripe_join` also 4 false boxes at home); round 2 is described in the PREREG addendum. This section is rewritten when round 2 is in.
+
 ### The code, in call order
 
 | function | one line |
