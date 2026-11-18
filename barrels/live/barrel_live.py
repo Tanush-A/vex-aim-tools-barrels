@@ -10,8 +10,11 @@ the capture commands (barrels.capture). Commands at the C> prompt:
                                   window dims every pixel not classified as a barrel color, and a second window
                                   ("<title> seg") shows only the classified pixels, in their class color on black.
                                   both: seg with the boxes on the main window. Back to boxes closes the second window.
-    tm save                       write the current raw frame as snapshots/robot_snapN.png (like the camera viewer's s key)
-    tm rec                        write every frame for ten seconds into snapshots/rec_<stamp>/ (+ frames.json)
+    tm save                       write the current raw frame as snapshots/robot_snapN.png (like the camera viewer's s key),
+                                  plus robot_snapN_vendor.json (what the robot's built-in detector reported when that
+                                  frame arrived) and robot_snapN_vendor.png (a copy with the vendor's boxes, to look at)
+    tm rec                        write every frame for ten seconds into snapshots/rec_<stamp>/ (+ frames.json, which
+                                  also holds the vendor's answer per frame)
 
 snapshots/ is created under the folder simple_cli was started from (barrels/live/) and is gitignored; import the
 keepers with tools/import_snaps.py --src barrels/live/snapshots (DATA.md).
@@ -31,6 +34,7 @@ class BarrelLive(StateMachineProgram):
         self.last_frame = None                        # robot.frame_count of the frame last handed to the detector
         self.said_no_image = False
         self.seg_window = None                        # title of the second (segmented-only) window while it is open
+        self.latest = None                            # (image, frame count, vendor grab) of the newest camera frame (set by user_image)
 
     def tag(self):
         return type(self).__name__
@@ -74,9 +78,18 @@ class BarrelLive(StateMachineProgram):
             print(f"{self.tag()}: {line}")
 
     def user_image(self, image, gray):
-        """aim_fsm calls this with every camera frame (on the image thread): only the recorder lives here."""
+        """aim_fsm calls this with every camera frame (on the image thread). It notes what the vendor detector says
+        at that moment (a reference into the robot's status: no copy, no request to the robot), so `tm save` can
+        store a frame and the vendor's answer for the same instant; and it feeds the recorder."""
+        count, grab = None, None
         try:
-            self.capture.on_frame(image, getattr(self.robot, "frame_count", None))
+            count = getattr(self.robot, "frame_count", None)
+            grab = capture.grab_vendor(self.robot)    # never raises
+            self.latest = (image, count, grab)
+        except Exception:                             # noqa: BLE001 — never let this take the stream down
+            pass
+        try:
+            self.capture.on_frame(image, count, vendor=grab)
         except Exception as e:                        # noqa: BLE001 — never let a disk error take the stream down
             print(f"{self.tag()}: recording stopped: {e}")
             self.capture.stop_recording()
@@ -94,11 +107,29 @@ class BarrelLive(StateMachineProgram):
     class Save(StateNode):
         def start(self, event=None):
             super().start(event)
-            image = self.robot.camera_image
+            program, cap, record = self.parent, self.parent.capture, None
+            latest = program.latest
+            if latest is not None:                    # the newest frame, with the vendor's answer noted as it arrived
+                image, count, grab = latest
+                read_at = "frame"
+            else:                                     # no frame has come through user_image yet: read both now
+                image, count, grab, read_at = self.robot.camera_image, getattr(self.robot, "frame_count", None), None, "save"
             if image is None:
-                print(f"{self.parent.tag()}: no camera image to save")
+                print(f"{program.tag()}: no camera image to save")
                 return
-            print(f"{self.parent.tag()}: saved {self.parent.capture.save(image)}")
+            try:
+                if grab is None:
+                    grab = capture.grab_vendor(self.robot)
+                record = capture.vendor_record(grab, (image.shape[1], image.shape[0]), count, read_at)
+            except Exception as e:                    # noqa: BLE001 — the frame is saved whatever happens to the vendor data
+                print(f"{program.tag()}: vendor data skipped: {e}")
+            path = cap.save(image, vendor=record)
+            line = f"saved {path}"
+            if record is not None:
+                line += f" | {capture.vendor_summary(record)}"
+                if cap.vendor_error:
+                    line += f" | vendor files NOT written: {cap.vendor_error}"
+            print(f"{program.tag()}: {line}")
 
     class Record(StateNode):
         def start(self, event=None):

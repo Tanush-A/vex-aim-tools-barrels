@@ -71,7 +71,7 @@ Everything below is the reference: naming, label formats and rules, splits, the 
 
 ## Storage and naming
 
-Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, labels in `barrels/data/labels/`, the split assignment in `barrels/data/splits.json`.
+Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, labels in `barrels/data/labels/`, the vendor detector's answers in `barrels/data/vendor/` (since 2026-11-18, below), the split assignment in `barrels/data/splits.json`.
 
 `{robot}_{light}_{surface}_{scene}_{nn}.png` — e.g. `4A8B_window_light_touch_02.png`. Use exact tags.
 
@@ -82,6 +82,16 @@ Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, labe
 - **nn:** two-digit counter per (robot, light, surface, scene).
 
 **Capture:** `tm save` in the live programs (`RUNBOOK.md`), or the camera viewer's key `s`; both write `snapshots/robot_snapN.png` (under `barrels/live/` for the live programs). **Import right away** with `tools/import_snaps.py --src barrels/live/snapshots --scenes …` (it renames in shooting order; the viewer's counter restarts each session and would overwrite, so use one or the other in a session). `tm rec` writes ten-second sequences to `snapshots/rec_<stamp>/` for replaying the multi-frame view offline; they are not frames to label unless imported one by one.
+
+**Vendor detections** (2026-11-18, TODO B; not yet checked on the robot): `tm save` also writes `snapshots/robot_snapN_vendor.json`, what the robot's built-in detector reported when that frame arrived, and `import_snaps.py` moves it to `barrels/data/vendor/<stem>_vendor.json` under the frame's new stem (`io.vendor_path`, `io.load_vendor`; frames shot earlier, or with the camera viewer's `s`, have none, which the importer lists and does not treat as an error). It is a measurement of the vendor, committed with the frame, and **never a label**: boxes are still drawn by hand without looking at it. Schema, version 1:
+
+```json
+{"version": 1, "available": true, "error": "", "time": 1763480000.1, "frame_count": 412, "read_at": "frame",
+ "image_size": [640, 480], "source_size": [320, 240], "classnames": ["SportsBall", "BlueBarrel", "OrangeBarrel", "Robot"],
+ "objects": [{"name": "OrangeBarrel", "class_id": 2, "bbox": [200, 120, 250, 180], "raw": {"type": 4, "id": 2, "type_str": "aiobj", "originx": 100, "originy": 60, "width": 25, "height": 30, "score": 90, "name": "OrangeBarrel"}}]}
+```
+
+`bbox` is `[x0, y0, x1, y1]` in our 640×480 pixels, half-open ints like `*_boxes.json` (the vendor's corner and size in 320×240 units, times 2, clipped to the frame; `null` when the item has no usable box); `raw` is the vendor's item untouched; `objects` lists everything the vendor reported (balls, robots, tags too). `available: false` with the reason in `error` (and no objects) means the vendor data could not be read: the frame is saved all the same, and such a frame is "not measured", not "the vendor saw nothing". `read_at` is `frame` (the list current when the frame arrived) or `save` (read at the keypress). `io.vendor_barrels(record)` gives the two barrel classes as `Barrel`s (color + box) and counts the rest. `robot_snapN_vendor.png` (the frame with those boxes drawn) is for looking only and is not imported.
 
 ## Labels
 

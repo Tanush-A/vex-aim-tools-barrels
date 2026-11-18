@@ -1,6 +1,6 @@
 # RUNBOOK.md — robot setup / ops
 
-**Updated:** 2026-11-09 (hs front end is the default; `BARRELS_MODEL`). Tanush's robot: **AIM-4A8B6118**.
+**Updated:** 2026-11-18 (`tm save` also stores the vendor detector's answer; not yet checked on the robot) · 2026-11-09 (hs front end is the default; `BARRELS_MODEL`). Tanush's robot: **AIM-4A8B6118**.
 
 ## Now — run the live view
 
@@ -11,7 +11,7 @@ ping -c 3 $ROBOT
 cd vex-aim-tools/barrels/live && simple_cli BarrelTracker     # or BarrelViewer (per frame, no persistence)
 ```
 
-At `C>`: `tm boxes` / `tm seg` / `tm both` switch the view (`tm seg`: the main window dims everything that is not a barrel color and a second window shows only the segmented pixels); `tm save` writes a raw frame to `snapshots/`; `tm rec` records ten seconds; `tm raw` (tracker) overlays the per-frame boxes. Quit with **Ctrl+\** before powering the robot off. Save a frame of anything that looks wrong and say which file.
+At `C>`: `tm boxes` / `tm seg` / `tm both` switch the view (`tm seg`: the main window dims everything that is not a barrel color and a second window shows only the segmented pixels); `tm save` writes a raw frame to `snapshots/` together with what the vendor detector reported for it (`robot_snapN_vendor.json`, and `robot_snapN_vendor.png` to look at); `tm rec` records ten seconds; `tm raw` (tracker) overlays the per-frame boxes. Quit with **Ctrl+\** before powering the robot off. Save a frame of anything that looks wrong and say which file.
 
 ---
 
@@ -46,8 +46,8 @@ At the `C>` prompt (both programs):
 | command | does |
 |---|---|
 | `tm boxes` / `tm seg` / `tm both` | the boxes (default; yellow = orange barrel, green = blue, 1 px) / the segmentation: the main window dims every pixel not classified orange or blue (barrel-colored pixels stay at full brightness) and a second window, `barrels seg` or `barrels (tracked) seg`, shows only the classified pixels in their class color on black / the seg pair with the boxes on the main window. `tm boxes` closes the second window (within one refresh) |
-| `tm save` | writes the current raw frame as `snapshots/robot_snapN.png` under `barrels/live/` (the camera viewer's naming; N continues past existing files, never overwrites) |
-| `tm rec` | writes every frame for ten seconds (at most ten a second) into `snapshots/rec_<stamp>/frame_NNN.png` + `frames.json` (time and frame count per file) |
+| `tm save` | writes the current raw frame as `snapshots/robot_snapN.png` under `barrels/live/` (the camera viewer's naming; N continues past existing files, never overwrites), and next to it `robot_snapN_vendor.json` (the vendor detector's object list for that frame) and `robot_snapN_vendor.png` (a copy of the frame with the vendor's boxes drawn; the raw frame is never drawn on). The console line ends with `vendor: 2 objects (OrangeBarrel, BlueBarrel)` or `vendor NOT available (reason)`; the frame is saved either way |
+| `tm rec` | writes every frame for ten seconds (at most ten a second) into `snapshots/rec_<stamp>/frame_NNN.png` + `frames.json` (time, frame count and the vendor detector's answer per file) |
 | `tm raw` | BarrelTracker only: also draw this frame's own boxes in white, to compare with the persisting ones |
 
 - The console prints one line when the number of barrels shown changes, one when a frame is saved, one when a recording finishes.
@@ -56,6 +56,22 @@ At the `C>` prompt (both programs):
 - `simple_cli` must be started **from `barrels/live/`**: it imports the program and `barrel_live.py` (what the two share) from the current directory. From elsewhere: `simple_cli`, then `cd` there and `runfsm('BarrelViewer')`.
 - Quit with **Ctrl+\** before powering the robot off (below). If the window stops updating, `restart img_thread` at the prompt restarts the camera stream.
 - Edit → test cycle: change the `.fsm`, run `genfsm` again, then `runfsm('BarrelViewer')` at the prompt (reloads that module; a change to `barrel_live.py` needs `simple_cli` restarted). If `simple_cli` warns that the `.py` is older than the `.fsm`, you forgot `genfsm`.
+
+## The vendor detector's answer with every frame (2026-11-18; NOT yet checked on the robot)
+
+The robot's built-in detector ("aivision") runs on the robot all the time and its object list arrives in every status packet (about 20 a second): `robot.robot0.status['aivision']['objects']` = `{count, items}`; each item has `type_str` (`aiobj` for a model object, `tag` for an AprilTag), `id` (0 SportsBall, 1 BlueBarrel, 2 OrangeBarrel, 3 Robot), `name`, `originx`, `originy`, `width`, `height` (top-left corner and size, in **320×240** units: multiply by 2 for our 640×480 frame) and `score`. Nothing has to be requested or switched on, so reading it does not slow the image stream (tag detection, the slow one, stays off).
+
+`tm save` pairs each camera frame with the list that was current when the frame arrived and writes the three files of the table above. `barrels/tools/import_snaps.py` then moves the `.json` to `barrels/data/vendor/<stem>_vendor.json` under the frame's new name (the dry run shows it; the `_vendor.png` look-at copies stay in `snapshots/`, delete them when done). Schema: `DATA.md`, "Vendor detections".
+
+**First live check (once, before the first shoot that relies on it):**
+
+1. Start `simple_cli BarrelTracker`, put one orange and one blue barrel at about 20 cm, `tm save`. Expected console line: `BarrelTracker: saved snapshots/robot_snapN.png | vendor: 2 objects (OrangeBarrel, BlueBarrel)`. If it says `vendor NOT available (...)`, send the reason.
+2. Open `snapshots/robot_snapN_vendor.png`: one box around each barrel, orange on the orange barrel and blue on the blue one, each tight on its barrel (not shifted, not half size). Compare with the robot's own screen or `show viewer` (the camera viewer draws the vendor's boxes live).
+3. Open `snapshots/robot_snapN_vendor.json`: `"available": true`, two objects, `"read_at": "frame"`, and `raw` holds the robot's own fields. Note what `score` looks like (0–100?).
+4. Empty table, `tm save`: `vendor: 0 objects`, and `"available": true, "objects": []` in the file.
+5. Timing: with the barrels in view, move one quickly and `tm save` while it moves; in the `_vendor.png` the box may trail or lead the barrel by a little. For still scenes (every planned shot) this does not matter; say how large it is.
+6. The stream is not slowed: the tracker window updates as fast as before, and `tm rec` writes about as many frames in ten seconds as it did before (the 2026-11-16 recordings have 49 and 51 files).
+7. `python barrels/tools/import_snaps.py --src barrels/live/snapshots --light test --surface test --scenes core,neg --dry-run`: each line shows the frame's new name and `+ data/vendor/<stem>_vendor.json`.
 
 ## Networking
 
@@ -66,7 +82,7 @@ At the `C>` prompt (both programs):
 ## Using simple_cli
 
 - Commands go at the `C>` prompt in Terminal: `tm <text>` sends a text message to the running state machine, `show objects`, `show pose`, `show viewer` (camera), `show active` (which nodes run), `runfsm('Name')` (start / reload a program).
-- Viewers: camera, world, particle, path (`h` for keys). Camera viewer `s` saves `snapshots/robot_snapN.png` — **the counter resets each session, import immediately** per `DATA.md`.
+- Viewers: camera, world, particle, path (`h` for keys). Camera viewer `s` saves `snapshots/robot_snapN.png`, `S` (shift) saves `snapshots/robot_asnapN.png`, the picture with the vendor's boxes and the crosshairs drawn on it (a picture only, no numbers; both keys share one counter) — **the counter resets each session, import immediately** per `DATA.md`.
 - **Quit with Ctrl+\ before powering off the robot** — otherwise an endless `ws_status reconnecting` loop + a cv2 crash.
 
 ## Noise / known harmless errors

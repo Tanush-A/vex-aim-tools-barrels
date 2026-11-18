@@ -11,6 +11,11 @@ in data/raw.
     python barrels/tools/import_snaps.py --light overhead --surface black --scenes ...   # for real
 
 Refuses to run if the number of snapshots and scenes differ.
+
+A snapshot saved by `tm save` has robot_snapN_vendor.json next to it (what the robot's own detector reported for that
+frame). It is carried along under the frame's new name, to data/vendor/<stem>_vendor.json (the folder next to the
+destination; --vendor-dst to change). Snapshots without one are listed, not an error. The look-at copies
+(robot_snapN_vendor.png) are not data and stay where they are.
 """
 from __future__ import annotations
 
@@ -43,8 +48,11 @@ def main(argv=None) -> int:
     ap.add_argument("--light", required=True)
     ap.add_argument("--surface", required=True)
     ap.add_argument("--scenes", required=True, help="comma-separated scene tags in shooting order")
+    ap.add_argument("--vendor-dst", type=Path, default=None,
+                    help="where the robot_snapN_vendor.json files go (default: 'vendor' next to --dst, i.e. barrels/data/vendor)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
+    vendor_dst = args.vendor_dst or args.dst.parent / "vendor"
 
     snaps = sorted(
         (p for p in args.src.iterdir() if SNAP_RE.match(p.name)),
@@ -71,18 +79,41 @@ def main(argv=None) -> int:
         counters[prefix] += 1
         plan.append((p, new))
 
+    def short(p: Path) -> Path:
+        return p.relative_to(p.parents[2]) if len(p.parents) > 2 else p
+
+    # the vendor detector's answer saved with a frame travels with it, under the frame's new stem
+    vendor_plan, no_vendor = [], []
     for src, dst in plan:
-        print(f"{src.name:>20}  ->  {dst.relative_to(dst.parents[2]) if dst.is_relative_to(dst.parents[2]) else dst}")
+        vsrc = src.with_name(f"{src.stem}_vendor.json")
+        if vsrc.exists():
+            vendor_plan.append((vsrc, io.vendor_path(dst.stem, vendor_dst)))
+        else:
+            no_vendor.append(src)
+    vendor_of = {v.name: d for v, d in vendor_plan}
+    previews = [p for p in (src.with_name(f"{src.stem}_vendor.png") for src, _ in plan) if p.exists()]
+
+    for src, dst in plan:
+        vdst = vendor_of.get(f"{src.stem}_vendor.json")
+        print(f"{src.name:>20}  ->  {short(dst)}" + (f"   + {short(vdst)}" if vdst else "   (no vendor file)"))
+    print(f"vendor files: {len(vendor_plan)} of {len(plan)}" + (f"; none for {', '.join(p.name for p in no_vendor)}" if no_vendor else ""))
+    if previews:
+        print(f"{len(previews)} look-at copies (robot_snapN_vendor.png) stay in {args.src}; they are not data")
     if args.dry_run:
         print("(dry run, nothing moved)")
         return 0
+    for _, dst in plan + vendor_plan:
+        if dst.exists():
+            print(f"ERROR: {dst} exists, nothing moved")
+            return 1
     args.dst.mkdir(parents=True, exist_ok=True)
     for src, dst in plan:
-        if dst.exists():
-            print(f"ERROR: {dst} exists, aborting before moving anything else")
-            return 1
         shutil.move(str(src), str(dst))
-    print(f"moved {len(plan)} files to {args.dst}")
+    if vendor_plan:
+        vendor_dst.mkdir(parents=True, exist_ok=True)
+    for src, dst in vendor_plan:
+        shutil.move(str(src), str(dst))
+    print(f"moved {len(plan)} files to {args.dst}" + (f" and {len(vendor_plan)} vendor files to {vendor_dst}" if vendor_plan else ""))
     return 0
 
 

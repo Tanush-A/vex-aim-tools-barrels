@@ -24,7 +24,7 @@ python barrels/tools/box_tool.py --filter window                            # 6.
 python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
 ```
 
-`detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`).
+`detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`); `tm save` also writes what the robot's built-in detector reported for the frame (`robot_snapN_vendor.json`), which `tools/import_snaps.py` moves to `data/vendor/`.
 
 ## Where to read
 

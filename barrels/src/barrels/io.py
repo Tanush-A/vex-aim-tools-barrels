@@ -21,6 +21,7 @@ CLASS_NAMES = {OTHER: "other", ORANGE: "orange", BLUE: "blue", IGNORE: "ignore"}
 PKG_ROOT = Path(__file__).resolve().parents[2]  # .../barrels
 RAW_DIR = PKG_ROOT / "data" / "raw"
 LABELS_DIR = PKG_ROOT / "data" / "labels"
+VENDOR_DIR = PKG_ROOT / "data" / "vendor"       # <stem>_vendor.json: what the robot's own detector reported for a frame
 
 IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg")
 _NAME_RE = re.compile(r"^(?P<robot>[^_]+)_(?P<light>[^_]+)_(?P<surface>[^_]+)_(?P<scene>[^_]+)_(?P<nn>\d{2})$")
@@ -59,7 +60,7 @@ def strokes_path(image_path: Path | str, labels_dir: Path | str | None = None) -
 
 
 # side files that may sit next to an image and are never images to label/evaluate
-SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes")
+SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes", "_vendor")
 
 
 def list_images(raw_dir: Path | str | None = None) -> list[Path]:
@@ -317,3 +318,86 @@ def boxes_from_instances(inst_meta: dict, image_sha1: str = "", shape: tuple[int
             "negative": not barrels, "clean": True, "source": "from_inst", "barrels": barrels}
     validate_boxes(meta, shape)
     return meta
+
+
+# ---------------------------------------------------------------- the vendor detector's answer (docs/DATA.md "Vendor detections")
+
+VENDOR_JSON_VERSION = 1
+VENDOR_BARREL_NAMES = {"OrangeBarrel": ORANGE, "BlueBarrel": BLUE}     # the vendor's class names for the two barrels
+
+
+def vendor_path(image_or_stem: Path | str, vendor_dir: Path | str | None = None) -> Path:
+    """``data/vendor/<stem>_vendor.json`` — what the robot's built-in detector reported when the frame was saved."""
+    return Path(vendor_dir or VENDOR_DIR) / f"{Path(image_or_stem).stem}_vendor.json"
+
+
+def validate_vendor(meta: dict) -> None:
+    """Raise ValueError unless ``meta`` is a well-formed vendor record (``capture.vendor_record``): version 1,
+    ``available`` a bool, ``image_size`` two positive ints, ``objects`` a list whose entries carry a string ``name``
+    and a ``bbox`` that is null or four ints, half-open, non-empty, inside the image; and no objects (with an
+    ``error`` text) when ``available`` is false."""
+    if not isinstance(meta, dict):
+        raise ValueError("vendor record must be a dict")
+    if meta.get("version") != VENDOR_JSON_VERSION:
+        raise ValueError(f"vendor record version must be {VENDOR_JSON_VERSION}, got {meta.get('version')!r}")
+    if not isinstance(meta.get("available"), bool):
+        raise ValueError("'available' must be true or false")
+    size = meta.get("image_size")
+    if not (isinstance(size, (list, tuple)) and len(size) == 2
+            and all(isinstance(v, int) and not isinstance(v, bool) and v > 0 for v in size)):
+        raise ValueError(f"'image_size' must be [w, h], got {size!r}")
+    w, h = size
+    if not isinstance(meta.get("objects"), list):
+        raise ValueError("vendor record needs an 'objects' list")
+    if not meta["available"]:
+        if meta["objects"]:
+            raise ValueError("a record with available=false must have no objects")
+        if not meta.get("error"):
+            raise ValueError("a record with available=false must say why in 'error'")
+    for o in meta["objects"]:
+        if not isinstance(o, dict) or not isinstance(o.get("name"), str):
+            raise ValueError(f"every vendor object needs a string 'name', got {o!r}")
+        bb = o.get("bbox")
+        if bb is None:
+            continue
+        if not (isinstance(bb, (list, tuple)) and len(bb) == 4
+                and all(isinstance(v, (int, np.integer)) and not isinstance(v, bool) for v in bb)):
+            raise ValueError(f"bbox must be null or four ints [x0, y0, x1, y1], got {bb!r}")
+        x0, y0, x1, y1 = (int(v) for v in bb)
+        if not (0 <= x0 < x1 <= w and 0 <= y0 < y1 <= h):
+            raise ValueError(f"bbox {list(bb)} is empty or outside the {w}x{h} frame")
+
+
+def load_vendor(image_or_stem: Path | str, vendor_dir: Path | str | None = None) -> dict:
+    """The validated vendor record for a stem. Raises FileNotFoundError when the frame has none (frames shot before
+    2026-11-18 have none), ValueError when the content is bad."""
+    import json
+    p = vendor_path(image_or_stem, vendor_dir)
+    if not p.exists():
+        raise FileNotFoundError(p)
+    meta = json.loads(p.read_text())
+    validate_vendor(meta)
+    return meta
+
+
+def vendor_barrels(meta: dict) -> tuple[list, dict[str, int]]:
+    """The vendor's barrels as the project's type, and what was left out: ``(barrels, counts)``.
+
+    ``barrels``: one ``detect_types.Barrel`` (color + bbox, ``source="aivision"``) per object named OrangeBarrel or
+    BlueBarrel, left to right. ``counts``: ``{"other": objects of any other class (ball, robot, tag, ...),
+    "no_box": barrel objects without a usable box}``. Raises ValueError when the record says the vendor data was not
+    available: that is "not measured", which must not be scored as "the vendor saw nothing"."""
+    from .detect_types import Barrel       # here, not at the top: detect_types imports this module
+    validate_vendor(meta)
+    if not meta["available"]:
+        raise ValueError(f"vendor data was not available for this frame: {meta.get('error')}")
+    barrels, counts = [], {"other": 0, "no_box": 0}
+    for o in meta["objects"]:
+        color = VENDOR_BARREL_NAMES.get(o["name"])
+        if color is None:
+            counts["other"] += 1
+        elif o.get("bbox") is None:
+            counts["no_box"] += 1
+        else:
+            barrels.append(Barrel(color=color, bbox=tuple(int(v) for v in o["bbox"]), source="aivision"))
+    return sorted(barrels, key=lambda b: (b.bbox[0], b.bbox[1])), counts
