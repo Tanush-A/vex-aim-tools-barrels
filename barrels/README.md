@@ -21,6 +21,7 @@ python barrels/experiments/2026-11-08_seg_hs_v2/run.py                      # 4.
 cd barrels/live && simple_cli BarrelViewer                                  # 5. live on the robot, per frame (robot on, setup.zsh sourced; docs/RUNBOOK.md)
 cd barrels/live && simple_cli BarrelTracker                                 # 5b. live, boxes that persist (shown after 3 of the last 4 frames agree)
 python barrels/tools/box_tool.py --filter window                            # 6. draw the ground-truth boxes on new frames
+python barrels/tools/hs_slider.py --filter window_light                     # 6b. set the color thresholds by hand on a frame (six sliders, live segmentation + boxes) → data/labels/<stem>_hs.json
 python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
 ```
 

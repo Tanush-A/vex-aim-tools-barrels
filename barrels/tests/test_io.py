@@ -157,3 +157,71 @@ def test_list_images_skips_boxes_side_files(tmp_path):
         (tmp_path / n).write_bytes(b"")
     assert [p.name for p in io.list_images(tmp_path)] == ["a_01.png"]
     assert io.find_image("a_01", tmp_path) == tmp_path / "a_01.png" and io.find_image("zz", tmp_path) is None
+
+
+# ---------------------------------------------------------------- hand-set color thresholds (<stem>_hs.json)
+
+def _hs_meta(**kw) -> dict:
+    meta = {"image_sha1": "", "orange": {"h_lo": -3, "h_hi": 13, "s_lo": 140}, "blue": {"h_lo": 103, "h_hi": 119, "s_lo": 113},
+            "v_min": 40, "horizon_row": 50, "base_model": "eb863d84", "detector_git": "abc1234", "boxes_drawn": 3, "reviewed": True}
+    return meta | kw
+
+
+def test_hs_round_trip_writes_the_schema_in_order_and_leaves_no_temp_file(tmp_path):
+    import json
+    p = io.save_hs("4A8B_window_light_core_01", _hs_meta(), labels_dir=tmp_path / "sub")
+    assert p.name == "4A8B_window_light_core_01_hs.json" and p == io.hs_path("4A8B_window_light_core_01.png", tmp_path / "sub")
+    assert [x.name for x in (tmp_path / "sub").iterdir()] == [p.name] and p.read_text().endswith("}\n")
+    raw = json.loads(p.read_text())
+    assert raw == {"version": 1, "stem": "4A8B_window_light_core_01", "image_sha1": "",
+                   "orange": {"h_lo": -3, "h_hi": 13, "s_lo": 140}, "blue": {"h_lo": 103, "h_hi": 119, "s_lo": 113},
+                   "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)", "v_min": 40, "horizon_row": 50,
+                   "base_model": "eb863d84", "detector_git": "abc1234", "boxes_drawn": 3,
+                   "criterion": "as much barrel painted as needed to detect it, as little else as possible", "reviewed": True, "note": ""}
+    assert list(raw)[:5] == ["version", "stem", "image_sha1", "orange", "blue"]
+    assert io.load_hs("4A8B_window_light_core_01", labels_dir=tmp_path / "sub", raw_dir=tmp_path) == raw     # no image there -> sha not checked
+    io.save_hs("4A8B_window_light_core_01", raw | {"note": "again", "boxes_drawn": 4}, labels_dir=tmp_path / "sub")   # a loaded label saves back
+    assert io.load_hs("4A8B_window_light_core_01", labels_dir=tmp_path / "sub", raw_dir=tmp_path)["note"] == "again"
+    with pytest.raises(FileNotFoundError):
+        io.load_hs("nope", labels_dir=tmp_path)
+
+
+def test_validate_hs_rejects_bad_content(tmp_path):
+    io.validate_hs(_hs_meta())
+    io.validate_hs(_hs_meta(horizon_row=None))
+    for bad in (_hs_meta(orange={"h_lo": 13, "h_hi": 3, "s_lo": 140}), _hs_meta(orange={"h_lo": -31, "h_hi": 3, "s_lo": 140}),
+                _hs_meta(blue={"h_lo": -1, "h_hi": 119, "s_lo": 113}), _hs_meta(blue={"h_lo": 103, "h_hi": 180, "s_lo": 113}),
+                _hs_meta(blue={"h_lo": 103, "h_hi": 119, "s_lo": 256}), _hs_meta(blue={"h_lo": 103.5, "h_hi": 119, "s_lo": 113}),
+                _hs_meta(blue={"h_lo": 103, "h_hi": 119}), _hs_meta(v_min="40"), _hs_meta(horizon_row=50.0), _hs_meta(base_model=""),
+                _hs_meta(boxes_drawn=-1), _hs_meta(boxes_drawn=True), _hs_meta(reviewed="yes"), _hs_meta(note=3),
+                {k: v for k, v in _hs_meta().items() if k != "orange"}, {k: v for k, v in _hs_meta().items() if k != "horizon_row"}):
+        with pytest.raises(ValueError):
+            io.validate_hs(bad)
+        with pytest.raises(ValueError):
+            io.save_hs("a_01", bad, labels_dir=tmp_path)
+    assert not list(tmp_path.iterdir())                                           # a refused label writes nothing
+
+
+def test_load_hs_detects_a_changed_image_another_frames_label_and_garbage(tmp_path):
+    cv2.imwrite(str(tmp_path / "a_01.png"), np.zeros((4, 4, 3), np.uint8))
+    io.save_hs("a_01", _hs_meta(image_sha1=io.file_sha1(tmp_path / "a_01.png")), labels_dir=tmp_path)
+    io.load_hs("a_01", labels_dir=tmp_path, raw_dir=tmp_path)
+    cv2.imwrite(str(tmp_path / "a_01.png"), np.ones((4, 4, 3), np.uint8))
+    with pytest.raises(ValueError, match="stale"):
+        io.load_hs("a_01", labels_dir=tmp_path, raw_dir=tmp_path)
+    io.load_hs("a_01", labels_dir=tmp_path, raw_dir=tmp_path, check_image=False)
+    io.hs_path("b_01", tmp_path).write_text(io.hs_path("a_01", tmp_path).read_text())        # a copied file keeps the other stem
+    with pytest.raises(ValueError, match="a_01"):
+        io.load_hs("b_01", labels_dir=tmp_path, check_image=False)
+    io.hs_path("c_01", tmp_path).write_text("{not json")
+    with pytest.raises(ValueError):
+        io.load_hs("c_01", labels_dir=tmp_path)
+    io.hs_path("d_01", tmp_path).write_text('{"version": 2, "stem": "d_01"}')
+    with pytest.raises(ValueError, match="version"):
+        io.load_hs("d_01", labels_dir=tmp_path)
+
+
+def test_list_images_never_lists_hs_side_files(tmp_path):
+    for n in ("a_01.png", "a_01_hs.png", "a_01_hs.json", "a_01_hs.json.tmp"):
+        (tmp_path / n).write_bytes(b"")
+    assert [p.name for p in io.list_images(tmp_path)] == ["a_01.png"]

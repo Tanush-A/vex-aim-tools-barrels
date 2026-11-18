@@ -6,12 +6,13 @@
 
 **What we have** (tags as in `TODO.md`): HOME 21 (16 train / 5 test, masks + boxes) · CAMPUS 31 (21 / 10, boxes) · DAVE 20 (12 boxed by Dave, grouped; indicative only) · WOOD 24 unlabeled (5 calib + 19 lamp-color) · REC 4 campus recordings · 1 live frame · **NEW (2026-11-16, step 3): 117 wood lamp-ladder frames (13 scenes × 9 lamp settings), 15 black-table window frames, 12 ruler `calib` frames; all 144 boxed by Tanush 2026-11-16; split 2026-11-16: wood ladder **90 train / 27 test, by scene** (`neg_01`, `occl_03`, `touch_01` under all 9 lights are test), black **10 / 5**, calib in no split; 2 recordings. After the boxing, Claude snapped 29 box edges that stopped 1–3 px short of the frame edge on frame-cut barrels out to the edge (which sets `truncated`) and added the missed `held` flag on the 9 wood `held_01` frames, with Tanush's go.** Test frames are never loaded except in a planned test look. Full table: "Dataset index" below.
 
-**The three commands** (details in "Storage and naming" and "Labels"):
+**The four commands** (details in "Storage and naming" and "Labels"):
 
 ```zsh
 python barrels/tools/import_snaps.py --src barrels/live/snapshots --light <tag> --surface <tag> --scenes a,b,c --dry-run   # then without --dry-run
 python barrels/tools/make_splits.py --v2 --filter 4A8B_<light>_<surface>     # at once, before any method sees the frames
 python barrels/tools/box_tool.py --filter <light>_<surface>                   # draw the boxes (≈ 30 s a frame; `g` = expected size at the cursor)
+python barrels/tools/hs_slider.py --filter <light>_<surface>                  # set the six color thresholds by hand on core_01, occl_01, clutter_01 (train frames only; "Slider labels")
 ```
 
 **Next shoot (week of 2026-11-18): conditions first — shoot from this.** A condition = one table under one light; 9 shots each, in this order, ten or more conditions over the week (list and reasons: `TODO.md`). Names `4A8B_{light}_{surface}_{scene}_{nn}`; pick one short lowercase tag per light and per table, without underscores, and reuse it (`window`, `overhead`, `both`, `sun`, `dim`; `white`, `darkwood`, `gray`, `black`; add a place when two tables would collide, e.g. `campuswhite`). Shots: `neg_01` empty table · `neg_02` clutter only, with one orange and one blue non-barrel · `core_01` four barrels spread near to far, nothing else · `touch_01` two or three touching, mixed colors · `occl_01` a barrel about half hidden behind a barrel of the other color, clutter behind · `occl_02` a barrel about half hidden at the side by a clutter object · `close_01` one barrel about 2 cm from the bumper · `edge_01` one barrel cut by the left or right frame edge, one fully in view · `clutter_01` barrels among clutter, an orange or blue non-barrel next to a barrel. Every shot is saved with the vendor detector's output for the same instant (TODO B; until that is merged, shoot anyway and say so). Splits at import, before any method sees the frames: `make_splits.py --v2 --filter 4A8B_<light>_<surface>` (one of the two `neg` and one of the two `occl` go to test); when the same arrangement is reshot under another light without touching the table, shoot both lights in one session and split them together with `--by-scene`. Labels: boxes on every frame (`box_tool.py`); slider labels (`<stem>_hs.json`, TODO D) on `core_01`, `occl_01`, `clutter_01` of each condition, train frames only.
@@ -95,7 +96,7 @@ Small hand-taken sets, **committed to git**: images in `barrels/data/raw/`, labe
 
 ## Labels
 
-Three label kinds exist next to each frame. **Boxes are the truth the detector is scored against**; masks are the segmentation's truth; instances are superseded.
+Four label kinds exist next to each frame. **Boxes are the truth the detector is scored against**; slider labels (since 2026-11-18) are the color thresholds Tanush set by hand on a frame; masks are the segmentation's truth; instances are superseded.
 
 ### Box labels — `<stem>_boxes.json` (v2, since 2026-11-02)
 
@@ -116,6 +117,30 @@ Three label kinds exist next to each frame. **Boxes are the truth the detector i
 **Rules.** Draw the **full barrel**: lid top to where the base meets the table, bulge to bulge; the stripe is inside. Draw **through occluders** as if they were transparent and flag `occluded`; if the bottom cannot be seen, estimate it from the barrel's size and flag `bottom_estimated`. A barrel cut by the frame gets a box that **stops at the edge**. A shadowed bottom you can still see is the bottom, no flag. Reflections are not barrel. Other orange/blue objects get no box; set `clean: false`. A held barrel is boxed normally, flag `held`. 1–2 px precision is enough; the eval tolerance is a tenth of the box height.
 
 **Tool:** `python barrels/tools/box_tool.py [--filter <light>_<surface>] [--unlabeled]`. Drag on empty space to draw (takes the color of the last box); click inside a box to select; drag an edge or corner to move just that edge. `o`/`b` color; `x`/`h`/`e`/`s` toggle occluded / held / bottom_estimated / no_stripe; `c` toggles `clean`; `d` deletes; `u` undoes; `g` shows the barrel size the geometry expects at the cursor row (a check — draw what you see first); `v` raw view; `w` saves; `n`/`p` save and move; `q` saves and quits. ≈ 30 s per frame.
+
+### Slider labels — `<stem>_hs.json` (hand-set color thresholds, since 2026-11-18; TODO D, E, F)
+
+The six numbers of the hs color model, set by hand on one frame: per color a hue range and a saturation floor. They are label data: later a script checks whether something in the frame's histogram predicts them (TODO F), so each file also records what the numbers were set against.
+
+```json
+{"version": 1, "stem": "4A8B_window_black_core_01", "image_sha1": "…",
+ "orange": {"h_lo": -3, "h_hi": 16, "s_lo": 120}, "blue": {"h_lo": 100, "h_hi": 122, "s_lo": 90},
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40, "horizon_row": 50, "base_model": "eb863d84", "detector_git": "2b6ca83", "boxes_drawn": 4,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true, "note": ""}
+```
+
+- `h_lo`, `h_hi` = the hue range, OpenCV units (0–179), **both ends included**; `s_lo` = the floor on HSV saturation (a pixel needs S ≥ `s_lo`; 0–255). All ints.
+- **Orange and the red wrap.** Hue is a circle and orange sits where it closes (0 = 180). Orange's hue is therefore written on a line from −30 to 149: **−3 means 177**, and "−3 to 16" is the range 177, 178, 179, 0, … 16. Blue's line is 0 to 179. Always `h_lo ≤ h_hi`.
+- `v_min`, `horizon_row`, `base_model` = the fixed parts of the adopted model the numbers were set against (brightness V ≥ 40, rows from 50 down, config `eb863d84`); the tie rule is that model's. `detector_git` = the code version whose detector drew the boxes on screen (`+dirty` if `src/barrels` had uncommitted changes); `boxes_drawn` = how many boxes it drew with these numbers. `image_sha1` as in the box labels: `io.load_hs` refuses the label if the image changed.
+- To get the segmentation a label stands for: `pipeline.segment(frame, hslabel.model_from_thresholds(hslabel.adopted_model(), io.load_hs(stem)))`.
+
+**Criterion** (what "best" means when setting them): **as much barrel painted as needed to detect it, as little else as possible.** Watch both the paint and the boxes; when two settings draw the same boxes, take the one that paints less of the table and the room.
+
+**Which frames:** three per condition, `core_01`, `occl_01`, `clutter_01` (the tool's default selection), **train frames only**. The tool always refuses test frames (there is no flag to include them), geometry-only frames (`calib`, `ruler`, `horizon`) and frames that are in no split yet, so run `make_splits.py` first.
+
+**Tool:** `python barrels/tools/hs_slider.py [--filter <light>_<surface>] [--scenes core_01,occl_01,clutter_01 | all] [--unlabeled] [--scale 1]`; `--list` prints the frames that would open and stops. The window (1280 × 658 at scale 1): left the raw frame; right the frame with every unlabeled pixel dimmed, the labeled pixels painted orange / blue, and the boxes today's detector draws from exactly that segmentation (yellow = orange barrel, green = blue); below, six sliders (the small tick under each is the adopted value) and the status lines with the six numbers and the box count. A frame opens with its saved label, else with the adopted values (orange 3–13, S ≥ 140; blue 103–119, S ≥ 113). Drag a slider, or select one with `1`–`6` and step it with `-` / `=` (by 1) or `[` / `]` (by 5). `b` detector boxes on/off; `t` your own truth boxes on/off (thin white); `m` painted pixels flat or in their own color; `r` reset to the adopted values; `c` copy the thresholds saved for the previous frame; `u` back to what was loaded or last saved; `w` saves; `n` / `p` next / previous; `q` quits. **Nothing is saved without `w`**: with unsaved changes, `n`, `p` and `q` ask first, and pressing the same key again discards them. `--selftest out.png` writes the picture without opening a window. The picture is `pipeline.segment` with a model built from the six numbers (`src/barrels/hslabel.py`), not a second implementation.
 
 ### Pixel masks — `<stem>_mask.png` (v1)
 

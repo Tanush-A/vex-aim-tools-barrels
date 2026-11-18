@@ -60,7 +60,7 @@ def strokes_path(image_path: Path | str, labels_dir: Path | str | None = None) -
 
 
 # side files that may sit next to an image and are never images to label/evaluate
-SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes", "_vendor")
+SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes", "_vendor", "_hs")
 
 
 def list_images(raw_dir: Path | str | None = None) -> list[Path]:
@@ -401,3 +401,109 @@ def vendor_barrels(meta: dict) -> tuple[list, dict[str, int]]:
         else:
             barrels.append(Barrel(color=color, bbox=tuple(int(v) for v in o["bbox"]), source="aivision"))
     return sorted(barrels, key=lambda b: (b.bbox[0], b.bbox[1])), counts
+
+
+# ---------------------------------------------------------------- hand-set color thresholds (docs/DATA.md "Slider labels")
+
+HS_JSON_VERSION = 1
+HS_CLASSES = ("orange", "blue")
+HS_KEYS = ("h_lo", "h_hi", "s_lo")
+HS_HUE_MIN = {"orange": -30, "blue": 0}     # = -pipeline.HUE_SHIFT: orange's hue line runs -30..149 (-3 = 177), blue's 0..179
+HS_HUE_SPAN = 179
+HS_HUE_UNITS = "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)"
+HS_CRITERION = "as much barrel painted as needed to detect it, as little else as possible"
+
+
+def _is_int(v) -> bool:
+    return isinstance(v, (int, np.integer)) and not isinstance(v, bool)
+
+
+def hs_path(image_or_stem: Path | str, labels_dir: Path | str | None = None) -> Path:
+    """``data/labels/<stem>_hs.json`` — the hue / saturation thresholds set by hand for this frame."""
+    return Path(labels_dir or LABELS_DIR) / f"{Path(image_or_stem).stem}_hs.json"
+
+
+def validate_hs_thresholds(thr: dict) -> None:
+    """Raise ValueError unless ``thr`` holds the six numbers: for 'orange' and 'blue' the ints h_lo <= h_hi
+    (OpenCV hue, both ends included; orange between -30 and 149 where -3 means 177, blue between 0 and 179)
+    and s_lo (HSV saturation floor, 0-255)."""
+    if not isinstance(thr, dict):
+        raise ValueError("thresholds must be a dict with 'orange' and 'blue'")
+    for name in HS_CLASSES:
+        t = thr.get(name)
+        if not isinstance(t, dict) or any(k not in t for k in HS_KEYS):
+            raise ValueError(f"{name}: needs {HS_KEYS}, got {t!r}")
+        if not all(_is_int(t[k]) for k in HS_KEYS):
+            raise ValueError(f"{name}: h_lo, h_hi and s_lo must be ints, got {t!r}")
+        lo, hi = HS_HUE_MIN[name], HS_HUE_MIN[name] + HS_HUE_SPAN
+        if not (lo <= t["h_lo"] <= t["h_hi"] <= hi):
+            raise ValueError(f"{name}: hue needs {lo} <= h_lo <= h_hi <= {hi}, got {t['h_lo']}, {t['h_hi']}")
+        if not (0 <= t["s_lo"] <= 255):
+            raise ValueError(f"{name}: s_lo must be 0-255, got {t['s_lo']}")
+
+
+def validate_hs(meta: dict) -> None:
+    """Raise ValueError unless ``meta`` is a well-formed threshold label: the six numbers, the fixed gates they
+    were set against (v_min, horizon_row), the base model's hash and the number of boxes the detector drew."""
+    validate_hs_thresholds(meta)
+    if not (_is_int(meta.get("v_min")) and 0 <= meta["v_min"] <= 255):
+        raise ValueError(f"v_min must be an int 0-255, got {meta.get('v_min')!r}")
+    if "horizon_row" not in meta or not (meta["horizon_row"] is None or _is_int(meta["horizon_row"])):
+        raise ValueError(f"horizon_row must be an int or null, got {meta.get('horizon_row')!r}")
+    if not (isinstance(meta.get("base_model"), str) and meta["base_model"]):
+        raise ValueError("base_model (the config hash of the model the thresholds replace) is missing")
+    if not (_is_int(meta.get("boxes_drawn")) and meta["boxes_drawn"] >= 0):
+        raise ValueError(f"boxes_drawn must be an int >= 0, got {meta.get('boxes_drawn')!r}")
+    for key in ("image_sha1", "detector_git", "note", "hue_units", "criterion"):
+        if key in meta and not isinstance(meta[key], str):
+            raise ValueError(f"{key} must be a string, got {meta[key]!r}")
+    if "reviewed" in meta and not isinstance(meta["reviewed"], bool):
+        raise ValueError(f"reviewed must be true or false, got {meta['reviewed']!r}")
+
+
+def load_hs(image_or_stem: Path | str, labels_dir: Path | str | None = None, *,
+            check_image: bool = True, raw_dir: Path | str | None = None) -> dict:
+    """The threshold label dict for a stem. Raises FileNotFoundError, or ValueError when the content is bad, is
+    another frame's, or (check_image, image found in raw_dir) the image changed since the thresholds were set."""
+    import json
+    stem = Path(image_or_stem).stem
+    p = hs_path(stem, labels_dir)
+    if not p.exists():
+        raise FileNotFoundError(p)
+    try:
+        meta = json.loads(p.read_text())
+    except json.JSONDecodeError as e:
+        raise ValueError(f"{p.name}: not JSON ({e})") from None
+    if not isinstance(meta, dict) or meta.get("version") != HS_JSON_VERSION:
+        raise ValueError(f"{p.name}: not a version {HS_JSON_VERSION} threshold label")
+    validate_hs(meta)
+    if meta.get("stem") != stem:
+        raise ValueError(f"{p.name}: holds the label of {meta.get('stem')!r}")
+    if check_image and meta.get("image_sha1"):
+        img = find_image(stem, raw_dir)
+        if img is not None and file_sha1(img) != meta["image_sha1"]:
+            raise ValueError(f"{p.name} is stale: {img.name} changed since the thresholds were set")
+    return meta
+
+
+def save_hs(image_or_stem: Path | str, meta: dict, labels_dir: Path | str | None = None) -> Path:
+    """Validate and write ``<stem>_hs.json`` with a fixed key order. The file is written under a temporary name
+    and moved into place, so a crash never leaves half a label."""
+    import json
+    import os
+    validate_hs(meta)
+    stem = Path(image_or_stem).stem
+    out = {"version": HS_JSON_VERSION, "stem": stem, "image_sha1": meta.get("image_sha1", "")}
+    for name in HS_CLASSES:
+        out[name] = {k: int(meta[name][k]) for k in HS_KEYS}
+    out |= {"hue_units": HS_HUE_UNITS, "v_min": int(meta["v_min"]),
+            "horizon_row": None if meta["horizon_row"] is None else int(meta["horizon_row"]),
+            "base_model": meta["base_model"], "detector_git": meta.get("detector_git", "unknown"),
+            "boxes_drawn": int(meta["boxes_drawn"]), "criterion": meta.get("criterion", HS_CRITERION),
+            "reviewed": bool(meta.get("reviewed", False)), "note": meta.get("note", "")}
+    p = hs_path(stem, labels_dir)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_name(p.name + ".tmp")
+    tmp.write_text(json.dumps(out, indent=1) + "\n")
+    os.replace(tmp, p)
+    return p
