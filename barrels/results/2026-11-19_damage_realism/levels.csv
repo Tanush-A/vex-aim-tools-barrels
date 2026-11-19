@@ -1,0 +1,109 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks (HOME),base,1,16,29,28,1,0
+perfect masks (HOME),edge+cap,1,16,29,28,1,0
+perfect masks (HOME),all,1,16,29,28,1,0
+"white tables, typical",base,5,80,145,145,0,0
+"white tables, typical",edge+cap,5,80,145,145,0,0
+"white tables, typical",all,5,80,145,145,0,0
+"white tables, bad day",base,5,80,145,135,10,3
+"white tables, bad day",edge+cap,5,80,145,135,10,3
+"white tables, bad day",all,5,80,145,139,6,4
+"white tables, worst seen",base,5,80,145,84,61,2
+"white tables, worst seen",edge+cap,5,80,145,84,61,2
+"white tables, worst seen",all,5,80,145,113,32,6
+light,base,5,80,145,143,2,0
+light,edge+cap,5,80,145,143,2,0
+light,all,5,80,145,143,2,0
+medium,base,5,80,145,99,46,1
+medium,edge+cap,5,80,145,99,46,1
+medium,all,5,80,145,124,21,4
+heavy,base,5,80,145,21,124,0
+heavy,edge+cap,5,80,145,21,124,0
+heavy,all,5,80,145,24,121,0
+"real: HOME, leave-one-scene-out",base,1,16,29,28,1,0
+"real: HOME, leave-one-scene-out",edge+cap,1,16,29,28,1,0
+"real: HOME, leave-one-scene-out",all,1,16,29,28,1,0
+"real: HOME, stored model",base,1,16,29,28,1,1
+"real: HOME, stored model",edge+cap,1,16,29,28,1,1
+"real: HOME, stored model",all,1,16,29,28,1,1
+real: CAMPUS,base,1,21,35,35,0,0
+real: CAMPUS,edge+cap,1,21,35,35,0,0
+real: CAMPUS,all,1,21,35,35,0,0
+only top_highlight,base,5,80,145,140,5,0
+only top_highlight,edge+cap,5,80,145,140,5,0
+only top_highlight,all,5,80,145,140,5,0
+only stripe_highlight,base,5,80,145,134,11,5
+only stripe_highlight,edge+cap,5,80,145,134,11,5
+only stripe_highlight,all,5,80,145,139,6,8
+only erode_px,base,5,80,145,145,0,0
+only erode_px,edge+cap,5,80,145,145,0,0
+only erode_px,all,5,80,145,145,0,0
+only dropout,base,5,80,145,140,5,0
+only dropout,edge+cap,5,80,145,140,5,0
+only dropout,all,5,80,145,140,5,0
+only speckle,base,5,80,145,140,5,0
+only speckle,edge+cap,5,80,145,140,5,0
+only speckle,all,5,80,145,140,5,0
+bad day without top_highlight,base,5,80,145,134,11,2
+bad day without top_highlight,edge+cap,5,80,145,134,11,2
+bad day without top_highlight,all,5,80,145,141,4,1
+bad day without stripe_highlight,base,5,80,145,144,1,0
+bad day without stripe_highlight,edge+cap,5,80,145,144,1,0
+bad day without stripe_highlight,all,5,80,145,144,1,0
+bad day without erode_px,base,5,80,145,135,10,3
+bad day without erode_px,edge+cap,5,80,145,135,10,3
+bad day without erode_px,all,5,80,145,139,6,11
+bad day without dropout,base,5,80,145,135,10,3
+bad day without dropout,edge+cap,5,80,145,135,10,3
+bad day without dropout,all,5,80,145,139,6,4
+bad day without speckle,base,5,80,145,135,10,3
+bad day without speckle,edge+cap,5,80,145,135,10,3
+bad day without speckle,all,5,80,145,139,6,4
+"white tables, typical",base,20,320,580,579,1,0
+"white tables, typical",edge+cap,20,320,580,579,1,0
+"white tables, typical",all,20,320,580,579,1,0
+"white tables, bad day",base,20,320,580,547,33,5
+"white tables, bad day",edge+cap,20,320,580,547,33,5
+"white tables, bad day",all,20,320,580,560,20,17
+"white tables, worst seen",base,20,320,580,337,243,6
+"white tables, worst seen",edge+cap,20,320,580,337,243,6
+"white tables, worst seen",all,20,320,580,457,123,17
+light,base,20,320,580,574,6,0
+light,edge+cap,20,320,580,574,6,0
+light,all,20,320,580,572,8,2
+medium,base,20,320,580,388,192,3
+medium,edge+cap,20,320,580,388,192,3
+medium,all,20,320,580,477,103,20
+heavy,base,20,320,580,89,491,0
+heavy,edge+cap,20,320,580,89,491,0
+heavy,all,20,320,580,98,482,0
+only top_highlight,base,20,320,580,560,20,0
+only top_highlight,edge+cap,20,320,580,560,20,0
+only top_highlight,all,20,320,580,560,20,0
+only stripe_highlight,base,20,320,580,540,40,16
+only stripe_highlight,edge+cap,20,320,580,540,40,17
+only stripe_highlight,all,20,320,580,555,25,31
+only erode_px,base,20,320,580,580,0,0
+only erode_px,edge+cap,20,320,580,580,0,0
+only erode_px,all,20,320,580,580,0,0
+only dropout,base,20,320,580,560,20,0
+only dropout,edge+cap,20,320,580,560,20,0
+only dropout,all,20,320,580,560,20,0
+only speckle,base,20,320,580,560,20,0
+only speckle,edge+cap,20,320,580,560,20,0
+only speckle,all,20,320,580,560,20,0
+bad day without top_highlight,base,20,320,580,549,31,6
+bad day without top_highlight,edge+cap,20,320,580,549,31,6
+bad day without top_highlight,all,20,320,580,567,13,12
+bad day without stripe_highlight,base,20,320,580,577,3,0
+bad day without stripe_highlight,edge+cap,20,320,580,577,3,0
+bad day without stripe_highlight,all,20,320,580,577,3,0
+bad day without erode_px,base,20,320,580,540,40,10
+bad day without erode_px,edge+cap,20,320,580,542,38,11
+bad day without erode_px,all,20,320,580,549,31,36
+bad day without dropout,base,20,320,580,546,34,5
+bad day without dropout,edge+cap,20,320,580,546,34,5
+bad day without dropout,all,20,320,580,559,21,18
+bad day without speckle,base,20,320,580,547,33,5
+bad day without speckle,edge+cap,20,320,580,547,33,5
+bad day without speckle,all,20,320,580,560,20,17

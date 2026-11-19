@@ -90,6 +90,26 @@ def test_specks_are_small_outside_the_boxes_and_below_the_gate_row():
     assert (out[m != 0] == m[m != 0]).all()                                      # the barrel itself is untouched
 
 
+def test_the_three_made_up_levels_are_what_the_earlier_results_used():
+    assert list(dg.SEVERITIES) == ["light", "medium", "heavy"]
+    assert dg.SEVERITIES["light"] == dg.Damage(top_highlight=(0.3, 0.2), erode_px=1, dropout=0.02, speckle=5)
+    assert dg.SEVERITIES["medium"] == dg.Damage(top_highlight=(0.5, 0.3), stripe_highlight=0.15, stripe_breaks=(1, 0.06), erode_px=1, dropout=0.05, speckle=15)
+    assert dg.SEVERITIES["heavy"] == dg.Damage(top_highlight=(0.7, 0.4), stripe_highlight=0.3, stripe_breaks=(2, 0.08), erode_px=2, dropout=0.10, speckle=30)
+    assert len(dg.SINGLE) == 9
+
+
+def test_the_measured_levels_have_their_own_names_and_take_less_off_a_barrel_than_light():
+    assert not set(dg.REALISTIC) & set(dg.SEVERITIES) and not set(dg.WORST_SEEN) & (set(dg.SEVERITIES) | set(dg.REALISTIC))
+    assert list(dg.LEVELS) == ["light", "medium", "heavy", "white tables, typical", "white tables, bad day", "white tables, worst seen"]
+    m = barrel_mask()
+
+    def left(d):
+        return int((dg.damage(m, [BOX], dg.Damage(**{**d.to_dict(), "speckle": 0}), seed=0) != 0).sum())
+
+    typical, bad = (left(d) for d in dg.REALISTIC.values())
+    assert typical > bad > left(dg.SEVERITIES["light"]) > left(dg.WORST_SEEN["white tables, worst seen"]) > left(dg.SEVERITIES["heavy"])
+
+
 def test_severities_get_worse():
     m = barrel_mask()
     left = [int((dg.damage(m, [BOX], dg.Damage(**{**d.to_dict(), "speckle": 0}), seed=0) != 0).sum()) for d in dg.SEVERITIES.values()]

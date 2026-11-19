@@ -1,0 +1,59 @@
+{
+ "rule": "see the header of experiments/2026-11-19_damage_realism/run.py",
+ "barrels": 12,
+ "frames_for_specks": 37,
+ "unrounded": {
+  "white tables, typical": {
+   "top_hole_w": 0.0,
+   "top_hole_h": 0.0,
+   "stripe_hole_w": 0.0,
+   "stripe_breaks": 0.0,
+   "stripe_break_w": 0.0,
+   "edge_outer_px": 0.7259,
+   "edge_seam_px": 0.7698,
+   "dropout": 0.0,
+   "specks": 6.0
+  },
+  "white tables, bad day": {
+   "top_hole_w": 0.161,
+   "top_hole_h": 0.0877,
+   "stripe_hole_w": 0.0572,
+   "stripe_breaks": 0.0,
+   "stripe_break_w": 0.0,
+   "edge_outer_px": 1.0522,
+   "edge_seam_px": 1.1299,
+   "dropout": 0.0052,
+   "specks": 20.2
+  }
+ },
+ "levels": {
+  "white tables, typical": {
+   "top_highlight": [
+    0.0,
+    0.0
+   ],
+   "stripe_highlight": 0.0,
+   "stripe_breaks": [
+    0,
+    0.0
+   ],
+   "erode_px": 1,
+   "dropout": 0.0,
+   "speckle": 6
+  },
+  "white tables, bad day": {
+   "top_highlight": [
+    0.16,
+    0.09
+   ],
+   "stripe_highlight": 0.06,
+   "stripe_breaks": [
+    0,
+    0.0
+   ],
+   "erode_px": 1,
+   "dropout": 0.005,
+   "speckle": 20
+  }
+ }
+}

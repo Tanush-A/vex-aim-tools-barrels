@@ -1,0 +1,288 @@
+level,arm,stem,tag,color,box,box_w_over_expected,flags,source,best_overlap_same_color,that_truth_box,that_truth_flags,that_truth_also_missed
+"white tables, bad day",base,4A8B_window_light_cluster_02,seed0,orange,"[368, 117, 411, 160]",0.99,occluded,det2,0.31,"[390, 116, 432, 163]",occluded,1
+"white tables, bad day",base,4A8B_window_light_touch_02,seed1,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",base,4A8B_window_light_cluster_02,seed4,orange,"[370, 117, 413, 160]",0.99,occluded,det2,0.35,"[390, 116, 432, 163]",occluded,1
+"white tables, bad day",base,4A8B_window_light_touch_02,seed11,orange,"[170, 123, 221, 175]",0.98,occluded,det2,0.29,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",base,4A8B_window_light_cluster_02,seed15,orange,"[371, 117, 414, 160]",0.99,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+"white tables, bad day",edge+cap,4A8B_window_light_cluster_02,seed0,orange,"[368, 117, 411, 160]",0.99,occluded,det2,0.31,"[390, 116, 432, 163]",occluded,1
+"white tables, bad day",edge+cap,4A8B_window_light_touch_02,seed1,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",edge+cap,4A8B_window_light_cluster_02,seed4,orange,"[370, 117, 413, 160]",0.99,occluded,det2,0.35,"[390, 116, 432, 163]",occluded,1
+"white tables, bad day",edge+cap,4A8B_window_light_touch_02,seed11,orange,"[170, 123, 221, 175]",0.98,occluded,det2,0.29,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",edge+cap,4A8B_window_light_cluster_02,seed15,orange,"[371, 117, 414, 160]",0.99,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+"white tables, bad day",all,4A8B_window_light_cluster_02,seed1,blue,"[346, 121, 427, 164]",1.77,occluded,det2,0.54,"[351, 119, 398, 167]",,0
+"white tables, bad day",all,4A8B_window_light_cluster_02,seed3,blue,"[346, 121, 428, 164]",1.79,occluded,det2,0.54,"[351, 119, 398, 167]",,0
+"white tables, bad day",all,4A8B_window_light_touch_02,seed3,orange,"[112, 124, 200, 170]",1.79,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",all,4A8B_window_light_touch_02,seed4,orange,"[203, 124, 254, 173]",1.01,occluded,det2,0.16,"[240, 122, 289, 174]",,0
+"white tables, bad day",all,4A8B_window_light_touch_02,seed5,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+"white tables, bad day",all,4A8B_window_light_edge_01,seed6,blue,"[0, 135, 16, 197]",0.25,occluded+truncated,det2,0.45,"[0, 133, 34, 198]",truncated,0
+"white tables, bad day",all,4A8B_window_light_cluster_01,seed7,orange,"[377, 118, 422, 162]",1.01,occluded,det2,0.37,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+"white tables, bad day",all,4A8B_window_light_touch_02,seed7,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+"white tables, bad day",all,4A8B_window_light_cluster_01,seed8,blue,"[301, 121, 384, 169]",1.71,occluded,det2,0.58,"[331, 119, 382, 171]",,0
+"white tables, bad day",all,4A8B_window_light_touch_02,seed8,orange,"[236, 123, 323, 172]",1.74,occluded,det2,0.54,"[240, 122, 289, 174]",,0
+"white tables, bad day",all,4A8B_window_light_touch_02,seed10,orange,"[114, 124, 200, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",all,4A8B_window_light_edge_01,seed12,blue,"[0, 135, 17, 197]",0.27,occluded+truncated,det2,0.48,"[0, 133, 34, 198]",truncated,0
+"white tables, bad day",all,4A8B_window_light_edge_01,seed13,blue,"[0, 135, 16, 197]",0.25,occluded+truncated,det2,0.45,"[0, 133, 34, 198]",truncated,0
+"white tables, bad day",all,4A8B_window_light_edge_01,seed15,blue,"[0, 135, 15, 197]",0.23,occluded+truncated,det2,0.42,"[0, 133, 34, 198]",truncated,0
+"white tables, bad day",all,4A8B_window_light_cluster_01,seed18,blue,"[386, 121, 472, 164]",1.88,occluded,det2,0.51,"[388, 118, 437, 170]",,1
+"white tables, bad day",all,4A8B_window_light_touch_02,seed18,orange,"[114, 124, 200, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+"white tables, bad day",all,4A8B_window_light_cluster_02,seed19,blue,"[346, 121, 429, 164]",1.81,occluded,det2,0.53,"[351, 119, 398, 167]",,0
+"white tables, worst seen",base,4A8B_window_light_cluster_01,seed3,blue,"[360, 120, 418, 171]",1.17,,det2,0.37,"[388, 118, 437, 170]",,1
+"white tables, worst seen",base,4A8B_window_light_touch_02,seed3,orange,"[168, 123, 225, 175]",1.1,bottom_inferred+occluded,det3,0.3,"[148, 121, 192, 176]",occluded,1
+"white tables, worst seen",base,4A8B_window_light_occl_01,seed11,blue,"[369, 125, 429, 190]",1.0,bottom_inferred+occluded+top_inferred,det2,0.35,"[386, 115, 430, 161]",bottom_estimated+occluded,1
+"white tables, worst seen",base,4A8B_window_light_cluster_01,seed13,blue,"[351, 120, 409, 171]",1.17,,det2,0.39,"[331, 119, 382, 171]",,1
+"white tables, worst seen",base,4A8B_window_light_occl_01,seed14,orange,"[371, 135, 452, 228]",0.99,occluded,det2,0.45,"[340, 139, 423, 229]",,0
+"white tables, worst seen",base,4A8B_window_light_cluster_01,seed18,blue,"[354, 120, 412, 171]",1.17,,det2,0.34,"[331, 119, 382, 171]",,1
+"white tables, worst seen",edge+cap,4A8B_window_light_cluster_01,seed3,blue,"[360, 120, 418, 171]",1.17,,det2,0.37,"[388, 118, 437, 170]",,1
+"white tables, worst seen",edge+cap,4A8B_window_light_touch_02,seed3,orange,"[168, 123, 225, 175]",1.1,bottom_inferred+occluded,det3,0.3,"[148, 121, 192, 176]",occluded,1
+"white tables, worst seen",edge+cap,4A8B_window_light_occl_01,seed11,blue,"[369, 125, 429, 190]",1.0,bottom_inferred+occluded+top_inferred,det2,0.35,"[386, 115, 430, 161]",bottom_estimated+occluded,1
+"white tables, worst seen",edge+cap,4A8B_window_light_cluster_01,seed13,blue,"[351, 120, 409, 171]",1.17,,det2,0.39,"[331, 119, 382, 171]",,1
+"white tables, worst seen",edge+cap,4A8B_window_light_occl_01,seed14,orange,"[371, 135, 452, 228]",0.99,occluded,det2,0.45,"[340, 139, 423, 229]",,0
+"white tables, worst seen",edge+cap,4A8B_window_light_cluster_01,seed18,blue,"[354, 120, 412, 171]",1.17,,det2,0.34,"[331, 119, 382, 171]",,1
+"white tables, worst seen",all,4A8B_window_light_close_01,seed2,orange,"[306, 150, 386, 225]",1.0,occluded,det2,0.74,"[302, 143, 390, 235]",,1
+"white tables, worst seen",all,4A8B_window_light_touch_02,seed2,blue,"[186, 126, 278, 175]",1.78,occluded,det2,0.53,"[187, 122, 240, 178]",,0
+"white tables, worst seen",all,4A8B_window_light_cluster_01,seed3,blue,"[360, 120, 418, 171]",1.17,,det2,0.37,"[388, 118, 437, 170]",,1
+"white tables, worst seen",all,4A8B_window_light_cluster_02,seed3,orange,"[384, 118, 430, 158]",1.08,occluded,det2,0.72,"[390, 116, 432, 163]",occluded,1
+"white tables, worst seen",all,4A8B_window_light_touch_02,seed3,orange,"[236, 123, 325, 172]",1.78,occluded,det2,0.53,"[240, 122, 289, 174]",,0
+"white tables, worst seen",all,4A8B_window_light_cluster_02,seed4,orange,"[307, 121, 388, 168]",1.69,occluded,det2,0.51,"[306, 119, 351, 170]",,0
+"white tables, worst seen",all,4A8B_window_light_cluster_01,seed5,blue,"[360, 120, 407, 168]",0.98,occluded,det2,0.27,"[331, 119, 382, 171]",,0
+"white tables, worst seen",all,4A8B_window_light_far_02,seed7,blue,"[194, 112, 256, 142]",1.83,occluded,det2,0.45,"[218, 106, 250, 144]",,1
+"white tables, worst seen",all,4A8B_window_light_touch_02,seed9,orange,"[178, 124, 229, 174]",1.0,occluded,det2,0.16,"[148, 121, 192, 176]",occluded,1
+"white tables, worst seen",all,4A8B_window_light_cluster_02,seed11,orange,"[304, 121, 389, 168]",1.77,occluded,det2,0.51,"[306, 119, 351, 170]",,0
+"white tables, worst seen",all,4A8B_window_light_occl_01,seed11,orange,"[389, 136, 470, 228]",0.99,occluded,det2,0.25,"[340, 139, 423, 229]",,0
+"white tables, worst seen",all,4A8B_window_light_cluster_01,seed13,blue,"[351, 120, 409, 171]",1.17,,det2,0.39,"[331, 119, 382, 171]",,1
+"white tables, worst seen",all,4A8B_window_light_touch_02,seed13,orange,"[207, 123, 258, 173]",1.01,occluded,det2,0.21,"[240, 122, 289, 174]",,0
+"white tables, worst seen",all,4A8B_window_light_cluster_01,seed15,orange,"[279, 118, 360, 161]",1.83,occluded,det2,0.49,"[313, 115, 356, 164]",occluded,1
+"white tables, worst seen",all,4A8B_window_light_occl_02,seed17,orange,"[362, 118, 442, 152]",2.04,occluded,det2,0.49,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+"white tables, worst seen",all,4A8B_window_light_cluster_01,seed18,blue,"[354, 120, 412, 171]",1.17,,det2,0.34,"[331, 119, 382, 171]",,1
+"white tables, worst seen",all,4A8B_window_light_cluster_01,seed18,blue,"[386, 121, 435, 164]",1.07,occluded,det2,0.77,"[388, 118, 437, 170]",,1
+light,all,4A8B_window_light_occl_02,seed7,orange,"[362, 118, 442, 152]",2.04,occluded,det2,0.49,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+light,all,4A8B_window_light_occl_02,seed12,orange,"[362, 118, 442, 152]",2.04,occluded,det2,0.49,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+medium,base,4A8B_window_light_cluster_01,seed3,blue,"[363, 120, 421, 171]",1.17,,det2,0.43,"[388, 118, 437, 170]",,1
+medium,base,4A8B_window_light_occl_02,seed8,orange,"[394, 131, 462, 199]",1.04,occluded+top_inferred,det2,0.23,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+medium,base,4A8B_window_light_occl_01,seed14,orange,"[373, 135, 453, 228]",0.98,occluded,det2,0.43,"[340, 139, 423, 229]",,0
+medium,edge+cap,4A8B_window_light_cluster_01,seed3,blue,"[363, 120, 421, 171]",1.17,,det2,0.43,"[388, 118, 437, 170]",,1
+medium,edge+cap,4A8B_window_light_occl_02,seed8,orange,"[394, 131, 462, 205]",0.99,bottom_inferred+occluded+top_inferred,det2,0.21,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+medium,edge+cap,4A8B_window_light_occl_01,seed14,orange,"[373, 135, 453, 228]",0.98,occluded,det2,0.43,"[340, 139, 423, 229]",,0
+medium,all,4A8B_window_light_cluster_02,seed2,orange,"[328, 120, 377, 169]",1.01,occluded,det2,0.32,"[306, 119, 351, 170]",,0
+medium,all,4A8B_window_light_cluster_01,seed3,blue,"[363, 120, 421, 171]",1.17,,det2,0.43,"[388, 118, 437, 170]",,1
+medium,all,4A8B_window_light_touch_02,seed3,orange,"[236, 123, 323, 172]",1.74,occluded,det2,0.54,"[240, 122, 289, 174]",,0
+medium,all,4A8B_window_light_cluster_02,seed4,orange,"[307, 121, 387, 168]",1.67,occluded,det2,0.52,"[306, 119, 351, 170]",,0
+medium,all,4A8B_window_light_occl_02,seed6,orange,"[362, 118, 442, 152]",2.04,occluded,det2,0.49,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+medium,all,4A8B_window_light_cluster_02,seed7,blue,"[335, 120, 382, 166]",1.0,occluded,det2,0.48,"[351, 119, 398, 167]",,1
+medium,all,4A8B_window_light_cluster_02,seed7,blue,"[377, 120, 425, 165]",1.04,occluded,det2,0.27,"[351, 119, 398, 167]",,1
+medium,all,4A8B_window_light_cluster_01,seed8,orange,"[345, 118, 425, 162]",1.79,occluded,det2,0.48,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+medium,all,4A8B_window_light_occl_02,seed8,orange,"[394, 131, 462, 205]",0.99,bottom_inferred+occluded+top_inferred,det2,0.21,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+medium,all,4A8B_window_light_cluster_02,seed9,blue,"[346, 121, 429, 163]",1.83,occluded,det2,0.52,"[351, 119, 398, 167]",,0
+medium,all,4A8B_window_light_occl_02,seed9,orange,"[362, 118, 442, 152]",2.04,occluded,det2,0.49,"[395, 114, 441, 158]",bottom_estimated+occluded,1
+medium,all,4A8B_window_light_touch_02,seed9,orange,"[176, 124, 227, 174]",1.0,occluded,det2,0.19,"[148, 121, 192, 176]",occluded,1
+medium,all,4A8B_window_light_cluster_02,seed11,orange,"[304, 121, 387, 168]",1.73,occluded,det2,0.52,"[306, 119, 351, 170]",,0
+medium,all,4A8B_window_light_close_02,seed12,blue,"[354, 142, 436, 232]",0.98,occluded,det2,0.29,"[308, 141, 392, 231]",,0
+medium,all,4A8B_window_light_touch_02,seed12,orange,"[112, 124, 201, 171]",1.79,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+medium,all,4A8B_window_light_cluster_02,seed14,orange,"[332, 121, 381, 168]",1.02,occluded,det2,0.24,"[306, 119, 351, 170]",,0
+medium,all,4A8B_window_light_touch_02,seed15,orange,"[127, 123, 179, 175]",1.0,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+medium,all,4A8B_window_light_cluster_01,seed16,blue,"[364, 122, 414, 170]",1.02,occluded,det2,0.34,"[388, 118, 437, 170]",,0
+medium,all,4A8B_window_light_close_02,seed18,blue,"[263, 143, 345, 230]",0.99,occluded,det2,0.28,"[308, 141, 392, 231]",,0
+medium,all,4A8B_window_light_touch_02,seed18,orange,"[115, 124, 201, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+"real: HOME, stored model",base,4A8B_window_light_cluster_01,,orange,"[358, 109, 396, 153]",0.95,occluded+top_inferred,det2,0.57,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+"real: HOME, stored model",edge+cap,4A8B_window_light_cluster_01,,orange,"[358, 109, 396, 153]",0.95,occluded+top_inferred,det2,0.57,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+"real: HOME, stored model",all,4A8B_window_light_cluster_01,,orange,"[353, 109, 401, 153]",1.2,occluded+top_inferred,det2,0.56,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_01,seed0,blue,"[346, 119, 396, 172]",1.0,occluded,det2,0.55,"[331, 119, 382, 171]",,0
+only stripe_highlight,base,4A8B_window_light_cluster_01,seed1,blue,"[350, 119, 408, 172]",1.16,,det2,0.41,"[331, 119, 382, 171]",,0
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed1,orange,"[371, 116, 413, 161]",0.95,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,base,4A8B_window_light_touch_02,seed2,orange,"[169, 122, 220, 176]",0.97,occluded,det2,0.32,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed3,orange,"[373, 116, 416, 161]",0.97,occluded,det2,0.43,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed5,orange,"[371, 116, 413, 161]",0.95,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_01,seed6,blue,"[313, 120, 354, 172]",0.82,occluded,det2,0.32,"[331, 119, 382, 171]",,0
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed6,blue,"[333, 119, 380, 167]",0.99,occluded,det2,0.45,"[351, 119, 398, 167]",,1
+only stripe_highlight,base,4A8B_window_light_touch_02,seed10,orange,"[168, 122, 219, 176]",0.97,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed12,blue,"[328, 119, 375, 167]",0.99,occluded,det2,0.34,"[351, 119, 398, 167]",,1
+only stripe_highlight,base,4A8B_window_light_far_02,seed12,orange,"[229, 105, 260, 135]",1.03,occluded,det2,0.36,"[244, 105, 273, 135]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed13,orange,"[372, 116, 414, 161]",0.95,occluded,det2,0.39,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed15,orange,"[370, 116, 412, 161]",0.95,occluded,det2,0.34,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,base,4A8B_window_light_cluster_02,seed16,blue,"[371, 119, 419, 167]",1.01,occluded,det2,0.4,"[351, 119, 398, 167]",,0
+only stripe_highlight,base,4A8B_window_light_touch_02,seed16,orange,"[167, 122, 218, 176]",0.97,occluded,det2,0.35,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,base,4A8B_window_light_touch_02,seed17,orange,"[166, 122, 217, 176]",0.97,occluded,det2,0.37,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_01,seed0,blue,"[346, 119, 396, 172]",1.0,occluded,det2,0.55,"[331, 119, 382, 171]",,0
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_01,seed1,blue,"[350, 119, 408, 172]",1.16,,det2,0.41,"[331, 119, 382, 171]",,0
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed1,orange,"[371, 116, 413, 161]",0.95,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_touch_02,seed2,orange,"[169, 122, 220, 176]",0.97,occluded,det2,0.32,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed3,orange,"[373, 116, 416, 161]",0.97,occluded,det2,0.43,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed5,orange,"[371, 116, 413, 161]",0.95,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_01,seed6,blue,"[313, 120, 354, 172]",0.82,occluded,det2,0.32,"[331, 119, 382, 171]",,0
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed6,blue,"[333, 119, 380, 167]",0.99,occluded,det2,0.45,"[351, 119, 398, 167]",,1
+only stripe_highlight,edge+cap,4A8B_window_light_touch_02,seed10,orange,"[168, 122, 219, 176]",0.97,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_01,seed12,blue,"[317, 120, 370, 170]",1.08,bottom_inferred+occluded,det3,0.58,"[331, 119, 382, 171]",,0
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed12,blue,"[328, 119, 375, 167]",0.99,occluded,det2,0.34,"[351, 119, 398, 167]",,1
+only stripe_highlight,edge+cap,4A8B_window_light_far_02,seed12,orange,"[229, 105, 260, 135]",1.03,occluded,det2,0.36,"[244, 105, 273, 135]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed13,orange,"[372, 116, 414, 161]",0.95,occluded,det2,0.39,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed15,orange,"[370, 116, 412, 161]",0.95,occluded,det2,0.34,"[390, 116, 432, 163]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_cluster_02,seed16,blue,"[371, 119, 419, 167]",1.01,occluded,det2,0.4,"[351, 119, 398, 167]",,0
+only stripe_highlight,edge+cap,4A8B_window_light_touch_02,seed16,orange,"[167, 122, 218, 176]",0.97,occluded,det2,0.35,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,edge+cap,4A8B_window_light_touch_02,seed17,orange,"[166, 122, 217, 176]",0.97,occluded,det2,0.37,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed0,blue,"[346, 119, 396, 172]",1.0,occluded,det2,0.55,"[331, 119, 382, 171]",,0
+only stripe_highlight,all,4A8B_window_light_core_02,seed0,orange,"[369, 122, 455, 171]",1.73,occluded,det2,0.54,"[368, 120, 418, 173]",,0
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed1,blue,"[350, 119, 408, 172]",1.16,,det2,0.41,"[331, 119, 382, 171]",,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed1,orange,"[115, 123, 199, 173]",1.66,occluded,det2,0.5,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,all,4A8B_window_light_far_02,seed2,orange,"[241, 106, 294, 134]",1.78,occluded,det2,0.53,"[244, 105, 273, 135]",occluded,0
+only stripe_highlight,all,4A8B_window_light_edge_01,seed3,blue,"[0, 133, 17, 198]",0.26,occluded+truncated,det2,0.5,"[0, 133, 34, 198]",truncated,0
+only stripe_highlight,all,4A8B_window_light_edge_01,seed4,blue,"[0, 133, 17, 198]",0.26,occluded+truncated,det2,0.5,"[0, 133, 34, 198]",truncated,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed4,orange,"[200, 123, 251, 174]",1.0,occluded,det2,0.12,"[240, 122, 289, 174]",,0
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed5,blue,"[368, 121, 419, 170]",1.04,occluded,det2,0.43,"[388, 118, 437, 170]",,1
+only stripe_highlight,all,4A8B_window_light_touch_02,seed5,orange,"[113, 123, 199, 173]",1.7,occluded,det2,0.49,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,all,4A8B_window_light_touch_02,seed5,orange,"[203, 123, 254, 174]",1.0,occluded,det2,0.16,"[240, 122, 289, 174]",,0
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed6,blue,"[313, 120, 354, 172]",0.82,occluded,det2,0.32,"[331, 119, 382, 171]",,0
+only stripe_highlight,all,4A8B_window_light_core_01,seed6,orange,"[256, 122, 307, 174]",1.0,occluded,det2,0.17,"[292, 121, 342, 176]",,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed6,orange,"[198, 123, 249, 173]",1.01,occluded,det2,0.1,"[240, 122, 289, 174]",,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed7,orange,"[109, 123, 199, 171]",1.81,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed8,blue,"[339, 121, 415, 171]",1.53,occluded,det2,0.5,"[331, 119, 382, 171]",,0
+only stripe_highlight,all,4A8B_window_light_edge_01,seed8,blue,"[0, 133, 13, 198]",0.2,occluded+truncated,det2,0.38,"[0, 133, 34, 198]",truncated,0
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed10,blue,"[297, 120, 347, 170]",1.02,occluded,det2,0.18,"[331, 119, 382, 171]",,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed10,orange,"[202, 123, 253, 174]",1.0,occluded,det2,0.15,"[240, 122, 289, 174]",,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed11,orange,"[115, 123, 199, 173]",1.66,occluded,det2,0.5,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,all,4A8B_window_light_far_02,seed12,blue,"[191, 111, 255, 142]",1.89,occluded,det2,0.45,"[218, 106, 250, 144]",,1
+only stripe_highlight,all,4A8B_window_light_far_02,seed12,orange,"[229, 105, 260, 135]",1.03,occluded,det2,0.36,"[244, 105, 273, 135]",occluded,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed12,orange,"[111, 123, 199, 172]",1.76,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+only stripe_highlight,all,4A8B_window_light_far_02,seed13,orange,"[241, 106, 295, 134]",1.82,occluded,det2,0.52,"[244, 105, 273, 135]",occluded,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed13,orange,"[204, 122, 255, 174]",1.0,occluded,det2,0.18,"[240, 122, 289, 174]",,0
+only stripe_highlight,all,4A8B_window_light_edge_01,seed14,blue,"[0, 133, 17, 198]",0.26,occluded+truncated,det2,0.5,"[0, 133, 34, 198]",truncated,0
+only stripe_highlight,all,4A8B_window_light_touch_02,seed14,orange,"[200, 123, 251, 174]",1.0,occluded,det2,0.12,"[240, 122, 289, 174]",,0
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed16,blue,"[354, 120, 402, 169]",0.99,occluded,det2,0.38,"[331, 119, 382, 171]",,1
+only stripe_highlight,all,4A8B_window_light_far_02,seed16,orange,"[241, 107, 296, 134]",1.85,occluded,det2,0.5,"[244, 105, 273, 135]",occluded,0
+only stripe_highlight,all,4A8B_window_light_core_02,seed18,blue,"[384, 122, 466, 172]",1.64,occluded,det2,0.51,"[419, 120, 471, 175]",,0
+only stripe_highlight,all,4A8B_window_light_cluster_01,seed19,blue,"[294, 121, 344, 169]",1.03,occluded,det2,0.14,"[331, 119, 382, 171]",,0
+bad day without top_highlight,base,4A8B_window_light_cluster_02,seed1,orange,"[370, 117, 414, 160]",1.01,occluded,det2,0.36,"[390, 116, 432, 163]",occluded,1
+bad day without top_highlight,base,4A8B_window_light_touch_02,seed2,orange,"[168, 123, 219, 175]",0.98,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+bad day without top_highlight,base,4A8B_window_light_cluster_02,seed5,orange,"[371, 117, 414, 160]",0.99,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+bad day without top_highlight,base,4A8B_window_light_cluster_01,seed8,orange,"[315, 118, 366, 158]",1.2,bottom_inferred+occluded,det3,0.65,"[313, 115, 356, 164]",occluded,1
+bad day without top_highlight,base,4A8B_window_light_cluster_01,seed10,orange,"[359, 109, 398, 151]",1.01,bottom_inferred+occluded+top_inferred,det2,0.58,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+bad day without top_highlight,base,4A8B_window_light_touch_02,seed13,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+bad day without top_highlight,edge+cap,4A8B_window_light_cluster_02,seed1,orange,"[370, 117, 414, 160]",1.01,occluded,det2,0.36,"[390, 116, 432, 163]",occluded,1
+bad day without top_highlight,edge+cap,4A8B_window_light_touch_02,seed2,orange,"[168, 123, 219, 175]",0.98,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+bad day without top_highlight,edge+cap,4A8B_window_light_cluster_02,seed5,orange,"[371, 117, 414, 160]",0.99,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+bad day without top_highlight,edge+cap,4A8B_window_light_cluster_01,seed8,orange,"[315, 118, 366, 158]",1.2,bottom_inferred+occluded,det3,0.65,"[313, 115, 356, 164]",occluded,1
+bad day without top_highlight,edge+cap,4A8B_window_light_cluster_01,seed10,orange,"[359, 109, 398, 151]",1.01,bottom_inferred+occluded+top_inferred,det2,0.58,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+bad day without top_highlight,edge+cap,4A8B_window_light_touch_02,seed13,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed2,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed5,orange,"[160, 123, 212, 175]",1.0,occluded,det2,0.48,"[148, 121, 192, 176]",occluded,1
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed5,orange,"[204, 124, 255, 173]",1.01,occluded,det2,0.17,"[240, 122, 289, 174]",,0
+bad day without top_highlight,all,4A8B_window_light_edge_01,seed8,blue,"[0, 135, 14, 197]",0.22,occluded+truncated,det2,0.39,"[0, 133, 34, 198]",truncated,0
+bad day without top_highlight,all,4A8B_window_light_cluster_01,seed10,blue,"[299, 122, 385, 168]",1.79,occluded,det2,0.55,"[331, 119, 382, 171]",,0
+bad day without top_highlight,all,4A8B_window_light_cluster_01,seed10,orange,"[354, 109, 403, 151]",1.26,bottom_inferred+occluded+top_inferred,det2,0.52,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed10,orange,"[203, 124, 254, 173]",1.01,occluded,det2,0.16,"[240, 122, 289, 174]",,0
+bad day without top_highlight,all,4A8B_window_light_cluster_02,seed11,orange,"[339, 121, 388, 168]",1.02,occluded,det2,0.14,"[306, 119, 351, 170]",,0
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed11,orange,"[236, 124, 325, 171]",1.79,occluded,det2,0.52,"[240, 122, 289, 174]",,0
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed12,orange,"[112, 124, 200, 170]",1.79,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed13,orange,"[205, 124, 256, 173]",1.01,occluded,det2,0.18,"[240, 122, 289, 174]",,0
+bad day without top_highlight,all,4A8B_window_light_touch_02,seed16,orange,"[236, 124, 325, 171]",1.79,occluded,det2,0.52,"[240, 122, 289, 174]",,0
+bad day without erode_px,base,4A8B_window_light_cluster_02,seed0,blue,"[333, 119, 380, 167]",0.99,occluded,det2,0.45,"[351, 119, 398, 167]",,1
+bad day without erode_px,base,4A8B_window_light_cluster_02,seed4,blue,"[331, 119, 378, 167]",0.99,occluded,det2,0.4,"[351, 119, 398, 167]",,1
+bad day without erode_px,base,4A8B_window_light_touch_02,seed4,orange,"[164, 122, 215, 176]",0.97,occluded,det2,0.41,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,base,4A8B_window_light_cluster_02,seed9,orange,"[372, 116, 414, 161]",0.95,occluded,det2,0.39,"[390, 116, 432, 163]",occluded,1
+bad day without erode_px,base,4A8B_window_light_cluster_01,seed11,blue,"[346, 119, 403, 172]",1.14,occluded,det2,0.49,"[331, 119, 382, 171]",,1
+bad day without erode_px,base,4A8B_window_light_cluster_01,seed13,blue,"[351, 119, 401, 172]",1.0,occluded,det2,0.44,"[331, 119, 382, 171]",,0
+bad day without erode_px,base,4A8B_window_light_touch_02,seed13,orange,"[168, 122, 219, 176]",0.97,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,base,4A8B_window_light_touch_02,seed14,orange,"[168, 122, 219, 176]",0.97,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,base,4A8B_window_light_cluster_02,seed15,orange,"[371, 116, 413, 161]",0.95,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+bad day without erode_px,base,4A8B_window_light_cluster_01,seed19,blue,"[350, 119, 408, 172]",1.16,,det2,0.41,"[331, 119, 382, 171]",,1
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_02,seed0,blue,"[333, 119, 380, 167]",0.99,occluded,det2,0.45,"[351, 119, 398, 167]",,1
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_02,seed4,blue,"[331, 119, 378, 167]",0.99,occluded,det2,0.4,"[351, 119, 398, 167]",,1
+bad day without erode_px,edge+cap,4A8B_window_light_touch_02,seed4,orange,"[164, 122, 215, 176]",0.97,occluded,det2,0.41,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_01,seed8,blue,"[313, 123, 370, 169]",1.18,bottom_inferred+occluded,det3,0.52,"[331, 119, 382, 171]",,0
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_02,seed9,orange,"[372, 116, 414, 161]",0.95,occluded,det2,0.39,"[390, 116, 432, 163]",occluded,1
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_01,seed11,blue,"[346, 119, 403, 172]",1.14,occluded,det2,0.49,"[331, 119, 382, 171]",,0
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_01,seed13,blue,"[351, 119, 401, 172]",1.0,occluded,det2,0.44,"[331, 119, 382, 171]",,0
+bad day without erode_px,edge+cap,4A8B_window_light_touch_02,seed13,orange,"[168, 122, 219, 176]",0.97,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,edge+cap,4A8B_window_light_touch_02,seed14,orange,"[168, 122, 219, 176]",0.97,occluded,det2,0.33,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_02,seed15,orange,"[371, 116, 413, 161]",0.95,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+bad day without erode_px,edge+cap,4A8B_window_light_cluster_01,seed19,blue,"[350, 119, 408, 172]",1.16,,det2,0.41,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_core_02,seed0,orange,"[369, 122, 455, 171]",1.73,occluded,det2,0.54,"[368, 120, 418, 173]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed0,orange,"[241, 107, 296, 134]",1.85,occluded,det2,0.5,"[244, 105, 273, 135]",occluded,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed0,orange,"[199, 123, 250, 173]",1.01,occluded,det2,0.11,"[240, 122, 289, 174]",,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed1,orange,"[199, 123, 250, 173]",1.01,occluded,det2,0.11,"[240, 122, 289, 174]",,0
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed2,blue,"[351, 121, 436, 168]",1.77,occluded,det2,0.53,"[388, 118, 437, 170]",,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed2,orange,"[110, 123, 199, 172]",1.78,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,all,4A8B_window_light_touch_02,seed2,orange,"[198, 123, 249, 173]",1.01,occluded,det2,0.1,"[240, 122, 289, 174]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed3,orange,"[241, 107, 296, 134]",1.85,occluded,det2,0.5,"[244, 105, 273, 135]",occluded,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed3,orange,"[111, 123, 199, 172]",1.76,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed4,blue,"[297, 120, 382, 170]",1.73,occluded,det2,0.59,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed4,orange,"[202, 123, 253, 174]",1.0,occluded,det2,0.15,"[240, 122, 289, 174]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed5,blue,"[191, 111, 255, 142]",1.89,occluded,det2,0.45,"[218, 106, 250, 144]",,1
+bad day without erode_px,all,4A8B_window_light_edge_01,seed6,blue,"[0, 133, 15, 198]",0.23,occluded+truncated,det2,0.44,"[0, 133, 34, 198]",truncated,0
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed7,orange,"[378, 117, 421, 163]",0.95,occluded,det2,0.37,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed8,blue,"[298, 120, 348, 170]",1.02,occluded,det2,0.2,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed8,blue,"[191, 111, 255, 143]",1.86,occluded,det2,0.46,"[218, 106, 250, 144]",,1
+bad day without erode_px,all,4A8B_window_light_far_02,seed8,orange,"[241, 107, 296, 134]",1.85,occluded,det2,0.5,"[244, 105, 273, 135]",occluded,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed9,orange,"[109, 123, 199, 171]",1.81,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,all,4A8B_window_light_touch_02,seed10,orange,"[113, 123, 199, 173]",1.7,occluded,det2,0.49,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed11,blue,"[300, 120, 371, 171]",1.43,occluded,det2,0.48,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_edge_01,seed11,blue,"[0, 133, 17, 198]",0.26,occluded+truncated,det2,0.5,"[0, 133, 34, 198]",truncated,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed11,blue,"[191, 111, 255, 143]",1.86,occluded,det2,0.46,"[218, 106, 250, 144]",,1
+bad day without erode_px,all,4A8B_window_light_edge_01,seed12,blue,"[0, 133, 16, 198]",0.25,occluded+truncated,det2,0.47,"[0, 133, 34, 198]",truncated,0
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed13,blue,"[351, 119, 401, 172]",1.0,occluded,det2,0.44,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_edge_01,seed13,blue,"[0, 133, 15, 198]",0.23,occluded+truncated,det2,0.44,"[0, 133, 34, 198]",truncated,0
+bad day without erode_px,all,4A8B_window_light_core_02,seed14,orange,"[369, 121, 453, 172]",1.68,occluded,det2,0.56,"[368, 120, 418, 173]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed14,orange,"[241, 106, 294, 134]",1.78,occluded,det2,0.53,"[244, 105, 273, 135]",occluded,0
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed15,blue,"[300, 120, 362, 171]",1.25,occluded,det2,0.37,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_edge_01,seed15,blue,"[0, 133, 14, 198]",0.22,occluded+truncated,det2,0.41,"[0, 133, 34, 198]",truncated,0
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed16,blue,"[297, 120, 371, 170]",1.51,occluded,det2,0.46,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed17,blue,"[191, 111, 255, 143]",1.86,occluded,det2,0.46,"[218, 106, 250, 144]",,1
+bad day without erode_px,all,4A8B_window_light_touch_02,seed17,orange,"[198, 123, 249, 173]",1.01,occluded,det2,0.1,"[240, 122, 289, 174]",,0
+bad day without erode_px,all,4A8B_window_light_far_02,seed18,orange,"[241, 106, 295, 134]",1.82,occluded,det2,0.52,"[244, 105, 273, 135]",occluded,0
+bad day without erode_px,all,4A8B_window_light_touch_02,seed18,orange,"[113, 123, 199, 173]",1.7,occluded,det2,0.49,"[148, 121, 192, 176]",occluded,1
+bad day without erode_px,all,4A8B_window_light_cluster_01,seed19,blue,"[350, 119, 408, 172]",1.16,,det2,0.41,"[331, 119, 382, 171]",,0
+bad day without erode_px,all,4A8B_window_light_core_02,seed19,orange,"[369, 121, 454, 171]",1.71,occluded,det2,0.55,"[368, 120, 418, 173]",,0
+bad day without dropout,base,4A8B_window_light_cluster_02,seed0,orange,"[368, 117, 411, 160]",0.99,occluded,det2,0.31,"[390, 116, 432, 163]",occluded,1
+bad day without dropout,base,4A8B_window_light_touch_02,seed1,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,base,4A8B_window_light_cluster_02,seed4,orange,"[370, 117, 413, 160]",0.99,occluded,det2,0.35,"[390, 116, 432, 163]",occluded,1
+bad day without dropout,base,4A8B_window_light_touch_02,seed11,orange,"[170, 123, 221, 175]",0.98,occluded,det2,0.29,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,base,4A8B_window_light_cluster_02,seed15,orange,"[370, 117, 414, 160]",1.01,occluded,det2,0.36,"[390, 116, 432, 163]",occluded,1
+bad day without dropout,edge+cap,4A8B_window_light_cluster_02,seed0,orange,"[368, 117, 411, 160]",0.99,occluded,det2,0.31,"[390, 116, 432, 163]",occluded,1
+bad day without dropout,edge+cap,4A8B_window_light_touch_02,seed1,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,edge+cap,4A8B_window_light_cluster_02,seed4,orange,"[370, 117, 413, 160]",0.99,occluded,det2,0.35,"[390, 116, 432, 163]",occluded,1
+bad day without dropout,edge+cap,4A8B_window_light_touch_02,seed11,orange,"[170, 123, 221, 175]",0.98,occluded,det2,0.29,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,edge+cap,4A8B_window_light_cluster_02,seed15,orange,"[370, 117, 414, 160]",1.01,occluded,det2,0.36,"[390, 116, 432, 163]",occluded,1
+bad day without dropout,all,4A8B_window_light_cluster_02,seed1,blue,"[346, 121, 427, 164]",1.77,occluded,det2,0.54,"[351, 119, 398, 167]",,0
+bad day without dropout,all,4A8B_window_light_cluster_02,seed3,blue,"[346, 121, 428, 164]",1.79,occluded,det2,0.54,"[351, 119, 398, 167]",,0
+bad day without dropout,all,4A8B_window_light_touch_02,seed3,orange,"[112, 124, 200, 170]",1.79,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,all,4A8B_window_light_touch_02,seed4,orange,"[203, 124, 254, 173]",1.01,occluded,det2,0.16,"[240, 122, 289, 174]",,0
+bad day without dropout,all,4A8B_window_light_touch_02,seed5,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+bad day without dropout,all,4A8B_window_light_edge_01,seed6,blue,"[0, 135, 16, 197]",0.25,occluded+truncated,det2,0.45,"[0, 133, 34, 198]",truncated,0
+bad day without dropout,all,4A8B_window_light_cluster_01,seed7,orange,"[377, 118, 422, 162]",1.01,occluded,det2,0.37,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+bad day without dropout,all,4A8B_window_light_core_01,seed7,orange,"[256, 123, 345, 170]",1.81,occluded,det2,0.51,"[292, 121, 342, 176]",,1
+bad day without dropout,all,4A8B_window_light_touch_02,seed7,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+bad day without dropout,all,4A8B_window_light_cluster_01,seed8,blue,"[301, 121, 384, 169]",1.71,occluded,det2,0.58,"[331, 119, 382, 171]",,0
+bad day without dropout,all,4A8B_window_light_touch_02,seed8,orange,"[236, 123, 323, 172]",1.74,occluded,det2,0.54,"[240, 122, 289, 174]",,0
+bad day without dropout,all,4A8B_window_light_touch_02,seed10,orange,"[114, 124, 200, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,all,4A8B_window_light_edge_01,seed12,blue,"[0, 135, 17, 197]",0.27,occluded+truncated,det2,0.48,"[0, 133, 34, 198]",truncated,0
+bad day without dropout,all,4A8B_window_light_edge_01,seed13,blue,"[0, 135, 16, 197]",0.25,occluded+truncated,det2,0.45,"[0, 133, 34, 198]",truncated,0
+bad day without dropout,all,4A8B_window_light_edge_01,seed15,blue,"[0, 135, 15, 197]",0.23,occluded+truncated,det2,0.42,"[0, 133, 34, 198]",truncated,0
+bad day without dropout,all,4A8B_window_light_cluster_01,seed18,blue,"[386, 121, 472, 164]",1.88,occluded,det2,0.51,"[388, 118, 437, 170]",,1
+bad day without dropout,all,4A8B_window_light_touch_02,seed18,orange,"[114, 124, 200, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+bad day without dropout,all,4A8B_window_light_cluster_02,seed19,blue,"[346, 121, 429, 164]",1.81,occluded,det2,0.53,"[351, 119, 398, 167]",,0
+bad day without speckle,base,4A8B_window_light_cluster_02,seed0,orange,"[368, 117, 411, 160]",0.99,occluded,det2,0.31,"[390, 116, 432, 163]",occluded,1
+bad day without speckle,base,4A8B_window_light_touch_02,seed1,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,base,4A8B_window_light_cluster_02,seed4,orange,"[370, 117, 413, 160]",0.99,occluded,det2,0.35,"[390, 116, 432, 163]",occluded,1
+bad day without speckle,base,4A8B_window_light_touch_02,seed11,orange,"[170, 123, 221, 175]",0.98,occluded,det2,0.29,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,base,4A8B_window_light_cluster_02,seed15,orange,"[371, 117, 414, 160]",0.99,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+bad day without speckle,edge+cap,4A8B_window_light_cluster_02,seed0,orange,"[368, 117, 411, 160]",0.99,occluded,det2,0.31,"[390, 116, 432, 163]",occluded,1
+bad day without speckle,edge+cap,4A8B_window_light_touch_02,seed1,orange,"[172, 123, 223, 175]",0.98,occluded,det2,0.26,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,edge+cap,4A8B_window_light_cluster_02,seed4,orange,"[370, 117, 413, 160]",0.99,occluded,det2,0.35,"[390, 116, 432, 163]",occluded,1
+bad day without speckle,edge+cap,4A8B_window_light_touch_02,seed11,orange,"[170, 123, 221, 175]",0.98,occluded,det2,0.29,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,edge+cap,4A8B_window_light_cluster_02,seed15,orange,"[371, 117, 414, 160]",0.99,occluded,det2,0.37,"[390, 116, 432, 163]",occluded,1
+bad day without speckle,all,4A8B_window_light_cluster_02,seed1,blue,"[346, 121, 427, 164]",1.77,occluded,det2,0.54,"[351, 119, 398, 167]",,0
+bad day without speckle,all,4A8B_window_light_cluster_02,seed3,blue,"[346, 121, 428, 164]",1.79,occluded,det2,0.54,"[351, 119, 398, 167]",,0
+bad day without speckle,all,4A8B_window_light_touch_02,seed3,orange,"[112, 124, 200, 170]",1.79,occluded,det2,0.46,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,all,4A8B_window_light_touch_02,seed4,orange,"[203, 124, 254, 173]",1.01,occluded,det2,0.16,"[240, 122, 289, 174]",,0
+bad day without speckle,all,4A8B_window_light_touch_02,seed5,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+bad day without speckle,all,4A8B_window_light_edge_01,seed6,blue,"[0, 135, 16, 197]",0.25,occluded+truncated,det2,0.45,"[0, 133, 34, 198]",truncated,0
+bad day without speckle,all,4A8B_window_light_cluster_01,seed7,orange,"[377, 118, 422, 162]",1.01,occluded,det2,0.37,"[361, 117, 400, 163]",bottom_estimated+occluded,1
+bad day without speckle,all,4A8B_window_light_touch_02,seed7,orange,"[236, 124, 326, 171]",1.81,occluded,det2,0.51,"[240, 122, 289, 174]",,0
+bad day without speckle,all,4A8B_window_light_cluster_01,seed8,blue,"[301, 121, 384, 169]",1.71,occluded,det2,0.58,"[331, 119, 382, 171]",,0
+bad day without speckle,all,4A8B_window_light_touch_02,seed8,orange,"[236, 123, 323, 172]",1.74,occluded,det2,0.54,"[240, 122, 289, 174]",,0
+bad day without speckle,all,4A8B_window_light_touch_02,seed10,orange,"[114, 124, 200, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,all,4A8B_window_light_edge_01,seed12,blue,"[0, 135, 17, 197]",0.27,occluded+truncated,det2,0.48,"[0, 133, 34, 198]",truncated,0
+bad day without speckle,all,4A8B_window_light_edge_01,seed13,blue,"[0, 135, 16, 197]",0.25,occluded+truncated,det2,0.45,"[0, 133, 34, 198]",truncated,0
+bad day without speckle,all,4A8B_window_light_edge_01,seed15,blue,"[0, 135, 15, 197]",0.23,occluded+truncated,det2,0.42,"[0, 133, 34, 198]",truncated,0
+bad day without speckle,all,4A8B_window_light_cluster_01,seed18,blue,"[386, 121, 472, 164]",1.88,occluded,det2,0.51,"[388, 118, 437, 170]",,1
+bad day without speckle,all,4A8B_window_light_touch_02,seed18,orange,"[114, 124, 200, 171]",1.73,occluded,det2,0.47,"[148, 121, 192, 176]",occluded,1
+bad day without speckle,all,4A8B_window_light_cluster_02,seed19,blue,"[346, 121, 429, 164]",1.81,occluded,det2,0.53,"[351, 119, 398, 167]",,0

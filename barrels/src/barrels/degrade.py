@@ -20,7 +20,8 @@ the same thing for a near barrel and a far one. Six fields, applied in this orde
 6. ``speckle`` n              n specks of barrel color (2 or 3 px squares, random color) on the table: below the
    color gate row, at least 4 px outside every box.
 
-``SEVERITIES`` names three levels; ``SINGLE`` has one kind at a time. ``damage(mask, boxes, d, seed)`` is a pure
+``SEVERITIES`` names three made-up levels; ``SINGLE`` has one kind at a time; ``REALISTIC`` and ``WORST_SEEN``
+are levels measured on real white-table segmentation (2026-11-19), under their own names. ``damage(mask, boxes, d, seed)`` is a pure
 function of its arguments.
 """
 from __future__ import annotations
@@ -54,6 +55,22 @@ SEVERITIES = {
     "medium": Damage(top_highlight=(0.5, 0.3), stripe_highlight=0.15, stripe_breaks=(1, 0.06), erode_px=1, dropout=0.05, speckle=15),
     "heavy": Damage(top_highlight=(0.7, 0.4), stripe_highlight=0.3, stripe_breaks=(2, 0.08), erode_px=2, dropout=0.10, speckle=30),
 }
+# Levels MEASURED on real segmentation (2026-11-19, experiments/2026-11-19_damage_realism; results/.../measured.md).
+# Separate from SEVERITIES on purpose: the three made-up levels and every earlier result stay as they are.
+# The two of REALISTIC follow a rule fixed before the measurement: every field is the median ("typical") or the
+# 90th percentile ("bad day") over the free-standing barrels of the HOME train frames, segmented as the eval table
+# does and compared with the hand-made masks. "Bad day" puts the 90th percentile of every kind on every barrel at
+# once, so it is harsher than a 90th-percentile barrel.
+REALISTIC = {
+    "white tables, typical": Damage(erode_px=1, speckle=6),
+    "white tables, bad day": Damage(top_highlight=(0.16, 0.09), stripe_highlight=0.06, erode_px=1, dropout=0.005, speckle=20),
+}
+# Not from the rule (added after the measurement, report only): the worst single barrel or frame seen on HOME or
+# CAMPUS for each kind, all at once on every barrel. No real barrel looks like this; it bounds the white tables.
+WORST_SEEN = {
+    "white tables, worst seen": Damage(top_highlight=(0.41, 0.30), stripe_highlight=0.40, stripe_breaks=(1, 0.03), erode_px=1, dropout=0.014, speckle=37),
+}
+LEVELS = {**SEVERITIES, **REALISTIC, **WORST_SEEN}      # every named level, by name
 # one kind at a time: which damage is the one that hurts
 SINGLE = {
     "top highlight 0.5 x 0.3": Damage(top_highlight=(0.5, 0.3)),

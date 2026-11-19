@@ -130,7 +130,7 @@ def sources():
         return [(s, f"seed{seed}", dg.damage(hand[s], boxes[s], d, seed=1000 * seed + i)) for seed in SEEDS for i, s in enumerate(home)]
 
     sims = {f"simulated: {k}": sim(d) for k, d in dg.SEVERITIES.items()}
-    sims.update({f"simulated: {k}": sim(d) for k, d in getattr(dg, "REALISTIC", {}).items()})
+    sims.update({f"simulated: {k}": sim(d) for k, d in {**getattr(dg, "REALISTIC", {}), **getattr(dg, "WORST_SEEN", {})}.items()})
     real_home = {"HOME, stored model": [(s, "", stored[s]) for s in home],
                  "HOME, leave-one-scene-out": [(s, "", segs["HOME color model"][s]) for s in home]}
     mask_src = {**real_home, **sims}
@@ -273,7 +273,7 @@ def measure(out: Path) -> None:
          "setting, then what the same instrument reads back from the simulated masks (median / 90th percentile; 5 seeds).", "",
          "| kind of damage | " + " | ".join(reals) + " | " + " | ".join(s.replace("simulated: ", "") for s in sims) + " |",
          "|---|" + "---|" * (len(reals) + len(sims))]
-    all_levels = {**dg.SEVERITIES, **getattr(dg, "REALISTIC", {})}
+    all_levels = {**dg.SEVERITIES, **getattr(dg, "REALISTIC", {}), **getattr(dg, "WORST_SEEN", {})}
     for label, field, fmt, key in MASK_ROWS:
         cells = [tri(of(brow, k), field, fmt) for k in reals]
         for s in sims:
@@ -381,7 +381,7 @@ def arms(out: Path) -> None:
     bad = dg.REALISTIC[BAD]
     kinds = one_at_a_time(bad)
     levels = [("perfect masks (HOME)", [(s, "", hand[s]) for s in home], None)]
-    levels += [(k, sim(d, SEEDS), sim(d, MORE_SEEDS)) for k, d in {**dg.REALISTIC, **dg.SEVERITIES}.items()]
+    levels += [(k, sim(d, SEEDS), sim(d, MORE_SEEDS)) for k, d in {**dg.REALISTIC, **dg.WORST_SEEN, **dg.SEVERITIES}.items()]
     levels += [("real: HOME, leave-one-scene-out", mask_src["HOME, leave-one-scene-out"], None), ("real: HOME, stored model", mask_src["HOME, stored model"], None),
                ("real: CAMPUS", box_src["CAMPUS"], None)]
     levels += [(k, sim(d, SEEDS), sim(d, MORE_SEEDS)) for k, d in kinds.items()]
@@ -389,7 +389,7 @@ def arms(out: Path) -> None:
     cells, more, false_rows, causes = {}, {}, [], {}
     for name, items, items20 in levels:
         for a in ARMS:
-            sheets = out / "false_sheets" if name in dg.REALISTIC or name.startswith("real") else None
+            sheets = out / "false_sheets" if name in dg.REALISTIC or name in dg.WORST_SEEN or name.startswith("real") else None
             cells[(name, a)], f5, causes[(name, a)] = run_items(name, a, items, images, None if items20 is not None else sheets)
             if items20 is not None:
                 more[(name, a)], f20, _ = run_items(name, a, items20, images, sheets)
@@ -426,13 +426,13 @@ def arms(out: Path) -> None:
     L += table(main_names, cells, f"## {len(SEEDS)} seeds, as in the earlier test (light / medium / heavy must match `results/2026-11-19_det_occl/verdict.md`)")
     L += table(main_names, more, f"## {len(MORE_SEEDS)} seeds (the simulated levels only): the false-box counts on four times as many masks")
     L += ["## What each level is", ""]
-    for k, d in {**dg.REALISTIC, **dg.SEVERITIES}.items():
+    for k, d in {**dg.REALISTIC, **dg.WORST_SEEN, **dg.SEVERITIES}.items():
         L.append(f"- `{k}`: " + (", ".join(f"{a} {b}" for a, b in d.to_dict().items() if b not in (0, 0.0, (0.0, 0.0), (0, 0.0))) or "no damage"))
     L += ["", f"## One measured kind at a time, at its 90th-percentile amount (`{BAD}`), and that level without one kind", ""]
     L += table(list(kinds), cells, f"{len(SEEDS)} seeds:")
     L += table(list(kinds), more, f"{len(MORE_SEEDS)} seeds:")
     L += ["## Which test refused the missed barrels (5 seeds; the detector's reason log)", ""]
-    for n in [TYPICAL, BAD] + list(kinds):
+    for n in [TYPICAL, BAD, *dg.WORST_SEEN] + list(kinds):
         for a in ("edge+cap", "all"):
             cs = causes[(n, a)]
             if cs:
@@ -440,13 +440,13 @@ def arms(out: Path) -> None:
     L += ["", f"## Every false box at the realistic levels and on the real segmentations ({len(MORE_SEEDS)} seeds; sheets in `false_sheets/`)", "",
           "| level | arm | frame | seed | color | box | width / a barrel's | flags | best overlap with a true box of its color | that barrel | also missed |", "|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in false_rows:
-        if r["level"] in dg.REALISTIC or r["level"].startswith("real"):
+        if r["level"] in dg.REALISTIC or r["level"] in dg.WORST_SEEN or r["level"].startswith("real"):
             L.append(f"| {r['level']} | {r['arm']} | {r['stem'].replace('4A8B_window_light_', '').replace('4A8B_', '')} | {r['tag'].replace('seed', '')} | {r['color']} | {r['box']} | "
                      f"{r['box_w_over_expected']} | {r['flags']} | {r['best_overlap_same_color']} | {r['that_truth_box']} {r['that_truth_flags']} | {'yes' if r['that_truth_also_missed'] else 'no'} |")
     (out / "levels.md").write_text("\n".join(L) + "\n")
     json.dump({"git": bcv.git_hash(), "camera": "AIM_4A8B6118_BOXFIT", "model": str(Path(wb.DEFAULT_MODEL).relative_to(PKG_ROOT)), "seeds": SEEDS,
                "more_seeds": MORE_SEEDS, "arms": {a: dataclasses.asdict(occl_arms.ARMS[a]) for a in ARMS},
-               "levels": {k: d.to_dict() for k, d in {**dg.REALISTIC, **dg.SEVERITIES, **kinds}.items()},
+               "levels": {k: d.to_dict() for k, d in {**dg.REALISTIC, **dg.WORST_SEEN, **dg.SEVERITIES, **kinds}.items()},
                "home_frames": home}, (out / "config.json").open("w"), indent=1)
     print("\n".join(L))
 
