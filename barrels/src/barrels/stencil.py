@@ -61,8 +61,8 @@ OTHER = {ORANGE: BLUE, BLUE: ORANGE}
 @dataclass(frozen=True)
 class StencilConfig:
     # the score (calibration.md)
-    accept: float = 0.30          # a place is a barrel when its score is at least this
-    absent_cost: float = 0.25     # what a checked-and-missing share costs, against 1 for a seen share
+    accept: float = 0.20          # a place is a barrel when its score is at least this (T0 0.15 + the margin 0.05)
+    absent_cost: float = 0.10     # what a checked-and-missing share costs, against 1 for a seen share
     outside_cost: float = 0.5     # what a fully painted ring costs
     band_full: float = 1.0        # a band of a column counts as fully there when at least this share of it is painted; below, in
                                   # proportion (1.0 = the painted share itself). Holes inside a seen barrel (a highlight) are not occlusion
