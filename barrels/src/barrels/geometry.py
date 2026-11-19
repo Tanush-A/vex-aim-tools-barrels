@@ -137,6 +137,34 @@ class CameraModel:
         r = self.barrel_rows(d)
         return r.bottom - r.top
 
+    def ring_halfwidth_px(self, d_axis_mm: float, radius_mm: float, z_mm: float) -> float:
+        """Half the image width of a level ring (radius r, height z) centred straight ahead at horizontal
+        distance d: the pinhole projection of its two tangent points. The tangent points sit at horizontal
+        distance sqrt(d^2 - r^2), r*sqrt(d^2 - r^2)/d to the side and (d^2 - r^2)/d ahead; their depth along the
+        tilted optical axis is ahead*cos(tilt) + (h - z)*sin(tilt). inf when the camera is inside the ring."""
+        if d_axis_mm <= radius_mm:
+            return math.inf
+        side = radius_mm * math.sqrt(d_axis_mm ** 2 - radius_mm ** 2) / d_axis_mm
+        ahead = (d_axis_mm ** 2 - radius_mm ** 2) / d_axis_mm
+        depth = ahead * math.cos(self.tilt) + (self.height_mm - z_mm) * math.sin(self.tilt)
+        return math.inf if depth <= 0 else self.f * side / depth
+
+    def silhouette_width_px(self, d_axis_mm: float, n: int = 49) -> float:
+        """Width of the barrel's outline by exact projection (added 2026-11-19 for the ruler calibration).
+
+        ``expected_barrel_width_px`` uses f * 25.5 / d with d the HORIZONTAL distance. The pinhole divides by
+        the depth along the tilted optical axis instead, d*cos(tilt) + (h - z)*sin(tilt): smaller than d far
+        away (the shortcut reads about 4 % narrow at 30 cm) and larger close up (16 % wide at 6 cm, 2x at
+        the bumper). This method takes the widest of the level rings of the barrel's profile (radius 9 mm at the
+        base and lid, 12.75 mm at mid-height, a parabola in between: the profile's exact curve was not
+        measured). The detector does not use it; ``camfit`` and the size check do."""
+        best = 0.0
+        for i in range(n):
+            z = BARREL_HEIGHT_MM * i / (n - 1)
+            r = _BULGE_R - (_BULGE_R - _END_R) * ((z - BARREL_HEIGHT_MM / 2) / (BARREL_HEIGHT_MM / 2)) ** 2
+            best = max(best, self.ring_halfwidth_px(d_axis_mm, r, z))
+        return 2 * best
+
     def _d_axis_from_point_row(self, row: float, z_mm: float, offset_mm: float) -> float:
         """Axis distance for a barrel whose point at height z and horizontal offset ``offset`` from the axis sits at ``row``."""
         angle = math.atan2(row - self.cy, self.f) + self.tilt
