@@ -21,6 +21,14 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-19 — The vendor comparison and the never-regress check are part of the eval tooling
+
+- **Decision:** `tools/report.py --vendor` (the vendor's saved boxes scored by the same v2 rule on the same frames, with two looser counts shown beside it) and `tools/report.py --gate` (compares the eval table with `results/baseline/baseline.json`; fails when a HOME or CAMPUS scenario row loses a found barrel or gains a false box, or any set gains a box on an empty frame) are merged. `EVAL.md` gets a pointer paragraph; the rule for what counts as a hit is unchanged. The gate is run before every merge of main code; the baseline is re-saved when a change that passes is merged. A new ordinary condition becomes protected by adding it to `results/baseline/protected.json`.
+- **Why:** the week's goal is "at least as good as the vendor" and "never regress"; both are now a command instead of a reading by eye.
+- **Who:** Tanush ("vendor column with never regress is ok", 2026-11-19); Claude Code.
+
+---
+
 ## 2026-11-18 (later) — `stripe_join` and `cap_behind` on by default; calibration un-parked
 
 - **Decision:** (1) The two new detector parts are on by default and merged: `cap_behind` (a barrel behind a found barrel, from its visible top) and `stripe_join` (stripe pieces that share rows and fit in one barrel's width are one stripe). (2) The two boxes on which the pre-registered rule failed do not block it: black `occl_04` boxed 7 px below a hidden, hand-estimated bottom, and one wrong box in the wood clip. (3) The ruler calibration is un-parked, using the 12 frames already shot (no new shots).
