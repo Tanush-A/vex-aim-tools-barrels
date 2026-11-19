@@ -201,3 +201,80 @@ alone; the switches that pass alone are combined, and that combination is adopte
 passing arm with the largest gain on the scorecard. What does not pass stays behind its switch, off, and the
 report names it. The rule is not re-picked after the results. If round 1 fails, at most one corrected round, with
 a dated addendum below written before the corrected code; no third round. The test frames are never opened.
+
+---
+
+# Addendum, 2026-11-19: round 1, and round 2, written before round 2 was coded or run
+
+## Round 1 result (`results/2026-11-19_det_occl/round1/`; code: the five switches as designed above, git of this commit)
+
+| | base | slice | slice+cover | two | edge | cap | all | all-cover |
+|---|---|---|---|---|---|---|---|---|
+| scorecard, found of 3888 | 2401 | 3086 | 3087 | 2485 | 2412 | 2404 | 3186 | 3185 |
+| scorecard, box in the right place | 2521 | 3251 | 3253 | 2615 | 2521 | 2528 | 3356 | 3354 |
+| scorecard, boxes where no barrel is | 63 | 315 | 315 | 70 | 45 | 61 | 300 | 300 |
+| scorecard, cells with found lower / right place lower | | 1 / 2 | 1 / 2 | 0 / 0 | 0 / 0 | 1 / 1 | 1 / 1 | 1 / 1 |
+| 1 perfect masks, found / 29 (false) | 28 (0) | 28 (2) | 28 (2) | 28 (0) | 28 (0) | 28 (0) | 28 (2) | 28 (2) |
+| 2 light / medium / heavy, of 145 | 143 (0) / 99 (1) / 21 (0) | 143 (5) / 132 (13) / 43 (0) | same as slice | as base | as base | as base | as slice | as slice |
+| 3a CAMPUS / 3b BLACK | 35 (0) / 19 (2) | 35 (1) / 19 (2) | same | as base | as base | as base | as slice | as slice |
+| eval table HOME, found / missed / false | 28 / 1 / 0 | 28 / 1 / 3 | 28 / 1 / 3 | 28 / 1 / 0 | 28 / 1 / 0 | 28 / 1 / 0 | 28 / 1 / 3 | 28 / 1 / 3 |
+| eval table CAMPUS | 35 / 0 / 0 | 35 / 0 / 1 | 35 / 0 / 1 | 35 / 0 / 0 | 35 / 0 / 0 | 35 / 0 / 0 | 35 / 0 / 1 | 35 / 0 / 1 |
+| campus clips: boxes appearing / disappearing | | 21 / 0 | 21 / 0 | 0 / 0 | 0 / 0 | 1 / 0 | 22 / 0 | 22 / 0 |
+
+**Verdict of round 1.** `edge` passes all four rules (18 false boxes gone, other color straight in front at 25 %: 29 →
+39 of 47; no frame of the recordings changes). Nothing else passes:
+
+- `slice`, `slice+cover`, `all`, `all-cover` **fail rules 1, 2, 3 and 4**: false boxes on HOME (3) and CAMPUS (1), on
+  the perfect and the damaged masks, 20 wrong boxes on the campus clips (`round1/by_eye.md`), 252 more false boxes on
+  the scorecard. They also find the most: 75 % hidden by an edge, the frame or a block goes from 0 to 5 of 100 to 58 to
+  97 of 100; medium damage 99 → 132.
+- `two` **fails rule 4**: 7 more false boxes on the scorecard (found 2401 → 2485, no cell lower).
+- `cap` **fails rule 4**: one cell lower (same color beside and lower, 75 %: 26 → 25); and **rule 3**: one orange cap
+  box on the hand in campus clip r4, frame 020, above an orange box `base` already draws on a pen under the hand.
+  This is the risk written above ("an orange thing above an orange barrel"). Correction C below does not address
+  it: if that box is still drawn in round 2, `cap_same` stays off.
+
+## What was wrong (from the round-1 reason logs and pictures)
+
+`slice_box`. Of its 248 new false boxes on the scorecard, 219 come from a piece the old floor refused (narrower than
+a stripe is tall, or taller than wide) **with a top or a bottom that is not where the piece's row predicts it**: 229
+such boxes are false and 35 right, against 20 false and 671 right when both edges are seen. The six false boxes on
+HOME and CAMPUS and the 20 on the campus clips are all of this kind: an upright sliver of one color between two
+barrels, or the top of a barrel's stripe under its lid, with a found barrel beside it as the "reason". I had asked
+for the full slice only when no side has a reason (PREREG 1 (d)); a reason for a side says where a barrel would
+be, not that there is one. 12 more come from the cover box drawn for a narrow stripe with a reason on both sides,
+again with an inferred edge.
+
+`stripe_two`. All 7 new false boxes are one barrel cut in two: the near barrel of campus `plain_01` (and
+`topstripe_01`), whose stripe is more than 1.2 x the width its row predicts. The width from the row is too small
+there (near barrels are up to 1.28 x the predicted width, `size_check.md`); the barrel is also taller than predicted
+by as much.
+
+`cap_same`. Taking the found boxes out before the pieces are formed also trims the caps that were found before (a
+cap less than half inside a found box): 4 right boxes are lost for 12 gained.
+
+## Round 2: three corrections (same switches, same rule)
+
+**A. `slice_box`: what the switch adds is drawn only for a full slice.** (i) A piece the old floor refused is a barrel
+only when neither its top nor its bottom is inferred, with or without a reason for a side. (ii) The cover box for a
+stripe under 0.4 x W is drawn only for a full slice, also when both sides have a reason. A piece that passes the old
+floor with exactly one reason is treated as before the switch. No new number.
+
+**B. `stripe_two`: the barrel width a stripe is compared with is the larger of two readings**: the width its row
+gives, and the width of a barrel as tall as the body seen above and below it (seen height x W / H). Two barrels side
+by side are not taller than one; a single barrel that is wider than predicted is also taller. No new number.
+
+**C. `cap_same`: nothing found before is trimmed.** The pieces are formed as before. A piece that was skipped as
+"half inside found boxes of its color" is not skipped: the parts of it that lie outside those boxes are tested as
+caps. A piece that was tested before is tested as before.
+
+`edge_check` is unchanged.
+
+**Acceptance and adoption in round 2.** The rule above, unchanged, against `base`. Adopted, in this order: `all` if it
+passes; else `all-cover`; else the switches that pass alone, combined, if the combination passes (round 1's `edge`
+passed and is not changed, so it is adopted in any case); what does not pass stays off behind its switch and is
+named. Known before the run: with A, about 17 of `slice_box`'s new false boxes on the scorecard remain (full slices
+by accident, most of them an orange box where a hand touches the top of a far blue barrel in the source frame), so
+`slice` alone will probably still fail the false-box count of rule 4 and `all` will be near it. This is a second
+attempt made after seeing round 1 on the train frames and the recordings; the test frames are untouched and remain
+the only unbiased check. There will be no round 3.

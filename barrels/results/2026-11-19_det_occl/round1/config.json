@@ -1,0 +1,833 @@
+{
+ "git": "503187a",
+ "camera": "AIM_4A8B6118_BOXFIT",
+ "model": "results/2026-11-09_hs_candidate/config.json",
+ "seed": 0,
+ "amounts": [
+  0.25,
+  0.5,
+  0.75
+ ],
+ "rows": [
+  "frame",
+  "edge",
+  "slant",
+  "both",
+  "top",
+  "bottom",
+  "post",
+  "barrel_side/other",
+  "barrel_low/other",
+  "barrel_front/other",
+  "barrel_side/same",
+  "barrel_low/same",
+  "barrel_front/same",
+  "block/same",
+  "block/other"
+ ],
+ "arms": {
+  "base": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": false,
+   "cover_unpinned": false,
+   "stripe_two": false,
+   "edge_check": false,
+   "cap_same": false
+  },
+  "slice": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": true,
+   "cover_unpinned": false,
+   "stripe_two": false,
+   "edge_check": false,
+   "cap_same": false
+  },
+  "slice+cover": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": true,
+   "cover_unpinned": true,
+   "stripe_two": false,
+   "edge_check": false,
+   "cap_same": false
+  },
+  "two": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": false,
+   "cover_unpinned": false,
+   "stripe_two": true,
+   "edge_check": false,
+   "cap_same": false
+  },
+  "edge": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": false,
+   "cover_unpinned": false,
+   "stripe_two": false,
+   "edge_check": true,
+   "cap_same": false
+  },
+  "cap": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": false,
+   "cover_unpinned": false,
+   "stripe_two": false,
+   "edge_check": false,
+   "cap_same": true
+  },
+  "all": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": true,
+   "cover_unpinned": true,
+   "stripe_two": true,
+   "edge_check": true,
+   "cap_same": true
+  },
+  "all-cover": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": true,
+   "cover_unpinned": false,
+   "stripe_two": true,
+   "edge_check": true,
+   "cap_same": true
+  }
+ },
+ "generator": {
+  "slant_lean": 0.25,
+  "side_lower": 0.1,
+  "low_lower": 0.4,
+  "block_shift": 0.15
+ },
+ "sources": {
+  "HOME hand masks": [
+   [
+    "4A8B_window_light_close_01",
+    "orange",
+    [
+     302,
+     143,
+     390,
+     235
+    ]
+   ],
+   [
+    "4A8B_window_light_close_02",
+    "blue",
+    [
+     308,
+     141,
+     392,
+     231
+    ]
+   ],
+   [
+    "4A8B_window_light_cluster_02",
+    "orange",
+    [
+     306,
+     119,
+     351,
+     170
+    ]
+   ],
+   [
+    "4A8B_window_light_cluster_02",
+    "blue",
+    [
+     443,
+     122,
+     500,
+     179
+    ]
+   ],
+   [
+    "4A8B_window_light_core_01",
+    "blue",
+    [
+     239,
+     123,
+     290,
+     178
+    ]
+   ],
+   [
+    "4A8B_window_light_core_01",
+    "orange",
+    [
+     292,
+     121,
+     342,
+     176
+    ]
+   ],
+   [
+    "4A8B_window_light_core_02",
+    "orange",
+    [
+     368,
+     120,
+     418,
+     173
+    ]
+   ],
+   [
+    "4A8B_window_light_core_02",
+    "blue",
+    [
+     419,
+     120,
+     471,
+     175
+    ]
+   ],
+   [
+    "4A8B_window_light_core_03",
+    "orange",
+    [
+     317,
+     108,
+     346,
+     137
+    ]
+   ],
+   [
+    "4A8B_window_light_far_02",
+    "orange",
+    [
+     333,
+     106,
+     363,
+     137
+    ]
+   ],
+   [
+    "4A8B_window_light_far_02",
+    "blue",
+    [
+     433,
+     106,
+     468,
+     139
+    ]
+   ],
+   [
+    "4A8B_window_light_touch_02",
+    "orange",
+    [
+     240,
+     122,
+     289,
+     174
+    ]
+   ]
+  ],
+  "HOME color model": [
+   [
+    "4A8B_window_light_close_01",
+    "orange",
+    [
+     302,
+     143,
+     390,
+     235
+    ]
+   ],
+   [
+    "4A8B_window_light_close_02",
+    "blue",
+    [
+     308,
+     141,
+     392,
+     231
+    ]
+   ],
+   [
+    "4A8B_window_light_cluster_02",
+    "orange",
+    [
+     306,
+     119,
+     351,
+     170
+    ]
+   ],
+   [
+    "4A8B_window_light_cluster_02",
+    "blue",
+    [
+     443,
+     122,
+     500,
+     179
+    ]
+   ],
+   [
+    "4A8B_window_light_core_01",
+    "blue",
+    [
+     239,
+     123,
+     290,
+     178
+    ]
+   ],
+   [
+    "4A8B_window_light_core_01",
+    "orange",
+    [
+     292,
+     121,
+     342,
+     176
+    ]
+   ],
+   [
+    "4A8B_window_light_core_02",
+    "orange",
+    [
+     368,
+     120,
+     418,
+     173
+    ]
+   ],
+   [
+    "4A8B_window_light_core_02",
+    "blue",
+    [
+     419,
+     120,
+     471,
+     175
+    ]
+   ],
+   [
+    "4A8B_window_light_core_03",
+    "orange",
+    [
+     317,
+     108,
+     346,
+     137
+    ]
+   ],
+   [
+    "4A8B_window_light_far_02",
+    "orange",
+    [
+     333,
+     106,
+     363,
+     137
+    ]
+   ],
+   [
+    "4A8B_window_light_far_02",
+    "blue",
+    [
+     433,
+     106,
+     468,
+     139
+    ]
+   ],
+   [
+    "4A8B_window_light_touch_02",
+    "orange",
+    [
+     240,
+     122,
+     289,
+     174
+    ]
+   ]
+  ],
+  "CAMPUS color model": [
+   [
+    "4A8B_campus_light_close_01",
+    "orange",
+    [
+     252,
+     182,
+     400,
+     357
+    ]
+   ],
+   [
+    "4A8B_campus_light_cluster_02",
+    "orange",
+    [
+     235,
+     118,
+     280,
+     167
+    ]
+   ],
+   [
+    "4A8B_campus_light_clutter_02",
+    "orange",
+    [
+     202,
+     126,
+     255,
+     186
+    ]
+   ],
+   [
+    "4A8B_campus_light_core_01",
+    "blue",
+    [
+     90,
+     161,
+     208,
+     286
+    ]
+   ],
+   [
+    "4A8B_campus_light_core_01",
+    "orange",
+    [
+     247,
+     110,
+     279,
+     145
+    ]
+   ],
+   [
+    "4A8B_campus_light_core_01",
+    "blue",
+    [
+     333,
+     131,
+     397,
+     200
+    ]
+   ],
+   [
+    "4A8B_campus_light_core_01",
+    "orange",
+    [
+     396,
+     131,
+     462,
+     202
+    ]
+   ],
+   [
+    "4A8B_campus_light_far_01",
+    "orange",
+    [
+     196,
+     116,
+     238,
+     161
+    ]
+   ],
+   [
+    "4A8B_campus_light_far_01",
+    "blue",
+    [
+     240,
+     112,
+     273,
+     147
+    ]
+   ],
+   [
+    "4A8B_campus_light_far_01",
+    "blue",
+    [
+     318,
+     114,
+     357,
+     154
+    ]
+   ],
+   [
+    "4A8B_campus_light_far_01",
+    "orange",
+    [
+     379,
+     113,
+     414,
+     150
+    ]
+   ],
+   [
+    "4A8B_campus_light_hand_02",
+    "blue",
+    [
+     127,
+     124,
+     188,
+     187
+    ]
+   ],
+   [
+    "4A8B_campus_light_hand_02",
+    "orange",
+    [
+     393,
+     124,
+     451,
+     185
+    ]
+   ],
+   [
+    "4A8B_campus_light_plain_01",
+    "blue",
+    [
+     62,
+     149,
+     166,
+     255
+    ]
+   ],
+   [
+    "4A8B_campus_light_plain_01",
+    "orange",
+    [
+     498,
+     145,
+     603,
+     243
+    ]
+   ],
+   [
+    "4A8B_campus_light_plain_02",
+    "blue",
+    [
+     82,
+     131,
+     153,
+     204
+    ]
+   ],
+   [
+    "4A8B_campus_light_plain_02",
+    "orange",
+    [
+     419,
+     129,
+     486,
+     199
+    ]
+   ],
+   [
+    "4A8B_campus_light_room_01",
+    "blue",
+    [
+     64,
+     123,
+     125,
+     181
+    ]
+   ],
+   [
+    "4A8B_campus_light_room_01",
+    "orange",
+    [
+     339,
+     120,
+     389,
+     176
+    ]
+   ],
+   [
+    "4A8B_campus_light_room_03",
+    "blue",
+    [
+     179,
+     112,
+     216,
+     153
+    ]
+   ],
+   [
+    "4A8B_campus_light_room_03",
+    "orange",
+    [
+     215,
+     112,
+     252,
+     152
+    ]
+   ],
+   [
+    "4A8B_campus_light_topstripe_01",
+    "orange",
+    [
+     221,
+     238,
+     468,
+     477
+    ]
+   ],
+   [
+    "4A8B_campus_light_touch_02",
+    "blue",
+    [
+     223,
+     123,
+     274,
+     178
+    ]
+   ],
+   [
+    "4A8B_campus_light_touch_02",
+    "blue",
+    [
+     273,
+     122,
+     324,
+     178
+    ]
+   ],
+   [
+    "4A8B_campus_light_window_01",
+    "blue",
+    [
+     155,
+     132,
+     224,
+     202
+    ]
+   ],
+   [
+    "4A8B_campus_light_window_01",
+    "orange",
+    [
+     367,
+     130,
+     435,
+     203
+    ]
+   ]
+  ]
+ },
+ "dropped": []
+}

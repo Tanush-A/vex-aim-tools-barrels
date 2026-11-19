@@ -1,0 +1,129 @@
+arm,level,scenario,in_rule,frames,barrels,found,missed,false,false_on_negatives,false_on_clean_negatives
+base,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+base,2,light,1,80,145,143,2,0,0,0
+base,2,medium,1,80,145,99,46,1,0,0
+base,2,heavy,1,80,145,21,124,0,0,0
+base,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+base,2s,top highlight 0.7 x 0.4,0,80,145,132,13,8,0,0
+base,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+base,2s,stripe highlight 0.3,0,80,145,136,9,0,0,0
+base,2s,stripe breaks 2 x 0.08,0,80,145,133,12,1,0,0
+base,2s,edges 1 px,0,80,145,145,0,0,0,0
+base,2s,edges 2 px,0,80,145,110,35,0,0,0
+base,2s,dropout 10 %,0,80,145,140,5,0,0,0
+base,2s,speckle 30,0,80,145,140,5,0,0,0
+base,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+base,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+base,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,7,0,0
+slice,1,perfect masks (HOME),1,16,29,28,1,2,0,0
+slice,2,light,1,80,145,143,2,5,0,0
+slice,2,medium,1,80,145,132,13,13,0,0
+slice,2,heavy,1,80,145,43,102,0,0,0
+slice,2s,top highlight 0.5 x 0.3,0,80,145,142,3,10,0,0
+slice,2s,top highlight 0.7 x 0.4,0,80,145,142,3,21,0,0
+slice,2s,stripe highlight 0.15,0,80,145,139,6,15,0,0
+slice,2s,stripe highlight 0.3,0,80,145,139,6,16,0,0
+slice,2s,stripe breaks 2 x 0.08,0,80,145,140,5,19,0,0
+slice,2s,edges 1 px,0,80,145,145,0,5,0,0
+slice,2s,edges 2 px,0,80,145,115,30,0,0,0
+slice,2s,dropout 10 %,0,80,145,140,5,10,0,0
+slice,2s,speckle 30,0,80,145,140,5,10,0,0
+slice,3a,"CAMPUS, adopted color model",1,21,35,35,0,1,0,0
+slice,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+slice,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,18,0,0
+slice+cover,1,perfect masks (HOME),1,16,29,28,1,2,0,0
+slice+cover,2,light,1,80,145,143,2,5,0,0
+slice+cover,2,medium,1,80,145,132,13,13,0,0
+slice+cover,2,heavy,1,80,145,43,102,0,0,0
+slice+cover,2s,top highlight 0.5 x 0.3,0,80,145,142,3,10,0,0
+slice+cover,2s,top highlight 0.7 x 0.4,0,80,145,142,3,21,0,0
+slice+cover,2s,stripe highlight 0.15,0,80,145,139,6,15,0,0
+slice+cover,2s,stripe highlight 0.3,0,80,145,139,6,16,0,0
+slice+cover,2s,stripe breaks 2 x 0.08,0,80,145,140,5,19,0,0
+slice+cover,2s,edges 1 px,0,80,145,145,0,5,0,0
+slice+cover,2s,edges 2 px,0,80,145,115,30,0,0,0
+slice+cover,2s,dropout 10 %,0,80,145,140,5,10,0,0
+slice+cover,2s,speckle 30,0,80,145,140,5,10,0,0
+slice+cover,3a,"CAMPUS, adopted color model",1,21,35,35,0,1,0,0
+slice+cover,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+slice+cover,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,18,0,0
+two,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+two,2,light,1,80,145,143,2,0,0,0
+two,2,medium,1,80,145,99,46,1,0,0
+two,2,heavy,1,80,145,21,124,0,0,0
+two,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+two,2s,top highlight 0.7 x 0.4,0,80,145,132,13,8,0,0
+two,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+two,2s,stripe highlight 0.3,0,80,145,136,9,0,0,0
+two,2s,stripe breaks 2 x 0.08,0,80,145,133,12,1,0,0
+two,2s,edges 1 px,0,80,145,145,0,0,0,0
+two,2s,edges 2 px,0,80,145,110,35,0,0,0
+two,2s,dropout 10 %,0,80,145,140,5,0,0,0
+two,2s,speckle 30,0,80,145,140,5,0,0,0
+two,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+two,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+two,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,7,0,0
+edge,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+edge,2,light,1,80,145,143,2,0,0,0
+edge,2,medium,1,80,145,99,46,1,0,0
+edge,2,heavy,1,80,145,21,124,0,0,0
+edge,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+edge,2s,top highlight 0.7 x 0.4,0,80,145,132,13,7,0,0
+edge,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+edge,2s,stripe highlight 0.3,0,80,145,136,9,0,0,0
+edge,2s,stripe breaks 2 x 0.08,0,80,145,133,12,1,0,0
+edge,2s,edges 1 px,0,80,145,145,0,0,0,0
+edge,2s,edges 2 px,0,80,145,110,35,0,0,0
+edge,2s,dropout 10 %,0,80,145,140,5,0,0,0
+edge,2s,speckle 30,0,80,145,140,5,0,0,0
+edge,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+edge,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+edge,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,2,0,0
+cap,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+cap,2,light,1,80,145,143,2,0,0,0
+cap,2,medium,1,80,145,99,46,1,0,0
+cap,2,heavy,1,80,145,21,124,0,0,0
+cap,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+cap,2s,top highlight 0.7 x 0.4,0,80,145,129,16,8,0,0
+cap,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+cap,2s,stripe highlight 0.3,0,80,145,136,9,0,0,0
+cap,2s,stripe breaks 2 x 0.08,0,80,145,133,12,1,0,0
+cap,2s,edges 1 px,0,80,145,145,0,0,0,0
+cap,2s,edges 2 px,0,80,145,110,35,0,0,0
+cap,2s,dropout 10 %,0,80,145,140,5,0,0,0
+cap,2s,speckle 30,0,80,145,140,5,0,0,0
+cap,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+cap,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+cap,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,7,0,0
+all,1,perfect masks (HOME),1,16,29,28,1,2,0,0
+all,2,light,1,80,145,143,2,5,0,0
+all,2,medium,1,80,145,132,13,13,0,0
+all,2,heavy,1,80,145,43,102,0,0,0
+all,2s,top highlight 0.5 x 0.3,0,80,145,142,3,10,0,0
+all,2s,top highlight 0.7 x 0.4,0,80,145,142,3,17,0,0
+all,2s,stripe highlight 0.15,0,80,145,139,6,15,0,0
+all,2s,stripe highlight 0.3,0,80,145,137,8,16,0,0
+all,2s,stripe breaks 2 x 0.08,0,80,145,140,5,19,0,0
+all,2s,edges 1 px,0,80,145,145,0,5,0,0
+all,2s,edges 2 px,0,80,145,115,30,0,0,0
+all,2s,dropout 10 %,0,80,145,140,5,10,0,0
+all,2s,speckle 30,0,80,145,140,5,10,0,0
+all,3a,"CAMPUS, adopted color model",1,21,35,35,0,1,0,0
+all,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+all,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,14,0,0
+all-cover,1,perfect masks (HOME),1,16,29,28,1,2,0,0
+all-cover,2,light,1,80,145,143,2,5,0,0
+all-cover,2,medium,1,80,145,132,13,13,0,0
+all-cover,2,heavy,1,80,145,43,102,0,0,0
+all-cover,2s,top highlight 0.5 x 0.3,0,80,145,142,3,10,0,0
+all-cover,2s,top highlight 0.7 x 0.4,0,80,145,142,3,17,0,0
+all-cover,2s,stripe highlight 0.15,0,80,145,139,6,15,0,0
+all-cover,2s,stripe highlight 0.3,0,80,145,137,8,16,0,0
+all-cover,2s,stripe breaks 2 x 0.08,0,80,145,140,5,19,0,0
+all-cover,2s,edges 1 px,0,80,145,145,0,5,0,0
+all-cover,2s,edges 2 px,0,80,145,115,30,0,0,0
+all-cover,2s,dropout 10 %,0,80,145,140,5,10,0,0
+all-cover,2s,speckle 30,0,80,145,140,5,10,0,0
+all-cover,3a,"CAMPUS, adopted color model",1,21,35,35,0,1,0,0
+all-cover,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+all-cover,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,14,0,0

@@ -8,7 +8,7 @@ from barrels import detector as det
 
 _FIELDS = {f.name for f in dataclasses.fields(det.DetConfig)}
 NEW = ("side_hidden", "seam_height")                              # the switches this experiment adds (PREREG.md)
-LATER = ("cap_seen_bottom",)                                      # switches added after this experiment, pinned off so it does not move
+LATER = ("cap_seen_bottom", "slice_box", "cover_unpinned", "stripe_two", "edge_check", "cap_same")   # switches added after this experiment, pinned off so it does not move
 
 
 def _known(**kw) -> dict:

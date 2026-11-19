@@ -7,7 +7,7 @@ import dataclasses
 from barrels import detector as det
 
 _FIELDS = {f.name for f in dataclasses.fields(det.DetConfig)}
-NEW = ("slice_box", "outline_edge", "front_split")                # the switches this experiment adds (PREREG.md)
+NEW = ("slice_box", "cover_unpinned", "stripe_two", "edge_check", "cap_same")     # the switches this experiment adds (PREREG.md)
 
 
 def _known(**kw) -> dict:
@@ -25,6 +25,13 @@ def _arm(**on) -> tuple[det.DetConfig, str]:
 
 _SPECS = {
     "base": {},
+    "slice": {"slice_box": True},
+    "slice+cover": {"slice_box": True, "cover_unpinned": True},
+    "two": {"stripe_two": True},
+    "edge": {"edge_check": True},
+    "cap": {"cap_same": True},
+    "all": {"slice_box": True, "cover_unpinned": True, "stripe_two": True, "edge_check": True, "cap_same": True},
+    "all-cover": {"slice_box": True, "stripe_two": True, "edge_check": True, "cap_same": True},
 }
 ARMS, OVERRIDES = {}, {}
 for _name, _on in _SPECS.items():
