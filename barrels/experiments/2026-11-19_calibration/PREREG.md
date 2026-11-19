@@ -58,3 +58,35 @@ If any of the three fails: no default changes, the new camera is not added as th
 ## If it passes
 
 The new camera becomes a named constant in `geometry.py` and the default everywhere the old one is the default (detector, eval table, live hook, detector tools, the box tool's `g`). The old constant stays selectable. Tests that pin numbers of the old camera keep testing the old constant.
+
+---
+
+# Addendum, round 2 (written 2026-11-19 after round 1 failed, before round 2 was run)
+
+## What is known now
+
+Round 1 failed all three parts (`validation.md`): the ruler-fit camera puts the bottom inferred from the top row too **high** on HOME and CAMPUS (median −8.1 and −6.7 px; the old camera: +4.4 and +5.4), its width and height ratios are 1.04 to 1.07, and the eval table loses one HOME barrel and gains one false HOME box. **Nothing is adopted from round 1, and that does not change.**
+
+What the by-distance rows and `posthoc.md` show: the old camera's error drifts with distance (about 0 near, +7 to +10 px far). With the ruler fit's camera height (40.2 mm) the drift is gone, and what is left is the same −6 to −8 px at every distance, which is a tilt that is about 0.5° too small for those sessions.
+
+## The round 2 camera
+
+| | f, px | tilt | camera height, mm | horizon row |
+|---|---|---|---|---|
+| round 2 | 400 | 20.95° | 40.2 | 86.9 |
+
+Camera height from the ruler set (the only frames with known distances). Tilt: the value at which the median bottom-from-top error of the far and mid boxes of HOME and CAMPUS together is zero at that height (`posthoc.py`: 20.96°, rounded to 20.95°).
+
+## What round 2 can and cannot show
+
+**The tilt is read off the train boxes of HOME and CAMPUS. Part (a) of the rule is therefore no longer a test on data the fit never saw; it will pass by construction.** What is still a real test:
+
+- (b) the width and height ratios of HOME and CAMPUS, between 0.95 and 1.05 (the tilt was not chosen for them);
+- (c) never regress, exactly as written above;
+- held out from the tilt: the wood ladder, BLACK, and the ruler set's own whole boxes. For each, |median bottom from top| with the round 2 camera against the old camera. Reported; a set that gets worse is named.
+
+## What happens with the result
+
+**No default changes on this branch whatever the result.** Round 1 was the pre-registered test and it failed. Round 2 is reported as a measured option: if (b) and (c) pass and no held-out set gets worse, the report says so and gives the two-line change that would adopt it, for Tanush and the coordinator to decide. If (b) or (c) fails, the report says the ruler set's camera height does not help either.
+
+Command: `python barrels/experiments/2026-11-19_calibration/validate.py --cam f=400,tilt=20.95,height=40.2 --tag _round2`.

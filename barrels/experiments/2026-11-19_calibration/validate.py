@@ -10,12 +10,14 @@ The acceptance rule is in PREREG.md next to this file, committed before this scr
 
 Train frames only; a test frame is never opened (``report.refuse_test_frames`` and an assert here).
 
-    python barrels/experiments/2026-11-19_calibration/validate.py
+    python barrels/experiments/2026-11-19_calibration/validate.py                                             # the ruler fit (PREREG.md)
+    python barrels/experiments/2026-11-19_calibration/validate.py --cam f=400,tilt=20.95,height=40.2 --tag _round2   # PREREG.md, addendum
 
-Outputs: results/2026-11-19_calibration/ validation.md, validation.json, size_check.csv, eval_new_vs_old/.
+Outputs: results/2026-11-19_calibration/ validation<tag>.md, validation<tag>.json, size_check<tag>.csv, eval_new_vs_old<tag>/.
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import sys
@@ -26,7 +28,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "src"))
-from barrels import cv as bcv, detector as det, geometry as geo, io, report as rp, splits, worldmap_bridge as wb  # noqa: E402
+from barrels import camfit as cf, cv as bcv, detector as det, geometry as geo, io, report as rp, splits, worldmap_bridge as wb  # noqa: E402
 
 OUT = io.PKG_ROOT / "results" / "2026-11-19_calibration"
 OLD = geo.AIM_4A8B6118_BOXFIT
@@ -235,14 +237,41 @@ def rule_c(rep: rp.Report, res_new: dict, res_old: dict) -> tuple[dict, list[str
 
 # ---------------------------------------------------------------- main
 
-def main() -> int:
+def ruler_lines() -> list[str]:
+    """Report only: the ruler set's whole boxes, the same image-internal measures (no distance used)."""
+    L = ["| ruler frame | mm | bottom from top: old | new | bottom from width: old | new | width ratio: old | new | height ratio: old | new |", "|---|---|---|---|---|---|---|---|---|---|"]
+    for s in cf.load_ruler_set():
+        x0, y0, x1, y1 = s.bbox
+        if y1 >= io.FRAME_H or "held" in s.flags:
+            continue
+        cells = []
+        for fn in (lambda c: det.predicted_bottom(c, y0) - y1,
+                   lambda c: y0 + c.expected_barrel_height_px(d_axis_mm=c.f * geo.BARREL_BULGE_DIAMETER_MM / (x1 - x0)) - y1):
+            cells += [f"{fn(c):+.1f}" for c in CAMS.values()]
+        for fn in (lambda c: (x1 - x0) / c.expected_barrel_width_px(bottom_row=y1), lambda c: (y1 - y0) / c.expected_barrel_height_px(bottom_row=y1)):
+            cells += [f"{fn(c):.2f}" for c in CAMS.values()]
+        L.append(f"| {s.stem.split('_')[-1]} | {s.d_ruler_mm:.0f} | " + " | ".join(cells) + " |")
+    return L
+
+
+def main(argv=None) -> int:
+    global NEW
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--cam", type=geo.camera, default=None, help="the new camera, as numbers (default: the ruler fit of PREREG.md)")
+    ap.add_argument("--tag", default="", help="suffix of the output names, e.g. _round2")
+    args = ap.parse_args(argv)
     out = OUT
     out.mkdir(parents=True, exist_ok=True)
-    fit = json.load((out / "fit.json").open())["candidate"]
-    assert (fit["f"], round(fit["tilt_deg"], 2), round(fit["height_mm"], 1)) == (NEW.f, NEW.tilt_deg, NEW.height_mm), "the camera here is not the one run.py fitted"
+    tag = args.tag
+    if args.cam is None:
+        fit = json.load((out / "fit.json").open())["candidate"]
+        assert (fit["f"], round(fit["tilt_deg"], 2), round(fit["height_mm"], 1)) == (NEW.f, NEW.tilt_deg, NEW.height_mm), "the camera here is not the one run.py fitted"
+    else:
+        NEW = args.cam
+        CAMS["new"] = NEW
 
     rows, dropped = size_rows(train_stems())
-    with (out / "size_check.csv").open("w", newline="") as f:
+    with (out / f"size_check{tag}.csv").open("w", newline="") as f:
         fields = list(rows[0].keys())
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
@@ -251,13 +280,13 @@ def main() -> int:
     ab, ab_lines = rule_a_b(rows)
 
     rep, res_new, res_old = eval_table()
-    rp.write_all(rep, out / "eval_new_vs_old", title="Eval table: the ruler-fit camera (candidate) vs the old camera (baseline)")
+    rp.write_all(rep, out / f"eval_new_vs_old{tag}", title=f"Eval table: the new camera (candidate; f {NEW.f:g}, tilt {NEW.tilt_deg:g}, height {NEW.height_mm:g}) vs the old camera (baseline)")
     c, c_lines = rule_c(rep, res_new, res_old)
 
     a_ok = all(v["pass"] for v in ab["a"].values())
     b_ok = all(v["pass"] for v in ab["b"].values())
     verdict = a_ok and b_ok and c["pass"]
-    L = ["# Validation of the ruler-fit camera on the train frames (rule: PREREG.md)", "",
+    L = [f"# Validation of the new camera on the train frames (rule: PREREG.md{', addendum' if tag else ''})", "",
          f"git {bcv.git_hash()}. Old camera: f {OLD.f:g}, tilt {OLD.tilt_deg:g}°, height {OLD.height_mm:g} mm, horizon row {OLD.horizon_row():.1f}. "
          f"New camera: f {NEW.f:g}, tilt {NEW.tilt_deg:g}°, height {NEW.height_mm:g} mm, horizon row {NEW.horizon_row():.1f}. Train frames only.", "",
          "## Verdict", "",
@@ -271,12 +300,13 @@ def main() -> int:
          "Ratio = drawn size / the size the camera expects for a barrel whose bottom edge is at the box's bottom row. Bottom from top / from width = inferred bottom row "
          "minus drawn bottom row (+ = inferred lower). Median (10th to 90th percentile).", ""] + size_tables(rows) + [
          "", "## Rule (c): the eval table, scenario rows that differ between the cameras", "",
-         "Adopted color model, `DetConfig()`, v2 rule, HOME leave-one-scene-out. Full table: `eval_new_vs_old/report.md` (candidate = new camera, baseline = old).", ""] + c_lines + [
-         "", "## Report only", ""] + report_only(rows)
-    (out / "validation.md").write_text("\n".join(L) + "\n")
+         f"Adopted color model, `DetConfig()`, v2 rule, HOME leave-one-scene-out. Full table: `eval_new_vs_old{tag}/report.md` (candidate = new camera, baseline = old).", ""] + c_lines + [
+         "", "## Report only", ""] + report_only(rows) + [
+         "", "### The ruler set's whole boxes, the same measures (no distance used)", ""] + ruler_lines()
+    (out / f"validation{tag}.md").write_text("\n".join(L) + "\n")
     json.dump({"git": bcv.git_hash(), "old": {"f": OLD.f, "tilt_deg": OLD.tilt_deg, "height_mm": OLD.height_mm}, "new": {"f": NEW.f, "tilt_deg": NEW.tilt_deg, "height_mm": NEW.height_mm},
                "rule": {"a": ab["a"], "b": ab["b"], "c": c}, "verdict": bool(verdict), "boxes": len(rows), "boxes_left_out": dropped},
-              (out / "validation.json").open("w"), indent=1)
+              (out / f"validation{tag}.json").open("w"), indent=1)
     print("\n".join(L))
     return 0
 
