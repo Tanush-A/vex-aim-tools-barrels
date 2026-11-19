@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-18. New plan for the week in `TODO.md` (agreed with Tanush after the 2026-11-16 meeting with Dave; next meeting Monday 2026-11-23). 2026-11-18 evening: A (barrel behind barrel `cap_behind`, stripe in pieces `stripe_join`; on by default after Tanush's "understood"), B (vendor capture), D (slider tool) and F (histogram ↔ thresholds script) are merged. Started: A2 / A3 (side occlusion, remaining misses), A4 (ruler calibration), H / I (vendor column, never-regress command).
+**Updated:** 2026-11-18. New plan for the week in `TODO.md` (agreed with Tanush after the 2026-11-16 meeting with Dave; next meeting Monday 2026-11-23). 2026-11-18 evening: A (barrel behind barrel `cap_behind`, stripe in pieces `stripe_join`; on by default after Tanush's "understood"), B (vendor capture), D (slider tool) and F (histogram ↔ thresholds script) are merged. Built the same evening and waiting for Tanush's "understood": side occlusion (`wip/detector-side`: campus 35 of 35, no row worse), the vendor column and the never-regress command (`wip/eval-vendor-gate`). Calibration (`wip/calibration`) adopted nothing: no single camera fits every session; proposed instead: hidden bottoms from the box width (A5).
 
 ## What runs
 
