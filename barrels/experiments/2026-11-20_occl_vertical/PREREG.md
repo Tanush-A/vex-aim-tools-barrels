@@ -241,3 +241,63 @@ never corrected; nothing uses more than one frame.
 
 Also reported, not part of the rule: the scorecard's rows "from above", "from below" and "a post" at 30 to 60 % hidden
 in steps of 5 (`amounts.py`), because rule 1 works in a window of amounts that the three columns do not show.
+
+---
+
+# Addendum, 2026-11-19 (evening): round 1, and round 2, written before round 2 was coded or run
+
+## Round 1 result (`results/2026-11-20_occl_vertical/round1/`; code: the six switches as designed above)
+
+| | base | half | half+thin | post | wide | behind | caplow | all |
+|---|---|---|---|---|---|---|---|---|
+| scorecard, found of 3888 | 2417 | 2457 | 2500 | 2459 | 2487 | 2538 | 2429 | 2745 |
+| scorecard, boxes where no barrel is | 45 | 45 | 45 | 46 | 45 | 51 | 45 | 51 |
+| scorecard, cells with found or right place lower | | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| light / medium / heavy damage, of 145 (false) | 143 (0) / 99 (1) / 21 (0) | same | same | 143 (0) / 102 (1) / 21 (0) | same | 143 (0) / 114 (2) / 21 (0) | same | 143 (0) / 115 (2) / 21 (0) |
+| eval table HOME / CAMPUS | 28 / 1 / 0; 35 / 0 / 0 | same | same | same | same | same | same | same |
+| boxes on negative frames | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| campus clips: boxes appearing / disappearing | | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 | 1 / 0 | 0 / 0 | 1 / 0 |
+
+Targets (found at 25 / 50 / 75 %): from above 50 / 2 / 0 → 50 / 40 / 0 (`half`) → 50 / 45 / 0 (`half+thin`); from below 49 / 1 / 1 →
+49 / 2 / 1 → 49 / 40 / 1; a post 49 / 9 / 0 → 49 / 42 / 9; same color beside 81 / 36 / 16 → 96 / 88 / 17 (`wide`); same color
+beside and lower 91 / 85 / 26 → 91 / 85 / 42 (`behind`); other color straight in front 39 / 38 / 17 → 39 / 38 / 22 and same
+color straight in front 44 / 29 / 2 → 44 / 29 / 8 (`caplow`).
+
+**Verdict of round 1.** `half`, `half+thin`, `wide` and `caplow` pass all four rules. The one box that appears on the campus
+clips (`behind`, r3 frame 013) is on the barrel entering at the right frame edge. `post` fails rule 3 by one box (46 for 45);
+`behind` fails rule 2 (medium damage: 2 false boxes for 1) and rule 3 (51 for 45); `all` fails with them.
+
+## What was wrong (from the round-1 reason logs; `amounts.md`)
+
+1. **`half_stripe` drew a box of the WRONG color** in 7 scenes of the report-only table (6 at 35 % hidden from below, 1 at
+   30 %) and on 2 wood frames (report only): the risk written above as (i), without a slot. A barrel hidden from below
+   whose stripe still shows almost whole is two bands, the upper body over the stripe. Read the other way round (the upper
+   body as "a stripe", the stripe as "a lower body" of a smaller barrel of the other color hidden from above) it passes
+   every test, the far-edge test too, because nothing lies under the stripe. And it is made first, so the right reading
+   is then refused as "inside a found box". Measured on those scenes: in the 310 right boxes the band is 0.05 to 0.64 x as
+   tall as the body beside it; in the 7 wrong ones 1.38 to 2.00 x.
+2. **`slice_behind` and `post_pair` made 7 wrong boxes on the scorecard.** 5 are on HOME `far_02` (fingers touch the
+   barrels there): a strip of a blue barrel's upper body between a finger (orange) and its own orange stripe is "a blue
+   stripe on an orange body", and the slice is full by accident. Its bottom ends against the barrel's blue lower body.
+   The other two lie inside a found barrel's box in the same way.
+3. **`slice_behind` drew a second box on a found barrel** at medium damage (HOME `close_02`, seed 3): the piece is a
+   fragment of that barrel's own stripe (same rows, inside its box); the first box then counts as false.
+
+## Round 2: three corrections (same switches, same rule, no new number)
+
+**A. `half_stripe`: the stripe is the thinner band.** New test: the band is less tall than the body part beside it (the
+seam to the body's far edge). A stripe is 6 mm, a body part 9 mm or more.
+
+**B. `post_pair`, `slice_behind`: a full slice ends in seen edges.** The body's top and bottom in the piece's columns must
+not end against the other barrel color (`edge_check`'s test: that color in at least half of the piece's columns in the 4
+rows beyond the end). A slice whose "top" or "bottom" is another barrel-colored thing is a strip of something else.
+
+**C. `post_pair`, `slice_behind`: a piece of a found barrel's stripe is not another barrel.** A piece that shares rows with
+the stripe of a found barrel of its body color and whose middle column is inside that barrel's box is skipped
+(`_piece_of_found`, the test `slice_box` uses).
+
+`stripe_wide` and `cap_low` are unchanged.
+
+**Acceptance and adoption in round 2:** the rule and the adoption order above, unchanged, against `base`. This is a second
+attempt made after seeing round 1 on the train frames and the recordings; the test frames are untouched. There will be
+no round 3: what fails round 2 stays off behind its switch.
