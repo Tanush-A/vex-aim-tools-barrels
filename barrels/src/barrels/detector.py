@@ -21,6 +21,8 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
   2026-11-19           a partly seen stripe is placed by what is seen of the barrel, and a side counts as hidden only
                        for a reason: the frame edge, a found nearer barrel, or the body and the stripe ending apart
                        (``side_hidden``); a far stripe eaten at both seams is read at the seams too (``seam_height``).
+  2026-11-19 (A5)      a narrow cap's bottom is its own color seen ending beside the front barrel, also when that is
+                       further from the top-row estimate than the tolerance (``cap_seen_bottom``).
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -85,6 +87,10 @@ class DetConfig:
                                  # second time as the mean of its own height and of the gap between the body above and below it (mixed
                                  # pixels at the two seams make the one thinner and the other taller by the same amount). False = the
                                  # stripe's own rows only
+    cap_seen_bottom: bool = True  # 2026-11-19 (A5): a narrow cap's bottom estimate comes from its top row (4 to 7 px low at mid and far range
+                                 # with this camera). When no seen end agrees with it: the cap's color, read beside the nearer found barrels,
+                                 # seen ending between the bottom of a barrel only as wide as the seen cap and the estimate + the tolerance,
+                                 # is the bottom (see caps_behind). False = the top-row bottom
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -774,7 +780,13 @@ def caps_behind(mask: np.ndarray, found: list[Barrel], used: list[Stripe], cam: 
     The box: top = the cap's top row; sides = the cap's columns. A cap narrower than stripe_full x W is kept only
     when exactly one side is hidden by a nearer found barrel or the frame edge, and is widened to W toward that side.
     Bottom = top + the height of a barrel as wide as the cap when the whole width shows, else the bottom the top row
-    predicts; the cap's own color seen ending near that estimate (the usual tolerance) replaces it. No new threshold."""
+    predicts; the cap's own color seen ending near that estimate (the usual tolerance) replaces it. No new threshold.
+
+    ``cap_seen_bottom`` (2026-11-19, A5), for a narrow cap with no such seen end: the top-row estimate is 4 to 7 px
+    low at mid and far range with this camera, so a seen end can be refused for the estimate's error. Then the cap's
+    color is read in the cap's columns outside the boxes of the nearer found barrels (inside them that color is the
+    front barrel's stripe); seen ending between the bottom of a barrel only as wide as the seen cap (the barrel is at
+    least that big, whatever the tilt) and the estimate + the tolerance, that end is the bottom."""
     h, w = mask.shape
     out: list[Barrel] = []
     for c in (ORANGE, BLUE):
@@ -835,6 +847,20 @@ def caps_behind(mask: np.ndarray, found: list[Barrel], used: list[Stripe], cam: 
             near = [r for r in range(max(y + bh, int(round(bottom - tol))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
             if near and not col[near[-1] + 1:near[-1] + 4].any():
                 bottom = near[-1] + 1
+            elif cfg.cap_seen_bottom and bw < cfg.stripe_full * W:
+                # 2026-11-19 (A5): a narrow cap's estimate is the top-row bottom, 4 to 7 px low at mid and far range, so a seen end
+                # can be refused for the estimate's error. Read the cap's color only beside the nearer found barrels (inside their
+                # boxes it is their stripe). The barrel is at least as wide as what is seen of it, so its bottom is not above that
+                # of a barrel bw wide (a bound that does not depend on the tilt), and not below the estimate + the tolerance
+                beside = np.ones(bw, bool)
+                for b in found:
+                    if b.bbox[3] > y + bh:
+                        beside[max(0, b.bbox[0] - x):max(0, b.bbox[2] - x)] = False
+                least = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)
+                col = (mask[:, x:x + bw][:, beside] == c).any(axis=1)
+                seen = [r for r in range(max(y + bh, int(round(least))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
+                if seen and not col[seen[-1] + 1:seen[-1] + 4].any():
+                    bottom = seen[-1] + 1
             bx0, bx1, bottom = max(0, bx0), min(w, bx1), min(h, int(round(bottom)))
             below = np.zeros((max(0, bottom - (y + bh)), bx1 - bx0), bool)       # where the rest of this barrel should be
             for b in found:

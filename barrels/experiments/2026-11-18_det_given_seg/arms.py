@@ -5,7 +5,7 @@ import dataclasses
 from barrels import detector as det
 
 BASE = dataclasses.replace(det.DetConfig(), stripe_join=False, cap_behind=False, stripe_w_min=0.4, occl_body_side=False,
-                           side_hidden=False, seam_height=False)     # the last two: switches of 2026-11-19, pinned off so this experiment does not move
+                           side_hidden=False, seam_height=False, cap_seen_bottom=False)   # the last three: switches of 2026-11-19, pinned off so this experiment does not move
 SIDE = {"stripe_w_min": 0.25, "occl_body_side": True}
 
 ARMS = {

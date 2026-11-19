@@ -8,7 +8,7 @@ from barrels import detector as det, geometry as geo, io
 CAM = geo.NOMINAL
 CFG1 = dataclasses.replace(det.DetConfig(), require_stripe=False)    # step 1 alone (the detector before 2026-11-05)
 CFG2 = dataclasses.replace(det.DetConfig(), require_stripe=True)     # the stripe step — also the default
-PRE19 = dataclasses.replace(CFG2, side_hidden=False, seam_height=False)   # the detector before 2026-11-19 (tests/test_detector_side.py has the two switches)
+PRE19 = dataclasses.replace(CFG2, side_hidden=False, seam_height=False, cap_seen_bottom=False)   # the detector before 2026-11-19 (tests/test_detector_side.py and test_detector_bottom.py have the three switches)
 
 
 def paint_barrel(mask, d_axis_mm, x_center, body=io.ORANGE, cam=CAM, cut_bottom_frac=0.0):
