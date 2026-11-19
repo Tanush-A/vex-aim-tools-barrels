@@ -167,3 +167,54 @@ the direct run, the veto rule, the arms, the acceptance rule, the two rounds. On
 list: the larger band_full (the stricter score). Stated before the re-run: a softer band lets a stencil of a
 slightly wrong size or row fit as well as the right one, so the boxes may get less exact; the box width ratio and
 the bottom error in the eval table will show it.
+
+---
+
+# Addendum B, 2026-11-20: round 1, and the one correction of round 2 (written before the corrected code)
+
+## Round 1 (`results/2026-11-20_stencil/`: `tables.md`, `never_regress.md`, `scorecard.md`, `by_eye.md`; code and numbers of commit 9e7d088)
+
+The second calibration kept the registered score (band_full 1.0; absent_cost 0.1, outside_cost 0.5, accept 0.20;
+veto -0.01). Found / missed / false, or found (false):
+
+| | rules | stencil | union | veto | veto+union |
+|---|---|---|---|---|---|
+| eval table HOME | 28 / 1 / 0 | 27 / 2 / 0 | 28 / 1 / 0 | 28 / 1 / 0 | 28 / 1 / 0 |
+| eval table CAMPUS | 35 / 0 / 0 | 31 / 4 / 1 | 35 / 0 / 0 | 35 / 0 / 0 | 35 / 0 / 0 |
+| boxes on negative frames, any set | 0 | 0 | 0 | 0 | 0 |
+| rule 1, never regress | | **fails** | passes | passes | passes |
+| perfect HOME masks | 28 (0) | 28 (0) | 28 (0) | 28 (0) | 28 (0) |
+| light / medium / heavy damage, of 145 | 143 (0) / 99 (1) / 21 (0) | 135 (0) / 37 (0) / 4 (0) | 143 (0) / 99 (2) / 21 (0) | 143 (0) / 97 (1) / 16 (0) | 143 (0) / 97 (2) / 16 (0) |
+| campus clips: boxes appearing; disappearing (of them right) | | 0; 16 (5) | 0; 0 | 0; 3 (0) | 0; 3 (0) |
+| rule 3, recordings | | **fails** (5 right boxes lost) | passes | passes | passes |
+| scorecard, found of 3888 | 2417 | 2233 | 2514 | 2408 | 2507 |
+| scorecard, boxes where no barrel is | 45 | 10 | 47 | 42 | 44 |
+
+**The stencil alone is not a detector to replace the rules** (fails rules 1 and 3; a third of the rules' finds on
+medium damage). Nothing is corrected there: that is the result. By the registered pick, the best combined arm is
+`union`.
+
+## What round 1 showed about `union`
+
+Every box `union` adds that the eval counts as false is a SECOND box on a barrel that already has a rule box:
+the rule box sits a third of a width off its barrel, the uncovered strip of the barrel still shows body, stripe,
+body, and the stencil accepts that strip as a barrel of its own (not standing further away than the rule box, so
+the claimed part counts as missing, and the strip alone reaches accept). Seen three times: scorecard, HOME color
+model `core_02` and `touch_02` (other color beside, half hidden): rule box (404, 117, 449, 163) for the barrel
+(419, 120, 471, 175), added box (421, 122, 470, 173); medium damage `close_02` seed 3 (and the same frame under
+"stripe breaks"). In the two scorecard scenes the added box is the right one and the rule box becomes the false
+one; either way it is two boxes on one barrel, which is what must not happen.
+
+## Round 2: one change, one new arm
+
+`union1` = `union` with one rule added: **a box the stencil adds is not drawn when it overlaps a rule box of its own
+color by a quarter or more of the smaller of the two boxes and does not stand further away than that rule box**
+(its bottom row is not at least `depth_margin_px` above the rule box's bottom). Same color, same place, same
+depth: the same barrel, and the rule detector's box stays. A barrel BEHIND a rule box of its color stands further
+away and is still added.
+
+Stated before the run: this gives up the finds where the stencil's box was the better of the two (the two
+scorecard scenes above go back to "not found"); expected cost a handful of scenes, expected gain no second box.
+Everything else is as in round 1: the stencil's numbers, the masks, the rule. `union1` is run on the levels, the
+eval table, the recordings and the scorecard and reported next to `union`. No other arm is re-run and nothing
+else is changed; there is no round 3.
