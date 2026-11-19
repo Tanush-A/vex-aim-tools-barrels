@@ -2,6 +2,15 @@
 
 **Updated:** 2026-11-16 (step 3 shot, boxed and **split**: wood ladder by scene 90 train / 27 test, black 10 / 5). Before capturing or using data, read "Now"; new frames are assigned to a split at import, before any method sees them.
 
+## Open shot requests (the data session reads this at the start of EVERY sitting and tells Tanush what is open)
+
+Kept current by the detector work (Claude, main session). The data session: at the start of each sitting, and whenever Tanush says "check requests", read this section and say which requests are still open, in order; tick a request here (date, condition) when its frames are imported. Requests are extra to the 9 shots per condition.
+
+| # | request | why | where | state |
+|---|---|---|---|---|
+| R1 | **Occlusion extras, 10 shots, once**, names `occlx_01`–`occlx_10`, one free barrel in view in each: (1) a barrel behind a book or box with a straight upright edge, about half hidden; (2) the same, about three quarters hidden; (3) a barrel seen through a gap between two books, both sides hidden; (4) a book lying flat hiding a barrel's lower half; (5) two barrels of the SAME color side by side, the back one half hidden; (6) two of the SAME color, one clearly nearer and half hiding the other; (7) a barrel of the other color straight in front, hiding a quarter to a half of the back one; (8) a pen or marker stand in front of the middle of a barrel; (9) a barrel right next to a plain orange or blue block that is not a barrel; (10) a hand held just above a barrel | every number for these cases is simulated so far (`EXPERIMENTS.md` 2026-11-19, occlusion scorecard); these are the real check | any white or other ordinary table, ordinary light | open |
+| R2 | **The same 10 on a second ordinary table or light**, if time allows | so the check does not rest on one table | another ordinary condition | open, optional |
+
 ## Now (2026-11-09)
 
 **What we have** (tags as in `TODO.md`): HOME 21 (16 train / 5 test, masks + boxes) · CAMPUS 31 (21 / 10, boxes) · DAVE 20 (12 boxed by Dave, grouped; indicative only) · WOOD 24 unlabeled (5 calib + 19 lamp-color) · REC 4 campus recordings · 1 live frame · **NEW (2026-11-16, step 3): 117 wood lamp-ladder frames (13 scenes × 9 lamp settings), 15 black-table window frames, 12 ruler `calib` frames; all 144 boxed by Tanush 2026-11-16; split 2026-11-16: wood ladder **90 train / 27 test, by scene** (`neg_01`, `occl_03`, `touch_01` under all 9 lights are test), black **10 / 5**, calib in no split; 2 recordings. After the boxing, Claude snapped 29 box edges that stopped 1–3 px short of the frame edge on frame-cut barrels out to the edge (which sets `truncated`) and added the missed `held` flag on the 9 wood `held_01` frames, with Tanush's go.** Test frames are never loaded except in a planned test look. Full table: "Dataset index" below.
