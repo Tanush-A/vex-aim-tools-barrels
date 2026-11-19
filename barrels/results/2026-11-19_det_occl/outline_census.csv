@@ -1,0 +1,1283 @@
+pool,stem,W,kind,amount,cut_side,side,what,end_top,end_bottom
+HOME hand masks,window_light_close_01,82.8,edge,0.0,,L,own,0.072,0.036
+HOME hand masks,window_light_close_01,82.8,edge,0.0,,R,own,0.06,0.085
+HOME hand masks,window_light_close_01,82.8,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_close_01,82.8,edge,0.25,L,R,own,0.06,0.085
+HOME hand masks,window_light_close_01,82.8,edge,0.25,R,L,own,0.072,0.036
+HOME hand masks,window_light_close_01,82.8,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_close_01,83.5,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_close_01,83.5,edge,0.5,L,R,own,0.048,0.096
+HOME hand masks,window_light_close_01,82.1,edge,0.5,R,L,own,0.073,0.037
+HOME hand masks,window_light_close_01,82.1,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_close_01,82.8,slant,0.25,L,L,cut slanted +,-0.036,0.157
+HOME hand masks,window_light_close_01,82.8,slant,0.25,L,R,own,0.06,0.085
+HOME hand masks,window_light_close_01,82.8,slant,0.25,L,L,cut slanted -,0.205,0.0
+HOME hand masks,window_light_close_01,82.8,slant,0.25,L,R,own,0.06,0.085
+HOME hand masks,window_light_close_01,82.8,slant,0.25,R,L,own,0.072,0.036
+HOME hand masks,window_light_close_01,82.8,slant,0.25,R,R,cut slanted +,0.205,0.0
+HOME hand masks,window_light_close_01,82.8,slant,0.25,R,L,own,0.072,0.036
+HOME hand masks,window_light_close_01,82.8,slant,0.25,R,R,cut slanted -,-0.036,0.157
+HOME hand masks,window_light_close_01,82.8,slant,0.5,L,L,cut slanted +,-0.06,0.157
+HOME hand masks,window_light_close_01,82.8,slant,0.5,L,R,own,0.06,0.085
+HOME hand masks,window_light_close_01,83.5,slant,0.5,L,L,cut slanted -,0.192,-0.012
+HOME hand masks,window_light_close_01,83.5,slant,0.5,L,R,own,0.048,0.096
+HOME hand masks,window_light_close_01,82.1,slant,0.5,R,L,own,0.073,0.037
+HOME hand masks,window_light_close_01,82.1,slant,0.5,R,R,cut slanted +,0.207,-0.012
+HOME hand masks,window_light_close_01,81.4,slant,0.5,R,L,own,0.086,0.037
+HOME hand masks,window_light_close_01,81.4,slant,0.5,R,R,cut slanted -,-0.049,0.147
+HOME hand masks,window_light_close_02,80.7,edge,0.0,,L,own,0.074,0.05
+HOME hand masks,window_light_close_02,80.7,edge,0.0,,R,own,0.05,0.074
+HOME hand masks,window_light_close_02,81.4,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_close_02,81.4,edge,0.25,L,R,own,0.061,0.086
+HOME hand masks,window_light_close_02,81.4,edge,0.25,R,L,own,0.061,0.049
+HOME hand masks,window_light_close_02,81.4,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_close_02,81.4,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_close_02,81.4,edge,0.5,L,R,own,0.061,0.086
+HOME hand masks,window_light_close_02,80.7,edge,0.5,R,L,own,0.074,0.05
+HOME hand masks,window_light_close_02,80.7,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_close_02,79.3,edge,0.75,R,L,own,0.076,0.038
+HOME hand masks,window_light_close_02,79.3,edge,0.75,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_close_02,81.4,slant,0.25,L,L,cut slanted +,-0.049,0.147
+HOME hand masks,window_light_close_02,81.4,slant,0.25,L,R,own,0.061,0.086
+HOME hand masks,window_light_close_02,81.4,slant,0.25,L,L,cut slanted -,0.197,0.0
+HOME hand masks,window_light_close_02,81.4,slant,0.25,L,R,own,0.061,0.086
+HOME hand masks,window_light_close_02,81.4,slant,0.25,R,L,own,0.061,0.049
+HOME hand masks,window_light_close_02,81.4,slant,0.25,R,R,cut slanted +,0.197,0.0
+HOME hand masks,window_light_close_02,81.4,slant,0.25,R,L,own,0.061,0.049
+HOME hand masks,window_light_close_02,81.4,slant,0.25,R,R,cut slanted -,-0.037,0.16
+HOME hand masks,window_light_close_02,81.4,slant,0.5,L,L,cut slanted +,-0.061,0.147
+HOME hand masks,window_light_close_02,81.4,slant,0.5,L,R,own,0.061,0.086
+HOME hand masks,window_light_close_02,81.4,slant,0.5,L,L,cut slanted -,0.197,-0.012
+HOME hand masks,window_light_close_02,81.4,slant,0.5,L,R,own,0.061,0.086
+HOME hand masks,window_light_close_02,80.7,slant,0.5,R,L,own,0.074,0.05
+HOME hand masks,window_light_close_02,80.7,slant,0.5,R,R,cut slanted +,0.198,-0.012
+HOME hand masks,window_light_close_02,80.7,slant,0.5,R,L,own,0.074,0.05
+HOME hand masks,window_light_close_02,80.7,slant,0.5,R,R,cut slanted -,-0.05,0.161
+HOME hand masks,window_light_close_02,79.3,slant,0.75,R,L,own,0.076,0.038
+HOME hand masks,window_light_close_02,79.3,slant,0.75,R,R,cut slanted +,0.202,0.0
+HOME hand masks,window_light_cluster_02,49.4,edge,0.0,,L,own,0.061,0.04
+HOME hand masks,window_light_cluster_02,49.4,edge,0.0,,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,49.4,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,49.4,edge,0.25,L,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,49.1,edge,0.25,R,L,own,0.061,0.041
+HOME hand masks,window_light_cluster_02,49.1,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,49.4,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,49.4,edge,0.5,L,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,48.7,edge,0.5,R,L,own,0.062,0.041
+HOME hand masks,window_light_cluster_02,48.7,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,49.4,slant,0.25,L,L,cut slanted +,-0.04,0.142
+HOME hand masks,window_light_cluster_02,49.4,slant,0.25,L,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,49.4,slant,0.25,L,L,cut slanted -,0.182,0.0
+HOME hand masks,window_light_cluster_02,49.4,slant,0.25,L,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,49.1,slant,0.25,R,L,own,0.061,0.041
+HOME hand masks,window_light_cluster_02,49.1,slant,0.25,R,R,cut slanted +,0.183,-0.02
+HOME hand masks,window_light_cluster_02,48.7,slant,0.25,R,L,own,0.062,0.041
+HOME hand masks,window_light_cluster_02,48.7,slant,0.25,R,R,cut slanted -,-0.041,0.144
+HOME hand masks,window_light_cluster_02,49.4,slant,0.5,L,L,cut slanted +,-0.04,0.142
+HOME hand masks,window_light_cluster_02,49.4,slant,0.5,L,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,49.4,slant,0.5,L,L,cut slanted -,0.182,-0.02
+HOME hand masks,window_light_cluster_02,49.4,slant,0.5,L,R,own,0.02,0.02
+HOME hand masks,window_light_cluster_02,48.7,slant,0.5,R,L,own,0.062,0.041
+HOME hand masks,window_light_cluster_02,48.7,slant,0.5,R,R,cut slanted +,0.185,-0.021
+HOME hand masks,window_light_cluster_02,48.7,slant,0.5,R,L,own,0.062,0.041
+HOME hand masks,window_light_cluster_02,48.7,slant,0.5,R,R,cut slanted -,-0.041,0.144
+HOME hand masks,window_light_cluster_02,52.9,edge,0.0,,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,edge,0.0,,R,own,0.038,0.113
+HOME hand masks,window_light_cluster_02,53.6,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,53.6,edge,0.25,L,R,own,0.037,0.112
+HOME hand masks,window_light_cluster_02,52.9,edge,0.25,R,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,53.6,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,53.6,edge,0.5,L,R,own,0.037,0.112
+HOME hand masks,window_light_cluster_02,52.9,edge,0.5,R,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_cluster_02,53.6,slant,0.25,L,L,cut slanted +,-0.037,0.168
+HOME hand masks,window_light_cluster_02,53.6,slant,0.25,L,R,own,0.037,0.112
+HOME hand masks,window_light_cluster_02,53.6,slant,0.25,L,L,cut slanted -,0.205,-0.019
+HOME hand masks,window_light_cluster_02,53.6,slant,0.25,L,R,own,0.037,0.112
+HOME hand masks,window_light_cluster_02,52.9,slant,0.25,R,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,slant,0.25,R,R,cut slanted +,0.208,0.0
+HOME hand masks,window_light_cluster_02,52.9,slant,0.25,R,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,slant,0.25,R,R,cut slanted -,-0.019,0.189
+HOME hand masks,window_light_cluster_02,53.6,slant,0.5,L,L,cut slanted +,-0.056,0.168
+HOME hand masks,window_light_cluster_02,53.6,slant,0.5,L,R,own,0.037,0.112
+HOME hand masks,window_light_cluster_02,53.6,slant,0.5,L,L,cut slanted -,0.205,-0.019
+HOME hand masks,window_light_cluster_02,53.6,slant,0.5,L,R,own,0.037,0.112
+HOME hand masks,window_light_cluster_02,52.9,slant,0.5,R,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,slant,0.5,R,R,cut slanted +,0.208,-0.019
+HOME hand masks,window_light_cluster_02,52.9,slant,0.5,R,L,own,0.113,0.038
+HOME hand masks,window_light_cluster_02,52.9,slant,0.5,R,R,cut slanted -,-0.038,0.189
+HOME hand masks,window_light_core_01,52.9,edge,0.0,,L,own,0.076,0.057
+HOME hand masks,window_light_core_01,52.9,edge,0.0,,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,52.9,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,52.9,edge,0.25,L,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,53.6,edge,0.25,R,L,own,0.075,0.075
+HOME hand masks,window_light_core_01,53.6,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,52.9,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,52.9,edge,0.5,L,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,53.6,edge,0.5,R,L,own,0.075,0.075
+HOME hand masks,window_light_core_01,53.6,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,52.9,slant,0.25,L,L,cut slanted +,-0.038,0.151
+HOME hand masks,window_light_core_01,52.9,slant,0.25,L,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,52.9,slant,0.25,L,L,cut slanted -,0.189,0.0
+HOME hand masks,window_light_core_01,52.9,slant,0.25,L,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,53.6,slant,0.25,R,L,own,0.075,0.075
+HOME hand masks,window_light_core_01,53.6,slant,0.25,R,R,cut slanted +,0.187,0.0
+HOME hand masks,window_light_core_01,53.6,slant,0.25,R,L,own,0.075,0.075
+HOME hand masks,window_light_core_01,53.6,slant,0.25,R,R,cut slanted -,-0.037,0.168
+HOME hand masks,window_light_core_01,52.9,slant,0.5,L,L,cut slanted +,-0.038,0.151
+HOME hand masks,window_light_core_01,52.9,slant,0.5,L,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,52.9,slant,0.5,L,L,cut slanted -,0.189,0.0
+HOME hand masks,window_light_core_01,52.9,slant,0.5,L,R,own,0.057,0.0
+HOME hand masks,window_light_core_01,53.6,slant,0.5,R,L,own,0.075,0.075
+HOME hand masks,window_light_core_01,53.6,slant,0.5,R,R,cut slanted +,0.187,-0.019
+HOME hand masks,window_light_core_01,53.6,slant,0.5,R,L,own,0.075,0.075
+HOME hand masks,window_light_core_01,53.6,slant,0.5,R,R,cut slanted -,-0.037,0.168
+HOME hand masks,window_light_core_01,51.5,edge,0.0,,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,edge,0.0,,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,51.5,edge,0.25,L,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,edge,0.25,R,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,51.5,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,51.5,edge,0.5,L,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,edge,0.5,R,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_01,51.5,slant,0.25,L,L,cut slanted +,-0.039,0.155
+HOME hand masks,window_light_core_01,51.5,slant,0.25,L,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.25,L,L,cut slanted -,0.175,-0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.25,L,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.25,R,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,slant,0.25,R,R,cut slanted +,0.175,-0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.25,R,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,slant,0.25,R,R,cut slanted -,-0.039,0.136
+HOME hand masks,window_light_core_01,51.5,slant,0.5,L,L,cut slanted +,-0.039,0.155
+HOME hand masks,window_light_core_01,51.5,slant,0.5,L,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.5,L,L,cut slanted -,0.175,-0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.5,L,R,own,0.058,0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.5,R,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,slant,0.5,R,R,cut slanted +,0.175,-0.019
+HOME hand masks,window_light_core_01,51.5,slant,0.5,R,L,own,0.078,0.058
+HOME hand masks,window_light_core_01,51.5,slant,0.5,R,R,cut slanted -,-0.058,0.136
+HOME hand masks,window_light_core_02,49.4,edge,0.0,,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,edge,0.0,,R,own,0.04,0.061
+HOME hand masks,window_light_core_02,50.1,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,50.1,edge,0.25,L,R,own,0.04,0.06
+HOME hand masks,window_light_core_02,49.4,edge,0.25,R,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,50.1,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,50.1,edge,0.5,L,R,own,0.04,0.06
+HOME hand masks,window_light_core_02,49.4,edge,0.5,R,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,50.1,slant,0.25,L,L,cut slanted +,-0.02,0.16
+HOME hand masks,window_light_core_02,50.1,slant,0.25,L,R,own,0.04,0.06
+HOME hand masks,window_light_core_02,50.1,slant,0.25,L,L,cut slanted -,0.18,-0.02
+HOME hand masks,window_light_core_02,50.1,slant,0.25,L,R,own,0.04,0.06
+HOME hand masks,window_light_core_02,49.4,slant,0.25,R,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,slant,0.25,R,R,cut slanted +,0.202,-0.02
+HOME hand masks,window_light_core_02,49.4,slant,0.25,R,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,slant,0.25,R,R,cut slanted -,-0.02,0.162
+HOME hand masks,window_light_core_02,49.8,slant,0.5,L,L,cut slanted +,-0.04,0.161
+HOME hand masks,window_light_core_02,49.8,slant,0.5,L,R,own,0.04,0.06
+HOME hand masks,window_light_core_02,49.8,slant,0.5,L,L,cut slanted -,0.201,-0.02
+HOME hand masks,window_light_core_02,49.8,slant,0.5,L,R,own,0.04,0.06
+HOME hand masks,window_light_core_02,49.4,slant,0.5,R,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,slant,0.5,R,R,cut slanted +,0.202,-0.02
+HOME hand masks,window_light_core_02,49.4,slant,0.5,R,L,own,0.081,0.04
+HOME hand masks,window_light_core_02,49.4,slant,0.5,R,R,cut slanted -,-0.04,0.162
+HOME hand masks,window_light_core_02,51.5,edge,0.0,,L,own,0.097,0.019
+HOME hand masks,window_light_core_02,51.5,edge,0.0,,R,own,0.019,0.117
+HOME hand masks,window_light_core_02,51.5,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,51.5,edge,0.25,L,R,own,0.019,0.117
+HOME hand masks,window_light_core_02,50.8,edge,0.25,R,L,own,0.118,0.039
+HOME hand masks,window_light_core_02,50.8,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,51.5,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,51.5,edge,0.5,L,R,own,0.019,0.117
+HOME hand masks,window_light_core_02,50.8,edge,0.5,R,L,own,0.118,0.039
+HOME hand masks,window_light_core_02,50.8,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_02,51.5,slant,0.25,L,L,cut slanted +,-0.039,0.155
+HOME hand masks,window_light_core_02,51.5,slant,0.25,L,R,own,0.019,0.117
+HOME hand masks,window_light_core_02,51.5,slant,0.25,L,L,cut slanted -,0.194,0.0
+HOME hand masks,window_light_core_02,51.5,slant,0.25,L,R,own,0.019,0.117
+HOME hand masks,window_light_core_02,50.8,slant,0.25,R,L,own,0.118,0.039
+HOME hand masks,window_light_core_02,50.8,slant,0.25,R,R,cut slanted +,0.197,0.0
+HOME hand masks,window_light_core_02,50.8,slant,0.25,R,L,own,0.118,0.039
+HOME hand masks,window_light_core_02,50.8,slant,0.25,R,R,cut slanted -,-0.039,0.157
+HOME hand masks,window_light_core_02,52.2,slant,0.5,L,L,cut slanted +,-0.057,0.153
+HOME hand masks,window_light_core_02,52.2,slant,0.5,L,R,own,0.0,0.115
+HOME hand masks,window_light_core_02,51.8,slant,0.5,L,L,cut slanted -,0.193,-0.019
+HOME hand masks,window_light_core_02,51.8,slant,0.5,L,R,own,0.019,0.116
+HOME hand masks,window_light_core_02,50.8,slant,0.5,R,L,own,0.118,0.039
+HOME hand masks,window_light_core_02,50.8,slant,0.5,R,R,cut slanted +,0.197,-0.02
+HOME hand masks,window_light_core_02,50.8,slant,0.5,R,L,own,0.118,0.039
+HOME hand masks,window_light_core_02,50.8,slant,0.5,R,R,cut slanted -,-0.039,0.157
+HOME hand masks,window_light_core_03,32.0,edge,0.0,,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,edge,0.0,,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_03,32.0,edge,0.25,L,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,edge,0.25,R,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_03,32.0,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_core_03,32.0,edge,0.5,L,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,edge,0.5,R,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_core_03,32.0,slant,0.25,L,L,cut slanted +,-0.031,0.156
+HOME hand masks,window_light_core_03,32.0,slant,0.25,L,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,slant,0.25,L,L,cut slanted -,0.187,-0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.25,L,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,slant,0.25,R,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.25,R,R,cut slanted +,0.187,-0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.25,R,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.25,R,R,cut slanted -,-0.031,0.156
+HOME hand masks,window_light_core_03,32.0,slant,0.5,L,L,cut slanted +,-0.031,0.156
+HOME hand masks,window_light_core_03,32.0,slant,0.5,L,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,slant,0.5,L,L,cut slanted -,0.187,-0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.5,L,R,own,0.062,0.062
+HOME hand masks,window_light_core_03,32.0,slant,0.5,R,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.5,R,R,cut slanted +,0.187,-0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.5,R,L,own,0.094,0.031
+HOME hand masks,window_light_core_03,32.0,slant,0.5,R,R,cut slanted -,-0.031,0.156
+HOME hand masks,window_light_far_02,32.0,edge,0.0,,L,own,0.062,0.031
+HOME hand masks,window_light_far_02,32.0,edge,0.0,,R,own,0.062,0.125
+HOME hand masks,window_light_far_02,32.7,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,32.7,edge,0.25,L,R,own,0.061,0.122
+HOME hand masks,window_light_far_02,32.7,edge,0.25,R,L,own,0.031,0.061
+HOME hand masks,window_light_far_02,32.7,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,32.0,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,32.0,edge,0.5,L,R,own,0.062,0.125
+HOME hand masks,window_light_far_02,32.0,edge,0.5,R,L,own,0.062,0.031
+HOME hand masks,window_light_far_02,32.0,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,32.7,slant,0.25,L,L,cut slanted +,0.0,0.214
+HOME hand masks,window_light_far_02,32.7,slant,0.25,L,R,own,0.061,0.122
+HOME hand masks,window_light_far_02,32.7,slant,0.25,L,L,cut slanted -,0.214,0.0
+HOME hand masks,window_light_far_02,32.7,slant,0.25,L,R,own,0.061,0.122
+HOME hand masks,window_light_far_02,32.7,slant,0.25,R,L,own,0.031,0.061
+HOME hand masks,window_light_far_02,32.7,slant,0.25,R,R,cut slanted +,0.214,0.0
+HOME hand masks,window_light_far_02,32.7,slant,0.25,R,L,own,0.031,0.061
+HOME hand masks,window_light_far_02,32.7,slant,0.25,R,R,cut slanted -,0.0,0.214
+HOME hand masks,window_light_far_02,32.0,slant,0.5,L,L,cut slanted +,-0.031,0.156
+HOME hand masks,window_light_far_02,32.0,slant,0.5,L,R,own,0.062,0.125
+HOME hand masks,window_light_far_02,32.0,slant,0.5,L,L,cut slanted -,0.218,0.0
+HOME hand masks,window_light_far_02,32.0,slant,0.5,L,R,own,0.062,0.125
+HOME hand masks,window_light_far_02,32.0,slant,0.5,R,L,own,0.062,0.031
+HOME hand masks,window_light_far_02,32.0,slant,0.5,R,R,cut slanted +,0.218,0.0
+HOME hand masks,window_light_far_02,32.0,slant,0.5,R,L,own,0.062,0.031
+HOME hand masks,window_light_far_02,32.0,slant,0.5,R,R,cut slanted -,-0.031,0.156
+HOME hand masks,window_light_far_02,33.4,edge,0.0,,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,edge,0.0,,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,33.4,edge,0.25,L,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,edge,0.25,R,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,33.4,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,33.4,edge,0.5,L,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,edge,0.5,R,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_far_02,33.4,slant,0.25,L,L,cut slanted +,0.0,0.209
+HOME hand masks,window_light_far_02,33.4,slant,0.25,L,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.25,L,L,cut slanted -,0.209,0.0
+HOME hand masks,window_light_far_02,33.4,slant,0.25,L,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.25,R,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.25,R,R,cut slanted +,0.209,0.03
+HOME hand masks,window_light_far_02,33.4,slant,0.25,R,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.25,R,R,cut slanted -,-0.03,0.179
+HOME hand masks,window_light_far_02,33.4,slant,0.5,L,L,cut slanted +,0.0,0.209
+HOME hand masks,window_light_far_02,33.4,slant,0.5,L,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.5,L,L,cut slanted -,0.209,-0.03
+HOME hand masks,window_light_far_02,33.4,slant,0.5,L,R,own,0.03,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.5,R,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.5,R,R,cut slanted +,0.209,-0.03
+HOME hand masks,window_light_far_02,33.4,slant,0.5,R,L,own,0.09,0.06
+HOME hand masks,window_light_far_02,33.4,slant,0.5,R,R,cut slanted -,-0.03,0.179
+HOME hand masks,window_light_touch_02,51.5,edge,0.0,,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,edge,0.0,,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,edge,0.25,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_touch_02,51.5,edge,0.25,L,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,edge,0.25,R,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,edge,0.25,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_touch_02,51.5,edge,0.5,L,L,cut straight,0.0,0.0
+HOME hand masks,window_light_touch_02,51.5,edge,0.5,L,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,edge,0.5,R,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,edge,0.5,R,R,cut straight,0.0,0.0
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,L,L,cut slanted +,-0.019,0.175
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,L,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,L,L,cut slanted -,0.175,-0.019
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,L,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,R,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,R,R,cut slanted +,0.175,-0.019
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,R,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,slant,0.25,R,R,cut slanted -,-0.019,0.175
+HOME hand masks,window_light_touch_02,51.1,slant,0.5,L,L,cut slanted +,-0.039,0.176
+HOME hand masks,window_light_touch_02,51.1,slant,0.5,L,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,slant,0.5,L,L,cut slanted -,0.175,-0.019
+HOME hand masks,window_light_touch_02,51.5,slant,0.5,L,R,own,0.078,0.078
+HOME hand masks,window_light_touch_02,51.5,slant,0.5,R,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,slant,0.5,R,R,cut slanted +,0.175,-0.019
+HOME hand masks,window_light_touch_02,51.5,slant,0.5,R,L,own,0.039,0.058
+HOME hand masks,window_light_touch_02,51.5,slant,0.5,R,R,cut slanted -,-0.039,0.175
+HOME color model,window_light_close_01,82.8,edge,0.0,,L,own,0.036,0.012
+HOME color model,window_light_close_01,82.8,edge,0.0,,R,own,0.048,0.048
+HOME color model,window_light_close_01,83.5,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_close_01,83.5,edge,0.25,L,R,own,0.048,0.06
+HOME color model,window_light_close_01,82.8,edge,0.25,R,L,own,0.036,0.012
+HOME color model,window_light_close_01,82.8,edge,0.25,R,R,cut straight,0.0,0.012
+HOME color model,window_light_close_01,83.5,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_close_01,83.5,edge,0.5,L,R,own,0.048,0.06
+HOME color model,window_light_close_01,82.1,edge,0.5,R,L,own,0.037,0.012
+HOME color model,window_light_close_01,82.1,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_close_01,83.5,slant,0.25,L,L,cut slanted +,-0.048,0.144
+HOME color model,window_light_close_01,83.5,slant,0.25,L,R,own,0.048,0.06
+HOME color model,window_light_close_01,83.5,slant,0.25,L,L,cut slanted -,0.192,-0.012
+HOME color model,window_light_close_01,83.5,slant,0.25,L,R,own,0.048,0.06
+HOME color model,window_light_close_01,82.8,slant,0.25,R,L,own,0.036,0.012
+HOME color model,window_light_close_01,82.8,slant,0.25,R,R,cut slanted +,0.205,-0.012
+HOME color model,window_light_close_01,82.8,slant,0.25,R,L,own,0.036,0.012
+HOME color model,window_light_close_01,82.8,slant,0.25,R,R,cut slanted -,-0.109,0.085
+HOME color model,window_light_close_01,82.8,slant,0.5,L,L,cut slanted +,-0.06,0.145
+HOME color model,window_light_close_01,82.8,slant,0.5,L,R,own,0.048,0.048
+HOME color model,window_light_close_01,82.8,slant,0.5,L,L,cut slanted -,0.205,-0.012
+HOME color model,window_light_close_01,82.8,slant,0.5,L,R,own,0.048,0.048
+HOME color model,window_light_close_01,82.1,slant,0.5,R,L,own,0.037,0.012
+HOME color model,window_light_close_01,82.1,slant,0.5,R,R,cut slanted +,0.207,-0.012
+HOME color model,window_light_close_01,82.1,slant,0.5,R,L,own,0.037,0.012
+HOME color model,window_light_close_01,82.1,slant,0.5,R,R,cut slanted -,-0.049,0.146
+HOME color model,window_light_close_02,80.7,edge,0.0,,L,own,0.037,0.037
+HOME color model,window_light_close_02,80.7,edge,0.0,,R,own,0.05,0.074
+HOME color model,window_light_close_02,81.4,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_close_02,81.4,edge,0.25,L,R,own,0.049,0.074
+HOME color model,window_light_close_02,81.4,edge,0.25,R,L,own,0.037,0.037
+HOME color model,window_light_close_02,81.4,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_close_02,81.4,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_close_02,81.4,edge,0.5,L,R,own,0.049,0.074
+HOME color model,window_light_close_02,80.7,edge,0.5,R,L,own,0.037,0.037
+HOME color model,window_light_close_02,80.7,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_close_02,81.4,slant,0.25,L,L,cut slanted +,-0.049,0.147
+HOME color model,window_light_close_02,81.4,slant,0.25,L,R,own,0.049,0.074
+HOME color model,window_light_close_02,81.4,slant,0.25,L,L,cut slanted -,0.197,-0.012
+HOME color model,window_light_close_02,81.4,slant,0.25,L,R,own,0.049,0.074
+HOME color model,window_light_close_02,81.4,slant,0.25,R,L,own,0.037,0.037
+HOME color model,window_light_close_02,81.4,slant,0.25,R,R,cut slanted +,0.197,0.0
+HOME color model,window_light_close_02,81.4,slant,0.25,R,L,own,0.037,0.037
+HOME color model,window_light_close_02,81.4,slant,0.25,R,R,cut slanted -,-0.037,0.16
+HOME color model,window_light_close_02,81.4,slant,0.5,L,L,cut slanted +,-0.061,0.147
+HOME color model,window_light_close_02,81.4,slant,0.5,L,R,own,0.049,0.074
+HOME color model,window_light_close_02,81.4,slant,0.5,L,L,cut slanted -,0.197,-0.012
+HOME color model,window_light_close_02,81.4,slant,0.5,L,R,own,0.049,0.074
+HOME color model,window_light_close_02,80.7,slant,0.5,R,L,own,0.037,0.037
+HOME color model,window_light_close_02,80.7,slant,0.5,R,R,cut slanted +,0.198,-0.012
+HOME color model,window_light_close_02,80.0,slant,0.5,R,L,own,0.05,0.037
+HOME color model,window_light_close_02,80.0,slant,0.5,R,R,cut slanted -,-0.05,0.15
+HOME color model,window_light_cluster_02,48.0,edge,0.0,,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,edge,0.0,,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,48.0,edge,0.25,L,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,edge,0.25,R,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,48.0,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,48.0,edge,0.5,L,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,edge,0.5,R,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,48.0,slant,0.25,L,L,cut slanted +,-0.042,0.146
+HOME color model,window_light_cluster_02,48.0,slant,0.25,L,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,slant,0.25,L,L,cut slanted -,0.167,-0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.25,L,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,slant,0.25,R,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.25,R,R,cut slanted +,0.167,-0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.25,R,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.25,R,R,cut slanted -,-0.042,0.146
+HOME color model,window_light_cluster_02,48.0,slant,0.5,L,L,cut slanted +,-0.042,0.146
+HOME color model,window_light_cluster_02,48.0,slant,0.5,L,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,slant,0.5,L,L,cut slanted -,0.167,-0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.5,L,R,own,0.042,0.042
+HOME color model,window_light_cluster_02,48.0,slant,0.5,R,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.5,R,R,cut slanted +,0.167,-0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.5,R,L,own,0.042,0.021
+HOME color model,window_light_cluster_02,48.0,slant,0.5,R,R,cut slanted -,-0.042,0.146
+HOME color model,window_light_cluster_02,52.2,edge,0.0,,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,edge,0.0,,R,own,-0.096,0.096
+HOME color model,window_light_cluster_02,52.9,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,52.9,edge,0.25,L,R,own,-0.095,0.113
+HOME color model,window_light_cluster_02,52.2,edge,0.25,R,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,52.9,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,52.9,edge,0.5,L,R,own,-0.095,0.113
+HOME color model,window_light_cluster_02,52.2,edge,0.5,R,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,51.5,edge,0.75,R,L,own,-0.058,0.039
+HOME color model,window_light_cluster_02,51.5,edge,0.75,R,R,cut straight,0.0,0.0
+HOME color model,window_light_cluster_02,52.9,slant,0.25,L,L,cut slanted +,-0.038,0.17
+HOME color model,window_light_cluster_02,52.9,slant,0.25,L,R,own,-0.095,0.113
+HOME color model,window_light_cluster_02,52.9,slant,0.25,L,L,cut slanted -,0.208,-0.019
+HOME color model,window_light_cluster_02,52.9,slant,0.25,L,R,own,-0.095,0.113
+HOME color model,window_light_cluster_02,52.2,slant,0.25,R,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,slant,0.25,R,R,cut slanted +,0.192,0.0
+HOME color model,window_light_cluster_02,52.2,slant,0.25,R,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,slant,0.25,R,R,cut slanted -,-0.038,0.153
+HOME color model,window_light_cluster_02,52.9,slant,0.5,L,L,cut slanted +,-0.057,0.17
+HOME color model,window_light_cluster_02,52.9,slant,0.5,L,R,own,-0.095,0.113
+HOME color model,window_light_cluster_02,52.9,slant,0.5,L,L,cut slanted -,0.208,-0.019
+HOME color model,window_light_cluster_02,52.9,slant,0.5,L,R,own,-0.095,0.113
+HOME color model,window_light_cluster_02,52.2,slant,0.5,R,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,slant,0.5,R,R,cut slanted +,0.192,-0.038
+HOME color model,window_light_cluster_02,52.2,slant,0.5,R,L,own,-0.057,0.038
+HOME color model,window_light_cluster_02,52.2,slant,0.5,R,R,cut slanted -,-0.057,0.153
+HOME color model,window_light_core_01,52.9,edge,0.0,,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,edge,0.0,,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_01,52.9,edge,0.25,L,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,edge,0.25,R,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_01,52.9,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_01,52.9,edge,0.5,L,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,edge,0.5,R,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_01,52.9,slant,0.25,L,L,cut slanted +,-0.038,0.151
+HOME color model,window_light_core_01,52.9,slant,0.25,L,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,slant,0.25,L,L,cut slanted -,0.17,-0.019
+HOME color model,window_light_core_01,52.9,slant,0.25,L,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,slant,0.25,R,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,slant,0.25,R,R,cut slanted +,0.17,-0.019
+HOME color model,window_light_core_01,52.9,slant,0.25,R,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,slant,0.25,R,R,cut slanted -,-0.038,0.151
+HOME color model,window_light_core_01,52.9,slant,0.5,L,L,cut slanted +,-0.038,0.151
+HOME color model,window_light_core_01,52.9,slant,0.5,L,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,slant,0.5,L,L,cut slanted -,0.17,-0.019
+HOME color model,window_light_core_01,52.9,slant,0.5,L,R,own,-0.057,0.038
+HOME color model,window_light_core_01,52.9,slant,0.5,R,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,slant,0.5,R,R,cut slanted +,0.17,-0.019
+HOME color model,window_light_core_01,52.9,slant,0.5,R,L,own,-0.076,0.057
+HOME color model,window_light_core_01,52.9,slant,0.5,R,R,cut slanted -,-0.038,0.151
+HOME color model,window_light_core_01,50.8,edge,0.0,,L,own,0.079,0.039
+HOME color model,window_light_core_01,50.8,edge,0.0,,R,own,0.059,0.059
+HOME color model,window_light_core_01,51.5,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_01,51.5,edge,0.25,L,R,own,0.039,0.058
+HOME color model,window_light_core_01,51.5,edge,0.25,R,L,own,0.078,0.039
+HOME color model,window_light_core_01,51.5,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_01,51.5,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_01,51.5,edge,0.5,L,R,own,0.039,0.058
+HOME color model,window_light_core_01,50.8,edge,0.5,R,L,own,0.079,0.039
+HOME color model,window_light_core_01,50.8,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_01,51.5,slant,0.25,L,L,cut slanted +,-0.039,0.136
+HOME color model,window_light_core_01,51.5,slant,0.25,L,R,own,0.039,0.058
+HOME color model,window_light_core_01,51.5,slant,0.25,L,L,cut slanted -,0.175,-0.019
+HOME color model,window_light_core_01,51.5,slant,0.25,L,R,own,0.039,0.058
+HOME color model,window_light_core_01,51.5,slant,0.25,R,L,own,0.078,0.039
+HOME color model,window_light_core_01,51.5,slant,0.25,R,R,cut slanted +,0.175,0.0
+HOME color model,window_light_core_01,51.5,slant,0.25,R,L,own,0.078,0.039
+HOME color model,window_light_core_01,51.5,slant,0.25,R,R,cut slanted -,-0.039,0.136
+HOME color model,window_light_core_01,50.8,slant,0.5,L,L,cut slanted +,-0.059,0.138
+HOME color model,window_light_core_01,50.8,slant,0.5,L,R,own,0.059,0.059
+HOME color model,window_light_core_01,50.8,slant,0.5,L,L,cut slanted -,0.197,-0.02
+HOME color model,window_light_core_01,50.8,slant,0.5,L,R,own,0.059,0.059
+HOME color model,window_light_core_01,50.8,slant,0.5,R,L,own,0.079,0.039
+HOME color model,window_light_core_01,50.8,slant,0.5,R,R,cut slanted +,0.197,-0.02
+HOME color model,window_light_core_01,50.8,slant,0.5,R,L,own,0.079,0.039
+HOME color model,window_light_core_01,50.8,slant,0.5,R,R,cut slanted -,-0.039,0.138
+HOME color model,window_light_core_02,50.1,edge,0.0,,L,own,0.08,0.04
+HOME color model,window_light_core_02,50.1,edge,0.0,,R,own,0.04,0.06
+HOME color model,window_light_core_02,50.1,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.1,edge,0.25,L,R,own,0.04,0.06
+HOME color model,window_light_core_02,50.1,edge,0.25,R,L,own,0.08,0.04
+HOME color model,window_light_core_02,50.1,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.1,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.1,edge,0.5,L,R,own,0.04,0.06
+HOME color model,window_light_core_02,49.4,edge,0.5,R,L,own,0.101,0.04
+HOME color model,window_light_core_02,49.4,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.1,slant,0.25,L,L,cut slanted +,-0.02,0.16
+HOME color model,window_light_core_02,50.1,slant,0.25,L,R,own,0.04,0.06
+HOME color model,window_light_core_02,50.1,slant,0.25,L,L,cut slanted -,0.18,-0.02
+HOME color model,window_light_core_02,50.1,slant,0.25,L,R,own,0.04,0.06
+HOME color model,window_light_core_02,50.1,slant,0.25,R,L,own,0.08,0.04
+HOME color model,window_light_core_02,50.1,slant,0.25,R,R,cut slanted +,0.18,0.0
+HOME color model,window_light_core_02,50.1,slant,0.25,R,L,own,0.08,0.04
+HOME color model,window_light_core_02,50.1,slant,0.25,R,R,cut slanted -,-0.02,0.16
+HOME color model,window_light_core_02,50.1,slant,0.5,L,L,cut slanted +,-0.02,0.16
+HOME color model,window_light_core_02,50.1,slant,0.5,L,R,own,0.04,0.06
+HOME color model,window_light_core_02,50.1,slant,0.5,L,L,cut slanted -,0.18,-0.02
+HOME color model,window_light_core_02,50.1,slant,0.5,L,R,own,0.04,0.06
+HOME color model,window_light_core_02,49.4,slant,0.5,R,L,own,0.101,0.04
+HOME color model,window_light_core_02,49.4,slant,0.5,R,R,cut slanted +,0.202,-0.02
+HOME color model,window_light_core_02,49.4,slant,0.5,R,L,own,0.101,0.04
+HOME color model,window_light_core_02,49.4,slant,0.5,R,R,cut slanted -,-0.02,0.162
+HOME color model,window_light_core_02,50.8,edge,0.0,,L,own,0.059,0.02
+HOME color model,window_light_core_02,50.8,edge,0.0,,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.8,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.8,edge,0.25,L,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.1,edge,0.25,R,L,own,0.06,0.02
+HOME color model,window_light_core_02,50.1,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.8,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.8,edge,0.5,L,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.1,edge,0.5,R,L,own,0.06,0.02
+HOME color model,window_light_core_02,50.1,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_02,50.8,slant,0.25,L,L,cut slanted +,-0.059,0.138
+HOME color model,window_light_core_02,50.8,slant,0.25,L,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.8,slant,0.25,L,L,cut slanted -,0.197,-0.02
+HOME color model,window_light_core_02,50.8,slant,0.25,L,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.1,slant,0.25,R,L,own,0.06,0.02
+HOME color model,window_light_core_02,50.1,slant,0.25,R,R,cut slanted +,0.2,-0.02
+HOME color model,window_light_core_02,50.1,slant,0.25,R,L,own,0.06,0.02
+HOME color model,window_light_core_02,50.1,slant,0.25,R,R,cut slanted -,-0.04,0.16
+HOME color model,window_light_core_02,50.8,slant,0.5,L,L,cut slanted +,-0.059,0.138
+HOME color model,window_light_core_02,50.8,slant,0.5,L,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.8,slant,0.5,L,L,cut slanted -,0.197,-0.02
+HOME color model,window_light_core_02,50.8,slant,0.5,L,R,own,-0.059,0.118
+HOME color model,window_light_core_02,50.1,slant,0.5,R,L,own,0.06,0.02
+HOME color model,window_light_core_02,50.1,slant,0.5,R,R,cut slanted +,0.2,-0.02
+HOME color model,window_light_core_02,50.1,slant,0.5,R,L,own,0.06,0.02
+HOME color model,window_light_core_02,50.1,slant,0.5,R,R,cut slanted -,-0.04,0.16
+HOME color model,window_light_core_03,32.0,edge,0.0,,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,edge,0.0,,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_03,32.0,edge,0.25,L,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,edge,0.25,R,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_03,32.0,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_core_03,32.0,edge,0.5,L,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,edge,0.5,R,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_core_03,32.0,slant,0.25,L,L,cut slanted +,-0.031,0.156
+HOME color model,window_light_core_03,32.0,slant,0.25,L,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.25,L,L,cut slanted -,0.187,-0.031
+HOME color model,window_light_core_03,32.0,slant,0.25,L,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.25,R,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.25,R,R,cut slanted +,0.187,0.0
+HOME color model,window_light_core_03,32.0,slant,0.25,R,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.25,R,R,cut slanted -,0.0,0.156
+HOME color model,window_light_core_03,32.0,slant,0.5,L,L,cut slanted +,-0.031,0.156
+HOME color model,window_light_core_03,32.0,slant,0.5,L,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.5,L,L,cut slanted -,0.187,-0.031
+HOME color model,window_light_core_03,32.0,slant,0.5,L,R,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.5,R,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.5,R,R,cut slanted +,0.187,-0.031
+HOME color model,window_light_core_03,32.0,slant,0.5,R,L,own,0.062,0.062
+HOME color model,window_light_core_03,32.0,slant,0.5,R,R,cut slanted -,-0.031,0.156
+HOME color model,window_light_far_02,31.3,edge,0.0,,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,edge,0.0,,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_far_02,31.3,edge,0.25,L,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,edge,0.25,R,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_far_02,31.3,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_far_02,31.3,edge,0.5,L,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,edge,0.5,R,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_far_02,31.3,slant,0.25,L,L,cut slanted +,-0.032,0.16
+HOME color model,window_light_far_02,31.3,slant,0.25,L,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.25,L,L,cut slanted -,0.191,0.0
+HOME color model,window_light_far_02,31.3,slant,0.25,L,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.25,R,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.25,R,R,cut slanted +,0.191,0.0
+HOME color model,window_light_far_02,31.3,slant,0.25,R,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.25,R,R,cut slanted -,-0.032,0.16
+HOME color model,window_light_far_02,31.3,slant,0.5,L,L,cut slanted +,-0.032,0.16
+HOME color model,window_light_far_02,31.3,slant,0.5,L,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.5,L,L,cut slanted -,0.191,-0.032
+HOME color model,window_light_far_02,31.3,slant,0.5,L,R,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.5,R,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.5,R,R,cut slanted +,0.191,-0.032
+HOME color model,window_light_far_02,31.3,slant,0.5,R,L,own,0.032,0.032
+HOME color model,window_light_far_02,31.3,slant,0.5,R,R,cut slanted -,-0.032,0.16
+HOME color model,window_light_far_02,32.7,edge,0.0,,L,own,0.183,0.122
+HOME color model,window_light_far_02,32.7,edge,0.0,,R,own,0.031,0.153
+HOME color model,window_light_far_02,32.7,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_far_02,32.7,edge,0.25,L,R,own,0.031,0.153
+HOME color model,window_light_far_02,32.7,edge,0.25,R,L,own,0.183,0.122
+HOME color model,window_light_far_02,32.7,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_far_02,32.7,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_far_02,32.7,edge,0.5,L,R,own,0.031,0.153
+HOME color model,window_light_far_02,32.0,edge,0.5,R,L,own,0.281,0.094
+HOME color model,window_light_far_02,32.0,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_far_02,32.7,slant,0.25,L,L,cut slanted +,0.0,0.214
+HOME color model,window_light_far_02,32.7,slant,0.25,L,R,own,0.031,0.153
+HOME color model,window_light_far_02,32.7,slant,0.25,L,L,cut slanted -,0.214,0.0
+HOME color model,window_light_far_02,32.7,slant,0.25,L,R,own,0.031,0.153
+HOME color model,window_light_far_02,32.7,slant,0.25,R,L,own,0.183,0.122
+HOME color model,window_light_far_02,32.7,slant,0.25,R,R,cut slanted +,0.183,0.0
+HOME color model,window_light_far_02,32.7,slant,0.25,R,L,own,0.183,0.122
+HOME color model,window_light_far_02,32.7,slant,0.25,R,R,cut slanted -,0.0,0.214
+HOME color model,window_light_far_02,32.4,slant,0.5,L,L,cut slanted +,-0.031,0.185
+HOME color model,window_light_far_02,32.4,slant,0.5,L,R,own,0.031,0.123
+HOME color model,window_light_far_02,32.4,slant,0.5,L,L,cut slanted -,0.216,-0.031
+HOME color model,window_light_far_02,32.4,slant,0.5,L,R,own,0.031,0.123
+HOME color model,window_light_far_02,32.0,slant,0.5,R,L,own,0.281,0.094
+HOME color model,window_light_far_02,32.0,slant,0.5,R,R,cut slanted +,0.187,-0.031
+HOME color model,window_light_far_02,32.0,slant,0.5,R,L,own,0.281,0.094
+HOME color model,window_light_far_02,32.0,slant,0.5,R,R,cut slanted -,-0.062,0.156
+HOME color model,window_light_touch_02,50.8,edge,0.0,,L,own,0.039,0.039
+HOME color model,window_light_touch_02,50.8,edge,0.0,,R,own,0.079,0.039
+HOME color model,window_light_touch_02,50.8,edge,0.25,L,L,cut straight,0.0,0.0
+HOME color model,window_light_touch_02,50.8,edge,0.25,L,R,own,0.079,0.039
+HOME color model,window_light_touch_02,51.5,edge,0.25,R,L,own,0.039,0.039
+HOME color model,window_light_touch_02,51.5,edge,0.25,R,R,cut straight,0.0,0.0
+HOME color model,window_light_touch_02,50.8,edge,0.5,L,L,cut straight,0.0,0.0
+HOME color model,window_light_touch_02,50.8,edge,0.5,L,R,own,0.079,0.039
+HOME color model,window_light_touch_02,51.5,edge,0.5,R,L,own,0.039,0.039
+HOME color model,window_light_touch_02,51.5,edge,0.5,R,R,cut straight,0.0,0.0
+HOME color model,window_light_touch_02,50.8,slant,0.25,L,L,cut slanted +,-0.02,0.157
+HOME color model,window_light_touch_02,50.8,slant,0.25,L,R,own,0.079,0.039
+HOME color model,window_light_touch_02,50.8,slant,0.25,L,L,cut slanted -,0.197,-0.02
+HOME color model,window_light_touch_02,50.8,slant,0.25,L,R,own,0.079,0.039
+HOME color model,window_light_touch_02,51.5,slant,0.25,R,L,own,0.039,0.039
+HOME color model,window_light_touch_02,51.5,slant,0.25,R,R,cut slanted +,0.175,0.0
+HOME color model,window_light_touch_02,51.5,slant,0.25,R,L,own,0.039,0.039
+HOME color model,window_light_touch_02,51.5,slant,0.25,R,R,cut slanted -,-0.019,0.175
+HOME color model,window_light_touch_02,50.8,slant,0.5,L,L,cut slanted +,-0.02,0.157
+HOME color model,window_light_touch_02,50.8,slant,0.5,L,R,own,0.079,0.039
+HOME color model,window_light_touch_02,50.8,slant,0.5,L,L,cut slanted -,0.197,-0.02
+HOME color model,window_light_touch_02,50.8,slant,0.5,L,R,own,0.079,0.039
+HOME color model,window_light_touch_02,51.5,slant,0.5,R,L,own,0.039,0.039
+HOME color model,window_light_touch_02,51.5,slant,0.5,R,R,cut slanted +,0.175,-0.019
+HOME color model,window_light_touch_02,51.5,slant,0.5,R,L,own,0.039,0.039
+HOME color model,window_light_touch_02,51.5,slant,0.5,R,R,cut slanted -,-0.039,0.155
+CAMPUS color model,campus_light_close_01,150.3,edge,0.0,,L,own,0.047,0.073
+CAMPUS color model,campus_light_close_01,150.3,edge,0.0,,R,own,0.04,0.047
+CAMPUS color model,campus_light_close_01,151.7,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_close_01,151.7,edge,0.25,L,R,own,0.04,0.046
+CAMPUS color model,campus_light_close_01,151.7,edge,0.25,R,L,own,0.046,0.073
+CAMPUS color model,campus_light_close_01,151.7,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_close_01,151.0,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_close_01,151.0,edge,0.5,L,R,own,0.04,0.046
+CAMPUS color model,campus_light_close_01,150.3,edge,0.5,R,L,own,0.047,0.073
+CAMPUS color model,campus_light_close_01,150.3,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_close_01,151.7,slant,0.25,L,L,cut slanted +,-0.059,0.112
+CAMPUS color model,campus_light_close_01,151.7,slant,0.25,L,R,own,0.04,0.046
+CAMPUS color model,campus_light_close_01,151.7,slant,0.25,L,L,cut slanted -,0.171,0.0
+CAMPUS color model,campus_light_close_01,151.7,slant,0.25,L,R,own,0.04,0.046
+CAMPUS color model,campus_light_close_01,151.7,slant,0.25,R,L,own,0.046,0.073
+CAMPUS color model,campus_light_close_01,151.7,slant,0.25,R,R,cut slanted +,0.171,0.0
+CAMPUS color model,campus_light_close_01,151.0,slant,0.25,R,L,own,0.046,0.073
+CAMPUS color model,campus_light_close_01,151.0,slant,0.25,R,R,cut slanted -,-0.053,0.113
+CAMPUS color model,campus_light_close_01,150.3,slant,0.5,L,L,cut slanted +,-0.073,0.106
+CAMPUS color model,campus_light_close_01,150.3,slant,0.5,L,R,own,0.04,0.047
+CAMPUS color model,campus_light_close_01,151.0,slant,0.5,L,L,cut slanted -,0.192,0.007
+CAMPUS color model,campus_light_close_01,151.0,slant,0.5,L,R,own,0.04,0.046
+CAMPUS color model,campus_light_close_01,150.3,slant,0.5,R,L,own,0.047,0.073
+CAMPUS color model,campus_light_close_01,150.3,slant,0.5,R,R,cut slanted +,0.186,0.007
+CAMPUS color model,campus_light_close_01,149.6,slant,0.5,R,L,own,0.053,0.067
+CAMPUS color model,campus_light_close_01,149.6,slant,0.5,R,R,cut slanted -,-0.067,0.114
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.0,,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.0,,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.25,L,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.25,R,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.5,L,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.5,R,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,L,L,cut slanted +,-0.043,0.15
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,L,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,L,L,cut slanted -,0.172,-0.021
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,L,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,R,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,R,R,cut slanted +,0.172,-0.021
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,R,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.25,R,R,cut slanted -,0.0,0.15
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,L,L,cut slanted +,-0.043,0.15
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,L,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,L,L,cut slanted -,0.172,-0.021
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,L,R,own,0.086,0.043
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,R,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,R,R,cut slanted +,0.172,-0.021
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,R,L,own,0.064,0.064
+CAMPUS color model,campus_light_cluster_02,46.6,slant,0.5,R,R,cut slanted -,-0.043,0.15
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.0,,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.0,,R,own,0.053,0.07
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.25,L,R,own,0.053,0.07
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.25,R,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.5,L,R,own,0.053,0.07
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.5,R,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,L,L,cut slanted +,-0.018,0.158
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,L,R,own,0.053,0.07
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,L,L,cut slanted -,0.175,-0.018
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,L,R,own,0.053,0.07
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,R,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,R,R,cut slanted +,0.175,-0.018
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,R,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.25,R,R,cut slanted -,-0.035,0.158
+CAMPUS color model,campus_light_clutter_02,56.4,slant,0.5,L,L,cut slanted +,-0.035,0.124
+CAMPUS color model,campus_light_clutter_02,56.4,slant,0.5,L,R,own,0.053,0.071
+CAMPUS color model,campus_light_clutter_02,56.4,slant,0.5,L,L,cut slanted -,0.177,-0.018
+CAMPUS color model,campus_light_clutter_02,56.4,slant,0.5,L,R,own,0.053,0.071
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.5,R,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.5,R,R,cut slanted +,0.175,-0.018
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.5,R,L,own,0.035,0.053
+CAMPUS color model,campus_light_clutter_02,57.1,slant,0.5,R,R,cut slanted -,-0.035,0.158
+CAMPUS color model,campus_light_core_01,109.9,edge,0.0,,L,own,0.018,0.091
+CAMPUS color model,campus_light_core_01,109.9,edge,0.0,,R,own,0.073,0.027
+CAMPUS color model,campus_light_core_01,109.9,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,109.9,edge,0.25,L,R,own,0.073,0.027
+CAMPUS color model,campus_light_core_01,111.3,edge,0.25,R,L,own,0.018,0.108
+CAMPUS color model,campus_light_core_01,111.3,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,108.5,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,108.5,edge,0.5,L,R,own,0.083,0.0
+CAMPUS color model,campus_light_core_01,112.0,edge,0.5,R,L,own,0.009,0.107
+CAMPUS color model,campus_light_core_01,112.0,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,109.2,slant,0.25,L,L,cut slanted +,-0.037,0.146
+CAMPUS color model,campus_light_core_01,109.2,slant,0.25,L,R,own,0.073,0.027
+CAMPUS color model,campus_light_core_01,109.9,slant,0.25,L,L,cut slanted -,0.191,0.0
+CAMPUS color model,campus_light_core_01,109.9,slant,0.25,L,R,own,0.073,0.027
+CAMPUS color model,campus_light_core_01,111.3,slant,0.25,R,L,own,0.018,0.108
+CAMPUS color model,campus_light_core_01,111.3,slant,0.25,R,R,cut slanted +,0.198,0.0
+CAMPUS color model,campus_light_core_01,111.3,slant,0.25,R,L,own,0.018,0.108
+CAMPUS color model,campus_light_core_01,111.3,slant,0.25,R,R,cut slanted -,-0.054,0.135
+CAMPUS color model,campus_light_core_01,107.8,slant,0.5,L,L,cut slanted +,-0.046,0.148
+CAMPUS color model,campus_light_core_01,107.8,slant,0.5,L,R,own,0.083,0.0
+CAMPUS color model,campus_light_core_01,108.5,slant,0.5,L,L,cut slanted -,0.212,0.0
+CAMPUS color model,campus_light_core_01,108.5,slant,0.5,L,R,own,0.083,0.0
+CAMPUS color model,campus_light_core_01,112.0,slant,0.5,R,L,own,0.009,0.107
+CAMPUS color model,campus_light_core_01,112.0,slant,0.5,R,R,cut slanted +,0.205,-0.009
+CAMPUS color model,campus_light_core_01,112.0,slant,0.5,R,L,own,0.009,0.107
+CAMPUS color model,campus_light_core_01,112.0,slant,0.5,R,R,cut slanted -,-0.08,0.125
+CAMPUS color model,campus_light_core_01,36.2,edge,0.0,,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,edge,0.0,,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,edge,0.25,L,L,cut straight,0.028,0.0
+CAMPUS color model,campus_light_core_01,36.2,edge,0.25,L,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,edge,0.25,R,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,36.2,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,36.2,edge,0.5,L,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,edge,0.5,R,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,L,L,cut slanted +,0.055,0.138
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,L,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,L,L,cut slanted -,0.138,-0.055
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,L,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,R,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,R,R,cut slanted +,0.166,-0.028
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,R,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,slant,0.25,R,R,cut slanted -,-0.028,0.138
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,L,L,cut slanted +,-0.083,0.11
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,L,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,L,L,cut slanted -,0.166,-0.028
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,L,R,own,0.028,0.055
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,R,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,R,R,cut slanted +,0.166,-0.028
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,R,L,own,0.11,0.138
+CAMPUS color model,campus_light_core_01,36.2,slant,0.5,R,R,cut slanted -,-0.028,0.166
+CAMPUS color model,campus_light_core_01,64.0,edge,0.0,,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,edge,0.0,,R,own,0.016,0.062
+CAMPUS color model,campus_light_core_01,64.7,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,64.7,edge,0.25,L,R,own,0.015,0.062
+CAMPUS color model,campus_light_core_01,64.0,edge,0.25,R,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,64.7,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,64.7,edge,0.5,L,R,own,0.015,0.062
+CAMPUS color model,campus_light_core_01,64.0,edge,0.5,R,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,64.7,slant,0.25,L,L,cut slanted +,-0.046,0.139
+CAMPUS color model,campus_light_core_01,64.7,slant,0.25,L,R,own,0.015,0.062
+CAMPUS color model,campus_light_core_01,64.7,slant,0.25,L,L,cut slanted -,0.185,-0.015
+CAMPUS color model,campus_light_core_01,64.7,slant,0.25,L,R,own,0.015,0.062
+CAMPUS color model,campus_light_core_01,64.0,slant,0.25,R,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,slant,0.25,R,R,cut slanted +,0.187,0.0
+CAMPUS color model,campus_light_core_01,64.0,slant,0.25,R,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,slant,0.25,R,R,cut slanted -,-0.047,0.141
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,L,L,cut slanted +,-0.062,0.124
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,L,R,own,0.015,0.062
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,L,L,cut slanted -,0.185,-0.031
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,L,R,own,0.015,0.062
+CAMPUS color model,campus_light_core_01,64.0,slant,0.5,R,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,slant,0.5,R,R,cut slanted +,0.187,-0.031
+CAMPUS color model,campus_light_core_01,64.0,slant,0.5,R,L,own,0.047,0.031
+CAMPUS color model,campus_light_core_01,64.0,slant,0.5,R,R,cut slanted -,-0.047,0.141
+CAMPUS color model,campus_light_core_01,65.4,edge,0.0,,L,own,0.092,0.046
+CAMPUS color model,campus_light_core_01,65.4,edge,0.0,,R,own,0.031,0.107
+CAMPUS color model,campus_light_core_01,65.4,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,65.4,edge,0.25,L,R,own,0.031,0.107
+CAMPUS color model,campus_light_core_01,65.4,edge,0.25,R,L,own,0.092,0.046
+CAMPUS color model,campus_light_core_01,65.4,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,66.1,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,66.1,edge,0.5,L,R,own,0.03,0.106
+CAMPUS color model,campus_light_core_01,64.7,edge,0.5,R,L,own,0.093,0.031
+CAMPUS color model,campus_light_core_01,64.7,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_core_01,66.1,slant,0.25,L,L,cut slanted +,-0.045,0.151
+CAMPUS color model,campus_light_core_01,66.1,slant,0.25,L,R,own,0.03,0.106
+CAMPUS color model,campus_light_core_01,65.7,slant,0.25,L,L,cut slanted -,0.198,0.0
+CAMPUS color model,campus_light_core_01,65.7,slant,0.25,L,R,own,0.03,0.106
+CAMPUS color model,campus_light_core_01,65.1,slant,0.25,R,L,own,0.092,0.031
+CAMPUS color model,campus_light_core_01,65.1,slant,0.25,R,R,cut slanted +,0.2,0.0
+CAMPUS color model,campus_light_core_01,64.7,slant,0.25,R,L,own,0.093,0.031
+CAMPUS color model,campus_light_core_01,64.7,slant,0.25,R,R,cut slanted -,-0.031,0.155
+CAMPUS color model,campus_light_core_01,66.1,slant,0.5,L,L,cut slanted +,-0.061,0.136
+CAMPUS color model,campus_light_core_01,66.1,slant,0.5,L,R,own,0.03,0.106
+CAMPUS color model,campus_light_core_01,66.1,slant,0.5,L,L,cut slanted -,0.197,-0.015
+CAMPUS color model,campus_light_core_01,66.1,slant,0.5,L,R,own,0.03,0.106
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,R,L,own,0.093,0.031
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,R,R,cut slanted +,0.185,-0.031
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,R,L,own,0.093,0.031
+CAMPUS color model,campus_light_core_01,64.7,slant,0.5,R,R,cut slanted -,-0.031,0.155
+CAMPUS color model,campus_light_far_01,43.9,edge,0.0,,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,edge,0.0,,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,43.9,edge,0.25,L,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,edge,0.25,R,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,43.9,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,43.9,edge,0.5,L,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,edge,0.5,R,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,L,L,cut slanted +,-0.023,0.16
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,L,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,L,L,cut slanted -,0.182,0.0
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,L,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,R,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,R,R,cut slanted +,0.182,-0.023
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,R,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,slant,0.25,R,R,cut slanted -,-0.023,0.16
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,L,L,cut slanted +,-0.046,0.16
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,L,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,L,L,cut slanted -,0.182,-0.023
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,L,R,own,0.068,0.046
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,R,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,R,R,cut slanted +,0.182,-0.023
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,R,L,own,0.091,0.114
+CAMPUS color model,campus_light_far_01,43.9,slant,0.5,R,R,cut slanted -,-0.046,0.16
+CAMPUS color model,campus_light_far_01,36.9,edge,0.0,,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,edge,0.0,,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,36.9,edge,0.25,L,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,edge,0.25,R,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,36.9,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,36.9,edge,0.5,L,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,edge,0.5,R,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,L,L,cut slanted +,-0.027,0.163
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,L,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,L,L,cut slanted -,0.163,-0.027
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,L,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,R,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,R,R,cut slanted +,0.163,-0.027
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,R,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,slant,0.25,R,R,cut slanted -,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,L,L,cut slanted +,-0.027,0.163
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,L,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,L,L,cut slanted -,0.163,-0.027
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,L,R,own,0.108,0.054
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,R,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,R,R,cut slanted +,0.163,-0.027
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,R,L,own,0.027,0.135
+CAMPUS color model,campus_light_far_01,36.9,slant,0.5,R,R,cut slanted -,-0.027,0.163
+CAMPUS color model,campus_light_far_01,41.1,edge,0.0,,L,own,-0.097,0.097
+CAMPUS color model,campus_light_far_01,41.1,edge,0.0,,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,41.1,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,41.1,edge,0.25,L,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,41.1,edge,0.25,R,L,own,-0.097,0.097
+CAMPUS color model,campus_light_far_01,41.1,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,41.1,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,41.1,edge,0.5,L,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,40.4,edge,0.5,R,L,own,-0.099,0.074
+CAMPUS color model,campus_light_far_01,40.4,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,L,L,cut slanted +,-0.049,0.17
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,L,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,L,L,cut slanted -,0.195,-0.024
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,L,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,R,L,own,-0.097,0.097
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,R,R,cut slanted +,0.195,0.0
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,R,L,own,-0.097,0.097
+CAMPUS color model,campus_light_far_01,41.1,slant,0.25,R,R,cut slanted -,-0.024,0.17
+CAMPUS color model,campus_light_far_01,41.1,slant,0.5,L,L,cut slanted +,-0.024,0.17
+CAMPUS color model,campus_light_far_01,41.1,slant,0.5,L,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,41.1,slant,0.5,L,L,cut slanted -,0.195,-0.024
+CAMPUS color model,campus_light_far_01,41.1,slant,0.5,L,R,own,0.049,0.073
+CAMPUS color model,campus_light_far_01,40.4,slant,0.5,R,L,own,-0.099,0.074
+CAMPUS color model,campus_light_far_01,40.4,slant,0.5,R,R,cut slanted +,0.198,-0.025
+CAMPUS color model,campus_light_far_01,40.4,slant,0.5,R,L,own,-0.099,0.074
+CAMPUS color model,campus_light_far_01,40.4,slant,0.5,R,R,cut slanted -,-0.025,0.173
+CAMPUS color model,campus_light_far_01,39.0,edge,0.0,,L,own,0.051,0.051
+CAMPUS color model,campus_light_far_01,39.0,edge,0.0,,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,39.0,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,39.0,edge,0.25,L,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,39.0,edge,0.25,R,L,own,0.051,0.051
+CAMPUS color model,campus_light_far_01,39.0,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,39.0,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,39.0,edge,0.5,L,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,38.3,edge,0.5,R,L,own,0.052,0.052
+CAMPUS color model,campus_light_far_01,38.3,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,L,L,cut slanted +,-0.026,0.154
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,L,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,L,L,cut slanted -,0.18,0.0
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,L,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,R,L,own,0.051,0.051
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,R,R,cut slanted +,0.18,0.0
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,R,L,own,0.051,0.051
+CAMPUS color model,campus_light_far_01,39.0,slant,0.25,R,R,cut slanted -,-0.026,0.154
+CAMPUS color model,campus_light_far_01,39.0,slant,0.5,L,L,cut slanted +,-0.051,0.128
+CAMPUS color model,campus_light_far_01,39.0,slant,0.5,L,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,39.0,slant,0.5,L,L,cut slanted -,0.18,0.0
+CAMPUS color model,campus_light_far_01,39.0,slant,0.5,L,R,own,0.026,0.103
+CAMPUS color model,campus_light_far_01,38.3,slant,0.5,R,L,own,0.052,0.052
+CAMPUS color model,campus_light_far_01,38.3,slant,0.5,R,R,cut slanted +,0.209,0.0
+CAMPUS color model,campus_light_far_01,38.3,slant,0.5,R,L,own,0.052,0.052
+CAMPUS color model,campus_light_far_01,38.3,slant,0.5,R,R,cut slanted -,-0.026,0.157
+CAMPUS color model,campus_light_hand_02,57.1,edge,0.0,,L,own,-0.018,0.14
+CAMPUS color model,campus_light_hand_02,57.1,edge,0.0,,R,own,-0.088,0.018
+CAMPUS color model,campus_light_hand_02,57.1,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,57.1,edge,0.25,L,R,own,-0.088,0.018
+CAMPUS color model,campus_light_hand_02,57.8,edge,0.25,R,L,own,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,57.8,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,57.1,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,57.1,edge,0.5,L,R,own,-0.088,0.018
+CAMPUS color model,campus_light_hand_02,57.8,edge,0.5,R,L,own,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,57.8,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,57.1,slant,0.25,L,L,cut slanted +,-0.053,0.158
+CAMPUS color model,campus_light_hand_02,57.1,slant,0.25,L,R,own,-0.088,0.018
+CAMPUS color model,campus_light_hand_02,57.1,slant,0.25,L,L,cut slanted -,0.175,0.0
+CAMPUS color model,campus_light_hand_02,57.1,slant,0.25,L,R,own,-0.088,0.018
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.25,R,L,own,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.25,R,R,cut slanted +,0.19,0.0
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.25,R,L,own,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.25,R,R,cut slanted -,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,L,cut slanted +,-0.053,0.16
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,R,own,-0.089,0.018
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,L,cut slanted -,0.195,-0.018
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,R,own,-0.089,0.018
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.5,R,L,own,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.5,R,R,cut slanted +,0.19,-0.017
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.5,R,L,own,-0.035,0.156
+CAMPUS color model,campus_light_hand_02,57.8,slant,0.5,R,R,cut slanted -,-0.052,0.156
+CAMPUS color model,campus_light_hand_02,56.4,edge,0.0,,L,own,0.16,0.124
+CAMPUS color model,campus_light_hand_02,56.4,edge,0.0,,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,56.4,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,56.4,edge,0.25,L,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,55.7,edge,0.25,R,L,own,0.162,0.126
+CAMPUS color model,campus_light_hand_02,55.7,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,56.4,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,56.4,edge,0.5,L,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,55.7,edge,0.5,R,L,own,0.162,0.126
+CAMPUS color model,campus_light_hand_02,55.7,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.25,L,L,cut slanted +,-0.035,0.16
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.25,L,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.25,L,L,cut slanted -,0.195,0.0
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.25,L,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.25,R,L,own,0.162,0.126
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.25,R,R,cut slanted +,0.198,-0.018
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.25,R,L,own,0.162,0.126
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.25,R,R,cut slanted -,-0.054,0.162
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,L,cut slanted +,-0.071,0.142
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,L,cut slanted -,0.195,-0.018
+CAMPUS color model,campus_light_hand_02,56.4,slant,0.5,L,R,own,0.089,0.0
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.5,R,L,own,0.162,0.126
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.5,R,R,cut slanted +,0.198,-0.018
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.5,R,L,own,0.162,0.126
+CAMPUS color model,campus_light_hand_02,55.7,slant,0.5,R,R,cut slanted -,-0.054,0.162
+CAMPUS color model,campus_light_plain_01,92.5,edge,0.0,,L,own,0.022,0.13
+CAMPUS color model,campus_light_plain_01,92.5,edge,0.0,,R,own,0.086,0.151
+CAMPUS color model,campus_light_plain_01,91.8,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,91.8,edge,0.25,L,R,own,0.087,0.152
+CAMPUS color model,campus_light_plain_01,93.9,edge,0.25,R,L,own,0.011,0.138
+CAMPUS color model,campus_light_plain_01,93.9,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,90.4,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,90.4,edge,0.5,L,R,own,0.088,0.011
+CAMPUS color model,campus_light_plain_01,95.3,edge,0.5,R,L,own,0.01,0.147
+CAMPUS color model,campus_light_plain_01,95.3,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,91.8,slant,0.25,L,L,cut slanted +,-0.044,0.152
+CAMPUS color model,campus_light_plain_01,91.8,slant,0.25,L,R,own,0.087,0.152
+CAMPUS color model,campus_light_plain_01,91.8,slant,0.25,L,L,cut slanted -,0.196,0.0
+CAMPUS color model,campus_light_plain_01,91.8,slant,0.25,L,R,own,0.087,0.152
+CAMPUS color model,campus_light_plain_01,93.9,slant,0.25,R,L,own,0.011,0.138
+CAMPUS color model,campus_light_plain_01,93.9,slant,0.25,R,R,cut slanted +,0.181,0.0
+CAMPUS color model,campus_light_plain_01,93.9,slant,0.25,R,L,own,0.011,0.138
+CAMPUS color model,campus_light_plain_01,93.9,slant,0.25,R,R,cut slanted -,-0.053,0.149
+CAMPUS color model,campus_light_plain_01,89.7,slant,0.5,L,L,cut slanted +,-0.056,0.145
+CAMPUS color model,campus_light_plain_01,89.7,slant,0.5,L,R,own,0.089,0.011
+CAMPUS color model,campus_light_plain_01,90.4,slant,0.5,L,L,cut slanted -,0.221,0.0
+CAMPUS color model,campus_light_plain_01,90.4,slant,0.5,L,R,own,0.088,0.011
+CAMPUS color model,campus_light_plain_01,95.3,slant,0.5,R,L,own,0.01,0.147
+CAMPUS color model,campus_light_plain_01,95.3,slant,0.5,R,R,cut slanted +,0.199,-0.01
+CAMPUS color model,campus_light_plain_01,95.3,slant,0.5,R,L,own,0.01,0.147
+CAMPUS color model,campus_light_plain_01,95.3,slant,0.5,R,R,cut slanted -,-0.073,0.147
+CAMPUS color model,campus_light_plain_01,85.6,edge,0.0,,L,own,0.117,0.012
+CAMPUS color model,campus_light_plain_01,85.6,edge,0.0,,R,own,0.035,0.129
+CAMPUS color model,campus_light_plain_01,87.0,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,87.0,edge,0.25,L,R,own,0.011,0.138
+CAMPUS color model,campus_light_plain_01,84.9,edge,0.25,R,L,own,0.118,0.012
+CAMPUS color model,campus_light_plain_01,84.9,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,87.7,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,87.7,edge,0.5,L,R,own,0.0,0.148
+CAMPUS color model,campus_light_plain_01,83.5,edge,0.5,R,L,own,0.132,0.0
+CAMPUS color model,campus_light_plain_01,83.5,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,81.4,edge,0.75,R,L,own,0.147,0.012
+CAMPUS color model,campus_light_plain_01,81.4,edge,0.75,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_01,87.0,slant,0.25,L,L,cut slanted +,-0.046,0.172
+CAMPUS color model,campus_light_plain_01,87.0,slant,0.25,L,R,own,0.011,0.138
+CAMPUS color model,campus_light_plain_01,87.0,slant,0.25,L,L,cut slanted -,0.218,0.0
+CAMPUS color model,campus_light_plain_01,87.0,slant,0.25,L,R,own,0.011,0.138
+CAMPUS color model,campus_light_plain_01,84.9,slant,0.25,R,L,own,0.118,0.012
+CAMPUS color model,campus_light_plain_01,84.9,slant,0.25,R,R,cut slanted +,0.2,0.0
+CAMPUS color model,campus_light_plain_01,84.9,slant,0.25,R,L,own,0.118,0.012
+CAMPUS color model,campus_light_plain_01,84.9,slant,0.25,R,R,cut slanted -,-0.024,0.189
+CAMPUS color model,campus_light_plain_01,87.7,slant,0.5,L,L,cut slanted +,-0.068,0.16
+CAMPUS color model,campus_light_plain_01,87.7,slant,0.5,L,R,own,0.0,0.148
+CAMPUS color model,campus_light_plain_01,87.7,slant,0.5,L,L,cut slanted -,0.228,-0.011
+CAMPUS color model,campus_light_plain_01,87.7,slant,0.5,L,R,own,0.0,0.148
+CAMPUS color model,campus_light_plain_01,83.5,slant,0.5,R,L,own,0.132,0.0
+CAMPUS color model,campus_light_plain_01,83.5,slant,0.5,R,R,cut slanted +,0.24,0.0
+CAMPUS color model,campus_light_plain_01,83.5,slant,0.5,R,L,own,0.132,0.0
+CAMPUS color model,campus_light_plain_01,83.5,slant,0.5,R,R,cut slanted -,-0.048,0.168
+CAMPUS color model,campus_light_plain_02,65.4,edge,0.0,,L,own,-0.031,0.214
+CAMPUS color model,campus_light_plain_02,65.4,edge,0.0,,R,own,0.092,0.015
+CAMPUS color model,campus_light_plain_02,65.4,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,65.4,edge,0.25,L,R,own,0.092,0.015
+CAMPUS color model,campus_light_plain_02,65.4,edge,0.25,R,L,own,-0.031,0.214
+CAMPUS color model,campus_light_plain_02,65.4,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,64.7,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,64.7,edge,0.5,L,R,own,0.093,0.015
+CAMPUS color model,campus_light_plain_02,66.1,edge,0.5,R,L,own,-0.03,0.227
+CAMPUS color model,campus_light_plain_02,66.1,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,65.1,slant,0.25,L,L,cut slanted +,-0.046,0.154
+CAMPUS color model,campus_light_plain_02,65.1,slant,0.25,L,R,own,0.092,0.015
+CAMPUS color model,campus_light_plain_02,65.4,slant,0.25,L,L,cut slanted -,0.168,0.0
+CAMPUS color model,campus_light_plain_02,65.4,slant,0.25,L,R,own,0.092,0.015
+CAMPUS color model,campus_light_plain_02,65.4,slant,0.25,R,L,own,-0.031,0.214
+CAMPUS color model,campus_light_plain_02,65.4,slant,0.25,R,R,cut slanted +,0.199,0.0
+CAMPUS color model,campus_light_plain_02,65.4,slant,0.25,R,L,own,-0.031,0.214
+CAMPUS color model,campus_light_plain_02,65.4,slant,0.25,R,R,cut slanted -,-0.046,0.138
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,L,cut slanted +,-0.046,0.155
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,R,own,0.093,0.015
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,L,cut slanted -,0.185,-0.031
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,R,own,0.093,0.015
+CAMPUS color model,campus_light_plain_02,66.1,slant,0.5,R,L,own,-0.03,0.227
+CAMPUS color model,campus_light_plain_02,66.1,slant,0.5,R,R,cut slanted +,0.197,-0.015
+CAMPUS color model,campus_light_plain_02,66.1,slant,0.5,R,L,own,-0.03,0.227
+CAMPUS color model,campus_light_plain_02,66.1,slant,0.5,R,R,cut slanted -,-0.061,0.151
+CAMPUS color model,campus_light_plain_02,63.3,edge,0.0,,L,own,0.047,0.032
+CAMPUS color model,campus_light_plain_02,63.3,edge,0.0,,R,own,0.016,0.111
+CAMPUS color model,campus_light_plain_02,64.0,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,64.0,edge,0.25,L,R,own,0.016,0.109
+CAMPUS color model,campus_light_plain_02,63.3,edge,0.25,R,L,own,0.047,0.032
+CAMPUS color model,campus_light_plain_02,63.3,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,64.7,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,64.7,edge,0.5,L,R,own,0.015,0.108
+CAMPUS color model,campus_light_plain_02,62.6,edge,0.5,R,L,own,0.048,0.032
+CAMPUS color model,campus_light_plain_02,62.6,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_plain_02,64.0,slant,0.25,L,L,cut slanted +,-0.047,0.156
+CAMPUS color model,campus_light_plain_02,64.0,slant,0.25,L,R,own,0.016,0.109
+CAMPUS color model,campus_light_plain_02,64.0,slant,0.25,L,L,cut slanted -,0.187,0.0
+CAMPUS color model,campus_light_plain_02,64.0,slant,0.25,L,R,own,0.016,0.109
+CAMPUS color model,campus_light_plain_02,63.3,slant,0.25,R,L,own,0.047,0.032
+CAMPUS color model,campus_light_plain_02,63.3,slant,0.25,R,R,cut slanted +,0.19,0.0
+CAMPUS color model,campus_light_plain_02,63.3,slant,0.25,R,L,own,0.047,0.032
+CAMPUS color model,campus_light_plain_02,63.3,slant,0.25,R,R,cut slanted -,-0.032,0.158
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,L,cut slanted +,-0.062,0.155
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,R,own,0.015,0.108
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,L,cut slanted -,0.185,-0.015
+CAMPUS color model,campus_light_plain_02,64.7,slant,0.5,L,R,own,0.015,0.108
+CAMPUS color model,campus_light_plain_02,62.6,slant,0.5,R,L,own,0.048,0.032
+CAMPUS color model,campus_light_plain_02,62.6,slant,0.5,R,R,cut slanted +,0.208,-0.016
+CAMPUS color model,campus_light_plain_02,62.6,slant,0.5,R,L,own,0.048,0.032
+CAMPUS color model,campus_light_plain_02,62.6,slant,0.5,R,R,cut slanted -,-0.032,0.16
+CAMPUS color model,campus_light_room_01,54.3,edge,0.0,,L,own,0.055,0.203
+CAMPUS color model,campus_light_room_01,54.3,edge,0.0,,R,own,0.129,0.037
+CAMPUS color model,campus_light_room_01,54.3,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,54.3,edge,0.25,L,R,own,0.129,0.037
+CAMPUS color model,campus_light_room_01,54.3,edge,0.25,R,L,own,0.055,0.203
+CAMPUS color model,campus_light_room_01,54.3,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,54.3,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,54.3,edge,0.5,L,R,own,0.129,0.037
+CAMPUS color model,campus_light_room_01,55.0,edge,0.5,R,L,own,0.055,0.218
+CAMPUS color model,campus_light_room_01,55.0,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,L,L,cut slanted +,-0.037,0.166
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,L,R,own,0.129,0.037
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,L,L,cut slanted -,0.184,0.018
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,L,R,own,0.129,0.037
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,R,L,own,0.055,0.203
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,R,R,cut slanted +,0.203,0.0
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,R,L,own,0.055,0.203
+CAMPUS color model,campus_light_room_01,54.3,slant,0.25,R,R,cut slanted -,0.0,0.24
+CAMPUS color model,campus_light_room_01,53.6,slant,0.5,L,L,cut slanted +,-0.056,0.168
+CAMPUS color model,campus_light_room_01,53.6,slant,0.5,L,R,own,0.131,0.019
+CAMPUS color model,campus_light_room_01,53.6,slant,0.5,L,L,cut slanted -,0.224,-0.019
+CAMPUS color model,campus_light_room_01,53.6,slant,0.5,L,R,own,0.131,0.019
+CAMPUS color model,campus_light_room_01,55.0,slant,0.5,R,L,own,0.055,0.218
+CAMPUS color model,campus_light_room_01,55.0,slant,0.5,R,R,cut slanted +,0.182,0.055
+CAMPUS color model,campus_light_room_01,55.0,slant,0.5,R,L,own,0.055,0.218
+CAMPUS color model,campus_light_room_01,55.0,slant,0.5,R,R,cut slanted -,-0.055,0.164
+CAMPUS color model,campus_light_room_01,50.8,edge,0.0,,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,edge,0.0,,R,own,0.079,0.079
+CAMPUS color model,campus_light_room_01,51.5,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,51.5,edge,0.25,L,R,own,0.058,0.078
+CAMPUS color model,campus_light_room_01,50.8,edge,0.25,R,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,51.5,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,51.5,edge,0.5,L,R,own,0.058,0.078
+CAMPUS color model,campus_light_room_01,50.8,edge,0.5,R,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_01,51.5,slant,0.25,L,L,cut slanted +,-0.039,0.136
+CAMPUS color model,campus_light_room_01,51.5,slant,0.25,L,R,own,0.058,0.078
+CAMPUS color model,campus_light_room_01,51.5,slant,0.25,L,L,cut slanted -,0.175,0.0
+CAMPUS color model,campus_light_room_01,51.5,slant,0.25,L,R,own,0.058,0.078
+CAMPUS color model,campus_light_room_01,50.8,slant,0.25,R,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,slant,0.25,R,R,cut slanted +,0.177,-0.02
+CAMPUS color model,campus_light_room_01,50.8,slant,0.25,R,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,slant,0.25,R,R,cut slanted -,-0.039,0.138
+CAMPUS color model,campus_light_room_01,51.5,slant,0.5,L,L,cut slanted +,-0.039,0.136
+CAMPUS color model,campus_light_room_01,51.5,slant,0.5,L,R,own,0.058,0.078
+CAMPUS color model,campus_light_room_01,51.5,slant,0.5,L,L,cut slanted -,0.175,-0.019
+CAMPUS color model,campus_light_room_01,51.5,slant,0.5,L,R,own,0.058,0.078
+CAMPUS color model,campus_light_room_01,50.8,slant,0.5,R,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,slant,0.5,R,R,cut slanted +,0.177,-0.02
+CAMPUS color model,campus_light_room_01,50.8,slant,0.5,R,L,own,0.098,0.039
+CAMPUS color model,campus_light_room_01,50.8,slant,0.5,R,R,cut slanted -,-0.039,0.138
+CAMPUS color model,campus_light_room_03,39.7,edge,0.0,,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,edge,0.0,,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.7,edge,0.25,L,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,edge,0.25,R,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.7,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.7,edge,0.5,L,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,edge,0.5,R,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,L,L,cut slanted +,-0.025,0.151
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,L,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,L,L,cut slanted -,0.176,0.0
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,L,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,R,cut slanted +,0.176,0.0
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,R,cut slanted -,-0.025,0.151
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,L,L,cut slanted +,-0.05,0.151
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,L,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,L,L,cut slanted -,0.151,-0.025
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,L,R,own,0.05,0.025
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,R,cut slanted +,0.176,0.0
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,L,own,0.025,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,R,cut slanted -,-0.05,0.151
+CAMPUS color model,campus_light_room_03,39.0,edge,0.0,,L,own,0.154,0.077
+CAMPUS color model,campus_light_room_03,39.0,edge,0.0,,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.0,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.0,edge,0.25,L,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.7,edge,0.25,R,L,own,0.126,0.101
+CAMPUS color model,campus_light_room_03,39.7,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.0,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.0,edge,0.5,L,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.7,edge,0.5,R,L,own,0.126,0.101
+CAMPUS color model,campus_light_room_03,39.7,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_room_03,39.0,slant,0.25,L,L,cut slanted +,0.051,0.154
+CAMPUS color model,campus_light_room_03,39.0,slant,0.25,L,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.0,slant,0.25,L,L,cut slanted -,0.18,0.0
+CAMPUS color model,campus_light_room_03,39.0,slant,0.25,L,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,L,own,0.126,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,R,cut slanted +,0.176,0.0
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,L,own,0.126,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.25,R,R,cut slanted -,-0.025,0.176
+CAMPUS color model,campus_light_room_03,39.0,slant,0.5,L,L,cut slanted +,-0.026,0.154
+CAMPUS color model,campus_light_room_03,39.0,slant,0.5,L,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.0,slant,0.5,L,L,cut slanted -,0.18,0.0
+CAMPUS color model,campus_light_room_03,39.0,slant,0.5,L,R,own,0.051,0.026
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,L,own,0.126,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,R,cut slanted +,0.176,0.0
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,L,own,0.126,0.101
+CAMPUS color model,campus_light_room_03,39.7,slant,0.5,R,R,cut slanted -,-0.05,0.151
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.0,,L,own,0.057,0.095
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.0,,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.25,L,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,53.6,edge,0.25,R,L,own,0.056,0.093
+CAMPUS color model,campus_light_touch_02,53.6,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.5,L,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,53.6,edge,0.5,R,L,own,0.056,0.093
+CAMPUS color model,campus_light_touch_02,53.6,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,L,cut slanted +,-0.019,0.151
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,L,cut slanted -,0.17,-0.019
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.25,R,L,own,0.056,0.093
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.25,R,R,cut slanted +,0.168,0.0
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.25,R,L,own,0.056,0.093
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.25,R,R,cut slanted -,-0.037,0.168
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,L,cut slanted +,-0.038,0.151
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,L,cut slanted -,0.17,-0.019
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,R,own,-0.095,0.038
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.5,R,L,own,0.056,0.093
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.5,R,R,cut slanted +,0.168,-0.019
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.5,R,L,own,0.056,0.093
+CAMPUS color model,campus_light_touch_02,53.6,slant,0.5,R,R,cut slanted -,-0.056,0.149
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.0,,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.0,,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.25,L,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.25,R,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.5,L,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.5,R,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,L,cut slanted +,-0.038,0.132
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,L,cut slanted -,0.17,-0.019
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,L,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,R,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,R,R,cut slanted +,0.17,0.0
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,R,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.25,R,R,cut slanted -,-0.038,0.132
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,L,cut slanted +,-0.038,0.132
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,L,cut slanted -,0.17,-0.019
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,L,R,own,0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,R,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,R,R,cut slanted +,0.17,-0.019
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,R,L,own,-0.057,0.057
+CAMPUS color model,campus_light_touch_02,52.9,slant,0.5,R,R,cut slanted -,-0.038,0.132
+CAMPUS color model,campus_light_window_01,65.4,edge,0.0,,L,own,0.015,0.107
+CAMPUS color model,campus_light_window_01,65.4,edge,0.0,,R,own,0.061,0.046
+CAMPUS color model,campus_light_window_01,65.4,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,65.4,edge,0.25,L,R,own,0.061,0.046
+CAMPUS color model,campus_light_window_01,66.1,edge,0.25,R,L,own,0.015,0.106
+CAMPUS color model,campus_light_window_01,66.1,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,65.4,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,65.4,edge,0.5,L,R,own,0.061,0.046
+CAMPUS color model,campus_light_window_01,66.1,edge,0.5,R,L,own,0.015,0.106
+CAMPUS color model,campus_light_window_01,66.1,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,L,cut slanted +,-0.031,0.168
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,R,own,0.061,0.046
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,L,cut slanted -,0.183,0.0
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,R,own,0.061,0.046
+CAMPUS color model,campus_light_window_01,66.1,slant,0.25,R,L,own,0.015,0.106
+CAMPUS color model,campus_light_window_01,66.1,slant,0.25,R,R,cut slanted +,0.197,-0.015
+CAMPUS color model,campus_light_window_01,66.1,slant,0.25,R,L,own,0.015,0.106
+CAMPUS color model,campus_light_window_01,66.1,slant,0.25,R,R,cut slanted -,-0.045,0.151
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,L,L,cut slanted +,-0.046,0.155
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,L,R,own,0.077,0.031
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,L,L,cut slanted -,0.201,-0.015
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,L,R,own,0.077,0.031
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,R,L,own,0.015,0.106
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,R,R,cut slanted +,0.197,-0.03
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,R,L,own,0.015,0.106
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,R,R,cut slanted -,-0.061,0.151
+CAMPUS color model,campus_light_window_01,65.4,edge,0.0,,L,own,0.015,0.015
+CAMPUS color model,campus_light_window_01,65.4,edge,0.0,,R,own,0.015,0.122
+CAMPUS color model,campus_light_window_01,65.4,edge,0.25,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,65.4,edge,0.25,L,R,own,0.015,0.122
+CAMPUS color model,campus_light_window_01,65.4,edge,0.25,R,L,own,0.015,0.015
+CAMPUS color model,campus_light_window_01,65.4,edge,0.25,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,66.1,edge,0.5,L,L,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,66.1,edge,0.5,L,R,own,0.015,0.121
+CAMPUS color model,campus_light_window_01,64.7,edge,0.5,R,L,own,0.015,0.0
+CAMPUS color model,campus_light_window_01,64.7,edge,0.5,R,R,cut straight,0.0,0.0
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,L,cut slanted +,-0.046,0.153
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,R,own,0.015,0.122
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,L,cut slanted -,0.199,-0.015
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,L,R,own,0.015,0.122
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,R,L,own,0.015,0.015
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,R,R,cut slanted +,0.199,0.0
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,R,L,own,0.015,0.015
+CAMPUS color model,campus_light_window_01,65.4,slant,0.25,R,R,cut slanted -,-0.031,0.153
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,L,L,cut slanted +,-0.045,0.151
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,L,R,own,0.015,0.121
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,L,L,cut slanted -,0.197,-0.015
+CAMPUS color model,campus_light_window_01,66.1,slant,0.5,L,R,own,0.015,0.121
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,R,L,own,0.015,0.0
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,R,R,cut slanted +,0.185,-0.031
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,R,L,own,0.015,0.0
+CAMPUS color model,campus_light_window_01,64.7,slant,0.5,R,R,cut slanted -,-0.046,0.139
