@@ -1,0 +1,83 @@
+{
+ "git": "160de06",
+ "old": {
+  "f": 400.0,
+  "tilt_deg": 22.25,
+  "height_mm": 43.47
+ },
+ "new": {
+  "f": 400.0,
+  "tilt_deg": 20.4,
+  "height_mm": 40.2
+ },
+ "rule": {
+  "a": {
+   "HOME": {
+    "all_old": 4.365718249900681,
+    "all_new": -8.106857252478761,
+    "far_mid_old": 4.7823973029907165,
+    "far_mid_new": -8.106857252478761,
+    "pass": false
+   },
+   "CAMPUS": {
+    "all_old": 5.35723808865977,
+    "all_new": -6.707370546860616,
+    "far_mid_old": 6.71272996979242,
+    "far_mid_new": -5.943437811641047,
+    "pass": false
+   }
+  },
+  "b": {
+   "HOME": {
+    "width_ratio_new": 1.068274018058241,
+    "height_ratio_new": 1.0578106277797936,
+    "pass": false
+   },
+   "CAMPUS": {
+    "width_ratio_new": 1.0528617172512549,
+    "height_ratio_new": 1.0407590627869365,
+    "pass": false
+   }
+  },
+  "c": {
+   "pass": false,
+   "rows_that_regress": [
+    "HOME cluster",
+    "HOME occl"
+   ],
+   "negative_frames_that_gain_a_box": [],
+   "changed_rows": [
+    {
+     "set": "HOME",
+     "scenario": "cluster",
+     "found_old": 6,
+     "found_new": 6,
+     "barrels": 8,
+     "false_old": 0,
+     "false_new": 1
+    },
+    {
+     "set": "HOME",
+     "scenario": "occl",
+     "found_old": 4,
+     "found_new": 3,
+     "barrels": 4,
+     "false_old": 0,
+     "false_new": 0
+    },
+    {
+     "set": "DAVE*",
+     "scenario": "snap",
+     "found_old": 12,
+     "found_new": 12,
+     "barrels": 34,
+     "false_old": 2,
+     "false_new": 3
+    }
+   ]
+  }
+ },
+ "verdict": false,
+ "boxes": 191,
+ "boxes_left_out": 0
+}
