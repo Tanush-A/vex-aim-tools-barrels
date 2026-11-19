@@ -17,8 +17,9 @@ gets ONE score:
 computed column by column of the stencil:
 
   * a column is worth what its WORST band shows: q = min over its bands of (pixels painted the predicted color /
-    pixels of the band). A column counts only as far as it shows the whole pattern, body / stripe / body, top to
-    bottom; a stripe with nothing above it is worth nothing. This is what makes half of an orange thing not a barrel.
+    pixels of the band), a band counting as fully there from the share ``band_full`` on. A column counts only as far
+    as it shows the whole pattern, body / stripe / body, top to bottom; a stripe with nothing above it is worth
+    nothing. This is what makes half of an orange thing not a barrel.
   * a band of a column that is known to be hidden is not asked for: it is outside the frame, or inside the box of a
     barrel already accepted that stands nearer. The column then counts only for the bands that were checked
     (the stripe is half of a column's weight, each body part a quarter).
@@ -33,7 +34,9 @@ only gets what is seen of it, minus the cost of what is missing, and ``accept`` 
 
 Arbitration: the best place is accepted first; its box is then claimed: its pixels are evidence for no other place,
 and for a place standing further away they count as hidden (explained) instead of missing. Scores are computed
-again and the next best place is accepted, until none reaches ``accept``. Where several columns fit equally well
+again and the next best place is accepted, until none reaches ``accept``. (In one round several places are accepted,
+best first, as long as they do not touch each other; a place that touches an accepted box waits for the next round,
+when its score is up to date, and so does every place overlapping it.) Where several columns fit equally well
 (a slice of a barrel with nothing saying which side is hidden) the box is put in the middle of them.
 
 Every number of ``StencilConfig`` was fit or chosen on HOME train masks: results/2026-11-20_stencil/fit.md
@@ -61,6 +64,8 @@ class StencilConfig:
     accept: float = 0.30          # a place is a barrel when its score is at least this
     absent_cost: float = 0.25     # what a checked-and-missing share costs, against 1 for a seen share
     outside_cost: float = 0.5     # what a fully painted ring costs
+    band_full: float = 1.0        # a band of a column counts as fully there when at least this share of it is painted; below, in
+                                  # proportion (1.0 = the painted share itself). Holes inside a seen barrel (a highlight) are not occlusion
     stripe_weight: float = 0.5    # the stripe's share of a column's weight (the two body parts share the rest equally)
     min_checked: float = 0.5      # a band of a column is checked when at least this share of it is not known to be hidden
     # the shape (fit.md): corrections to the camera model's rows, in px, as a + b x (barrel width in px)
@@ -79,7 +84,7 @@ class StencilConfig:
     dy_step: float = 0.02         # ... in steps of this share (at least 1 px)
     plateau: float = 0.02         # columns scoring within this of the best one fit "equally well": the box goes in their middle
     depth_margin_px: int = 2      # an accepted barrel hides a place whose bottom row is at least this far above its own
-    max_passes: int = 5           # rounds of accept / claim / score again
+    max_passes: int = 6           # rounds of accept / claim / score again
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -204,7 +209,7 @@ def score_at(mask: np.ndarray, st: Stencil, color: int, u: int, dy: int = 0, cfg
             open_ = n - int((sel & hid[:, x]).sum())
             if open_ < cfg.min_checked * n:
                 continue                                                    # known to be hidden: not asked for
-            q = min(q, int((sel & agree[:, x] & ~hid[:, x]).sum()) / max(open_, 1))
+            q = min(q, min(1.0, int((sel & agree[:, x] & ~hid[:, x]).sum()) / max(open_, 1) / cfg.band_full))
             wt += weight[band]
         if wt > 0:
             seen += wt * q; missing += wt * (1 - q)
@@ -264,7 +269,7 @@ def score_map(st: Stencil, color: int, cum: dict, dys: np.ndarray, cfg: StencilC
         agree, n, hid, _ = count(name, c)
         open_ = n - hid
         checked = (open_ >= cfg.min_checked * n) & (n > 0)
-        return np.where(checked, agree / np.maximum(open_, 1), np.inf), checked, agree
+        return np.where(checked, np.minimum(1.0, agree / np.maximum(open_, 1) / cfg.band_full), np.inf), checked, agree
 
     fS, cS, aS = frac("S", other)
     out_cols = {}
@@ -319,11 +324,25 @@ def _hidden_levels(claims: list[_Claim], shape) -> tuple[list[int], list[np.ndar
     return [c.bottom for c in order], cums
 
 
+def _cannot_score(st: Stencil, color: int, dys: np.ndarray, row_paint: dict, row_claim: np.ndarray, h: int) -> bool:
+    """True when no place of this stencil and color can score above 0, so its score map need not be computed: one of
+    its three bands lies wholly inside the frame at every offset, with no claimed pixel in its rows (so it is checked
+    in every column) and not one pixel of the color it predicts in those rows. Every column is then worth 0. A
+    shortcut only: the answer is the same without it (tested)."""
+    b = st.bands(0)
+    for name, c in (("U", color), ("S", OTHER[color]), ("L", color)):
+        r0, r1 = b[name][0] + int(dys.min()), b[name][1] + int(dys.max())
+        if r0 >= 0 and r1 <= h and row_claim[r1] == row_claim[r0] and row_paint[c][r1] == row_paint[c][r0]:
+            return True
+    return False
+
+
 def detect(mask: np.ndarray, cfg: StencilConfig = StencilConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
-           log: list | None = None, given: tuple[Barrel, ...] | list[Barrel] = ()) -> list[Barrel]:
+           log: list | None = None, given: tuple[Barrel, ...] | list[Barrel] = (), shortcut: bool = True) -> list[Barrel]:
     """Class mask (0 other / 1 orange / 2 blue) -> barrels, by stencil matching. Same signature as
     ``detector.detect``. ``given``: barrels already known (another detector's boxes): they are claimed before the
-    search starts and are not returned. ``log``: when a list, every accepted place is appended (diagnostics)."""
+    search starts and are not returned. ``log``: when a list, every accepted place is appended (diagnostics).
+    ``shortcut=False`` computes every score map (slower, same answer)."""
     h, w = mask.shape
     sts = stencils(cam, cfg)
     claims = [_Claim((max(0, g.bbox[0]), max(0, g.bbox[1]), min(w, g.bbox[2]), min(h, g.bbox[3])), g.bbox[3]) for g in given]
@@ -336,12 +355,16 @@ def detect(mask: np.ndarray, cfg: StencilConfig = StencilConfig(), cam: geo.Came
             claimed[y0:y1, x0:x1] = True
         cum = {c: _cum_rows(paint[c] & ~claimed) for c in (ORANGE, BLUE)}
         bottoms, cums = _hidden_levels(claims, (h, w))
+        row_paint = {c: np.concatenate([[0], np.cumsum((paint[c] & ~claimed).sum(axis=1))]) for c in (ORANGE, BLUE)}
+        row_claim = np.concatenate([[0], np.cumsum(claimed.sum(axis=1))])
         maps, cand = {}, []
         for k, st in enumerate(sts):
             dys = offsets(st, cfg)
             # how many accepted barrels stand nearer than this stencil at each offset
             level = np.array([sum(1 for b in bottoms if b >= st.bottom + int(dy) + cfg.depth_margin_px) for dy in dys]) if bottoms else np.zeros(len(dys), int)
             for color in (ORANGE, BLUE):
+                if shortcut and _cannot_score(st, color, dys, row_paint, row_claim, h):
+                    continue
                 q = np.empty((len(dys), w + st.W))
                 for lv in np.unique(level):
                     sel = level == lv
@@ -356,33 +379,42 @@ def detect(mask: np.ndarray, cfg: StencilConfig = StencilConfig(), cam: geo.Came
         W_ = np.array([s.W for s in sts])[cand[:, 2].astype(int)]
         top_ = np.array([s.top for s in sts])[cand[:, 2].astype(int)]
         bot_ = np.array([s.bottom for s in sts])[cand[:, 2].astype(int)]
-        dy_ = np.array([offsets(sts[int(k)], cfg)[int(i)] for k, i in zip(cand[:, 2], cand[:, 3])]) if len(cand) < 64 else None
-        if dy_ is None:
-            offs = {k: offsets(st, cfg) for k, st in enumerate(sts)}
-            dy_ = np.empty(len(cand))
-            for k in np.unique(cand[:, 2]).astype(int):
-                sel = cand[:, 2] == k
-                dy_[sel] = offs[k][cand[sel, 3].astype(int)]
+        dy_ = np.empty(len(cand))
+        for k in np.unique(cand[:, 2]).astype(int):
+            sel = cand[:, 2] == k
+            dy_[sel] = offsets(sts[k], cfg)[cand[sel, 3].astype(int)]
         x0_ = cand[:, 4] - W_
         x1_, y0_, y1_ = x0_ + W_, top_ + dy_, bot_ + dy_
+        area_ = (x1_ - x0_) * (y1_ - y0_)
         alive = np.ones(len(cand), bool)
+        stale = np.zeros(len(cand), bool)                                    # touches a box accepted in this round: its score is out of date
         new: list[_Claim] = []
         while alive.any():
             n = int(np.argmax(np.where(alive, cand[:, 0], -np.inf)))
             color, k, i, j = int(cand[n, 1]), int(cand[n, 2]), int(cand[n, 3]), int(cand[n, 4])
-            st, row = sts[k], maps[(int(cand[n, 1]), int(cand[n, 2]))][int(cand[n, 3])]
+            st, row = sts[k], maps[(color, k)][i]
+            dy = int(dy_[n])
+            if stale[n]:
+                # this place waits for the next round, and so does every place that overlaps it by a quarter or more of the
+                # smaller box: they explain the same paint, less well
+                inter = np.clip(np.minimum(x1_, x1_[n]) - np.maximum(x0_, x0_[n]), 0, None) * np.clip(np.minimum(y1_, y1_[n]) - np.maximum(y0_, y0_[n]), 0, None)
+                alive &= ~(inter >= 0.25 * np.minimum(area_, area_[n]))
+                alive[n] = False
+                continue
             lo = hi = j                                                      # the columns that fit as well as the best one
             while lo > 0 and row[lo - 1] >= row[j] - cfg.plateau:
                 lo -= 1
             while hi < len(row) - 1 and row[hi + 1] >= row[j] - cfg.plateau:
                 hi += 1
             jm = (lo + hi) // 2
-            dy = int(dy_[n])
             bx = st.box(jm - st.W, dy)
             box = (max(0, bx[0]), max(0, bx[1]), min(w, bx[2]), min(h, bx[3]))
             g = st.pad
-            alive &= ~((x0_ < bx[2] + g) & (x1_ > bx[0] - g) & (y0_ < bx[3] + g) & (y1_ > bx[1] - g))
+            touch = (x0_ < bx[2] + g) & (x1_ > bx[0] - g) & (y0_ < bx[3] + g) & (y1_ > bx[1] - g)
+            stale |= touch
             alive[n] = False
+            inter = np.clip(np.minimum(x1_, bx[2]) - np.maximum(x0_, bx[0]), 0, None) * np.clip(np.minimum(y1_, bx[3]) - np.maximum(y0_, bx[1]), 0, None)
+            alive &= ~(inter >= 0.25 * np.minimum(area_, (bx[2] - bx[0]) * (bx[3] - bx[1])))      # the accepted place's own neighbours in the search
             if box[2] <= box[0] or box[3] <= box[1]:
                 continue
             flags = set()

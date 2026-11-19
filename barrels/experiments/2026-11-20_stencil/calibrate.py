@@ -7,7 +7,7 @@ Masks:
   A3  hand masks, `light` damage, seeds 10 to 14      A4  train negatives of the other tables (wood, black), adopted color model
   B   hand masks, `medium` damage, seeds 10 to 14
 
-Step 1 (slow, one process per pair): for each (absent_cost, outside_cost) of the grid the stencil runs once with
+Step 1 (slow, one process per combination): for each (absent_cost, outside_cost, band_full) of the grid the stencil runs once with
 accept 0.10 on every mask; every box is stored with its score (calibration_boxes.csv).
 Step 2: T0, accept, the chosen pair, the direct run, leave-one-scene-out, the cost, the veto level (calibration.md, .json).
 
@@ -35,7 +35,7 @@ from barrels.io import PKG_ROOT  # noqa: E402
 OUT = PKG_ROOT / "results" / "2026-11-20_stencil"
 CAM = geo.AIM_4A8B6118_BOXFIT
 SEEDS = (10, 11, 12, 13, 14)
-GRID = [(m, o) for m in (0.1, 0.25, 0.5) for o in (0.25, 0.5, 1.0)]
+GRID = [(m, o, bf) for bf in (1.0, 0.5, 0.25) for m in (0.1, 0.25, 0.5) for o in (0.25, 0.5, 1.0)]     # band_full added by PREREG addendum A
 FLOOR, MARGIN = 0.10, 0.05
 TS = [round(0.10 + 0.01 * i, 2) for i in range(61)]
 ZERO = ("A1", "A2", "A3", "A4")           # pools that must hold no false box
@@ -79,12 +79,12 @@ def gts_of(stem: str) -> list[dtp.Barrel]:
 
 
 def run_pair(pair) -> list[dict]:
-    mu, lam = pair
-    cfg = dataclasses.replace(stn.StencilConfig(), accept=FLOOR, absent_cost=mu, outside_cost=lam)
+    mu, lam, bf = pair
+    cfg = dataclasses.replace(stn.StencilConfig(), accept=FLOOR, absent_cost=mu, outside_cost=lam, band_full=bf)
     rows = []
     for it in build_items():
         for p in stn.detect(it["mask"], cfg, CAM):
-            rows.append({"absent_cost": mu, "outside_cost": lam, "key": it["key"], "color": p.color, "bbox": json.dumps(list(p.bbox)), "score": round(p.confidence, 4)})
+            rows.append({"absent_cost": mu, "outside_cost": lam, "band_full": bf, "key": it["key"], "color": p.color, "bbox": json.dumps(list(p.bbox)), "score": round(p.confidence, 4)})
     return rows
 
 
@@ -98,7 +98,7 @@ def count(preds: list[dtp.Barrel], stem: str) -> tuple[int, int]:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--step", type=int, default=0)
-    ap.add_argument("--procs", type=int, default=9)
+    ap.add_argument("--procs", type=int, default=10)
     args = ap.parse_args(argv)
     OUT.mkdir(parents=True, exist_ok=True)
     store = OUT / "calibration_boxes.csv"
@@ -113,7 +113,7 @@ def main(argv=None) -> int:
     by_key = {it["key"]: it for it in items}
     stored: dict[tuple, dict[str, list[dtp.Barrel]]] = {p: {} for p in GRID}
     for r in csv.DictReader(store.open()):
-        stored[(float(r["absent_cost"]), float(r["outside_cost"]))].setdefault(r["key"], []).append(
+        stored[(float(r["absent_cost"]), float(r["outside_cost"]), float(r["band_full"]))].setdefault(r["key"], []).append(
             dtp.Barrel(color=int(r["color"]), bbox=tuple(json.loads(r["bbox"])), confidence=float(r["score"]), source="stencil"))
     rules = {it["key"]: count(det.detect(it["mask"], det.DetConfig(), CAM), it["stem"]) for it in items}
     rules_false_B = sum(v[1] for k, v in rules.items() if k.startswith("B|"))
@@ -146,16 +146,16 @@ def main(argv=None) -> int:
 
         def found(T):
             return None if T is None or T not in tabs[pair] else sum(tabs[pair][T][p][0] for p in ("A1", "A2", "A3", "B"))
-        summary.append({"absent_cost": pair[0], "outside_cost": pair[1], "T0": t0, "accept": acc, "found_floor": found(FLOOR), "found_T0": found(t0),
+        summary.append({"absent_cost": pair[0], "outside_cost": pair[1], "band_full": pair[2], "T0": t0, "accept": acc, "found_floor": found(FLOOR), "found_T0": found(t0),
                         "found_accept": found(acc), "false_floor": {p: tabs[pair][FLOOR][p][1] for p in tabs[pair][FLOOR]}})
     ok = [s for s in summary if s["accept"] is not None and s["found_accept"] is not None]
-    best = max(ok, key=lambda s: (s["found_accept"], -s["accept"], -s["absent_cost"], -s["outside_cost"]))
-    pair = (best["absent_cost"], best["outside_cost"])
+    best = max(ok, key=lambda s: (s["found_accept"], -s["accept"], -s["absent_cost"], -s["outside_cost"], s["band_full"]))
+    pair = (best["absent_cost"], best["outside_cost"], best["band_full"])
 
     # step 4: the direct run with the chosen numbers
     accept = best["accept"]
     while True:
-        cfg = dataclasses.replace(stn.StencilConfig(), accept=accept, absent_cost=pair[0], outside_cost=pair[1])
+        cfg = dataclasses.replace(stn.StencilConfig(), accept=accept, absent_cost=pair[0], outside_cost=pair[1], band_full=pair[2])
         direct = {p: [0, 0] for p in ("A1", "A2", "A3", "A4", "B")}
         direct_boxes = {}
         for it in items:
@@ -195,7 +195,7 @@ def main(argv=None) -> int:
     low.sort()
     veto = round(low[0][0] - MARGIN, 2)
 
-    out = {"git": bcv.git_hash(), "grid": summary, "chosen": {"absent_cost": pair[0], "outside_cost": pair[1], "T0": best["T0"], "accept_by_rule": best["accept"],
+    out = {"git": bcv.git_hash(), "grid": summary, "chosen": {"absent_cost": pair[0], "outside_cost": pair[1], "band_full": pair[2], "T0": best["T0"], "accept_by_rule": best["accept"],
            "accept": accept, "veto": veto}, "direct": direct, "rules_on_same_masks": {p: [sum(v[0] for k, v in rules.items() if k.startswith(p + "|")),
            sum(v[1] for k, v in rules.items() if k.startswith(p + "|"))] for p in ("A1", "A2", "A3", "A4", "B")}, "barrels": n_barrels, "loso": loso,
            "lowest_right_rule_box_scores": [[round(a, 3), b, c] for a, b, c in low[:8]], "seeds": SEEDS,
@@ -208,14 +208,14 @@ def main(argv=None) -> int:
          "## The grid (from the boxes stored with accept 0.10)", "",
          "T0 = the smallest accept with no false box in A1 to A4 and no more in B than the rule detector. accept = T0 + 0.05. Found = A1 + A2 + A3 + B "
          f"({n_barrels['A1'] + n_barrels['A2'] + n_barrels['A3'] + n_barrels['B']} barrels).", "",
-         "| absent_cost | outside_cost | false boxes at 0.10 (A1 / A2 / A3 / A4 / B) | T0 | accept | found at 0.10 | at T0 | at accept |", "|---|---|---|---|---|---|---|---|"]
+         "| band_full | absent_cost | outside_cost | false boxes at 0.10 (A1 / A2 / A3 / A4 / B) | T0 | accept | found at 0.10 | at T0 | at accept |", "|---|---|---|---|---|---|---|---|---|"]
     for s in summary:
         f = s["false_floor"]
-        mark = " **chosen**" if (s["absent_cost"], s["outside_cost"]) == pair else ""
-        L.append(f"| {s['absent_cost']} | {s['outside_cost']} | {f['A1']} / {f['A2']} / {f['A3']} / {f['A4']} / {f['B']} | {s['T0']} | {s['accept']}{mark} | {s['found_floor']} | {s['found_T0']} | {s['found_accept']} |")
+        mark = " **chosen**" if (s["absent_cost"], s["outside_cost"], s["band_full"]) == pair else ""
+        L.append(f"| {s['band_full']} | {s['absent_cost']} | {s['outside_cost']} | {f['A1']} / {f['A2']} / {f['A3']} / {f['A4']} / {f['B']} | {s['T0']} | {s['accept']}{mark} | {s['found_floor']} | {s['found_T0']} | {s['found_accept']} |")
     r = out["rules_on_same_masks"]
     L += ["", "## The direct run with the chosen numbers", "",
-          f"absent_cost {pair[0]}, outside_cost {pair[1]}, accept {accept}" + ("" if accept == best["accept"] else f" (the rule gave {best['accept']}; raised until the direct run had no false box in A1 to A4)") + ".", "",
+          f"band_full {pair[2]}, absent_cost {pair[0]}, outside_cost {pair[1]}, accept {accept}" + ("" if accept == best["accept"] else f" (the rule gave {best['accept']}; raised until the direct run had no false box in A1 to A4)") + ".", "",
           "| masks | barrels | stencil found | stencil false | rules found | rules false |", "|---|---|---|---|---|---|"]
     for p, name in (("A1", "HOME hand masks"), ("A2", "HOME color model, leave one scene out"), ("A3", "light damage, seeds 10 to 14"), ("A4", "negatives of the other tables"), ("B", "medium damage, seeds 10 to 14")):
         L.append(f"| {p} {name} | {n_barrels[p]} | {direct[p][0]} | {direct[p][1]} | {r[p][0]} | {r[p][1]} |")

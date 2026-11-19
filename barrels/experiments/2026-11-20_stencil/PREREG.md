@@ -126,3 +126,44 @@ or the CAMPUS numbers are seen, except through such an addendum, with the reason
 - Reading the gray or color image to see a non-barrel occluder (so that "hidden" could be told from "absent").
   If the numbers say this is the missing piece, it is reported as a lead with the evidence.
 - Anything over several frames. Any change to the camera constants or to the color model.
+
+---
+
+# Addendum A, 2026-11-20: after the first calibration, before any evaluation
+
+Written when the calibration above had been run as registered and nothing else: no scorecard scene, no CAMPUS frame
+and no recording has been scored with any version of the stencil. This is a correction of the method on its own
+calibration masks, not a round of the evaluation; the two rounds are still unused.
+
+**The first calibration** (`results/2026-11-20_stencil/calibration_v1.md`, kept): chosen absent_cost 0.1,
+outside_cost 1.0, accept 0.18 (T0 0.13). Direct run: HOME hand masks 28 of 29, HOME color model 27 of 29, light
+damage 129 of 145, medium damage 44 of 145, no false box anywhere, nothing on the 10 negatives. The rule detector
+on the same masks: 28, 28, 144, 92 (1 false box).
+
+**What it showed.**
+
+1. **A hole inside a seen barrel is scored like occlusion.** With a column worth the painted share of its worst
+   band, a highlight on the upper body makes every column under it worth almost nothing, although the stripe and
+   the lower body are whole and a strip of body color is still there above the hole. Example: `core_01`, medium
+   damage, seed 10, the blue barrel: the upper body is gone in 24 of its 52 columns, score 0.07. That is why medium
+   damage finds 44 of 145. A highlight is ordinary (the window on the lid), so this is a fault of the score, not a
+   case to leave out.
+2. **A mistake in the arbitration.** When the best place of a barrel touched a box accepted in the same round it
+   was set aside for the next round, but a shifted copy of it that did not touch was accepted at once, with a
+   lower score (seen in the log of the same frame: accepted at 0.42 where the best place scores 0.48).
+
+**The two changes (made before anything else is looked at).**
+
+1. One new number, `band_full`: **a band of a column counts as fully there when at least the share `band_full` of
+   it is painted; below that, in proportion** (band value = min(1, painted share / band_full)). 1.0 is the
+   registered score. The column is still worth its worst band, so a column still has to show body, stripe and
+   body; what changes is that a band with a hole in it is not a missing band. The grid gets one more axis:
+   band_full in {1.0, 0.5, 0.25}, with the same absent_cost x outside_cost values: 27 combinations.
+2. Arbitration: a place that touches a box accepted in this round waits for the next round, **and so does every
+   place that overlaps it by a quarter or more of the smaller box**.
+
+**Nothing else changes:** the masks A1 to A4 and B, the seeds, T0, the margin 0.05, "most found at its accept",
+the direct run, the veto rule, the arms, the acceptance rule, the two rounds. One more tie-break at the end of the
+list: the larger band_full (the stricter score). Stated before the re-run: a softer band lets a stencil of a
+slightly wrong size or row fit as well as the right one, so the boxes may get less exact; the box width ratio and
+the bottom error in the eval table will show it.
