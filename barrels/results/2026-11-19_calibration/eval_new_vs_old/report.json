@@ -1,9 +1,9 @@
 {
- "git": "160de06",
+ "git": "ca4e0c7",
  "rule": "v2",
  "split": "train",
  "home_protocol": "loso",
- "seconds": 15.36,
+ "seconds": 13.89,
  "candidate": {
   "name": "new camera",
   "model_path": "results/2026-11-09_hs_candidate/config.json",

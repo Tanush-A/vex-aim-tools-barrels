@@ -1,6 +1,6 @@
-# Validation of the ruler-fit camera on the train frames (rule: PREREG.md)
+# Validation of the new camera on the train frames (rule: PREREG.md)
 
-git 160de06. Old camera: f 400, tilt 22.25°, height 43.47 mm, horizon row 76.4. New camera: f 400, tilt 20.4°, height 40.2 mm, horizon row 91.2. Train frames only.
+git ca4e0c7. Old camera: f 400, tilt 22.25°, height 43.47 mm, horizon row 76.4. New camera: f 400, tilt 20.4°, height 40.2 mm, horizon row 91.2. Train frames only.
 
 ## Verdict
 
@@ -154,3 +154,14 @@ A camera rolled about its axis would put barrels on one side of the frame lower 
 | CAMPUS | 16 | -122 to +300 | -0.2 ± 0.6 | +1.1 ± 0.6 |
 | BLACK | 6 | -104 to +216 | -0.6 ± 1.3 | -0.6 ± 1.0 |
 | WOOD | 72 | -201 to +74 | -1.2 ± 0.3 | -2.9 ± 0.3 |
+
+### The ruler set's whole boxes, the same measures (no distance used)
+
+| ruler frame | mm | bottom from top: old | new | bottom from width: old | new | width ratio: old | new | height ratio: old | new |
+|---|---|---|---|---|---|---|---|---|---|
+| 07 | 30 | -32.9 | -9.9 | -40.2 | -36.3 | 0.87 | 0.86 | 1.05 | 1.01 |
+| 08 | 50 | -21.7 | -14.4 | -24.6 | -23.6 | 0.89 | 0.89 | 1.05 | 1.03 |
+| 09 | 100 | +0.8 | -4.2 | -5.8 | -6.3 | 0.94 | 0.95 | 1.00 | 1.02 |
+| 10 | 150 | +8.1 | -1.3 | -1.0 | -1.8 | 0.94 | 0.98 | 0.95 | 1.01 |
+| 11 | 200 | +9.1 | -2.7 | -0.9 | -1.6 | 0.92 | 0.99 | 0.93 | 1.02 |
+| 12 | 300 | +13.0 | -1.3 | +2.1 | +1.4 | 0.92 | 1.06 | 0.87 | 1.01 |

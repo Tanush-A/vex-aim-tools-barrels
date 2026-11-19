@@ -1,0 +1,91 @@
+{
+ "git": "ca4e0c7",
+ "old": {
+  "f": 400.0,
+  "tilt_deg": 22.25,
+  "height_mm": 43.47
+ },
+ "new": {
+  "f": 400.0,
+  "tilt_deg": 20.95,
+  "height_mm": 40.2
+ },
+ "rule": {
+  "a": {
+   "HOME": {
+    "all_old": 4.365718249900681,
+    "all_new": -0.5652059560575537,
+    "far_mid_old": 4.7823973029907165,
+    "far_mid_new": -0.8385762958089629,
+    "pass": true
+   },
+   "CAMPUS": {
+    "all_old": 5.35723808865977,
+    "all_new": 0.6098442939900934,
+    "far_mid_old": 6.71272996979242,
+    "far_mid_new": 1.1898219389950526,
+    "pass": true
+   }
+  },
+  "b": {
+   "HOME": {
+    "width_ratio_new": 1.018570540966357,
+    "height_ratio_new": 1.0037364868313454,
+    "pass": true
+   },
+   "CAMPUS": {
+    "width_ratio_new": 0.997341796889418,
+    "height_ratio_new": 0.9956662475477629,
+    "pass": true
+   }
+  },
+  "c": {
+   "pass": false,
+   "rows_that_regress": [
+    "HOME occl"
+   ],
+   "negative_frames_that_gain_a_box": [],
+   "changed_rows": [
+    {
+     "set": "HOME",
+     "scenario": "cluster",
+     "found_old": 6,
+     "found_new": 7,
+     "barrels": 8,
+     "false_old": 0,
+     "false_new": 0
+    },
+    {
+     "set": "HOME",
+     "scenario": "occl",
+     "found_old": 4,
+     "found_new": 3,
+     "barrels": 4,
+     "false_old": 0,
+     "false_new": 0
+    },
+    {
+     "set": "4A8B_window_black",
+     "scenario": "clutter",
+     "found_old": 0,
+     "found_new": 1,
+     "barrels": 4,
+     "false_old": 1,
+     "false_new": 0
+    },
+    {
+     "set": "DAVE*",
+     "scenario": "snap",
+     "found_old": 12,
+     "found_new": 12,
+     "barrels": 34,
+     "false_old": 2,
+     "false_new": 3
+    }
+   ]
+  }
+ },
+ "verdict": false,
+ "boxes": 191,
+ "boxes_left_out": 0
+}
