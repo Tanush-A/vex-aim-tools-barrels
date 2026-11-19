@@ -433,6 +433,21 @@ def detect(mask: np.ndarray, cfg: StencilConfig = StencilConfig(), cam: geo.Came
     return sorted(out, key=lambda b: b.bbox[0])
 
 
+def same_barrel(added: Barrel, given: Barrel, cfg: StencilConfig = StencilConfig()) -> bool:
+    """Is a box the stencil added (with ``given`` claimed) a second box on the barrel ``given`` is already on? Yes when
+    they have the same color, overlap by a quarter or more of the smaller box, and the added one does not stand
+    further away (its bottom row is not at least ``depth_margin_px`` above the given box's bottom). A barrel BEHIND
+    a given box of its color stands further away: not the same barrel. Used by the `union1` arm of the experiment."""
+    if added.color != given.color:
+        return False
+    ax0, ay0, ax1, ay1 = added.bbox
+    gx0, gy0, gx1, gy1 = given.bbox
+    inter = max(0, min(ax1, gx1) - max(ax0, gx0)) * max(0, min(ay1, gy1) - max(ay0, gy0))
+    small = min((ax1 - ax0) * (ay1 - ay0), (gx1 - gx0) * (gy1 - gy0))
+    further = ay1 <= gy1 - cfg.depth_margin_px
+    return inter >= 0.25 * small and not further
+
+
 # ---------------------------------------------------------------- the stencil as a checker of another detector's boxes
 
 def box_score(mask: np.ndarray, barrel: Barrel, cfg: StencilConfig = StencilConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,

@@ -1,9 +1,9 @@
 {
- "git": "9e7d088",
+ "git": "be63ff2",
  "rule": "v2",
  "split": "train",
  "home_protocol": "loso",
- "seconds": 20.07,
+ "seconds": 19.04,
  "candidate": {
   "name": "stencil",
   "model_path": "results/2026-11-09_hs_candidate/config.json",

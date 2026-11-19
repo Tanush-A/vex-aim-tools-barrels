@@ -10,6 +10,8 @@ those scripts run every arm without a line of them or of ``detector.py`` being c
   ``union``       the rule detector's boxes + what the stencil finds with those boxes given as already accepted
   ``veto``        the rule detector's boxes whose stencil score at their place is at least ``VETO``
   ``veto+union``  ``veto``, then the stencil's additions with the kept boxes given
+  ``union1``      round 2 (PREREG addendum B): ``union``, but an added box that overlaps a rule box of its own color by a
+                  quarter of the smaller box and does not stand further away is the same barrel, and is not drawn
 
 The stencil's numbers are ``StencilConfig()``'s defaults (set from results/2026-11-20_stencil/calibration.json);
 ``VETO`` is read from that file.
@@ -37,7 +39,7 @@ SOURCE_BASE = occl_arms.BASE                      # what chose the scorecard's 5
 STENCIL = stn.StencilConfig()
 _cal = OUT / "calibration.json"
 VETO = json.loads(_cal.read_text())["chosen"]["veto"] if _cal.exists() else None
-METHODS = ("rules", "stencil", "union", "veto", "veto+union")
+METHODS = ("rules", "stencil", "union", "veto", "veto+union", "union1")
 
 
 @dataclasses.dataclass(frozen=True)
@@ -59,8 +61,11 @@ def detect(mask, cfg=det.DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BO
     found = RULES_DETECT(mask, cfg, cam, log)
     if method in ("veto", "veto+union"):
         found = [b for b in found if stn.box_score(mask, b, STENCIL, cam, others=[o for o in found if o is not b]) >= VETO]
-    if method in ("union", "veto+union"):
-        found = found + stn.detect(mask, STENCIL, cam, log, given=found)
+    if method in ("union", "veto+union", "union1"):
+        added = stn.detect(mask, STENCIL, cam, log, given=found)
+        if method == "union1":           # round 2 (PREREG addendum B): no second box on a barrel that has a rule box
+            added = [a for a in added if not any(stn.same_barrel(a, g, STENCIL) for g in found)]
+        found = found + added
     return sorted(found, key=lambda b: b.bbox[0])
 
 

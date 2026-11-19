@@ -102,3 +102,22 @@ Found / missed / false; width = median box width / true width, bottom = median b
 | DAVE* | snap | 12 / 22 / 3 | 13 / 21 / 1 | 0.95 -> 0.94 | 1.0 -> 1.0 | 0 -> 0 | report only |
 | DAVE* | ALL ROWS | 12 / 22 / 3 | 13 / 21 / 1 | 0.95 -> 0.94 | 1.0 -> 1.0 | 0 -> 0 | report only |
 
+## `union1`: passes
+
+| set | scenario | rules | arm | width | bottom px | boxes on negatives | |
+|---|---|---|---|---|---|---|---|
+| HOME | ALL ROWS | 28 / 1 / 0 | 28 / 1 / 0 | 0.95 -> 0.95 | 1.0 -> 1.0 | 0 -> 0 | ok |
+| CAMPUS | ALL ROWS | 35 / 0 / 0 | 35 / 0 / 0 | 0.94 -> 0.94 | 2.0 -> 2.0 | 0 -> 0 | ok |
+| 4A8B_lampcool1_wood | ALL ROWS | 0 / 21 / 0 | 0 / 21 / 0 | - -> - | - -> - | 0 -> 0 | report only |
+| 4A8B_lampcool3_wood | ALL ROWS | 2 / 19 / 0 | 2 / 19 / 0 | 0.94 -> 0.94 | 0.5 -> 0.5 | 0 -> 0 | report only |
+| 4A8B_lampcool6_wood | ALL ROWS | 2 / 19 / 2 | 2 / 19 / 2 | 1.02 -> 1.02 | 1.0 -> 1.0 | 0 -> 0 | report only |
+| 4A8B_lampmid1_wood | ALL ROWS | 0 / 21 / 0 | 0 / 21 / 0 | - -> - | - -> - | 0 -> 0 | report only |
+| 4A8B_lampmid3_wood | ALL ROWS | 1 / 20 / 1 | 1 / 20 / 1 | 0.91 -> 0.91 | 0.0 -> 0.0 | 0 -> 0 | report only |
+| 4A8B_lampmid6_wood | ALL ROWS | 1 / 20 / 0 | 1 / 20 / 0 | 0.93 -> 0.93 | 0.0 -> 0.0 | 0 -> 0 | report only |
+| 4A8B_lampwarm1_wood | ALL ROWS | 0 / 21 / 0 | 0 / 21 / 0 | - -> - | - -> - | 0 -> 0 | report only |
+| 4A8B_lampwarm3_wood | ALL ROWS | 1 / 20 / 0 | 1 / 20 / 0 | 0.86 -> 0.86 | 0.0 -> 0.0 | 0 -> 0 | report only |
+| 4A8B_lampwarm6_wood | ALL ROWS | 0 / 21 / 1 | 0 / 21 / 1 | - -> - | - -> - | 0 -> 0 | report only |
+| 4A8B_window_black | ALL ROWS | 5 / 21 / 1 | 5 / 21 / 1 | 0.85 -> 0.85 | 1.0 -> 1.0 | 0 -> 0 | report only |
+| DAVE* | snap | 12 / 22 / 3 | 13 / 21 / 3 | 0.95 -> 0.94 | 1.0 -> 1.0 | 0 -> 0 | report only |
+| DAVE* | ALL ROWS | 12 / 22 / 3 | 13 / 21 / 3 | 0.95 -> 0.94 | 1.0 -> 1.0 | 0 -> 0 | report only |
+

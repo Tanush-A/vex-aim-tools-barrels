@@ -26,7 +26,7 @@ def num(x: str, fmt: str) -> str:
 
 
 def main(argv=None) -> int:
-    want = list(sys.argv[1:] if argv is None else argv) or ["stencil", "union", "veto", "veto+union"]
+    want = list(sys.argv[1:] if argv is None else argv) or ["stencil", "union", "veto", "veto+union", "union1"]
     reports = {}
     for a in want:
         f = OUT / f"report_{a}" / "report.csv"

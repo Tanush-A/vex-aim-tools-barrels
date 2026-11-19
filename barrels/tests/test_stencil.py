@@ -266,3 +266,12 @@ def test_the_shortcut_changes_no_answer():
     cfg = dataclasses.replace(CFG, accept=0.15)
     a, b = stn.detect(m, cfg, CAM), stn.detect(m, cfg, CAM, shortcut=False)
     assert len(a) >= 3 and [(x.color, x.bbox, round(x.confidence, 9)) for x in a] == [(x.color, x.bbox, round(x.confidence, 9)) for x in b]
+
+
+def test_same_barrel_same_color_same_place_same_depth():
+    rule_box = Barrel(color=BLUE, bbox=(404, 117, 449, 163))
+    assert stn.same_barrel(Barrel(color=BLUE, bbox=(421, 122, 470, 173)), rule_box, CFG)          # a second box on the barrel, a third off
+    assert not stn.same_barrel(Barrel(color=ORANGE, bbox=(421, 122, 470, 173)), rule_box, CFG)    # another color: another barrel
+    assert not stn.same_barrel(Barrel(color=BLUE, bbox=(445, 117, 490, 163)), rule_box, CFG)      # touching beside it: under a quarter shared
+    assert not stn.same_barrel(Barrel(color=BLUE, bbox=(410, 100, 445, 140)), rule_box, CFG)      # behind it (bottom 23 rows higher): a barrel further away
+    assert stn.same_barrel(Barrel(color=BLUE, bbox=(410, 120, 445, 162)), rule_box, CFG)          # bottom 1 row higher: not further away

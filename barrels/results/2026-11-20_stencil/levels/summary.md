@@ -1,25 +1,25 @@
 # The detector given good segmentation
 
-git 9e7d088; v2 rule; train frames only; camera AIM_4A8B6118_BOXFIT. Cells: found / barrels (false boxes). Level 2 rows add up 5 seeds of the 16 HOME frames (29 barrels each).
+git be63ff2; v2 rule; train frames only; camera AIM_4A8B6118_BOXFIT. Cells: found / barrels (false boxes). Level 2 rows add up 5 seeds of the 16 HOME frames (29 barrels each).
 
-| level | scenario | in the rule | rules | stencil | union | veto | veto+union |
-|---|---|---|---|---|---|---|---|
-| 1 | perfect masks (HOME) | yes | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) |
-| 2 | light | yes | 143 / 145 (0) | 135 / 145 (0) | 143 / 145 (0) | 143 / 145 (0) | 143 / 145 (0) |
-| 2 | medium | yes | 99 / 145 (1) | 37 / 145 (0) | 99 / 145 (2) | 97 / 145 (1) | 97 / 145 (2) |
-| 2 | heavy | yes | 21 / 145 (0) | 4 / 145 (0) | 21 / 145 (0) | 16 / 145 (0) | 16 / 145 (0) |
-| 2s | top highlight 0.5 x 0.3 | report only | 141 / 145 (0) | 124 / 145 (4) | 142 / 145 (0) | 141 / 145 (0) | 142 / 145 (0) |
-| 2s | top highlight 0.7 x 0.4 | report only | 132 / 145 (7) | 38 / 145 (0) | 132 / 145 (7) | 132 / 145 (7) | 132 / 145 (7) |
-| 2s | stripe highlight 0.15 | report only | 132 / 145 (3) | 138 / 145 (0) | 140 / 145 (3) | 132 / 145 (3) | 140 / 145 (3) |
-| 2s | stripe highlight 0.3 | report only | 136 / 145 (0) | 138 / 145 (0) | 140 / 145 (0) | 136 / 145 (0) | 140 / 145 (0) |
-| 2s | stripe breaks 2 x 0.08 | report only | 133 / 145 (1) | 141 / 145 (0) | 142 / 145 (2) | 133 / 145 (1) | 142 / 145 (2) |
-| 2s | edges 1 px | report only | 145 / 145 (0) | 140 / 145 (0) | 145 / 145 (0) | 145 / 145 (0) | 145 / 145 (0) |
-| 2s | edges 2 px | report only | 110 / 145 (0) | 130 / 145 (0) | 125 / 145 (0) | 110 / 145 (0) | 125 / 145 (0) |
-| 2s | dropout 10 % | report only | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) |
-| 2s | speckle 30 | report only | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) |
-| 3a | CAMPUS, adopted color model | yes | 35 / 35 (0) | 31 / 35 (1) | 35 / 35 (0) | 35 / 35 (0) | 35 / 35 (0) |
-| 3b | BLACK, thresholds from the frame's labels | yes | 19 / 26 (2) | 17 / 26 (0) | 19 / 26 (2) | 19 / 26 (2) | 19 / 26 (2) |
-| 3c | wood cool lamp, thresholds from the frame's labels | report only | 27 / 42 (2) | 17 / 42 (2) | 28 / 42 (2) | 27 / 42 (2) | 28 / 42 (2) |
+| level | scenario | in the rule | rules | stencil | union | veto | veto+union | union1 |
+|---|---|---|---|---|---|---|---|---|
+| 1 | perfect masks (HOME) | yes | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) | 28 / 29 (0) |
+| 2 | light | yes | 143 / 145 (0) | 135 / 145 (0) | 143 / 145 (0) | 143 / 145 (0) | 143 / 145 (0) | 143 / 145 (0) |
+| 2 | medium | yes | 99 / 145 (1) | 37 / 145 (0) | 99 / 145 (2) | 97 / 145 (1) | 97 / 145 (2) | 99 / 145 (2) |
+| 2 | heavy | yes | 21 / 145 (0) | 4 / 145 (0) | 21 / 145 (0) | 16 / 145 (0) | 16 / 145 (0) | 21 / 145 (0) |
+| 2s | top highlight 0.5 x 0.3 | report only | 141 / 145 (0) | 124 / 145 (4) | 142 / 145 (0) | 141 / 145 (0) | 142 / 145 (0) | 142 / 145 (0) |
+| 2s | top highlight 0.7 x 0.4 | report only | 132 / 145 (7) | 38 / 145 (0) | 132 / 145 (7) | 132 / 145 (7) | 132 / 145 (7) | 132 / 145 (7) |
+| 2s | stripe highlight 0.15 | report only | 132 / 145 (3) | 138 / 145 (0) | 140 / 145 (3) | 132 / 145 (3) | 140 / 145 (3) | 140 / 145 (3) |
+| 2s | stripe highlight 0.3 | report only | 136 / 145 (0) | 138 / 145 (0) | 140 / 145 (0) | 136 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) |
+| 2s | stripe breaks 2 x 0.08 | report only | 133 / 145 (1) | 141 / 145 (0) | 142 / 145 (2) | 133 / 145 (1) | 142 / 145 (2) | 142 / 145 (2) |
+| 2s | edges 1 px | report only | 145 / 145 (0) | 140 / 145 (0) | 145 / 145 (0) | 145 / 145 (0) | 145 / 145 (0) | 145 / 145 (0) |
+| 2s | edges 2 px | report only | 110 / 145 (0) | 130 / 145 (0) | 125 / 145 (0) | 110 / 145 (0) | 125 / 145 (0) | 125 / 145 (0) |
+| 2s | dropout 10 % | report only | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) |
+| 2s | speckle 30 | report only | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) | 140 / 145 (0) |
+| 3a | CAMPUS, adopted color model | yes | 35 / 35 (0) | 31 / 35 (1) | 35 / 35 (0) | 35 / 35 (0) | 35 / 35 (0) | 35 / 35 (0) |
+| 3b | BLACK, thresholds from the frame's labels | yes | 19 / 26 (2) | 17 / 26 (0) | 19 / 26 (2) | 19 / 26 (2) | 19 / 26 (2) | 19 / 26 (2) |
+| 3c | wood cool lamp, thresholds from the frame's labels | report only | 27 / 42 (2) | 17 / 42 (2) | 28 / 42 (2) | 27 / 42 (2) | 28 / 42 (2) | 28 / 42 (2) |
 
 ## What each damage level is (fractions of the barrel's box, W wide and H tall)
 
@@ -125,6 +125,23 @@ git 9e7d088; v2 rule; train frames only; camera AIM_4A8B6118_BOXFIT. Cells: foun
 - 3b BLACK, thresholds from the frame's labels: stripe_refused:width 2, stripe_refused:height 2, misplaced 2, stripe_not_sandwiched 1, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
 - 3c wood cool lamp, thresholds from the frame's labels: stripe_refused:height 4, stripe_refused:width 3, stripe_not_sandwiched 3, stripe_refused:side_unexplained 2, misplaced 2
 
+### `union1`
+
+- 1 perfect masks (HOME): stripe_refused:height 1
+- 2 light: stripe_refused:height 2
+- 2 medium: stripe_refused:width 33, stripe_refused:area 5, stripe_refused:height 4, stripe_refused:side_unexplained 2, misplaced 2
+- 2 heavy: stripe_refused:width 44, stripe_not_sandwiched 32, stripe_refused:area 26, stripe_hidden 14, stripe_refused:height 7, not_segmented 1
+- 2s top highlight 0.5 x 0.3: stripe_refused:height 3
+- 2s top highlight 0.7 x 0.4: stripe_refused:width 5, stripe_refused:side_unexplained 5, misplaced 3
+- 2s stripe highlight 0.15: stripe_refused:height 5
+- 2s stripe highlight 0.3: stripe_refused:height 5
+- 2s stripe breaks 2 x 0.08: stripe_refused:height 2, stripe_refused:width 1
+- 2s edges 2 px: stripe_refused:height 15, stripe_refused:side_unexplained 5
+- 2s dropout 10 %: stripe_refused:height 5
+- 2s speckle 30: stripe_refused:height 5
+- 3b BLACK, thresholds from the frame's labels: stripe_refused:width 2, stripe_refused:height 2, misplaced 2, stripe_not_sandwiched 1, (of the misses and false boxes: right barrel, bottom differs from the hand estimate) 1
+- 3c wood cool lamp, thresholds from the frame's labels: stripe_refused:height 4, stripe_refused:width 3, stripe_not_sandwiched 3, stripe_refused:side_unexplained 2, misplaced 2
+
 ## Level 1 and level 3: every missed barrel and every false box
 
 ### `rules`
@@ -193,6 +210,21 @@ git 9e7d088; v2 rule; train frames only; camera AIM_4A8B6118_BOXFIT. Cells: foun
 | 3b BLACK | window_black_occl_04 | false orange | [268, 128, 335, 200] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 193, box bottom 200 |
 
 ### `veto+union`
+
+| scenario | frame | what | box | flags | cause | detail |
+|---|---|---|---|---|---|---|
+| 1 perfect masks (HOME) | window_light_cluster_01 | missed orange | [361, 117, 400, 163] | bottom_estimated+occluded | stripe_refused:height | stripe (361, 120, 396, 147) {'core_h': 19.0, 'expected_stripe_h': 10.69} |
+| 3b BLACK | window_black_close_02 | missed orange | [0, 132, 51, 207] | truncated | stripe_refused:width | stripe (32, 163, 35, 176) {'core_h': 11.0, 'expected_w': 64.7} |
+| 3b BLACK | window_black_close_02 | missed blue | [5, 127, 74, 186] | occluded | stripe_refused:width | stripe (64, 154, 69, 162) {'core_h': 7.6, 'expected_w': 57.06} |
+| 3b BLACK | window_black_clutter_02 | missed orange | [246, 108, 276, 140] |  | stripe_refused:height | stripe (250, 122, 273, 126) {'core_h': 3.0, 'expected_stripe_h': 8.62} |
+| 3b BLACK | window_black_far_01 | missed orange | [279, 112, 323, 157] |  | misplaced | box (278, 112, 329, 164) iou 0.75 flags ['top_inferred'] |
+| 3b BLACK | window_black_far_01 | false orange | [278, 112, 329, 164] | top_inferred | false_box | det2 |
+| 3b BLACK | window_black_held_01 | missed orange | [0, 132, 48, 208] | truncated | stripe_not_sandwiched | 418 stripe px in the box but no candidate with body above and below |
+| 3b BLACK | window_black_held_01 | missed blue | [3, 127, 73, 189] | occluded | stripe_refused:height | stripe (64, 154, 67, 162) {'core_h': 6.0, 'expected_stripe_h': 14.37} |
+| 3b BLACK | window_black_occl_04 | missed orange | [267, 129, 334, 193] | bottom_estimated+occluded | misplaced | box (268, 128, 335, 200) iou 0.86 flags ['bottom_inferred', 'occluded'] |
+| 3b BLACK | window_black_occl_04 | false orange | [268, 128, 335, 200] | bottom_inferred+occluded | right_barrel_bottom_differs_from_hand_estimate | det3; label bottom 193, box bottom 200 |
+
+### `union1`
 
 | scenario | frame | what | box | flags | cause | detail |
 |---|---|---|---|---|---|---|

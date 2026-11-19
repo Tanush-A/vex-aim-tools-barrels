@@ -22,7 +22,7 @@ POOLS = ("HOME hand masks", "HOME color model", "CAMPUS color model")
 
 
 def main(argv=None) -> int:
-    want = list(sys.argv[1:] if argv is None else argv) or ["stencil", "union", "veto", "veto+union"]
+    want = list(sys.argv[1:] if argv is None else argv) or ["stencil", "union", "veto", "veto+union", "union1"]
     spec = importlib.util.spec_from_file_location("det_occl_run", HERE.parent / "2026-11-19_det_occl" / "run.py")
     R = importlib.util.module_from_spec(spec); sys.modules["det_occl_run"] = R; spec.loader.exec_module(R)
     cells: dict[tuple, dict] = {}

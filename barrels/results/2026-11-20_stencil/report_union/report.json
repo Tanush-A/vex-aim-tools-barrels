@@ -1,9 +1,9 @@
 {
- "git": "9e7d088",
+ "git": "be63ff2",
  "rule": "v2",
  "split": "train",
  "home_protocol": "loso",
- "seconds": 22.61,
+ "seconds": 21.87,
  "candidate": {
   "name": "union",
   "model_path": "results/2026-11-09_hs_candidate/config.json",

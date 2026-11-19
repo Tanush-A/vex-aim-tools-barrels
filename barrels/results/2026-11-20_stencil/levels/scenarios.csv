@@ -79,3 +79,19 @@ veto+union,2s,speckle 30,0,80,145,140,5,0,0,0
 veto+union,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
 veto+union,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
 veto+union,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,2,0,0
+union1,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+union1,2,light,1,80,145,143,2,0,0,0
+union1,2,medium,1,80,145,99,46,2,0,0
+union1,2,heavy,1,80,145,21,124,0,0,0
+union1,2s,top highlight 0.5 x 0.3,0,80,145,142,3,0,0,0
+union1,2s,top highlight 0.7 x 0.4,0,80,145,132,13,7,0,0
+union1,2s,stripe highlight 0.15,0,80,145,140,5,3,0,0
+union1,2s,stripe highlight 0.3,0,80,145,140,5,0,0,0
+union1,2s,stripe breaks 2 x 0.08,0,80,145,142,3,2,0,0
+union1,2s,edges 1 px,0,80,145,145,0,0,0,0
+union1,2s,edges 2 px,0,80,145,125,20,0,0,0
+union1,2s,dropout 10 %,0,80,145,140,5,0,0,0
+union1,2s,speckle 30,0,80,145,140,5,0,0,0
+union1,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+union1,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+union1,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,2,0,0

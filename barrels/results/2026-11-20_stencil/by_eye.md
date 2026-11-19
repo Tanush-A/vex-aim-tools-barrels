@@ -9,7 +9,7 @@ sheets 00 to 03 (every campus and black frame, the first wood frames) and `rec_v
 | arm | boxes | appear | disappear |
 |---|---|---|---|
 | `stencil` | 452 | 0 | 54 (campus 16, black 1, wood 37) |
-| `union` | 506 | 0 | 0 |
+| `union`, `union1` (round 2) | 506 | 0 | 0 |
 | `veto`, `veto+union` | 473 | 0 | 33 (campus 3, black 1, wood 29) |
 
 **No arm draws a box on the recordings that the rule detector does not draw.**
@@ -33,7 +33,7 @@ sheets 00 to 03 (every campus and black frame, the first wood frames) and `rec_v
 - **`stencil` alone: no new box; 11 wrong boxes of the rule detector are gone; 5 right boxes are lost** (three slivers
   at the frame edge, two barrels under a hand). The rule says a box that disappears must have been wrong: **fails
   on those 5**, and passes "no new wrong box".
-- **`union`: no frame changes. Pass.**
+- **`union` and `union1`: no frame changes (the same 506 boxes as `rules`, checked again after round 2). Pass.**
 - **`veto`, `veto+union`: 3 boxes gone, all three wrong** (`r2_pan` 052, `r4` 017, `r4` 053). **Pass.**
 
 ## Black-table clip (described, not judged)
