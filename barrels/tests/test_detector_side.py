@@ -61,6 +61,23 @@ def test_outline_cut_on_one_side_widens_toward_that_side():
     assert len(mirrored) == 1 and abs(mirrored[0].bbox[2] - (640 - truth[0])) <= 2 and abs(mirrored[0].bbox[0] - (640 - truth[2])) <= 3
 
 
+def test_body_running_into_a_same_colored_neighbour_still_says_where_the_stripe_is_cut():
+    """Round 2 (B): the body joined to the stripe runs on into something of the same color (in the frames: a touching
+    barrel's stripe), so it is wider than a barrel can be and cannot give the box. It still says which side is cut: on
+    the left the body and the stripe end together (the barrel's own edge), on the right the body runs far past the end
+    of the stripe. The box is a barrel wide from the left edge."""
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 150, 320)
+    r = CAM.barrel_rows(150); W = truth[2] - truth[0]
+    mask[int(round(r.stripe_top)) - 2:int(round(r.stripe_bottom)) + 2, truth[0] + int(0.45 * W):] = 0   # a highlight takes the stripe's right 55 %
+    mask[truth[1]:truth[3], truth[2]:truth[2] + int(0.6 * W)] = io.ORANGE                               # an orange thing with no stripe touches its right side
+    out = det.detect(mask, SIDE, CAM)
+    assert len(out) == 1 and out[0].color == io.ORANGE and "occluded" in out[0].flags
+    assert abs(out[0].bbox[0] - truth[0]) <= 2 and abs(out[0].bbox[2] - truth[2]) <= 3
+    mirrored = det.detect(mask[:, ::-1].copy(), SIDE, CAM)
+    assert len(mirrored) == 1 and abs(mirrored[0].bbox[2] - (640 - truth[0])) <= 2 and abs(mirrored[0].bbox[0] - (640 - truth[2])) <= 3
+
+
 def test_narrow_stripe_with_no_reason_gives_no_box():
     """Cut by a straight upright edge, the stripe and the body end together on both sides: nothing says which side the
     rest of the barrel is on. Under 0.4 of a barrel: no box. From 0.4: centred on what is seen, as before."""
@@ -97,9 +114,17 @@ def test_found_nearer_barrel_is_a_reason():
     assert "occluded" in b.flags and abs(b.bbox[2] - back[2]) <= 2 and abs(b.bbox[0] - back[0]) <= 3     # the full box through the front barrel
     s = next(s for s in det.find_stripes(mask, CAM, SIDE) if s.bbox[0] >= front[2] - 2)                  # the back barrel's stripe
     W = CAM.barrel_rows(220).width_px
-    assert det._partly_seen(s, mask, W, back[1], back[3], back[3], SIDE, found=()) is not None          # 0.4 of a barrel: centred without the reason
+    # since round 2 the outline says the same without the found barrel: the body runs on into the front barrel on the
+    # left (cut there) and ends with the stripe on the right (the barrel's own edge)
     alone = det._partly_seen(s, mask, W, back[1], back[3], back[3], SIDE, found=())
-    assert abs(alone[1] - back[2]) > 0.2 * W                                                             # ... and that is off the barrel
+    assert alone is not None and abs(alone[1] - back[2]) <= 2 and abs(alone[0] - back[0]) <= 3
+    # the found barrel alone is a reason too: a mask that holds the stripe and no body at all gives the outline nothing to read
+    bare = np.zeros_like(mask)
+    bare[s.bbox[1]:s.bbox[3], s.bbox[0]:s.bbox[2]] = io.BLUE
+    front_b = out[0]
+    assert det._partly_seen(s, bare, W, back[1], back[3], back[3], SIDE, found=()) != det._partly_seen(s, bare, W, back[1], back[3], back[3], SIDE, found=(front_b,))
+    with_front = det._partly_seen(s, bare, W, back[1], back[3], back[3], SIDE, found=(front_b,))
+    assert with_front is not None and abs(with_front[1] - s.bbox[2]) <= 1 and with_front[1] - with_front[0] == int(round(W))
 
 
 def test_side_hidden_changes_nothing_for_barrels_seen_whole():
@@ -145,6 +170,17 @@ def test_stripe_eaten_at_both_seams_is_read_at_the_seams():
     assert len(out) == 1 and out[0].color == io.ORANGE and det.box_iou(out[0].bbox, truth) > 0.7
     whole, _ = _far_barrel_with_eaten_edges(0)
     assert det.detect(whole, SEAM, CAM) == det.detect(whole, PRE, CAM)            # a stripe that passes by its own rows is not re-read
+
+
+def test_seam_height_is_not_asked_of_a_short_piece():
+    """Round 2: thin because the seams were eaten, or short because partly hidden, not both. A thin piece under 0.8 of
+    a barrel long is not read a second time (in a campus clip: a blue sliver between two fingers, skin above and below)."""
+    mask, truth = _far_barrel_with_eaten_edges(2)
+    mask[:, truth[0] + int(round(0.6 * (truth[2] - truth[0]))):] = 0             # ... and only its left 0.6 shows
+    for cfg in (SEAM, BOTH):
+        log = []
+        assert det.detect(mask, cfg, CAM, log=log) == []
+        assert any(e["stage"] == "stripe" and e["why"] == "height" and "seam_h" not in e for e in log)
 
 
 def test_thin_line_in_a_tall_gap_is_not_a_stripe():

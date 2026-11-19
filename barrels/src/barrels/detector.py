@@ -16,6 +16,11 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
                        be barrel-tall; a stripe cut by the frame edge is hidden on that side, so its full box is
                        drawn into the edge, not into the frame. ``stripe_mode="bands"`` is the 2026-11-03 finder,
                        kept for comparison.
+  2026-11-18           a stripe in pieces is one stripe (``stripe_join``); a barrel behind a found barrel is found from
+                       its visible top (``cap_behind``).
+  2026-11-19           a partly seen stripe is placed by what is seen of the barrel, and a side counts as hidden only
+                       for a reason: the frame edge, a found nearer barrel, or the body and the stripe ending apart
+                       (``side_hidden``); a far stripe eaten at both seams is read at the seams too (``seam_height``).
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -71,14 +76,15 @@ class DetConfig:
                                  # (body_width x the expected width) are one stripe: a highlight or a shadow line cut it. False = each piece alone
     cap_behind: bool = True      # 2026-11-18: a body-colored top, barrel-wide and as tall as an upper body for its row, cut off by a found
                                  # barrel standing nearer, is a barrel behind that one (see caps_behind). False = found from a stripe only
-    side_hidden: bool = False    # 2026-11-19: a partly seen stripe (narrower than stripe_full x a barrel) is placed by what is seen of the
+    side_hidden: bool = True     # 2026-11-19: a partly seen stripe (narrower than stripe_full x a barrel) is placed by what is seen of the
                                  # barrel (stripe + the body joined to it), and a side counts as hidden only for a reason: the frame edge, a
                                  # found barrel standing nearer, or the body and the stripe ending at different columns there (see
                                  # _partly_seen). The finder's width floor becomes one stripe height; a stripe under stripe_w_min with no
                                  # such reason gives no box. False = widen toward a barrel-colored pixel beside the stripe, else centre
-    seam_height: bool = False    # 2026-11-19: a stripe refused as too thin is read a second time as the mean of its own height and of the
-                                 # gap between the body above and below it (mixed pixels at the two seams make the one thinner and the
-                                 # other taller by the same amount). False = the stripe's own rows only
+    seam_height: bool = True     # 2026-11-19: a stripe refused as too thin, and seen whole (at least stripe_full x a barrel wide), is read a
+                                 # second time as the mean of its own height and of the gap between the body above and below it (mixed
+                                 # pixels at the two seams make the one thinner and the other taller by the same amount). False = the
+                                 # stripe's own rows only
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -389,9 +395,11 @@ def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, 
                 core_h = np.percentile(ys, 90) - np.percentile(ys, 10) + 1
                 h_ok = cfg.stripe_h_min * Hs <= core_h <= cfg.stripe_h_max * Hs
                 seam_h = None
-                if cfg.seam_height and ci == 0 and core_h < cfg.stripe_h_min * Hs:
+                if cfg.seam_height and ci == 0 and core_h < cfg.stripe_h_min * Hs and bw >= cfg.stripe_full * W:
                     # 2026-11-19: too thin by its own rows. Mixed pixels at the two seams are neither color: the stripe is thinner
-                    # and the gap between the two body parts taller by the same amount, so the middle of the two is the stripe's height
+                    # and the gap between the two body parts taller by the same amount, so the middle of the two is the stripe's height.
+                    # Asked only of a stripe seen whole (round 2): thin because eaten, or short because partly hidden, not both
+                    # (a blue sliver between two fingers is thin and short)
                     gap = float(np.median((dn - up - 1)[sel]))
                     seam_h = (core_h + gap) / 2
                     h_ok = cfg.stripe_h_min * Hs <= seam_h <= cfg.stripe_h_max * Hs
@@ -563,7 +571,9 @@ def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, p
        barrel standing nearer is there (its box holds one of the close_px pixels beside the seen span at the stripe's
        middle row, and its bottom edge is lower than pred_bottom); (c) the outline is cut there: the body and the stripe
        end at different columns, further apart than the edge tolerance (bottom_tol of W, at least bottom_tol_min_px).
-       At a barrel's own edge the stripe and the body end together.
+       At a barrel's own edge the stripe and the body end together. (c) is asked of an untrusted body too: its far end
+       is not this barrel's edge, but where it runs past the stripe the stripe is cut, and where it ends with the stripe
+       that is this barrel's edge.
     4. Exactly one side hidden: W wide from the seen edge of the other side.
     5. No side or both: a stripe at least stripe_w_min x W wide is centred on what is seen; a narrower one gives None."""
     h, w = mask.shape
@@ -574,13 +584,20 @@ def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, p
     if sx1 - sx0 >= cfg.stripe_full * W:
         return sx0, sx1                                              # 2. the whole width is seen
     row, tol = int(s.center_row), max(cfg.bottom_tol_min_px, cfg.bottom_tol * W)
+    # (c) the outline is cut where the body and the stripe end apart. Asked of every body, trusted or not (round 2): a body
+    # running on into a same-colored neighbour still runs past the end of the stripe on the side where the stripe is cut
+    left_cut = span is not None and abs(span[0] - x0) > tol
+    right_cut = span is not None and abs(span[1] - x1) > tol
+    if span is not None and not trusted:                             # the body's far end is not this barrel's; an end shared with the stripe is
+        sx0 = x0 if left_cut else min(span[0], x0)
+        sx1 = x1 if right_cut else max(span[1], x1)
 
     def nearer(pixels) -> bool:                                      # (b) a found barrel standing nearer holds one of these pixels
         return any(b.bbox[3] > pred_bottom and b.bbox[1] <= row < b.bbox[3] and any(b.bbox[0] <= px < b.bbox[2] for px in pixels)
                    for b in found)
 
-    left = sx0 <= 0 or nearer(range(sx0 - cfg.close_px, sx0)) or (trusted and abs(span[0] - x0) > tol)
-    right = sx1 >= w or nearer(range(sx1, sx1 + cfg.close_px)) or (trusted and abs(span[1] - x1) > tol)
+    left = sx0 <= 0 or nearer(range(sx0 - cfg.close_px, sx0)) or left_cut
+    right = sx1 >= w or nearer(range(sx1, sx1 + cfg.close_px)) or right_cut
     Wi = int(round(W))
     if left and not right:
         return sx1 - Wi, sx1

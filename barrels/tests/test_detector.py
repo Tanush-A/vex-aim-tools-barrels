@@ -8,6 +8,7 @@ from barrels import detector as det, geometry as geo, io
 CAM = geo.NOMINAL
 CFG1 = dataclasses.replace(det.DetConfig(), require_stripe=False)    # step 1 alone (the detector before 2026-11-05)
 CFG2 = dataclasses.replace(det.DetConfig(), require_stripe=True)     # the stripe step — also the default
+PRE19 = dataclasses.replace(CFG2, side_hidden=False, seam_height=False)   # the detector before 2026-11-19 (tests/test_detector_side.py has the two switches)
 
 
 def paint_barrel(mask, d_axis_mm, x_center, body=io.ORANGE, cam=CAM, cut_bottom_frac=0.0):
@@ -262,7 +263,7 @@ def _barrel_behind_a_slanted_edge(seen_at_stripe=0.3, seen_at_bottom=0.95):
 def test_log_names_the_refusing_test_and_never_changes_the_answer():
     mask, truth = _barrel_behind_a_slanted_edge()
     log = []
-    assert det.detect(mask, CFG2, CAM, log=log) == det.detect(mask, CFG2, CAM) == []    # 0.3 of a width: under stripe_w_min 0.4
+    assert det.detect(mask, PRE19, CAM, log=log) == det.detect(mask, PRE19, CAM) == []    # 0.3 of a width: under stripe_w_min 0.4 (the finder's floor before 2026-11-19)
     assert any(e["stage"] == "stripe" and e["why"] == "width" and e["body"] == io.BLUE for e in log)
     mask2 = np.zeros((480, 640), np.uint8); paint_barrel(mask2, 150, 320)
     log = []
@@ -272,7 +273,7 @@ def test_log_names_the_refusing_test_and_never_changes_the_answer():
 
 def test_barrel_hidden_at_the_side_narrow_stripe_and_hidden_side_from_the_body():
     mask, truth = _barrel_behind_a_slanted_edge()
-    narrow = dataclasses.replace(CFG2, stripe_w_min=0.25)
+    narrow = dataclasses.replace(PRE19, stripe_w_min=0.25)          # the 2026-11-11 switches, on the detector they were made for
     out = det.detect(mask, narrow, CAM)                              # the stripe is accepted; the box is centred on it
     assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
     centred = det.box_iou(out[0].bbox, truth)
@@ -286,7 +287,7 @@ def test_barrel_hidden_at_the_side_narrow_stripe_and_hidden_side_from_the_body()
 
 # ---------------------------------------------------------------- 2026-11-18: a stripe in pieces; a barrel behind a barrel of the other color
 
-OLD = dataclasses.replace(CFG2, stripe_join=False, cap_behind=False)     # the detector before 2026-11-18, spelled out
+OLD = dataclasses.replace(PRE19, stripe_join=False, cap_behind=False)    # the detector before 2026-11-18, spelled out
 JOIN = dataclasses.replace(OLD, stripe_join=True)
 CAP = dataclasses.replace(OLD, cap_behind=True)
 

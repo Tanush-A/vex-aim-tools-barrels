@@ -1,0 +1,9 @@
+arm,frame,what,color,bbox,flags,source
+side+seam,2026-11-07_campus/r2_pan/frame_034,added,blue,"[622, 123, 640, 170]",occluded+truncated,det2
+side+seam,2026-11-07_campus/r2_pan/frame_035,added,blue,"[624, 123, 640, 171]",occluded+truncated,det2
+side+seam,2026-11-07_campus/r3_enter_leave/frame_014,added,orange,"[611, 138, 640, 216]",occluded+truncated,det2
+side+seam,2026-11-07_campus/r3_enter_leave/frame_047,added,orange,"[614, 141, 640, 220]",occluded+truncated,det2
+side+seam,2026-11-16_black/rec_2026-11-16_131933/frame_038,added,blue,"[156, 143, 233, 224]",occluded,det2
+side+seam,2026-11-16_wood/rec_2026-11-16_121306/frame_006,added,orange,"[103, 119, 154, 168]",occluded+top_inferred,det2
+side+seam,2026-11-16_wood/rec_2026-11-16_121306/frame_006,added,orange,"[133, 118, 175, 172]",bottom_inferred+occluded+top_inferred,det2
+side+seam,2026-11-16_wood/rec_2026-11-16_121306/frame_006,removed,orange,"[82, 119, 133, 168]",occluded+top_inferred,det2

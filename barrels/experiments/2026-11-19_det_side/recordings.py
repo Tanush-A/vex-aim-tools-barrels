@@ -30,19 +30,24 @@ def main(argv=None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if "--arms" not in argv:
         argv += ["--arms", ",".join(a for a in side_arms.ARMS if a != "base")]
-    OUT.mkdir(parents=True, exist_ok=True)
-    M.ARMS, M.OUT = side_arms.ARMS, OUT
+    out = OUT
+    if "--out" in argv:                                   # a sub-folder of the results folder (round2a, ...)
+        i = argv.index("--out")
+        out = OUT / argv[i + 1]
+        del argv[i:i + 2]
+    out.mkdir(parents=True, exist_ok=True)
+    M.ARMS, M.OUT = side_arms.ARMS, out
     rc = M.main(argv)
     if rc:
         return rc
-    rows = list(csv.DictReader((OUT / "recordings.csv").open()))
+    rows = list(csv.DictReader((out / "recordings.csv").open()))
     n = collections.Counter((r["arm"], r["frame"].rsplit("/", 1)[0], r["what"]) for r in rows)
     clips = sorted({k[1] for k in n})
     L = ["# Recordings, per clip: boxes appearing / disappearing against `base`", "",
          "| arm | " + " | ".join(clips) + " |", "|---|" + "---|" * len(clips)]
     for a in sorted({k[0] for k in n}):
         L.append(f"| {a} | " + " | ".join(f"+{n[(a, c, 'added')]} / -{n[(a, c, 'removed')]}" for c in clips) + " |")
-    (OUT / "recordings_by_clip.md").write_text("\n".join(L) + "\n")
+    (out / "recordings_by_clip.md").write_text("\n".join(L) + "\n")
     print("\n".join(L))
     return 0
 

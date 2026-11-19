@@ -1,0 +1,81 @@
+arm,level,scenario,in_rule,frames,barrels,found,missed,false,false_on_negatives,false_on_clean_negatives
+base,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+base,2,light,1,80,145,141,4,0,0,0
+base,2,medium,1,80,145,64,81,22,0,0
+base,2,heavy,1,80,145,13,132,2,0,0
+base,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+base,2s,top highlight 0.7 x 0.4,0,80,145,127,18,5,0,0
+base,2s,stripe highlight 0.15,0,80,145,117,28,16,0,0
+base,2s,stripe highlight 0.3,0,80,145,90,55,38,0,0
+base,2s,stripe breaks 2 x 0.08,0,80,145,93,52,25,0,0
+base,2s,edges 1 px,0,80,145,140,5,0,0,0
+base,2s,edges 2 px,0,80,145,95,50,0,0,0
+base,2s,dropout 10 %,0,80,145,140,5,0,0,0
+base,2s,speckle 30,0,80,145,140,5,0,0,0
+base,3a,"CAMPUS, adopted color model",1,21,35,34,1,0,0,0
+base,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+base,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,25,17,7,0,0
+side,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+side,2,light,1,80,145,141,4,0,0,0
+side,2,medium,1,80,145,99,46,1,0,0
+side,2,heavy,1,80,145,21,124,0,0,0
+side,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+side,2s,top highlight 0.7 x 0.4,0,80,145,132,13,8,0,0
+side,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+side,2s,stripe highlight 0.3,0,80,145,135,10,1,0,0
+side,2s,stripe breaks 2 x 0.08,0,80,145,132,13,2,0,0
+side,2s,edges 1 px,0,80,145,140,5,0,0,0
+side,2s,edges 2 px,0,80,145,100,45,0,0,0
+side,2s,dropout 10 %,0,80,145,140,5,0,0,0
+side,2s,speckle 30,0,80,145,140,5,0,0,0
+side,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+side,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+side,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,7,0,0
+seam,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+seam,2,light,1,80,145,141,4,0,0,0
+seam,2,medium,1,80,145,64,81,22,0,0
+seam,2,heavy,1,80,145,13,132,2,0,0
+seam,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+seam,2s,top highlight 0.7 x 0.4,0,80,145,127,18,5,0,0
+seam,2s,stripe highlight 0.15,0,80,145,117,28,16,0,0
+seam,2s,stripe highlight 0.3,0,80,145,90,55,38,0,0
+seam,2s,stripe breaks 2 x 0.08,0,80,145,93,52,25,0,0
+seam,2s,edges 1 px,0,80,145,140,5,0,0,0
+seam,2s,edges 2 px,0,80,145,105,40,0,0,0
+seam,2s,dropout 10 %,0,80,145,140,5,0,0,0
+seam,2s,speckle 30,0,80,145,140,5,0,0,0
+seam,3a,"CAMPUS, adopted color model",1,21,35,34,1,0,0,0
+seam,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+seam,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,25,17,7,0,0
+side+seam,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+side+seam,2,light,1,80,145,141,4,0,0,0
+side+seam,2,medium,1,80,145,99,46,1,0,0
+side+seam,2,heavy,1,80,145,21,124,0,0,0
+side+seam,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+side+seam,2s,top highlight 0.7 x 0.4,0,80,145,132,13,8,0,0
+side+seam,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+side+seam,2s,stripe highlight 0.3,0,80,145,135,10,1,0,0
+side+seam,2s,stripe breaks 2 x 0.08,0,80,145,132,13,2,0,0
+side+seam,2s,edges 1 px,0,80,145,140,5,0,0,0
+side+seam,2s,edges 2 px,0,80,145,110,35,0,0,0
+side+seam,2s,dropout 10 %,0,80,145,140,5,0,0,0
+side+seam,2s,speckle 30,0,80,145,140,5,0,0,0
+side+seam,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+side+seam,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+side+seam,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,7,0,0
+old_side,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+old_side,2,light,1,80,145,141,4,0,0,0
+old_side,2,medium,1,80,145,99,46,7,0,0
+old_side,2,heavy,1,80,145,20,125,0,0,0
+old_side,2s,top highlight 0.5 x 0.3,0,80,145,142,3,0,0,0
+old_side,2s,top highlight 0.7 x 0.4,0,80,145,140,5,12,0,0
+old_side,2s,stripe highlight 0.15,0,80,145,134,11,7,0,0
+old_side,2s,stripe highlight 0.3,0,80,145,133,12,6,0,0
+old_side,2s,stripe breaks 2 x 0.08,0,80,145,135,10,8,0,0
+old_side,2s,edges 1 px,0,80,145,140,5,0,0,0
+old_side,2s,edges 2 px,0,80,145,100,45,5,0,0
+old_side,2s,dropout 10 %,0,80,145,140,5,0,0,0
+old_side,2s,speckle 30,0,80,145,140,5,0,0,0
+old_side,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+old_side,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+old_side,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,28,14,8,0,0
