@@ -6,7 +6,7 @@ with aim_fsm's PyQt ``imshow``. ``view`` is the whole chain — RGB→BGR, the c
 detector, ``detector.draw`` (yellow = orange barrel, green = blue), BGR→RGB — so the robot path and the
 photo path (``tools/detect_image.py``) run exactly the same code. ``BarrelDetectorHook.default()`` is "the
 detector as it stands": the hs color model (config eb863d84, adopted 2026-11-09), ``detector.detect`` with ``DetConfig()``
-(the stripe step), camera ``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
+(the stripe step), camera ``geometry.DEFAULT_CAMERA``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
 (the frame with every pixel that is not classified orange or blue dimmed; the live programs also open a second
 window with ``seg_only``: only the classified pixels, in their class color on black), ``"both"`` (the dimmed
 frame with the boxes on it, and the second window). ``render`` is ``view`` with the barrels supplied, for the
@@ -131,7 +131,7 @@ class BarrelDetectorHook:
     ``on_image`` returns the barrels; ``view`` returns the picture to show. Both take and give RGB.
     """
     model: pl.Model
-    cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT
+    cam: geo.CameraModel = geo.DEFAULT_CAMERA
     detector: Callable = det.detect
     det_cfg: object = field(default_factory=det.DetConfig)
     last_mask: np.ndarray | None = field(default=None, repr=False)
@@ -139,7 +139,7 @@ class BarrelDetectorHook:
     _size_warned: bool = field(default=False, repr=False)
 
     @classmethod
-    def load(cls, config_json: Path | str, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, **kw) -> "BarrelDetectorHook":
+    def load(cls, config_json: Path | str, cam: geo.CameraModel = geo.DEFAULT_CAMERA, **kw) -> "BarrelDetectorHook":
         """From a results config.json that carries a fitted 'model' (as final_test.py writes)."""
         d = json.load(Path(config_json).open())
         m = d["model"]
@@ -150,7 +150,7 @@ class BarrelDetectorHook:
         return cls(model=model, cam=cam, **kw)
 
     @classmethod
-    def default(cls, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> "BarrelDetectorHook":
+    def default(cls, cam: geo.CameraModel = geo.DEFAULT_CAMERA) -> "BarrelDetectorHook":
         """The detector as it stands: the hs model eb863d84 + detector.detect (DetConfig()) + the given camera;
         with BARRELS_MODEL set in the environment, that model file instead (see default_model_path)."""
         path = default_model_path()

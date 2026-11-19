@@ -22,7 +22,6 @@ from barrels import detect_cc, detector as det, geometry as geo, io, pipeline as
 
 DEFAULT_MODEL = wb.default_model_path()                           # the hs model eb863d84 (or $BARRELS_MODEL); shared with the live feed
 DEFAULT_OUT = io.PKG_ROOT / "results" / "detect_image"
-CAMS = {"boxfit": geo.AIM_4A8B6118_BOXFIT, "4a8b": geo.AIM_4A8B6118, "nominal": geo.NOMINAL}
 
 
 def main(argv=None) -> int:
@@ -30,7 +29,8 @@ def main(argv=None) -> int:
     ap.add_argument("image", type=Path)
     ap.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="results config.json with a fitted 'model' (v1 or hs); default $BARRELS_MODEL or the frozen v1")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
-    ap.add_argument("--cam", choices=sorted(CAMS), default="boxfit", help="camera model (boxfit = provisional 2026-11-03 fit)")
+    ap.add_argument("--cam", type=geo.camera, default=geo.DEFAULT_CAMERA, metavar="CAM",
+                    help=f"camera: {', '.join(geo.CAMERAS)}, or numbers like f=400,tilt=20.4,height=40.2 (default: {geo.DEFAULT_CAMERA_NAME}, the detector's)")
     ap.add_argument("--json", action="store_true", help="also write <stem>_det.json (for eval_boxes.py --pred)")
     ap.add_argument("--step1", action="store_true", help="step 1 only (blobs -> count -> bottom edge), without the stripe step; for comparison")
     ap.add_argument("--stripe", action="store_true", help=argparse.SUPPRESS)   # the 2026-11-03 opt-in flag: accepted, now the default
@@ -39,7 +39,7 @@ def main(argv=None) -> int:
     if args.stripe:
         print("note: --stripe is the default since 2026-11-05; use --step1 for the detector without it")
 
-    hook = wb.BarrelDetectorHook.load(args.model, cam=CAMS[args.cam])
+    hook = wb.BarrelDetectorHook.load(args.model, cam=args.cam)
     img = io.load_image(args.image)
     if img.shape[:2] != (480, 640):
         print(f"warning: {img.shape[1]}x{img.shape[0]} image; the model and geometry assume 640x480")

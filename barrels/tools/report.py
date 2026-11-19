@@ -7,6 +7,7 @@ width ratio / bottom error for a candidate and a baseline side by side, and the 
     python barrels/tools/report.py --cand-det dark_stripe=true --base-model default  # a detector switch vs today
     python barrels/tools/report.py --cand-model results/<x>/config.json --base-model default   # a new color model vs today
     python barrels/tools/report.py --sets CAMPUS,DAVE --out          # fewer sets; also write results/<date>_eval_report/
+    python barrels/tools/report.py --base-model default --base-cam boxfit                     # today's camera vs the one before it
 
 An arm is a color-model file plus DetConfig overrides. --cand-model / --base-model take a results config.json,
 or the words ``default`` (worldmap_bridge.DEFAULT_MODEL, what runs today) or ``v1`` (V1_MODEL). --cand-det /
@@ -27,7 +28,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from barrels import cv, io, report as rp, worldmap_bridge as wb  # noqa: E402
+from barrels import cv, geometry as geo, io, report as rp, worldmap_bridge as wb  # noqa: E402
 
 MODEL_WORDS = {"default": wb.DEFAULT_MODEL, "v1": wb.V1_MODEL}
 
@@ -49,6 +50,9 @@ def main(argv=None) -> int:
     ap.add_argument("--base-model", default="v1", help="baseline color model: config.json path, 'default' or 'v1' (default: v1)")
     ap.add_argument("--cand-det", action="append", default=[], metavar="FIELD=VALUE", help="DetConfig override(s) for the candidate")
     ap.add_argument("--base-det", action="append", default=[], metavar="FIELD=VALUE", help="DetConfig override(s) for the baseline")
+    ap.add_argument("--cand-cam", type=geo.camera, default=None, metavar="CAM",
+                    help=f"candidate camera: {', '.join(geo.CAMERAS)}, or numbers like f=400,tilt=20.4,height=40.2 (default: the camera that runs)")
+    ap.add_argument("--base-cam", type=geo.camera, default=None, metavar="CAM", help="baseline camera, same forms (default: the camera that runs)")
     ap.add_argument("--sets", default="", help="only these data sets, comma-separated (HOME, CAMPUS, DAVE or a {robot}_{light}_{surface} key)")
     ap.add_argument("--split", choices=("train", "test"), default="train", help="train (default). 'test' opens the held-out frames: only for a planned look")
     ap.add_argument("--home-protocol", choices=("loso", "fixed"), default="loso",
@@ -57,8 +61,8 @@ def main(argv=None) -> int:
                     help="also write report.md / .csv / .json to results/<today>_<NAME>/ (NAME defaults to eval_report; an absolute path is used as it is)")
     args = ap.parse_args(argv)
     try:
-        cand = rp.Arm("candidate", model_path(args.cand_model), rp.parse_det_overrides(args.cand_det))
-        base = rp.Arm("baseline", model_path(args.base_model), rp.parse_det_overrides(args.base_det))
+        cand = rp.Arm("candidate", model_path(args.cand_model), rp.parse_det_overrides(args.cand_det), cam=args.cand_cam)
+        base = rp.Arm("baseline", model_path(args.base_model), rp.parse_det_overrides(args.base_det), cam=args.base_cam)
     except ValueError as e:
         raise SystemExit(str(e))
     rep = rp.make_report(cand, base, split=args.split, only_sets=[x for x in args.sets.split(",") if x] or None, home_protocol=args.home_protocol)

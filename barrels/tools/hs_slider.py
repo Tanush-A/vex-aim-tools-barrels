@@ -103,7 +103,7 @@ class Session:
     ``on_mouse`` change the state. A frame is opened only after ``hslabel.require_labelable`` passes."""
 
     def __init__(self, stems: list[str], splits: dict[str, list[str]], base: pl.Model, raw_dir: Path | str | None = None,
-                 labels_dir: Path | str | None = None, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, scale: float = 1.0,
+                 labels_dir: Path | str | None = None, cam: geo.CameraModel = geo.DEFAULT_CAMERA, scale: float = 1.0,
                  git: str = "unknown"):
         self.stems, self.splits, self.base, self.cam, self.scale, self.git = list(stems), splits, base, cam, scale, git
         self.raw_dir, self.labels_dir = Path(raw_dir or io.RAW_DIR), Path(labels_dir or io.LABELS_DIR)

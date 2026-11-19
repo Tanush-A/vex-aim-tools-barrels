@@ -203,7 +203,7 @@ def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = De
 
 # ---------------------------------------------------------------- the detector
 
-def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
+def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.DEFAULT_CAMERA,
                  log: list | None = None) -> list[Barrel]:
     """Step 1 alone: class mask (0 other / 1 orange / 2 blue / 255 ignore) -> barrels, one per barrel-shaped piece."""
     h, w = mask.shape
@@ -597,7 +597,7 @@ def _x_overlap(a: tuple, b: tuple) -> float:
     return inter / max(1, min(a[2] - a[0], b[2] - b[0]))
 
 
-def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
+def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.DEFAULT_CAMERA,
            log: list | None = None) -> list[Barrel]:
     """Class mask (0 other / 1 orange / 2 blue / 255 ignore) -> barrels. Same signature as detect_cc.detect.
 

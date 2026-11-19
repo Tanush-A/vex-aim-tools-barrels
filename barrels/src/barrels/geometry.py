@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import math
+import os
 from dataclasses import dataclass, replace
 
 H_CAM_MM = 43.47                 # aim_kin.py camera_height
@@ -197,13 +198,53 @@ AIM_4A8B6118_BOXFIT = CameraModel(f=400.0, tilt_deg=22.25)   # PROVISIONAL 2026-
                                                               # bottoms ~20 px too low. Replaced by the v2 calib session (M4).
 WORLDMAP_CURRENT = CameraModel(f=400.0, tilt_deg=23.7)       # aim_kin.py's live constant (another robot)
 
+# ---------------------------------------------------------------- which camera runs (2026-11-19)
+# One place decides the camera of the detector, the eval table, the live hook and the tools: DEFAULT_CAMERA.
+# Every ``cam=`` default in the package points here. To run anything with another camera without editing a
+# constant: pass ``cam=`` / ``--cam NAME`` where a tool has it, or set BARRELS_CAM in the environment
+# (a name below, or numbers: ``BARRELS_CAM=f=400,tilt=20.4,height=40.2``).
+CAMERAS = {"boxfit": AIM_4A8B6118_BOXFIT, "4a8b": AIM_4A8B6118, "nominal": NOMINAL, "worldmap": WORLDMAP_CURRENT}
+DEFAULT_CAMERA_NAME = "boxfit"
+CAMERA_ENV = "BARRELS_CAM"
+_SPEC_FIELDS = {"f": "f", "tilt": "tilt_deg", "tilt_deg": "tilt_deg", "height": "height_mm", "height_mm": "height_mm", "cy": "cy"}
+
+
+def camera(spec: "str | CameraModel") -> CameraModel:
+    """A camera from its name in ``CAMERAS`` or from numbers, ``"f=400,tilt=20.4"`` (optional: ``height=``
+    in mm, ``cy=``; what is not given keeps the CameraModel default). ValueError on anything else."""
+    if isinstance(spec, CameraModel):
+        return spec
+    key = spec.strip().lower()
+    if key in CAMERAS:
+        return CAMERAS[key]
+    if "=" in key:
+        kw = {}
+        for part in key.split(","):
+            k, _, v = part.partition("=")
+            if k.strip() not in _SPEC_FIELDS:
+                raise ValueError(f"camera spec field {k.strip()!r} unknown (fields: f, tilt, height, cy)")
+            kw[_SPEC_FIELDS[k.strip()]] = float(v)
+        if "f" not in kw or "tilt_deg" not in kw:
+            raise ValueError(f"camera spec {spec!r} needs at least f= and tilt=")
+        return CameraModel(**kw)
+    raise ValueError(f"unknown camera {spec!r}: one of {', '.join(CAMERAS)}, or numbers like f=400,tilt=20.4,height=40.2")
+
+
+def default_camera() -> CameraModel:
+    """``$BARRELS_CAM`` when set, else ``CAMERAS[DEFAULT_CAMERA_NAME]``."""
+    return camera(os.environ.get(CAMERA_ENV) or DEFAULT_CAMERA_NAME)
+
+
+DEFAULT_CAMERA = default_camera()
+
 
 def range_corners(center: CameraModel = AIM_4A8B6118, rng: dict = AIM_4A8B6118_RANGE) -> list[CameraModel]:
     return [center.with_(f=f, tilt_deg=t) for f in rng["f"] for t in rng["tilt_deg"]]
 
 
 def markdown_table(cam: CameraModel) -> str:
-    lines = [f"| | value (tilt {cam.tilt_deg:g}°, f {cam.f:g} px, barrel 24 × 25.5 mm) |", "|---|---|",
+    height = "" if cam.height_mm == H_CAM_MM else f", camera height {cam.height_mm:g} mm"
+    lines = [f"| | value (tilt {cam.tilt_deg:g}°, f {cam.f:g} px{height}, barrel 24 × 25.5 mm) |", "|---|---|",
              f"| horizon row | ≈ {cam.horizon_row():.0f} |",
              f"| bottom row ({cam.height}) sees the ground at | ≈ {cam.row_to_ground_distance(cam.height):.0f} mm from the camera |"]
     for d, label in ((70, "the `close` scene"), (150, "`core`"), (300, "worldmap's max range")):
@@ -218,8 +259,10 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="print the constraints.md geometry table")
     ap.add_argument("--tilt", type=float, default=NOMINAL.tilt_deg)
     ap.add_argument("--f", type=float, default=NOMINAL.f)
+    ap.add_argument("--cam", type=camera, default=None,
+                    help=f"a named camera ({', '.join(CAMERAS)}) or numbers like f=400,tilt=20.4,height=40.2; overrides --tilt / --f")
     a = ap.parse_args(argv)
-    print(markdown_table(CameraModel(f=a.f, tilt_deg=a.tilt)))
+    print(markdown_table(a.cam or CameraModel(f=a.f, tilt_deg=a.tilt)))
     return 0
 
 

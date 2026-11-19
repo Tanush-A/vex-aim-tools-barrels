@@ -155,11 +155,13 @@ def refuse_test_frames(stems, splits: dict[str, list[str]], allow_test: bool = F
 
 @dataclass(frozen=True)
 class Arm:
-    """One side of the comparison: a color-model file (a results ``config.json`` with a fitted ``model``) and
-    the detector settings (``det_overrides`` are the DetConfig fields changed from the default)."""
+    """One side of the comparison: a color-model file (a results ``config.json`` with a fitted ``model``), the
+    detector settings (``det_overrides`` are the DetConfig fields changed from the default) and, optionally, a
+    camera (a ``geometry.CameraModel``; None = ``geometry.DEFAULT_CAMERA``, what runs)."""
     name: str
     model_path: Path
     det_overrides: dict = field(default_factory=dict)
+    cam: object = None
 
     def det_config(self):
         from . import detector as det
@@ -168,7 +170,8 @@ class Arm:
     def describe(self) -> str:
         ov = ", ".join(f"{k}={v}" for k, v in self.det_overrides.items()) or "defaults"
         p = Path(self.model_path)
-        return f"{p.parent.name}/{p.name}; DetConfig {ov}"
+        cam = "" if self.cam is None else f"; camera f {self.cam.f:g}, tilt {self.cam.tilt_deg:g}, height {self.cam.height_mm:g}"
+        return f"{p.parent.name}/{p.name}; DetConfig {ov}{cam}"
 
 
 def parse_det_overrides(items: list[str] | None) -> dict:
@@ -251,7 +254,7 @@ def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=No
     if home_protocol not in ("loso", "fixed"):
         raise ValueError(f"home_protocol must be 'loso' or 'fixed', got {home_protocol!r}")
     refuse_test_frames(selection.stems, splits, allow_test=selection.split == "test")
-    cam = cam or geo.AIM_4A8B6118_BOXFIT
+    cam = cam or arm.cam or geo.DEFAULT_CAMERA          # the caller's camera, else the arm's own, else what runs
     cache = cache or FrameCache()
     model = wb.BarrelDetectorHook.load(arm.model_path, cam=cam).model
     dcfg = arm.det_config()

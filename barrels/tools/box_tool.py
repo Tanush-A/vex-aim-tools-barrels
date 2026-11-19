@@ -279,8 +279,9 @@ def main(argv=None) -> int:
     ap.add_argument("--filter", default="", help="only images whose name contains this")
     ap.add_argument("--unlabeled", action="store_true", help="only images without a _boxes.json")
     ap.add_argument("--scale", type=float, default=2.0)
-    ap.add_argument("--cam", choices=("boxfit", "4a8b", "nominal"), default="boxfit",
-                    help="camera for the size guide (default boxfit = the detector's camera since 2026-11-03; 4a8b = the October preset, ~20 px low)")
+    ap.add_argument("--cam", type=geo.camera, default=geo.DEFAULT_CAMERA, metavar="CAM",
+                    help=f"camera for the size guide: {', '.join(geo.CAMERAS)}, or numbers like f=400,tilt=20.4,height=40.2 "
+                         f"(default: {geo.DEFAULT_CAMERA_NAME}, the detector's)")
     ap.add_argument("--from-inst", action="store_true", help="no GUI: convert _inst.json files to provisional _boxes.json")
     args = ap.parse_args(argv)
     images = [p for p in io.list_images(args.raw) if args.filter in p.name]
@@ -292,8 +293,7 @@ def main(argv=None) -> int:
         images = [p for p in images if not io.boxes_path(p, args.labels).exists()]
     if not images:
         print("no images match"); return 1
-    cams = {"boxfit": geo.AIM_4A8B6118_BOXFIT, "4a8b": geo.AIM_4A8B6118, "nominal": geo.NOMINAL}
-    s = Session(images, args.labels, args.scale, cams[args.cam])
+    s = Session(images, args.labels, args.scale, args.cam)
     cv2.namedWindow(WIN, cv2.WINDOW_AUTOSIZE)
     cv2.setMouseCallback(WIN, s.on_mouse)
     print(__doc__)
