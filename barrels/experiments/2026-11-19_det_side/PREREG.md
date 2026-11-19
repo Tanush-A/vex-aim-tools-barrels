@@ -159,3 +159,80 @@ Made the default on `wip/detector-side`: `side+seam` if it passes; else `side` i
 passes. What does not pass stays behind its switch, off, and the report says so. The rule is not re-picked after
 the results. If round 1 fails, at most one corrected round, with a dated addendum below written before the
 corrected code; no third round. The test frames are never opened.
+
+---
+
+# Addendum, 2026-11-18: round 1, and round 2, written before round 2 was coded or run
+
+## Round 1 result (`results/2026-11-19_det_side/round1/`; code: the two switches as designed above)
+
+Found / barrels (false boxes).
+
+| | base | side | seam | side+seam | old_side (report only) |
+|---|---|---|---|---|---|
+| 1 perfect masks | 28 / 29 (0) | 28 (0) | 28 (0) | 28 (0) | 28 (0) |
+| 2 light | 141 / 145 (0) | 141 (0) | 141 (0) | 141 (0) | 141 (0) |
+| 2 medium | 64 / 145 (22) | 99 (1) | 64 (22) | 99 (1) | 99 (7) |
+| 2 heavy | 13 / 145 (2) | 21 (0) | 13 (2) | 22 (0) | 20 (0) |
+| 3a CAMPUS | 34 / 35 (0) | 35 (0) | 34 (0) | 35 (0) | 35 (0) |
+| 3b BLACK, label thresholds | 19 / 26 (2) | 19 (2) | 20 (2) | 20 (2) | 19 (2) |
+| 3c wood cool (report only) | 25 / 42 (7) | 27 (7) | 27 (10) | 28 (10) | 28 (8) |
+| edges 2 px alone (report only) | 95 / 145 (0) | 100 (0) | 125 (0) | 130 (0) | 100 (5) |
+| stripe highlight 0.15 alone (report only) | 117 / 145 (16) | 132 (3) | 117 (16) | 132 (3) | 134 (7) |
+| top highlight 0.7 × 0.4 alone (report only) | 127 / 145 (5) | 131 (11) | 127 (5) | 131 (12) | 140 (12) |
+| eval table HOME, found / missed / false | 27 / 2 / 0 | 27 / 2 / 0 | 27 / 2 / 0 | 27 / 2 / 0 | 27 / 2 / 0 |
+| eval table CAMPUS | 34 / 1 / 0 | 35 / 0 / 0 | 34 / 1 / 0 | 35 / 0 / 0 | 35 / 0 / 0 |
+| eval table BLACK (report only) | 3 / 23 / 1 | 5 / 21 / 1 | 3 / 23 / 1 | 5 / 21 / 1 | 5 / 21 / 1 |
+| eval table Dave (indicative) | 12 / 22 / 2 | 12 / 22 / 2 | 18 / 16 / 4 | 18 / 16 / 6 | 12 / 22 / 2 |
+| campus clips: boxes appearing / of them wrong; disappearing | | 4 / 0; 0 | 2 / 2; 0 | 6 / 2; 0 | 4 / 0; 0 |
+
+No scenario row of HOME or CAMPUS loses a barrel or gains a false box in any arm; no box on any negative frame.
+
+**Verdict of round 1.** `side` passes rules 1, 2 and 3: campus `occl_02` is found with the box (277, 127, 331, 178)
+against the hand-drawn (275, 123, 328, 180); the four boxes it adds on the campus clips are barrels entering at the
+frame edge; the two boxes `old_side` drew half off the barrel on the black clip are not drawn. `seam` and
+`side+seam` pass rules 1 and 2 and **fail rule 3**: two boxes under the hand in campus clip r4 (`round1/by_eye.md`).
+By the adoption order, round 1 alone makes `side` the default and leaves `seam_height` off.
+
+## What was wrong (from the round-1 reason logs and pictures)
+
+`seam_height`: the two wrong boxes are the risk written above, in its plainest form. Between two fingers a slit
+of the scene shows; skin is painted orange; a blue sliver 4 rows tall in the slit (the blue barrel's body in frame
+019, the orange barrel's stripe in 021) is too thin for a stripe by its own rows, and the gap between the skin
+above and below gives it a stripe's height at the second reading. Both slivers are also **short**: 30 px where the
+barrel is 48 wide (0.63) and 18 px where it is 44 (0.41). The stripes the switch is for (eaten at both seams at
+far range) are thin but whole: erosion takes 2 px off each end of a stripe 25 to 35 px long.
+
+`side_hidden`, in a row that does not decide (a wide highlight on the upper body alone: 11 false boxes against 5):
+six new wrong boxes in HOME `cluster_01`, `cluster_02`, `far_02`. In every one the body joined to the stripe runs
+on into a touching neighbour's **stripe** of the same color (an orange barrel's body beside a blue barrel's orange
+stripe), so the body is wider than 1.2 barrels. Round 1 then drops the body altogether: reason (c) is not asked,
+and reason (b), the found neighbour, decides alone, while the stripe is in fact cut on the other side, where the
+body visibly runs past the end of the stripe (`far_02` seed 3: stripe ends at column 259, orange body below it to
+271, the box is drawn from 228 to 259 where the barrel is 244 to 273).
+
+## Round 2: two corrections (same switches, same rule)
+
+**A. `seam_height`: the second reading is asked only of a stripe seen whole**, i.e. at least `stripe_full` (0.8) ×
+the barrel width at its row. Reason: a stripe may be thin because its seams were eaten, or short because it is
+partly hidden; a piece that is both thin and short is too little to call a stripe. No new number. Known cost,
+accepted now: the three right boxes round 1 added on the black clip from an orange patch 22 px long are lost.
+
+**B. `side_hidden`: reason (c) is asked of every body, trusted or not.** A body wider than `body_width` (1.2) × W
+still cannot give the box (step 2) and its far end is not this barrel's edge; but where it runs past the end of
+the stripe by more than the tolerance, the stripe does not end at the barrel's own edge there, whatever the body
+belongs to: that side is cut. And where it ends with the stripe, that is this barrel's edge. So in step 3, (c) no
+longer asks for a trusted body; with an untrusted body the seen edge of a side is the body's end where body and
+stripe end together, else the stripe's end. Steps 0, 1, 2, 4 and 5 are unchanged. No new number.
+
+Round 2 is run in two parts so that each correction is measured: first A alone on round 1's `side_hidden`
+(arms `seam`, `side+seam`), then B added (arms `side`, `side+seam`). Outputs: `round2a/` and the results folder
+itself.
+
+**Acceptance and adoption in round 2.** The rule above, unchanged, against `base`; and, stricter, an arm of
+round 2 must not be worse than round 1's `side` on any row the rule judges (found not lower, false boxes not
+higher on levels 1, 2, 3a, 3b and on every HOME and CAMPUS scenario row; campus clips: no wrong box, no right box
+of round-1 `side` lost). Made the default, in this order: `side+seam` with A and B if it passes; else `side+seam`
+with A and round 1's `side_hidden` if it passes; else `side` with B if it passes; else round 1's `side` as it is
+(it passed), `seam_height` off. This is a second attempt made after seeing round 1 on the train frames and the
+recordings; the test frames are untouched and remain the only unbiased check. There will be no round 3.

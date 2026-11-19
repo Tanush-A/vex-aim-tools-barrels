@@ -80,6 +80,7 @@ def main(argv=None) -> int:
     ap.add_argument("--arm", default="base")
     ap.add_argument("--win", default="", help="x0,y0,x1,y1 of the text window (default: around the truth boxes and the boxes drawn)")
     ap.add_argument("--no-text", action="store_true")
+    ap.add_argument("--tilt", type=float, default=0.0, help="detect with this camera tilt in degrees instead of the preset's (a what-if, report only)")
     args = ap.parse_args(argv)
     if args.file:
         p = Path(args.file)
@@ -91,8 +92,9 @@ def main(argv=None) -> int:
         s, img, mask, gts = get_mask(args.level, args.stem, args.set)
         level = args.level.replace(":", "-").replace(" ", "")
     log: list = []
-    preds = det.detect(mask, side_arms.ARMS[args.arm], R.CAM, log=log)
-    print(s, "|", args.level, "|", args.arm)
+    cam = R.CAM.with_(tilt_deg=args.tilt) if args.tilt else R.CAM          # --tilt: a what-if camera for the detector only (report only)
+    preds = det.detect(mask, side_arms.ARMS[args.arm], cam, log=log)
+    print(s, "|", args.level, "|", args.arm, "|", f"tilt {cam.tilt_deg}, horizon row {cam.horizon_row():.0f}")
     for g in gts:
         print(" truth", g.color, g.bbox, sorted(g.flags))
     for b in preds:
