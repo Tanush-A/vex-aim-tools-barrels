@@ -12,6 +12,9 @@ fit:
     ``off_mm``    how far the camera sits behind the point the ruler distances were measured from (the robot's
                   front edge). aim_kin.py implies 3 mm (camera 27 mm ahead of the centre, body radius 30 mm);
                   it is not part of ``CameraModel``'s image geometry, only of "ruler distance -> camera distance".
+    ``height_mm`` the camera height, when the frames do not fit at 43.47 (2026-11-19: they do not).
+can be freed, for the record only (other single numbers that could absorb the same misfit):
+    ``cy`` (the centre row) and ``barrel_h_mm`` (the barrel's height).
 
 For a shot at ruler distance d (front edge -> near edge of the base, at table level):
     base near edge   d + off          from the camera, height 0      -> the box's bottom row

@@ -70,7 +70,8 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | front end | `priors.py` | the robust (median / MAD) color model used for the wall and table | `band_stats`, `reject_like` |
 | front end | `boxfit.py` | percentile RGB boxes and their diagnostics | `Box`, `fit_box`, `in_box`, `fullness`, `pca` |
 | front end | `cleanup.py` | speck removal / opening / hole filling; **off** (tie, 2026-10-28) | `apply` |
-| geometry ★ | `geometry.py` | pinhole camera: row ↔ distance, the barrel's rows and width at any distance, presets | `CameraModel`, `barrel_rows`, `horizon_row`, `AIM_4A8B6118_BOXFIT` |
+| geometry ★ | `geometry.py` | pinhole camera: row ↔ distance, the barrel's rows and width at any distance, presets; the one place that says which camera runs (2026-11-19) | `CameraModel`, `barrel_rows`, `horizon_row`, `silhouette_width_px`, `AIM_4A8B6118_BOXFIT`, `DEFAULT_CAMERA`, `camera`, `CAMERAS` |
+| geometry | `camfit.py` | the ruler calibration (2026-11-19): fits tilt, camera height and the camera-to-front-edge offset to the known-distance frames (`data/calib.csv` + their boxes); weighted least squares in plain numpy; feeds nothing in the detector | `load_ruler_set`, `observations`, `predict`, `fit`, `leave_one_out`, `jitter` |
 | detector ★ | `detector.py` | steps 1–4: blobs, count by width, bottom edge, the stripe; `draw`. Off by default (2026-11-18): `stripe_join` (a stripe in pieces), `cap_behind` (a barrel behind a found barrel) | `DetConfig`, `find_blobs`, `split_blob`, `resolve_bottom`, `find_stripes`, `barrel_from_stripe`, `caps_behind`, `detect`, `draw` |
 | detector | `detect_types.py` | one detected barrel and its conversions (incl. the aivision dict the world map reads) | `Barrel`, `barrels_from_boxes` |
 | detector | `detect_cc.py` | the floor: one box per connected blob, never tuned | `detect`, `write_detections` |
@@ -121,7 +122,7 @@ Rules that keep the numbers honest (`EVAL.md`, `CLAUDE.md`): the 5 test frames a
 - **Boxes:** `[x0, y0, x1, y1]`, half-open, in the 640×480 frame, clipped to it. A `Barrel.color` is the *body* color.
 - **Flags on a detected barrel:** `bottom_inferred`, `top_inferred` (edge drawn from the geometry), `occluded` (stripe partly hidden, full box drawn), `truncated` (touches the frame edge). `source` is `det2` for a stripe barrel, `det1` for a stripeless piece.
 - **Nothing is learned per image.** The hue sector and saturation floor per class were fit once (`results/2026-11-09_hs_candidate/config.json`, config `eb863d84`, adopted 2026-11-09); nothing is estimated from the image being segmented; everything else is geometry. (v1, `afd85483`, estimated a saturation floor and a wall model per image from the top rows; that is what failed in real rooms.)
-- **Cameras:** `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon 76) is the default until the calibration session; `AIM_4A8B6118` is the October measurement; `NOMINAL` is Dave's 23° / 400.
+- **Cameras:** `geometry.DEFAULT_CAMERA` is the camera everything uses; it is `AIM_4A8B6118_BOXFIT` (f 400, tilt 22.25°, horizon 76). The ruler calibration of 2026-11-19 did not replace it (`HOW-IT-WORKS.md` §2). `AIM_4A8B6118` is the October measurement; `NOMINAL` is Dave's 23° / 400. Another camera without editing anything: `--cam NAME` or `--cam f=400,tilt=20.95,height=40.2` on `detect_image.py` and `box_tool.py`, `--cand-cam` / `--base-cam` on `report.py`, `BARRELS_CAM=…` for everything.
 - **Config hashes:** a `pipeline.Config` hashes to an 8-character id; `afd85483` is pinned by a test so new fields cannot silently change it.
 - **Dates in names:** `experiments/` and `results/` folders start with the run date; a result folder is never overwritten (re-runs get a new name or the old one is moved aside).
 

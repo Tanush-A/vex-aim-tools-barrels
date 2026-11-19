@@ -41,6 +41,8 @@ genfsm BarrelViewer.fsm          # only after editing a .fsm — rewrites the .p
 
 **Swapping the front end** (2026-11-09): the default is the hs model (`results/2026-11-09_hs_candidate/config.json`, adopted 2026-11-09). Set `BARRELS_MODEL` to another results `config.json` that carries a fitted model and both programs and `tools/detect_image.py` use that instead; e.g. the old v1 front end for a side-by-side: `export BARRELS_MODEL=~/Desktop/Celeste/vex-aim-tools/barrels/results/2026-10-20_v1_test_adaptive/config.json` before `simple_cli`; `unset BARRELS_MODEL` to go back. The program prints which model it loaded when it is not the default.
 
+**Swapping the camera** (2026-11-19): the default is `geometry.DEFAULT_CAMERA` (the box fit: f 400, tilt 22.25°). Set `BARRELS_CAM` to a camera name (`boxfit`, `4a8b`, `nominal`) or to numbers and both programs and every tool use that camera instead, e.g. the second camera of the ruler calibration, which was measured but not adopted: `export BARRELS_CAM=f=400,tilt=20.95,height=40.2` before `simple_cli`; `unset BARRELS_CAM` to go back. Nothing is printed: check with `python -c "from barrels import geometry as g; print(g.DEFAULT_CAMERA)"`.
+
 At the `C>` prompt (both programs):
 
 | command | does |
