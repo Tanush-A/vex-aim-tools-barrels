@@ -232,3 +232,83 @@ The cuts are made on the mask with a straight edge. A real edge throws a shadow 
 a pixel, and bleeds at the seam; the corner the method needs is on the side away from the edge, but a shadow or a
 highlight on that corner would make the outline not know (a miss, not a wrong box). Real frames are needed to say
 how often.
+
+---
+
+# Addendum, 2026-11-19: round 1, and round 2, written before round 2 was coded or run
+
+## Round 1 result (`results/2026-11-20_occl_pin/round1/`; code: the two switches as designed above, not committed)
+
+| | base | pin | pin+thin |
+|---|---|---|---|
+| scorecard, found of 3888 | 2417 | 2429 | 2699 |
+| scorecard, box in the right place | 2532 | 2554 | 2824 |
+| scorecard, boxes where no barrel is | 45 | 45 | **48** |
+| scorecard, too big of the right-place boxes | 104 (4.11 %) | 104 (4.07 %) | **117 (4.14 %)** |
+| scorecard, cells with found lower / right place lower | | **2 / 1** | **1 / 0** |
+| the 12 targeted cells together, of 1300 | 593 | 603 | 811 |
+| perfect masks; light / medium / heavy, of 145 (false) | 28 (0); 143 (0) / 99 (1) / 21 (0) | 28 (0); 143 (0) / 100 (1) / 21 (0) | 28 (0); 143 (0) / 109 (1) / 21 (0) |
+| CAMPUS / BLACK with label thresholds | 35 (0) / 19 (2) | same | same |
+| eval table HOME, CAMPUS | 28 / 1 / 0, 35 / 0 / 0 | same | same |
+| campus clips: boxes appearing / disappearing | | 0 / 0 | 1 / 0 (the barrel entering at the frame edge in `r3` 013: right) |
+| black clip (report only) | | 0 / 0 | 1 / 0 (the blue barrel in 032: right) |
+
+Targeted cells: straight edge 50 %: 82 → 94 → 94; 75 %: 0 → 3 → 80. Frame edge 75 %: 3 → 3 → 80. Block of the body
+color 75 %: 5 → 5 → 53; of the stripe color: 3 → 3 → 9. Slanted edge 50 %: 154 → **148** → 148; 75 %: 0 → 0 → 0.
+Both sides: 49 and 0, unchanged. A post at 50 %: 9 → 12 → 47.
+
+**Verdict of round 1: both arms fail.** `pin`: clause 3 (slanted edge at 50 % is lower, 154 → 148, and it was a
+committed cell; one more cell lower by one scene: same color beside and lower, 75 %). `pin+thin`: clauses 1 (b)
+(48 boxes where no barrel is, 45 allowed), 1 (d) (too big 4.14 %, 4.11 % allowed) and 3 (slanted edge 50 % lower;
+slanted edge 75 % committed and still 0). Clauses 1 (a), 1 (c) and 2 hold for both.
+
+## What was wrong (`diag.py`, `slant_census.md`, the round-1 sheets)
+
+1. **A slanted cut fools the sliding outline.** A slanted edge imitates a rounded corner on the top line or on the
+   bottom line, never on both. The cost was the MEAN of the three lines, so one good line paid for a bad one: the
+   outline "knew" the cut end to be the barrel's own side and put the box on the wrong side of the seen part. All
+   6 lost scenes at 50 % and all 3 new false boxes at 75 % are this. `slant_census.md`: on the scorecard's slanted
+   scenes the round-1 rule knows in 160 of 600 and is wrong in 33 of them (0 of 259 for a straight edge). My census
+   had only straight cuts: the PREREG's "none wrong of 461" did not cover this case.
+2. **The box is slid, not anchored.** Where the barrel's own side is seen, the seen end IS the barrel's side; the
+   slid box sat 2 to 5 px off it. On a barrel cut by the frame (true box 11 to 13 px wide) that is "too big" (13
+   boxes).
+3. **A box moved onto a barrel that already has one.** One scene (a small barrel beside one of its own color):
+   the placed box became the duplicate of the front barrel's box and replaced it.
+4. Slanted edge at 75 %: 140 of 200 are refused because the outline does not know. I committed to this cell in
+   error: with three quarters hidden by a slanted edge the top or the bottom of the seen part is cut inside the
+   corner itself.
+
+## Round 2: the same two switches, the outline asked at each END instead of slid
+
+`end_census.md` (measured before this was written). If an end of the seen part is the barrel's own side, the
+barrel's centre is W / 2 in from that end: nothing needs sliding. So each end is asked by itself, and only in the
+columns near it, so that the other end (straight, slanted, a neighbour) cannot matter:
+
+- Put the predicted outline with its side on that end. Over the columns within half a lid's width of the end
+  (`LID_HALF` = 9 / 25.5 = 0.353 W; all that is seen, if less), the end's cost = the LARGEST of the three lines'
+  mean distances in rows between seen and predicted (each line's own up-down offset, its median, taken out): the
+  top corner, the stripe and the bottom corner must each follow the outline.
+- An end is the barrel's own side when its cost is at most `pin_good` (0.05, unchanged) x H.
+- **Exactly one such end:** the box is W wide from that end. Neither, or both: the outline does not know.
+
+Census, own ends against cut ends (window 0.35 W, in H): own ends cost a median 0.05, straight-cut ends 0.09 (10th
+percentile 0.073), slanted-cut ends 0.09 (0.073); 1 of 843 cut ends costs 0.05 or less. The rule speaks, and is
+never wrong by more than 0.15 W, in: straight edge 57 / 58 / 30 scenes at 25 / 50 / 75 % hidden (of 88 / 98 / 93
+with less than 0.8 W seen); slanted edge 42 / 104 / 0 (of 76 / 196 / 154); both sides 0 of 138. Largest error 0.12 W.
+It speaks less often than the sliding outline did for a straight edge (round 1: 92 / 86 / 81 of 100), and unlike
+it, it is not fooled by a slant.
+
+Corrections, by number: (1) the end rule above replaces the slide (`pin_near` is dropped; `pin_good` 0.05 stays;
+the window is an existing proportion of the barrel). (2) The box is anchored on the seen end. (3) A box placed by
+the outline never replaces a box that is already there: if it would be the duplicate of a found barrel's box
+(same color, overlap over 0.5), the piece is treated as before the switch. `pin_thin` is as in the PREREG with
+"the outline knows" read as "exactly one end is the barrel's own side".
+
+**Acceptance and adoption in round 2: the rule above, unchanged, against `base`**, committed cells included. Known
+before the run: slanted edge at 75 % will most likely stay 0 (`end_census.md`: 0 of 154), so `pin+thin` will most
+likely fail the committed-cell part of clause 3 by the letter and stay off behind its switch even if every other
+clause holds; the report will say exactly that and give its numbers. Expected otherwise: `pin`: straight edge 50 %
+above 82, slanted edge 50 % above 154, no cell lower; `pin+thin`: straight edge, frame edge and block of the body
+color at 75 % up by 25 to 35 of 100. This is a second attempt made after seeing round 1 on the train frames and
+the recordings; the test frames are untouched. There will be no round 3.
