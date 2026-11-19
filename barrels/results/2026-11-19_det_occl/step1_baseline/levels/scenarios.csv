@@ -1,0 +1,17 @@
+arm,level,scenario,in_rule,frames,barrels,found,missed,false,false_on_negatives,false_on_clean_negatives
+base,1,perfect masks (HOME),1,16,29,28,1,0,0,0
+base,2,light,1,80,145,143,2,0,0,0
+base,2,medium,1,80,145,99,46,1,0,0
+base,2,heavy,1,80,145,21,124,0,0,0
+base,2s,top highlight 0.5 x 0.3,0,80,145,141,4,0,0,0
+base,2s,top highlight 0.7 x 0.4,0,80,145,132,13,8,0,0
+base,2s,stripe highlight 0.15,0,80,145,132,13,3,0,0
+base,2s,stripe highlight 0.3,0,80,145,136,9,0,0,0
+base,2s,stripe breaks 2 x 0.08,0,80,145,133,12,1,0,0
+base,2s,edges 1 px,0,80,145,145,0,0,0,0
+base,2s,edges 2 px,0,80,145,110,35,0,0,0
+base,2s,dropout 10 %,0,80,145,140,5,0,0,0
+base,2s,speckle 30,0,80,145,140,5,0,0,0
+base,3a,"CAMPUS, adopted color model",1,21,35,35,0,0,0,0
+base,3b,"BLACK, thresholds from the frame's labels",1,10,26,19,7,2,0,0
+base,3c,"wood cool lamp, thresholds from the frame's labels",0,20,42,27,15,7,0,0
