@@ -1,0 +1,883 @@
+arm,set,stem,color,truth,flags,found,place,box,iou,w_ratio,cause
+base,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+base,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+slice,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+slice,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+slice+cover,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+slice+cover,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+two,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+two,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+edge,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+edge,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+cap,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+cap,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+edge+cap,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+edge+cap,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+all,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+all,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+all-cover,HOME hand masks,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[314, 117, 363, 164]",0.81,1.14,
+all-cover,HOME hand masks,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+base,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+slice,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+slice+cover,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+two,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+edge,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+cap,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+edge+cap,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+all,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+all-cover,HOME hand masks,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[391, 116, 430, 161]",0.89,0.93,
+base,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+slice,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+slice+cover,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+two,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+edge,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+cap,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+edge+cap,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+all,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+all-cover,HOME hand masks,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 133, 34, 198]",1.0,1.0,
+base,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+slice,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+slice+cover,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+two,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+edge,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+cap,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+edge+cap,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+all,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+all-cover,HOME hand masks,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[241, 105, 272, 135]",0.88,1.07,
+base,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+slice,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+slice+cover,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+two,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+edge,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+cap,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+edge+cap,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+all,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+all-cover,HOME hand masks,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[386, 115, 430, 160]",0.98,1.0,
+base,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+slice,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+slice+cover,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+two,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+edge,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+cap,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+edge+cap,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+all,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+all-cover,HOME hand masks,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[398, 116, 440, 156]",0.83,0.91,
+base,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+slice,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+slice+cover,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+two,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+edge,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+cap,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+edge+cap,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+all,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+all-cover,HOME hand masks,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[163, 259, 452, 480]",1.0,1.0,
+base,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+slice,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+slice+cover,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+two,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+edge,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+cap,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+edge+cap,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+all,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+all-cover,HOME hand masks,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[173, 240, 426, 480]",1.0,1.0,
+base,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+slice,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+slice+cover,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+two,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+edge,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+cap,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+edge+cap,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+all,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+all-cover,HOME hand masks,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[150, 122, 192, 176]",0.94,0.95,
+base,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+base,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+slice,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+slice,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+slice+cover,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+slice+cover,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+two,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+two,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+edge,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+cap,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+cap,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge+cap,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+edge+cap,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+all,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+all,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+all-cover,HOME,window_light_cluster_01,orange,"[313, 115, 356, 164]",occluded,1,1,"[315, 118, 366, 162]",0.71,1.19,
+all-cover,HOME,window_light_cluster_01,orange,"[361, 117, 400, 163]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+base,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+slice,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+slice+cover,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+two,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+edge,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+cap,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+edge+cap,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+all,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+all-cover,HOME,window_light_cluster_02,orange,"[390, 116, 432, 163]",occluded,1,1,"[394, 117, 430, 161]",0.8,0.86,
+base,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+slice,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+slice+cover,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+two,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+edge,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+cap,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+edge+cap,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+all,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+all-cover,HOME,window_light_edge_01,blue,"[0, 133, 34, 198]",truncated,1,1,"[0, 132, 32, 197]",0.91,0.94,
+base,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+slice,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+slice+cover,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+two,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+edge,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+cap,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+edge+cap,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+all,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+all-cover,HOME,window_light_far_02,orange,"[244, 105, 273, 135]",occluded,1,1,"[240, 106, 271, 135]",0.79,1.07,
+base,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[387, 112, 432, 158]",0.82,1.02,
+slice,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[388, 112, 432, 158]",0.81,1.0,
+slice+cover,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[388, 112, 432, 158]",0.81,1.0,
+two,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[387, 112, 432, 158]",0.82,1.02,
+edge,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[387, 112, 432, 158]",0.82,1.02,
+cap,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[387, 112, 432, 158]",0.82,1.02,
+edge+cap,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[387, 112, 432, 158]",0.82,1.02,
+all,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[388, 112, 432, 158]",0.81,1.0,
+all-cover,HOME,window_light_occl_01,blue,"[386, 115, 430, 161]",bottom_estimated+occluded,1,1,"[388, 112, 432, 158]",0.81,1.0,
+base,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+slice,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+slice+cover,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+two,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+edge,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+cap,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+edge+cap,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+all,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+all-cover,HOME,window_light_occl_02,orange,"[395, 114, 441, 158]",bottom_estimated+occluded,1,1,"[399, 117, 439, 161]",0.76,0.87,
+base,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+slice,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+slice+cover,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+two,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+edge,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+cap,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+edge+cap,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+all,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+all-cover,HOME,window_light_top_01,orange,"[163, 259, 452, 480]",bottom_estimated+no_stripe+truncated,1,1,"[164, 260, 449, 480]",0.98,0.99,
+base,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+slice,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+slice+cover,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+two,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+edge,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+cap,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+edge+cap,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+all,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+all-cover,HOME,window_light_topstripe_01,orange,"[173, 240, 426, 480]",bottom_estimated+truncated,1,1,"[176, 242, 423, 480]",0.97,0.98,
+base,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+slice,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+slice+cover,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+two,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+edge,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+cap,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+edge+cap,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+all,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+all-cover,HOME,window_light_touch_02,orange,"[148, 121, 192, 176]",occluded,1,1,"[149, 123, 191, 174]",0.89,0.95,
+base,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+slice,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+slice+cover,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+two,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+edge,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+cap,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+edge+cap,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+all,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+all-cover,CAMPUS,campus_light_cluster_02,blue,"[379, 117, 419, 163]",occluded,1,1,"[370, 117, 416, 166]",0.71,1.15,
+base,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+slice,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+slice+cover,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+two,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+edge,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+cap,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+edge+cap,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+all,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+all-cover,CAMPUS,campus_light_clutter_02,blue,"[475, 122, 522, 174]",occluded,1,1,"[470, 122, 521, 171]",0.84,1.09,
+base,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+slice,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+slice+cover,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+two,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+edge,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+cap,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+edge+cap,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+all,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+all-cover,CAMPUS,campus_light_occl_02,blue,"[275, 123, 328, 180]",occluded,1,1,"[277, 127, 331, 178]",0.82,1.02,
+base,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+base,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+base,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+slice,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+slice,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+slice,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+slice+cover,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+slice+cover,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+slice+cover,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+two,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+two,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+two,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+edge,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+edge,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+edge,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+cap,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+cap,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+cap,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+edge+cap,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+edge+cap,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+edge+cap,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+all,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+all,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+all,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+all-cover,BLACK (extreme),window_black_close_02,orange,"[0, 132, 51, 207]",truncated,0,0,,,,stripe_not_sandwiched
+all-cover,BLACK (extreme),window_black_close_02,blue,"[5, 127, 74, 186]",occluded,0,0,,,,stripe_refused:area
+all-cover,BLACK (extreme),window_black_close_02,orange,"[154, 245, 426, 480]",truncated,1,1,"[159, 258, 366, 480]",0.72,0.76,
+base,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:width
+slice,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:slice_not_full
+slice+cover,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:slice_not_full
+two,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:width
+edge,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:width
+cap,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:width
+edge+cap,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:width
+all,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:slice_not_full
+all-cover,BLACK (extreme),window_black_cluster_01,orange,"[256, 119, 305, 173]",occluded,0,0,,,,stripe_refused:slice_not_full
+base,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+base,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+slice,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+slice,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+slice+cover,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+slice+cover,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+two,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+two,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+edge,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+edge,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+cap,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+cap,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+edge+cap,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+edge+cap,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+all,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+all,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+all-cover,BLACK (extreme),window_black_clutter_02,blue,"[0, 135, 73, 212]",truncated,0,0,,,,stripe_refused:area
+all-cover,BLACK (extreme),window_black_clutter_02,orange,"[530, 144, 640, 247]",truncated,0,1,"[539, 143, 640, 235]",0.8,0.92,misplaced
+base,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+base,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+base,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+slice,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+slice,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+slice,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+slice+cover,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+slice+cover,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+slice+cover,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+two,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+two,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+two,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+edge,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+edge,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+edge,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+cap,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+cap,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+cap,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+edge+cap,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+edge+cap,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+edge+cap,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+all,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+all,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+all,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+all-cover,BLACK (extreme),window_black_held_01,orange,"[0, 132, 48, 208]",truncated,0,0,,,,stripe_refused:area
+all-cover,BLACK (extreme),window_black_held_01,blue,"[3, 127, 73, 189]",occluded,0,0,,,,stripe_refused:area
+all-cover,BLACK (extreme),window_black_held_01,orange,"[90, 327, 521, 480]",held+truncated,1,1,"[102, 335, 416, 480]",0.69,0.73,
+base,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+slice,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+slice+cover,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+two,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+cap,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge+cap,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+all,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+all-cover,BLACK (extreme),window_black_occl_02,orange,"[271, 122, 327, 178]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+base,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,BLACK (extreme),window_black_occl_03,orange,"[283, 121, 338, 178]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+slice,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+slice+cover,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+two,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+cap,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge+cap,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+all,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:top_against_barrel
+all-cover,BLACK (extreme),window_black_occl_04,orange,"[267, 129, 334, 193]",bottom_estimated+occluded,0,0,,,,stripe_refused:top_against_barrel
+base,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampcool1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampcool1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+slice,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+slice+cover,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+two,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+edge,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+cap,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+edge+cap,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+all,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+all-cover,WOOD (extreme),lampcool3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[118, 240, 355, 480]",0.95,0.95,
+base,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+slice,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+slice+cover,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+two,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+edge,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+cap,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+edge+cap,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+all,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+all-cover,WOOD (extreme),lampcool3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:area
+base,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+slice,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+slice+cover,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+two,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+edge,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+cap,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+edge+cap,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+all,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+all-cover,WOOD (extreme),lampcool3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+base,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+slice,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+slice+cover,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+two,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+cap,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+edge+cap,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:width
+all,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+all-cover,WOOD (extreme),lampcool3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:slice_not_full
+base,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+slice,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+slice+cover,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+two,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+edge,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+cap,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+edge+cap,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+all,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+all-cover,WOOD (extreme),lampcool3_wood_occl_04,orange,"[181, 128, 238, 186]",bottom_estimated+no_stripe+occluded,1,1,"[186, 126, 239, 185]",0.85,0.93,
+base,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+slice,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+slice+cover,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+two,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+edge,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+cap,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+edge+cap,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+all,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+all-cover,WOOD (extreme),lampcool6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[114, 270, 355, 480]",0.84,0.97,
+base,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+slice,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+slice+cover,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+two,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+edge,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+cap,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+edge+cap,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+all,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+all-cover,WOOD (extreme),lampcool6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_refused:height
+base,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+slice,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+slice+cover,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+two,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+edge,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+cap,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+edge+cap,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+all,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+all-cover,WOOD (extreme),lampcool6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_refused:height
+base,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampcool6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+slice,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+slice+cover,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+two,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+edge,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+cap,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+edge+cap,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+all,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+all-cover,WOOD (extreme),lampcool6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,stripe_not_sandwiched
+base,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 161]",0.69,1.07,
+slice,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 161]",0.69,1.07,
+slice+cover,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 161]",0.69,1.07,
+two,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 161]",0.69,1.07,
+edge,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 164]",0.68,1.07,
+cap,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 161]",0.69,1.07,
+edge+cap,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 164]",0.68,1.07,
+all,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 164]",0.68,1.07,
+all-cover,WOOD (extreme),lampcool6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,1,1,"[179, 112, 225, 164]",0.68,1.07,
+base,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+slice,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+slice+cover,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+two,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+edge,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+cap,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+edge+cap,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+all,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+all-cover,WOOD (extreme),lampcool6_wood_occl_04,orange,"[182, 130, 241, 186]",bottom_estimated+no_stripe+occluded,0,1,"[186, 141, 266, 214]",0.37,1.36,misplaced
+base,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampmid1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampmid1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampmid1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+slice,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+slice+cover,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+two,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+edge,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+cap,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+edge+cap,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+all,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+all-cover,WOOD (extreme),lampmid3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[121, 243, 347, 480]",0.89,0.91,
+base,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampmid3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+slice,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+slice+cover,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+two,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+edge,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+cap,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+edge+cap,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+all,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+all-cover,WOOD (extreme),lampmid3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:area
+base,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+slice,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+slice+cover,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+two,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+edge,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+cap,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+edge+cap,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+all,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+all-cover,WOOD (extreme),lampmid3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:area
+base,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+slice,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+slice+cover,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+two,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+edge,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+cap,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+edge+cap,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+all,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+all-cover,WOOD (extreme),lampmid6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[120, 242, 352, 480]",0.92,0.93,
+base,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampmid6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampmid6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+slice,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+slice+cover,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+two,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+edge,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+cap,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+edge+cap,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+all,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+all-cover,WOOD (extreme),lampmid6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_refused:height
+base,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+slice,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+slice+cover,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+two,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+edge,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+cap,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+edge+cap,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+all,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+all-cover,WOOD (extreme),lampmid6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_refused:height
+base,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm1_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm1_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm1_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm1_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm1_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm1_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm1_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+slice,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+slice+cover,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+two,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+edge,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+cap,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+edge+cap,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+all,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+all-cover,WOOD (extreme),lampwarm3_wood_close_01,blue,"[109, 239, 358, 480]",truncated,1,1,"[124, 248, 338, 480]",0.83,0.86,
+base,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm3_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm3_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm3_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm3_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm3_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm3_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+slice,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+slice+cover,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+two,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+edge,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+cap,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+edge+cap,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+all,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+all-cover,WOOD (extreme),lampwarm6_wood_close_01,blue,"[109, 239, 358, 480]",truncated,0,0,,,,stripe_not_sandwiched
+base,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm6_wood_clutter_01,orange,"[236, 118, 280, 166]",occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm6_wood_core_01,orange,"[0, 168, 78, 309]",truncated,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm6_wood_held_01,blue,"[97, 335, 514, 480]",held+no_stripe+truncated,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+slice+cover,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+two,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+cap,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+edge+cap,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+all-cover,WOOD (extreme),lampwarm6_wood_occl_01,blue,"[212, 121, 256, 166]",bottom_estimated+occluded,0,0,,,,not_segmented
+base,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm6_wood_occl_02,orange,"[175, 117, 218, 162]",bottom_estimated+occluded,0,0,,,,stripe_hidden
+base,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+slice+cover,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+two,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+cap,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+edge+cap,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden
+all-cover,WOOD (extreme),lampwarm6_wood_occl_04,orange,"[178, 128, 238, 186]",bottom_estimated+no_stripe+occluded,0,0,,,,stripe_hidden

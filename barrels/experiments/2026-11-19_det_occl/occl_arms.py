@@ -30,7 +30,8 @@ _SPECS = {
     "two": {"stripe_two": True},
     "edge": {"edge_check": True},
     "cap": {"cap_same": True},
-    "all": {"slice_box": True, "cover_unpinned": True, "stripe_two": True, "edge_check": True, "cap_same": True},
+    "edge+cap": {"edge_check": True, "cap_same": True},          # round 2: the two switches that pass alone, combined (PREREG, adoption order)
+    "all":{"slice_box": True, "cover_unpinned": True, "stripe_two": True, "edge_check": True, "cap_same": True},
     "all-cover": {"slice_box": True, "stripe_two": True, "edge_check": True, "cap_same": True},
 }
 ARMS, OVERRIDES = {}, {}

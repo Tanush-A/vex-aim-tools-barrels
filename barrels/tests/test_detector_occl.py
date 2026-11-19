@@ -62,7 +62,22 @@ def test_narrow_piece_not_seen_from_top_to_bottom_gives_no_box():
     mask[truth[3] - (truth[3] - truth[1]) // 4:] = 0
     log = []
     assert det.detect(mask, SLICE, CAM, log=log) == []
-    assert "side_unexplained" in [e["why"] for e in log]
+    assert {"side_unexplained", "slice_not_full"} & {e["why"] for e in log}
+
+
+def test_small_piece_with_a_reason_for_its_side_still_needs_the_full_slice():
+    """Round 2: 0.15 of the width at the frame edge (a reason for the left side), but the lower body ends a quarter of
+    the height early. A reason says where a barrel would be, not that there is one: no box."""
+    full, truth = _one_barrel()
+    W, H = truth[2] - truth[0], truth[3] - truth[1]
+    shift = truth[0] + int(round(0.85 * W))
+    mask = np.zeros_like(full)
+    mask[:, :640 - shift] = full[:, shift:]
+    assert len(det.detect(mask, SLICE, CAM)) == 1
+    mask[truth[3] - H // 4:] = 0
+    log = []
+    assert det.detect(mask, SLICE, CAM, log=log) == []
+    assert "slice_not_full" in [e["why"] for e in log]
 
 
 def test_both_sides_cut_gets_the_cover_box_around_what_is_seen():
@@ -138,6 +153,20 @@ def test_joined_stripe_of_two_overlapping_same_colored_barrels_is_two_barrels():
     assert len(out) == 2 and all(o.color == io.ORANGE and "occluded" in o.flags for o in out)
     assert _close(out[0].bbox, a) and _close(out[1].bbox, b)
     assert det.box_iou(out[0].bbox, out[1].bbox) > 0.5
+
+
+def test_one_barrel_larger_than_its_row_predicts_is_not_cut_in_two():
+    """Round 2: a single barrel 1.3 x the size its row predicts (near barrels run large). Its stripe is over 1.2 x the
+    predicted width, but the barrel is as much taller: against a barrel as tall as the body seen, the stripe is 1.0."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(150)
+    mid, W, H = (r.stripe_top + r.stripe_bottom) / 2, 1.3 * r.width_px, 1.3 * (r.bottom - r.top)
+    up, down = 1.3 * (mid - r.top), 1.3 * (r.bottom - mid)
+    x0, x1 = int(round(320 - W / 2)), int(round(320 + W / 2))
+    mask[int(round(mid - up)):int(round(mid + down)), x0:x1] = io.ORANGE
+    mask[int(round(mid - 1.3 * (mid - r.stripe_top))):int(round(mid + 1.3 * (r.stripe_bottom - mid))), x0:x1] = io.BLUE
+    assert len(det.detect(mask, BASE, CAM)) == 1
+    assert det.detect(mask, TWO, CAM) == det.detect(mask, BASE, CAM)
 
 
 def test_stripe_two_leaves_one_barrel_and_a_touching_pair_alone():

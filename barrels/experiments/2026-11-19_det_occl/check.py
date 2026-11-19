@@ -25,6 +25,7 @@ TARGETS = {
     "cap": [("barrel_front/same", 0.5)],
 }
 TARGETS["slice+cover"] = TARGETS["slice"]
+TARGETS["edge+cap"] = TARGETS["edge"] + TARGETS["cap"]
 TARGETS["all"] = TARGETS["all-cover"] = TARGETS["slice"] + TARGETS["two"] + TARGETS["edge"] + TARGETS["cap"]
 
 

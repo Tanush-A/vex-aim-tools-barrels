@@ -86,6 +86,9 @@ ROWS = [
     ("block/other", "a plain block of the barrel's stripe color", "block", "other"),
 ]
 ROW_NAME = {k: n for k, n, _, _ in ROWS}
+# what the arms after `base` are, for the scorecard's first paragraph (the verdict is in verdict.md)
+AFTER_TEXT = ("`edge+cap` = what passed the pre-registered rule and is on by default (`edge_check`, `cap_same`). `all` = with the three switches "
+              "that did not pass by the letter and are OFF (`slice_box`, `cover_unpinned`, `stripe_two`): what occlusion handling would be with them on.")
 
 
 # ---------------------------------------------------------------- frames and source barrels
@@ -369,7 +372,7 @@ def main(argv=None) -> int:
     out = OUT / args.out if args.out else OUT
     out.mkdir(parents=True, exist_ok=True)
     arms = [a for a in args.arms.split(",") if a]
-    after = args.after or arms[-1]
+    afters = [a for a in (args.after or arms[-1]).split(",") if a]      # one or more arms shown after `base` on the scorecard, in this order
     stems = train_stems()
     segs = segmentations(stems, with_extreme=True)
     pools, dropped = build_sources(segs)
@@ -461,22 +464,20 @@ def main(argv=None) -> int:
 
     # ---- scorecard.md: one page
     before = "base" if "base" in arms else arms[0]
-    two = after != before
+    afters = [a for a in afters if a != before]
+    two = bool(afters)
 
     def cell(key, amount, field):
         b = cells.get((before, "ALL", key, amount))
         if b is None or b.n == 0:
             return "-"
-        t = f"{getattr(b, field)}"
-        if two:
-            t += f" → {getattr(cells[(after, 'ALL', key, amount)], field)}"
-        return t + f" of {b.n}"
+        return " → ".join(str(getattr(cells[(a, "ALL", key, amount)], field)) for a in [before] + afters) + f" of {b.n}"
 
     S = ["# Occlusion scorecard", "",
          f"How often the detector boxes a barrel when part of it is hidden. {sum(n_src.values())} unhidden barrels of the train frames "
          f"({', '.join(f'{n_src[p]} from {p}' for p in POOLS)}), each hidden by one thing at a time, by a measured amount. "
-         + ("Each cell: **before → after of n scenes**." if two else "Each cell: **found of n scenes** (the baseline, before any fix).")
-         + f" Before = the detector at the start of this work (`{before}`)" + (f"; after = `{after}`." if two else "."), "",
+         + (f"Each cell: **{' → '.join(['before'] + [f'`{a}`' for a in afters])}, of n scenes**." if two else "Each cell: **found of n scenes** (the baseline, before any fix).")
+         + f" Before = the detector at the start of this work (`{before}`)." + (f" {AFTER_TEXT}" if two else ""), "",
          "## Found: a box of the right color, overlapping the barrel's FULL box by half or more, bottom edge right (the project's v2 rule)", "",
          "| what hides the barrel | 25 % hidden | 50 % hidden | 75 % hidden |", "|---|---|---|---|"]
     for key, name, kind, color in ROWS:
@@ -489,11 +490,10 @@ def main(argv=None) -> int:
 
     def total(arm, field):
         return sum(getattr(c, field) for (a, p, k, m), c in cells.items() if a == arm and p == "ALL")
-    S += ["", f"All {tot_scenes} scenes together: found {total(before, 'found')}" + (f" → {total(after, 'found')}" if two else "") +
-          f"; right place {total(before, 'place')}" + (f" → {total(after, 'place')}" if two else "") +
-          f"; boxes drawn where no barrel is {total(before, 'false')}" + (f" → {total(after, 'false')}" if two else "") +
-          f"; right-place boxes too small / about right / too big: {total(before, 'small')} / {total(before, 'right')} / {total(before, 'big')}" +
-          (f" → {total(after, 'small')} / {total(after, 'right')} / {total(after, 'big')}" if two else "") + ".", "",
+    def chain(*fields):
+        return " → ".join(" / ".join(str(total(a, f)) for f in fields) for a in [before] + afters)
+    S += ["", f"All {tot_scenes} scenes together: found {chain('found')}; right place {chain('place')}; boxes drawn where no barrel is {chain('false')}; "
+          f"right-place boxes too small / about right / too big: {chain('small', 'right', 'big')}.", "",
           "Limits: the hiding is done on the segmentation mask (pixels erased, or a real barrel's pixels pasted in front, scaled for its distance). "
           "A real occluder also casts a shadow, reflects, and bleeds color at the seam; none of that is in these numbers. "
           "The real occluded barrels of the train frames are in `real.md`, one by one; every number per pool is in `summary.md`."]

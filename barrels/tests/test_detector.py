@@ -130,7 +130,8 @@ def test_box_must_hold_body_color():
     mask[top:bottom, x0:x1] = io.BLUE                                        # a blue body ...
     mask[st - 3:st, x0:x1] = io.ORANGE                                       # ... with a thin orange rim right above its middle band ...
     mask[sb:sb + 3, x0:x1] = io.ORANGE                                       # ... and right below it: a blue 'stripe' between orange
-    assert any(b.color == io.ORANGE for b in det.detect(mask, dataclasses.replace(CFG2, body_min=0.0), CAM))   # without (c): an orange box
+    no_c = dataclasses.replace(CFG2, body_min=0.0, edge_check=False)        # edge_check (2026-11-19) refuses this candidate too, for another reason
+    assert any(b.color == io.ORANGE for b in det.detect(mask, no_c, CAM))    # without (c): an orange box
     out = det.detect(mask, CFG2, CAM)
     assert not any(b.color == io.ORANGE for b in out)                        # with (c): the box would be blue, not orange -> no orange box
 
