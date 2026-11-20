@@ -47,6 +47,7 @@ occl_arms = _load("occl_arms_2026_11_19", HERE.parent / "2026-11-19_det_occl" / 
 side_arms = _load("side_arms_2026_11_19", HERE.parent / "2026-11-19_det_side" / "side_arms.py")
 
 SIX = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low")       # wip/occl-vertical
+FIVE = tuple(k for k in SIX if k != "slice_behind")                                             # ... without slice_behind (round 2)
 PIN = ("pin_outline",)                                                                          # wip/occl-pin (on there)
 THIN = ("pin_thin",)                                                                            # wip/occl-pin (off there)
 COVER = ("slice_box", "cover_unpinned", "stripe_two")                                           # wip/detector-occl (off; they stay off)
@@ -78,6 +79,9 @@ ARMS = {
     "combined": _arm(_stack, **_on(SIX + PIN)),
     "combined+thin": _arm(_stack, **_on(SIX + PIN + THIN)),
     "combined+cover": _arm(_stack, **_on(SIX + PIN + COVER)),
+    # round 2 (PREREG addendum): `combined` failed clause (c) by the boxes of slices_behind, so the rule takes slice_behind out
+    "reduced": _arm(_stack, **_on(FIVE + PIN)),
+    "reduced+thin": _arm(_stack, **_on(FIVE + PIN + THIN)),
 }
 if VERIFY is not None:
     ARMS["combined+verify"] = _arm(_stack, verify=VERIFY, **_on(SIX + PIN))

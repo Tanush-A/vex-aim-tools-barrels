@@ -1,0 +1,46 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks,combined,1,16,29,28,1,0
+perfect masks,combined+verify,1,16,29,28,1,0
+perfect masks,combined+verify2,1,16,29,28,1,0
+"white tables, typical",combined,5,80,145,145,0,0
+"white tables, typical",combined,20,320,580,579,1,0
+"white tables, typical",combined+verify,5,80,145,145,0,0
+"white tables, typical",combined+verify,20,320,580,579,1,0
+"white tables, typical",combined+verify2,5,80,145,145,0,0
+"white tables, typical",combined+verify2,20,320,580,579,1,0
+"white tables, bad day",combined,5,80,145,136,9,3
+"white tables, bad day",combined,20,320,580,555,25,6
+"white tables, bad day",combined+verify,5,80,145,135,10,3
+"white tables, bad day",combined+verify,20,320,580,544,36,5
+"white tables, bad day",combined+verify2,5,80,145,135,10,3
+"white tables, bad day",combined+verify2,20,320,580,544,36,5
+bad day without the stripe patch,combined,5,80,145,144,1,0
+bad day without the stripe patch,combined,20,320,580,577,3,0
+bad day without the stripe patch,combined+verify,5,80,145,141,4,0
+bad day without the stripe patch,combined+verify,20,320,580,563,17,0
+bad day without the stripe patch,combined+verify2,5,80,145,141,4,0
+bad day without the stripe patch,combined+verify2,20,320,580,563,17,0
+light,combined,5,80,145,143,2,0
+light,combined,20,320,580,574,6,0
+light,combined+verify,5,80,145,129,16,0
+light,combined+verify,20,320,580,516,64,0
+light,combined+verify2,5,80,145,129,16,0
+light,combined+verify2,20,320,580,516,64,0
+medium,combined,5,80,145,115,30,1
+medium,combined,20,320,580,444,136,7
+medium,combined+verify,5,80,145,52,93,0
+medium,combined+verify,20,320,580,209,371,1
+medium,combined+verify2,5,80,145,52,93,0
+medium,combined+verify2,20,320,580,209,371,1
+heavy,combined,5,80,145,21,124,0
+heavy,combined,20,320,580,89,491,0
+heavy,combined+verify,5,80,145,5,140,0
+heavy,combined+verify,20,320,580,20,560,0
+heavy,combined+verify2,5,80,145,5,140,0
+heavy,combined+verify2,20,320,580,20,560,0
+"white tables, worst seen",combined,5,80,145,105,40,2
+"white tables, worst seen",combined,20,320,580,419,161,10
+"white tables, worst seen",combined+verify,5,80,145,41,104,0
+"white tables, worst seen",combined+verify,20,320,580,186,394,1
+"white tables, worst seen",combined+verify2,5,80,145,41,104,0
+"white tables, worst seen",combined+verify2,20,320,580,186,394,1

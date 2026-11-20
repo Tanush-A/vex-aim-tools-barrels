@@ -1,0 +1,76 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks,before,1,16,29,28,1,0
+perfect masks,stack,1,16,29,28,1,0
+perfect masks,combined,1,16,29,28,1,0
+perfect masks,combined+thin,1,16,29,28,1,0
+perfect masks,combined+cover,1,16,29,28,1,0
+"white tables, typical",before,5,80,145,140,5,0
+"white tables, typical",before,20,320,580,560,20,0
+"white tables, typical",stack,5,80,145,145,0,0
+"white tables, typical",stack,20,320,580,579,1,0
+"white tables, typical",combined,5,80,145,145,0,0
+"white tables, typical",combined,20,320,580,579,1,0
+"white tables, typical",combined+thin,5,80,145,145,0,0
+"white tables, typical",combined+thin,20,320,580,579,1,0
+"white tables, typical",combined+cover,5,80,145,145,0,0
+"white tables, typical",combined+cover,20,320,580,579,1,0
+"white tables, bad day",before,5,80,145,115,30,15
+"white tables, bad day",before,20,320,580,454,126,75
+"white tables, bad day",stack,5,80,145,135,10,3
+"white tables, bad day",stack,20,320,580,547,33,5
+"white tables, bad day",combined,5,80,145,136,9,3
+"white tables, bad day",combined,20,320,580,555,25,6
+"white tables, bad day",combined+thin,5,80,145,135,10,3
+"white tables, bad day",combined+thin,20,320,580,547,33,5
+"white tables, bad day",combined+cover,5,80,145,139,6,4
+"white tables, bad day",combined+cover,20,320,580,560,20,17
+bad day without the stripe patch,before,5,80,145,140,5,1
+bad day without the stripe patch,before,20,320,580,563,17,4
+bad day without the stripe patch,stack,5,80,145,144,1,0
+bad day without the stripe patch,stack,20,320,580,577,3,0
+bad day without the stripe patch,combined,5,80,145,144,1,0
+bad day without the stripe patch,combined,20,320,580,577,3,0
+bad day without the stripe patch,combined+thin,5,80,145,144,1,0
+bad day without the stripe patch,combined+thin,20,320,580,577,3,0
+bad day without the stripe patch,combined+cover,5,80,145,144,1,0
+bad day without the stripe patch,combined+cover,20,320,580,577,3,0
+light,before,5,80,145,141,4,0
+light,before,20,320,580,564,16,5
+light,stack,5,80,145,143,2,0
+light,stack,20,320,580,574,6,0
+light,combined,5,80,145,143,2,0
+light,combined,20,320,580,574,6,0
+light,combined+thin,5,80,145,143,2,0
+light,combined+thin,20,320,580,574,6,0
+light,combined+cover,5,80,145,143,2,0
+light,combined+cover,20,320,580,572,8,2
+medium,before,5,80,145,64,81,22
+medium,before,20,320,580,242,338,87
+medium,stack,5,80,145,99,46,1
+medium,stack,20,320,580,388,192,3
+medium,combined,5,80,145,115,30,1
+medium,combined,20,320,580,444,136,7
+medium,combined+thin,5,80,145,103,42,1
+medium,combined+thin,20,320,580,404,176,4
+medium,combined+cover,5,80,145,125,20,4
+medium,combined+cover,20,320,580,481,99,21
+heavy,before,5,80,145,13,132,2
+heavy,before,20,320,580,47,533,5
+heavy,stack,5,80,145,21,124,0
+heavy,stack,20,320,580,89,491,0
+heavy,combined,5,80,145,21,124,0
+heavy,combined,20,320,580,89,491,0
+heavy,combined+thin,5,80,145,21,124,0
+heavy,combined+thin,20,320,580,89,491,0
+heavy,combined+cover,5,80,145,24,121,0
+heavy,combined+cover,20,320,580,98,482,0
+"white tables, worst seen",before,5,80,145,41,104,21
+"white tables, worst seen",before,20,320,580,154,426,72
+"white tables, worst seen",stack,5,80,145,84,61,2
+"white tables, worst seen",stack,20,320,580,337,243,6
+"white tables, worst seen",combined,5,80,145,105,40,2
+"white tables, worst seen",combined,20,320,580,419,161,10
+"white tables, worst seen",combined+thin,5,80,145,98,47,2
+"white tables, worst seen",combined+thin,20,320,580,387,193,6
+"white tables, worst seen",combined+cover,5,80,145,115,30,6
+"white tables, worst seen",combined+cover,20,320,580,463,117,17

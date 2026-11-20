@@ -532,6 +532,11 @@ def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, 
                     parts = [Stripe(s.body, s.bbox, 0, s.n_dark, s.center_row, s.merged) for s in parts]
                 if slices and (bw < Hs or bw < core_h):
                     parts = [replace(s, small=True) for s in parts]                     # under the floor of before slice_box
+                    if narrow is not None and ci == 0:
+                        # 2026-11-20 (occl_combined): the lower floor lets this piece into the stripe step as a thin stripe. The left-over
+                        # rules (post_pair, slice_behind) are still handed it, exactly as when the finder refuses it for its width: the
+                        # floor is lowered for the stripe step only (without this, pin_thin took every narrow slice away from them)
+                        narrow.append(Stripe(body, sb, int((mask[sel] == other).sum()), 0, float(np.median(ys)) + 0.5, narrow=True))
                 out.extend(parts)
     return sorted(out, key=lambda s: s.bbox[0])
 
@@ -953,7 +958,7 @@ def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
                              full_slice=not ({"top_inferred", "bottom_inferred"} & flags), cam=cam)
         if sides is None:
             _note(log, "barrel", "outline_unknown" if thin else "side_unexplained", s.bbox, body=s.body, expected_w=W)
-            if unplaced is not None:
+            if unplaced is not None and not s.small:         # a thin piece was handed over by the finder already (its ``narrow`` twin)
                 unplaced.append(s)
             return None
         bx0, bx1 = sides

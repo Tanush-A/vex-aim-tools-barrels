@@ -17,7 +17,7 @@ sys.path.insert(0, str(HERE))
 import comb_arms as A  # noqa: E402
 
 OUT = A.OUT
-RULE_ARMS = ("before", "stack", "combined", "combined+thin", "combined+cover")
+RULE_ARMS = ("before", "stack", "combined", "reduced", "reduced+thin", "combined+thin", "combined+cover")    # round 2; round 1 had no `reduced`
 VERIFY_ARMS = ("combined+verify", "combined+verify2")
 STAGE_NAME = {"barrel": "stripe step", "cap": "caps_behind", "pair": "post_pairs", "slice": "slices_behind", "half": "half_stripes",
               "piece": "stripeless piece"}
