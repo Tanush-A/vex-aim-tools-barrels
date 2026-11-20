@@ -6,19 +6,21 @@ clutter negatives of the other tables only: no scorecard scene, no CAMPUS frame,
   A2  the same frames, color model, leave one scene out (as the eval table)
   A4  the train negative frames of the other tables (wood `neg_02`, black `neg_01`), adopted color model
 
-``combined`` (the rule detector, pinned) is run on each; every box gets the stencil's score at its place
-(``stencil.box_score``, the other boxes given). A box is right when it matches a hand-drawn box under the v2 rule.
+The rule detector (``--arm``, pinned; `combined` as registered, or the combination that became the default) is run on
+each; every box gets the stencil's score at its place (``stencil.box_score``, the other boxes given). A box is right
+when it matches a hand-drawn box under the v2 rule.
 
     limit  = (the lowest score among the right boxes of A1 and A2) - 0.02, rounded down to 0.01
-    limit2 = the same over the right boxes that ``half_stripes`` did not make (arm ``combined+verify2``)
+    limit2 = the same over the right boxes that ``half_stripes`` did not make (arm ``<arm>+verify2``)
 
 A score of -inf (no stencil place overlaps the box by half) is written as -9.
 
-    python barrels/experiments/2026-11-20_occl_combined/verify_calibrate.py
-Outputs: results/2026-11-20_occl_combined/ verify_calibration.json, verify_calibration.md, verify_calibration_boxes.csv
+    python barrels/experiments/2026-11-20_occl_combined/verify_calibrate.py [--arm reduced+thin]
+Outputs: results/2026-11-20_occl_combined/ verify_calibration[_<arm>].json, .md, _boxes.csv (no suffix for `combined`)
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import math
@@ -29,7 +31,6 @@ from barrels import cv as bcv, detect_types as dtp, eval_det as ed, geometry as 
 A = C.A
 CAM = geo.AIM_4A8B6118_BOXFIT
 MARGIN = 0.02
-ARM = "combined"
 
 
 def build_items() -> list[dict]:
@@ -53,9 +54,14 @@ def build_items() -> list[dict]:
     return items
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--arm", default="combined")
+    args = ap.parse_args(argv)
+    arm = args.arm
     C.OUT.mkdir(parents=True, exist_ok=True)
-    cfg = A.rule_config(A.ARMS[ARM])
+    out_json = A.cal_path(arm)
+    cfg = A.rule_config(A.ARMS[arm])
     rows = []
     items = build_items()
     for it in items:
@@ -68,7 +74,7 @@ def main() -> int:
             rows.append({"pool": it["pool"], "stem": it["stem"].replace("4A8B_", ""), "color": dtp.COLOR_NAMES[b.color], "bbox": list(b.bbox),
                          "flags": "+".join(sorted(b.flags)), "drawn_by": C.drawn_by(log, b.bbox), "right": int(i not in res.unmatched_pred),
                          "score": round(max(s, -9.0), 4)})
-    with (C.OUT / "verify_calibration_boxes.csv").open("w", newline="") as f:
+    with out_json.with_name(out_json.stem + "_boxes.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
     right = sorted((r for r in rows if r["right"] and r["pool"] in ("A1", "A2")), key=lambda r: r["score"])
     right2 = [r for r in right if r["drawn_by"] != C.STAGE_NAME["half"]]
@@ -78,14 +84,14 @@ def main() -> int:
 
     limit, limit2 = limit_of(right), limit_of(right2)
     wrong = [r for r in rows if not r["right"]]
-    out = {"git": bcv.git_hash(), "arm": ARM, "margin": MARGIN, "limit": limit, "limit2": limit2,
+    out = {"git": bcv.git_hash(), "arm": arm, "margin": MARGIN, "limit": limit, "limit2": limit2,
            "masks": {p: sum(1 for it in items if it["pool"] == p) for p in ("A1", "A2", "A4")},
            "right_boxes": {p: sum(1 for r in rows if r["right"] and r["pool"] == p) for p in ("A1", "A2")},
            "right_boxes_made_by_half_stripes": len(right) - len(right2),
            "lowest_right": right[:8], "wrong_or_negative_boxes": wrong}
-    (C.OUT / "verify_calibration.json").write_text(json.dumps(out, indent=1) + "\n")
+    out_json.write_text(json.dumps(out, indent=1) + "\n")
     L = ["# The verifier's limit (PREREG.md, \"The stencil as a verifier\")", "",
-         f"git {out['git']}. Rule detector: arm `{ARM}`. Masks: " + ", ".join(f"{p} {n}" for p, n in out["masks"].items()) +
+         f"git {out['git']}. Rule detector: arm `{arm}`. Masks: " + ", ".join(f"{p} {n}" for p, n in out["masks"].items()) +
          f". Right boxes: A1 {out['right_boxes']['A1']}, A2 {out['right_boxes']['A2']}; made by `half_stripes`: {out['right_boxes_made_by_half_stripes']}.", "",
          f"The lowest stencil score at a right box of A1 and A2 is {right[0]['score']:.3f}; **limit = that − {MARGIN} = {limit}** (rounded down to 0.01). "
          f"Without the boxes of `half_stripes`: lowest {right2[0]['score']:.3f}, **limit2 = {limit2}**.", "",
@@ -93,7 +99,7 @@ def main() -> int:
     L += [f"| {r['pool']} | {r['stem']} | {r['color']} | {r['bbox']} | {r['flags']} | {r['drawn_by']} | {r['score']:.3f} |" for r in right[:8]]
     L += ["", "Boxes that are not right (A1, A2), and every box on a negative frame (A4); they do not enter the limit:", ""]
     L += [f"- {r['pool']} {r['stem']} {r['color']} {r['bbox']} ({r['drawn_by']}): score {r['score']:.3f}" + (" → the verifier would drop it" if r["score"] < limit else " → kept") for r in wrong] or ["- none"]
-    (C.OUT / "verify_calibration.md").write_text("\n".join(L) + "\n")
+    out_json.with_suffix(".md").write_text("\n".join(L) + "\n")
     print("\n".join(L))
     return 0
 

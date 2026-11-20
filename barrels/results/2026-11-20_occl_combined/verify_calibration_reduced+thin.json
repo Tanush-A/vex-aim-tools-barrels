@@ -1,0 +1,140 @@
+{
+ "git": "d7877b8",
+ "arm": "reduced+thin",
+ "margin": 0.02,
+ "limit": 0.16,
+ "limit2": 0.16,
+ "masks": {
+  "A1": 16,
+  "A2": 16,
+  "A4": 10
+ },
+ "right_boxes": {
+  "A1": 28,
+  "A2": 28
+ },
+ "right_boxes_made_by_half_stripes": 0,
+ "lowest_right": [
+  {
+   "pool": "A2",
+   "stem": "window_light_topstripe_01",
+   "color": "orange",
+   "bbox": [
+    176,
+    242,
+    423,
+    480
+   ],
+   "flags": "bottom_inferred+truncated",
+   "drawn_by": "stripeless piece",
+   "right": 1,
+   "score": 0.1823
+  },
+  {
+   "pool": "A2",
+   "stem": "window_light_edge_01",
+   "color": "blue",
+   "bbox": [
+    0,
+    132,
+    32,
+    197
+   ],
+   "flags": "occluded+truncated",
+   "drawn_by": "stripe step",
+   "right": 1,
+   "score": 0.2125
+  },
+  {
+   "pool": "A1",
+   "stem": "window_light_cluster_01",
+   "color": "orange",
+   "bbox": [
+    314,
+    117,
+    363,
+    164
+   ],
+   "flags": "bottom_inferred+occluded",
+   "drawn_by": "caps_behind",
+   "right": 1,
+   "score": 0.2196
+  },
+  {
+   "pool": "A2",
+   "stem": "window_light_occl_02",
+   "color": "orange",
+   "bbox": [
+    399,
+    117,
+    439,
+    161
+   ],
+   "flags": "bottom_inferred+occluded",
+   "drawn_by": "caps_behind",
+   "right": 1,
+   "score": 0.2238
+  },
+  {
+   "pool": "A2",
+   "stem": "window_light_cluster_01",
+   "color": "orange",
+   "bbox": [
+    315,
+    118,
+    366,
+    162
+   ],
+   "flags": "bottom_inferred+occluded",
+   "drawn_by": "caps_behind",
+   "right": 1,
+   "score": 0.2259
+  },
+  {
+   "pool": "A2",
+   "stem": "window_light_occl_01",
+   "color": "blue",
+   "bbox": [
+    387,
+    112,
+    432,
+    158
+   ],
+   "flags": "bottom_inferred+occluded",
+   "drawn_by": "caps_behind",
+   "right": 1,
+   "score": 0.2308
+  },
+  {
+   "pool": "A1",
+   "stem": "window_light_occl_01",
+   "color": "blue",
+   "bbox": [
+    386,
+    115,
+    430,
+    160
+   ],
+   "flags": "bottom_inferred+occluded",
+   "drawn_by": "caps_behind",
+   "right": 1,
+   "score": 0.2317
+  },
+  {
+   "pool": "A1",
+   "stem": "window_light_top_01",
+   "color": "orange",
+   "bbox": [
+    163,
+    259,
+    452,
+    480
+   ],
+   "flags": "truncated",
+   "drawn_by": "stripeless piece",
+   "right": 1,
+   "score": 0.2339
+  }
+ ],
+ "wrong_or_negative_boxes": []
+}

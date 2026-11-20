@@ -1,0 +1,57 @@
+pool,stem,color,bbox,flags,drawn_by,right,score
+A1,window_light_close_01,orange,"[305, 143, 389, 235]",,stripe step,1,0.8749
+A1,window_light_close_02,blue,"[309, 141, 391, 233]",,stripe step,1,0.8722
+A1,window_light_cluster_01,orange,"[314, 117, 363, 164]",bottom_inferred+occluded,caps_behind,1,0.2196
+A1,window_light_cluster_01,blue,"[325, 119, 386, 172]",,stripe step,1,0.7528
+A1,window_light_cluster_01,blue,"[388, 119, 436, 170]",,stripe step,1,0.793
+A1,window_light_cluster_02,orange,"[306, 119, 352, 170]",,stripe step,1,0.8503
+A1,window_light_cluster_02,blue,"[352, 119, 394, 167]",,stripe step,1,0.7882
+A1,window_light_cluster_02,orange,"[391, 116, 430, 161]",,stripe step,1,0.7736
+A1,window_light_cluster_02,blue,"[444, 122, 499, 180]",,stripe step,1,0.813
+A1,window_light_core_01,blue,"[240, 123, 289, 178]",,stripe step,1,0.8042
+A1,window_light_core_01,orange,"[292, 121, 340, 176]",,stripe step,1,0.8699
+A1,window_light_core_02,orange,"[368, 120, 418, 173]",,stripe step,1,0.8878
+A1,window_light_core_02,blue,"[420, 120, 471, 175]",,stripe step,1,0.8255
+A1,window_light_core_03,orange,"[318, 108, 345, 137]",,stripe step,1,0.709
+A1,window_light_edge_01,blue,"[0, 133, 34, 198]",occluded+truncated,stripe step,1,0.4066
+A1,window_light_far_02,blue,"[219, 110, 250, 144]",,stripe step,1,0.7444
+A1,window_light_far_02,orange,"[241, 105, 272, 135]",occluded,stripe step,1,0.6722
+A1,window_light_far_02,orange,"[334, 106, 363, 137]",,stripe step,1,0.7617
+A1,window_light_far_02,blue,"[435, 108, 464, 139]",,stripe step,1,0.7892
+A1,window_light_occl_01,orange,"[342, 134, 430, 229]",,stripe step,1,0.8599
+A1,window_light_occl_01,blue,"[386, 115, 430, 160]",bottom_inferred+occluded,caps_behind,1,0.2317
+A1,window_light_occl_02,blue,"[396, 131, 478, 230]",,stripe step,1,0.79
+A1,window_light_occl_02,orange,"[398, 116, 440, 156]",bottom_inferred+occluded,caps_behind,1,0.2368
+A1,window_light_top_01,orange,"[163, 259, 452, 480]",truncated,stripeless piece,1,0.2339
+A1,window_light_topstripe_01,orange,"[173, 240, 426, 480]",truncated,stripeless piece,1,0.477
+A1,window_light_touch_02,orange,"[150, 122, 192, 176]",,stripe step,1,0.7105
+A1,window_light_touch_02,blue,"[190, 123, 240, 178]",,stripe step,1,0.7863
+A1,window_light_touch_02,orange,"[239, 122, 289, 174]",,stripe step,1,0.9013
+A2,window_light_close_01,orange,"[308, 144, 388, 235]",,stripe step,1,0.6257
+A2,window_light_close_02,blue,"[311, 142, 390, 233]",,stripe step,1,0.7962
+A2,window_light_cluster_01,orange,"[315, 118, 366, 162]",bottom_inferred+occluded,caps_behind,1,0.2259
+A2,window_light_cluster_01,blue,"[326, 120, 383, 173]",,stripe step,1,0.6897
+A2,window_light_cluster_01,blue,"[391, 116, 437, 170]",top_inferred,stripe step,1,0.6935
+A2,window_light_cluster_02,orange,"[308, 120, 350, 168]",,stripe step,1,0.7488
+A2,window_light_cluster_02,blue,"[350, 112, 396, 168]",,stripe step,1,0.6568
+A2,window_light_cluster_02,orange,"[394, 117, 430, 161]",occluded,stripe step,1,0.4704
+A2,window_light_cluster_02,blue,"[439, 120, 500, 179]",,stripe step,1,0.7964
+A2,window_light_core_01,blue,"[240, 120, 294, 179]",,stripe step,1,0.748
+A2,window_light_core_01,orange,"[293, 122, 340, 174]",,stripe step,1,0.84
+A2,window_light_core_02,orange,"[370, 121, 417, 171]",,stripe step,1,0.8277
+A2,window_light_core_02,blue,"[420, 118, 475, 176]",top_inferred,stripe step,1,0.7493
+A2,window_light_core_03,orange,"[318, 107, 344, 136]",,stripe step,1,0.6029
+A2,window_light_edge_01,blue,"[0, 132, 32, 197]",occluded+truncated,stripe step,1,0.2125
+A2,window_light_far_02,blue,"[216, 104, 249, 144]",,stripe step,1,0.577
+A2,window_light_far_02,orange,"[240, 106, 271, 135]",occluded,stripe step,1,0.5327
+A2,window_light_far_02,orange,"[332, 107, 363, 135]",occluded,stripe step,1,0.6326
+A2,window_light_far_02,blue,"[434, 107, 467, 140]",,stripe step,1,0.6847
+A2,window_light_occl_01,orange,"[344, 134, 429, 228]",,stripe step,1,0.829
+A2,window_light_occl_01,blue,"[387, 112, 432, 158]",bottom_inferred+occluded,caps_behind,1,0.2308
+A2,window_light_occl_02,blue,"[396, 134, 476, 230]",,stripe step,1,0.7831
+A2,window_light_occl_02,orange,"[399, 117, 439, 161]",bottom_inferred+occluded,caps_behind,1,0.2238
+A2,window_light_top_01,orange,"[164, 260, 449, 480]",truncated,stripeless piece,1,0.2354
+A2,window_light_topstripe_01,orange,"[176, 242, 423, 480]",bottom_inferred+truncated,stripeless piece,1,0.1823
+A2,window_light_touch_02,orange,"[149, 123, 191, 174]",occluded,stripe step,1,0.5907
+A2,window_light_touch_02,blue,"[190, 122, 238, 179]",,stripe step,1,0.6461
+A2,window_light_touch_02,orange,"[241, 122, 287, 174]",,stripe step,1,0.7802

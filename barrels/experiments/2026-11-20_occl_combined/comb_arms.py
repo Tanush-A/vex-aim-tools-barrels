@@ -83,9 +83,18 @@ ARMS = {
     "reduced": _arm(_stack, **_on(FIVE + PIN)),
     "reduced+thin": _arm(_stack, **_on(FIVE + PIN + THIN)),
 }
-if VERIFY is not None:
-    ARMS["combined+verify"] = _arm(_stack, verify=VERIFY, **_on(SIX + PIN))
-    ARMS["combined+verify2"] = _arm(_stack, verify=VERIFY2, skip_half=True, **_on(SIX + PIN))
+
+
+def cal_path(base: str) -> Path:
+    """Where ``verify_calibrate.py --arm <base>`` writes the verifier's limit for the rule detector ``base``."""
+    return OUT / ("verify_calibration.json" if base == "combined" else f"verify_calibration_{base}.json")
+
+
+for _base in ("combined", "reduced", "reduced+thin"):       # `<base>+verify`, `<base>+verify2`: once that base's limit has been calibrated
+    if cal_path(_base).exists():
+        _lim = json.loads(cal_path(_base).read_text())
+        ARMS[f"{_base}+verify"] = dataclasses.replace(ARMS[_base], verify=_lim["limit"])
+        ARMS[f"{_base}+verify2"] = dataclasses.replace(ARMS[_base], verify=_lim["limit2"], verify_skip_half=True)
 # each branch alone, exactly as its own experiment pins it (the other branch's switches off): for "does the combination
 # find less, or draw more wrong boxes, than either branch alone?" (interactions.py; run_levels.py --arms ...)
 _vert = _load("vert_arms_2026_11_20", HERE.parent / "2026-11-20_occl_vertical" / "vert_arms.py")
