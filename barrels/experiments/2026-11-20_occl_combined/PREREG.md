@@ -164,3 +164,88 @@ recordings have been seen.
 the default of this branch, totals and false boxes everywhere, five sentences), `walkthrough.md` (the occlusion logic as
 one idea, each rule an instance, one worked example each), `by_eye.md` (the recordings); `docs/HOW-IT-WORKS.md` §3 and
 `HOW-IT-WORKS-SHORT.md` rewritten so that they describe the combined detector once.
+
+---
+
+# Addendum, 2026-11-20: round 1, and what round 2 is (written before any detector code is changed)
+
+## Round 1 (`results/2026-11-20_occl_combined/round1/`, `sanity/`, `verify/`; code of the merge commit 7292004)
+
+Sanity: the merged code gives the published totals. `stack` 2417 found / 45 boxes where no barrel is; occl-vertical's
+`all` alone 2738 / 45; occl-pin's `pin` 2445 / 45 and `pin+thin` 2556 / 45; `stack` on HOME 28 / 1 / 0, CAMPUS 35 / 0 / 0,
+light / medium / heavy 143 (0) / 99 (1) / 21 (0).
+
+| | `before` | `stack` | `combined` | `combined+thin` | `combined+cover` (report only) |
+|---|---|---|---|---|---|
+| eval table HOME, CAMPUS (found / missed / false) | 27 / 2 / 0; 34 / 1 / 0 | 28 / 1 / 0; 35 / 0 / 0 | same as `stack` | same | same |
+| boxes on negative frames, any set | 0 | 0 | 0 | 0 | 0 |
+| scorecard, found of 3888 | (in `round1/scorecard.md`) | 2417 | 2764 | 2738 | 3261 |
+| scorecard, boxes where no barrel is | | 45 | 45 | 45 | 58 |
+| scorecard, cells lower than `stack` | | | 0 | 0 | 0 |
+| false boxes: perfect, typical, bad day without the stripe patch, light (5 and 20 seeds) | | 0 everywhere | 0 everywhere | 0 everywhere | light, 20 seeds: 2 |
+| false boxes, bad day (5 / 20 seeds) | 15 / 75 | 3 / 5 | 3 / 6 | 3 / 5 | 4 / 17 |
+| false boxes, medium (5 / 20 seeds) | 22 / 87 | 1 / 3 | 1 / **7** | 1 / 4 | 4 / 21 |
+| found, medium (of 145 / 580) | 64 / 242 | 99 / 388 | 115 / 444 | 103 / 404 | 125 / 481 |
+| campus clips against `stack`: boxes appearing (wrong); disappearing | | | 1 (0); 0 | 0; 0 | 1 (0); 0 |
+
+**`combined` fails clause (c) at one point: medium damage with 20 seeds, 7 false boxes against `stack`'s 3 (the limit is
+double, 6).** With 5 seeds, the protocol of every earlier test, it is 1 against 1. Every other clause holds: (a), (b),
+the four judged levels at 0 false boxes with 5 and with 20 seeds, bad day 3 / 6 against 3 / 5, the campus clips.
+
+**Attribution** (`round1/levels_false_boxes.csv`, column `drawn_by`; `diag_false.py`): the four extra boxes at medium
+(HOME `cluster_02`, seeds 12, 13, 15, 17), the one extra at bad day (`cluster_01`, seed 18) and the four extra at "worst
+seen" are all drawn by **`slices_behind`**. In each, the damage cut a stripe so that a narrow piece of it is left
+beside a barrel found next to it in the bunch; that barrel's box reaches a few pixels lower than the piece's row
+predicts, so it counts as "standing nearer", and the box is drawn a barrel wide away from it: on the wrong side.
+occl-vertical's arm alone (`vertical_alone`, pin switches off) draws the same five boxes on the same masks. **So this
+is not an interaction of the two branches: it is `slice_behind` itself**, seen now because occl-vertical judged the
+damaged masks with 5 seeds (1 false box against 1) and this experiment registered 20.
+
+**By the rule as written ("how it is applied", 2): `slice_behind` is taken out, and the reduced combination is run
+through the whole battery once.** No change to the rule, and no repair of `slices_behind` here (that would be a new
+detection condition, which this experiment does not do; what the rule buys and what stands between it and a pass is
+reported).
+
+## Interactions (the four predictions)
+
+`interactions.py`, scene by scene on the scorecard:
+
+- **`combined` (the six + `pin_outline`): none.** It finds 2764 scenes, exactly the scenes found by occl-vertical's arm
+  alone or by `pin` alone (2738 and 2445, 2764 by either); 0 scenes lost, 0 with an extra box where no barrel is.
+  Predictions 2, 3 and 4 did not happen. On the damage levels, the eval table and the recordings nothing is lower than
+  either branch alone either (the alone arms on the damage levels are being run: `alone/levels.md`).
+- **`pin_thin` × `slice_behind`: real (prediction 1).** `combined+thin` finds 2738, against 2825 by either branch alone:
+  **87 scenes lost**, every one a scene that `slices_behind` finds alone (frame edge at 75 %: 57; same color beside and
+  lower at 75 %: 15; other color beside at 75 %: 10; other color beside and lower at 75 %: 4; same color beside at 75 %:
+  1); also medium damage 115 → 103 of 145 and the one box on the campus clips (`r3_enter_leave` 013) gone. Example:
+  CAMPUS `hand_02`, blue (127, 124, 188, 187) behind a blue barrel beside and lower, 75 % hidden: found by
+  `vertical_alone`, no box in `combined+thin`. Cause, as predicted: with `pin_thin` the finder no longer refuses the
+  narrow piece (so it is not in `narrows`, which is all `slices_behind` is given); it becomes a thin stripe, the outline
+  does not place it, and it is dropped. No box where no barrel is appears.
+
+**The fix (the smallest that restores the hand-over; no new rule, no new number):** a piece under the finder's old
+width floor is handed to the left-over rules (`narrows`) **whether or not** the lower floor of `pin_thin` (or
+`slice_box`) also lets it into the stripe step as a thin stripe; and such a thin stripe is not handed over a second
+time as "left without a box". So `post_pairs` and `slices_behind` are given exactly the pieces they were given on
+their own branch; a piece the stripe step did box is left out by the check both already make (`_piece_of_found`: a
+piece of a found barrel's own stripe) and by "there is already a box of this color here". Stated before the run:
+`combined+thin` should then find at least what either branch finds alone on every cell; if a thin piece boxed by the
+outline and the same piece boxed by `slices_behind` disagree, the stripe step's box stands (it runs first).
+
+## Round 2 (the last round)
+
+Arms: `before`, `stack`, `combined` (for the record: what `slice_behind` buys and costs), **`reduced`** = `combined`
+without `slice_behind`, **`reduced+thin`** = `reduced` + `pin_thin`, `combined+thin` (with the fix; for the record),
+`combined+cover` (report only). The whole battery again on the fixed code (`round2/`).
+
+- `reduced` is judged against `stack` by clauses (a), (b), (c). If it passes, `half_stripe`, `half_thin`, `post_pair`,
+  `stripe_wide`, `cap_low` and `pin_outline` are on by default and `slice_behind` is off.
+- `pin_thin` is judged on top of it (`reduced+thin`): the same clauses against `stack`, no scorecard cell lower than
+  `reduced`, false boxes at every judged level not higher than `reduced`'s.
+- If `reduced` fails a clause, nothing of this experiment is on by default (the defaults stay `stack`'s), and the
+  numbers are reported. No further search.
+
+The verifier (round 1, limit 0.16 by the registered rule: `verify_calibration.md`): it loses right boxes on CAMPUS
+(`clutter`, `occl`: 35 → 33 found) and on the campus clips, so it fails its rule whatever the scorecard says; it stays
+OFF. It is run once more on the combination that becomes the default (the calibration repeated on that arm's boxes by
+the same rule), for the report.
