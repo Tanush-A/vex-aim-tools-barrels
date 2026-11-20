@@ -52,7 +52,9 @@ def main(argv=None) -> int:
             if key not in cells:
                 cells[key] = {}; order.append(key)
             cells[key][a] = row.cand
-            assert cells[key].setdefault(ref, row.base) == row.base, f"`{ref}` differs between two reports at {key}"
+            seen = cells[key].setdefault(ref, row.base)           # the counts only: a Cell with a NaN median is not equal to itself
+            assert (seen.frames, seen.barrels, seen.found, seen.missed, seen.false, seen.neg_false) == \
+                (row.base.frames, row.base.barrels, row.base.found, row.base.missed, row.base.false, row.base.neg_false), f"`{ref}` differs between two reports at {key}"
     names = [ref] + arms
     with (out / "eval.csv").open("w", newline="") as f:
         w = csv.writer(f)
