@@ -56,17 +56,19 @@ Still missed on the white tables: one barrel in home `cluster_01` that shows onl
 
 A condition = one table under one light. Aim for ten or more conditions; few scenes each.
 
+Shoot order (Tanush, 2026-11-20): the shots without clutter first, then every shot with clutter in one run, so the clutter is set up once; `neg_02` is the clutter left after the barrels come out.
+
 | # | name | shot |
 |---|---|---|
 | 1 | `neg_01` | empty table |
-| 2 | `neg_02` | clutter only, including one orange and one blue thing that is not a barrel |
-| 3 | `core_01` | four barrels spread out, mixed colors, near to far, nothing else |
-| 4 | `touch_01` | two or three touching, mixed colors |
-| 5 | `occl_01` | a barrel about half hidden behind a barrel of the other color, clutter in the background |
-| 6 | `occl_02` | a barrel about half hidden at the side by a clutter object |
-| 7 | `close_01` | one barrel about 2 cm from the bumper |
-| 8 | `edge_01` | one barrel cut by the left or right frame edge, one fully in view |
-| 9 | `clutter_01` | barrels among clutter, an orange or blue non-barrel right next to a barrel |
+| 2 | `core_01` | four barrels spread out, mixed colors, near to far, nothing else |
+| 3 | `touch_01` | two or three touching, mixed colors |
+| 4 | `close_01` | one barrel about 2 cm from the bumper |
+| 5 | `edge_01` | one barrel cut by the left or right frame edge, one fully in view |
+| 6 | `occl_01` | a barrel about half hidden behind a barrel of the other color, clutter in the background |
+| 7 | `occl_02` | a barrel about half hidden at the side by a clutter object |
+| 8 | `clutter_01` | barrels among clutter, an orange or blue non-barrel right next to a barrel |
+| 9 | `neg_02` | clutter only, including one orange and one blue thing that is not a barrel |
 
 ### Occlusion set: 16 shots, once (consolidated 2026-11-20)
 
