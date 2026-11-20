@@ -11,7 +11,8 @@ from barrels import detector as det, io
 from test_detector import CAM, CFG2, paint_barrel
 from test_detector_side import _cut_straight
 
-BASE = dataclasses.replace(CFG2, slice_box=False, cover_unpinned=False, stripe_two=False, edge_check=False, cap_same=False)   # the detector before this round
+BASE = dataclasses.replace(CFG2, slice_box=False, cover_unpinned=False, stripe_two=False, edge_check=False, cap_same=False,   # the detector before this round
+                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False)   # ... and without the switches of 2026-11-20 (tests/test_detector_vertical.py)
 SLICE = dataclasses.replace(BASE, slice_box=True)
 COVER = dataclasses.replace(BASE, slice_box=True, cover_unpinned=True)
 TWO = dataclasses.replace(BASE, stripe_two=True)

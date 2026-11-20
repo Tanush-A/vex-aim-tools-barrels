@@ -1,0 +1,3 @@
+arm,frame,what,color,bbox,flags,source
+behind,2026-11-07_campus/r3_enter_leave/frame_013,added,orange,"[619, 142, 640, 215]",occluded+truncated,det2
+all,2026-11-07_campus/r3_enter_leave/frame_013,added,orange,"[619, 142, 640, 215]",occluded+truncated,det2
