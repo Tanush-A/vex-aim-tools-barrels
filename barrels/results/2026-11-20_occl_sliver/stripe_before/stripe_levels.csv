@@ -1,0 +1,43 @@
+level,arm,barrels,found,missed,false
+perfect masks,start,29,28,1,0
+perfect masks,start+cover,29,28,1,0
+stripe patch 0.03 W,start,580,545,35,12
+stripe patch 0.03 W,start+cover,580,551,29,9
+stripe patch 0.06 W,start,580,544,36,13
+stripe patch 0.06 W,start+cover,580,550,30,12
+stripe patch 0.1 W,start,580,543,37,13
+stripe patch 0.1 W,start+cover,580,546,34,12
+stripe patch 0.15 W,start,580,538,42,15
+stripe patch 0.15 W,start+cover,580,547,33,11
+stripe patch 0.2 W,start,580,543,37,9
+stripe patch 0.2 W,start+cover,580,544,36,16
+stripe patch 0.3 W,start,580,547,33,5
+stripe patch 0.3 W,start+cover,580,555,25,5
+one stripe break 0.03 W,start,580,560,20,0
+one stripe break 0.03 W,start+cover,580,560,20,0
+one stripe break 0.06 W,start,580,553,27,9
+one stripe break 0.06 W,start+cover,580,556,24,8
+one stripe break 0.1 W,start,580,536,44,18
+one stripe break 0.1 W,start+cover,580,544,36,16
+one stripe break 0.15 W,start,580,539,41,11
+one stripe break 0.15 W,start+cover,580,547,33,11
+one stripe break 0.2 W,start,580,545,35,2
+one stripe break 0.2 W,start+cover,580,547,33,3
+one stripe break 0.3 W,start,580,535,45,3
+one stripe break 0.3 W,start+cover,580,538,42,3
+two stripe breaks 0.03 W,start,580,560,20,1
+two stripe breaks 0.03 W,start+cover,580,560,20,0
+two stripe breaks 0.06 W,start,580,553,27,13
+two stripe breaks 0.06 W,start+cover,580,540,40,23
+two stripe breaks 0.1 W,start,580,541,39,10
+two stripe breaks 0.1 W,start+cover,580,531,49,25
+two stripe breaks 0.15 W,start,580,535,45,2
+two stripe breaks 0.15 W,start+cover,580,536,44,10
+two stripe breaks 0.2 W,start,580,530,50,2
+two stripe breaks 0.2 W,start+cover,580,530,50,2
+two stripe breaks 0.3 W,start,580,465,115,4
+two stripe breaks 0.3 W,start+cover,580,467,113,4
+"white tables, bad day",start,580,547,33,5
+"white tables, bad day",start+cover,580,554,26,2
+medium,start,580,400,180,3
+medium,start+cover,580,400,180,5
