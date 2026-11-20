@@ -39,6 +39,11 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
                        side, and a partly seen stripe that no side reason places is a barrel W wide from that end
                        (``pin_outline``); a thin piece of stripe is a barrel only as a full slice with such an end
                        (``pin_thin``).
+  2026-11-20 (combined)  the two branches of 2026-11-20 together (experiments/2026-11-20_occl_combined): on by default
+                       are half_stripe, half_thin, post_pair, stripe_wide, cap_low, pin_outline and pin_thin; slice_behind
+                       is off (false boxes on damaged masks), as are slice_box, cover_unpinned and stripe_two. A piece under
+                       the finder's old width floor is handed to the left-over rules whether or not the lower floor of
+                       pin_thin also lets it into the stripe step.
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -141,8 +146,10 @@ class DetConfig:
                                  # barrel apart: one barrel behind a post (see post_pairs)
     stripe_wide: bool = True     # stripe_two, asked only where body color is seen right above AND right below the stripe region (else
                                  # nothing but the row says how big the barrel is, and a near barrel runs wider than its row predicts)
-    slice_behind: bool = True    # a stripe piece under the finder's width floor that is a full slice, with exactly one side hidden by a
-                                 # found barrel standing nearer or by the frame edge: a barrel wide from the seen edge of the other side
+    slice_behind: bool = False   # a stripe piece under the finder's width floor that is a full slice, with exactly one side hidden by a
+                                 # found barrel standing nearer or by the frame edge: a barrel wide from the seen edge of the other side.
+                                 # OFF since 2026-11-20 (experiments/2026-11-20_occl_combined): on damaged masks it boxes the wrong side of
+                                 # a slice left beside a found barrel in a bunch (medium damage, 20 seeds: 7 false boxes against 3)
     cap_low: bool = True         # caps_behind: a top counts from width_min (0.4) x an upper body tall (False = height_min, 0.5)
     # occlusion, the sideways position (2026-11-20, experiments/2026-11-20_occl_pin): the barrel's outline is known once its distance
     # is known; an end of the seen part whose corners follow it is the barrel's own side, and the barrel is W wide from there
@@ -150,7 +157,8 @@ class DetConfig:
                                  # placed by the outline when exactly one end of what is seen is the barrel's own side (see
                                  # _outline_place): the box is W wide from that end. When the outline does not know, and with False: as
                                  # before (centred on what is seen, or no box). A box placed this way never replaces a found barrel's box
-    pin_thin: bool = False       # with pin_outline: a stripe piece counts from stripe_h_min x a stripe height wide and may be taller than
+    pin_thin: bool = True        # (on since 2026-11-20, experiments/2026-11-20_occl_combined: no false box added anywhere, no cell lower)
+                                 # with pin_outline: a stripe piece counts from stripe_h_min x a stripe height wide and may be taller than
                                  # wide (the floor of slice_box). A piece under the old floor ("thin") is a barrel only when it is a full
                                  # slice (neither its top nor its bottom inferred) AND the outline knows; its box is where the outline
                                  # puts it. It never changes another barrel's box, and a thin piece that shares rows with a found

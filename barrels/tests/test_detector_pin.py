@@ -260,9 +260,12 @@ def test_end_costs_tell_a_barrels_own_side_from_a_cut():
     assert det._outline_place(s, mask, CAM, PIN, truth[0], truth[0] + W // 2)[0] == truth[0]
 
 
-def test_pin_outline_is_on_by_default_and_pin_thin_is_off_and_needs_it():
-    """2026-11-20: pin_outline passed the pre-registered rule and is the default; pin_thin did not and stays off."""
+def test_pin_outline_and_pin_thin_are_on_by_default_and_pin_thin_needs_pin_outline():
+    """2026-11-20: pin_outline passed its pre-registered rule on wip/occl-pin; pin_thin passed the rule of the combined
+    experiment (experiments/2026-11-20_occl_combined) and is on since then; slice_behind failed it and is off."""
     cfg = det.DetConfig()
-    assert cfg.pin_outline is True and cfg.pin_thin is False and cfg.pin_good == 0.05
+    assert cfg.pin_outline is True and cfg.pin_thin is True and cfg.pin_good == 0.05 and cfg.slice_behind is False
+    assert cfg.slice_box is False and cfg.cover_unpinned is False and cfg.stripe_two is False
+    assert all(getattr(cfg, k) for k in ("half_stripe", "half_thin", "post_pair", "stripe_wide", "cap_low", "edge_check", "cap_same"))
     mask, truth = _round_cut(0.0, _thin_share())
     assert det.detect(mask, dataclasses.replace(BASE, pin_thin=True), CAM) == []      # pin_thin without pin_outline changes nothing

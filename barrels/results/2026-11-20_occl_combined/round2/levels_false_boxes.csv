@@ -1,0 +1,394 @@
+level,arm,stem,seed,color,box,flags,drawn_by,width_over_expected,best_overlap_same_color,that_truth_box,that_truth_also_missed
+"white tables, bad day",before,cluster_02,0,orange,"[320, 120, 369, 169]",occluded,stripe step,1.01,0.48,"[306, 119, 351, 170]",1
+"white tables, bad day",stack,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",combined,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",combined+thin,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",before,cluster_02,1,orange,"[321, 120, 370, 169]",occluded,stripe step,1.01,0.46,"[306, 119, 351, 170]",1
+"white tables, bad day",combined+cover,cluster_02,1,blue,"[346, 121, 427, 164]",occluded,stripe step,1.77,0.54,"[351, 119, 398, 167]",0
+"white tables, bad day",before,core_02,1,blue,"[398, 122, 449, 174]",occluded,stripe step,1.0,0.39,"[419, 120, 471, 175]",1
+"white tables, bad day",stack,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",combined,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",combined+thin,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,2,orange,"[292, 118, 337, 163]",occluded,stripe step,0.99,0.35,"[313, 115, 356, 164]",1
+"white tables, bad day",before,core_01,2,blue,"[258, 124, 311, 177]",occluded,stripe step,1.0,0.43,"[239, 123, 290, 178]",1
+"white tables, bad day",before,far_02,2,orange,"[321, 107, 354, 136]",occluded,stripe step,1.07,0.48,"[333, 106, 363, 137]",1
+"white tables, bad day",before,touch_02,2,orange,"[162, 123, 213, 175]",occluded,stripe step,0.98,0.44,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,3,orange,"[289, 118, 334, 163]",occluded,stripe step,0.99,0.3,"[313, 115, 356, 164]",1
+"white tables, bad day",before,cluster_01,3,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+"white tables, bad day",combined+cover,cluster_02,3,blue,"[346, 121, 428, 164]",occluded,stripe step,1.79,0.54,"[351, 119, 398, 167]",0
+"white tables, bad day",before,core_02,3,blue,"[402, 122, 453, 174]",occluded,stripe step,1.0,0.47,"[419, 120, 471, 175]",1
+"white tables, bad day",before,far_02,3,orange,"[320, 107, 353, 136]",occluded,stripe step,1.07,0.44,"[333, 106, 363, 137]",1
+"white tables, bad day",before,occl_02,3,blue,"[421, 133, 502, 229]",occluded,stripe step,0.99,0.49,"[393, 141, 478, 230]",1
+"white tables, bad day",before,touch_02,3,orange,"[163, 123, 214, 175]",occluded,stripe step,0.98,0.42,"[148, 121, 192, 176]",1
+"white tables, bad day",combined+cover,touch_02,3,orange,"[112, 124, 200, 170]",occluded,stripe step,1.79,0.46,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,4,orange,"[296, 118, 341, 163]",occluded,stripe step,0.99,0.44,"[313, 115, 356, 164]",1
+"white tables, bad day",stack,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",combined,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",combined+thin,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",before,core_02,4,blue,"[403, 122, 454, 174]",occluded,stripe step,1.0,0.49,"[419, 120, 471, 175]",1
+"white tables, bad day",combined+cover,touch_02,4,orange,"[203, 124, 254, 173]",occluded,stripe step,1.01,0.16,"[240, 122, 289, 174]",0
+"white tables, bad day",before,cluster_01,5,orange,"[292, 118, 337, 163]",occluded,stripe step,0.99,0.35,"[313, 115, 356, 164]",1
+"white tables, bad day",before,far_02,5,blue,"[228, 112, 264, 143]",occluded,stripe step,1.04,0.41,"[218, 106, 250, 144]",1
+"white tables, bad day",combined+cover,touch_02,5,orange,"[236, 124, 326, 171]",occluded,stripe step,1.81,0.51,"[240, 122, 289, 174]",0
+"white tables, bad day",before,core_01,6,blue,"[256, 124, 309, 177]",occluded,stripe step,1.0,0.47,"[239, 123, 290, 178]",1
+"white tables, bad day",combined+cover,edge_01,6,blue,"[0, 135, 16, 197]",occluded+truncated,stripe step,0.25,0.45,"[0, 133, 34, 198]",0
+"white tables, bad day",before,far_02,6,blue,"[227, 112, 263, 143]",occluded,stripe step,1.04,0.44,"[218, 106, 250, 144]",1
+"white tables, bad day",before,touch_02,6,orange,"[121, 123, 173, 175]",occluded,stripe step,1.0,0.34,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,7,blue,"[314, 120, 364, 171]",occluded,stripe step,1.01,0.48,"[331, 119, 382, 171]",1
+"white tables, bad day",combined+cover,cluster_01,7,orange,"[377, 118, 422, 162]",occluded,stripe step,1.01,0.37,"[361, 117, 400, 163]",1
+"white tables, bad day",before,core_02,7,blue,"[398, 122, 449, 174]",occluded,stripe step,1.0,0.39,"[419, 120, 471, 175]",1
+"white tables, bad day",before,touch_02,7,orange,"[128, 123, 180, 175]",occluded,stripe step,1.0,0.48,"[148, 121, 192, 176]",1
+"white tables, bad day",combined+cover,touch_02,7,orange,"[236, 124, 326, 171]",occluded,stripe step,1.81,0.51,"[240, 122, 289, 174]",0
+"white tables, bad day",before,cluster_01,8,orange,"[299, 118, 343, 163]",occluded,stripe step,0.97,0.49,"[313, 115, 356, 164]",1
+"white tables, bad day",before,cluster_01,8,blue,"[350, 120, 400, 171]",occluded,stripe step,1.01,0.46,"[331, 119, 382, 171]",1
+"white tables, bad day",before,cluster_01,8,blue,"[372, 120, 420, 169]",occluded,stripe step,0.99,0.47,"[388, 118, 437, 170]",1
+"white tables, bad day",combined+cover,cluster_01,8,blue,"[301, 121, 384, 169]",occluded,stripe step,1.71,0.58,"[331, 119, 382, 171]",0
+"white tables, bad day",before,cluster_02,8,orange,"[409, 117, 454, 160]",occluded,stripe step,1.03,0.34,"[390, 116, 432, 163]",1
+"white tables, bad day",before,core_02,8,orange,"[349, 121, 398, 172]",occluded,stripe step,0.98,0.42,"[368, 120, 418, 173]",1
+"white tables, bad day",before,core_03,8,orange,"[323, 103, 355, 135]",occluded+top_inferred,stripe step,1.06,0.5,"[317, 108, 346, 137]",1
+"white tables, bad day",before,far_02,8,blue,"[229, 112, 265, 143]",occluded,stripe step,1.04,0.39,"[218, 106, 250, 144]",1
+"white tables, bad day",before,far_02,8,orange,"[233, 106, 264, 134]",occluded,stripe step,1.04,0.48,"[244, 105, 273, 135]",1
+"white tables, bad day",before,far_02,8,orange,"[320, 107, 353, 136]",occluded,stripe step,1.07,0.44,"[333, 106, 363, 137]",1
+"white tables, bad day",before,touch_02,8,orange,"[221, 123, 272, 173]",occluded,stripe step,1.01,0.46,"[240, 122, 289, 174]",1
+"white tables, bad day",combined+cover,touch_02,8,orange,"[236, 123, 323, 172]",occluded,stripe step,1.74,0.54,"[240, 122, 289, 174]",0
+"white tables, bad day",before,cluster_01,9,blue,"[314, 120, 363, 171]",occluded,stripe step,0.99,0.46,"[331, 119, 382, 171]",1
+"white tables, bad day",before,cluster_02,9,orange,"[320, 120, 369, 169]",occluded,stripe step,1.01,0.48,"[306, 119, 351, 170]",1
+"white tables, bad day",before,core_02,9,orange,"[350, 121, 399, 172]",occluded,stripe step,0.98,0.44,"[368, 120, 418, 173]",1
+"white tables, bad day",before,core_02,9,blue,"[402, 122, 453, 174]",occluded,stripe step,1.0,0.47,"[419, 120, 471, 175]",1
+"white tables, bad day",before,touch_02,9,orange,"[161, 123, 212, 175]",occluded,stripe step,0.98,0.47,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,10,blue,"[410, 120, 459, 169]",occluded,stripe step,1.01,0.36,"[388, 118, 437, 170]",1
+"white tables, bad day",before,cluster_02,10,orange,"[407, 117, 452, 160]",occluded,stripe step,1.03,0.38,"[390, 116, 432, 163]",1
+"white tables, bad day",before,core_01,10,blue,"[259, 124, 312, 177]",occluded,stripe step,1.0,0.41,"[239, 123, 290, 178]",1
+"white tables, bad day",before,core_02,10,blue,"[402, 122, 453, 174]",occluded,stripe step,1.0,0.47,"[419, 120, 471, 175]",1
+"white tables, bad day",before,touch_02,10,orange,"[165, 123, 216, 175]",occluded,stripe step,0.98,0.38,"[148, 121, 192, 176]",1
+"white tables, bad day",combined+cover,touch_02,10,orange,"[114, 124, 200, 171]",occluded,stripe step,1.73,0.47,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,11,blue,"[404, 120, 452, 169]",occluded,stripe step,0.99,0.49,"[388, 118, 437, 170]",1
+"white tables, bad day",before,core_01,11,orange,"[308, 122, 359, 175]",occluded,stripe step,0.98,0.49,"[292, 121, 342, 176]",1
+"white tables, bad day",before,far_02,11,blue,"[229, 112, 265, 143]",occluded,stripe step,1.04,0.39,"[218, 106, 250, 144]",1
+"white tables, bad day",before,occl_02,11,blue,"[422, 133, 503, 229]",occluded,stripe step,0.99,0.47,"[393, 141, 478, 230]",1
+"white tables, bad day",stack,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",combined,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",combined+thin,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,12,blue,"[372, 120, 420, 169]",occluded,stripe step,0.99,0.47,"[388, 118, 437, 170]",1
+"white tables, bad day",before,core_03,12,orange,"[323, 103, 355, 135]",occluded+top_inferred,stripe step,1.06,0.5,"[317, 108, 346, 137]",1
+"white tables, bad day",combined+cover,edge_01,12,blue,"[0, 135, 17, 197]",occluded+truncated,stripe step,0.27,0.48,"[0, 133, 34, 198]",0
+"white tables, bad day",before,far_02,12,orange,"[345, 107, 378, 136]",occluded,stripe step,1.07,0.38,"[333, 106, 363, 137]",1
+"white tables, bad day",before,touch_02,12,orange,"[126, 123, 178, 175]",occluded,stripe step,1.0,0.44,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_01,13,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+"white tables, bad day",before,core_01,13,orange,"[274, 122, 325, 175]",occluded,stripe step,0.98,0.47,"[292, 121, 342, 176]",1
+"white tables, bad day",before,core_02,13,orange,"[352, 121, 401, 172]",occluded,stripe step,0.98,0.49,"[368, 120, 418, 173]",1
+"white tables, bad day",combined+cover,edge_01,13,blue,"[0, 135, 16, 197]",occluded+truncated,stripe step,0.25,0.45,"[0, 133, 34, 198]",0
+"white tables, bad day",before,cluster_01,14,blue,"[350, 120, 400, 171]",occluded,stripe step,1.01,0.46,"[331, 119, 382, 171]",1
+"white tables, bad day",before,cluster_02,14,orange,"[405, 117, 450, 160]",occluded,stripe step,1.03,0.42,"[390, 116, 432, 163]",1
+"white tables, bad day",before,core_03,14,orange,"[325, 103, 357, 135]",occluded+top_inferred,stripe step,1.06,0.44,"[317, 108, 346, 137]",1
+"white tables, bad day",before,far_02,14,orange,"[231, 107, 262, 134]",occluded,stripe step,1.04,0.4,"[244, 105, 273, 135]",1
+"white tables, bad day",before,far_02,14,orange,"[344, 107, 377, 136]",occluded,stripe step,1.07,0.41,"[333, 106, 363, 137]",1
+"white tables, bad day",before,far_02,14,blue,"[445, 109, 478, 138]",occluded,stripe step,1.04,0.46,"[433, 106, 468, 139]",1
+"white tables, bad day",stack,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",combined,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",combined+thin,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",combined+cover,edge_01,15,blue,"[0, 135, 15, 197]",occluded+truncated,stripe step,0.23,0.42,"[0, 133, 34, 198]",0
+"white tables, bad day",before,touch_02,15,orange,"[121, 123, 173, 175]",occluded,stripe step,1.0,0.34,"[148, 121, 192, 176]",1
+"white tables, bad day",before,cluster_02,16,orange,"[403, 117, 448, 160]",occluded,stripe step,1.03,0.47,"[390, 116, 432, 163]",1
+"white tables, bad day",before,core_02,16,blue,"[436, 122, 487, 174]",occluded,stripe step,1.0,0.49,"[419, 120, 471, 175]",1
+"white tables, bad day",before,far_02,16,blue,"[445, 109, 478, 138]",occluded,stripe step,1.04,0.46,"[433, 106, 468, 139]",1
+"white tables, bad day",before,cluster_02,17,orange,"[323, 120, 372, 169]",occluded,stripe step,1.01,0.41,"[306, 119, 351, 170]",1
+"white tables, bad day",before,far_02,17,blue,"[229, 112, 265, 143]",occluded,stripe step,1.04,0.39,"[218, 106, 250, 144]",1
+"white tables, bad day",combined,cluster_01,18,orange,"[379, 118, 424, 162]",occluded,slices_behind,1.01,0.32,"[361, 117, 400, 163]",1
+"white tables, bad day",combined+thin,cluster_01,18,orange,"[379, 118, 424, 162]",occluded,slices_behind,1.01,0.32,"[361, 117, 400, 163]",1
+"white tables, bad day",combined+cover,cluster_01,18,blue,"[386, 121, 472, 164]",occluded,stripe step,1.88,0.51,"[388, 118, 437, 170]",1
+"white tables, bad day",before,core_02,18,blue,"[436, 122, 487, 174]",occluded,stripe step,1.0,0.49,"[419, 120, 471, 175]",1
+"white tables, bad day",before,far_02,18,orange,"[232, 106, 263, 134]",occluded,stripe step,1.04,0.44,"[244, 105, 273, 135]",1
+"white tables, bad day",before,far_02,18,orange,"[320, 107, 353, 136]",occluded,stripe step,1.07,0.44,"[333, 106, 363, 137]",1
+"white tables, bad day",before,touch_02,18,orange,"[165, 123, 216, 175]",occluded,stripe step,0.98,0.38,"[148, 121, 192, 176]",1
+"white tables, bad day",combined+cover,touch_02,18,orange,"[114, 124, 200, 171]",occluded,stripe step,1.73,0.47,"[148, 121, 192, 176]",1
+"white tables, bad day",before,close_01,19,orange,"[333, 144, 416, 234]",occluded,stripe step,0.98,0.49,"[302, 143, 390, 235]",1
+"white tables, bad day",combined+cover,cluster_02,19,blue,"[346, 121, 429, 164]",occluded,stripe step,1.81,0.53,"[351, 119, 398, 167]",0
+"white tables, bad day",before,far_02,19,orange,"[342, 107, 375, 136]",occluded,stripe step,1.07,0.48,"[333, 106, 363, 137]",1
+"white tables, bad day",before,far_02,19,blue,"[444, 109, 477, 138]",occluded,stripe step,1.04,0.49,"[433, 106, 468, 139]",1
+"white tables, bad day",before,touch_02,19,orange,"[162, 123, 213, 175]",occluded,stripe step,0.98,0.44,"[148, 121, 192, 176]",1
+"white tables, bad day",before,touch_02,19,blue,"[204, 124, 258, 177]",occluded,stripe step,1.02,0.49,"[187, 122, 240, 178]",1
+bad day without the stripe patch,before,cluster_01,4,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+bad day without the stripe patch,before,cluster_01,7,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+bad day without the stripe patch,before,cluster_01,8,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+bad day without the stripe patch,before,cluster_01,18,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+light,before,cluster_01,6,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+light,combined+cover,occl_02,7,orange,"[362, 118, 442, 152]",occluded,stripe step,2.04,0.49,"[395, 114, 441, 158]",1
+light,before,cluster_01,9,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+light,combined+cover,occl_02,12,orange,"[362, 118, 442, 152]",occluded,stripe step,2.04,0.49,"[395, 114, 441, 158]",1
+light,before,cluster_01,16,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+light,before,cluster_01,17,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+light,before,cluster_01,19,orange,"[348, 111, 390, 162]",occluded+top_inferred,stripe step,0.94,0.5,"[361, 117, 400, 163]",1
+medium,before,close_01,0,orange,"[336, 144, 419, 234]",occluded,stripe step,0.98,0.45,"[302, 143, 390, 235]",1
+medium,before,cluster_01,0,blue,"[308, 117, 357, 171]",occluded+top_inferred,stripe step,0.99,0.34,"[331, 119, 382, 171]",1
+medium,before,cluster_02,0,orange,"[323, 120, 372, 169]",occluded,stripe step,1.01,0.41,"[306, 119, 351, 170]",1
+medium,before,core_01,0,orange,"[267, 122, 318, 175]",occluded,stripe step,0.98,0.34,"[292, 121, 342, 176]",1
+medium,before,close_01,1,orange,"[269, 144, 351, 234]",occluded,stripe step,0.96,0.4,"[302, 143, 390, 235]",1
+medium,before,cluster_01,1,blue,"[414, 121, 463, 169]",occluded,stripe step,1.01,0.29,"[388, 118, 437, 170]",1
+medium,before,cluster_02,1,blue,"[421, 123, 474, 178]",occluded,stripe step,0.99,0.38,"[443, 122, 500, 179]",1
+medium,before,close_02,2,blue,"[351, 142, 432, 232]",occluded,stripe step,0.97,0.33,"[308, 141, 392, 231]",1
+medium,before,cluster_01,2,blue,"[412, 121, 461, 169]",occluded,stripe step,1.01,0.32,"[388, 118, 437, 170]",1
+medium,before,cluster_02,2,orange,"[279, 121, 328, 169]",occluded,stripe step,1.01,0.29,"[306, 119, 351, 170]",1
+medium,combined+cover,cluster_02,2,orange,"[328, 120, 377, 169]",occluded,stripe step,1.01,0.32,"[306, 119, 351, 170]",0
+medium,before,touch_02,2,orange,"[164, 123, 215, 175]",occluded,stripe step,0.98,0.4,"[148, 121, 192, 176]",1
+medium,before,touch_02,2,orange,"[215, 123, 266, 173]",occluded,stripe step,1.01,0.34,"[240, 122, 289, 174]",1
+medium,before,close_01,3,orange,"[338, 144, 421, 234]",occluded,stripe step,0.98,0.43,"[302, 143, 390, 235]",1
+medium,before,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,stack,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,combined,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,reduced,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,reduced+thin,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,combined+thin,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,combined+cover,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,before,cluster_02,3,blue,"[366, 120, 414, 166]",occluded,stripe step,1.02,0.49,"[351, 119, 398, 167]",1
+medium,before,core_01,3,orange,"[317, 122, 368, 175]",occluded,stripe step,0.98,0.32,"[292, 121, 342, 176]",1
+medium,before,occl_02,3,blue,"[426, 133, 507, 229]",occluded,stripe step,0.99,0.43,"[393, 141, 478, 230]",1
+medium,before,touch_02,3,orange,"[165, 123, 216, 175]",occluded,stripe step,0.98,0.38,"[148, 121, 192, 176]",1
+medium,combined+cover,touch_02,3,orange,"[236, 123, 323, 172]",occluded,stripe step,1.74,0.54,"[240, 122, 289, 174]",0
+medium,before,close_02,4,blue,"[277, 142, 358, 232]",occluded,stripe step,0.97,0.43,"[308, 141, 392, 231]",1
+medium,before,cluster_02,4,blue,"[471, 120, 525, 179]",occluded+top_inferred,stripe step,1.0,0.35,"[443, 122, 500, 179]",0
+medium,combined+cover,cluster_02,4,orange,"[307, 121, 387, 168]",occluded,stripe step,1.67,0.52,"[306, 119, 351, 170]",0
+medium,before,core_02,4,blue,"[398, 122, 449, 174]",occluded,stripe step,1.0,0.39,"[419, 120, 471, 175]",1
+medium,before,touch_02,4,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+medium,before,close_02,5,blue,"[282, 142, 363, 232]",occluded,stripe step,0.97,0.49,"[308, 141, 392, 231]",1
+medium,before,occl_01,5,orange,"[374, 135, 454, 228]",occluded,stripe step,0.98,0.41,"[340, 139, 423, 229]",0
+medium,before,touch_02,5,orange,"[168, 123, 219, 175]",occluded,stripe step,0.98,0.33,"[148, 121, 192, 176]",1
+medium,before,touch_02,5,blue,"[213, 124, 267, 177]",occluded,stripe step,1.02,0.33,"[187, 122, 240, 178]",1
+medium,before,cluster_02,6,orange,"[329, 120, 378, 169]",occluded,stripe step,1.01,0.3,"[306, 119, 351, 170]",1
+medium,before,cluster_02,6,blue,"[466, 123, 520, 179]",occluded,stripe step,1.0,0.44,"[443, 122, 500, 179]",1
+medium,before,core_01,6,orange,"[313, 122, 364, 175]",occluded,stripe step,0.98,0.39,"[292, 121, 342, 176]",1
+medium,combined+cover,occl_02,6,orange,"[362, 118, 442, 152]",occluded,stripe step,2.04,0.49,"[395, 114, 441, 158]",1
+medium,before,touch_02,6,orange,"[260, 123, 311, 173]",occluded,stripe step,1.01,0.4,"[240, 122, 289, 174]",1
+medium,before,close_02,7,blue,"[282, 142, 363, 232]",occluded,stripe step,0.97,0.49,"[308, 141, 392, 231]",1
+medium,combined+cover,cluster_02,7,blue,"[335, 120, 382, 166]",occluded,stripe step,1.0,0.48,"[351, 119, 398, 167]",1
+medium,combined+cover,cluster_02,7,blue,"[377, 120, 425, 165]",occluded,stripe step,1.04,0.27,"[351, 119, 398, 167]",1
+medium,before,core_01,7,blue,"[262, 124, 315, 177]",occluded,stripe step,1.0,0.36,"[239, 123, 290, 178]",1
+medium,before,core_02,7,orange,"[347, 121, 396, 172]",occluded,stripe step,0.98,0.38,"[368, 120, 418, 173]",1
+medium,before,close_02,8,blue,"[264, 143, 345, 231]",occluded,stripe step,0.97,0.28,"[308, 141, 392, 231]",1
+medium,combined+cover,cluster_01,8,orange,"[345, 118, 425, 162]",occluded,stripe step,1.79,0.48,"[361, 117, 400, 163]",1
+medium,before,cluster_02,8,orange,"[329, 121, 378, 169]",occluded,stripe step,1.01,0.29,"[306, 119, 351, 170]",1
+medium,before,core_01,8,orange,"[308, 122, 359, 175]",occluded,stripe step,0.98,0.49,"[292, 121, 342, 176]",1
+medium,before,occl_02,8,orange,"[398, 131, 466, 199]",occluded+top_inferred,stripe step,1.04,0.21,"[395, 114, 441, 158]",1
+medium,stack,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,combined,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,reduced,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,reduced+thin,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,combined+thin,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,combined+cover,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,before,touch_02,8,orange,"[127, 123, 179, 175]",occluded,stripe step,1.0,0.46,"[148, 121, 192, 176]",1
+medium,before,touch_02,8,orange,"[217, 123, 268, 173]",occluded,stripe step,1.01,0.38,"[240, 122, 289, 174]",1
+medium,combined+cover,cluster_02,9,blue,"[346, 121, 429, 163]",occluded,stripe step,1.83,0.52,"[351, 119, 398, 167]",0
+medium,combined+cover,occl_02,9,orange,"[362, 118, 442, 152]",occluded,stripe step,2.04,0.49,"[395, 114, 441, 158]",1
+medium,before,touch_02,9,blue,"[211, 124, 265, 177]",occluded,stripe step,1.02,0.36,"[187, 122, 240, 178]",1
+medium,combined+cover,touch_02,9,orange,"[176, 124, 227, 174]",occluded,stripe step,1.0,0.19,"[148, 121, 192, 176]",1
+medium,before,cluster_01,10,blue,"[307, 117, 356, 171]",occluded+top_inferred,stripe step,0.99,0.33,"[331, 119, 382, 171]",1
+medium,before,core_01,10,blue,"[261, 124, 314, 177]",occluded,stripe step,1.0,0.38,"[239, 123, 290, 178]",1
+medium,before,core_01,10,orange,"[317, 122, 368, 175]",occluded,stripe step,0.98,0.32,"[292, 121, 342, 176]",1
+medium,before,occl_02,10,blue,"[421, 133, 502, 229]",occluded,stripe step,0.99,0.49,"[393, 141, 478, 230]",1
+medium,before,cluster_02,11,blue,"[422, 124, 475, 178]",occluded,stripe step,0.99,0.39,"[443, 122, 500, 179]",1
+medium,combined+cover,cluster_02,11,orange,"[304, 121, 387, 168]",occluded,stripe step,1.73,0.52,"[306, 119, 351, 170]",0
+medium,before,core_02,11,orange,"[387, 121, 437, 172]",occluded,stripe step,1.0,0.44,"[368, 120, 418, 173]",1
+medium,before,core_02,11,blue,"[399, 122, 450, 174]",occluded,stripe step,1.0,0.41,"[419, 120, 471, 175]",1
+medium,before,occl_02,11,blue,"[397, 133, 468, 210]",bottom_inferred+occluded,caps_behind,1.0,0.6,"[393, 141, 478, 230]",1
+medium,before,occl_02,11,blue,"[428, 133, 509, 229]",occluded,stripe step,0.99,0.4,"[393, 141, 478, 230]",1
+medium,before,touch_02,11,orange,"[125, 123, 177, 175]",occluded,stripe step,1.0,0.42,"[148, 121, 192, 176]",1
+medium,before,touch_02,11,blue,"[169, 124, 223, 177]",occluded,stripe step,1.02,0.49,"[187, 122, 240, 178]",1
+medium,before,close_02,12,blue,"[273, 142, 354, 232]",occluded,stripe step,0.97,0.38,"[308, 141, 392, 231]",1
+medium,combined+cover,close_02,12,blue,"[354, 142, 436, 232]",occluded,stripe step,0.98,0.29,"[308, 141, 392, 231]",0
+medium,combined,cluster_02,12,blue,"[317, 120, 364, 166]",occluded,slices_behind,1.0,0.16,"[351, 119, 398, 167]",1
+medium,combined+thin,cluster_02,12,blue,"[317, 120, 364, 166]",occluded,slices_behind,1.0,0.16,"[351, 119, 398, 167]",1
+medium,before,core_02,12,blue,"[395, 122, 446, 174]",occluded,stripe step,1.0,0.34,"[419, 120, 471, 175]",1
+medium,combined+cover,touch_02,12,orange,"[112, 124, 201, 171]",occluded,stripe step,1.79,0.46,"[148, 121, 192, 176]",1
+medium,before,cluster_02,13,blue,"[423, 123, 476, 178]",occluded,stripe step,0.99,0.42,"[443, 122, 500, 179]",1
+medium,combined,cluster_02,13,orange,"[359, 117, 401, 160]",occluded,slices_behind,0.96,0.14,"[390, 116, 432, 163]",1
+medium,combined+thin,cluster_02,13,orange,"[359, 117, 401, 160]",occluded,slices_behind,0.96,0.14,"[390, 116, 432, 163]",1
+medium,before,core_02,13,orange,"[350, 121, 399, 172]",occluded,stripe step,0.98,0.44,"[368, 120, 418, 173]",1
+medium,before,core_02,13,blue,"[400, 122, 451, 174]",occluded,stripe step,1.0,0.43,"[419, 120, 471, 175]",1
+medium,before,occl_01,13,orange,"[380, 135, 460, 228]",occluded,stripe step,0.98,0.35,"[340, 139, 423, 229]",1
+medium,before,occl_02,13,blue,"[365, 133, 444, 229]",occluded,stripe step,0.96,0.42,"[393, 141, 478, 230]",1
+medium,before,cluster_01,14,blue,"[413, 121, 462, 169]",occluded,stripe step,1.01,0.31,"[388, 118, 437, 170]",1
+medium,before,cluster_02,14,orange,"[283, 120, 332, 169]",occluded,stripe step,1.01,0.37,"[306, 119, 351, 170]",1
+medium,before,cluster_02,14,blue,"[415, 123, 468, 177]",occluded,stripe step,1.0,0.28,"[443, 122, 500, 179]",1
+medium,combined+cover,cluster_02,14,orange,"[332, 121, 381, 168]",occluded,stripe step,1.02,0.24,"[306, 119, 351, 170]",0
+medium,before,core_01,14,blue,"[213, 124, 267, 177]",occluded,stripe step,1.02,0.35,"[239, 123, 290, 178]",1
+medium,before,core_02,14,orange,"[351, 121, 400, 172]",occluded,stripe step,0.98,0.46,"[368, 120, 418, 173]",1
+medium,stack,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,combined,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,reduced,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,reduced+thin,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,combined+thin,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,before,occl_02,14,blue,"[368, 133, 447, 229]",occluded,stripe step,0.96,0.46,"[393, 141, 478, 230]",1
+medium,before,cluster_01,15,blue,"[313, 118, 363, 171]",occluded+top_inferred,stripe step,1.01,0.46,"[331, 119, 382, 171]",1
+medium,before,cluster_02,15,orange,"[285, 120, 334, 169]",occluded,stripe step,1.01,0.41,"[306, 119, 351, 170]",1
+medium,combined,cluster_02,15,orange,"[385, 118, 430, 157]",occluded,slices_behind,1.07,0.72,"[390, 116, 432, 163]",1
+medium,combined+thin,cluster_02,15,orange,"[385, 118, 430, 157]",occluded,slices_behind,1.07,0.72,"[390, 116, 432, 163]",1
+medium,before,core_01,15,blue,"[215, 120, 269, 177]",occluded+top_inferred,stripe step,1.02,0.38,"[239, 123, 290, 178]",1
+medium,before,core_02,15,orange,"[344, 121, 393, 172]",occluded,stripe step,0.98,0.33,"[368, 120, 418, 173]",1
+medium,combined+cover,touch_02,15,orange,"[127, 123, 179, 175]",occluded,stripe step,1.0,0.46,"[148, 121, 192, 176]",1
+medium,combined+cover,cluster_01,16,blue,"[364, 122, 414, 170]",occluded,stripe step,1.02,0.34,"[388, 118, 437, 170]",0
+medium,before,cluster_02,16,blue,"[370, 120, 418, 166]",occluded,stripe step,1.02,0.41,"[351, 119, 398, 167]",1
+medium,before,core_02,16,orange,"[391, 121, 441, 172]",occluded,stripe step,1.0,0.36,"[368, 120, 418, 173]",1
+medium,before,touch_02,16,blue,"[169, 124, 223, 177]",occluded,stripe step,1.02,0.49,"[187, 122, 240, 178]",1
+medium,combined+cover,touch_02,16,blue,"[186, 126, 276, 176]",occluded,stripe step,1.72,0.55,"[187, 122, 240, 178]",0
+medium,before,cluster_02,17,orange,"[326, 120, 375, 169]",occluded,stripe step,1.01,0.35,"[306, 119, 351, 170]",1
+medium,before,cluster_02,17,blue,"[466, 123, 520, 179]",occluded,stripe step,1.0,0.44,"[443, 122, 500, 179]",1
+medium,combined,cluster_02,17,blue,"[313, 121, 359, 164]",occluded,slices_behind,1.0,0.09,"[351, 119, 398, 167]",1
+medium,combined+thin,cluster_02,17,blue,"[313, 121, 359, 164]",occluded,slices_behind,1.0,0.09,"[351, 119, 398, 167]",1
+medium,before,core_01,17,blue,"[256, 124, 309, 177]",occluded,stripe step,1.0,0.47,"[239, 123, 290, 178]",1
+medium,before,core_01,17,orange,"[275, 122, 326, 175]",occluded,stripe step,0.98,0.49,"[292, 121, 342, 176]",1
+medium,before,core_02,17,blue,"[397, 122, 448, 174]",occluded,stripe step,1.0,0.38,"[419, 120, 471, 175]",1
+medium,before,occl_01,17,orange,"[385, 135, 464, 228]",occluded,stripe step,0.97,0.3,"[340, 139, 423, 229]",1
+medium,before,touch_02,17,orange,"[213, 123, 264, 173]",occluded,stripe step,1.01,0.31,"[240, 122, 289, 174]",1
+medium,before,close_01,18,orange,"[335, 144, 418, 234]",occluded,stripe step,0.98,0.47,"[302, 143, 390, 235]",1
+medium,combined+cover,close_02,18,blue,"[263, 143, 345, 230]",occluded,stripe step,0.99,0.28,"[308, 141, 392, 231]",0
+medium,before,cluster_01,18,blue,"[350, 118, 400, 171]",occluded+top_inferred,stripe step,1.01,0.46,"[331, 119, 382, 171]",1
+medium,before,cluster_01,18,blue,"[369, 120, 416, 169]",occluded,stripe step,0.97,0.39,"[388, 118, 437, 170]",1
+medium,before,occl_02,18,blue,"[358, 135, 436, 229]",occluded,stripe step,0.95,0.34,"[393, 141, 478, 230]",1
+medium,combined+cover,touch_02,18,orange,"[115, 124, 201, 171]",occluded,stripe step,1.73,0.47,"[148, 121, 192, 176]",1
+medium,before,cluster_01,19,blue,"[408, 121, 457, 169]",occluded,stripe step,1.01,0.4,"[388, 118, 437, 170]",1
+medium,before,core_01,19,blue,"[220, 124, 274, 177]",occluded,stripe step,1.02,0.49,"[239, 123, 290, 178]",1
+medium,before,core_02,19,orange,"[351, 121, 400, 172]",occluded,stripe step,0.98,0.46,"[368, 120, 418, 173]",1
+medium,before,core_02,19,blue,"[436, 122, 487, 174]",occluded,stripe step,1.0,0.49,"[419, 120, 471, 175]",1
+medium,before,touch_02,19,orange,"[164, 123, 215, 175]",occluded,stripe step,0.98,0.4,"[148, 121, 192, 176]",1
+heavy,before,close_01,0,orange,"[347, 142, 430, 233]",occluded+top_inferred,stripe step,0.98,0.33,"[302, 143, 390, 235]",1
+heavy,before,occl_02,3,blue,"[436, 146, 517, 228]",occluded,stripe step,0.99,0.32,"[393, 141, 478, 230]",1
+heavy,before,close_02,7,blue,"[268, 145, 349, 231]",occluded,stripe step,0.97,0.32,"[308, 141, 392, 231]",1
+heavy,before,occl_02,11,blue,"[435, 140, 516, 228]",occluded+top_inferred,stripe step,0.99,0.34,"[393, 141, 478, 230]",1
+heavy,before,close_01,18,orange,"[347, 145, 430, 233]",occluded,stripe step,0.98,0.33,"[302, 143, 390, 235]",1
+"white tables, worst seen",before,close_01,0,orange,"[340, 144, 423, 234]",occluded,stripe step,0.98,0.41,"[302, 143, 390, 235]",1
+"white tables, worst seen",before,cluster_02,0,orange,"[328, 120, 377, 169]",occluded,stripe step,1.01,0.32,"[306, 119, 351, 170]",1
+"white tables, worst seen",before,core_02,0,blue,"[441, 122, 492, 174]",occluded,stripe step,1.0,0.39,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,occl_01,0,orange,"[374, 135, 454, 228]",occluded,stripe step,0.98,0.41,"[340, 139, 423, 229]",1
+"white tables, worst seen",before,cluster_02,1,orange,"[329, 120, 378, 169]",occluded,stripe step,1.01,0.3,"[306, 119, 351, 170]",1
+"white tables, worst seen",before,cluster_02,1,blue,"[416, 123, 469, 177]",occluded,stripe step,1.0,0.3,"[443, 122, 500, 179]",1
+"white tables, worst seen",before,core_02,1,orange,"[348, 121, 397, 172]",occluded,stripe step,0.98,0.4,"[368, 120, 418, 173]",1
+"white tables, worst seen",before,core_02,1,blue,"[395, 122, 446, 174]",occluded,stripe step,1.0,0.34,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,touch_02,1,blue,"[209, 124, 263, 177]",occluded,stripe step,1.02,0.39,"[187, 122, 240, 178]",1
+"white tables, worst seen",combined+cover,close_01,2,orange,"[306, 150, 386, 225]",occluded,stripe step,1.0,0.74,"[302, 143, 390, 235]",1
+"white tables, worst seen",before,cluster_01,2,orange,"[289, 118, 334, 163]",occluded,stripe step,0.99,0.3,"[313, 115, 356, 164]",1
+"white tables, worst seen",before,cluster_02,2,orange,"[281, 120, 330, 169]",occluded,stripe step,1.01,0.33,"[306, 119, 351, 170]",1
+"white tables, worst seen",before,occl_02,2,blue,"[428, 139, 509, 229]",occluded,stripe step,0.99,0.42,"[393, 141, 478, 230]",1
+"white tables, worst seen",combined+cover,touch_02,2,blue,"[186, 126, 278, 175]",occluded,stripe step,1.78,0.53,"[187, 122, 240, 178]",0
+"white tables, worst seen",before,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",stack,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",combined,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",reduced,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",reduced+thin,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",combined+thin,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",combined+cover,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",before,cluster_02,3,orange,"[284, 120, 333, 169]",occluded,stripe step,1.01,0.39,"[306, 119, 351, 170]",1
+"white tables, worst seen",before,cluster_02,3,blue,"[419, 124, 472, 177]",occluded,stripe step,1.0,0.34,"[443, 122, 500, 179]",1
+"white tables, worst seen",combined+cover,cluster_02,3,orange,"[384, 118, 430, 158]",occluded,stripe step,1.08,0.72,"[390, 116, 432, 163]",1
+"white tables, worst seen",before,core_01,3,blue,"[218, 124, 272, 177]",occluded,stripe step,1.02,0.45,"[239, 123, 290, 178]",1
+"white tables, worst seen",before,occl_02,3,blue,"[437, 133, 518, 229]",occluded,stripe step,0.99,0.31,"[393, 141, 478, 230]",1
+"white tables, worst seen",stack,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",combined,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",reduced,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",reduced+thin,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",combined+thin,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",combined+cover,touch_02,3,orange,"[236, 123, 325, 172]",occluded,stripe step,1.78,0.53,"[240, 122, 289, 174]",0
+"white tables, worst seen",before,close_01,4,orange,"[276, 144, 359, 234]",occluded,stripe step,0.98,0.49,"[302, 143, 390, 235]",1
+"white tables, worst seen",before,cluster_02,4,blue,"[472, 123, 526, 179]",occluded,stripe step,1.0,0.33,"[443, 122, 500, 179]",0
+"white tables, worst seen",combined+cover,cluster_02,4,orange,"[307, 121, 388, 168]",occluded,stripe step,1.69,0.51,"[306, 119, 351, 170]",0
+"white tables, worst seen",before,core_02,4,blue,"[395, 122, 446, 174]",occluded,stripe step,1.0,0.34,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,touch_02,4,orange,"[264, 123, 315, 173]",occluded,stripe step,1.01,0.32,"[240, 122, 289, 174]",1
+"white tables, worst seen",before,close_02,5,blue,"[277, 142, 358, 232]",occluded,stripe step,0.97,0.43,"[308, 141, 392, 231]",1
+"white tables, worst seen",combined+cover,cluster_01,5,blue,"[360, 120, 407, 168]",occluded,stripe step,0.98,0.27,"[331, 119, 382, 171]",0
+"white tables, worst seen",before,core_01,5,orange,"[313, 122, 364, 175]",occluded,stripe step,0.98,0.39,"[292, 121, 342, 176]",1
+"white tables, worst seen",before,occl_01,5,orange,"[384, 135, 464, 228]",occluded,stripe step,0.98,0.3,"[340, 139, 423, 229]",1
+"white tables, worst seen",before,occl_02,5,blue,"[371, 133, 450, 229]",occluded,stripe step,0.96,0.5,"[393, 141, 478, 230]",1
+"white tables, worst seen",before,touch_02,5,orange,"[168, 123, 219, 175]",occluded,stripe step,0.98,0.33,"[148, 121, 192, 176]",1
+"white tables, worst seen",before,cluster_02,6,blue,"[472, 123, 526, 179]",occluded,stripe step,1.0,0.33,"[443, 122, 500, 179]",1
+"white tables, worst seen",before,core_01,6,orange,"[314, 122, 365, 175]",occluded,stripe step,0.98,0.37,"[292, 121, 342, 176]",1
+"white tables, worst seen",before,core_02,6,blue,"[396, 122, 447, 174]",occluded,stripe step,1.0,0.36,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,close_02,7,blue,"[277, 142, 358, 232]",occluded,stripe step,0.97,0.43,"[308, 141, 392, 231]",1
+"white tables, worst seen",before,cluster_01,7,blue,"[353, 118, 403, 171]",occluded+top_inferred,stripe step,1.01,0.4,"[331, 119, 382, 171]",1
+"white tables, worst seen",before,cluster_02,7,orange,"[326, 120, 375, 169]",occluded,stripe step,1.01,0.35,"[306, 119, 351, 170]",1
+"white tables, worst seen",before,core_02,7,orange,"[347, 121, 396, 172]",occluded,stripe step,0.98,0.38,"[368, 120, 418, 173]",1
+"white tables, worst seen",combined+cover,far_02,7,blue,"[194, 112, 256, 142]",occluded,stripe step,1.83,0.45,"[218, 106, 250, 144]",1
+"white tables, worst seen",before,cluster_01,8,blue,"[309, 118, 360, 171]",occluded+top_inferred,stripe step,1.03,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",before,cluster_02,8,orange,"[330, 121, 379, 169]",occluded,stripe step,1.01,0.28,"[306, 119, 351, 170]",1
+"white tables, worst seen",combined,cluster_02,8,blue,"[314, 121, 360, 164]",occluded,slices_behind,1.0,0.1,"[351, 119, 398, 167]",1
+"white tables, worst seen",combined+thin,cluster_02,8,blue,"[314, 121, 360, 164]",occluded,slices_behind,1.0,0.1,"[351, 119, 398, 167]",1
+"white tables, worst seen",before,core_02,8,blue,"[394, 122, 445, 174]",occluded,stripe step,1.0,0.33,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,touch_02,8,orange,"[122, 123, 174, 175]",occluded,stripe step,1.0,0.36,"[148, 121, 192, 176]",1
+"white tables, worst seen",before,close_01,9,orange,"[337, 144, 420, 234]",occluded,stripe step,0.98,0.44,"[302, 143, 390, 235]",1
+"white tables, worst seen",before,cluster_02,9,blue,"[471, 123, 525, 179]",occluded,stripe step,1.0,0.35,"[443, 122, 500, 179]",1
+"white tables, worst seen",before,core_01,9,blue,"[260, 124, 313, 177]",occluded,stripe step,1.0,0.4,"[239, 123, 290, 178]",1
+"white tables, worst seen",before,core_01,9,orange,"[314, 122, 365, 175]",occluded,stripe step,0.98,0.37,"[292, 121, 342, 176]",1
+"white tables, worst seen",before,occl_01,9,orange,"[371, 135, 451, 228]",occluded,stripe step,0.98,0.45,"[340, 139, 423, 229]",1
+"white tables, worst seen",before,touch_02,9,blue,"[215, 125, 269, 177]",occluded,stripe step,1.02,0.29,"[187, 122, 240, 178]",1
+"white tables, worst seen",combined+cover,touch_02,9,orange,"[178, 124, 229, 174]",occluded,stripe step,1.0,0.16,"[148, 121, 192, 176]",1
+"white tables, worst seen",before,occl_02,10,blue,"[433, 133, 514, 229]",occluded,stripe step,0.99,0.35,"[393, 141, 478, 230]",1
+"white tables, worst seen",before,touch_02,10,blue,"[209, 124, 263, 177]",occluded,stripe step,1.02,0.39,"[187, 122, 240, 178]",1
+"white tables, worst seen",before,cluster_01,11,blue,"[308, 117, 357, 171]",occluded+top_inferred,stripe step,0.99,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined+cover,cluster_02,11,orange,"[304, 121, 389, 168]",occluded,stripe step,1.77,0.51,"[306, 119, 351, 170]",0
+"white tables, worst seen",before,core_02,11,orange,"[393, 121, 443, 171]",occluded,stripe step,1.01,0.32,"[368, 120, 418, 173]",1
+"white tables, worst seen",stack,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",combined,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",reduced,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",reduced+thin,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",combined+thin,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",combined+cover,occl_01,11,orange,"[389, 136, 470, 228]",occluded,stripe step,0.99,0.25,"[340, 139, 423, 229]",0
+"white tables, worst seen",before,occl_02,11,blue,"[437, 133, 518, 229]",occluded,stripe step,0.99,0.31,"[393, 141, 478, 230]",1
+"white tables, worst seen",before,close_02,12,blue,"[269, 142, 350, 232]",occluded,stripe step,0.97,0.34,"[308, 141, 392, 231]",1
+"white tables, worst seen",before,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",stack,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",reduced,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",reduced+thin,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined+thin,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined+cover,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined,cluster_02,13,orange,"[358, 117, 399, 159]",occluded,slices_behind,0.95,0.11,"[390, 116, 432, 163]",1
+"white tables, worst seen",combined+thin,cluster_02,13,orange,"[358, 117, 399, 159]",occluded,slices_behind,0.95,0.11,"[390, 116, 432, 163]",1
+"white tables, worst seen",before,core_02,13,orange,"[341, 121, 390, 172]",occluded,stripe step,0.98,0.28,"[368, 120, 418, 173]",1
+"white tables, worst seen",before,core_02,13,blue,"[395, 122, 446, 174]",occluded,stripe step,1.0,0.34,"[419, 120, 471, 175]",1
+"white tables, worst seen",combined+cover,touch_02,13,orange,"[207, 123, 258, 173]",occluded,stripe step,1.01,0.21,"[240, 122, 289, 174]",0
+"white tables, worst seen",before,cluster_02,14,blue,"[415, 123, 468, 177]",occluded,stripe step,1.0,0.28,"[443, 122, 500, 179]",1
+"white tables, worst seen",before,core_01,14,blue,"[213, 124, 267, 177]",occluded,stripe step,1.02,0.35,"[239, 123, 290, 178]",1
+"white tables, worst seen",before,core_02,14,orange,"[342, 121, 391, 172]",occluded,stripe step,0.98,0.3,"[368, 120, 418, 173]",1
+"white tables, worst seen",stack,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",combined,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",reduced,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",reduced+thin,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",combined+thin,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",before,occl_02,14,blue,"[369, 133, 448, 229]",occluded,stripe step,0.96,0.47,"[393, 141, 478, 230]",1
+"white tables, worst seen",combined+cover,cluster_01,15,orange,"[279, 118, 360, 161]",occluded,stripe step,1.83,0.49,"[313, 115, 356, 164]",1
+"white tables, worst seen",before,cluster_02,15,orange,"[284, 120, 333, 169]",occluded,stripe step,1.01,0.39,"[306, 119, 351, 170]",1
+"white tables, worst seen",combined,cluster_02,15,orange,"[359, 117, 401, 160]",occluded,slices_behind,0.96,0.14,"[390, 116, 432, 163]",1
+"white tables, worst seen",combined+thin,cluster_02,15,orange,"[359, 117, 401, 160]",occluded,slices_behind,0.96,0.14,"[390, 116, 432, 163]",1
+"white tables, worst seen",before,core_02,15,orange,"[344, 121, 393, 172]",occluded,stripe step,0.98,0.33,"[368, 120, 418, 173]",1
+"white tables, worst seen",before,core_02,15,blue,"[444, 119, 495, 174]",occluded+top_inferred,stripe step,1.0,0.35,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,cluster_01,16,blue,"[411, 121, 460, 169]",occluded,stripe step,1.01,0.34,"[388, 118, 437, 170]",1
+"white tables, worst seen",before,core_02,16,blue,"[444, 122, 495, 174]",occluded,stripe step,1.0,0.34,"[419, 120, 471, 175]",1
+"white tables, worst seen",before,core_01,17,blue,"[260, 124, 313, 177]",occluded,stripe step,1.0,0.4,"[239, 123, 290, 178]",1
+"white tables, worst seen",before,core_01,17,orange,"[266, 122, 317, 175]",occluded,stripe step,0.98,0.32,"[292, 121, 342, 176]",1
+"white tables, worst seen",before,occl_01,17,orange,"[374, 135, 454, 228]",occluded,stripe step,0.98,0.41,"[340, 139, 423, 229]",1
+"white tables, worst seen",combined+cover,occl_02,17,orange,"[362, 118, 442, 152]",occluded,stripe step,2.04,0.49,"[395, 114, 441, 158]",1
+"white tables, worst seen",before,close_01,18,orange,"[340, 144, 423, 234]",occluded,stripe step,0.98,0.41,"[302, 143, 390, 235]",1
+"white tables, worst seen",before,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",stack,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined,cluster_01,18,blue,"[386, 121, 435, 164]",occluded,slices_behind,1.07,0.77,"[388, 118, 437, 170]",1
+"white tables, worst seen",reduced,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",reduced+thin,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined+thin,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined+thin,cluster_01,18,blue,"[386, 121, 435, 164]",occluded,slices_behind,1.07,0.77,"[388, 118, 437, 170]",1
+"white tables, worst seen",combined+cover,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",combined+cover,cluster_01,18,blue,"[386, 121, 435, 164]",occluded,stripe step,1.07,0.77,"[388, 118, 437, 170]",1
+"white tables, worst seen",before,occl_02,18,blue,"[359, 135, 437, 229]",occluded,stripe step,0.95,0.35,"[393, 141, 478, 230]",1
+"white tables, worst seen",before,touch_02,18,blue,"[206, 124, 260, 177]",occluded,stripe step,1.02,0.45,"[187, 122, 240, 178]",1
+"white tables, worst seen",before,cluster_01,19,blue,"[411, 121, 460, 169]",occluded,stripe step,1.01,0.34,"[388, 118, 437, 170]",1
+"white tables, worst seen",before,core_01,19,blue,"[213, 124, 267, 177]",occluded,stripe step,1.02,0.35,"[239, 123, 290, 178]",1
+"white tables, worst seen",before,core_02,19,orange,"[342, 121, 391, 172]",occluded,stripe step,0.98,0.3,"[368, 120, 418, 173]",1
+"white tables, worst seen",before,touch_02,19,orange,"[215, 123, 266, 173]",occluded,stripe step,1.01,0.34,"[240, 122, 289, 174]",1
