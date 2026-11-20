@@ -125,3 +125,58 @@ At most two rounds. If a round fails by boxes a rule drew, the boxes are attribu
 addendum below names the change (pre-named now: `own_close` with cut ≤ 0.05, the census's next line with 0 wrong;
 `stripe_bridge` with the gap at most a third of the span) **before** its code, and the battery is run once more.
 Train frames only; no camera constant changed; no image correction; no temporal information.
+
+---
+
+# Addendum, 2026-11-20: round 1, and what round 2 is (written before any round-2 code)
+
+Round 1 (`results/2026-11-20_occl_sliver/round1/`, `round1_stripe/`; code of commit 3970239).
+
+| | `start` | `bridge` | `frame` | `close` | `span` | `sliver` |
+|---|---|---|---|---|---|---|
+| gate (HOME, CAMPUS, negatives) | pass | | | | | pass (all four) |
+| scorecard found / boxes where no barrel is | 2737 / 45 | 2742 / **54** | 2796 / 45 | 2996 / 45 | 2837 / 45 | 3090 / **54** |
+| too big (right-place boxes) | 85 | 86 | 90 | 87 | **121** | 128 |
+| cells lower than `start` | | 1 (place) | 0 | **3** | 0 | 3 |
+| medium, 20 seeds: found (false) | 400 (3) | 413 (**4**) | 416 (3) | 426 (**5**) | 423 (3) | 459 (**6**) |
+| bad day, 20 seeds | 547 (5) | 564 (0) | 555 (5) | 556 (**6**) | 547 (5) | 564 (0) |
+| perfect, typical, bad day w/o patch, light, heavy | 0 false everywhere, every arm | | | | | |
+| campus clips: boxes appearing (wrong); disappearing | | 0; 0 | 1 (0: a barrel entering at the frame edge); 0 | 0; 0 | 0; 0 | 1 (0); 0 |
+
+Part 1 at every width (`round1_stripe/stripe.md`, `bridge`): found up and false boxes down at every width of the patch
+and of one and two breaks (patch 0.06 W 544 (13) → 562 (0); one break 0.1 W 536 (18) → 563 (0); bad day 547 (5) →
+564 (0)); medium 400 (3) → 413 (4).
+
+**Attribution (reason log; `compare_scenes.py`; the scenes re-run with the log):**
+
+1. `bridge`, the 9 scorecard boxes where no barrel is: all on three CAMPUS source barrels with a SAME-colored barrel
+   pasted beside (`touch_02` ×2, `cluster_02`), at 25 / 50 / 75 % alike. The bridge joined a strip of the front barrel's
+   body (blue, 25 rows tall, between orange specks above and below it) with a piece at other rows (box middles 146 and
+   132, a stripe height of 12 apart); the joined "stripe" drew an orange box. The extra medium box (`touch_02`, seed 0):
+   one orange barrel's stripe ended as two joined groups (a gap column without body); each drew a box, the second shifted.
+2. `close`, the extra boxes (medium `cluster_01` seeds 10 and 13; bad day `cluster_01` seed 18, `touch_02` seed 3) and the
+   three scorecard scenes it lost (same color beside / beside and lower): every one is a piece whose end called "own" lies
+   against another barrel. A barrel standing in front is round too: the back barrel's cut end follows the front barrel's
+   outline and closes like a corner. The censuses had no such end (the erasing kinds cut straight).
+3. `span`, too big 85 → 121: all 36 in "a block of the body color" at 75 %: the block joins the barrel's body, the span
+   runs into it (still under 1.2 W) and the box takes it.
+4. `frame` (and `close` once), too big 3 → 8 in the frame cell at 75 %: five boxes 2 to 3 px wider than a truth box 10 to
+   14 px wide; in each the paint reaches 2 to 3 px past the hand-drawn box, which is clipped at the frame. Nothing in the
+   rule decides this; the clause is applied as written.
+
+**Round 2, the changes (each the smallest that removes the attributed cause):**
+
+- `stripe_bridge`: (a) the two pieces are at the same rows: the middles of their boxes differ by at most half a stripe
+  height (a stripe is level across its barrel; census_pairs.csv: 1690 of 1850 bridged same-barrel pairs on the damaged
+  masks keep); (b) with the bridge on, a partly seen stripe that shares rows with a found same-colored barrel's stripe and
+  whose middle column is inside that barrel's box is that barrel's piece (`_piece_of_found`, until now asked only of thin
+  pieces): two barrels cannot both have their stripe there.
+- `own_close`: the end called own must be a seen edge: in the close_px columns beyond it, at the stripe's rows, barrel
+  color (either) in fewer than half of the rows (edge_check's idea: an edge is seen only against something that is not a
+  barrel).
+- `thin_span`: the span counts only if no column of it holds the body color in more than half of the stripe's rows (a
+  barrel's body never crosses its own stripe; a body-colored thing in front does).
+- `thin_frame`: unchanged.
+
+Round 2 runs the whole battery again with the same arms (`round2/`, `round2_stripe/`). It is the last round: what fails
+then stays off and is named.

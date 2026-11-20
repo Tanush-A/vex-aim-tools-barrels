@@ -1,0 +1,91 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks,start,1,16,29,28,1,0
+perfect masks,bridge,1,16,29,28,1,0
+perfect masks,frame,1,16,29,28,1,0
+perfect masks,close,1,16,29,28,1,0
+perfect masks,span,1,16,29,28,1,0
+perfect masks,sliver,1,16,29,28,1,0
+"white tables, typical",start,5,80,145,145,0,0
+"white tables, typical",start,20,320,580,579,1,0
+"white tables, typical",bridge,5,80,145,145,0,0
+"white tables, typical",bridge,20,320,580,579,1,0
+"white tables, typical",frame,5,80,145,145,0,0
+"white tables, typical",frame,20,320,580,579,1,0
+"white tables, typical",close,5,80,145,145,0,0
+"white tables, typical",close,20,320,580,579,1,0
+"white tables, typical",span,5,80,145,145,0,0
+"white tables, typical",span,20,320,580,579,1,0
+"white tables, typical",sliver,5,80,145,145,0,0
+"white tables, typical",sliver,20,320,580,579,1,0
+"white tables, bad day",start,5,80,145,135,10,3
+"white tables, bad day",start,20,320,580,547,33,5
+"white tables, bad day",bridge,5,80,145,140,5,0
+"white tables, bad day",bridge,20,320,580,564,16,0
+"white tables, bad day",frame,5,80,145,136,9,3
+"white tables, bad day",frame,20,320,580,555,25,5
+"white tables, bad day",close,5,80,145,136,9,3
+"white tables, bad day",close,20,320,580,556,24,6
+"white tables, bad day",span,5,80,145,135,10,3
+"white tables, bad day",span,20,320,580,547,33,5
+"white tables, bad day",sliver,5,80,145,140,5,0
+"white tables, bad day",sliver,20,320,580,564,16,0
+bad day without the stripe patch,start,5,80,145,144,1,0
+bad day without the stripe patch,start,20,320,580,577,3,0
+bad day without the stripe patch,bridge,5,80,145,144,1,0
+bad day without the stripe patch,bridge,20,320,580,577,3,0
+bad day without the stripe patch,frame,5,80,145,144,1,0
+bad day without the stripe patch,frame,20,320,580,577,3,0
+bad day without the stripe patch,close,5,80,145,144,1,0
+bad day without the stripe patch,close,20,320,580,577,3,0
+bad day without the stripe patch,span,5,80,145,144,1,0
+bad day without the stripe patch,span,20,320,580,577,3,0
+bad day without the stripe patch,sliver,5,80,145,144,1,0
+bad day without the stripe patch,sliver,20,320,580,577,3,0
+light,start,5,80,145,143,2,0
+light,start,20,320,580,574,6,0
+light,bridge,5,80,145,143,2,0
+light,bridge,20,320,580,574,6,0
+light,frame,5,80,145,143,2,0
+light,frame,20,320,580,574,6,0
+light,close,5,80,145,143,2,0
+light,close,20,320,580,574,6,0
+light,span,5,80,145,143,2,0
+light,span,20,320,580,574,6,0
+light,sliver,5,80,145,143,2,0
+light,sliver,20,320,580,574,6,0
+medium,start,5,80,145,102,43,1
+medium,start,20,320,580,400,180,3
+medium,bridge,5,80,145,104,41,2
+medium,bridge,20,320,580,413,167,4
+medium,frame,5,80,145,106,39,1
+medium,frame,20,320,580,416,164,3
+medium,close,5,80,145,111,34,1
+medium,close,20,320,580,426,154,5
+medium,span,5,80,145,106,39,1
+medium,span,20,320,580,423,157,3
+medium,sliver,5,80,145,117,28,2
+medium,sliver,20,320,580,459,121,6
+heavy,start,5,80,145,21,124,0
+heavy,start,20,320,580,89,491,0
+heavy,bridge,5,80,145,22,123,0
+heavy,bridge,20,320,580,94,486,0
+heavy,frame,5,80,145,21,124,0
+heavy,frame,20,320,580,89,491,0
+heavy,close,5,80,145,22,123,0
+heavy,close,20,320,580,91,489,0
+heavy,span,5,80,145,24,121,0
+heavy,span,20,320,580,99,481,0
+heavy,sliver,5,80,145,25,120,0
+heavy,sliver,20,320,580,103,477,0
+"white tables, worst seen",start,5,80,145,95,50,2
+"white tables, worst seen",start,20,320,580,378,202,6
+"white tables, worst seen",bridge,5,80,145,104,41,1
+"white tables, worst seen",bridge,20,320,580,399,181,4
+"white tables, worst seen",frame,5,80,145,100,45,2
+"white tables, worst seen",frame,20,320,580,393,187,6
+"white tables, worst seen",close,5,80,145,104,41,1
+"white tables, worst seen",close,20,320,580,407,173,6
+"white tables, worst seen",span,5,80,145,100,45,3
+"white tables, worst seen",span,20,320,580,417,163,7
+"white tables, worst seen",sliver,5,80,145,116,29,1
+"white tables, worst seen",sliver,20,320,580,456,124,5
