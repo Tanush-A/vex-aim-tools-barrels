@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-18. New plan for the week in `TODO.md` (agreed with Tanush after the 2026-11-16 meeting with Dave; next meeting Monday 2026-11-23). 2026-11-18 evening: A (barrel behind barrel `cap_behind`, stripe in pieces `stripe_join`; on by default after Tanush's "understood"), B (vendor capture), D (slider tool) and F (histogram ↔ thresholds script) are merged. Built the same evening and waiting for Tanush's "understood": side occlusion (`wip/detector-side`: campus 35 of 35, no row worse), the vendor column and the never-regress command (`wip/eval-vendor-gate`). Calibration (`wip/calibration`) adopted nothing: no single camera fits every session; proposed instead: hidden bottoms from the box width (A5).
+**Updated:** 2026-11-20. The occlusion work is merged (Tanush: "understood"): side occlusion, hidden bottoms, cut from above or below, a post, same-colored pairs, a cut barrel placed by its own rounded corners. Home 28 of 29, campus 35 of 35, no false box; occlusion scorecard 2153 → 2737 of 3888 (simulated). Running: A8 (fill a cut stripe; a sliver with stripe and body gets a good box). Tanush has shot 36 ottoman frames (4 lamp settings) with vendor detections; boxing and slider labels pending. Plan: `TODO.md`.
 
 ## What runs
 
@@ -10,8 +10,8 @@ hs color model `eb863d84` (orange hue 3–13, S ≥ 140; blue hue 103–119, S �
 
 | set | found | note |
 |---|---|---|
-| home (white, window) | 27 of 29, score 0.97 | the 2 misses are in `cluster_01` |
-| campus (white) | 34 of 35, score 0.99 | the miss is the barrel behind the robot |
+| home (white, window) | 28 of 29 | the miss is the wedge barrel in `cluster_01` |
+| campus (white) | 35 of 35 | |
 | black table | 2 of 26 | parked as extreme (glare) |
 | wood, bright lamp | 7 of 126 | parked as extreme |
 | Dave's office | 11 of 34 (0.47) | indicative, his boxes group barrels |
