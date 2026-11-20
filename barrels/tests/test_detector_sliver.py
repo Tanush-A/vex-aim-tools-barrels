@@ -55,6 +55,15 @@ def test_bridge_needs_body_over_every_column_of_the_gap():
     assert all(s.bbox[0] > truth[0] + 3 for s in on)
 
 
+def test_bridge_needs_the_pieces_at_the_same_rows():
+    """Round 2: two pieces whose box middles are more than half a stripe height apart are not one stripe."""
+    mask, truth = _cut_near_end()
+    cols = slice(truth[0], truth[0] + 3)
+    mask[:, cols] = np.roll(mask[:, cols], -12, axis=0)              # the end piece 12 rows higher (a stripe is ~16 rows here)
+    on = det.find_stripes(mask, CAM, dataclasses.replace(OFF, stripe_bridge=True))
+    assert all(s.bbox[0] >= truth[0] + 3 for s in on)
+
+
 def test_bridge_needs_the_gap_to_be_at_most_half_the_span():
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_round_barrel(mask, D, 320)
@@ -104,9 +113,14 @@ def test_thin_frame_changes_nothing_away_from_the_frame():
 def test_closure_is_large_at_the_own_end_and_small_at_a_straight_cut():
     mask, truth = _round_cut(0.6, 1.0)                              # hidden from the left by a straight edge
     s = [s for s in det.find_stripes(mask, CAM, OFF)][0]
-    c = det._end_closure(s, mask, CAM, OFF, s.bbox[0], s.bbox[2])
+    cols = np.flatnonzero((mask > 0).any(axis=0))
+    sx0, sx1 = int(cols[0]), int(cols[-1]) + 1                       # what is seen of the barrel (stripe and body)
+    c = det._end_closure(s, mask, CAM, OFF, sx0, sx1)
     assert c[0] <= det.CLOSE_CUT and c[1] >= OFF.bottom_tol
-    assert det._closed_end(s, mask, CAM, OFF, s.bbox[0], s.bbox[2])[1] == s.bbox[2]
+    assert det._closed_end(s, mask, CAM, OFF, sx0, sx1)[1] == sx1
+    other = mask.copy()                                              # a barrel standing right beside the own end: no longer a seen edge
+    other[s.bbox[1]:s.bbox[3], sx1:sx1 + 6] = io.ORANGE
+    assert det._closed_end(s, other, CAM, OFF, sx0, sx1) is None
 
 
 def test_closure_says_nothing_when_both_sides_are_cut():
@@ -139,3 +153,14 @@ def test_thin_span_takes_the_whole_width_the_body_shows():
     assert det.find_stripes(mask, CAM, OFF)[0].small
     on = det.detect(mask, dataclasses.replace(OFF, thin_span=True), CAM)
     assert len(on) == 1 and det.box_iou(on[0].bbox, truth) > 0.9
+
+
+def test_thin_span_refuses_a_span_whose_body_crosses_the_stripe_rows():
+    """A body-colored block joined to the slice: its columns hold body color where the stripe must be."""
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_round_barrel(mask, D, 320)
+    _erase_stripe(mask, truth[0], truth[2] - 14)
+    y0, y1 = _stripe_rows()
+    mask[y0 + 3:y1 - 3, truth[0] + 2:truth[0] + 30] = io.BLUE       # body color across the stripe rows on the left
+    s = [s for s in det.find_stripes(mask, CAM, OFF) if s.small][0]
+    assert det._body_crosses(mask, s, truth[0], truth[2])

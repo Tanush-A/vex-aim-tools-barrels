@@ -475,7 +475,8 @@ def _join_bridged(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.
             if not ok and core_ok and gco:
                 a, b = gx1, x                                    # the gap's columns
                 ya, yb = max(gy0, y), min(gy1, y + bh)
-                ok = b <= a or (b - a <= joined / 2 and bool(sand[ya:yb, a:b].any(axis=0).all()))
+                level = abs((y + bh / 2) - (gy0 + gy1) / 2) <= hs / 2            # round 2: at the same rows (a stripe is level)
+                ok = level and (b <= a or (b - a <= joined / 2 and bool(sand[ya:yb, a:b].any(axis=0).all())))
             if ok:
                 grp[:] = [ids + [i], min(gx0, x), max(gx1, x + bw), min(gy0, y), max(gy1, y + bh), gsh and shaped, gco and core_ok]
                 break
@@ -926,14 +927,30 @@ def _end_closure(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConf
     return out[0], out[1]
 
 
+def _body_crosses(mask: np.ndarray, s: Stripe, sx0: int, sx1: int) -> bool:
+    """``thin_span`` (round 2): does the body color cross the stripe's rows in some column of sx0..sx1 (more than half of the
+    rows y0..y1 of the stripe)? A barrel's body never crosses its own stripe; a body-colored thing in front of it does."""
+    y0, y1 = s.bbox[1], s.bbox[3]
+    if y1 <= y0 or sx1 <= sx0:
+        return False
+    return bool(((mask[y0:y1, sx0:sx1] == s.body).mean(axis=0) > 0.5).any())
+
+
 def _closed_end(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, sx0: int, sx1: int) -> tuple[int, int] | None:
     """``own_close``: left and right edge of a box one barrel wide from the end of the seen part where the body has closed on the
     stripe (closure at least bottom_tol), when the other end stands (closure at most CLOSE_CUT); else None."""
     c = _end_closure(s, mask, cam, cfg, sx0, sx1)
     if c is None:
         return None
-    left = c[0] >= cfg.bottom_tol and c[1] <= CLOSE_CUT
-    right = c[1] >= cfg.bottom_tol and c[0] <= CLOSE_CUT
+    h, w = mask.shape
+    y0, y1 = s.bbox[1], s.bbox[3]
+    barrel = np.isin(mask, (ORANGE, BLUE))
+
+    def seen_edge(cols) -> bool:                                     # round 2: not against barrel color (a barrel in front is round too)
+        cols = [c for c in cols if 0 <= c < w]
+        return not cols or float(barrel[y0:y1, cols].any(axis=1).mean()) < 0.5
+    left = c[0] >= cfg.bottom_tol and c[1] <= CLOSE_CUT and seen_edge(range(sx0 - cfg.close_px, sx0))
+    right = c[1] >= cfg.bottom_tol and c[0] <= CLOSE_CUT and seen_edge(range(sx1, sx1 + cfg.close_px))
     if left == right:
         return None
     Wi = int(round(_stripe_geometry(cam, s.center_row)[1].width_px))
@@ -979,7 +996,7 @@ def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, p
     trusted = span is not None and max(span[1], x1) - min(span[0], x0) <= cfg.body_width * W
     sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if trusted else (x0, x1)
     thin = cfg.pin_outline and cfg.pin_thin and s.small              # pin_thin: placed by the outline, or no box
-    if sx1 - sx0 >= cfg.stripe_full * W and (not thin or (cfg.thin_span and trusted and full_slice)):
+    if sx1 - sx0 >= cfg.stripe_full * W and (not thin or (cfg.thin_span and trusted and full_slice and not _body_crosses(mask, s, sx0, sx1))):
         return sx0, sx1                                              # 2. the whole width is seen (thin_span: for a thin full slice too)
     row, tol = int(s.center_row), max(cfg.bottom_tol_min_px, cfg.bottom_tol * W)
     # (c) the outline is cut where the body and the stripe end apart. Asked of every body, trusted or not (round 2): a body
@@ -1198,7 +1215,7 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     # the "other stripes" whose columns a barrel's body may not take, and they never replace a box as its duplicate
     thin_on = cfg.side_hidden and cfg.pin_outline and cfg.pin_thin
     for s in order:
-        if (cfg.side_hidden and s.merged is None and partly(s) and (cfg.slice_box or (thin_on and s.small))
+        if (cfg.side_hidden and s.merged is None and partly(s) and (cfg.slice_box or cfg.stripe_bridge or (thin_on and s.small))
                 and _piece_of_found(s, made)):
             _note(log, "barrel", "stripe_piece", s.bbox, body=s.body)
             continue                                         # a second piece of a found barrel's stripe, not another barrel
