@@ -56,6 +56,71 @@ A pair = a piece of sandwiched stripe color and the nearest such piece to its ri
 - one on no barrel, pairs that fit: span / W median 1.18 (largest 1.20); gap / W median 1.04 (largest 1.08); body over the gap median 0.00 (lowest 0.00).
 - both on no barrel, pairs that fit: span / W median 0.62 (largest 0.62); gap / W median 0.17 (largest 0.41); body over the gap median 0.00 (lowest 0.00).
 
+## HOME hand masks with two stripe breaks
+
+| the two pieces lie on | pairs | fits | fits and shaped (joined today) | fits, not shaped | fits, body over the whole gap (1.0) | fits, body over 0.8 of the gap | fits, gap at most one stripe height | fits, either (0.8 or one stripe height) |
+|---|---|---|---|---|---|---|---|---|
+| same barrel | 918 | 918 | 67 | 851 | 864 | 872 | 736 | 913 |
+| two barrels | 158 | 74 | 1 | 73 | 0 | 4 | 51 | 51 |
+| one on no barrel | 48 | 31 | 0 | 31 | 0 | 0 | 15 | 15 |
+| both on no barrel | 13 | 13 | 0 | 13 | 0 | 0 | 7 | 7 |
+
+- same barrel, pairs that fit: span / W median 0.66 (largest 1.01); gap / W median 0.14 (largest 0.80); body over the gap median 1.00 (lowest 0.00).
+- two barrels, pairs that fit: span / W median 0.58 (largest 1.19); gap / W median 0.23 (largest 0.75); body over the gap median 0.00 (lowest 0.00).
+- one on no barrel, pairs that fit: span / W median 0.78 (largest 1.20); gap / W median 0.27 (largest 1.08); body over the gap median 0.00 (lowest 0.00).
+- both on no barrel, pairs that fit: span / W median 0.61 (largest 0.73); gap / W median 0.23 (largest 0.48); body over the gap median 0.00 (lowest 0.00).
+
+## HOME hand masks, bad day
+
+| the two pieces lie on | pairs | fits | fits and shaped (joined today) | fits, not shaped | fits, body over the whole gap (1.0) | fits, body over 0.8 of the gap | fits, gap at most one stripe height | fits, either (0.8 or one stripe height) |
+|---|---|---|---|---|---|---|---|---|
+| same barrel | 99 | 99 | 35 | 64 | 94 | 94 | 94 | 99 |
+| two barrels | 23 | 7 | 0 | 7 | 0 | 1 | 0 | 1 |
+| one on no barrel | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| both on no barrel | 5 | 5 | 0 | 5 | 0 | 0 | 4 | 4 |
+
+- same barrel, pairs that fit: span / W median 0.86 (largest 0.96); gap / W median 0.12 (largest 0.78); body over the gap median 1.00 (lowest 0.00).
+- two barrels, pairs that fit: span / W median 1.16 (largest 1.17); gap / W median 0.48 (largest 1.05); body over the gap median 0.19 (lowest 0.00).
+- both on no barrel, pairs that fit: span / W median 0.69 (largest 0.73); gap / W median 0.12 (largest 0.38); body over the gap median 0.00 (lowest 0.00).
+
+## HOME hand masks, medium
+
+| the two pieces lie on | pairs | fits | fits and shaped (joined today) | fits, not shaped | fits, body over the whole gap (1.0) | fits, body over 0.8 of the gap | fits, gap at most one stripe height | fits, either (0.8 or one stripe height) |
+|---|---|---|---|---|---|---|---|---|
+| same barrel | 166 | 166 | 30 | 136 | 86 | 93 | 142 | 149 |
+| two barrels | 23 | 8 | 1 | 7 | 0 | 0 | 0 | 0 |
+| one on no barrel | 1 | 1 | 0 | 1 | 0 | 0 | 1 | 1 |
+| both on no barrel | 9 | 9 | 0 | 9 | 0 | 0 | 9 | 9 |
+
+- same barrel, pairs that fit: span / W median 0.59 (largest 0.96); gap / W median 0.14 (largest 0.78); body over the gap median 1.00 (lowest 0.00).
+- two barrels, pairs that fit: span / W median 0.78 (largest 1.17); gap / W median 0.44 (largest 1.07); body over the gap median 0.12 (lowest 0.00).
+- one on no barrel, pairs that fit: span / W median 0.50 (largest 0.50); gap / W median 0.12 (largest 0.12); body over the gap median 0.00 (lowest 0.00).
+- both on no barrel, pairs that fit: span / W median 0.50 (largest 0.67); gap / W median 0.12 (largest 0.20); body over the gap median 0.00 (lowest 0.00).
+
+## The bridge: pieces that fit, each no taller than a stripe by the finder's own height measure, body over EVERY column of the gap
+
+`core` = the 10th to 90th percentile of the piece's rows + 1, against the expected stripe height (the finder's height measure; the limit `stripe_h_max` = 1.6). `bridged` = fits, both cores at most that, body right above and right below in every column of the gap. `joined today` = fits and both shaped. Each cell: bridged pairs (of them joined today already).
+
+| masks | same barrel | two barrels | one on no barrel | both on no barrel |
+|---|---|---|---|---|
+| real masks (HOME hand, HOME leave one scene out, CAMPUS) | 3 (0) | 0 (0) | 0 (0) | 0 (0) |
+| black and wood tables (report only) | 10 (7) | 1 (0) | 0 (0) | 2 (0) |
+| HOME hand masks with a stripe patch | 556 (133) | 0 (0) | 2 (0) | 0 (0) |
+| HOME hand masks with one stripe break | 548 (102) | 0 (0) | 0 (0) | 0 (0) |
+| HOME hand masks with two stripe breaks | 843 (67) | 0 (0) | 0 (0) | 0 (0) |
+| HOME hand masks, bad day | 90 (35) | 0 (0) | 0 (0) | 0 (0) |
+| HOME hand masks, medium | 86 (15) | 0 (0) | 0 (0) | 0 (0) |
+
+Every bridged pair that is not on one barrel:
+
+| masks | frame | seed | body | left piece | right piece | span / W | gap / W | cores / Hs | truth |
+|---|---|---|---|---|---|---|---|---|---|
+| WOOD (report only) | lampcool6_wood_touch_02 |  | orange | [216, 159, 224, 168] (42 px) | [237, 160, 240, 169] (18 px) | 0.394 | 0.214 | 0.52, 0.58 | two barrels |
+| WOOD (report only) | lampmid3_wood_close_01 |  | orange | [315, 306, 347, 384] (1461 px) | [324, 382, 325, 384] (2 px) | 0.171 | -0.123 | 1.35, 0.05 | both on no barrel |
+| WOOD (report only) | lampwarm6_wood_close_01 |  | orange | [269, 306, 337, 376] (2373 px) | [320, 366, 326, 374] (26 px) | 0.369 | -0.092 | 0.95, 0.14 | both on no barrel |
+| stripe patch 0.15 W | window_light_touch_02 | 3 | orange | [238, 139, 239, 144] (5 px) | [287, 143, 288, 144] (1 px) | 1.105 | 1.061 | 0.36, 0.09 | one on no barrel |
+| stripe patch 0.3 W | window_light_touch_02 | 3 | orange | [238, 139, 239, 144] (5 px) | [286, 142, 288, 146] (4 px) | 1.088 | 1.023 | 0.35, 0.29 | one on no barrel |
+
 ## Every pair on the real masks that fits in one barrel's width and is NOT on one barrel
 
 | frames | frame | body | left piece | right piece | span / W | gap / W | shaped | body over the gap | truth |

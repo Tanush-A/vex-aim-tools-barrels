@@ -56,7 +56,11 @@ def pieces_of(mask: np.ndarray, body: int, cfg):
     dn = np.minimum.accumulate(np.where(bm, rows_idx, 10 ** 6)[::-1], axis=0)[::-1]
     sand = ((rows_idx - up) <= reach) & ((dn - rows_idx) <= reach)
     n, lab, st, _ = cv2.connectedComponentsWithStats((om & sand).astype(np.uint8), connectivity=8)
-    return sand, [tuple(int(v) for v in st[i]) for i in range(1, n)]
+    core = {}
+    for i in range(1, n):
+        ys = np.where(lab == i)[0]
+        core[tuple(int(v) for v in st[i])] = float(np.percentile(ys, 90) - np.percentile(ys, 10) + 1)   # the finder's height measure
+    return sand, [tuple(int(v) for v in st[i]) for i in range(1, n)], core
 
 
 def owner(piece, body: int, truths) -> int:
@@ -76,7 +80,7 @@ def pairs_of(mask: np.ndarray, truths, cfg) -> list[dict]:
     out = []
     for body in (ORANGE, BLUE):
         other = BLUE if body == ORANGE else ORANGE
-        sand, pcs = pieces_of(mask, body, cfg)
+        sand, pcs, core = pieces_of(mask, body, cfg)
         pcs.sort(key=lambda p: (p[0], p[1]))
         for i, a in enumerate(pcs):
             ax, ay, aw, ah, aa = a
@@ -121,6 +125,7 @@ def pairs_of(mask: np.ndarray, truths, cfg) -> list[dict]:
             out.append({"body": dtp.COLOR_NAMES[body], "left": [ax, ay, ax + aw, ay + ah], "right": [bx, by, bx + bw, by + bh], "area_left": aa, "area_right": ba,
                         "W": round(W, 1), "Hs": round(Hs, 1), "span_w": round(span / W, 3), "gap_w": round(gap / W, 3), "gap_hs": round(gap / Hs, 2),
                         "shaped_left": int(shaped(a)), "shaped_right": int(shaped(b)), "body_over_gap": round(over, 3),
+                        "core_left_hs": round(core[a] / Hs, 2), "core_right_hs": round(core[b] / Hs, 2),
                         "gap_unpainted": round(fill[0], 3), "gap_body": round(fill[1], 3), "gap_stripe_color": round(fill[2], 3), "truth": truth})
     return out
 
@@ -147,6 +152,8 @@ def main(argv=None) -> int:
     home = sorted(hand)
     levels = {f"stripe patch {w} W": dg.Damage(stripe_highlight=w) for w in WIDTHS}
     levels.update({f"one stripe break {w} W": dg.Damage(stripe_breaks=(1, w)) for w in WIDTHS})
+    levels.update({f"two stripe breaks {w} W": dg.Damage(stripe_breaks=(2, w)) for w in WIDTHS})
+    levels.update({"white tables, bad day": dg.REALISTIC["white tables, bad day"], "medium": dg.SEVERITIES["medium"]})
     for level, d in levels.items():
         for seed in SEEDS:
             for i, s in enumerate(home):
@@ -161,7 +168,10 @@ def main(argv=None) -> int:
     groups = {"real masks (HOME hand, HOME leave one scene out, CAMPUS)": lambda r: r["source"] in ("HOME hand masks", "HOME, leave one scene out", "CAMPUS"),
               "black and wood tables (report only)": lambda r: "report only" in r["source"],
               "HOME hand masks with a stripe patch": lambda r: r["source"].startswith("stripe patch"),
-              "HOME hand masks with one stripe break": lambda r: r["source"].startswith("one stripe break")}
+              "HOME hand masks with one stripe break": lambda r: r["source"].startswith("one stripe break"),
+              "HOME hand masks with two stripe breaks": lambda r: r["source"].startswith("two stripe breaks"),
+              "HOME hand masks, bad day": lambda r: r["source"] == "white tables, bad day",
+              "HOME hand masks, medium": lambda r: r["source"] == "medium"}
     kinds = ("same barrel", "two barrels", "one on no barrel", "both on no barrel")
     span_lim = max(cfg.body_width, 1.0)
     L = ["# Two pieces of stripe color at the same rows: one stripe or not? (a census; no acceptance number)", "",
@@ -189,6 +199,27 @@ def main(argv=None) -> int:
                 L.append(f"- {k}, pairs that fit: span / W median {np.median(sp):.2f} (largest {sp.max():.2f}); gap / W median {np.median(gp):.2f} "
                          f"(largest {gp.max():.2f}); body over the gap median {np.median(bo):.2f} (lowest {bo.min():.2f}).")
         L.append("")
+    L += ["## The bridge: pieces that fit, each no taller than a stripe by the finder's own height measure, body over EVERY column of the gap", "",
+          "`core` = the 10th to 90th percentile of the piece's rows + 1, against the expected stripe height (the finder's height measure; the limit "
+          f"`stripe_h_max` = {cfg.stripe_h_max}). `bridged` = fits, both cores at most that, body right above and right below in every column of the gap. "
+          "`joined today` = fits and both shaped. Each cell: bridged pairs (of them joined today already).", "",
+          "| masks | same barrel | two barrels | one on no barrel | both on no barrel |", "|---|---|---|---|---|"]
+    for name, pred in groups.items():
+        rs = [r for r in rows if pred(r)]
+        cells = []
+        for k in kinds:
+            br = [r for r in rs if r["truth"] == k and r["span_w"] <= span_lim and r["body_over_gap"] >= 1.0
+                  and max(r["core_left_hs"], r["core_right_hs"]) <= cfg.stripe_h_max]
+            cells.append(f"{len(br)} ({sum(1 for r in br if r['shaped_left'] and r['shaped_right'])})")
+        L.append(f"| {name} | " + " | ".join(cells) + " |")
+    L += ["", "Every bridged pair that is not on one barrel:", "", "| masks | frame | seed | body | left piece | right piece | span / W | gap / W | cores / Hs | truth |",
+          "|---|---|---|---|---|---|---|---|---|---|"]
+    for r in rows:
+        if (r["truth"] != "same barrel" and r["span_w"] <= span_lim and r["body_over_gap"] >= 1.0
+                and max(r["core_left_hs"], r["core_right_hs"]) <= cfg.stripe_h_max):
+            L.append(f"| {r['source']} | {r['stem']} | {r['seed']} | {r['body']} | {r['left']} ({r['area_left']} px) | {r['right']} ({r['area_right']} px) | "
+                     f"{r['span_w']} | {r['gap_w']} | {r['core_left_hs']}, {r['core_right_hs']} | {r['truth']} |")
+    L.append("")
     L += ["## Every pair on the real masks that fits in one barrel's width and is NOT on one barrel", "",
           "| frames | frame | body | left piece | right piece | span / W | gap / W | shaped | body over the gap | truth |", "|---|---|---|---|---|---|---|---|---|---|"]
     for r in rows:

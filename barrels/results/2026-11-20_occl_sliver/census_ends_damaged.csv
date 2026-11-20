@@ -1,0 +1,1283 @@
+group,level,stem,seed,body,piece,seen,seen_w,full_slice,thin,left_kind,right_kind,left_closed,right_closed
+real masks,HOME hand masks,window_light_edge_01,,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+real masks,HOME hand masks,window_light_far_02,,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+real masks,HOME hand masks,window_light_occl_01,,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+real masks,HOME hand masks,window_light_occl_02,,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+real masks,HOME hand masks,window_light_touch_02,,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+real masks,HOME color model,window_light_close_01,,blue,"[308, 147, 319, 169]","[306, 320]",0.24,0,1,no barrel,no barrel,-0.146,-0.1566
+real masks,HOME color model,window_light_cluster_01,,orange,"[363, 122, 378, 142]","[363, 378]",0.385,0,1,own,cut,-0.0371,0.0807
+real masks,HOME color model,window_light_cluster_02,,blue,"[346, 121, 350, 139]","[346, 350]",0.108,0,1,no barrel,no barrel,-0.0613,-0.0613
+real masks,HOME color model,window_light_cluster_02,,blue,"[427, 119, 430, 134]","[427, 433]",0.169,0,1,no barrel,no barrel,0.0242,0.2133
+real masks,HOME color model,window_light_core_03,,blue,"[336, 107, 344, 118]","[336, 344]",0.319,0,1,no barrel,no barrel,0.0088,0.0088
+real masks,HOME color model,window_light_edge_01,,blue,"[0, 158, 26, 174]","[0, 32]",0.517,1,0,own,own,-0.0546,0.1944
+real masks,HOME color model,window_light_far_02,,orange,"[248, 118, 271, 123]","[248, 271]",0.75,1,0,own,own,0.139,0.1581
+real masks,HOME color model,window_light_far_02,,orange,"[335, 119, 360, 125]","[335, 360]",0.798,1,0,own,own,0.1784,0.1488
+real masks,HOME color model,window_light_far_02,,orange,"[436, 108, 444, 119]","[434, 444]",0.388,0,1,no barrel,no barrel,-0.1561,-0.0141
+real masks,HOME color model,window_light_far_02,,orange,"[451, 107, 455, 120]","[451, 455]",0.155,0,1,no barrel,no barrel,-0.1384,0.02
+real masks,HOME color model,window_light_far_02,,orange,"[458, 107, 461, 120]","[458, 461]",0.116,0,1,no barrel,no barrel,0.02,0.02
+real masks,HOME color model,window_light_far_02,,orange,"[464, 109, 467, 120]","[464, 467]",0.116,0,1,no barrel,no barrel,-0.1561,-0.1561
+real masks,HOME color model,window_light_far_02,,blue,"[336, 107, 339, 117]","[336, 339]",0.12,0,1,no barrel,no barrel,0.0453,0.0453
+real masks,HOME color model,window_light_far_02,,blue,"[351, 107, 354, 118]","[351, 354]",0.12,0,1,no barrel,no barrel,0.0088,0.027
+real masks,HOME color model,window_light_occl_01,,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.1298,0.3117
+real masks,HOME color model,window_light_occl_02,,blue,"[434, 118, 439, 134]","[434, 439]",0.144,0,1,no barrel,no barrel,-0.1678,-0.1678
+real masks,HOME color model,window_light_occl_02,,blue,"[398, 144, 403, 152]","[396, 403]",0.142,0,1,own,cut,-0.034,-0.0993
+real masks,HOME color model,window_light_touch_02,,orange,"[153, 144, 188, 156]","[149, 188]",0.757,1,0,own,own,0.1378,0.0445
+real masks,CAMPUS color model,campus_light_cluster_02,,blue,"[266, 119, 276, 137]","[266, 276]",0.276,0,1,no barrel,no barrel,-0.0194,-0.1724
+real masks,CAMPUS color model,campus_light_cluster_02,,blue,"[344, 141, 380, 160]","[344, 380]",0.739,1,0,own,cut,-0.0586,0.036
+real masks,CAMPUS color model,campus_light_cluster_02,,blue,"[380, 137, 415, 152]","[380, 416]",0.784,1,0,own,own,-0.0242,0.0923
+real masks,CAMPUS color model,campus_light_clutter_02,,blue,"[494, 144, 516, 157]","[494, 521]",0.524,1,0,cut,own,0.0602,0.1259
+real masks,CAMPUS color model,campus_light_edge_01,,orange,"[609, 174, 640, 198]","[605, 640]",0.457,1,0,own,own,0.0817,-0.0913
+real masks,CAMPUS color model,campus_light_occl_02,,blue,"[278, 148, 294, 160]","[277, 311]",0.635,1,0,own,cut,-0.1585,0.0278
+black and wood (report only),BLACK,window_black_cluster_01,,orange,"[265, 144, 272, 153]","[262, 274]",0.236,0,1,own,cut,0.016,-0.0566
+black and wood (report only),BLACK,window_black_cluster_01,,orange,"[357, 160, 367, 173]","[353, 376]",0.367,0,1,own,cut,0.1565,-0.1538
+black and wood (report only),BLACK,window_black_cluster_01,,orange,"[301, 143, 304, 150]","[301, 304]",0.062,0,1,cut,own,-0.1248,-0.1248
+black and wood (report only),BLACK,window_black_clutter_02,,blue,"[481, 155, 496, 164]","[480, 496]",0.277,0,0,own,cut,0.0881,-0.0985
+black and wood (report only),BLACK,window_black_far_01,,orange,"[372, 134, 378, 141]","[369, 384]",0.353,0,1,own,cut,0.1706,-0.0676
+black and wood (report only),BLACK,window_black_occl_02,,blue,"[276, 212, 291, 234]","[269, 308]",0.384,1,1,own,cut,-0.0369,-0.105
+black and wood (report only),BLACK,window_black_occl_02,,orange,"[275, 179, 278, 206]","[272, 286]",0.172,0,1,no barrel,no barrel,0.0482,-0.0575
+black and wood (report only),BLACK,window_black_occl_02,,orange,"[280, 166, 286, 175]","[275, 286]",0.166,0,1,own,cut,0.3615,-0.0901
+black and wood (report only),BLACK,window_black_occl_03,,blue,"[276, 211, 294, 234]","[272, 327]",0.545,1,1,own,cut,0.24,-0.1574
+black and wood (report only),BLACK,window_black_occl_04,,orange,"[283, 166, 291, 188]","[283, 291]",0.114,0,1,cut,cut,-0.1424,-0.1523
+black and wood (report only),BLACK,window_black_occl_04,,orange,"[273, 185, 278, 205]","[272, 302]",0.362,0,1,no barrel,no barrel,0.114,-0.0266
+black and wood (report only),BLACK,window_black_touch_02,,orange,"[324, 175, 329, 190]","[324, 334]",0.136,0,1,cut,cut,-0.024,-0.1593
+black and wood (report only),BLACK,window_black_touch_02,,orange,"[332, 176, 336, 191]","[332, 336]",0.054,0,1,cut,cut,-0.1551,-0.1551
+black and wood (report only),BLACK,window_black_touch_02,,orange,"[378, 173, 380, 185]","[374, 382]",0.113,0,1,cut,own,0.0568,0.2341
+black and wood (report only),WOOD,lampcool3_wood_occl_02,,orange,"[188, 156, 196, 171]","[179, 196]",0.287,0,1,no barrel,no barrel,0.0466,0.1664
+black and wood (report only),WOOD,lampcool3_wood_occl_02,,orange,"[207, 160, 211, 170]","[207, 211]",0.065,0,1,no barrel,no barrel,-0.1292,-0.1292
+black and wood (report only),WOOD,lampcool6_wood_core_01,,blue,"[344, 125, 350, 132]","[336, 362]",0.711,0,1,own,cut,0.0986,0.1991
+black and wood (report only),WOOD,lampcool6_wood_core_01,,blue,"[356, 125, 361, 132]","[336, 362]",0.705,0,1,own,cut,0.0909,0.1904
+black and wood (report only),WOOD,lampcool6_wood_core_01,,orange,"[64, 224, 66, 239]","[0, 73]",0.677,0,1,own,own,-0.1506,0.0236
+black and wood (report only),WOOD,lampcool6_wood_occl_01,,orange,"[236, 126, 244, 138]","[236, 244]",0.202,0,1,no barrel,no barrel,-0.1514,0.0339
+black and wood (report only),WOOD,lampcool6_wood_touch_02,,orange,"[216, 159, 224, 168]","[216, 224]",0.131,0,1,cut,own,-0.0287,-0.0186
+black and wood (report only),WOOD,lampmid3_wood_close_01,,orange,"[302, 330, 303, 369]","[302, 303]",0.005,0,1,no barrel,no barrel,0.0099,0.0099
+black and wood (report only),WOOD,lampmid6_wood_close_01,,orange,"[185, 344, 188, 369]","[176, 228]",0.267,0,1,no barrel,no barrel,-0.0466,-0.1242
+black and wood (report only),WOOD,lampmid6_wood_close_01,,orange,"[300, 327, 304, 369]","[300, 304]",0.021,0,1,no barrel,no barrel,0.1577,0.1577
+black and wood (report only),WOOD,lampwarm6_wood_close_01,,orange,"[155, 337, 259, 368]","[155, 259]",0.543,0,0,no barrel,no barrel,-0.0763,-0.0535
+black and wood (report only),WOOD,lampwarm6_wood_close_01,,orange,"[269, 306, 337, 376]","[269, 337]",0.366,0,0,no barrel,no barrel,-0.0255,-0.1551
+black and wood (report only),WOOD,lampwarm6_wood_close_01,,orange,"[266, 337, 268, 362]","[266, 268]",0.011,0,1,no barrel,no barrel,-0.0633,-0.0633
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,0,orange,"[314, 136, 324, 147]","[314, 324]",0.221,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,0,blue,"[333, 142, 346, 161]","[327, 346]",0.385,1,0,own,cut,0.1804,0.0032
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,0,blue,"[349, 142, 378, 154]","[349, 378]",0.579,1,0,cut,own,0.0051,0.1487
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,0,blue,"[352, 131, 362, 149]","[352, 362]",0.218,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,0,blue,"[365, 139, 394, 155]","[365, 394]",0.604,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,0,orange,"[391, 121, 422, 147]","[391, 422]",0.707,1,0,own,cut,0.1094,0.0094
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,0,orange,"[425, 136, 429, 147]","[425, 431]",0.133,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,0,blue,"[0, 159, 20, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,0,blue,"[23, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,stripe patch 0.03 W,window_light_far_02,0,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,0,orange,"[150, 145, 177, 157]","[148, 177]",0.556,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,0,orange,"[180, 128, 192, 157]","[180, 192]",0.243,1,1,cut,own,-0.0993,-0.0434
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,0,blue,"[190, 148, 229, 160]","[190, 229]",0.728,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,1,orange,"[314, 136, 330, 148]","[314, 330]",0.354,1,0,own,cut,0.102,-0.0201
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,1,blue,"[333, 142, 348, 161]","[332, 348]",0.324,1,0,own,cut,0.1618,-0.0061
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,1,blue,"[409, 140, 435, 153]","[409, 437]",0.575,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,1,blue,"[352, 131, 362, 149]","[352, 362]",0.218,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,1,blue,"[365, 139, 394, 155]","[365, 394]",0.604,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,1,orange,"[391, 121, 410, 146]","[391, 410]",0.447,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,1,orange,"[413, 135, 429, 147]","[413, 431]",0.398,1,0,cut,own,0.041,0.1046
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,1,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,stripe patch 0.03 W,window_light_far_02,1,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,1,orange,"[150, 145, 163, 157]","[148, 163]",0.291,1,1,own,cut,0.2154,0.0266
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,1,orange,"[166, 128, 192, 157]","[166, 192]",0.512,1,0,cut,own,-0.0324,-0.0021
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,2,orange,"[388, 122, 395, 147]","[388, 395]",0.168,0,1,cut,own,-0.1301,0.1231
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,2,orange,"[391, 124, 416, 146]","[391, 416]",0.579,1,0,own,cut,0.1226,-0.0391
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,2,orange,"[419, 136, 429, 147]","[419, 431]",0.265,1,1,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,2,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,stripe patch 0.03 W,window_light_far_02,2,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_02,2,blue,"[401, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,2,blue,"[190, 148, 198, 159]","[190, 198]",0.149,1,1,own,cut,0.1399,0.0653
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,2,orange,"[279, 143, 288, 156]","[279, 289]",0.197,1,1,cut,own,0.016,0.264
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,3,orange,"[391, 124, 413, 146]","[391, 413]",0.51,1,0,own,cut,0.1226,-0.0391
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,3,orange,"[416, 135, 429, 147]","[416, 431]",0.332,1,0,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,3,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,3,blue,"[17, 154, 30, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,stripe patch 0.03 W,window_light_far_02,3,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,3,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,4,blue,"[333, 142, 369, 161]","[333, 369]",0.718,1,0,own,cut,0.1339,0.0051
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,4,blue,"[372, 142, 378, 154]","[372, 378]",0.121,1,1,cut,own,0.0219,0.1855
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_01,4,blue,"[402, 139, 435, 153]","[402, 437]",0.729,1,0,cut,own,-0.0168,0.2902
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,4,blue,"[352, 131, 360, 148]","[352, 360]",0.174,1,1,own,cut,0.1161,-0.0242
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,4,blue,"[363, 139, 394, 155]","[363, 394]",0.646,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,4,orange,"[391, 121, 396, 139]","[391, 396]",0.131,0,1,own,cut,-0.0209,-0.1648
+stripe patch / breaks,stripe patch 0.03 W,window_light_cluster_02,4,orange,"[398, 134, 429, 147]","[398, 431]",0.741,1,0,cut,own,0.0255,0.1173
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,4,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.03 W,window_light_edge_01,4,blue,"[17, 154, 30, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,stripe patch 0.03 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_01,4,orange,"[417, 144, 422, 160]","[417, 422]",0.098,0,1,cut,own,-0.0868,-0.0747
+stripe patch / breaks,stripe patch 0.03 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.03 W,window_light_touch_02,4,orange,"[189, 128, 192, 147]","[189, 192]",0.07,0,1,cut,own,-0.167,-0.167
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,0,orange,"[314, 136, 324, 147]","[314, 324]",0.221,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,0,blue,"[333, 142, 346, 161]","[327, 346]",0.385,1,0,own,cut,0.1804,0.0032
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,0,blue,"[349, 142, 378, 154]","[349, 378]",0.579,1,0,cut,own,0.0051,0.1487
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,0,blue,"[352, 131, 362, 149]","[352, 362]",0.218,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,0,blue,"[365, 139, 394, 155]","[365, 394]",0.604,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,0,orange,"[391, 121, 422, 147]","[391, 422]",0.707,1,0,own,cut,0.1094,0.0094
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,0,orange,"[425, 136, 429, 147]","[425, 431]",0.133,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,0,blue,"[0, 159, 20, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,0,blue,"[23, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,0,orange,"[247, 114, 271, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,0,orange,"[150, 145, 177, 157]","[148, 177]",0.556,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,0,orange,"[180, 128, 192, 157]","[180, 192]",0.243,1,1,cut,own,-0.0993,-0.0434
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,0,blue,"[190, 148, 228, 160]","[190, 228]",0.709,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,1,orange,"[314, 136, 330, 148]","[314, 330]",0.354,1,0,own,cut,0.102,-0.0201
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,1,blue,"[333, 142, 349, 161]","[332, 349]",0.344,1,0,own,cut,0.1618,-0.0061
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,1,blue,"[409, 140, 435, 153]","[409, 437]",0.575,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,1,blue,"[352, 131, 363, 149]","[352, 363]",0.239,1,1,own,cut,0.1161,-0.0442
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,1,blue,"[366, 139, 394, 155]","[366, 394]",0.583,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,1,orange,"[391, 121, 410, 146]","[391, 410]",0.447,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,1,orange,"[413, 135, 429, 147]","[413, 431]",0.398,1,0,cut,own,0.041,0.1046
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,1,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,1,blue,"[226, 123, 250, 133]","[226, 250]",0.676,1,0,cut,own,0.05,0.1276
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,1,orange,"[247, 114, 266, 126]","[247, 266]",0.606,1,0,own,cut,0.1342,0.0757
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,1,blue,"[219, 123, 223, 132]","[219, 223]",0.113,1,1,own,cut,0.1746,0.0888
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,1,orange,"[150, 145, 163, 157]","[148, 163]",0.291,1,1,own,cut,0.2154,0.0266
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,1,orange,"[166, 128, 192, 157]","[166, 192]",0.512,1,0,cut,own,-0.0324,-0.0021
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,2,orange,"[388, 122, 395, 147]","[388, 395]",0.168,0,1,cut,own,-0.1301,0.1231
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,2,orange,"[393, 124, 416, 146]","[393, 416]",0.524,1,0,own,cut,0.0674,-0.0116
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,2,orange,"[419, 136, 429, 147]","[419, 431]",0.265,1,1,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,2,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,2,blue,"[219, 123, 245, 132]","[219, 245]",0.732,1,0,own,own,0.1746,0.0371
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,2,orange,"[247, 114, 263, 126]","[247, 263]",0.51,1,0,own,cut,0.1342,0.0611
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,2,orange,"[266, 117, 272, 124]","[266, 272]",0.196,1,1,cut,own,0.0534,0.0983
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_02,2,blue,"[402, 142, 406, 153]","[396, 406]",0.205,0,1,own,cut,-0.0964,-0.1437
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,2,blue,"[190, 148, 199, 159]","[190, 199]",0.168,1,1,own,cut,0.1399,0.0623
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,2,orange,"[279, 143, 288, 156]","[279, 289]",0.197,1,1,cut,own,0.016,0.264
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,3,orange,"[391, 124, 413, 146]","[391, 413]",0.51,1,0,own,cut,0.1226,-0.0391
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,3,orange,"[416, 135, 429, 147]","[416, 431]",0.332,1,0,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,3,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,3,blue,"[17, 154, 30, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,3,blue,"[219, 123, 243, 132]","[219, 243]",0.676,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,3,blue,"[246, 123, 250, 133]","[246, 250]",0.113,1,1,cut,own,0.0759,0.1276
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,3,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,4,blue,"[333, 142, 369, 161]","[333, 369]",0.718,1,0,own,cut,0.1339,0.0051
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,4,orange,"[372, 121, 396, 147]","[372, 400]",0.659,1,0,cut,own,0.084,0.1273
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,4,blue,"[372, 142, 378, 154]","[372, 378]",0.121,1,1,cut,own,0.0335,0.1793
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_01,4,blue,"[403, 139, 435, 153]","[403, 437]",0.708,1,0,cut,own,-0.0263,0.2902
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,4,blue,"[352, 131, 360, 148]","[352, 360]",0.174,1,1,own,cut,0.1161,-0.0242
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,4,orange,"[391, 121, 397, 141]","[391, 397]",0.154,0,1,own,cut,0.01,-0.1549
+stripe patch / breaks,stripe patch 0.06 W,window_light_cluster_02,4,orange,"[399, 134, 429, 147]","[399, 431]",0.718,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,4,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.06 W,window_light_edge_01,4,blue,"[17, 154, 30, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,stripe patch 0.06 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_01,4,orange,"[417, 144, 422, 160]","[417, 422]",0.098,0,1,cut,own,-0.0868,-0.0747
+stripe patch / breaks,stripe patch 0.06 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.06 W,window_light_touch_02,4,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,0,orange,"[314, 136, 324, 147]","[314, 324]",0.221,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,0,blue,"[333, 142, 345, 161]","[328, 345]",0.344,1,1,own,cut,0.1804,0.0126
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,0,blue,"[350, 142, 378, 154]","[350, 378]",0.559,1,0,cut,own,-0.001,0.1487
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,0,blue,"[352, 131, 362, 149]","[352, 362]",0.218,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,0,blue,"[365, 139, 394, 155]","[365, 394]",0.604,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,0,orange,"[391, 121, 421, 147]","[391, 421]",0.695,1,0,own,cut,0.1226,-0.0178
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,0,orange,"[424, 136, 429, 147]","[424, 431]",0.154,1,1,cut,own,0.058,0.0984
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,0,blue,"[0, 160, 20, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,0,blue,"[23, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,0,orange,"[247, 114, 270, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,0,orange,"[150, 145, 177, 157]","[148, 177]",0.556,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,0,orange,"[180, 128, 192, 157]","[180, 192]",0.243,1,1,cut,own,-0.0993,-0.0434
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,0,blue,"[190, 148, 227, 160]","[190, 227]",0.691,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,1,orange,"[314, 136, 329, 148]","[314, 329]",0.332,1,0,own,cut,0.102,-0.0201
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,1,blue,"[411, 140, 435, 153]","[411, 437]",0.534,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,1,blue,"[352, 131, 363, 149]","[352, 363]",0.239,1,1,own,cut,0.1161,-0.0442
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,1,orange,"[391, 121, 410, 146]","[391, 410]",0.447,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,1,orange,"[413, 135, 429, 147]","[413, 431]",0.398,1,0,cut,own,0.041,0.1046
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,1,blue,"[6, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,1,blue,"[0, 162, 3, 177]","[0, 34]",0.52,1,1,own,own,0.0221,0.1779
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,1,blue,"[226, 123, 250, 133]","[226, 250]",0.676,1,0,cut,own,0.05,0.1276
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,1,orange,"[247, 114, 266, 126]","[247, 266]",0.606,1,0,own,cut,0.1342,0.0757
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,1,blue,"[219, 123, 223, 132]","[219, 223]",0.11,1,1,own,cut,0.1573,0.1192
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,1,orange,"[150, 145, 163, 157]","[148, 163]",0.289,1,1,own,cut,0.2093,0.0377
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,1,orange,"[166, 128, 192, 157]","[166, 192]",0.512,1,0,cut,own,-0.0324,-0.0021
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,2,orange,"[388, 122, 395, 147]","[388, 396]",0.192,0,1,cut,own,-0.1301,0.1504
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,2,orange,"[393, 124, 416, 146]","[393, 416]",0.524,1,0,own,cut,0.0674,-0.0116
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,2,orange,"[419, 136, 429, 147]","[419, 431]",0.265,1,1,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,2,blue,"[0, 157, 24, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,2,blue,"[26, 154, 30, 172]","[0, 34]",0.575,0,1,own,own,-0.1508,0.0211
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,2,blue,"[219, 123, 244, 132]","[219, 244]",0.704,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,2,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_02,2,blue,"[402, 142, 406, 153]","[396, 406]",0.205,0,1,own,cut,-0.0964,-0.1437
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,2,blue,"[190, 148, 198, 159]","[190, 198]",0.149,1,1,own,cut,0.1399,0.0653
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,2,orange,"[278, 143, 288, 156]","[278, 289]",0.217,1,1,cut,own,0.01,0.264
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,3,orange,"[393, 124, 413, 146]","[393, 413]",0.463,1,0,own,cut,0.0461,-0.0391
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,3,orange,"[416, 135, 429, 147]","[416, 431]",0.332,1,0,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,3,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,3,blue,"[17, 154, 30, 175]","[0, 34]",0.555,1,1,own,own,-0.0891,0.077
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,3,blue,"[219, 123, 243, 132]","[219, 243]",0.676,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,3,blue,"[246, 123, 250, 133]","[246, 250]",0.11,1,1,cut,own,0.1074,0.1581
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,3,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,4,blue,"[333, 142, 367, 161]","[333, 367]",0.679,1,0,own,cut,0.1339,-0.001
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,4,orange,"[372, 121, 396, 147]","[372, 399]",0.636,1,0,cut,own,0.084,0.1381
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,4,blue,"[372, 142, 378, 154]","[372, 378]",0.12,1,1,cut,own,0.0481,0.1487
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_01,4,blue,"[404, 140, 435, 153]","[404, 437]",0.687,1,0,cut,own,-0.0359,0.2902
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,4,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,4,orange,"[391, 121, 396, 139]","[391, 396]",0.131,0,1,own,cut,-0.0209,-0.1648
+stripe patch / breaks,stripe patch 0.1 W,window_light_cluster_02,4,orange,"[399, 134, 429, 147]","[399, 431]",0.718,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,4,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.1 W,window_light_edge_01,4,blue,"[17, 154, 30, 175]","[0, 34]",0.555,1,1,own,own,-0.0891,0.077
+stripe patch / breaks,stripe patch 0.1 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_01,4,orange,"[417, 144, 421, 156]","[417, 421]",0.08,0,1,cut,own,-0.1114,-0.1052
+stripe patch / breaks,stripe patch 0.1 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.1 W,window_light_touch_02,4,orange,"[188, 128, 192, 147]","[188, 192]",0.091,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,0,orange,"[314, 136, 324, 147]","[314, 324]",0.221,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,0,blue,"[333, 142, 345, 161]","[330, 345]",0.304,1,1,own,cut,0.1804,0.0126
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,0,blue,"[400, 139, 435, 153]","[400, 437]",0.77,1,0,cut,own,-0.0168,0.2902
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,0,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,0,blue,"[367, 139, 394, 155]","[367, 394]",0.562,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,0,orange,"[391, 121, 420, 147]","[391, 420]",0.672,1,0,own,cut,0.1226,-0.0178
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,0,orange,"[425, 136, 429, 147]","[425, 431]",0.131,1,1,cut,own,0.0522,0.0923
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,0,blue,"[0, 160, 19, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,0,blue,"[24, 154, 30, 173]","[0, 34]",0.565,0,1,own,own,-0.1194,0.0495
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,0,orange,"[247, 114, 270, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,0,orange,"[150, 145, 175, 157]","[148, 175]",0.517,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,0,orange,"[180, 128, 192, 157]","[180, 192]",0.243,1,1,cut,own,-0.0993,-0.0434
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,0,blue,"[190, 148, 226, 160]","[190, 226]",0.672,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,1,blue,"[352, 131, 362, 149]","[352, 362]",0.218,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,1,orange,"[391, 121, 409, 146]","[391, 409]",0.424,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,1,orange,"[414, 135, 429, 147]","[414, 431]",0.376,1,0,cut,own,0.041,0.1046
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,1,blue,"[7, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,1,blue,"[0, 162, 4, 177]","[0, 34]",0.517,1,1,own,own,0.0307,0.1857
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,1,blue,"[219, 123, 224, 132]","[219, 224]",0.141,1,1,own,cut,0.1746,0.0759
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,1,blue,"[227, 123, 250, 133]","[227, 250]",0.648,1,0,cut,own,0.05,0.1276
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,1,orange,"[247, 114, 265, 126]","[247, 265]",0.574,1,0,own,cut,0.1342,0.0611
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,1,orange,"[268, 117, 272, 124]","[268, 272]",0.13,1,1,cut,own,0.0534,0.0983
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,1,orange,"[150, 145, 163, 157]","[148, 163]",0.287,1,1,own,cut,0.2033,0.0486
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,1,orange,"[168, 128, 192, 157]","[168, 192]",0.472,1,0,cut,own,-0.0384,-0.0021
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,2,orange,"[376, 128, 384, 147]","[376, 384]",0.188,1,1,cut,cut,-0.0784,-0.1109
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,2,orange,"[390, 122, 395, 141]","[390, 396]",0.149,0,1,cut,own,0.0913,0.1803
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,2,blue,"[0, 157, 23, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,2,blue,"[26, 154, 30, 172]","[0, 34]",0.589,0,1,own,own,-0.1625,-0.0186
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,2,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,2,blue,"[190, 148, 199, 159]","[190, 199]",0.168,1,1,own,cut,0.1399,0.0623
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,2,orange,"[280, 143, 288, 156]","[280, 289]",0.177,1,1,cut,own,0.0281,0.264
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,3,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,3,blue,"[18, 154, 30, 175]","[0, 34]",0.555,1,1,own,own,-0.0891,0.077
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,3,blue,"[219, 123, 242, 132]","[219, 242]",0.648,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,3,blue,"[245, 123, 250, 133]","[245, 250]",0.141,1,1,cut,own,0.0629,0.1276
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,3,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,4,blue,"[333, 142, 367, 161]","[333, 367]",0.679,1,0,own,cut,0.1339,-0.001
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,4,orange,"[372, 121, 396, 147]","[372, 399]",0.636,1,0,cut,own,0.084,0.1381
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,4,blue,"[372, 142, 378, 154]","[372, 378]",0.12,1,1,cut,own,0.0481,0.1487
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_01,4,blue,"[406, 140, 435, 153]","[406, 437]",0.636,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,4,blue,"[352, 131, 360, 148]","[352, 360]",0.175,1,1,own,cut,0.1041,-0.0373
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,4,orange,"[391, 121, 397, 139]","[391, 397]",0.157,0,1,own,cut,-0.0209,-0.1648
+stripe patch / breaks,stripe patch 0.15 W,window_light_cluster_02,4,orange,"[401, 134, 429, 147]","[401, 431]",0.673,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,4,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.15 W,window_light_edge_01,4,blue,"[18, 154, 30, 175]","[0, 34]",0.555,1,1,own,own,-0.0891,0.077
+stripe patch / breaks,stripe patch 0.15 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.15 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.15 W,window_light_touch_02,4,orange,"[188, 128, 192, 147]","[188, 192]",0.091,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,0,orange,"[314, 136, 324, 147]","[314, 324]",0.221,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,0,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,0,blue,"[369, 139, 394, 155]","[369, 394]",0.521,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,0,orange,"[391, 121, 419, 147]","[391, 419]",0.649,1,0,own,cut,0.1226,-0.0178
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,0,orange,"[424, 136, 429, 147]","[424, 431]",0.152,1,1,cut,own,0.0522,0.0923
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,0,blue,"[0, 159, 18, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,0,blue,"[23, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,0,orange,"[247, 114, 268, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,0,orange,"[150, 145, 175, 157]","[148, 175]",0.517,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,0,orange,"[180, 128, 192, 157]","[180, 192]",0.243,1,1,cut,own,-0.0993,-0.0434
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,0,blue,"[190, 148, 224, 160]","[182, 224]",0.784,1,0,own,cut,0.3148,0.0163
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,1,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,1,orange,"[391, 121, 408, 146]","[391, 408]",0.4,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,1,orange,"[415, 135, 429, 147]","[415, 431]",0.354,1,0,cut,own,0.0511,0.1046
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,1,blue,"[7, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,1,blue,"[0, 162, 4, 177]","[0, 34]",0.517,1,1,own,own,0.0307,0.1857
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,1,blue,"[227, 123, 250, 133]","[227, 250]",0.648,1,0,cut,own,0.05,0.1276
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,1,orange,"[247, 114, 264, 126]","[247, 264]",0.542,1,0,own,cut,0.1342,0.0611
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,1,blue,"[219, 123, 223, 132]","[219, 223]",0.11,1,1,own,cut,0.1573,0.1192
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,1,orange,"[150, 145, 163, 157]","[148, 163]",0.287,1,1,own,cut,0.2033,0.0486
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,1,orange,"[168, 128, 192, 157]","[168, 192]",0.472,1,0,cut,own,-0.0384,-0.0021
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,2,blue,"[333, 142, 372, 161]","[333, 372]",0.778,1,0,own,cut,0.1339,0.0235
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,2,orange,"[376, 128, 382, 143]","[376, 382]",0.146,0,1,cut,cut,-0.1387,-0.1499
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,2,orange,"[389, 122, 395, 141]","[389, 396]",0.173,0,1,cut,own,-0.0339,0.1803
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,2,blue,"[352, 131, 386, 150]","[352, 386]",0.718,1,0,own,cut,0.1625,0.0166
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,2,blue,"[0, 158, 22, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,2,blue,"[26, 154, 30, 172]","[0, 34]",0.578,0,1,own,own,-0.1615,0.0113
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,2,orange,"[247, 114, 261, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,2,blue,"[190, 148, 199, 159]","[190, 199]",0.168,1,1,own,cut,0.1399,0.0623
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,2,orange,"[279, 143, 288, 156]","[279, 289]",0.197,1,1,cut,own,0.016,0.264
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,3,blue,"[352, 131, 386, 150]","[352, 386]",0.718,1,0,own,cut,0.1625,0.0166
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,3,blue,"[0, 160, 14, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,3,blue,"[19, 154, 30, 175]","[0, 34]",0.555,0,1,own,own,-0.0891,0.077
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,3,blue,"[219, 123, 241, 132]","[219, 241]",0.619,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,3,blue,"[246, 123, 250, 133]","[246, 250]",0.11,1,1,cut,own,0.1074,0.1581
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_02,3,orange,"[396, 146, 407, 177]","[393, 407]",0.226,0,1,no barrel,no barrel,0.0151,-0.1403
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,3,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,4,blue,"[333, 142, 365, 161]","[333, 365]",0.639,1,0,own,cut,0.1339,-0.001
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,4,orange,"[372, 121, 396, 147]","[372, 399]",0.636,1,0,cut,own,0.084,0.1381
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,4,blue,"[372, 142, 378, 154]","[372, 378]",0.12,1,1,cut,own,0.0481,0.1487
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_01,4,blue,"[408, 140, 435, 153]","[408, 437]",0.595,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,4,blue,"[352, 131, 359, 148]","[352, 359]",0.155,1,1,own,cut,0.0918,-0.0404
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,4,orange,"[391, 121, 397, 139]","[391, 397]",0.157,0,1,own,cut,-0.0209,-0.1648
+stripe patch / breaks,stripe patch 0.2 W,window_light_cluster_02,4,orange,"[402, 134, 429, 147]","[402, 431]",0.651,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,4,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.2 W,window_light_edge_01,4,blue,"[18, 154, 30, 175]","[0, 34]",0.555,1,1,own,own,-0.0891,0.077
+stripe patch / breaks,stripe patch 0.2 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.2 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.2 W,window_light_touch_02,4,orange,"[188, 128, 192, 147]","[188, 192]",0.09,0,1,cut,own,-0.1647,-0.1647
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,0,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,0,blue,"[371, 139, 394, 155]","[371, 394]",0.479,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,0,orange,"[391, 121, 416, 146]","[391, 416]",0.579,1,0,own,cut,0.1226,-0.0391
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,0,orange,"[425, 136, 429, 147]","[425, 431]",0.13,0,1,cut,own,0.0465,0.0863
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,0,blue,"[0, 160, 17, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,0,blue,"[24, 154, 30, 172]","[0, 34]",0.568,0,1,own,own,-0.1298,0.0402
+stripe patch / breaks,stripe patch 0.3 W,window_light_far_02,0,orange,"[247, 114, 265, 126]","[247, 265]",0.574,1,0,own,cut,0.1342,0.0611
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,0,orange,"[150, 145, 172, 157]","[148, 172]",0.46,1,0,own,cut,0.2033,0.0015
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,0,blue,"[190, 148, 221, 160]","[184, 221]",0.691,1,0,own,cut,0.3148,0.0049
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,1,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,1,orange,"[391, 121, 407, 146]","[391, 407]",0.383,1,0,own,cut,0.1231,-0.0971
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,1,orange,"[416, 135, 429, 147]","[416, 431]",0.332,1,0,cut,own,0.0537,0.1046
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,1,blue,"[10, 154, 30, 177]","[0, 34]",0.549,1,0,own,own,-0.0695,0.0948
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,1,blue,"[0, 161, 5, 177]","[0, 34]",0.514,1,1,own,own,0.0393,0.1934
+stripe patch / breaks,stripe patch 0.3 W,window_light_far_02,1,orange,"[247, 114, 262, 126]","[247, 262]",0.479,1,0,own,cut,0.1342,0.0757
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,1,orange,"[431, 146, 440, 183]","[431, 440]",0.145,0,1,no barrel,no barrel,-0.1403,-0.1143
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,1,orange,"[150, 145, 162, 157]","[148, 162]",0.268,1,1,own,cut,0.2033,0.0545
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,1,orange,"[171, 128, 192, 157]","[171, 192]",0.413,1,0,cut,own,-0.0505,-0.0021
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,2,blue,"[333, 142, 368, 161]","[333, 368]",0.689,1,0,own,cut,0.1551,0.0221
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,2,orange,"[391, 122, 396, 139]","[391, 396]",0.126,0,1,cut,own,0.063,0.0398
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,2,orange,"[376, 128, 380, 138]","[376, 380]",0.099,0,1,cut,cut,-0.1591,-0.1591
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,2,blue,"[352, 131, 383, 150]","[352, 383]",0.655,1,0,own,cut,0.1625,-0.0029
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,2,blue,"[0, 160, 20, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,2,blue,"[26, 154, 30, 172]","[0, 34]",0.589,0,1,own,own,-0.1625,-0.0186
+stripe patch / breaks,stripe patch 0.3 W,window_light_far_02,2,orange,"[247, 114, 259, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,2,orange,"[396, 143, 409, 178]","[393, 409]",0.261,0,1,no barrel,no barrel,-0.0035,-0.1342
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,2,blue,"[397, 143, 400, 152]","[397, 400]",0.062,0,1,own,cut,-0.1059,-0.1153
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,2,blue,"[190, 148, 199, 159]","[190, 199]",0.166,1,1,own,cut,0.1293,0.0556
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,2,orange,"[280, 143, 288, 156]","[280, 289]",0.177,1,1,cut,own,0.0281,0.264
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,3,blue,"[352, 131, 383, 150]","[352, 383]",0.655,1,0,own,cut,0.1625,-0.0029
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,3,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,3,blue,"[20, 154, 30, 174]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,stripe patch 0.3 W,window_light_far_02,3,blue,"[219, 123, 238, 132]","[219, 238]",0.535,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,stripe patch 0.3 W,window_light_far_02,3,blue,"[245, 123, 250, 133]","[245, 250]",0.138,1,1,cut,own,0.0812,0.1581
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,3,orange,"[396, 148, 406, 177]","[393, 406]",0.208,0,1,no barrel,no barrel,0.0334,-0.1463
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,3,blue,"[190, 148, 200, 159]","[190, 200]",0.184,1,1,own,cut,0.1293,0.0556
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,4,orange,"[314, 136, 333, 148]","[314, 333]",0.42,1,0,own,cut,0.102,0.0003
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,4,blue,"[335, 143, 362, 154]","[335, 362]",0.539,1,0,own,cut,0.0726,-0.001
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,4,blue,"[371, 142, 378, 154]","[371, 378]",0.138,1,1,cut,own,0.0585,0.1371
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_01,4,blue,"[411, 140, 435, 153]","[411, 437]",0.534,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,4,blue,"[352, 131, 359, 148]","[352, 359]",0.155,1,1,own,cut,0.0918,-0.0404
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,4,orange,"[391, 121, 397, 139]","[391, 397]",0.157,0,1,own,cut,-0.0209,-0.1648
+stripe patch / breaks,stripe patch 0.3 W,window_light_cluster_02,4,orange,"[405, 135, 429, 147]","[405, 431]",0.575,1,0,cut,own,0.041,0.1046
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,4,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,stripe patch 0.3 W,window_light_edge_01,4,blue,"[20, 154, 30, 174]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,stripe patch 0.3 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,stripe patch 0.3 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,stripe patch 0.3 W,window_light_touch_02,4,orange,"[189, 128, 192, 148]","[189, 192]",0.07,0,1,cut,own,-0.167,-0.167
+stripe patch / breaks,one stripe break 0.03 W,window_light_edge_01,0,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.03 W,window_light_far_02,0,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.03 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.03 W,window_light_edge_01,1,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.03 W,window_light_far_02,1,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.03 W,window_light_touch_02,1,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.03 W,window_light_edge_01,2,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.03 W,window_light_far_02,2,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.252,0,1,cut,own,-0.0629,0.2594
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_02,2,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.03 W,window_light_touch_02,2,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.03 W,window_light_edge_01,3,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.03 W,window_light_far_02,3,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.252,0,1,cut,own,-0.0629,0.2594
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.03 W,window_light_edge_01,4,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.03 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.03 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.03 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,0,blue,"[333, 142, 343, 161]","[333, 343]",0.202,1,1,own,cut,0.1338,0.0126
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,0,blue,"[346, 142, 378, 154]","[346, 378]",0.639,1,0,cut,own,0.0174,0.1487
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,0,blue,"[404, 140, 435, 153]","[404, 437]",0.687,1,0,cut,own,-0.0359,0.2902
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,0,orange,"[399, 134, 429, 147]","[399, 431]",0.718,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.06 W,window_light_core_02,0,blue,"[461, 146, 467, 159]","[461, 471]",0.192,1,1,cut,own,0.0384,0.1091
+stripe patch / breaks,one stripe break 0.06 W,window_light_edge_01,0,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.06 W,window_light_far_02,0,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_02,0,blue,"[397, 143, 405, 156]","[396, 405]",0.182,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,0,orange,"[150, 145, 186, 157]","[148, 186]",0.728,1,0,own,own,0.2033,0.0192
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,1,orange,"[314, 125, 337, 148]","[314, 337]",0.516,1,0,own,cut,0.0771,0.076
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,1,blue,"[339, 142, 349, 153]","[339, 349]",0.202,1,1,cut,cut,0.0312,-0.0061
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,1,blue,"[407, 140, 435, 153]","[407, 437]",0.616,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,1,blue,"[333, 142, 337, 161]","[333, 337]",0.08,1,1,own,cut,0.1339,0.1032
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,1,blue,"[352, 131, 359, 148]","[352, 359]",0.154,1,1,own,cut,0.1041,-0.0272
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,1,blue,"[362, 139, 394, 155]","[362, 394]",0.666,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,1,orange,"[391, 121, 412, 146]","[391, 412]",0.487,1,0,own,cut,0.1226,-0.0391
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,1,orange,"[415, 135, 429, 147]","[415, 431]",0.354,1,0,cut,own,0.0511,0.1046
+stripe patch / breaks,one stripe break 0.06 W,window_light_edge_01,1,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.06 W,window_light_far_02,1,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,2,blue,"[333, 142, 373, 161]","[333, 373]",0.798,1,0,own,cut,0.1339,0.0297
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,2,orange,"[376, 121, 396, 147]","[376, 396]",0.463,1,0,cut,own,-0.0498,0.1226
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,2,blue,"[376, 142, 378, 153]","[376, 378]",0.04,0,1,cut,own,0.1855,0.1855
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,2,blue,"[366, 139, 394, 155]","[366, 394]",0.583,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.06 W,window_light_core_02,2,blue,"[457, 145, 467, 159]","[457, 471]",0.268,1,1,cut,own,0.0251,0.1091
+stripe patch / breaks,one stripe break 0.06 W,window_light_edge_01,2,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.06 W,window_light_far_02,2,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_01,2,orange,"[419, 144, 423, 160]","[419, 430]",0.214,0,1,cut,own,-0.051,0.2594
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_02,2,blue,"[397, 143, 405, 156]","[396, 405]",0.182,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,2,orange,"[150, 145, 180, 157]","[148, 180]",0.613,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,2,orange,"[183, 128, 192, 157]","[183, 192]",0.185,1,1,cut,own,-0.1059,-0.0681
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,3,orange,"[314, 136, 331, 148]","[314, 331]",0.376,1,0,own,cut,0.102,-0.0201
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,3,blue,"[341, 142, 378, 154]","[341, 378]",0.738,1,0,cut,own,0.0358,0.1487
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,3,orange,"[334, 123, 338, 143]","[334, 338]",0.099,0,1,cut,cut,0.0344,0.0572
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,3,blue,"[334, 142, 338, 153]","[334, 338]",0.081,1,1,own,cut,0.0965,0.0405
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,3,orange,"[396, 133, 429, 147]","[396, 431]",0.786,1,0,own,own,0.0358,0.1173
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,3,orange,"[391, 121, 395, 138]","[391, 395]",0.11,0,1,own,cut,-0.1208,-0.1715
+stripe patch / breaks,one stripe break 0.06 W,window_light_edge_01,3,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.06 W,window_light_far_02,3,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_01,3,blue,"[417, 149, 423, 178]","[417, 430]",0.208,0,1,no barrel,no barrel,-0.1611,-0.038
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_02,3,blue,"[397, 143, 402, 156]","[396, 402]",0.121,0,1,own,cut,-0.0713,-0.0993
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,3,orange,"[150, 145, 169, 157]","[148, 169]",0.402,1,0,own,cut,0.2033,0.0133
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,3,orange,"[172, 133, 192, 157]","[172, 192]",0.388,1,0,cut,own,-0.0271,0.0206
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_01,4,blue,"[426, 141, 435, 153]","[426, 437]",0.226,1,1,cut,own,0.017,0.3102
+stripe patch / breaks,one stripe break 0.06 W,window_light_cluster_02,4,blue,"[352, 131, 355, 147]","[352, 355]",0.067,0,1,own,cut,0.0668,0.0151
+stripe patch / breaks,one stripe break 0.06 W,window_light_edge_01,4,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.06 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.06 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,4,orange,"[150, 145, 165, 157]","[148, 165]",0.326,1,0,own,cut,0.2033,0.0369
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,4,orange,"[168, 128, 192, 157]","[168, 192]",0.472,1,0,cut,own,-0.0384,-0.0021
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,4,blue,"[190, 147, 232, 160]","[190, 232]",0.784,1,0,own,own,0.1399,0.0336
+stripe patch / breaks,one stripe break 0.06 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,0,blue,"[333, 142, 343, 161]","[333, 343]",0.202,1,1,own,cut,0.1338,0.0126
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,0,blue,"[348, 142, 378, 154]","[348, 378]",0.599,1,0,cut,own,0.0113,0.1487
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,0,blue,"[406, 140, 435, 153]","[406, 437]",0.636,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,0,orange,"[400, 134, 429, 147]","[400, 431]",0.696,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.1 W,window_light_core_02,0,blue,"[461, 146, 467, 159]","[461, 471]",0.192,1,1,cut,own,0.0384,0.1091
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,0,blue,"[0, 154, 29, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_02,0,blue,"[397, 143, 405, 156]","[396, 405]",0.182,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,0,orange,"[150, 145, 185, 157]","[148, 185]",0.709,1,0,own,own,0.2033,0.0133
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,0,blue,"[190, 147, 220, 160]","[189, 220]",0.579,1,0,own,cut,0.2031,0.0049
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,0,orange,"[276, 143, 288, 156]","[276, 289]",0.256,1,1,cut,own,0.0039,0.264
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,1,orange,"[314, 128, 336, 148]","[314, 336]",0.486,1,0,own,cut,0.102,0.0639
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,1,blue,"[339, 142, 348, 153]","[339, 348]",0.182,1,1,cut,cut,0.0312,-0.0061
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,1,blue,"[353, 142, 378, 154]","[353, 378]",0.499,1,0,cut,own,-0.001,0.1487
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,1,blue,"[408, 140, 435, 153]","[408, 437]",0.595,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,1,blue,"[333, 142, 336, 161]","[333, 336]",0.059,0,1,own,cut,0.1551,0.1551
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,1,blue,"[352, 131, 358, 147]","[352, 358]",0.133,1,1,own,cut,0.0918,-0.0302
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,1,blue,"[363, 139, 394, 155]","[363, 394]",0.646,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,1,orange,"[391, 121, 412, 146]","[391, 412]",0.487,1,0,own,cut,0.1226,-0.0391
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,1,orange,"[416, 135, 429, 147]","[416, 431]",0.332,1,0,cut,own,0.0537,0.1046
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,1,blue,"[4, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.1 W,window_light_far_02,1,orange,"[251, 117, 272, 126]","[251, 272]",0.67,1,0,cut,own,0.0757,0.1345
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,2,blue,"[333, 142, 371, 161]","[333, 371]",0.758,1,0,own,cut,0.1339,0.0174
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,2,orange,"[376, 121, 396, 147]","[376, 396]",0.463,1,0,cut,own,-0.0498,0.1226
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,2,blue,"[376, 142, 378, 153]","[376, 378]",0.04,0,1,cut,own,0.1855,0.1855
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,2,blue,"[368, 139, 394, 155]","[368, 394]",0.541,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.1 W,window_light_core_02,2,blue,"[457, 145, 467, 159]","[457, 471]",0.268,1,1,cut,own,0.0251,0.1091
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,2,blue,"[0, 160, 12, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,2,blue,"[15, 154, 30, 176]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_01,2,orange,"[419, 144, 423, 160]","[419, 430]",0.214,0,1,cut,own,-0.051,0.2594
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_02,2,blue,"[397, 142, 404, 156]","[396, 404]",0.162,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,2,orange,"[150, 145, 179, 157]","[148, 179]",0.594,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,2,orange,"[183, 128, 192, 157]","[183, 192]",0.185,1,1,cut,own,-0.1059,-0.0681
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,3,orange,"[314, 136, 330, 148]","[314, 330]",0.354,1,0,own,cut,0.102,-0.0201
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,3,blue,"[342, 142, 378, 154]","[342, 378]",0.718,1,0,cut,own,0.0358,0.1487
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,3,orange,"[334, 125, 337, 143]","[334, 337]",0.073,1,1,cut,cut,0.0627,0.0851
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_01,3,blue,"[334, 142, 337, 153]","[333, 337]",0.081,1,1,own,cut,0.1338,0.0592
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,3,orange,"[397, 133, 429, 147]","[397, 431]",0.763,1,0,cut,own,0.0358,0.1173
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,3,orange,"[391, 121, 395, 138]","[391, 395]",0.11,0,1,own,cut,-0.1208,-0.1715
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,3,blue,"[0, 154, 29, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.1 W,window_light_far_02,3,blue,"[219, 123, 240, 132]","[219, 240]",0.591,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,one stripe break 0.1 W,window_light_far_02,3,blue,"[243, 123, 250, 133]","[243, 250]",0.197,1,1,cut,own,0.0371,0.1276
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_01,3,blue,"[417, 149, 423, 178]","[417, 430]",0.208,0,1,no barrel,no barrel,-0.1611,-0.038
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_02,3,blue,"[397, 143, 402, 156]","[396, 402]",0.121,0,1,own,cut,-0.0713,-0.0993
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,3,orange,"[150, 145, 169, 157]","[148, 169]",0.402,1,0,own,cut,0.2033,0.0133
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,3,orange,"[173, 133, 192, 157]","[173, 192]",0.369,1,0,cut,own,-0.0271,0.0206
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,4,blue,"[360, 139, 394, 155]","[360, 394]",0.708,1,0,cut,own,0.0408,0.1344
+stripe patch / breaks,one stripe break 0.1 W,window_light_cluster_02,4,blue,"[352, 131, 355, 147]","[352, 355]",0.067,0,1,own,cut,0.0668,0.0151
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,4,blue,"[0, 158, 21, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.1 W,window_light_edge_01,4,blue,"[24, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.1 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,4,orange,"[150, 145, 165, 157]","[148, 165]",0.326,1,0,own,cut,0.2033,0.0369
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,4,orange,"[169, 128, 192, 157]","[169, 192]",0.453,1,0,cut,own,-0.0445,-0.0021
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,4,blue,"[190, 148, 230, 160]","[190, 230]",0.747,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,one stripe break 0.1 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,0,orange,"[314, 120, 342, 148]","[314, 342]",0.638,1,0,own,cut,0.0514,0.0884
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,0,blue,"[333, 142, 342, 161]","[333, 342]",0.182,1,1,own,cut,0.1338,0.0219
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,0,blue,"[350, 142, 378, 154]","[350, 378]",0.559,1,0,cut,own,-0.001,0.1487
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,0,blue,"[407, 140, 435, 153]","[407, 437]",0.616,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,0,orange,"[402, 134, 429, 147]","[402, 431]",0.651,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.15 W,window_light_core_02,0,blue,"[462, 146, 467, 159]","[462, 471]",0.172,1,1,cut,own,0.0443,0.1091
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,0,blue,"[0, 155, 27, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_02,0,blue,"[397, 142, 404, 156]","[396, 404]",0.162,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,0,orange,"[150, 145, 182, 157]","[148, 182]",0.651,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,0,blue,"[190, 147, 218, 160]","[189, 218]",0.541,1,0,own,cut,0.2031,0.0049
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,0,orange,"[276, 143, 288, 156]","[276, 289]",0.256,1,1,cut,own,0.0039,0.264
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,1,blue,"[339, 142, 347, 153]","[339, 347]",0.162,1,1,cut,cut,0.0312,-0.0061
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,1,blue,"[355, 142, 378, 154]","[355, 378]",0.459,1,0,cut,own,-0.001,0.1487
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,1,orange,"[392, 121, 396, 139]","[392, 396]",0.103,0,1,cut,own,0.0218,0.01
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,1,blue,"[333, 143, 335, 161]","[333, 335]",0.039,0,1,own,cut,0.1967,0.1967
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,1,blue,"[352, 131, 358, 147]","[352, 358]",0.133,1,1,own,cut,0.0918,-0.0302
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,1,blue,"[365, 139, 394, 155]","[365, 394]",0.604,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,1,orange,"[391, 121, 410, 146]","[391, 410]",0.447,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,1,orange,"[416, 135, 429, 147]","[416, 431]",0.332,1,0,cut,own,0.0537,0.1046
+stripe patch / breaks,one stripe break 0.15 W,window_light_core_02,1,blue,"[430, 145, 467, 159]","[430, 471]",0.796,1,0,cut,own,0.0385,0.1199
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,1,blue,"[6, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,1,blue,"[219, 123, 227, 132]","[219, 227]",0.225,1,1,own,cut,0.1746,0.05
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,1,blue,"[232, 123, 248, 132]","[232, 248]",0.451,1,0,cut,own,0.0242,0.0759
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,1,orange,"[252, 117, 272, 126]","[252, 272]",0.638,1,0,cut,own,0.0614,0.1345
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,2,blue,"[333, 142, 369, 161]","[333, 369]",0.718,1,0,own,cut,0.1339,0.0051
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,2,orange,"[376, 121, 396, 147]","[376, 396]",0.463,1,0,cut,own,-0.0498,0.1226
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,2,blue,"[369, 139, 394, 155]","[369, 394]",0.521,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.15 W,window_light_core_02,2,blue,"[458, 145, 467, 159]","[458, 471]",0.249,1,1,cut,own,0.031,0.1091
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,2,blue,"[0, 160, 11, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,2,blue,"[16, 154, 30, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,2,blue,"[219, 123, 236, 132]","[219, 236]",0.479,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,2,blue,"[241, 123, 250, 133]","[241, 250]",0.253,1,1,cut,own,0.0242,0.1276
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_01,2,orange,"[420, 144, 423, 160]","[420, 430]",0.192,0,1,cut,own,-0.0103,0.274
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_02,2,blue,"[397, 142, 404, 156]","[396, 404]",0.162,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,3,orange,"[314, 136, 329, 148]","[314, 329]",0.332,1,0,own,cut,0.102,-0.0201
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,3,blue,"[345, 142, 378, 154]","[345, 378]",0.659,1,0,cut,own,0.0174,0.1487
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_01,3,orange,"[335, 125, 337, 142]","[335, 337]",0.05,0,1,cut,cut,0.0572,0.0572
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,3,orange,"[399, 134, 429, 147]","[399, 431]",0.718,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,3,orange,"[391, 121, 395, 138]","[391, 395]",0.11,0,1,own,cut,-0.1208,-0.1715
+stripe patch / breaks,one stripe break 0.15 W,window_light_core_02,3,blue,"[431, 145, 467, 159]","[431, 471]",0.777,1,0,cut,own,0.0326,0.1199
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,3,blue,"[0, 155, 27, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,3,blue,"[219, 123, 239, 132]","[219, 239]",0.563,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,one stripe break 0.15 W,window_light_far_02,3,blue,"[244, 123, 250, 133]","[244, 250]",0.169,1,1,cut,own,0.05,0.1276
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_01,3,blue,"[417, 150, 423, 178]","[417, 430]",0.208,0,1,no barrel,no barrel,-0.1611,-0.038
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_02,3,blue,"[397, 143, 402, 156]","[396, 402]",0.121,0,1,own,cut,-0.0713,-0.0993
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,4,blue,"[362, 139, 394, 155]","[362, 394]",0.666,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.15 W,window_light_cluster_02,4,blue,"[352, 131, 355, 147]","[352, 355]",0.067,0,1,own,cut,0.0668,0.0151
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,4,blue,"[0, 160, 19, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.15 W,window_light_edge_01,4,blue,"[24, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.15 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,4,orange,"[150, 145, 163, 157]","[148, 163]",0.291,1,1,own,cut,0.2154,0.0266
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,4,orange,"[170, 128, 192, 157]","[170, 192]",0.433,1,0,cut,own,-0.0505,-0.0021
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,4,blue,"[190, 148, 228, 160]","[190, 228]",0.709,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,one stripe break 0.15 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,0,orange,"[314, 121, 341, 148]","[314, 341]",0.616,1,0,own,cut,0.0514,0.0884
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,0,blue,"[333, 142, 341, 161]","[333, 341]",0.162,1,1,own,cut,0.1338,0.0312
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,0,blue,"[351, 142, 378, 154]","[351, 378]",0.539,1,0,cut,own,-0.001,0.1487
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,0,blue,"[409, 140, 435, 153]","[409, 437]",0.575,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,0,orange,"[404, 134, 429, 147]","[404, 431]",0.606,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.2 W,window_light_core_02,0,blue,"[462, 146, 467, 159]","[462, 471]",0.172,1,1,cut,own,0.0443,0.1091
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,0,blue,"[0, 156, 25, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_02,0,blue,"[397, 142, 404, 156]","[396, 404]",0.162,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,0,orange,"[150, 145, 180, 157]","[148, 180]",0.613,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,0,blue,"[190, 147, 216, 160]","[189, 216]",0.504,1,0,own,cut,0.2031,0.0049
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,0,orange,"[277, 143, 288, 156]","[277, 289]",0.236,1,1,cut,own,0.0039,0.264
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,1,blue,"[339, 142, 346, 153]","[339, 346]",0.14,1,1,cut,cut,0.0481,0.0297
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,1,blue,"[356, 142, 378, 154]","[356, 385]",0.579,1,0,cut,own,-0.001,0.3301
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,1,blue,"[352, 131, 358, 147]","[352, 358]",0.133,1,1,own,cut,0.0918,-0.0302
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,1,orange,"[391, 121, 409, 146]","[391, 409]",0.424,1,0,own,cut,0.1363,-0.0676
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,1,orange,"[417, 135, 429, 147]","[417, 431]",0.309,1,0,cut,own,0.0435,0.1046
+stripe patch / breaks,one stripe break 0.2 W,window_light_core_02,1,blue,"[432, 145, 467, 159]","[432, 471]",0.757,1,0,cut,own,0.0266,0.1199
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,1,blue,"[8, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,one stripe break 0.2 W,window_light_far_02,1,orange,"[253, 117, 272, 126]","[253, 272]",0.606,1,0,cut,own,0.0614,0.1345
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_02,1,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,1,orange,"[262, 143, 288, 156]","[262, 289]",0.524,1,0,cut,own,0.0087,0.2832
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,2,blue,"[333, 142, 367, 161]","[333, 367]",0.679,1,0,own,cut,0.1339,-0.001
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,2,orange,"[376, 121, 396, 147]","[376, 396]",0.463,1,0,cut,own,-0.0498,0.1226
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,2,blue,"[371, 139, 394, 155]","[371, 394]",0.479,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,2,orange,"[391, 121, 422, 147]","[391, 422]",0.707,1,0,own,cut,0.1094,0.0094
+stripe patch / breaks,one stripe break 0.2 W,window_light_core_02,2,blue,"[459, 145, 467, 159]","[459, 471]",0.23,1,1,cut,own,0.0325,0.1091
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,2,blue,"[0, 160, 10, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,2,blue,"[17, 154, 30, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,one stripe break 0.2 W,window_light_far_02,2,blue,"[219, 123, 235, 132]","[219, 235]",0.451,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,one stripe break 0.2 W,window_light_far_02,2,blue,"[241, 123, 250, 133]","[241, 250]",0.253,1,1,cut,own,0.0242,0.1276
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_01,2,orange,"[421, 144, 423, 160]","[421, 430]",0.172,0,1,cut,own,0.0899,0.274
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_02,2,blue,"[397, 142, 403, 156]","[396, 403]",0.142,0,1,own,cut,-0.0713,-0.1086
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,3,orange,"[314, 136, 328, 147]","[314, 328]",0.309,1,0,own,cut,0.102,-0.0099
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_01,3,blue,"[347, 142, 378, 154]","[347, 378]",0.619,1,0,cut,own,0.0174,0.1487
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,3,orange,"[400, 134, 429, 147]","[400, 431]",0.696,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.2 W,window_light_core_02,3,blue,"[433, 145, 467, 159]","[433, 471]",0.738,1,0,cut,own,0.0266,0.1199
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,3,blue,"[0, 156, 25, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,one stripe break 0.2 W,window_light_far_02,3,blue,"[219, 123, 238, 132]","[219, 238]",0.535,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,one stripe break 0.2 W,window_light_far_02,3,blue,"[244, 123, 250, 133]","[244, 250]",0.169,1,1,cut,own,0.05,0.1276
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_01,3,blue,"[418, 151, 423, 178]","[418, 430]",0.19,0,1,no barrel,no barrel,-0.1522,-0.045
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_02,3,blue,"[397, 143, 401, 154]","[396, 401]",0.101,0,1,own,cut,-0.0713,-0.0993
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,4,blue,"[363, 139, 394, 155]","[363, 394]",0.646,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,4,orange,"[391, 121, 423, 147]","[391, 423]",0.73,1,0,own,cut,0.1094,0.0094
+stripe patch / breaks,one stripe break 0.2 W,window_light_cluster_02,4,blue,"[352, 131, 354, 147]","[352, 354]",0.045,0,1,own,cut,0.0539,0.0539
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,4,blue,"[0, 159, 18, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.2 W,window_light_edge_01,4,blue,"[25, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.2 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,4,orange,"[150, 145, 163, 157]","[148, 163]",0.291,1,1,own,cut,0.2154,0.0266
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,4,orange,"[172, 128, 192, 157]","[172, 192]",0.394,1,0,cut,own,-0.0505,-0.0021
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,4,blue,"[190, 148, 225, 160]","[190, 225]",0.653,1,0,own,cut,0.1399,0.0221
+stripe patch / breaks,one stripe break 0.2 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,0,blue,"[339, 142, 378, 154]","[339, 378]",0.768,1,0,cut,own,0.0525,0.1371
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,0,blue,"[413, 140, 435, 153]","[413, 437]",0.493,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,0,blue,"[333, 142, 338, 161]","[333, 338]",0.1,1,1,own,cut,0.1339,0.0726
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,0,orange,"[408, 135, 429, 147]","[408, 431]",0.508,1,0,cut,own,0.041,0.1046
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,0,orange,"[391, 121, 395, 139]","[391, 395]",0.105,0,1,own,cut,-0.0367,-0.1457
+stripe patch / breaks,one stripe break 0.3 W,window_light_core_02,0,blue,"[463, 146, 467, 159]","[463, 471]",0.153,1,1,cut,own,0.0502,0.1091
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,0,blue,"[0, 158, 22, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_02,0,blue,"[397, 142, 403, 156]","[396, 403]",0.142,0,1,own,cut,-0.0713,-0.1086
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,0,orange,"[150, 145, 176, 157]","[148, 176]",0.536,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,0,blue,"[190, 147, 212, 160]","[189, 212]",0.429,1,0,own,cut,0.2031,0.0049
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,0,orange,"[278, 143, 288, 156]","[278, 289]",0.217,1,1,cut,own,0.01,0.264
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,1,orange,"[391, 121, 406, 146]","[391, 406]",0.353,1,1,own,cut,0.1363,-0.0676
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,1,orange,"[419, 136, 429, 147]","[419, 431]",0.265,1,1,cut,own,0.0537,0.1046
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,1,blue,"[352, 131, 357, 147]","[352, 357]",0.111,1,1,own,cut,0.0918,-0.0099
+stripe patch / breaks,one stripe break 0.3 W,window_light_core_02,1,blue,"[437, 145, 467, 159]","[437, 471]",0.66,1,0,cut,own,0.0206,0.1199
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,1,blue,"[11, 154, 30, 176]","[0, 34]",0.549,1,0,own,own,-0.0695,0.0948
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_02,1,blue,"[397, 142, 404, 156]","[396, 404]",0.162,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,1,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,1,orange,"[265, 143, 288, 156]","[265, 289]",0.466,1,0,cut,own,0.0087,0.2832
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,2,orange,"[314, 123, 338, 148]","[314, 338]",0.539,1,0,own,cut,0.0771,0.076
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,2,blue,"[339, 143, 362, 154]","[339, 362]",0.459,1,0,cut,cut,0.0481,-0.001
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,2,orange,"[376, 121, 396, 147]","[376, 396]",0.463,1,0,cut,own,-0.0498,0.1226
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,2,blue,"[333, 142, 338, 161]","[333, 338]",0.1,1,1,own,cut,0.1339,0.0726
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,2,blue,"[374, 139, 394, 155]","[374, 394]",0.416,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,2,orange,"[391, 121, 417, 146]","[391, 417]",0.602,1,0,own,cut,0.1226,-0.0285
+stripe patch / breaks,one stripe break 0.3 W,window_light_core_02,2,blue,"[460, 146, 467, 159]","[460, 471]",0.211,1,1,cut,own,0.0325,0.1091
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,2,blue,"[0, 160, 9, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,2,blue,"[19, 154, 30, 175]","[0, 34]",0.555,0,1,own,own,-0.0891,0.077
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_01,2,blue,"[406, 144, 423, 180]","[387, 430]",0.702,0,1,no barrel,no barrel,-0.0033,-0.0234
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_02,2,blue,"[397, 143, 402, 156]","[396, 402]",0.121,0,1,own,cut,-0.0713,-0.0993
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,3,orange,"[314, 136, 326, 147]","[314, 326]",0.265,1,0,own,cut,0.102,0.0003
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_01,3,blue,"[421, 141, 435, 153]","[421, 437]",0.328,1,0,cut,own,-0.0019,0.3102
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,3,orange,"[405, 135, 429, 147]","[405, 431]",0.584,1,0,cut,own,0.0151,0.1173
+stripe patch / breaks,one stripe break 0.3 W,window_light_core_02,3,blue,"[438, 145, 467, 159]","[438, 471]",0.641,1,0,cut,own,0.0147,0.1199
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,3,blue,"[0, 158, 22, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_01,3,blue,"[418, 151, 423, 178]","[418, 430]",0.19,0,1,no barrel,no barrel,-0.1522,-0.045
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_02,3,blue,"[397, 143, 400, 152]","[397, 400]",0.062,0,1,own,cut,-0.1059,-0.1153
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,4,blue,"[368, 139, 394, 155]","[368, 394]",0.541,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,4,orange,"[391, 121, 418, 146]","[391, 418]",0.626,1,0,own,cut,0.1226,-0.0178
+stripe patch / breaks,one stripe break 0.3 W,window_light_cluster_02,4,blue,"[352, 131, 354, 147]","[352, 354]",0.045,0,1,own,cut,0.0539,0.0539
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,4,blue,"[0, 160, 16, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,one stripe break 0.3 W,window_light_edge_01,4,blue,"[26, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,one stripe break 0.3 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,4,orange,"[150, 145, 161, 157]","[148, 161]",0.252,1,1,own,cut,0.2154,0.0385
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,4,orange,"[174, 128, 192, 157]","[174, 192]",0.354,1,0,cut,own,-0.0505,-0.0021
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,4,blue,"[190, 148, 220, 160]","[190, 220]",0.56,1,0,own,cut,0.1399,0.0049
+stripe patch / breaks,one stripe break 0.3 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_edge_01,0,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_far_02,0,orange,"[247, 114, 271, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_01,0,orange,"[417, 144, 423, 160]","[417, 430]",0.252,0,1,cut,own,-0.0629,0.2594
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_edge_01,1,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_far_02,1,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_02,1,blue,"[397, 142, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_touch_02,1,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_edge_01,2,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_far_02,2,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_02,2,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_touch_02,2,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_edge_01,3,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_far_02,3,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_01,3,orange,"[417, 144, 423, 160]","[417, 430]",0.252,0,1,cut,own,-0.0629,0.2594
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_02,3,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_touch_02,3,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_edge_01,4,blue,"[0, 154, 30, 177]","[0, 34]",0.54,1,0,own,own,-0.0409,0.1207
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_01,4,orange,"[417, 144, 423, 160]","[417, 430]",0.252,0,1,cut,own,-0.0629,0.2594
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.03 W,window_light_touch_02,4,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,0,orange,"[314, 136, 323, 147]","[314, 323]",0.199,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,0,orange,"[326, 128, 336, 148]","[326, 336]",0.221,1,1,cut,cut,-0.0099,0.0639
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,0,blue,"[339, 142, 345, 153]","[339, 345]",0.121,1,1,cut,cut,0.0312,0.0126
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,0,blue,"[348, 142, 378, 154]","[348, 378]",0.599,1,0,cut,own,0.0113,0.2136
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,0,blue,"[333, 142, 336, 161]","[326, 336]",0.197,0,1,own,cut,0.2217,0.1551
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,0,orange,"[391, 121, 397, 143]","[391, 397]",0.153,0,1,own,cut,0.025,-0.1618
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,0,orange,"[400, 134, 421, 147]","[400, 421]",0.471,1,0,cut,cut,0.0151,0.0358
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,0,orange,"[424, 136, 429, 147]","[424, 431]",0.155,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_edge_01,0,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,0,orange,"[247, 114, 271, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,0,orange,"[421, 144, 423, 160]","[421, 430]",0.172,0,1,cut,own,0.0899,0.274
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,0,orange,"[150, 145, 176, 157]","[148, 176]",0.536,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,0,orange,"[179, 145, 186, 157]","[179, 186]",0.135,1,1,cut,own,-0.0157,0.008
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,orange,"[314, 136, 328, 147]","[314, 328]",0.309,1,0,own,cut,0.102,-0.0099
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,orange,"[331, 125, 337, 148]","[331, 337]",0.139,1,1,cut,cut,-0.0818,0.1013
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,blue,"[339, 142, 348, 153]","[339, 348]",0.182,1,1,cut,cut,0.0312,-0.0061
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,blue,"[371, 142, 378, 154]","[371, 378]",0.141,1,1,cut,own,0.0243,0.1793
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,blue,"[408, 140, 416, 151]","[408, 416]",0.167,1,1,cut,cut,-0.0359,-0.0359
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,blue,"[419, 141, 435, 153]","[419, 437]",0.369,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,1,blue,"[333, 142, 337, 161]","[331, 337]",0.12,1,1,own,cut,0.1891,0.1032
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,1,blue,"[352, 131, 362, 149]","[352, 362]",0.218,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,1,blue,"[365, 140, 376, 150]","[365, 376]",0.231,1,1,cut,cut,0.0094,0.0094
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,1,orange,"[391, 121, 401, 146]","[391, 401]",0.243,1,1,own,cut,0.0963,-0.1276
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_edge_01,1,blue,"[4, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,1,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,1,blue,"[397, 143, 400, 152]","[397, 400]",0.062,0,1,own,cut,-0.1059,-0.1153
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,1,blue,"[403, 142, 406, 152]","[396, 406]",0.205,0,1,own,cut,-0.0964,-0.1437
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,1,blue,"[206, 148, 217, 160]","[206, 217]",0.203,1,1,cut,cut,0.0263,0.0263
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,1,orange,"[260, 144, 269, 156]","[260, 269]",0.175,1,1,cut,cut,0.0087,0.0087
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,2,orange,"[314, 125, 337, 148]","[314, 337]",0.516,1,0,own,cut,0.0771,0.076
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,2,blue,"[340, 142, 377, 154]","[340, 377]",0.738,1,0,cut,own,0.0419,0.1119
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,2,orange,"[380, 130, 394, 147]","[380, 394]",0.314,1,0,cut,own,-0.0055,0.0966
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,2,blue,"[405, 140, 435, 153]","[405, 437]",0.657,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,2,blue,"[333, 142, 337, 161]","[333, 337]",0.08,1,1,own,cut,0.1339,0.1032
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,2,blue,"[397, 139, 402, 151]","[397, 402]",0.106,1,1,cut,cut,-0.0418,-0.0418
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,2,orange,"[394, 128, 412, 146]","[394, 412]",0.41,1,0,own,cut,0.0199,-0.0116
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,2,orange,"[418, 135, 429, 147]","[418, 431]",0.287,1,1,cut,own,0.0435,0.1046
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_edge_01,2,blue,"[0, 154, 30, 177]","[0, 34]",0.537,1,0,own,own,-0.0316,0.1292
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,2,orange,"[247, 114, 262, 126]","[247, 262]",0.479,1,0,own,cut,0.1342,0.0757
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,2,orange,"[266, 117, 272, 124]","[266, 272]",0.196,1,1,cut,own,0.0534,0.0983
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,2,blue,"[401, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,2,blue,"[190, 148, 198, 159]","[183, 198]",0.28,1,1,own,cut,0.332,0.0653
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,2,blue,"[201, 148, 209, 160]","[201, 209]",0.149,1,1,cut,cut,0.0221,0.0049
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,2,orange,"[278, 143, 288, 156]","[278, 289]",0.217,1,1,cut,own,0.01,0.264
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,3,blue,"[426, 141, 435, 153]","[426, 437]",0.226,1,1,cut,own,0.017,0.3102
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,3,blue,"[357, 139, 390, 150]","[357, 390]",0.697,1,0,own,cut,0.036,0.0457
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,3,orange,"[393, 124, 412, 146]","[393, 412]",0.44,1,0,own,cut,0.0461,-0.0391
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,3,orange,"[418, 135, 429, 147]","[418, 431]",0.287,1,1,cut,own,0.0435,0.1046
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_edge_01,3,blue,"[0, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,3,blue,"[219, 123, 241, 132]","[219, 241]",0.619,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,3,blue,"[244, 123, 250, 133]","[244, 250]",0.166,1,1,cut,own,0.0821,0.1581
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,3,orange,"[420, 144, 423, 160]","[420, 430]",0.192,0,1,cut,own,-0.0103,0.274
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,3,blue,"[411, 150, 412, 179]","[411, 412]",0.016,0,1,no barrel,no barrel,-0.1644,-0.1644
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,3,blue,"[417, 150, 423, 178]","[417, 430]",0.208,0,1,no barrel,no barrel,-0.1611,-0.038
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,3,orange,"[397, 147, 407, 177]","[393, 441]",0.775,0,1,no barrel,no barrel,0.0151,-0.1143
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,3,blue,"[398, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,3,blue,"[190, 148, 199, 159]","[190, 199]",0.168,1,1,own,cut,0.1399,0.0623
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,3,orange,"[286, 142, 288, 155]","[286, 289]",0.06,0,1,cut,own,0.2504,0.2504
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,3,blue,"[202, 148, 208, 160]","[202, 208]",0.112,1,1,cut,cut,0.0221,0.0106
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,4,blue,"[339, 142, 357, 153]","[339, 357]",0.364,1,0,cut,cut,0.0312,-0.0247
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,4,blue,"[360, 143, 368, 154]","[360, 368]",0.16,1,1,cut,cut,-0.001,-0.001
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,4,blue,"[371, 142, 378, 154]","[371, 378]",0.141,1,1,cut,own,0.0243,0.1793
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,4,blue,"[402, 139, 409, 150]","[402, 409]",0.148,1,1,cut,cut,-0.0418,-0.0613
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,4,blue,"[412, 140, 435, 153]","[412, 437]",0.513,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_01,4,blue,"[333, 142, 336, 161]","[333, 336]",0.059,0,1,own,cut,0.1551,0.1551
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,4,blue,"[352, 131, 359, 148]","[352, 359]",0.154,1,1,own,cut,0.1041,-0.0272
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,4,orange,"[398, 134, 420, 147]","[398, 420]",0.494,1,0,cut,cut,0.0255,0.0358
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,4,orange,"[423, 136, 429, 147]","[423, 431]",0.177,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_cluster_02,4,orange,"[391, 121, 395, 139]","[391, 395]",0.106,0,1,own,cut,-0.0529,0.0448
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_edge_01,4,blue,"[0, 154, 30, 177]","[0, 34]",0.54,1,0,own,own,-0.0409,0.1207
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_far_02,4,orange,"[247, 114, 272, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_01,4,orange,"[417, 144, 421, 156]","[417, 421]",0.08,0,1,cut,own,-0.1114,-0.1052
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.06 W,window_light_touch_02,4,orange,"[188, 128, 192, 148]","[188, 192]",0.09,0,1,cut,own,-0.1501,-0.1501
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,orange,"[314, 136, 323, 147]","[314, 323]",0.199,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,orange,"[327, 128, 336, 148]","[327, 336]",0.202,1,1,cut,cut,-0.0468,0.076
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,blue,"[349, 142, 377, 154]","[349, 377]",0.559,1,0,cut,own,0.0051,0.1119
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,orange,"[379, 135, 389, 147]","[379, 389]",0.221,1,1,cut,cut,0.0206,0.0003
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,blue,"[397, 139, 407, 151]","[397, 407]",0.211,1,1,cut,cut,-0.0418,-0.0613
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,blue,"[412, 140, 435, 153]","[412, 437]",0.513,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,blue,"[333, 142, 336, 161]","[327, 336]",0.177,0,1,own,cut,0.2217,0.1551
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,0,blue,"[341, 142, 344, 153]","[341, 344]",0.061,1,1,cut,cut,0.0126,0.0126
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,0,orange,"[400, 134, 420, 147]","[400, 420]",0.449,1,0,cut,cut,0.0151,0.0358
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,0,orange,"[424, 136, 429, 147]","[424, 431]",0.155,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,0,blue,"[0, 160, 19, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,0,blue,"[22, 154, 29, 174]","[0, 34]",0.555,0,1,own,own,-0.0891,0.077
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_01,0,orange,"[421, 144, 423, 160]","[421, 430]",0.172,0,1,cut,own,0.0899,0.274
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,0,orange,"[150, 145, 175, 157]","[148, 175]",0.517,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,0,orange,"[179, 145, 185, 157]","[179, 185]",0.116,1,1,cut,own,-0.0157,0.0021
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,0,orange,"[190, 159, 194, 169]","[190, 194]",0.067,0,1,no barrel,no barrel,0.1102,0.2287
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,orange,"[314, 136, 327, 147]","[314, 327]",0.287,1,0,own,cut,0.102,0.0003
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,blue,"[339, 142, 347, 153]","[339, 347]",0.162,1,1,cut,cut,0.0312,-0.0061
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,blue,"[352, 143, 366, 154]","[352, 366]",0.279,1,0,cut,cut,-0.001,-0.001
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,blue,"[371, 142, 378, 154]","[371, 378]",0.141,1,1,cut,own,0.0243,0.1793
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,blue,"[396, 139, 405, 151]","[396, 405]",0.19,1,1,cut,cut,-0.0321,-0.0516
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,blue,"[419, 141, 435, 153]","[419, 437]",0.369,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,orange,"[331, 128, 336, 148]","[331, 336]",0.114,1,1,cut,cut,-0.0535,0.0884
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,1,blue,"[410, 140, 414, 150]","[410, 414]",0.084,1,1,cut,cut,-0.0485,-0.0485
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,1,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,1,blue,"[366, 140, 375, 150]","[366, 375]",0.189,1,1,cut,cut,0.0094,0.0094
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,1,orange,"[391, 121, 400, 145]","[391, 400]",0.219,1,1,own,cut,0.0963,-0.1164
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,1,blue,"[5, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_far_02,1,orange,"[247, 114, 256, 126]","[247, 256]",0.287,1,0,own,cut,0.1342,0.076
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_far_02,1,orange,"[259, 117, 265, 125]","[259, 265]",0.191,1,1,cut,cut,0.0903,0.0611
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_far_02,1,orange,"[268, 117, 272, 124]","[268, 272]",0.13,1,1,cut,own,0.0534,0.0983
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_02,1,blue,"[397, 143, 400, 152]","[397, 400]",0.062,0,1,own,cut,-0.1059,-0.1153
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,1,blue,"[207, 148, 216, 160]","[207, 216]",0.166,1,1,cut,cut,0.0263,0.0263
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,1,orange,"[261, 144, 268, 156]","[261, 268]",0.136,1,1,cut,cut,0.0087,0.0087
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,2,orange,"[314, 125, 337, 148]","[314, 337]",0.516,1,0,own,cut,0.0771,0.076
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,2,blue,"[342, 142, 375, 154]","[342, 375]",0.659,1,0,cut,own,0.0358,0.0481
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,2,orange,"[380, 136, 384, 146]","[380, 384]",0.089,1,1,cut,cut,0.0077,-0.0128
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,2,orange,"[388, 132, 393, 147]","[388, 396]",0.184,1,1,cut,own,-0.057,0.116
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,2,blue,"[333, 142, 337, 161]","[333, 337]",0.08,1,1,own,cut,0.1339,0.1032
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,2,blue,"[0, 160, 12, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,2,blue,"[15, 157, 23, 176]","[0, 34]",0.543,1,1,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,2,blue,"[26, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_02,2,blue,"[403, 142, 406, 152]","[396, 406]",0.205,0,1,own,cut,-0.0964,-0.1437
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,2,blue,"[190, 148, 197, 159]","[183, 197]",0.261,1,1,own,cut,0.332,0.0711
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,2,orange,"[278, 143, 288, 156]","[278, 289]",0.217,1,1,cut,own,0.01,0.264
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,2,blue,"[202, 148, 208, 160]","[202, 208]",0.112,1,1,cut,cut,0.0221,0.0106
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,3,blue,"[359, 139, 388, 150]","[359, 388]",0.613,1,0,cut,cut,0.0166,0.036
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,3,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,3,blue,"[16, 154, 29, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_far_02,3,blue,"[219, 123, 240, 132]","[219, 240]",0.591,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_01,3,orange,"[420, 144, 423, 160]","[420, 430]",0.192,0,1,cut,own,-0.0103,0.274
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_01,3,blue,"[417, 150, 423, 178]","[412, 430]",0.287,0,1,no barrel,no barrel,-0.1611,-0.038
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_02,3,orange,"[397, 147, 407, 177]","[393, 407]",0.226,0,1,no barrel,no barrel,0.0151,-0.1403
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_02,3,blue,"[400, 143, 405, 156]","[396, 405]",0.181,0,1,own,cut,-0.0591,-0.1054
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,3,blue,"[190, 148, 199, 159]","[190, 199]",0.168,1,1,own,cut,0.1399,0.0623
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,3,orange,"[286, 142, 288, 155]","[286, 289]",0.06,0,1,cut,own,0.2504,0.2504
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,3,blue,"[204, 148, 207, 160]","[204, 207]",0.056,1,1,cut,cut,0.0163,0.0163
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,4,blue,"[339, 142, 355, 153]","[339, 355]",0.324,1,0,cut,cut,0.0312,-0.0247
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,4,blue,"[360, 143, 366, 154]","[360, 366]",0.119,1,1,cut,cut,0.0106,0.0106
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,4,blue,"[371, 142, 378, 154]","[371, 382]",0.221,1,1,cut,own,0.0243,0.3206
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_01,4,blue,"[333, 142, 336, 161]","[333, 336]",0.059,0,1,own,cut,0.1551,0.1551
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,4,blue,"[352, 131, 359, 148]","[352, 359]",0.154,1,1,own,cut,0.1041,-0.0272
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,4,blue,"[364, 138, 392, 151]","[364, 395]",0.646,1,0,cut,own,0.0216,0.1824
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,4,orange,"[399, 134, 420, 147]","[399, 420]",0.471,1,0,cut,cut,0.0151,0.0358
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_cluster_02,4,orange,"[424, 136, 429, 147]","[424, 431]",0.155,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,4,blue,"[0, 160, 13, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,4,blue,"[16, 158, 21, 175]","[0, 34]",0.543,1,1,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_edge_01,4,blue,"[24, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.1 W,window_light_touch_02,4,orange,"[188, 128, 192, 148]","[188, 192]",0.09,0,1,cut,own,-0.1501,-0.1501
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,0,orange,"[314, 136, 322, 147]","[314, 322]",0.177,1,1,own,cut,0.102,0.0003
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,0,orange,"[328, 134, 335, 148]","[328, 335]",0.155,1,1,cut,cut,-0.0201,0.0639
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,0,blue,"[351, 142, 377, 154]","[351, 377]",0.519,1,0,cut,own,-0.001,0.1119
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,0,orange,"[380, 136, 387, 147]","[380, 387]",0.155,1,1,cut,cut,0.0206,0.0003
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,0,blue,"[398, 139, 406, 152]","[398, 406]",0.169,1,1,cut,cut,-0.0418,-0.0613
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,0,blue,"[413, 140, 435, 153]","[413, 437]",0.493,1,0,cut,own,-0.0113,0.3102
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,0,orange,"[402, 134, 418, 146]","[402, 418]",0.359,1,0,cut,cut,0.0151,0.0358
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,0,orange,"[424, 136, 429, 147]","[424, 431]",0.155,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,0,blue,"[0, 159, 18, 177]","[0, 34]",0.531,1,0,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,0,blue,"[23, 155, 27, 173]","[0, 34]",0.555,0,1,own,own,-0.0891,0.077
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,0,orange,"[150, 145, 173, 157]","[148, 173]",0.479,1,0,own,cut,0.2033,-0.0044
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,0,orange,"[180, 145, 182, 157]","[180, 182]",0.039,1,1,cut,cut,-0.0157,-0.0157
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,1,blue,"[352, 131, 361, 149]","[352, 361]",0.196,1,1,own,cut,0.1161,-0.0342
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,1,blue,"[368, 140, 374, 150]","[368, 374]",0.126,1,1,cut,cut,0.0094,0.0094
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,1,blue,"[7, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_far_02,1,orange,"[247, 114, 256, 126]","[247, 256]",0.287,1,0,own,cut,0.1342,0.076
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_far_02,1,orange,"[260, 118, 264, 125]","[260, 264]",0.128,1,1,cut,cut,0.0757,0.0611
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_far_02,1,orange,"[268, 117, 272, 124]","[268, 272]",0.13,1,1,cut,own,0.0534,0.0983
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_02,1,blue,"[397, 143, 400, 152]","[397, 400]",0.062,0,1,own,cut,-0.1059,-0.1153
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,1,orange,"[262, 144, 266, 156]","[262, 266]",0.078,1,1,cut,cut,0.0087,0.0087
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,1,blue,"[209, 149, 214, 160]","[209, 214]",0.092,1,1,cut,cut,0.0263,0.0263
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,2,orange,"[314, 125, 337, 148]","[314, 337]",0.516,1,0,own,cut,0.0771,0.076
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,2,blue,"[345, 143, 372, 154]","[345, 372]",0.539,1,0,cut,cut,0.0174,0.0235
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,2,orange,"[380, 136, 382, 147]","[380, 382]",0.044,1,1,cut,cut,0.0206,0.0206
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,2,orange,"[388, 136, 391, 147]","[388, 396]",0.18,1,1,cut,own,-0.0159,0.0966
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_01,2,blue,"[333, 142, 337, 161]","[333, 337]",0.08,1,1,own,cut,0.1339,0.1032
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,2,blue,"[0, 160, 11, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,2,blue,"[16, 158, 22, 175]","[0, 34]",0.543,1,1,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,2,blue,"[27, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_far_02,2,orange,"[247, 114, 261, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,2,blue,"[190, 148, 197, 159]","[184, 197]",0.243,1,1,own,cut,0.332,0.0711
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,2,orange,"[259, 144, 272, 156]","[259, 272]",0.252,1,1,cut,cut,0.0087,0.0087
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,2,orange,"[279, 143, 288, 156]","[279, 289]",0.197,1,1,cut,own,0.016,0.264
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,2,blue,"[205, 148, 207, 160]","[205, 207]",0.037,1,1,cut,cut,0.0242,0.0242
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,3,blue,"[361, 140, 386, 150]","[361, 386]",0.521,1,0,cut,cut,0.0312,0.0408
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,3,blue,"[0, 160, 12, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,3,blue,"[17, 155, 27, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_far_02,3,blue,"[219, 123, 239, 132]","[219, 239]",0.563,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_01,3,orange,"[421, 144, 423, 160]","[421, 430]",0.172,0,1,cut,own,0.0899,0.274
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_01,3,blue,"[417, 150, 423, 178]","[417, 430]",0.208,0,1,no barrel,no barrel,-0.1611,-0.038
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_02,3,orange,"[397, 148, 406, 177]","[393, 406]",0.208,0,1,no barrel,no barrel,0.0334,-0.1463
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_02,3,blue,"[402, 142, 405, 153]","[396, 405]",0.183,0,1,own,cut,-0.0838,-0.1307
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,3,blue,"[190, 148, 198, 159]","[190, 198]",0.149,1,1,own,cut,0.1399,0.0653
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_touch_02,3,orange,"[286, 142, 288, 155]","[286, 289]",0.06,0,1,cut,own,0.2504,0.2504
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,4,blue,"[352, 131, 359, 148]","[352, 359]",0.154,1,1,own,cut,0.1041,-0.0272
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,4,blue,"[366, 139, 390, 150]","[366, 395]",0.604,1,0,cut,own,0.0216,0.1824
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,4,orange,"[401, 134, 418, 146]","[401, 418]",0.382,1,0,cut,cut,0.0151,0.0358
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_cluster_02,4,orange,"[424, 136, 429, 147]","[424, 431]",0.155,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,4,blue,"[0, 160, 12, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,4,blue,"[17, 159, 19, 175]","[0, 34]",0.537,1,1,own,own,-0.0316,0.1292
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_edge_01,4,blue,"[24, 154, 30, 173]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.15 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_01,0,orange,"[314, 136, 321, 147]","[314, 321]",0.156,1,1,own,cut,0.0896,-0.0026
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_01,0,orange,"[330, 134, 335, 148]","[330, 335]",0.111,1,1,cut,cut,-0.0099,0.0639
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_01,0,orange,"[381, 136, 386, 147]","[381, 386]",0.111,1,1,cut,cut,0.0105,0.0003
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,0,orange,"[391, 121, 396, 141]","[391, 396]",0.129,0,1,own,cut,-0.0053,-0.1717
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,0,orange,"[404, 134, 417, 146]","[404, 417]",0.292,1,0,cut,cut,0.0151,0.0255
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,0,orange,"[425, 136, 429, 147]","[425, 431]",0.133,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,0,blue,"[0, 160, 16, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,0,blue,"[23, 156, 25, 173]","[0, 34]",0.555,0,1,own,own,-0.0891,0.077
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,0,orange,"[150, 145, 172, 157]","[148, 172]",0.46,1,0,own,cut,0.2033,0.0015
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,1,blue,"[352, 131, 360, 148]","[352, 360]",0.174,1,1,own,cut,0.1161,-0.0242
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,1,blue,"[369, 140, 373, 150]","[369, 373]",0.084,1,1,cut,cut,0.0094,0.0094
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,1,blue,"[8, 154, 30, 177]","[0, 34]",0.543,1,0,own,own,-0.0503,0.1122
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_far_02,1,orange,"[247, 114, 255, 126]","[247, 255]",0.258,1,1,own,cut,0.1314,0.0427
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_far_02,1,orange,"[268, 117, 272, 124]","[268, 272]",0.13,1,1,cut,own,0.0534,0.0983
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,1,blue,"[190, 148, 200, 159]","[190, 200]",0.187,1,1,own,cut,0.1399,0.0508
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_01,2,orange,"[314, 128, 336, 148]","[314, 336]",0.486,1,0,own,cut,0.102,0.0639
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_01,2,blue,"[346, 143, 370, 154]","[346, 370]",0.479,1,0,cut,cut,0.0174,0.0113
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_01,2,blue,"[333, 142, 336, 161]","[333, 336]",0.059,0,1,own,cut,0.1551,0.1551
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,2,blue,"[0, 160, 10, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,2,blue,"[17, 159, 20, 175]","[0, 34]",0.537,1,1,own,own,-0.0316,0.1292
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,2,blue,"[27, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_far_02,2,orange,"[247, 114, 259, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_01,2,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,2,orange,"[261, 144, 270, 156]","[261, 270]",0.175,1,1,cut,cut,0.0087,0.0087
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,2,orange,"[280, 143, 288, 156]","[280, 289]",0.177,1,1,cut,own,0.0281,0.264
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,2,blue,"[190, 148, 196, 159]","[184, 196]",0.224,1,1,own,cut,0.332,0.0768
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,3,blue,"[363, 140, 384, 150]","[363, 384]",0.437,1,0,cut,cut,0.0216,0.0312
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,3,blue,"[0, 160, 12, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,3,blue,"[19, 156, 25, 175]","[0, 34]",0.549,1,1,own,own,-0.0695,0.0948
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_far_02,3,blue,"[219, 123, 238, 132]","[219, 238]",0.535,1,0,own,cut,0.1746,0.0242
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_01,3,orange,"[421, 144, 423, 160]","[421, 430]",0.172,0,1,cut,own,0.0899,0.274
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_01,3,blue,"[418, 151, 423, 178]","[418, 430]",0.19,0,1,no barrel,no barrel,-0.1522,-0.045
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_02,3,orange,"[397, 150, 405, 177]","[393, 405]",0.192,0,1,no barrel,no barrel,0.0334,-0.1463
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_touch_02,3,blue,"[190, 148, 197, 159]","[190, 197]",0.131,1,1,own,cut,0.1399,0.0711
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,4,blue,"[352, 131, 358, 147]","[352, 358]",0.133,1,1,own,cut,0.0918,-0.0302
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_cluster_02,4,blue,"[367, 140, 388, 150]","[367, 394]",0.562,1,0,cut,own,0.0216,0.1344
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,4,blue,"[0, 160, 11, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_edge_01,4,blue,"[25, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.2 W,window_light_occl_02,4,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_02,0,orange,"[391, 121, 395, 139]","[391, 395]",0.105,0,1,own,cut,-0.0367,-0.1457
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_02,0,orange,"[408, 135, 413, 146]","[408, 413]",0.112,1,1,cut,cut,0.0151,0.0151
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_02,0,orange,"[426, 136, 429, 147]","[426, 431]",0.111,1,1,cut,own,0.0639,0.1046
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,0,blue,"[0, 160, 15, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_02,0,orange,"[396, 146, 407, 177]","[393, 425]",0.517,0,1,no barrel,no barrel,0.0151,-0.1553
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_02,0,blue,"[397, 143, 406, 156]","[396, 406]",0.202,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,0,orange,"[150, 145, 169, 157]","[148, 169]",0.402,1,0,own,cut,0.2033,0.0133
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,0,orange,"[189, 128, 192, 147]","[189, 192]",0.068,0,1,cut,own,-0.1584,-0.1584
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_02,1,blue,"[352, 131, 359, 148]","[352, 359]",0.154,1,1,own,cut,0.1041,-0.0272
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,1,blue,"[11, 154, 30, 176]","[0, 34]",0.549,1,0,own,own,-0.0695,0.0948
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_far_02,1,orange,"[247, 114, 253, 126]","[247, 253]",0.196,1,1,own,cut,0.1133,0.0385
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_far_02,1,blue,"[445, 121, 457, 129]","[436, 463]",0.799,1,0,own,own,0.1803,0.1124
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_01,1,orange,"[417, 144, 423, 160]","[417, 430]",0.256,0,1,cut,own,-0.0868,0.2398
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_02,1,orange,"[396, 147, 411, 177]","[393, 419]",0.425,0,1,no barrel,no barrel,-0.0035,-0.1493
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,1,blue,"[190, 148, 198, 159]","[190, 198]",0.149,1,1,own,cut,0.1399,0.0653
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,1,orange,"[276, 143, 288, 156]","[276, 289]",0.256,1,1,cut,own,0.0039,0.264
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_01,2,orange,"[314, 128, 336, 148]","[314, 336]",0.486,1,0,own,cut,0.102,0.0639
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_01,2,blue,"[351, 143, 365, 154]","[351, 365]",0.279,1,0,cut,cut,-0.001,-0.001
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_01,2,blue,"[333, 142, 336, 161]","[333, 336]",0.059,0,1,own,cut,0.1551,0.1551
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_core_02,2,blue,"[455, 145, 467, 159]","[455, 471]",0.307,1,1,cut,own,0.0133,0.1091
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,2,blue,"[0, 160, 9, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,2,blue,"[28, 154, 30, 172]","[0, 34]",0.565,0,1,own,own,-0.1194,0.0495
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_far_02,2,orange,"[247, 114, 257, 126]","[247, 272]",0.798,1,0,own,own,0.1342,0.1345
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_01,2,blue,"[408, 150, 423, 179]","[408, 430]",0.355,0,1,no barrel,no barrel,-0.1553,-0.0308
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_01,2,orange,"[418, 144, 423, 160]","[418, 430]",0.235,0,1,cut,own,-0.0688,0.2497
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_02,2,orange,"[396, 147, 407, 177]","[393, 407]",0.226,0,1,no barrel,no barrel,0.0151,-0.1403
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,2,orange,"[281, 143, 288, 156]","[281, 289]",0.157,1,1,cut,own,0.0463,0.264
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,2,orange,"[190, 159, 194, 169]","[148, 195]",0.785,0,1,no barrel,no barrel,0.0897,0.2873
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,2,blue,"[190, 148, 195, 159]","[185, 195]",0.187,1,1,own,cut,0.332,0.0825
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_01,3,orange,"[314, 137, 317, 145]","[314, 341]",0.601,1,1,own,cut,0.0896,0.0699
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,3,blue,"[0, 160, 10, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,3,blue,"[20, 158, 22, 174]","[0, 34]",0.546,0,1,own,own,-0.0599,0.1035
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_01,3,blue,"[418, 151, 423, 178]","[418, 430]",0.19,0,1,no barrel,no barrel,-0.1522,-0.045
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_02,3,orange,"[397, 153, 403, 177]","[393, 405]",0.19,0,1,no barrel,no barrel,0.0512,-0.1522
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,3,orange,"[260, 144, 272, 156]","[260, 272]",0.233,1,1,cut,cut,0.0087,0.0087
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,3,blue,"[190, 148, 196, 159]","[190, 196]",0.112,1,1,own,cut,0.1399,0.0768
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_02,4,blue,"[371, 140, 383, 150]","[371, 383]",0.25,1,1,cut,cut,0.0216,0.0216
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_cluster_02,4,blue,"[352, 131, 357, 147]","[352, 357]",0.111,1,1,own,cut,0.0918,-0.0099
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,4,blue,"[0, 160, 10, 177]","[0, 34]",0.531,1,1,own,own,-0.0133,0.1458
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_edge_01,4,blue,"[26, 154, 30, 172]","[0, 34]",0.562,0,1,own,own,-0.1092,0.0588
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_occl_02,4,blue,"[397, 142, 404, 156]","[396, 404]",0.162,0,1,own,cut,-0.0713,-0.118
+stripe patch / breaks,two stripe breaks 0.3 W,window_light_touch_02,4,orange,"[260, 143, 288, 156]","[260, 289]",0.563,1,0,cut,own,0.0087,0.2832
+named levels,"white tables, bad day",window_light_cluster_01,0,orange,"[315, 137, 324, 146]","[315, 324]",0.199,1,1,own,cut,0.1223,0.0206
+named levels,"white tables, bad day",window_light_cluster_01,0,orange,"[329, 138, 334, 147]","[329, 334]",0.111,0,1,cut,cut,0.0105,0.0842
+named levels,"white tables, bad day",window_light_core_01,0,orange,"[251, 125, 253, 146]","[241, 262]",0.511,0,1,no barrel,no barrel,-0.0268,-0.0604
+named levels,"white tables, bad day",window_light_core_03,0,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,"white tables, bad day",window_light_edge_01,0,blue,"[0, 156, 28, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,"white tables, bad day",window_light_far_02,0,orange,"[252, 119, 264, 125]","[252, 264]",0.383,1,0,cut,cut,0.1053,0.0903
+named levels,"white tables, bad day",window_light_occl_01,0,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,"white tables, bad day",window_light_occl_02,0,blue,"[398, 144, 402, 152]","[397, 402]",0.101,0,1,own,cut,-0.0527,-0.0807
+named levels,"white tables, bad day",window_light_close_02,1,orange,"[323, 209, 326, 226]","[316, 390]",0.754,0,1,no barrel,no barrel,0.2895,0.2895
+named levels,"white tables, bad day",window_light_cluster_01,1,orange,"[315, 137, 327, 146]","[315, 348]",0.729,1,0,own,cut,0.1223,0.2241
+named levels,"white tables, bad day",window_light_cluster_01,1,orange,"[411, 159, 413, 169]","[398, 435]",0.608,0,1,no barrel,no barrel,0.2182,0.2537
+named levels,"white tables, bad day",window_light_cluster_02,1,blue,"[353, 139, 380, 149]","[353, 380]",0.57,1,0,own,cut,0.182,0.0166
+named levels,"white tables, bad day",window_light_cluster_02,1,blue,"[385, 140, 393, 150]","[385, 393]",0.169,1,1,cut,own,0.0555,0.1625
+named levels,"white tables, bad day",window_light_core_01,1,blue,"[304, 158, 307, 173]","[294, 308]",0.226,0,1,no barrel,no barrel,0.2928,0.1944
+named levels,"white tables, bad day",window_light_core_03,1,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,"white tables, bad day",window_light_edge_01,1,blue,"[0, 158, 25, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,"white tables, bad day",window_light_far_02,1,blue,"[220, 124, 241, 131]","[220, 241]",0.591,1,0,own,cut,0.2004,0.05
+named levels,"white tables, bad day",window_light_far_02,1,orange,"[248, 118, 270, 125]","[246, 271]",0.798,1,0,own,own,0.2076,0.1638
+named levels,"white tables, bad day",window_light_far_02,1,orange,"[336, 119, 356, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,"white tables, bad day",window_light_far_02,1,blue,"[438, 122, 462, 128]","[437, 463]",0.778,1,0,own,own,0.2172,0.2172
+named levels,"white tables, bad day",window_light_occl_01,1,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,"white tables, bad day",window_light_occl_02,1,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,"white tables, bad day",window_light_cluster_01,2,orange,"[315, 129, 337, 147]","[315, 340]",0.553,1,0,own,cut,0.1223,0.0842
+named levels,"white tables, bad day",window_light_cluster_01,2,blue,"[344, 143, 376, 153]","[344, 376]",0.639,1,0,cut,own,0.0481,0.1303
+named levels,"white tables, bad day",window_light_cluster_01,2,blue,"[400, 140, 434, 152]","[400, 435]",0.729,1,0,cut,own,0.0024,0.2495
+named levels,"white tables, bad day",window_light_cluster_02,2,orange,"[400, 135, 428, 146]","[400, 430]",0.673,1,0,cut,own,0.0358,0.1379
+named levels,"white tables, bad day",window_light_cluster_02,2,orange,"[481, 160, 483, 179]","[461, 497]",0.556,0,1,no barrel,no barrel,0.2764,0.2764
+named levels,"white tables, bad day",window_light_core_03,2,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,"white tables, bad day",window_light_edge_01,2,blue,"[0, 161, 14, 176]","[0, 33]",0.516,1,1,own,own,0.0012,0.1602
+named levels,"white tables, bad day",window_light_edge_01,2,blue,"[19, 156, 29, 173]","[0, 33]",0.536,0,1,own,own,-0.0642,0.101
+named levels,"white tables, bad day",window_light_far_02,2,blue,"[220, 124, 238, 131]","[220, 238]",0.507,1,0,own,cut,0.2004,0.05
+named levels,"white tables, bad day",window_light_far_02,2,orange,"[336, 119, 354, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,"white tables, bad day",window_light_occl_01,2,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,"white tables, bad day",window_light_occl_02,2,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0681,-0.0302
+named levels,"white tables, bad day",window_light_touch_02,2,orange,"[162, 137, 191, 156]","[162, 191]",0.563,1,0,cut,own,0.0385,0.0385
+named levels,"white tables, bad day",window_light_touch_02,2,orange,"[219, 138, 222, 148]","[219, 222]",0.065,0,1,no barrel,no barrel,0.0322,0.0322
+named levels,"white tables, bad day",window_light_close_02,3,orange,"[316, 150, 318, 171]","[308, 338]",0.51,0,1,no barrel,no barrel,-0.1092,-0.1615
+named levels,"white tables, bad day",window_light_cluster_01,3,orange,"[315, 137, 334, 147]","[315, 350]",0.774,1,0,own,own,0.1223,0.2241
+named levels,"white tables, bad day",window_light_cluster_01,3,blue,"[338, 143, 376, 153]","[338, 376]",0.758,1,0,own,own,0.0726,0.1768
+named levels,"white tables, bad day",window_light_cluster_01,3,blue,"[397, 140, 421, 150]","[397, 421]",0.5,1,0,cut,cut,0.012,-0.0168
+named levels,"white tables, bad day",window_light_cluster_01,3,blue,"[426, 142, 434, 152]","[426, 435]",0.185,1,1,cut,own,0.0549,0.2359
+named levels,"white tables, bad day",window_light_cluster_02,3,blue,"[353, 139, 381, 149]","[348, 381]",0.697,1,0,own,cut,0.289,0.0166
+named levels,"white tables, bad day",window_light_cluster_02,3,blue,"[386, 140, 393, 150]","[386, 393]",0.148,1,1,cut,own,0.0555,0.1625
+named levels,"white tables, bad day",window_light_core_03,3,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,"white tables, bad day",window_light_edge_01,3,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,"white tables, bad day",window_light_far_02,3,blue,"[220, 124, 246, 131]","[220, 246]",0.732,1,0,own,own,0.2004,0.0888
+named levels,"white tables, bad day",window_light_far_02,3,orange,"[251, 119, 264, 125]","[251, 264]",0.415,1,0,cut,cut,0.1196,0.0903
+named levels,"white tables, bad day",window_light_far_02,3,orange,"[336, 119, 353, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,"white tables, bad day",window_light_occl_01,3,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,"white tables, bad day",window_light_occl_02,3,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,"white tables, bad day",window_light_occl_02,3,orange,"[462, 147, 465, 173]","[462, 465]",0.052,0,1,no barrel,no barrel,-0.1516,-0.1516
+named levels,"white tables, bad day",window_light_touch_02,3,orange,"[283, 144, 286, 155]","[283, 287]",0.079,1,1,cut,own,0.1793,0.2459
+named levels,"white tables, bad day",window_light_cluster_01,4,orange,"[315, 128, 341, 147]","[315, 341]",0.584,1,0,own,cut,0.0978,0.0966
+named levels,"white tables, bad day",window_light_cluster_01,4,blue,"[335, 143, 341, 152]","[335, 341]",0.123,0,1,own,cut,0.0927,0.0265
+named levels,"white tables, bad day",window_light_cluster_01,4,blue,"[348, 143, 376, 153]","[348, 376]",0.559,1,0,cut,own,0.0358,0.1768
+named levels,"white tables, bad day",window_light_cluster_01,4,blue,"[427, 142, 434, 152]","[427, 435]",0.164,1,1,cut,own,0.0832,0.2359
+named levels,"white tables, bad day",window_light_core_01,4,blue,"[318, 157, 321, 175]","[305, 341]",0.578,0,1,no barrel,no barrel,0.2726,0.2818
+named levels,"white tables, bad day",window_light_core_03,4,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,"white tables, bad day",window_light_edge_01,4,blue,"[0, 158, 25, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,"white tables, bad day",window_light_far_02,4,orange,"[340, 120, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,"white tables, bad day",window_light_occl_01,4,blue,"[412, 146, 422, 178]","[412, 429]",0.278,0,1,no barrel,no barrel,-0.1493,0.0017
+named levels,"white tables, bad day",window_light_occl_01,4,orange,"[400, 116, 403, 129]","[389, 413]",0.749,0,1,no barrel,no barrel,-0.16,-0.16
+named levels,"white tables, bad day",window_light_occl_01,4,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,"white tables, bad day",window_light_occl_01,4,blue,"[370, 211, 372, 227]","[341, 407]",0.666,0,1,no barrel,no barrel,0.2435,0.2938
+named levels,"white tables, bad day",window_light_touch_02,4,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,"white tables, bad day",window_light_touch_02,4,blue,"[191, 149, 227, 159]","[191, 227]",0.672,1,0,own,cut,0.1571,0.0393
+named levels,bad day without the stripe patch,window_light_cluster_01,0,orange,"[364, 121, 390, 146]","[364, 390]",0.633,0,0,own,cut,0.0515,0.0067
+named levels,bad day without the stripe patch,window_light_core_03,0,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,bad day without the stripe patch,window_light_edge_01,0,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,bad day without the stripe patch,window_light_far_02,0,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,bad day without the stripe patch,window_light_far_02,0,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,bad day without the stripe patch,window_light_occl_01,0,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,bad day without the stripe patch,window_light_occl_02,0,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,bad day without the stripe patch,window_light_touch_02,0,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,bad day without the stripe patch,window_light_cluster_01,1,orange,"[364, 121, 390, 146]","[364, 390]",0.633,0,0,own,cut,0.0515,0.0067
+named levels,bad day without the stripe patch,window_light_cluster_01,1,orange,"[411, 159, 414, 169]","[411, 414]",0.049,0,1,no barrel,no barrel,0.2385,0.2385
+named levels,bad day without the stripe patch,window_light_core_01,1,blue,"[304, 158, 307, 173]","[294, 341]",0.759,0,1,no barrel,no barrel,0.2928,0.2928
+named levels,bad day without the stripe patch,window_light_core_03,1,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,bad day without the stripe patch,window_light_edge_01,1,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,bad day without the stripe patch,window_light_far_02,1,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,bad day without the stripe patch,window_light_far_02,1,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,bad day without the stripe patch,window_light_occl_01,1,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,bad day without the stripe patch,window_light_occl_02,1,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,bad day without the stripe patch,window_light_touch_02,1,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,bad day without the stripe patch,window_light_touch_02,1,blue,"[179, 123, 182, 140]","[179, 182]",0.078,0,1,no barrel,no barrel,-0.1408,-0.1408
+named levels,bad day without the stripe patch,window_light_cluster_01,2,orange,"[315, 128, 345, 147]","[315, 345]",0.684,1,0,own,cut,0.0724,0.1094
+named levels,bad day without the stripe patch,window_light_core_03,2,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,bad day without the stripe patch,window_light_edge_01,2,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,bad day without the stripe patch,window_light_far_02,2,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,bad day without the stripe patch,window_light_far_02,2,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,bad day without the stripe patch,window_light_occl_01,2,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,bad day without the stripe patch,window_light_occl_02,2,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,bad day without the stripe patch,window_light_touch_02,2,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,bad day without the stripe patch,window_light_close_02,3,orange,"[316, 150, 318, 171]","[308, 338]",0.51,0,1,no barrel,no barrel,-0.1092,-0.1615
+named levels,bad day without the stripe patch,window_light_cluster_01,3,orange,"[364, 121, 390, 146]","[364, 390]",0.633,0,0,own,cut,0.0515,0.0067
+named levels,bad day without the stripe patch,window_light_core_03,3,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,bad day without the stripe patch,window_light_edge_01,3,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,bad day without the stripe patch,window_light_far_02,3,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,bad day without the stripe patch,window_light_far_02,3,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,bad day without the stripe patch,window_light_occl_01,3,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,bad day without the stripe patch,window_light_occl_02,3,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,bad day without the stripe patch,window_light_occl_02,3,orange,"[462, 147, 465, 173]","[462, 465]",0.052,0,1,no barrel,no barrel,-0.1516,-0.1516
+named levels,bad day without the stripe patch,window_light_touch_02,3,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,bad day without the stripe patch,window_light_cluster_01,4,orange,"[315, 121, 345, 147]","[315, 345]",0.695,1,0,own,cut,0.0461,0.1226
+named levels,bad day without the stripe patch,window_light_cluster_01,4,orange,"[364, 121, 390, 146]","[364, 390]",0.622,0,0,own,cut,0.079,0.035
+named levels,bad day without the stripe patch,window_light_core_03,4,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,bad day without the stripe patch,window_light_edge_01,4,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,bad day without the stripe patch,window_light_edge_01,4,orange,"[27, 173, 30, 191]","[0, 33]",0.452,0,1,no barrel,no barrel,0.281,0.1826
+named levels,bad day without the stripe patch,window_light_far_02,4,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,bad day without the stripe patch,window_light_far_02,4,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,bad day without the stripe patch,window_light_occl_01,4,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,bad day without the stripe patch,window_light_occl_02,4,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,bad day without the stripe patch,window_light_touch_02,4,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,light,window_light_cluster_01,0,orange,"[364, 121, 390, 146]","[364, 390]",0.633,0,0,own,cut,0.0515,0.0067
+named levels,light,window_light_core_03,0,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,light,window_light_edge_01,0,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,light,window_light_far_02,0,orange,"[248, 118, 264, 125]","[248, 264]",0.51,1,0,own,cut,0.1635,0.0903
+named levels,light,window_light_far_02,0,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,light,window_light_occl_01,0,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,light,window_light_occl_02,0,blue,"[398, 144, 405, 151]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,light,window_light_touch_02,0,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,light,window_light_cluster_01,1,orange,"[315, 121, 345, 147]","[315, 345]",0.695,1,0,own,cut,0.0461,0.1226
+named levels,light,window_light_cluster_01,1,orange,"[364, 121, 390, 146]","[364, 390]",0.633,0,0,own,cut,0.0515,0.0067
+named levels,light,window_light_core_03,1,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,light,window_light_edge_01,1,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,light,window_light_far_02,1,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,light,window_light_far_02,1,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,light,window_light_occl_01,1,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,light,window_light_occl_02,1,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,light,window_light_touch_02,1,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,light,window_light_cluster_01,2,orange,"[315, 131, 345, 147]","[315, 345]",0.684,1,0,own,cut,0.0724,0.1094
+named levels,light,window_light_core_03,2,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,light,window_light_edge_01,2,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,light,window_light_far_02,2,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,light,window_light_far_02,2,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,light,window_light_occl_01,2,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,light,window_light_occl_02,2,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0681,-0.1248
+named levels,light,window_light_touch_02,2,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,light,window_light_core_03,3,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,light,window_light_edge_01,3,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,light,window_light_far_02,3,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,light,window_light_far_02,3,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1954
+named levels,light,window_light_occl_01,3,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,light,window_light_occl_02,3,blue,"[398, 144, 405, 151]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,light,window_light_touch_02,3,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,light,window_light_cluster_01,4,orange,"[315, 121, 345, 147]","[315, 345]",0.684,1,0,own,cut,0.0724,0.1094
+named levels,light,window_light_cluster_01,4,orange,"[364, 131, 390, 146]","[364, 390]",0.593,1,0,own,cut,0.1094,0.1143
+named levels,light,window_light_core_03,4,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,light,window_light_edge_01,4,blue,"[0, 156, 29, 176]","[0, 33]",0.521,1,0,own,own,-0.017,0.1438
+named levels,light,window_light_far_02,4,orange,"[248, 118, 271, 125]","[248, 271]",0.734,1,0,own,own,0.1635,0.1638
+named levels,light,window_light_far_02,4,orange,"[336, 119, 359, 126]","[335, 361]",0.794,1,0,own,own,0.2094,0.1813
+named levels,light,window_light_occl_01,4,orange,"[418, 145, 422, 155]","[418, 429]",0.22,0,1,cut,own,-0.0807,0.3117
+named levels,light,window_light_occl_02,4,blue,"[398, 144, 405, 152]","[397, 405]",0.164,0,1,own,cut,-0.0775,-0.1248
+named levels,light,window_light_touch_02,4,orange,"[152, 137, 191, 156]","[150, 191]",0.796,1,0,own,own,0.1617,0.0385
+named levels,medium,window_light_cluster_01,0,blue,"[335, 143, 357, 152]","[333, 357]",0.486,0,0,own,cut,0.3483,-0.0061
+named levels,medium,window_light_cluster_01,0,blue,"[396, 140, 404, 150]","[396, 404]",0.169,0,1,cut,cut,-0.0029,-0.0224
+named levels,medium,window_light_cluster_01,0,blue,"[405, 141, 434, 152]","[405, 435]",0.625,1,0,cut,own,0.0024,0.2495
+named levels,medium,window_light_cluster_01,0,orange,"[366, 123, 369, 135]","[366, 379]",0.359,0,1,own,cut,-0.1588,-0.1461
+named levels,medium,window_light_cluster_01,0,orange,"[374, 132, 378, 141]","[367, 389]",0.527,0,1,own,cut,0.0073,0.013
+named levels,medium,window_light_cluster_02,0,blue,"[364, 141, 385, 149]","[364, 385]",0.437,0,0,cut,cut,0.0408,0.06
+named levels,medium,window_light_cluster_02,0,blue,"[390, 140, 393, 150]","[390, 399]",0.19,1,1,cut,own,0.137,0.3279
+named levels,medium,window_light_core_01,0,orange,"[251, 125, 253, 146]","[241, 260]",0.463,0,1,no barrel,no barrel,-0.0268,-0.0604
+named levels,medium,window_light_core_03,0,orange,"[319, 120, 325, 125]","[319, 343]",0.749,0,1,own,own,0.1691,0.2012
+named levels,medium,window_light_edge_01,0,blue,"[0, 161, 15, 176]","[0, 33]",0.516,1,1,own,own,0.0012,0.1602
+named levels,medium,window_light_occl_01,0,blue,"[417, 135, 427, 144]","[407, 429]",0.502,1,1,cut,own,0.0674,0.3192
+named levels,medium,window_light_occl_02,0,orange,"[399, 135, 402, 142]","[398, 403]",0.116,0,1,own,cut,0.2166,0.1634
+named levels,medium,window_light_occl_02,0,orange,"[407, 143, 409, 156]","[407, 409]",0.039,0,1,cut,cut,-0.1594,-0.1594
+named levels,medium,window_light_occl_02,0,orange,"[436, 202, 439, 229]","[404, 464]",0.62,0,1,no barrel,no barrel,0.2417,0.2417
+named levels,medium,window_light_touch_02,0,orange,"[279, 144, 286, 155]","[279, 287]",0.157,1,1,cut,own,0.0523,0.2459
+named levels,medium,window_light_touch_02,0,orange,"[265, 146, 270, 155]","[265, 270]",0.097,0,1,cut,cut,0.0266,0.0266
+named levels,medium,window_light_touch_02,0,blue,"[208, 150, 213, 159]","[208, 213]",0.092,0,1,cut,cut,0.0433,0.0433
+named levels,medium,window_light_cluster_01,1,orange,"[315, 137, 325, 146]","[315, 345]",0.663,1,1,own,cut,0.1223,0.0842
+named levels,medium,window_light_cluster_01,1,blue,"[335, 143, 365, 153]","[334, 365]",0.627,0,0,own,cut,0.2364,-0.0061
+named levels,medium,window_light_cluster_01,1,blue,"[397, 140, 403, 150]","[397, 403]",0.127,1,1,cut,cut,-0.0126,-0.0224
+named levels,medium,window_light_cluster_01,1,blue,"[414, 142, 434, 152]","[414, 435]",0.431,1,0,cut,own,0.0076,0.2359
+named levels,medium,window_light_cluster_01,1,orange,"[341, 132, 345, 141]","[315, 345]",0.706,0,1,own,cut,0.019,0.1273
+named levels,medium,window_light_cluster_01,1,orange,"[385, 137, 390, 146]","[369, 394]",0.553,0,1,cut,own,0.0842,0.1046
+named levels,medium,window_light_cluster_02,1,blue,"[353, 139, 371, 149]","[353, 371]",0.386,1,0,own,cut,0.1594,-0.0084
+named levels,medium,window_light_cluster_02,1,blue,"[376, 141, 381, 149]","[376, 381]",0.104,0,1,cut,cut,0.0408,0.0504
+named levels,medium,window_light_cluster_02,1,blue,"[390, 140, 393, 150]","[390, 393]",0.063,1,1,cut,own,0.1308,0.1598
+named levels,medium,window_light_core_01,1,blue,"[304, 158, 306, 173]","[302, 317]",0.242,0,1,no barrel,no barrel,0.2541,0.2928
+named levels,medium,window_light_core_03,1,orange,"[319, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,medium,window_light_edge_01,1,blue,"[0, 161, 15, 176]","[0, 33]",0.516,1,1,own,own,0.0012,0.1602
+named levels,medium,window_light_edge_01,1,blue,"[17, 161, 19, 174]","[0, 33]",0.521,0,1,own,own,-0.017,0.1438
+named levels,medium,window_light_far_02,1,orange,"[252, 119, 260, 125]","[247, 271]",0.749,1,1,own,own,0.2264,0.1977
+named levels,medium,window_light_far_02,1,orange,"[336, 119, 342, 125]","[335, 359]",0.749,1,1,own,own,0.2298,0.1691
+named levels,medium,window_light_occl_01,1,blue,"[417, 135, 427, 144]","[407, 429]",0.502,1,1,cut,own,0.0674,0.3192
+named levels,medium,window_light_occl_02,1,blue,"[398, 144, 404, 152]","[397, 404]",0.144,0,1,own,cut,-0.0775,-0.1153
+named levels,medium,window_light_occl_02,1,orange,"[398, 154, 404, 176]","[394, 404]",0.158,0,1,no barrel,no barrel,0.0658,-0.1132
+named levels,medium,window_light_occl_02,1,orange,"[399, 135, 404, 142]","[398, 415]",0.394,0,1,own,cut,0.2166,0.3658
+named levels,medium,window_light_occl_02,1,orange,"[411, 144, 415, 153]","[400, 415]",0.304,0,1,own,cut,-0.1553,0.2414
+named levels,medium,window_light_occl_02,1,orange,"[411, 167, 415, 178]","[409, 450]",0.614,0,1,no barrel,no barrel,-0.11,0.0144
+named levels,medium,window_light_touch_02,1,orange,"[263, 144, 286, 155]","[263, 287]",0.466,1,0,cut,own,0.0266,0.2653
+named levels,medium,window_light_cluster_01,2,orange,"[315, 137, 333, 147]","[315, 348]",0.729,1,0,own,cut,0.1325,0.2241
+named levels,medium,window_light_cluster_01,2,blue,"[335, 143, 347, 152]","[335, 347]",0.243,0,1,own,cut,0.1151,0.0219
+named levels,medium,window_light_cluster_01,2,orange,"[382, 137, 390, 146]","[371, 394]",0.508,1,1,cut,own,0.2139,0.1046
+named levels,medium,window_light_cluster_01,2,blue,"[356, 144, 361, 153]","[356, 361]",0.1,0,1,cut,cut,0.0174,0.0174
+named levels,medium,window_light_core_03,2,orange,"[322, 120, 330, 125]","[320, 343]",0.718,0,1,own,own,0.0976,0.1548
+named levels,medium,window_light_edge_01,2,blue,"[0, 161, 7, 176]","[0, 33]",0.513,1,1,own,own,0.0101,0.1731
+named levels,medium,window_light_far_02,2,blue,"[437, 122, 443, 127]","[436, 462]",0.778,0,1,own,cut,0.3407,0.1486
+named levels,medium,window_light_far_02,2,blue,"[458, 122, 462, 127]","[436, 462]",0.778,1,1,own,cut,0.3407,0.1486
+named levels,medium,window_light_occl_01,2,blue,"[388, 168, 406, 181]","[369, 406]",0.534,0,0,no barrel,no barrel,0.0852,0.0176
+named levels,medium,window_light_occl_01,2,blue,"[413, 151, 422, 177]","[413, 429]",0.267,0,1,no barrel,no barrel,-0.1369,0.0176
+named levels,medium,window_light_occl_01,2,blue,"[419, 135, 427, 143]","[410, 429]",0.433,1,1,cut,own,0.0674,0.3192
+named levels,medium,window_light_occl_01,2,orange,"[419, 145, 422, 155]","[419, 429]",0.2,0,1,cut,own,-0.0623,0.3117
+named levels,medium,window_light_occl_02,2,blue,"[398, 144, 405, 152]","[397, 428]",0.636,0,1,own,cut,-0.0775,-0.1626
+named levels,medium,window_light_occl_02,2,orange,"[399, 135, 405, 142]","[398, 408]",0.232,0,1,own,cut,0.2166,0.3658
+named levels,medium,window_light_topstripe_01,2,orange,"[184, 420, 199, 474]","[174, 322]",0.574,1,1,own,cut,0.0853,0.0199
+named levels,medium,window_light_touch_02,2,blue,"[203, 149, 224, 159]","[203, 224]",0.387,1,0,cut,cut,0.0603,0.0603
+named levels,medium,window_light_close_02,3,orange,"[316, 148, 319, 173]","[308, 334]",0.44,0,1,no barrel,no barrel,-0.0987,-0.1508
+named levels,medium,window_light_cluster_01,3,orange,"[315, 137, 332, 147]","[315, 335]",0.442,1,0,own,cut,0.1223,0.2342
+named levels,medium,window_light_cluster_01,3,orange,"[365, 121, 379, 142]","[364, 379]",0.365,0,1,own,cut,0.0515,-0.1164
+named levels,medium,window_light_core_03,3,orange,"[332, 120, 343, 125]","[319, 344]",0.78,0,0,own,own,0.1691,0.2728
+named levels,medium,window_light_edge_01,3,blue,"[0, 161, 15, 176]","[0, 33]",0.516,1,1,own,own,0.0012,0.1602
+named levels,medium,window_light_edge_01,3,blue,"[24, 157, 27, 171]","[0, 33]",0.545,0,1,own,own,-0.0939,0.0741
+named levels,medium,window_light_far_02,3,orange,"[336, 119, 340, 125]","[336, 361]",0.78,1,1,own,own,0.1405,0.2012
+named levels,medium,window_light_occl_01,3,blue,"[417, 135, 427, 144]","[414, 428]",0.319,1,1,cut,own,0.0674,0.2353
+named levels,medium,window_light_occl_01,3,orange,"[418, 145, 422, 155]","[394, 429]",0.698,0,1,cut,own,0.1707,0.3117
+named levels,medium,window_light_occl_02,3,orange,"[399, 135, 405, 142]","[399, 410]",0.255,0,1,own,cut,0.1847,0.3658
+named levels,medium,window_light_occl_02,3,blue,"[399, 144, 405, 152]","[397, 423]",0.526,0,1,own,cut,-0.0527,0.3483
+named levels,medium,window_light_occl_02,3,orange,"[399, 151, 406, 176]","[394, 410]",0.256,0,1,no barrel,no barrel,0.0482,0.0556
+named levels,medium,window_light_touch_02,3,orange,"[165, 137, 191, 156]","[165, 191]",0.505,1,0,cut,own,0.0266,0.0385
+named levels,medium,window_light_cluster_01,4,orange,"[315, 137, 332, 147]","[315, 333]",0.398,1,0,own,cut,0.1223,0.041
+named levels,medium,window_light_cluster_01,4,orange,"[364, 132, 373, 142]","[342, 376]",0.794,0,1,cut,cut,0.1616,0.1294
+named levels,medium,window_light_cluster_01,4,orange,"[382, 137, 387, 146]","[382, 387]",0.111,0,1,cut,cut,0.0308,0.0206
+named levels,medium,window_light_cluster_02,4,blue,"[361, 140, 393, 150]","[361, 393]",0.676,1,0,cut,own,0.036,0.1625
+named levels,medium,window_light_edge_01,4,blue,"[0, 161, 15, 176]","[0, 33]",0.516,1,1,own,own,0.006,0.1602
+named levels,medium,window_light_far_02,4,blue,"[437, 122, 448, 128]","[436, 462]",0.778,1,0,own,cut,0.2584,0.1653
+named levels,medium,window_light_occl_01,4,blue,"[415, 148, 422, 177]","[415, 429]",0.237,0,1,no barrel,no barrel,-0.1456,0.0258
+named levels,medium,window_light_occl_01,4,blue,"[421, 135, 427, 143]","[418, 429]",0.251,1,1,cut,own,0.0674,0.3192
+named levels,medium,window_light_occl_02,4,blue,"[398, 144, 405, 152]","[397, 427]",0.616,0,1,own,cut,-0.0775,-0.0113
+named levels,medium,window_light_occl_02,4,orange,"[399, 135, 405, 142]","[398, 408]",0.232,0,1,own,cut,0.2166,0.3658
+named levels,medium,window_light_occl_02,4,orange,"[432, 172, 438, 182]","[432, 438]",0.086,0,1,no barrel,no barrel,-0.1502,-0.1457
+named levels,medium,window_light_topstripe_01,4,orange,"[184, 420, 199, 474]","[174, 340]",0.644,1,1,own,cut,0.0853,0.0291
+named levels,medium,window_light_touch_02,4,orange,"[242, 145, 245, 155]","[242, 245]",0.058,1,1,own,cut,0.1498,0.1498
