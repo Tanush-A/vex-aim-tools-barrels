@@ -27,10 +27,11 @@ No false box on any clean empty frame. Test frames (47) untouched.
 
 ## New data (data session, 2026-11-19; details in `DATA.md`, "Conditions shot this week")
 
-- **4 conditions in.** The black ottoman lid at home under the lamp aimed down at it, at warm 6, mid 6, cool 6 and mid 3: 36 frames, every one with the vendor's saved answer, split by scene 28 train / 8 test. Not boxed yet, no slider labels yet (Tanush, after a later shoot).
+- **2026-11-20: condition 5 in**, pale wood under weak overhead light on campus (9 frames with vendor files, split 7 / 2, not boxed). The table itself reads orange to the camera, and on a test frame our detector drew one false box on bare table: another case for the adaptive thresholds. **The close-up check passed** there (ours boxed near and far barrels on all three test frames; the vendor missed the near one on two); a barrel seated in the kicker is still unchecked.
+- **2026-11-19: 4 conditions in.** The black ottoman lid at home under the lamp aimed down at it, at warm 6, mid 6, cool 6 and mid 3: 36 frames, every one with the vendor's saved answer, split by scene 28 train / 8 test. Not boxed yet, no slider labels yet (Tanush, after a later shoot).
 - **The vendor save works** (the first real vendor files; `report.py --vendor` can run on them once the frames are boxed).
 - **First look, no score:** with the lamp at mid 6 the barrels are plain to see and the vendor reports them, but our fixed color ranges miss them (orange reads hue 14 to 19 against our 3 to 13; blue sits on the lower edge of its range), and our detector drew no box on the three check frames. `lampmid3` is very dark (barrels around the brightness floor of 40) and the vendor still names barrels on it. This is the kind of case the adaptive thresholds (F) are for.
-- **Open:** the close-up check; boxes and slider labels for the ottoman frames; the 16-shot occlusion set (R1 in `DATA.md`); no white-table condition has a vendor file yet.
+- **Open:** the kicker check; boxes for all 45 new frames; slider labels and slider labels for the ottoman frames; the 16-shot occlusion set (R1 in `DATA.md`); no white-table condition has a vendor file yet.
 
 ## Now
 
