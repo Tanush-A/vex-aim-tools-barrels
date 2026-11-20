@@ -8,7 +8,8 @@ import numpy as np
 from barrels import degrade as dg, detector as det, io
 from test_detector import CAM, CFG2, _barrel_behind_a_slanted_edge, paint_barrel
 
-PRE = dataclasses.replace(CFG2, side_hidden=False, seam_height=False)     # the detector of 2026-11-18, spelled out
+PRE = dataclasses.replace(CFG2, side_hidden=False, seam_height=False,     # the detector of 2026-11-18, spelled out
+                          half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False)   # ... without the switches of 2026-11-20
 SIDE = dataclasses.replace(PRE, side_hidden=True)
 SEAM = dataclasses.replace(PRE, seam_height=True)
 BOTH = dataclasses.replace(PRE, side_hidden=True, seam_height=True)
