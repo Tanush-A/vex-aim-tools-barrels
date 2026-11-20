@@ -1,0 +1,29 @@
+level,arm,stem,seed,color,box,flags,drawn_by,width_over_expected,best_overlap_same_color,that_truth_box,that_truth_also_missed
+"white tables, bad day",reduced+thin,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin+verify,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin+verify2,cluster_02,0,orange,"[368, 117, 411, 160]",occluded,stripe step,0.99,0.31,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin+verify,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin+verify2,touch_02,1,orange,"[172, 123, 223, 175]",occluded,stripe step,0.98,0.26,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin+verify,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin+verify2,cluster_02,4,orange,"[370, 117, 413, 160]",occluded,stripe step,0.99,0.35,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin+verify,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin+verify2,touch_02,11,orange,"[170, 123, 221, 175]",occluded,stripe step,0.98,0.29,"[148, 121, 192, 176]",1
+"white tables, bad day",reduced+thin,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin+verify,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+"white tables, bad day",reduced+thin+verify2,cluster_02,15,orange,"[371, 117, 414, 160]",occluded,stripe step,0.99,0.37,"[390, 116, 432, 163]",1
+medium,reduced+thin,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,reduced+thin,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,reduced+thin,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,reduced+thin+verify,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,reduced+thin+verify2,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+"white tables, worst seen",reduced+thin,cluster_01,3,blue,"[360, 120, 418, 171]",,stripe step,1.17,0.37,"[388, 118, 437, 170]",1
+"white tables, worst seen",reduced+thin,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",reduced+thin,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",reduced+thin,cluster_01,13,blue,"[351, 120, 409, 171]",,stripe step,1.17,0.39,"[331, 119, 382, 171]",1
+"white tables, worst seen",reduced+thin,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",reduced+thin+verify,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",reduced+thin+verify2,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",reduced+thin,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1

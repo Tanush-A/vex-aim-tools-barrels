@@ -96,13 +96,13 @@ Limit by the registered rule (HOME hand masks, HOME leave one scene out, the 10 
 
 | against its base | `combined+verify` | `combined+verify2` (boxes of `half_stripes` not checked) | on `reduced+thin` |
 |---|---|---|---|
-| removes wrong boxes | yes: scorecard 45 → 8; wood 5 → 0 or 1; Dave 4 → 0; black 1 → 0; medium (20 seeds) 7 → 1; 11 wrong boxes on the campus clips | the same | see `verify_reduced+thin/` |
+| removes wrong boxes | yes: scorecard 45 → 8; wood 5 → 0 or 1; Dave 4 → 0; black 1 → 0; medium (20 seeds) 7 → 1; 11 wrong boxes on the campus clips | the same | yes: scorecard 45 → 8; medium (20 seeds) 3 → 1 |
 | HOME | 28 / 1 / 0, unchanged | unchanged | unchanged |
 | **CAMPUS** | **35 → 33 found** (`clutter_02` blue, score 0.111; `occl_02` blue, score 0.065) | the same | **35 → 33** |
 | campus clips, right boxes lost | 3 | 3 | 2 |
-| perfect masks, typical | nothing lost | nothing lost | |
-| light / medium found (of 580) | 574 → 516 / 444 → 209 | the same | |
-| scorecard found; cells that drop by more than 1 | 2764 → 2419; 23 cells | 2764 → 2501; 22 cells | |
+| perfect masks, typical | nothing lost | nothing lost | nothing lost |
+| light / medium found (of 580) | 574 → 516 / 444 → 209 | the same | 574 → 516 / 400 → 209 |
+| scorecard found; cells that drop by more than 1 | 2764 → 2419; 23 cells | 2764 → 2501; 22 cells | 2737 → 2405 (`verify2`: 2487); more than 20 cells (`verify_reduced+thin/check_verify.md`) |
 
 It fails three clauses of its rule (right boxes lost on CAMPUS and on the campus clips; scorecard cells). It is the
 only thing measured here that removes the standing wrong boxes (the 11 on the campus clips, every wrong box on wood

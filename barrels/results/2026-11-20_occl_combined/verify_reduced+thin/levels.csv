@@ -1,0 +1,46 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks,reduced+thin,1,16,29,28,1,0
+perfect masks,reduced+thin+verify,1,16,29,28,1,0
+perfect masks,reduced+thin+verify2,1,16,29,28,1,0
+"white tables, typical",reduced+thin,5,80,145,145,0,0
+"white tables, typical",reduced+thin,20,320,580,579,1,0
+"white tables, typical",reduced+thin+verify,5,80,145,145,0,0
+"white tables, typical",reduced+thin+verify,20,320,580,579,1,0
+"white tables, typical",reduced+thin+verify2,5,80,145,145,0,0
+"white tables, typical",reduced+thin+verify2,20,320,580,579,1,0
+"white tables, bad day",reduced+thin,5,80,145,135,10,3
+"white tables, bad day",reduced+thin,20,320,580,547,33,5
+"white tables, bad day",reduced+thin+verify,5,80,145,134,11,3
+"white tables, bad day",reduced+thin+verify,20,320,580,536,44,5
+"white tables, bad day",reduced+thin+verify2,5,80,145,134,11,3
+"white tables, bad day",reduced+thin+verify2,20,320,580,536,44,5
+bad day without the stripe patch,reduced+thin,5,80,145,144,1,0
+bad day without the stripe patch,reduced+thin,20,320,580,577,3,0
+bad day without the stripe patch,reduced+thin+verify,5,80,145,141,4,0
+bad day without the stripe patch,reduced+thin+verify,20,320,580,563,17,0
+bad day without the stripe patch,reduced+thin+verify2,5,80,145,141,4,0
+bad day without the stripe patch,reduced+thin+verify2,20,320,580,563,17,0
+light,reduced+thin,5,80,145,143,2,0
+light,reduced+thin,20,320,580,574,6,0
+light,reduced+thin+verify,5,80,145,129,16,0
+light,reduced+thin+verify,20,320,580,516,64,0
+light,reduced+thin+verify2,5,80,145,129,16,0
+light,reduced+thin+verify2,20,320,580,516,64,0
+medium,reduced+thin,5,80,145,102,43,1
+medium,reduced+thin,20,320,580,400,180,3
+medium,reduced+thin+verify,5,80,145,52,93,0
+medium,reduced+thin+verify,20,320,580,209,371,1
+medium,reduced+thin+verify2,5,80,145,52,93,0
+medium,reduced+thin+verify2,20,320,580,209,371,1
+heavy,reduced+thin,5,80,145,21,124,0
+heavy,reduced+thin,20,320,580,89,491,0
+heavy,reduced+thin+verify,5,80,145,5,140,0
+heavy,reduced+thin+verify,20,320,580,20,560,0
+heavy,reduced+thin+verify2,5,80,145,5,140,0
+heavy,reduced+thin+verify2,20,320,580,20,560,0
+"white tables, worst seen",reduced+thin,5,80,145,95,50,2
+"white tables, worst seen",reduced+thin,20,320,580,378,202,6
+"white tables, worst seen",reduced+thin+verify,5,80,145,41,104,0
+"white tables, worst seen",reduced+thin+verify,20,320,580,186,394,1
+"white tables, worst seen",reduced+thin+verify2,5,80,145,41,104,0
+"white tables, worst seen",reduced+thin+verify2,20,320,580,186,394,1
