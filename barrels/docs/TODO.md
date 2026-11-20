@@ -1,6 +1,6 @@
 # TODO.md — the plan for the week (meeting with Dave: Monday 2026-11-23)
 
-**Updated:** 2026-11-20, later (data session: condition 5 in, close-up check passed) · 2026-11-20 (data session: the state of the shoot under "Tanush" and in "Done this week") · 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
+**Updated:** 2026-11-20, later (data session: condition 6 in, kicker check passed, clutter-last shoot order) · 2026-11-20, later (data session: condition 5 in, close-up check passed) · 2026-11-20 (data session: the state of the shoot under "Tanush" and in "Done this week") · 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
 
 ## The goal
 
@@ -44,8 +44,8 @@ Still missed on the white tables: one barrel in home `cluster_01` that shows onl
 
 1. **Start the data session** (prompt in `HANDOFF.md`).
 2. **First shoot, first two minutes: the vendor save.** `simple_cli BarrelTracker`, one orange and one blue barrel, `tm save`: the console line ends `vendor: 2 objects (OrangeBarrel, BlueBarrel)` and `robot_snapN_vendor.png` shows a tight box on each (`RUNBOOK.md`). **Done 2026-11-19: it works.**
-3. **Same sitting: the close-up check.** A barrel about 2 cm from the bumper with a far barrel behind it in the picture: both get a box. A barrel seated in the kicker: if it gets no box, `tm save` it. **Close-up: passed 2026-11-20 on pale wood** (ours boxed the near and the far barrel on all three test frames; the vendor missed the near one on two). **Still open: a barrel seated in the kicker.**
-4. **Shoot conditions**, 9 shots each (list below), as tables and lights come up. Two lights on one arrangement: same session. **State (the running table in `DATA.md`, "Conditions shot this week"): 5 conditions in. 2026-11-19: the black ottoman lid under the lamp at warm 6, mid 6, cool 6 and mid 3 (36 frames). 2026-11-20: pale wood under weak overhead light on campus (9 frames). Every frame has the vendor's answer; none is boxed yet. Next: the 16-shot occlusion set on a white table.**
+3. **Same sitting: the close-up check.** A barrel about 2 cm from the bumper with a far barrel behind it in the picture: both get a box. A barrel seated in the kicker: if it gets no box, `tm save` it. **Close-up: passed 2026-11-20 on pale wood** (ours boxed the near and the far barrel on all three test frames; the vendor missed the near one on two). **Kicker: passed 2026-11-20 on the ABP gray table** (`4A8B_both_abpgray_held_01`: ours and the vendor both boxed it). Done.
+4. **Shoot conditions**, 9 shots each (list below), as tables and lights come up. Two lights on one arrangement: same session. **State (the running table in `DATA.md`, "Conditions shot this week"): 6 conditions in. 2026-11-19: the black ottoman lid under the lamp at warm 6, mid 6, cool 6 and mid 3 (36 frames). 2026-11-20: pale wood under weak overhead light on campus (9 frames); the gray table at ABP under window + weak yellow overhead (10 frames incl. the kicker shot). Every frame has the vendor's answer; none is boxed yet. Next: the occlusion set (R1, now 19 shots) where the light is steady.**
 5. **Box every frame** (`box_tool.py`).
 6. **Slider labels**, three frames per condition (`core_01`, `occl_01`, `clutter_01`): `python barrels/tools/hs_slider.py --filter <light>_<surface>`. Criterion: as much barrel painted as needed to detect it, as little else as possible. On first open, check that a slider knob follows the mouse.
 7. **Tell Claude when a condition is in** (F is re-run each time).

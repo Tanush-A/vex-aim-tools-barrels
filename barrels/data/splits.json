@@ -1,5 +1,13 @@
 {
   "train": [
+    "4A8B_both_abpgray_close_01",
+    "4A8B_both_abpgray_clutter_01",
+    "4A8B_both_abpgray_core_01",
+    "4A8B_both_abpgray_edge_01",
+    "4A8B_both_abpgray_held_01",
+    "4A8B_both_abpgray_neg_02",
+    "4A8B_both_abpgray_occl_02",
+    "4A8B_both_abpgray_touch_01",
     "4A8B_campus_light_close_01",
     "4A8B_campus_light_cluster_02",
     "4A8B_campus_light_clutter_02",
@@ -175,6 +183,8 @@
   ],
   "dev": [],
   "test": [
+    "4A8B_both_abpgray_neg_01",
+    "4A8B_both_abpgray_occl_01",
     "4A8B_campus_light_cluster_01",
     "4A8B_campus_light_clutter_01",
     "4A8B_campus_light_core_02",
