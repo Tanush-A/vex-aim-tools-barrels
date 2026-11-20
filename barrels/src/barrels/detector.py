@@ -166,6 +166,18 @@ class DetConfig:
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when, with the outline's side put on it, each of the
                                  # three lines (top, stripe, bottom) lies within this x the barrel's height of the seen one, on average
                                  # over the columns within half a lid's width of that end
+    # a stripe cut through, a sliver with stripe and body in view (2026-11-20, experiments/2026-11-20_occl_sliver, PREREG.md)
+    stripe_bridge: bool = False  # with stripe_join: two pieces that share rows and fit in one barrel's width are one stripe, gap included,
+                                 # also when one fails the stripe-shape test, if each is no taller than stripe_h_max stripe heights by the
+                                 # finder's height measure, body color is right above and right below in EVERY column of the gap, and the
+                                 # gap is at most half the joined span (see _join_pieces)
+    thin_frame: bool = False     # with pin_thin: a thin full slice whose seen part touches the frame edge on exactly one side is W wide
+                                 # from its other end (the frame is a hidden side that is known)
+    own_close: bool = False      # with side_hidden: a partly seen full slice that no side reason and no outline places is W wide from the
+                                 # end where the body closes on the stripe (top and bottom both bottom_tol x H in, over the last 0.05 W),
+                                 # when at the other end at least one of them stands (at most 0.1 x H in) (see _closed_end)
+    thin_span: bool = False      # with pin_thin: a thin full slice whose body joined to it is seen stripe_full to body_width x W wide gets
+                                 # that span as its box (the barrel's whole width is seen, only its stripe is hidden)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -419,7 +431,60 @@ def _reach_by_row(cam: geo.CameraModel, h: int, cfg: DetConfig) -> np.ndarray:
     return reach
 
 
-def _join_pieces(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) -> list[list[int]]:
+CLOSE_ZONE = 0.05      # own_close: the end zone, in barrel widths (the last twentieth of the barrel; census_ends.md)
+CLOSE_CUT = 0.1        # own_close: an end "stands" when the top or the bottom is at most this x H in from the predicted row
+
+
+def _join_pieces(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.ndarray | None = None,
+                 sand: np.ndarray | None = None) -> list[list[int]]:
+    if cfg.stripe_bridge and lab is not None and sand is not None:
+        return _join_bridged(st, cam, cfg, lab, sand)
+    return _join_shaped(st, cam, cfg)
+
+
+def _join_bridged(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.ndarray, sand: np.ndarray) -> list[list[int]]:
+    """``stripe_bridge`` (2026-11-20): ``_join_shaped``, and in addition a piece may join the group to its left when the GAP
+    between them is bridged: each of the two is no taller than stripe_h_max x the expected stripe height by the finder's height
+    measure (10th to 90th percentile of its rows), body color is right above and right below the stripe rows in every column of
+    the gap (``sand``, the finder's sandwich), and the gap is at most half the joined span. Two barrels' stripes never pass that
+    (census_pairs.md: 0 of 59 two-barrel pairs on the patched masks are bridged; the pairs on no barrel are pieces a whole gap
+    apart). A piece that is not stripe-shaped joins only by a bridge. ``lab`` = the pieces' label image."""
+    def core(i):
+        x, y, bw, bh = (int(v) for v in st[i][:4])
+        ys = np.where(lab[y:y + bh, x:x + bw] == i)[0] + y
+        return float(np.percentile(ys, 90) - np.percentile(ys, 10) + 1)
+
+    groups: list[list] = []                                      # [ids, x0, x1, y0, y1, all shaped, all cores ok]
+    for i in sorted(range(1, len(st)), key=lambda i: (int(st[i][0]), int(st[i][1]))):
+        x, y, bw, bh = (int(v) for v in st[i][:4])
+        g = _stripe_geometry(cam, y + bh / 2)
+        if g is None:
+            groups.append([[i], x, x + bw, y, y + bh, False, False])
+            continue
+        hs = g[1].stripe_bottom - g[1].stripe_top
+        shaped = bh <= bw and bh <= cfg.stripe_h_max * hs
+        core_ok = core(i) <= cfg.stripe_h_max * hs
+        span = max(cfg.body_width, 1.0) * g[1].width_px
+        for grp in reversed(groups):
+            ids, gx0, gx1, gy0, gy1, gsh, gco = grp
+            shared = min(gy1, y + bh) - max(gy0, y)
+            if 2 * shared < min(bh, gy1 - gy0) or max(gx1, x + bw) - min(gx0, x) > span:
+                continue
+            joined = max(gx1, x + bw) - min(gx0, x)
+            ok = shaped and gsh
+            if not ok and core_ok and gco:
+                a, b = gx1, x                                    # the gap's columns
+                ya, yb = max(gy0, y), min(gy1, y + bh)
+                ok = b <= a or (b - a <= joined / 2 and bool(sand[ya:yb, a:b].any(axis=0).all()))
+            if ok:
+                grp[:] = [ids + [i], min(gx0, x), max(gx1, x + bw), min(gy0, y), max(gy1, y + bh), gsh and shaped, gco and core_ok]
+                break
+        else:
+            groups.append([[i], x, x + bw, y, y + bh, shaped, core_ok])
+    return [grp[0] for grp in groups]
+
+
+def _join_shaped(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig) -> list[list[int]]:
     """``stripe_join`` (2026-11-18): which connected pieces of sandwiched stripe color are one stripe. ``st`` is the
     stats table of the pieces (row 0 = background). Going left to right, a piece joins the nearest group to its left
     when (1) they share rows: the overlap is at least half the height of the shorter of the two, and (2) together they
@@ -475,7 +540,7 @@ def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, 
         for ci, cand in enumerate(cands):
             n, lab, st, _ = cv2.connectedComponentsWithStats(cand.astype(np.uint8), connectivity=8)
             # one candidate per connected piece; with stripe_join, pieces that share rows and fit in one barrel's width are one candidate
-            groups = _join_pieces(st, cam, cfg) if (cfg.stripe_join and ci == 0) else [[i] for i in range(1, n)]
+            groups = _join_pieces(st, cam, cfg, lab, sandwich) if (cfg.stripe_join and ci == 0) else [[i] for i in range(1, n)]
             for ids in groups:
                 x, y = int(min(st[i][0] for i in ids)), int(min(st[i][1] for i in ids))
                 bw, bh = int(max(st[i][0] + st[i][2] for i in ids)) - x, int(max(st[i][1] + st[i][3] for i in ids)) - y
@@ -832,6 +897,49 @@ def _end_costs(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig
     return cost(True), cost(False)
 
 
+def _end_closure(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, sx0: int, sx1: int) -> tuple[float, float] | None:
+    """For ``own_close``: (closure of the left end of the seen columns sx0..sx1, closure of the right end), in barrel heights;
+    None when the stripe's row gives no barrel. Closure = the smaller of (how far the body's top has come down from the top row the
+    stripe's row predicts) and (how far its bottom has come up from the predicted bottom row), each the mean over the columns within
+    CLOSE_ZONE x W of the end (at least 2). The body is looked for from the predicted rows less the edge tolerance to the stripe; a
+    column with none has its top (bottom) at the stripe. At a barrel's own side both close (its corners are round); at a straight or
+    slanted cut, the frame edge or a block, at least one stands (census_ends.md)."""
+    g = _stripe_geometry(cam, s.center_row)
+    if g is None:
+        return None
+    rows = g[1]
+    h = mask.shape[0]
+    W, H = rows.width_px, rows.bottom - rows.top
+    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
+    x0, y0, x1, y1 = s.bbox
+    lim_top, lim_bot = max(0, int(rows.top - tol)), min(h, int(rows.bottom + tol) + 1)
+    n = max(2, int(round(CLOSE_ZONE * W)))
+    out = []
+    for cols in (range(sx0, min(sx1, sx0 + n)), range(max(sx0, sx1 - n), sx1)):
+        tg, bg = [], []
+        for x in cols:
+            up = np.flatnonzero(mask[lim_top:y0, x] == s.body)
+            dn = np.flatnonzero(mask[y1:lim_bot, x] == s.body)
+            tg.append(((lim_top + up[0]) if len(up) else y0) - rows.top)
+            bg.append(rows.bottom - ((y1 + dn[-1] + 1) if len(dn) else y1))
+        out.append(min(float(np.mean(tg)), float(np.mean(bg))) / H if len(tg) else 0.0)
+    return out[0], out[1]
+
+
+def _closed_end(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, sx0: int, sx1: int) -> tuple[int, int] | None:
+    """``own_close``: left and right edge of a box one barrel wide from the end of the seen part where the body has closed on the
+    stripe (closure at least bottom_tol), when the other end stands (closure at most CLOSE_CUT); else None."""
+    c = _end_closure(s, mask, cam, cfg, sx0, sx1)
+    if c is None:
+        return None
+    left = c[0] >= cfg.bottom_tol and c[1] <= CLOSE_CUT
+    right = c[1] >= cfg.bottom_tol and c[0] <= CLOSE_CUT
+    if left == right:
+        return None
+    Wi = int(round(_stripe_geometry(cam, s.center_row)[1].width_px))
+    return (sx0, sx0 + Wi) if left else (sx1 - Wi, sx1)
+
+
 def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, pred_bottom: float, cfg: DetConfig,
                  others: tuple = (), found: tuple = (), full_slice: bool = False,
                  cam: geo.CameraModel | None = None) -> tuple[int, int] | None:
@@ -871,8 +979,8 @@ def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, p
     trusted = span is not None and max(span[1], x1) - min(span[0], x0) <= cfg.body_width * W
     sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if trusted else (x0, x1)
     thin = cfg.pin_outline and cfg.pin_thin and s.small              # pin_thin: placed by the outline, or no box
-    if sx1 - sx0 >= cfg.stripe_full * W and not thin:
-        return sx0, sx1                                              # 2. the whole width is seen
+    if sx1 - sx0 >= cfg.stripe_full * W and (not thin or (cfg.thin_span and trusted and full_slice)):
+        return sx0, sx1                                              # 2. the whole width is seen (thin_span: for a thin full slice too)
     row, tol = int(s.center_row), max(cfg.bottom_tol_min_px, cfg.bottom_tol * W)
     # (c) the outline is cut where the body and the stripe end apart. Asked of every body, trusted or not (round 2): a body
     # running on into a same-colored neighbour still runs past the end of the stripe on the side where the stripe is cut
@@ -889,11 +997,17 @@ def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, p
         return any(b.bbox[3] > pred_bottom and b.bbox[1] <= row < b.bbox[3] and any(b.bbox[0] <= px < b.bbox[2] for px in pixels)
                    for b in found)
 
+    Wi = int(round(W))
     if thin:
-        return _outline_place(s, mask, cam, cfg, sx0, sx1) if cam is not None else None
+        if cfg.thin_frame and full_slice and (sx0 <= 0) != (sx1 >= w):
+            # 2026-11-20 (A8): the frame edge is a hidden side that is known; a thin full slice cut by it is W wide from its other end
+            return (sx1 - Wi, sx1) if sx0 <= 0 else (sx0, sx0 + Wi)
+        placed = _outline_place(s, mask, cam, cfg, sx0, sx1) if cam is not None else None
+        if placed is None and cfg.own_close and full_slice and cam is not None:
+            placed = _closed_end(s, mask, cam, cfg, sx0, sx1)
+        return placed
     left = sx0 <= 0 or nearer(range(sx0 - cfg.close_px, sx0)) or left_cut
     right = sx1 >= w or nearer(range(sx1, sx1 + cfg.close_px)) or right_cut
-    Wi = int(round(W))
     if left and not right:
         return sx1 - Wi, sx1
     if right and not left:
@@ -901,6 +1015,11 @@ def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, p
     if cfg.pin_outline and cam is not None:
         # 2026-11-20: nothing pins the box (no reason, or one on both sides). The outline does, when it fits in one place only
         placed = _outline_place(s, mask, cam, cfg, sx0, sx1)
+        if placed is not None:
+            return placed
+    if cfg.own_close and full_slice and cam is not None:
+        # 2026-11-20 (A8): the body closes on the stripe at the barrel's own side and stands at a cut one (asked of full slices only)
+        placed = _closed_end(s, mask, cam, cfg, sx0, sx1)
         if placed is not None:
             return placed
     wide = (x1 - x0) >= cfg.stripe_w_min * W
@@ -1087,13 +1206,13 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
         b = barrel_from_stripe(s, mask, cam, cfg, others=others, log=log, found=tuple(out), unplaced=unplaced if aside else None)
         if b is None:
             continue
-        if cfg.pin_outline and any(o.color == b.color and box_iou(o.bbox, b.bbox) > 0.5 for o in out):
+        if (cfg.pin_outline or cfg.own_close) and any(o.color == b.color and box_iou(o.bbox, b.bbox) > 0.5 for o in out):
             # 2026-11-20 (round 2): a box the outline places never takes the place of a box that is already there. If this
             # one would be a found barrel's duplicate, the piece is treated as before the switch (a thin piece: no box)
             if thin_on and s.small:
                 _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=b.bbox)
                 continue
-            b = barrel_from_stripe(s, mask, cam, replace(cfg, pin_outline=False), others=others, found=tuple(out),
+            b = barrel_from_stripe(s, mask, cam, replace(cfg, pin_outline=False, own_close=False), others=others, found=tuple(out),
                                    unplaced=unplaced if aside else None)      # ... and may wait for post_pair, as before the switch
             if b is None:
                 continue

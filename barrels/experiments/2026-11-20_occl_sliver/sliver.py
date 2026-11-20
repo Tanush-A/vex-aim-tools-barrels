@@ -22,6 +22,8 @@ A = C.A
 OUT = PKG_ROOT / "results" / "2026-11-20_occl_sliver"
 _FIELDS = {f.name for f in dataclasses.fields(det.DetConfig)}
 START = A.ARMS["reduced+thin"]          # the defaults of the starting branch (wip/occl-combined, d7b4fca), field by field
+FOUR = ("stripe_bridge", "thin_frame", "own_close", "thin_span")        # this experiment's switches (PREREG.md): pinned off in START
+START = dataclasses.replace(START, **{k: False for k in FOUR if k in _FIELDS})
 
 ARMS = {
     "start": START,
@@ -34,6 +36,15 @@ def add(name: str, base: str = "start", **on) -> None:
     """An arm of this experiment: ``base`` with these switches changed; skipped while the detector lacks one of them."""
     if set(on) <= _FIELDS and base in ARMS:
         ARMS[name] = dataclasses.replace(ARMS[base], **on)
+
+
+# the arms of PREREG.md: each switch alone, and all four ("sliver", the candidate default). Spelled out from START, which pins every
+# field, so a later change of the defaults does not move them (the four switches are False in START)
+add("bridge", stripe_bridge=True)
+add("frame", thin_frame=True)
+add("close", own_close=True)
+add("span", thin_span=True)
+add("sliver", **{k: True for k in FOUR})
 
 
 def register() -> None:
