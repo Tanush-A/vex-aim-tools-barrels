@@ -4,15 +4,32 @@
 
 ## Open shot requests (the data session reads this at the start of EVERY sitting and tells Tanush what is open)
 
-Kept current by the detector work (Claude, main session). The data session: at the start of each sitting, and whenever Tanush says "check requests", read this section and say which requests are still open, in order; tick a request here (date, condition) when its frames are imported. Requests are extra to the 9 shots per condition.
+Kept current by the detector work (Claude, main session). The data session: at the start of each sitting, and whenever Tanush says "check requests", read this section and say what is still open; tick a shot here (date, condition) when its frame is imported. These are extra to the 9 shots per condition. **Consolidated 2026-11-20: one list of 16 shots replaces the earlier requests R1 to R5.**
 
-| # | request | why | where | state |
-|---|---|---|---|---|
-| R1 | **Occlusion extras, 10 shots, once**, names `occlx_01`–`occlx_10`, one free barrel in view in each: (1) a barrel behind a book or box with a straight upright edge, about half hidden; (2) the same, about three quarters hidden; (3) a barrel seen through a gap between two books, both sides hidden; (4) a book lying flat hiding a barrel's lower half; (5) two barrels of the SAME color side by side, the back one half hidden; (6) two of the SAME color, one clearly nearer and half hiding the other; (7) a barrel of the other color straight in front, hiding a quarter to a half of the back one; (8) a pen or marker stand in front of the middle of a barrel; (9) a barrel right next to a plain orange or blue block that is not a barrel; (10) a hand held just above a barrel | every number for these cases is simulated so far (`EXPERIMENTS.md` 2026-11-19, occlusion scorecard); these are the real check | any white or other ordinary table, ordinary light | open |
-| R3 | **Three more, once**, names `occlx_11`–`occlx_13`: (11) a barrel behind a book's straight upright edge with about a THIRD of it showing; (12) and (13) no barrels, clutter that looks striped: an orange thing with a blue band, or orange / blue / orange things stacked | (11) sits right at the line where the methods stop finding a barrel; (12, 13) are the hardest false-positive trap, and no frame has one yet | any ordinary table | open |
-| R4 | **Hidden from above and below, once**, names `occlx_14`–`occlx_21`, one orange and one blue barrel in each: (14, 15) a book lying flat in front hiding about the lower third of the barrels, at about 20 cm and at about 35 cm; (16, 17) the same hiding about the lower half; (18, 19) a book or ruler held level in front hiding about the upper half, at the two distances; (20) a hand resting on a blue barrel down to just above its stripe; (21) no barrels: an orange thing resting on a blue thing, both about barrel-wide | the new rule for a barrel cut from above or below reads the line where stripe meets body, and a real book adds shadow there; (20, 21) are false-positive traps for it | white table, ordinary light | open |
-| R5 | **Straight-edge series, once, if time allows**, names `occlx_22`–`occlx_36`; occluder = a matte gray or white box or book with a straight edge (not orange or blue): (22–30) one barrel, the upright edge coming from the LEFT, hiding about a quarter, a half and three quarters, each at about 10, 20 and 35 cm; (31, 32) the edge from the RIGHT hiding a half and three quarters at about 20 cm; (33) the edge tilted about 15 degrees, half hidden; (34) a barrel seen through a gap between two boxes with the gap off-centre; (35, 36) no barrel: the box alone at two of the places | the rule that places a cut barrel reads the rounded corners of the barrel's own visible side; a real edge's shadow may spoil that, and no real frame of this exists | white table, ordinary light | open, lower priority than R1, R3, R4 |
-| R2 | **The same 10 on a second ordinary table or light**, if time allows | so the check does not rest on one table | another ordinary condition | open, optional |
+**R1. The occlusion set: 16 shots, once, on any ordinary table in ordinary light.** Names `occlx_01`–`occlx_16`. In shots 1 to 14 keep one free, fully visible barrel somewhere in view as a reference. "Box" = a matte box or book that is not orange or blue. Why: every occlusion number so far is simulated; these are the real check, and they are also where the vendor detector is compared with ours on hidden barrels.
+
+| # | shot | checks |
+|---|---|---|
+| 1 | a barrel behind the box's straight upright edge, about half hidden | side cut |
+| 2 | the same, about three quarters hidden: only a sliver of body and stripe shows | the sliver case |
+| 3 | the same from the other side, about a third showing | the sliver case |
+| 4 | the box edge tilted, about half hidden | slanted cut |
+| 5 | a barrel seen through a gap between two boxes, the gap off-centre | both sides cut |
+| 6 | a book lying flat in front, hiding about the lower third | cut from below |
+| 7 | the same, hiding about the lower half | cut from below |
+| 8 | a book or ruler held level in front, hiding about the upper half | cut from above |
+| 9 | two barrels of the SAME color side by side, the back one half hidden | same-colored pair |
+| 10 | two of the SAME color, one clearly nearer and half hiding the other | same-colored pair |
+| 11 | a barrel of the other color straight in front, hiding a quarter to a half of the back one | barrel behind barrel |
+| 12 | a pen or marker stand in front of the middle of a barrel | a post |
+| 13 | a barrel right next to a plain orange or blue block that is not a barrel | colored clutter |
+| 14 | a hand resting on a barrel, down to just above its stripe | false-box trap |
+| 15 | NO barrels: clutter that looks striped (an orange thing with a blue band, or orange / blue / orange things stacked) | false-box trap |
+| 16 | NO barrels: an orange thing resting on a blue thing, both about barrel-wide, and the box standing alone | false-box trap |
+
+State: open (none shot yet).
+
+**R2 (optional). The same 16 on a second ordinary table or light**, so the check does not rest on one table.
 
 ## Now (2026-11-09)
 
