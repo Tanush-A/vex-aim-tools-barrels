@@ -1,0 +1,721 @@
+arm,pool,row,amount,n,found_v2,right_place,mean_iou,too_small,about_right,too_big,false_boxes,false_boxes_v2,fronts,fronts_found,median_hidden_share
+stack,HOME hand masks,frame,0.25,24,24,24,0.968,1,23,0,0,0,0,0,0.21
+stack,ALL,frame,0.25,100,100,100,0.92,1,99,0,0,0,0,0,0.21
+vertical_all,HOME hand masks,frame,0.25,24,24,24,0.968,1,23,0,0,0,0,0,0.21
+vertical_all,ALL,frame,0.25,100,100,100,0.92,1,99,0,0,0,0,0,0.21
+pin,HOME hand masks,frame,0.25,24,24,24,0.968,1,23,0,0,0,0,0,0.21
+pin,ALL,frame,0.25,100,100,100,0.92,1,99,0,0,0,0,0,0.21
+pin+thin,HOME hand masks,frame,0.25,24,24,24,0.968,1,23,0,0,0,0,0,0.21
+pin+thin,ALL,frame,0.25,100,100,100,0.92,1,99,0,0,0,0,0,0.21
+stack,HOME hand masks,frame,0.5,24,24,24,0.956,1,23,0,0,0,0,0,0.5
+stack,ALL,frame,0.5,100,99,99,0.898,3,94,2,0,0,0,0,0.5
+vertical_all,HOME hand masks,frame,0.5,24,24,24,0.956,1,23,0,0,0,0,0,0.5
+vertical_all,ALL,frame,0.5,100,99,99,0.898,3,94,2,0,0,0,0,0.5
+pin,HOME hand masks,frame,0.5,24,24,24,0.956,1,23,0,0,0,0,0,0.5
+pin,ALL,frame,0.5,100,99,99,0.898,3,94,2,0,0,0,0,0.5
+pin+thin,HOME hand masks,frame,0.5,24,24,24,0.956,1,23,0,0,0,0,0,0.5
+pin+thin,ALL,frame,0.5,100,99,99,0.898,3,94,2,0,0,0,0,0.5
+stack,HOME hand masks,frame,0.75,24,1,1,0.91,0,1,0,0,0,0,0,0.79
+stack,ALL,frame,0.75,100,3,3,0.841,0,2,1,0,0,0,0,0.79
+vertical_all,HOME hand masks,frame,0.75,24,24,24,0.899,3,21,0,0,0,0,0,0.79
+vertical_all,ALL,frame,0.75,100,87,88,0.822,26,54,8,0,1,0,0,0.79
+pin,HOME hand masks,frame,0.75,24,1,1,0.91,0,1,0,0,0,0,0,0.79
+pin,ALL,frame,0.75,100,3,3,0.841,0,2,1,0,0,0,0,0.79
+pin+thin,HOME hand masks,frame,0.75,24,14,14,0.927,1,13,0,0,0,0,0,0.79
+pin+thin,ALL,frame,0.75,100,29,29,0.87,5,21,3,0,0,0,0,0.79
+stack,HOME hand masks,edge,0.25,24,24,24,0.789,0,24,0,0,0,0,0,0.21
+stack,ALL,edge,0.25,100,100,100,0.765,12,88,0,0,0,0,0,0.21
+vertical_all,HOME hand masks,edge,0.25,24,24,24,0.789,0,24,0,0,0,0,0,0.21
+vertical_all,ALL,edge,0.25,100,100,100,0.765,12,88,0,0,0,0,0,0.21
+pin,HOME hand masks,edge,0.25,24,24,24,0.894,0,24,0,0,0,0,0,0.21
+pin,ALL,edge,0.25,100,100,100,0.829,12,88,0,0,0,0,0,0.21
+pin+thin,HOME hand masks,edge,0.25,24,24,24,0.894,0,24,0,0,0,0,0,0.21
+pin+thin,ALL,edge,0.25,100,100,100,0.829,12,88,0,0,0,0,0,0.21
+stack,HOME hand masks,edge,0.5,24,23,23,0.61,0,23,0,0,0,0,0,0.5
+stack,ALL,edge,0.5,100,82,86,0.587,4,82,0,0,4,0,0,0.5
+vertical_all,HOME hand masks,edge,0.5,24,23,23,0.61,0,23,0,0,0,0,0,0.5
+vertical_all,ALL,edge,0.5,100,82,86,0.587,4,82,0,0,4,0,0,0.5
+pin,HOME hand masks,edge,0.5,24,23,23,0.844,0,23,0,0,0,0,0,0.5
+pin,ALL,edge,0.5,100,90,94,0.767,4,90,0,0,4,0,0,0.5
+pin+thin,HOME hand masks,edge,0.5,24,23,23,0.844,0,23,0,0,0,0,0,0.5
+pin+thin,ALL,edge,0.5,100,90,94,0.767,4,90,0,0,4,0,0,0.5
+stack,HOME hand masks,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+stack,ALL,edge,0.75,100,0,0,,0,0,0,0,0,0,0,0.79
+vertical_all,HOME hand masks,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+vertical_all,ALL,edge,0.75,100,0,0,,0,0,0,0,0,0,0,0.79
+pin,HOME hand masks,edge,0.75,24,1,1,0.899,0,1,0,0,0,0,0,0.79
+pin,ALL,edge,0.75,100,2,2,0.796,1,1,0,0,0,0,0,0.79
+pin+thin,HOME hand masks,edge,0.75,24,14,14,0.911,0,14,0,0,0,0,0,0.79
+pin+thin,ALL,edge,0.75,100,28,28,0.881,1,27,0,0,0,0,0,0.79
+stack,HOME hand masks,slant,0.25,48,48,48,0.856,16,32,0,0,0,0,0,0.22
+stack,ALL,slant,0.25,200,200,200,0.821,83,114,3,0,0,0,0,0.21
+vertical_all,HOME hand masks,slant,0.25,48,48,48,0.856,16,32,0,0,0,0,0,0.22
+vertical_all,ALL,slant,0.25,200,200,200,0.821,83,114,3,0,0,0,0,0.21
+pin,HOME hand masks,slant,0.25,48,48,48,0.857,16,32,0,0,0,0,0,0.22
+pin,ALL,slant,0.25,200,200,200,0.817,83,116,1,0,0,0,0,0.21
+pin+thin,HOME hand masks,slant,0.25,48,48,48,0.857,16,32,0,0,0,0,0,0.22
+pin+thin,ALL,slant,0.25,200,200,200,0.817,83,116,1,0,0,0,0,0.21
+stack,HOME hand masks,slant,0.5,48,44,44,0.789,0,44,0,0,0,0,0,0.5
+stack,ALL,slant,0.5,200,154,156,0.768,9,147,0,0,2,0,0,0.5
+vertical_all,HOME hand masks,slant,0.5,48,44,44,0.789,0,44,0,0,0,0,0,0.5
+vertical_all,ALL,slant,0.5,200,154,156,0.768,9,147,0,0,2,0,0,0.5
+pin,HOME hand masks,slant,0.5,48,45,45,0.894,0,45,0,0,0,0,0,0.5
+pin,ALL,slant,0.5,200,170,172,0.836,9,163,0,0,2,0,0,0.5
+pin+thin,HOME hand masks,slant,0.5,48,45,45,0.894,0,45,0,0,0,0,0,0.5
+pin+thin,ALL,slant,0.5,200,170,172,0.836,9,163,0,0,2,0,0,0.5
+stack,HOME hand masks,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.78
+stack,ALL,slant,0.75,200,0,0,,0,0,0,0,0,0,0,0.79
+vertical_all,HOME hand masks,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.78
+vertical_all,ALL,slant,0.75,200,0,0,,0,0,0,0,0,0,0,0.79
+pin,HOME hand masks,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.78
+pin,ALL,slant,0.75,200,0,0,,0,0,0,0,0,0,0,0.79
+pin+thin,HOME hand masks,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.78
+pin+thin,ALL,slant,0.75,200,0,0,,0,0,0,0,0,0,0,0.79
+stack,HOME hand masks,both,0.25,12,12,12,0.915,2,10,0,0,0,0,0,0.15
+stack,ALL,both,0.25,50,50,50,0.877,10,40,0,0,0,0,0,0.13
+vertical_all,HOME hand masks,both,0.25,12,12,12,0.915,2,10,0,0,0,0,0,0.15
+vertical_all,ALL,both,0.25,50,50,50,0.877,10,40,0,0,0,0,0,0.13
+pin,HOME hand masks,both,0.25,12,12,12,0.915,2,10,0,0,0,0,0,0.15
+pin,ALL,both,0.25,50,50,50,0.877,10,40,0,0,0,0,0,0.13
+pin+thin,HOME hand masks,both,0.25,12,12,12,0.915,2,10,0,0,0,0,0,0.15
+pin+thin,ALL,both,0.25,50,50,50,0.877,10,40,0,0,0,0,0,0.13
+stack,HOME hand masks,both,0.5,12,12,12,0.942,0,12,0,0,0,0,0,0.43
+stack,ALL,both,0.5,50,49,50,0.9,2,48,0,0,1,0,0,0.41
+vertical_all,HOME hand masks,both,0.5,12,12,12,0.942,0,12,0,0,0,0,0,0.43
+vertical_all,ALL,both,0.5,50,49,50,0.9,2,48,0,0,1,0,0,0.41
+pin,HOME hand masks,both,0.5,12,12,12,0.942,0,12,0,0,0,0,0,0.43
+pin,ALL,both,0.5,50,49,50,0.9,2,48,0,0,1,0,0,0.41
+pin+thin,HOME hand masks,both,0.5,12,12,12,0.942,0,12,0,0,0,0,0,0.43
+pin+thin,ALL,both,0.5,50,49,50,0.9,2,48,0,0,1,0,0,0.41
+stack,HOME hand masks,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.72
+stack,ALL,both,0.75,50,0,0,,0,0,0,0,0,0,0,0.7
+vertical_all,HOME hand masks,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.72
+vertical_all,ALL,both,0.75,50,0,0,,0,0,0,0,0,0,0,0.7
+pin,HOME hand masks,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.72
+pin,ALL,both,0.75,50,0,0,,0,0,0,0,0,0,0,0.7
+pin+thin,HOME hand masks,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.72
+pin+thin,ALL,both,0.75,50,0,0,,0,0,0,0,0,0,0,0.7
+stack,HOME hand masks,top,0.25,12,12,12,0.91,1,10,1,0,0,0,0,0.24
+stack,ALL,top,0.25,50,50,50,0.872,2,47,1,0,0,0,0,0.25
+vertical_all,HOME hand masks,top,0.25,12,12,12,0.91,1,10,1,0,0,0,0,0.24
+vertical_all,ALL,top,0.25,50,50,50,0.872,2,47,1,0,0,0,0,0.25
+pin,HOME hand masks,top,0.25,12,12,12,0.91,1,10,1,0,0,0,0,0.24
+pin,ALL,top,0.25,50,50,50,0.872,2,47,1,0,0,0,0,0.25
+pin+thin,HOME hand masks,top,0.25,12,12,12,0.91,1,10,1,0,0,0,0,0.24
+pin+thin,ALL,top,0.25,50,50,50,0.872,2,47,1,0,0,0,0,0.25
+stack,HOME hand masks,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.51
+stack,ALL,top,0.5,50,2,2,0.829,2,0,0,0,0,0,0,0.52
+vertical_all,HOME hand masks,top,0.5,12,12,12,0.919,0,11,1,0,0,0,0,0.51
+vertical_all,ALL,top,0.5,50,45,45,0.878,2,42,1,0,0,0,0,0.52
+pin,HOME hand masks,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.51
+pin,ALL,top,0.5,50,2,2,0.829,2,0,0,0,0,0,0,0.52
+pin+thin,HOME hand masks,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.51
+pin+thin,ALL,top,0.5,50,2,2,0.829,2,0,0,0,0,0,0,0.52
+stack,HOME hand masks,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+stack,ALL,top,0.75,50,0,0,,0,0,0,0,0,0,0,0.78
+vertical_all,HOME hand masks,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+vertical_all,ALL,top,0.75,50,0,0,,0,0,0,0,0,0,0,0.78
+pin,HOME hand masks,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+pin,ALL,top,0.75,50,0,0,,0,0,0,0,0,0,0,0.78
+pin+thin,HOME hand masks,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+pin+thin,ALL,top,0.75,50,0,0,,0,0,0,0,0,0,0,0.78
+stack,HOME hand masks,bottom,0.25,12,12,12,0.927,1,11,0,0,0,0,0,0.22
+stack,ALL,bottom,0.25,50,49,50,0.889,1,49,0,0,1,0,0,0.22
+vertical_all,HOME hand masks,bottom,0.25,12,12,12,0.927,1,11,0,0,0,0,0,0.22
+vertical_all,ALL,bottom,0.25,50,49,50,0.889,1,49,0,0,1,0,0,0.22
+pin,HOME hand masks,bottom,0.25,12,12,12,0.927,1,11,0,0,0,0,0,0.22
+pin,ALL,bottom,0.25,50,49,50,0.889,1,49,0,0,1,0,0,0.22
+pin+thin,HOME hand masks,bottom,0.25,12,12,12,0.927,1,11,0,0,0,0,0,0.22
+pin+thin,ALL,bottom,0.25,50,49,50,0.889,1,49,0,0,1,0,0,0.22
+stack,HOME hand masks,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.5
+stack,ALL,bottom,0.5,50,1,1,0.913,0,1,0,0,0,0,0,0.48
+vertical_all,HOME hand masks,bottom,0.5,12,11,11,0.946,0,11,0,0,0,0,0,0.5
+vertical_all,ALL,bottom,0.5,50,40,40,0.9,0,40,0,0,0,0,0,0.48
+pin,HOME hand masks,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.5
+pin,ALL,bottom,0.5,50,1,1,0.913,0,1,0,0,0,0,0,0.48
+pin+thin,HOME hand masks,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.5
+pin+thin,ALL,bottom,0.5,50,1,1,0.913,0,1,0,0,0,0,0,0.48
+stack,HOME hand masks,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.76
+stack,ALL,bottom,0.75,50,1,1,0.528,1,0,0,0,0,0,0,0.75
+vertical_all,HOME hand masks,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.76
+vertical_all,ALL,bottom,0.75,50,1,1,0.528,1,0,0,0,0,0,0,0.75
+pin,HOME hand masks,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.76
+pin,ALL,bottom,0.75,50,1,1,0.528,1,0,0,0,0,0,0,0.75
+pin+thin,HOME hand masks,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.76
+pin+thin,ALL,bottom,0.75,50,1,1,0.528,1,0,0,0,0,0,0,0.75
+stack,HOME hand masks,post,0.25,12,12,12,0.952,1,11,0,0,0,0,0,0.29
+stack,ALL,post,0.25,50,49,49,0.901,1,48,0,0,0,0,0,0.3
+vertical_all,HOME hand masks,post,0.25,12,12,12,0.952,1,11,0,0,0,0,0,0.29
+vertical_all,ALL,post,0.25,50,49,49,0.901,1,48,0,0,0,0,0,0.3
+pin,HOME hand masks,post,0.25,12,12,12,0.952,1,11,0,0,0,0,0,0.29
+pin,ALL,post,0.25,50,49,49,0.901,1,48,0,0,0,0,0,0.3
+pin+thin,HOME hand masks,post,0.25,12,12,12,0.952,1,11,0,0,0,0,0,0.29
+pin+thin,ALL,post,0.25,50,49,49,0.901,1,48,0,0,0,0,0,0.3
+stack,HOME hand masks,post,0.5,12,0,0,,0,0,0,0,0,0,0,0.57
+stack,ALL,post,0.5,50,9,9,0.874,0,9,0,0,0,0,0,0.59
+vertical_all,HOME hand masks,post,0.5,12,12,12,0.942,1,11,0,0,0,0,0,0.57
+vertical_all,ALL,post,0.5,50,41,41,0.889,1,40,0,0,0,0,0,0.59
+pin,HOME hand masks,post,0.5,12,1,1,0.899,0,1,0,0,0,0,0,0.57
+pin,ALL,post,0.5,50,11,11,0.86,1,10,0,0,0,0,0,0.59
+pin+thin,HOME hand masks,post,0.5,12,11,11,0.904,0,11,0,0,0,0,0,0.57
+pin+thin,ALL,post,0.5,50,31,31,0.874,1,30,0,0,0,0,0,0.59
+stack,HOME hand masks,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.84
+stack,ALL,post,0.75,50,0,0,,0,0,0,0,0,0,0,0.86
+vertical_all,HOME hand masks,post,0.75,12,6,6,0.894,0,6,0,0,0,0,0,0.84
+vertical_all,ALL,post,0.75,50,9,11,0.856,2,9,0,0,2,0,0,0.86
+pin,HOME hand masks,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.84
+pin,ALL,post,0.75,50,0,0,,0,0,0,0,0,0,0,0.86
+pin+thin,HOME hand masks,post,0.75,12,4,4,0.85,1,3,0,0,0,0,0,0.84
+pin+thin,ALL,post,0.75,50,5,5,0.833,2,3,0,0,0,0,0,0.86
+stack,HOME hand masks,barrel_side/other,0.25,24,23,23,0.903,2,21,0,0,0,24,24,0.16
+stack,ALL,barrel_side/other,0.25,100,99,99,0.834,26,73,0,0,6,100,94,0.14
+vertical_all,HOME hand masks,barrel_side/other,0.25,24,23,23,0.903,2,21,0,0,0,24,24,0.16
+vertical_all,ALL,barrel_side/other,0.25,100,99,99,0.834,26,73,0,0,6,100,94,0.14
+pin,HOME hand masks,barrel_side/other,0.25,24,23,23,0.903,2,21,0,0,0,24,24,0.16
+pin,ALL,barrel_side/other,0.25,100,99,99,0.834,26,73,0,0,6,100,94,0.14
+pin+thin,HOME hand masks,barrel_side/other,0.25,24,23,23,0.903,2,21,0,0,0,24,24,0.16
+pin+thin,ALL,barrel_side/other,0.25,100,99,99,0.834,26,73,0,0,6,100,94,0.14
+stack,HOME hand masks,barrel_side/other,0.5,24,24,24,0.904,0,24,0,1,1,24,24,0.43
+stack,ALL,barrel_side/other,0.5,100,94,96,0.835,6,87,3,4,11,100,95,0.41
+vertical_all,HOME hand masks,barrel_side/other,0.5,24,24,24,0.904,0,24,0,1,1,24,24,0.43
+vertical_all,ALL,barrel_side/other,0.5,100,94,96,0.835,6,87,3,4,11,100,95,0.41
+pin,HOME hand masks,barrel_side/other,0.5,24,24,24,0.904,0,24,0,1,1,24,24,0.43
+pin,ALL,barrel_side/other,0.5,100,94,96,0.837,6,87,3,4,11,100,95,0.41
+pin+thin,HOME hand masks,barrel_side/other,0.5,24,24,24,0.904,0,24,0,1,1,24,24,0.43
+pin+thin,ALL,barrel_side/other,0.5,100,94,96,0.837,6,87,3,4,11,100,95,0.41
+stack,HOME hand masks,barrel_side/other,0.75,24,18,18,0.889,1,14,3,0,0,24,24,0.69
+stack,ALL,barrel_side/other,0.75,100,49,60,0.806,10,47,3,1,18,100,94,0.7
+vertical_all,HOME hand masks,barrel_side/other,0.75,24,22,22,0.881,1,18,3,0,0,24,24,0.69
+vertical_all,ALL,barrel_side/other,0.75,100,60,71,0.812,10,58,3,1,18,100,94,0.7
+pin,HOME hand masks,barrel_side/other,0.75,24,18,18,0.889,1,14,3,0,0,24,24,0.69
+pin,ALL,barrel_side/other,0.75,100,49,60,0.806,10,47,3,1,18,100,94,0.7
+pin+thin,HOME hand masks,barrel_side/other,0.75,24,19,19,0.888,1,15,3,0,0,24,24,0.69
+pin+thin,ALL,barrel_side/other,0.75,100,50,61,0.807,10,48,3,1,18,100,94,0.7
+stack,HOME hand masks,barrel_low/other,0.25,24,24,24,0.911,1,23,0,0,4,24,20,0.15
+stack,ALL,barrel_low/other,0.25,100,98,98,0.854,17,81,0,1,11,100,90,0.13
+vertical_all,HOME hand masks,barrel_low/other,0.25,24,24,24,0.911,1,23,0,0,4,24,20,0.15
+vertical_all,ALL,barrel_low/other,0.25,100,98,98,0.854,17,81,0,1,11,100,90,0.13
+pin,HOME hand masks,barrel_low/other,0.25,24,24,24,0.911,1,23,0,0,4,24,20,0.15
+pin,ALL,barrel_low/other,0.25,100,98,98,0.854,17,81,0,1,11,100,90,0.13
+pin+thin,HOME hand masks,barrel_low/other,0.25,24,24,24,0.911,1,23,0,0,4,24,20,0.15
+pin+thin,ALL,barrel_low/other,0.25,100,98,98,0.854,17,81,0,1,11,100,90,0.13
+stack,HOME hand masks,barrel_low/other,0.5,24,23,23,0.912,0,23,0,0,4,24,20,0.38
+stack,ALL,barrel_low/other,0.5,100,92,92,0.864,4,87,1,1,11,100,90,0.38
+vertical_all,HOME hand masks,barrel_low/other,0.5,24,23,23,0.912,0,23,0,0,4,24,20,0.38
+vertical_all,ALL,barrel_low/other,0.5,100,92,92,0.864,4,87,1,1,11,100,90,0.38
+pin,HOME hand masks,barrel_low/other,0.5,24,23,23,0.912,0,23,0,0,4,24,20,0.38
+pin,ALL,barrel_low/other,0.5,100,92,92,0.864,4,87,1,1,11,100,90,0.38
+pin+thin,HOME hand masks,barrel_low/other,0.5,24,23,23,0.912,0,23,0,0,4,24,20,0.38
+pin+thin,ALL,barrel_low/other,0.5,100,92,92,0.864,4,87,1,1,11,100,90,0.38
+stack,HOME hand masks,barrel_low/other,0.75,24,21,22,0.907,0,21,1,0,5,24,20,0.6
+stack,ALL,barrel_low/other,0.75,100,77,90,0.832,15,67,8,2,25,100,90,0.63
+vertical_all,HOME hand masks,barrel_low/other,0.75,24,23,24,0.899,0,23,1,0,5,24,20,0.6
+vertical_all,ALL,barrel_low/other,0.75,100,81,94,0.832,15,71,8,2,25,100,90,0.63
+pin,HOME hand masks,barrel_low/other,0.75,24,21,22,0.907,0,21,1,0,5,24,20,0.6
+pin,ALL,barrel_low/other,0.75,100,77,90,0.832,15,67,8,2,25,100,90,0.63
+pin+thin,HOME hand masks,barrel_low/other,0.75,24,21,22,0.907,0,21,1,0,5,24,20,0.6
+pin+thin,ALL,barrel_low/other,0.75,100,77,90,0.832,15,67,8,2,25,100,90,0.63
+stack,HOME hand masks,barrel_front/other,0.25,12,11,11,0.932,0,11,0,0,4,12,8,0.27
+stack,ALL,barrel_front/other,0.25,47,39,41,0.867,2,38,1,3,19,47,32,0.23
+vertical_all,HOME hand masks,barrel_front/other,0.25,12,11,11,0.932,0,11,0,0,4,12,8,0.27
+vertical_all,ALL,barrel_front/other,0.25,47,40,42,0.868,2,39,1,3,19,47,32,0.23
+pin,HOME hand masks,barrel_front/other,0.25,12,11,11,0.932,0,11,0,0,4,12,8,0.27
+pin,ALL,barrel_front/other,0.25,47,39,41,0.867,2,38,1,3,19,47,32,0.23
+pin+thin,HOME hand masks,barrel_front/other,0.25,12,11,11,0.932,0,11,0,0,4,12,8,0.27
+pin+thin,ALL,barrel_front/other,0.25,47,39,41,0.867,2,38,1,3,19,47,32,0.23
+stack,HOME hand masks,barrel_front/other,0.5,12,10,10,0.954,0,10,0,0,3,12,9,0.53
+stack,ALL,barrel_front/other,0.5,48,38,39,0.875,0,39,0,3,12,48,39,0.47
+vertical_all,HOME hand masks,barrel_front/other,0.5,12,10,10,0.954,0,10,0,0,3,12,9,0.53
+vertical_all,ALL,barrel_front/other,0.5,48,38,39,0.875,0,39,0,3,12,48,39,0.47
+pin,HOME hand masks,barrel_front/other,0.5,12,10,10,0.954,0,10,0,0,3,12,9,0.53
+pin,ALL,barrel_front/other,0.5,48,38,39,0.875,0,39,0,3,12,48,39,0.47
+pin+thin,HOME hand masks,barrel_front/other,0.5,12,10,10,0.954,0,10,0,0,3,12,9,0.53
+pin+thin,ALL,barrel_front/other,0.5,48,38,39,0.875,0,39,0,3,12,48,39,0.47
+stack,HOME hand masks,barrel_front/other,0.75,12,6,6,0.884,0,6,0,0,1,12,11,0.79
+stack,ALL,barrel_front/other,0.75,49,17,28,0.826,1,22,5,1,17,49,42,0.74
+vertical_all,HOME hand masks,barrel_front/other,0.75,12,9,10,0.866,0,10,0,0,2,12,11,0.79
+vertical_all,ALL,barrel_front/other,0.75,49,22,35,0.824,1,29,5,1,19,49,42,0.74
+pin,HOME hand masks,barrel_front/other,0.75,12,6,6,0.884,0,6,0,0,1,12,11,0.79
+pin,ALL,barrel_front/other,0.75,49,17,28,0.826,1,22,5,1,17,49,42,0.74
+pin+thin,HOME hand masks,barrel_front/other,0.75,12,6,6,0.884,0,6,0,0,1,12,11,0.79
+pin+thin,ALL,barrel_front/other,0.75,49,17,28,0.826,1,22,5,1,17,49,42,0.74
+stack,HOME hand masks,barrel_side/same,0.25,24,16,21,0.816,2,17,2,0,6,24,21,0.15
+stack,ALL,barrel_side/same,0.25,100,81,88,0.808,18,65,5,2,21,100,81,0.15
+vertical_all,HOME hand masks,barrel_side/same,0.25,24,21,24,0.847,3,21,0,0,3,24,24,0.15
+vertical_all,ALL,barrel_side/same,0.25,100,96,99,0.827,19,78,2,2,11,100,92,0.15
+pin,HOME hand masks,barrel_side/same,0.25,24,16,21,0.816,2,17,2,0,6,24,21,0.15
+pin,ALL,barrel_side/same,0.25,100,81,88,0.808,18,65,5,2,21,100,81,0.15
+pin+thin,HOME hand masks,barrel_side/same,0.25,24,16,21,0.816,2,17,2,0,6,24,21,0.15
+pin+thin,ALL,barrel_side/same,0.25,100,81,88,0.808,18,65,5,2,21,100,81,0.15
+stack,HOME hand masks,barrel_side/same,0.5,24,1,9,0.601,0,0,9,0,1,24,23,0.41
+stack,ALL,barrel_side/same,0.5,100,36,49,0.658,7,14,28,2,9,100,77,0.42
+vertical_all,HOME hand masks,barrel_side/same,0.5,24,16,24,0.834,2,20,2,0,8,24,24,0.41
+vertical_all,ALL,barrel_side/same,0.5,100,88,97,0.79,18,72,7,2,16,100,90,0.42
+pin,HOME hand masks,barrel_side/same,0.5,24,1,9,0.608,0,0,9,0,1,24,23,0.41
+pin,ALL,barrel_side/same,0.5,100,36,49,0.665,7,14,28,2,9,100,77,0.42
+pin+thin,HOME hand masks,barrel_side/same,0.5,24,1,9,0.608,0,0,9,0,1,24,23,0.41
+pin+thin,ALL,barrel_side/same,0.5,100,36,49,0.665,7,14,28,2,9,100,77,0.42
+stack,HOME hand masks,barrel_side/same,0.75,24,1,9,0.722,0,0,9,0,0,24,23,0.68
+stack,ALL,barrel_side/same,0.75,100,16,31,0.703,1,3,27,4,10,100,79,0.7
+vertical_all,HOME hand masks,barrel_side/same,0.75,24,1,10,0.73,0,0,10,0,1,24,23,0.68
+vertical_all,ALL,barrel_side/same,0.75,100,18,34,0.711,2,3,29,4,11,100,79,0.7
+pin,HOME hand masks,barrel_side/same,0.75,24,1,9,0.722,0,0,9,0,0,24,23,0.68
+pin,ALL,barrel_side/same,0.75,100,16,31,0.703,1,3,27,4,10,100,79,0.7
+pin+thin,HOME hand masks,barrel_side/same,0.75,24,1,9,0.722,0,0,9,0,0,24,23,0.68
+pin+thin,ALL,barrel_side/same,0.75,100,16,31,0.703,1,3,27,4,10,100,79,0.7
+stack,HOME hand masks,barrel_low/same,0.25,24,20,23,0.866,6,17,0,0,4,24,23,0.15
+stack,ALL,barrel_low/same,0.25,100,91,98,0.83,25,70,3,0,13,100,91,0.13
+vertical_all,HOME hand masks,barrel_low/same,0.25,24,20,24,0.866,6,18,0,0,5,24,23,0.15
+vertical_all,ALL,barrel_low/same,0.25,100,91,99,0.83,25,71,3,0,14,100,91,0.13
+pin,HOME hand masks,barrel_low/same,0.25,24,20,23,0.866,6,17,0,0,4,24,23,0.15
+pin,ALL,barrel_low/same,0.25,100,91,98,0.83,25,70,3,0,13,100,91,0.13
+pin+thin,HOME hand masks,barrel_low/same,0.25,24,20,23,0.866,6,17,0,0,4,24,23,0.15
+pin+thin,ALL,barrel_low/same,0.25,100,91,98,0.83,25,70,3,0,13,100,91,0.13
+stack,HOME hand masks,barrel_low/same,0.5,24,18,19,0.884,1,17,1,0,3,24,22,0.39
+stack,ALL,barrel_low/same,0.5,100,85,89,0.841,4,82,3,0,12,100,87,0.39
+vertical_all,HOME hand masks,barrel_low/same,0.5,24,19,22,0.854,2,17,3,0,5,24,22,0.39
+vertical_all,ALL,barrel_low/same,0.5,100,87,94,0.834,6,83,5,0,15,100,87,0.39
+pin,HOME hand masks,barrel_low/same,0.5,24,18,19,0.884,1,17,1,0,3,24,22,0.39
+pin,ALL,barrel_low/same,0.5,100,85,89,0.841,4,82,3,0,12,100,87,0.39
+pin+thin,HOME hand masks,barrel_low/same,0.5,24,18,19,0.884,1,17,1,0,3,24,22,0.39
+pin+thin,ALL,barrel_low/same,0.5,100,85,89,0.841,4,82,3,0,12,100,87,0.39
+stack,HOME hand masks,barrel_low/same,0.75,24,8,8,0.875,0,8,0,0,3,24,21,0.63
+stack,ALL,barrel_low/same,0.75,100,26,32,0.825,2,28,2,0,15,100,89,0.64
+vertical_all,HOME hand masks,barrel_low/same,0.75,24,10,10,0.879,0,10,0,0,3,24,21,0.63
+vertical_all,ALL,barrel_low/same,0.75,100,42,49,0.825,3,44,2,0,16,100,89,0.64
+pin,HOME hand masks,barrel_low/same,0.75,24,8,8,0.875,0,8,0,0,3,24,21,0.63
+pin,ALL,barrel_low/same,0.75,100,26,32,0.825,2,28,2,0,15,100,89,0.64
+pin+thin,HOME hand masks,barrel_low/same,0.75,24,9,9,0.883,0,9,0,0,3,24,21,0.63
+pin+thin,ALL,barrel_low/same,0.75,100,28,34,0.83,2,30,2,0,15,100,89,0.64
+stack,HOME hand masks,barrel_front/same,0.25,12,12,12,0.921,1,11,0,0,3,12,9,0.18
+stack,ALL,barrel_front/same,0.25,47,44,45,0.875,2,43,0,4,18,47,34,0.22
+vertical_all,HOME hand masks,barrel_front/same,0.25,12,12,12,0.921,1,11,0,0,3,12,9,0.18
+vertical_all,ALL,barrel_front/same,0.25,47,44,45,0.875,2,43,0,4,18,47,34,0.22
+pin,HOME hand masks,barrel_front/same,0.25,12,12,12,0.921,1,11,0,0,3,12,9,0.18
+pin,ALL,barrel_front/same,0.25,47,44,45,0.875,2,43,0,4,18,47,34,0.22
+pin+thin,HOME hand masks,barrel_front/same,0.25,12,12,12,0.921,1,11,0,0,3,12,9,0.18
+pin+thin,ALL,barrel_front/same,0.25,47,44,45,0.875,2,43,0,4,18,47,34,0.22
+stack,HOME hand masks,barrel_front/same,0.5,12,11,12,0.92,1,11,0,2,5,12,10,0.46
+stack,ALL,barrel_front/same,0.5,48,29,37,0.85,3,30,4,6,24,48,38,0.47
+vertical_all,HOME hand masks,barrel_front/same,0.5,12,11,12,0.92,1,11,0,2,5,12,10,0.46
+vertical_all,ALL,barrel_front/same,0.5,48,29,37,0.85,3,30,4,6,24,48,38,0.47
+pin,HOME hand masks,barrel_front/same,0.5,12,11,12,0.92,1,11,0,2,5,12,10,0.46
+pin,ALL,barrel_front/same,0.5,48,29,37,0.85,3,30,4,6,24,48,38,0.47
+pin+thin,HOME hand masks,barrel_front/same,0.5,12,11,12,0.92,1,11,0,2,5,12,10,0.46
+pin+thin,ALL,barrel_front/same,0.5,48,29,37,0.85,3,30,4,6,24,48,38,0.47
+stack,HOME hand masks,barrel_front/same,0.75,12,0,0,,0,0,0,0,1,12,11,0.73
+stack,ALL,barrel_front/same,0.75,49,2,7,0.698,3,4,0,2,14,49,42,0.74
+vertical_all,HOME hand masks,barrel_front/same,0.75,12,4,4,0.851,0,4,0,0,1,12,11,0.73
+vertical_all,ALL,barrel_front/same,0.75,49,8,14,0.763,3,11,0,2,15,49,42,0.74
+pin,HOME hand masks,barrel_front/same,0.75,12,0,0,,0,0,0,0,1,12,11,0.73
+pin,ALL,barrel_front/same,0.75,49,2,7,0.698,3,4,0,2,14,49,42,0.74
+pin+thin,HOME hand masks,barrel_front/same,0.75,12,0,0,,0,0,0,0,1,12,11,0.73
+pin+thin,ALL,barrel_front/same,0.75,49,2,7,0.698,3,4,0,2,14,49,42,0.74
+stack,HOME hand masks,block/same,0.25,24,24,24,0.924,0,24,0,0,0,0,0,0.19
+stack,ALL,block/same,0.25,100,100,100,0.873,1,99,0,2,2,0,0,0.18
+vertical_all,HOME hand masks,block/same,0.25,24,24,24,0.924,0,24,0,0,0,0,0,0.19
+vertical_all,ALL,block/same,0.25,100,100,100,0.873,1,99,0,2,2,0,0,0.18
+pin,HOME hand masks,block/same,0.25,24,24,24,0.924,0,24,0,0,0,0,0,0.19
+pin,ALL,block/same,0.25,100,100,100,0.873,1,99,0,2,2,0,0,0.18
+pin+thin,HOME hand masks,block/same,0.25,24,24,24,0.924,0,24,0,0,0,0,0,0.19
+pin+thin,ALL,block/same,0.25,100,100,100,0.873,1,99,0,2,2,0,0,0.18
+stack,HOME hand masks,block/same,0.5,24,24,24,0.925,0,24,0,0,0,0,0,0.43
+stack,ALL,block/same,0.5,100,99,99,0.867,2,95,2,0,0,0,0,0.43
+vertical_all,HOME hand masks,block/same,0.5,24,24,24,0.925,0,24,0,0,0,0,0,0.43
+vertical_all,ALL,block/same,0.5,100,99,99,0.867,2,95,2,0,0,0,0,0.43
+pin,HOME hand masks,block/same,0.5,24,24,24,0.925,0,24,0,0,0,0,0,0.43
+pin,ALL,block/same,0.5,100,99,99,0.867,2,95,2,0,0,0,0,0.43
+pin+thin,HOME hand masks,block/same,0.5,24,24,24,0.925,0,24,0,0,0,0,0,0.43
+pin+thin,ALL,block/same,0.5,100,99,99,0.867,2,95,2,0,0,0,0,0.43
+stack,HOME hand masks,block/same,0.75,24,1,1,0.899,0,1,0,0,0,0,0,0.68
+stack,ALL,block/same,0.75,100,5,5,0.775,1,2,2,0,0,0,0,0.69
+vertical_all,HOME hand masks,block/same,0.75,24,1,1,0.899,0,1,0,0,0,0,0,0.68
+vertical_all,ALL,block/same,0.75,100,5,5,0.775,1,2,2,0,0,0,0,0.69
+pin,HOME hand masks,block/same,0.75,24,1,1,0.899,0,1,0,0,0,0,0,0.68
+pin,ALL,block/same,0.75,100,5,5,0.775,1,2,2,0,0,0,0,0.69
+pin+thin,HOME hand masks,block/same,0.75,24,15,15,0.905,0,15,0,0,0,0,0,0.68
+pin+thin,ALL,block/same,0.75,100,36,36,0.861,1,33,2,0,0,0,0,0.69
+stack,HOME hand masks,block/other,0.25,24,24,24,0.907,1,23,0,0,0,0,0,0.19
+stack,ALL,block/other,0.25,100,100,100,0.861,9,91,0,2,2,0,0,0.18
+vertical_all,HOME hand masks,block/other,0.25,24,24,24,0.907,1,23,0,0,0,0,0,0.19
+vertical_all,ALL,block/other,0.25,100,100,100,0.861,9,91,0,2,2,0,0,0.18
+pin,HOME hand masks,block/other,0.25,24,24,24,0.899,1,23,0,0,0,0,0,0.19
+pin,ALL,block/other,0.25,100,100,100,0.857,9,91,0,2,2,0,0,0.18
+pin+thin,HOME hand masks,block/other,0.25,24,24,24,0.899,1,23,0,0,0,0,0,0.19
+pin+thin,ALL,block/other,0.25,100,100,100,0.857,9,91,0,2,2,0,0,0.18
+stack,HOME hand masks,block/other,0.5,24,24,24,0.899,1,23,0,0,0,0,0,0.43
+stack,ALL,block/other,0.5,100,99,99,0.856,8,91,0,2,2,0,0,0.43
+vertical_all,HOME hand masks,block/other,0.5,24,24,24,0.899,1,23,0,0,0,0,0,0.43
+vertical_all,ALL,block/other,0.5,100,99,99,0.856,8,91,0,2,2,0,0,0.43
+pin,HOME hand masks,block/other,0.5,24,24,24,0.899,1,23,0,0,0,0,0,0.43
+pin,ALL,block/other,0.5,100,99,99,0.856,8,91,0,2,2,0,0,0.43
+pin+thin,HOME hand masks,block/other,0.5,24,24,24,0.899,1,23,0,0,0,0,0,0.43
+pin+thin,ALL,block/other,0.5,100,99,99,0.856,8,91,0,2,2,0,0,0.43
+stack,HOME hand masks,block/other,0.75,24,1,1,0.887,0,1,0,0,0,0,0,0.68
+stack,ALL,block/other,0.75,100,3,4,0.776,1,3,0,3,4,0,0,0.69
+vertical_all,HOME hand masks,block/other,0.75,24,1,1,0.887,0,1,0,0,0,0,0,0.68
+vertical_all,ALL,block/other,0.75,100,3,4,0.776,1,3,0,3,4,0,0,0.69
+pin,HOME hand masks,block/other,0.75,24,1,1,0.887,0,1,0,0,0,0,0,0.68
+pin,ALL,block/other,0.75,100,3,4,0.776,1,3,0,3,4,0,0,0.69
+pin+thin,HOME hand masks,block/other,0.75,24,1,1,0.887,0,1,0,0,0,0,0,0.68
+pin+thin,ALL,block/other,0.75,100,3,4,0.776,1,3,0,3,4,0,0,0.69
+stack,HOME color model,frame,0.25,24,24,24,0.902,0,24,0,0,0,0,0,0.21
+vertical_all,HOME color model,frame,0.25,24,24,24,0.902,0,24,0,0,0,0,0,0.21
+pin,HOME color model,frame,0.25,24,24,24,0.902,0,24,0,0,0,0,0,0.21
+pin+thin,HOME color model,frame,0.25,24,24,24,0.902,0,24,0,0,0,0,0,0.21
+stack,HOME color model,frame,0.5,24,24,24,0.873,1,22,1,0,0,0,0,0.49
+vertical_all,HOME color model,frame,0.5,24,24,24,0.873,1,22,1,0,0,0,0,0.49
+pin,HOME color model,frame,0.5,24,24,24,0.873,1,22,1,0,0,0,0,0.49
+pin+thin,HOME color model,frame,0.5,24,24,24,0.873,1,22,1,0,0,0,0,0.49
+stack,HOME color model,frame,0.75,24,1,1,0.784,0,0,1,0,0,0,0,0.79
+vertical_all,HOME color model,frame,0.75,24,22,22,0.801,7,12,3,0,0,0,0,0.79
+pin,HOME color model,frame,0.75,24,1,1,0.784,0,0,1,0,0,0,0,0.79
+pin+thin,HOME color model,frame,0.75,24,5,5,0.837,1,3,1,0,0,0,0,0.79
+stack,HOME color model,edge,0.25,24,24,24,0.762,3,21,0,0,0,0,0,0.21
+vertical_all,HOME color model,edge,0.25,24,24,24,0.762,3,21,0,0,0,0,0,0.21
+pin,HOME color model,edge,0.25,24,24,24,0.832,3,21,0,0,0,0,0,0.21
+pin+thin,HOME color model,edge,0.25,24,24,24,0.832,3,21,0,0,0,0,0,0.21
+stack,HOME color model,edge,0.5,24,21,22,0.585,0,22,0,0,1,0,0,0.49
+vertical_all,HOME color model,edge,0.5,24,21,22,0.585,0,22,0,0,1,0,0,0.49
+pin,HOME color model,edge,0.5,24,22,23,0.785,0,23,0,0,1,0,0,0.49
+pin+thin,HOME color model,edge,0.5,24,22,23,0.785,0,23,0,0,1,0,0,0.49
+stack,HOME color model,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+vertical_all,HOME color model,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+pin,HOME color model,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+pin+thin,HOME color model,edge,0.75,24,4,4,0.89,0,4,0,0,0,0,0,0.79
+stack,HOME color model,slant,0.25,48,48,48,0.81,20,28,0,0,0,0,0,0.21
+vertical_all,HOME color model,slant,0.25,48,48,48,0.81,20,28,0,0,0,0,0,0.21
+pin,HOME color model,slant,0.25,48,48,48,0.806,20,28,0,0,0,0,0,0.21
+pin+thin,HOME color model,slant,0.25,48,48,48,0.806,20,28,0,0,0,0,0,0.21
+stack,HOME color model,slant,0.5,48,39,39,0.771,0,39,0,0,0,0,0,0.5
+vertical_all,HOME color model,slant,0.5,48,39,39,0.771,0,39,0,0,0,0,0,0.5
+pin,HOME color model,slant,0.5,48,41,41,0.858,0,41,0,0,0,0,0,0.5
+pin+thin,HOME color model,slant,0.5,48,41,41,0.858,0,41,0,0,0,0,0,0.5
+stack,HOME color model,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.79
+vertical_all,HOME color model,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.79
+pin,HOME color model,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.79
+pin+thin,HOME color model,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.79
+stack,HOME color model,both,0.25,12,12,12,0.876,2,10,0,0,0,0,0,0.14
+vertical_all,HOME color model,both,0.25,12,12,12,0.876,2,10,0,0,0,0,0,0.14
+pin,HOME color model,both,0.25,12,12,12,0.876,2,10,0,0,0,0,0,0.14
+pin+thin,HOME color model,both,0.25,12,12,12,0.876,2,10,0,0,0,0,0,0.14
+stack,HOME color model,both,0.5,12,12,12,0.903,0,12,0,0,0,0,0,0.41
+vertical_all,HOME color model,both,0.5,12,12,12,0.903,0,12,0,0,0,0,0,0.41
+pin,HOME color model,both,0.5,12,12,12,0.903,0,12,0,0,0,0,0,0.41
+pin+thin,HOME color model,both,0.5,12,12,12,0.903,0,12,0,0,0,0,0,0.41
+stack,HOME color model,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.71
+vertical_all,HOME color model,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.71
+pin,HOME color model,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.71
+pin+thin,HOME color model,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.71
+stack,HOME color model,top,0.25,12,12,12,0.869,0,12,0,0,0,0,0,0.26
+vertical_all,HOME color model,top,0.25,12,12,12,0.869,0,12,0,0,0,0,0,0.26
+pin,HOME color model,top,0.25,12,12,12,0.869,0,12,0,0,0,0,0,0.26
+pin+thin,HOME color model,top,0.25,12,12,12,0.869,0,12,0,0,0,0,0,0.26
+stack,HOME color model,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.53
+vertical_all,HOME color model,top,0.5,12,10,10,0.897,0,10,0,0,0,0,0,0.53
+pin,HOME color model,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.53
+pin+thin,HOME color model,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.53
+stack,HOME color model,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+vertical_all,HOME color model,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+pin,HOME color model,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+pin+thin,HOME color model,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+stack,HOME color model,bottom,0.25,12,12,12,0.885,0,12,0,0,0,0,0,0.22
+vertical_all,HOME color model,bottom,0.25,12,12,12,0.885,0,12,0,0,0,0,0,0.22
+pin,HOME color model,bottom,0.25,12,12,12,0.885,0,12,0,0,0,0,0,0.22
+pin+thin,HOME color model,bottom,0.25,12,12,12,0.885,0,12,0,0,0,0,0,0.22
+stack,HOME color model,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.48
+vertical_all,HOME color model,bottom,0.5,12,8,8,0.897,0,8,0,0,0,0,0,0.48
+pin,HOME color model,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.48
+pin+thin,HOME color model,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.48
+stack,HOME color model,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.74
+vertical_all,HOME color model,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.74
+pin,HOME color model,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.74
+pin+thin,HOME color model,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.74
+stack,HOME color model,post,0.25,12,12,12,0.894,0,12,0,0,0,0,0,0.29
+vertical_all,HOME color model,post,0.25,12,12,12,0.894,0,12,0,0,0,0,0,0.29
+pin,HOME color model,post,0.25,12,12,12,0.894,0,12,0,0,0,0,0,0.29
+pin+thin,HOME color model,post,0.25,12,12,12,0.894,0,12,0,0,0,0,0,0.29
+stack,HOME color model,post,0.5,12,4,4,0.874,0,4,0,0,0,0,0,0.58
+vertical_all,HOME color model,post,0.5,12,10,10,0.876,0,10,0,0,0,0,0,0.58
+pin,HOME color model,post,0.5,12,4,4,0.874,0,4,0,0,0,0,0,0.58
+pin+thin,HOME color model,post,0.5,12,7,7,0.875,0,7,0,0,0,0,0,0.58
+stack,HOME color model,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.85
+vertical_all,HOME color model,post,0.75,12,2,3,0.821,1,2,0,0,1,0,0,0.85
+pin,HOME color model,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.85
+pin+thin,HOME color model,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.85
+stack,HOME color model,barrel_side/other,0.25,24,24,24,0.811,7,17,0,0,0,24,24,0.17
+vertical_all,HOME color model,barrel_side/other,0.25,24,24,24,0.811,7,17,0,0,0,24,24,0.17
+pin,HOME color model,barrel_side/other,0.25,24,24,24,0.811,7,17,0,0,0,24,24,0.17
+pin+thin,HOME color model,barrel_side/other,0.25,24,24,24,0.811,7,17,0,0,0,24,24,0.17
+stack,HOME color model,barrel_side/other,0.5,24,22,24,0.793,1,21,2,2,4,24,24,0.44
+vertical_all,HOME color model,barrel_side/other,0.5,24,22,24,0.793,1,21,2,2,4,24,24,0.44
+pin,HOME color model,barrel_side/other,0.5,24,22,24,0.8,1,21,2,2,4,24,24,0.44
+pin+thin,HOME color model,barrel_side/other,0.5,24,22,24,0.8,1,21,2,2,4,24,24,0.44
+stack,HOME color model,barrel_side/other,0.75,24,8,13,0.735,4,9,0,0,5,24,24,0.72
+vertical_all,HOME color model,barrel_side/other,0.75,24,11,16,0.754,4,12,0,0,5,24,24,0.72
+pin,HOME color model,barrel_side/other,0.75,24,8,13,0.735,4,9,0,0,5,24,24,0.72
+pin+thin,HOME color model,barrel_side/other,0.75,24,8,13,0.735,4,9,0,0,5,24,24,0.72
+stack,HOME color model,barrel_low/other,0.25,24,23,23,0.819,6,17,0,0,0,24,24,0.19
+vertical_all,HOME color model,barrel_low/other,0.25,24,23,23,0.819,6,17,0,0,0,24,24,0.19
+pin,HOME color model,barrel_low/other,0.25,24,23,23,0.819,6,17,0,0,0,24,24,0.19
+pin+thin,HOME color model,barrel_low/other,0.25,24,23,23,0.819,6,17,0,0,0,24,24,0.19
+stack,HOME color model,barrel_low/other,0.5,24,21,21,0.853,1,20,0,0,0,24,24,0.43
+vertical_all,HOME color model,barrel_low/other,0.5,24,21,21,0.853,1,20,0,0,0,24,24,0.43
+pin,HOME color model,barrel_low/other,0.5,24,21,21,0.853,1,20,0,0,0,24,24,0.43
+pin+thin,HOME color model,barrel_low/other,0.5,24,21,21,0.853,1,20,0,0,0,24,24,0.43
+stack,HOME color model,barrel_low/other,0.75,24,17,21,0.807,5,14,2,0,4,24,24,0.69
+vertical_all,HOME color model,barrel_low/other,0.75,24,18,22,0.809,5,15,2,0,4,24,24,0.69
+pin,HOME color model,barrel_low/other,0.75,24,17,21,0.807,5,14,2,0,4,24,24,0.69
+pin+thin,HOME color model,barrel_low/other,0.75,24,17,21,0.807,5,14,2,0,4,24,24,0.69
+stack,HOME color model,barrel_front/other,0.25,12,9,10,0.848,0,10,0,1,5,12,9,0.3
+vertical_all,HOME color model,barrel_front/other,0.25,12,10,11,0.852,0,11,0,1,5,12,9,0.3
+pin,HOME color model,barrel_front/other,0.25,12,9,10,0.848,0,10,0,1,5,12,9,0.3
+pin+thin,HOME color model,barrel_front/other,0.25,12,9,10,0.848,0,10,0,1,5,12,9,0.3
+stack,HOME color model,barrel_front/other,0.5,12,9,9,0.857,0,9,0,1,3,12,10,0.56
+vertical_all,HOME color model,barrel_front/other,0.5,12,9,9,0.857,0,9,0,1,3,12,10,0.56
+pin,HOME color model,barrel_front/other,0.5,12,9,9,0.857,0,9,0,1,3,12,10,0.56
+pin+thin,HOME color model,barrel_front/other,0.5,12,9,9,0.857,0,9,0,1,3,12,10,0.56
+stack,HOME color model,barrel_front/other,0.75,12,4,6,0.832,0,6,0,0,3,12,11,0.79
+vertical_all,HOME color model,barrel_front/other,0.75,12,5,7,0.823,0,7,0,0,3,12,11,0.79
+pin,HOME color model,barrel_front/other,0.75,12,4,6,0.832,0,6,0,0,3,12,11,0.79
+pin+thin,HOME color model,barrel_front/other,0.75,12,4,6,0.832,0,6,0,0,3,12,11,0.79
+stack,HOME color model,barrel_side/same,0.25,24,21,21,0.823,5,16,0,1,4,24,21,0.18
+vertical_all,HOME color model,barrel_side/same,0.25,24,24,24,0.814,5,19,0,1,1,24,24,0.18
+pin,HOME color model,barrel_side/same,0.25,24,21,21,0.823,5,16,0,1,4,24,21,0.18
+pin+thin,HOME color model,barrel_side/same,0.25,24,21,21,0.823,5,16,0,1,4,24,21,0.18
+stack,HOME color model,barrel_side/same,0.5,24,9,11,0.636,1,4,6,2,3,24,19,0.45
+vertical_all,HOME color model,barrel_side/same,0.5,24,22,23,0.784,4,18,1,2,3,24,24,0.45
+pin,HOME color model,barrel_side/same,0.5,24,9,11,0.66,1,4,6,2,3,24,19,0.45
+pin+thin,HOME color model,barrel_side/same,0.5,24,9,11,0.66,1,4,6,2,3,24,19,0.45
+stack,HOME color model,barrel_side/same,0.75,24,4,9,0.666,1,1,7,4,6,24,20,0.73
+vertical_all,HOME color model,barrel_side/same,0.75,24,5,10,0.682,1,1,8,4,6,24,20,0.73
+pin,HOME color model,barrel_side/same,0.75,24,4,9,0.666,1,1,7,4,6,24,20,0.73
+pin+thin,HOME color model,barrel_side/same,0.75,24,4,9,0.666,1,1,7,4,6,24,20,0.73
+stack,HOME color model,barrel_low/same,0.25,24,22,24,0.839,3,20,1,0,4,24,22,0.2
+vertical_all,HOME color model,barrel_low/same,0.25,24,22,24,0.839,3,20,1,0,4,24,22,0.2
+pin,HOME color model,barrel_low/same,0.25,24,22,24,0.839,3,20,1,0,4,24,22,0.2
+pin+thin,HOME color model,barrel_low/same,0.25,24,22,24,0.839,3,20,1,0,4,24,22,0.2
+stack,HOME color model,barrel_low/same,0.5,24,22,23,0.827,1,21,1,0,3,24,22,0.46
+vertical_all,HOME color model,barrel_low/same,0.5,24,22,24,0.824,1,22,1,0,4,24,22,0.46
+pin,HOME color model,barrel_low/same,0.5,24,22,23,0.827,1,21,1,0,3,24,22,0.46
+pin+thin,HOME color model,barrel_low/same,0.5,24,22,23,0.827,1,21,1,0,3,24,22,0.46
+stack,HOME color model,barrel_low/same,0.75,24,4,6,0.831,1,4,1,0,4,24,22,0.72
+vertical_all,HOME color model,barrel_low/same,0.75,24,10,13,0.817,2,10,1,0,5,24,22,0.72
+pin,HOME color model,barrel_low/same,0.75,24,4,6,0.831,1,4,1,0,4,24,22,0.72
+pin+thin,HOME color model,barrel_low/same,0.75,24,4,6,0.831,1,4,1,0,4,24,22,0.72
+stack,HOME color model,barrel_front/same,0.25,12,10,11,0.876,0,11,0,3,8,12,8,0.31
+vertical_all,HOME color model,barrel_front/same,0.25,12,10,11,0.876,0,11,0,3,8,12,8,0.31
+pin,HOME color model,barrel_front/same,0.25,12,10,11,0.876,0,11,0,3,8,12,8,0.31
+pin+thin,HOME color model,barrel_front/same,0.25,12,10,11,0.876,0,11,0,3,8,12,8,0.31
+stack,HOME color model,barrel_front/same,0.5,12,4,7,0.791,1,5,1,3,9,12,9,0.54
+vertical_all,HOME color model,barrel_front/same,0.5,12,4,7,0.791,1,5,1,3,9,12,9,0.54
+pin,HOME color model,barrel_front/same,0.5,12,4,7,0.791,1,5,1,3,9,12,9,0.54
+pin+thin,HOME color model,barrel_front/same,0.5,12,4,7,0.791,1,5,1,3,9,12,9,0.54
+stack,HOME color model,barrel_front/same,0.75,12,0,1,0.736,1,0,0,2,5,12,10,0.76
+vertical_all,HOME color model,barrel_front/same,0.75,12,0,2,0.743,1,1,0,2,6,12,10,0.76
+pin,HOME color model,barrel_front/same,0.75,12,0,1,0.736,1,0,0,2,5,12,10,0.76
+pin+thin,HOME color model,barrel_front/same,0.75,12,0,1,0.736,1,0,0,2,5,12,10,0.76
+stack,HOME color model,block/same,0.25,24,24,24,0.863,0,24,0,0,0,0,0,0.18
+vertical_all,HOME color model,block/same,0.25,24,24,24,0.863,0,24,0,0,0,0,0,0.18
+pin,HOME color model,block/same,0.25,24,24,24,0.863,0,24,0,0,0,0,0,0.18
+pin+thin,HOME color model,block/same,0.25,24,24,24,0.863,0,24,0,0,0,0,0,0.18
+stack,HOME color model,block/same,0.5,24,24,24,0.855,0,24,0,0,0,0,0,0.42
+vertical_all,HOME color model,block/same,0.5,24,24,24,0.855,0,24,0,0,0,0,0,0.42
+pin,HOME color model,block/same,0.5,24,24,24,0.855,0,24,0,0,0,0,0,0.42
+pin+thin,HOME color model,block/same,0.5,24,24,24,0.855,0,24,0,0,0,0,0,0.42
+stack,HOME color model,block/same,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+vertical_all,HOME color model,block/same,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+pin,HOME color model,block/same,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+pin+thin,HOME color model,block/same,0.75,24,7,7,0.859,0,7,0,0,0,0,0,0.67
+stack,HOME color model,block/other,0.25,24,24,24,0.845,1,23,0,0,0,0,0,0.18
+vertical_all,HOME color model,block/other,0.25,24,24,24,0.845,1,23,0,0,0,0,0,0.18
+pin,HOME color model,block/other,0.25,24,24,24,0.844,1,23,0,0,0,0,0,0.18
+pin+thin,HOME color model,block/other,0.25,24,24,24,0.844,1,23,0,0,0,0,0,0.18
+stack,HOME color model,block/other,0.5,24,24,24,0.84,1,23,0,0,0,0,0,0.42
+vertical_all,HOME color model,block/other,0.5,24,24,24,0.84,1,23,0,0,0,0,0,0.42
+pin,HOME color model,block/other,0.5,24,24,24,0.84,1,23,0,0,0,0,0,0.42
+pin+thin,HOME color model,block/other,0.5,24,24,24,0.84,1,23,0,0,0,0,0,0.42
+stack,HOME color model,block/other,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+vertical_all,HOME color model,block/other,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+pin,HOME color model,block/other,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+pin+thin,HOME color model,block/other,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+stack,CAMPUS color model,frame,0.25,52,52,52,0.906,0,52,0,0,0,0,0,0.19
+vertical_all,CAMPUS color model,frame,0.25,52,52,52,0.906,0,52,0,0,0,0,0,0.19
+pin,CAMPUS color model,frame,0.25,52,52,52,0.906,0,52,0,0,0,0,0,0.19
+pin+thin,CAMPUS color model,frame,0.25,52,52,52,0.906,0,52,0,0,0,0,0,0.19
+stack,CAMPUS color model,frame,0.5,52,51,51,0.883,1,49,1,0,0,0,0,0.5
+vertical_all,CAMPUS color model,frame,0.5,52,51,51,0.883,1,49,1,0,0,0,0,0.5
+pin,CAMPUS color model,frame,0.5,52,51,51,0.883,1,49,1,0,0,0,0,0.5
+pin+thin,CAMPUS color model,frame,0.5,52,51,51,0.883,1,49,1,0,0,0,0,0.5
+stack,CAMPUS color model,frame,0.75,52,1,1,0.829,0,1,0,0,0,0,0,0.81
+vertical_all,CAMPUS color model,frame,0.75,52,41,42,0.789,16,21,5,0,1,0,0,0.81
+pin,CAMPUS color model,frame,0.75,52,1,1,0.829,0,1,0,0,0,0,0,0.81
+pin+thin,CAMPUS color model,frame,0.75,52,10,10,0.806,3,5,2,0,0,0,0,0.81
+stack,CAMPUS color model,edge,0.25,52,52,52,0.754,9,43,0,0,0,0,0,0.19
+vertical_all,CAMPUS color model,edge,0.25,52,52,52,0.754,9,43,0,0,0,0,0,0.19
+pin,CAMPUS color model,edge,0.25,52,52,52,0.797,9,43,0,0,0,0,0,0.19
+pin+thin,CAMPUS color model,edge,0.25,52,52,52,0.797,9,43,0,0,0,0,0,0.19
+stack,CAMPUS color model,edge,0.5,52,38,41,0.575,4,37,0,0,3,0,0,0.5
+vertical_all,CAMPUS color model,edge,0.5,52,38,41,0.575,4,37,0,0,3,0,0,0.5
+pin,CAMPUS color model,edge,0.5,52,45,48,0.722,4,44,0,0,3,0,0,0.5
+pin+thin,CAMPUS color model,edge,0.5,52,45,48,0.722,4,44,0,0,3,0,0,0.5
+stack,CAMPUS color model,edge,0.75,52,0,0,,0,0,0,0,0,0,0,0.81
+vertical_all,CAMPUS color model,edge,0.75,52,0,0,,0,0,0,0,0,0,0,0.81
+pin,CAMPUS color model,edge,0.75,52,1,1,0.693,1,0,0,0,0,0,0,0.81
+pin+thin,CAMPUS color model,edge,0.75,52,10,10,0.835,1,9,0,0,0,0,0,0.81
+stack,CAMPUS color model,slant,0.25,104,104,104,0.81,47,54,3,0,0,0,0,0.2
+vertical_all,CAMPUS color model,slant,0.25,104,104,104,0.81,47,54,3,0,0,0,0,0.2
+pin,CAMPUS color model,slant,0.25,104,104,104,0.804,47,56,1,0,0,0,0,0.2
+pin+thin,CAMPUS color model,slant,0.25,104,104,104,0.804,47,56,1,0,0,0,0,0.2
+stack,CAMPUS color model,slant,0.5,104,71,73,0.753,9,64,0,0,2,0,0,0.5
+vertical_all,CAMPUS color model,slant,0.5,104,71,73,0.753,9,64,0,0,2,0,0,0.5
+pin,CAMPUS color model,slant,0.5,104,84,86,0.795,9,77,0,0,2,0,0,0.5
+pin+thin,CAMPUS color model,slant,0.5,104,84,86,0.795,9,77,0,0,2,0,0,0.5
+stack,CAMPUS color model,slant,0.75,104,0,0,,0,0,0,0,0,0,0,0.8
+vertical_all,CAMPUS color model,slant,0.75,104,0,0,,0,0,0,0,0,0,0,0.8
+pin,CAMPUS color model,slant,0.75,104,0,0,,0,0,0,0,0,0,0,0.8
+pin+thin,CAMPUS color model,slant,0.75,104,0,0,,0,0,0,0,0,0,0,0.8
+stack,CAMPUS color model,both,0.25,26,26,26,0.861,6,20,0,0,0,0,0,0.12
+vertical_all,CAMPUS color model,both,0.25,26,26,26,0.861,6,20,0,0,0,0,0,0.12
+pin,CAMPUS color model,both,0.25,26,26,26,0.861,6,20,0,0,0,0,0,0.12
+pin+thin,CAMPUS color model,both,0.25,26,26,26,0.861,6,20,0,0,0,0,0,0.12
+stack,CAMPUS color model,both,0.5,26,25,26,0.879,2,24,0,0,1,0,0,0.38
+vertical_all,CAMPUS color model,both,0.5,26,25,26,0.879,2,24,0,0,1,0,0,0.38
+pin,CAMPUS color model,both,0.5,26,25,26,0.879,2,24,0,0,1,0,0,0.38
+pin+thin,CAMPUS color model,both,0.5,26,25,26,0.879,2,24,0,0,1,0,0,0.38
+stack,CAMPUS color model,both,0.75,26,0,0,,0,0,0,0,0,0,0,0.69
+vertical_all,CAMPUS color model,both,0.75,26,0,0,,0,0,0,0,0,0,0,0.69
+pin,CAMPUS color model,both,0.75,26,0,0,,0,0,0,0,0,0,0,0.69
+pin+thin,CAMPUS color model,both,0.75,26,0,0,,0,0,0,0,0,0,0,0.69
+stack,CAMPUS color model,top,0.25,26,26,26,0.856,1,25,0,0,0,0,0,0.26
+vertical_all,CAMPUS color model,top,0.25,26,26,26,0.856,1,25,0,0,0,0,0,0.26
+pin,CAMPUS color model,top,0.25,26,26,26,0.856,1,25,0,0,0,0,0,0.26
+pin+thin,CAMPUS color model,top,0.25,26,26,26,0.856,1,25,0,0,0,0,0,0.26
+stack,CAMPUS color model,top,0.5,26,2,2,0.829,2,0,0,0,0,0,0,0.53
+vertical_all,CAMPUS color model,top,0.5,26,23,23,0.849,2,21,0,0,0,0,0,0.53
+pin,CAMPUS color model,top,0.5,26,2,2,0.829,2,0,0,0,0,0,0,0.53
+pin+thin,CAMPUS color model,top,0.5,26,2,2,0.829,2,0,0,0,0,0,0,0.53
+stack,CAMPUS color model,top,0.75,26,0,0,,0,0,0,0,0,0,0,0.78
+vertical_all,CAMPUS color model,top,0.75,26,0,0,,0,0,0,0,0,0,0,0.78
+pin,CAMPUS color model,top,0.75,26,0,0,,0,0,0,0,0,0,0,0.78
+pin+thin,CAMPUS color model,top,0.75,26,0,0,,0,0,0,0,0,0,0,0.78
+stack,CAMPUS color model,bottom,0.25,26,25,26,0.873,0,26,0,0,1,0,0,0.22
+vertical_all,CAMPUS color model,bottom,0.25,26,25,26,0.873,0,26,0,0,1,0,0,0.22
+pin,CAMPUS color model,bottom,0.25,26,25,26,0.873,0,26,0,0,1,0,0,0.22
+pin+thin,CAMPUS color model,bottom,0.25,26,25,26,0.873,0,26,0,0,1,0,0,0.22
+stack,CAMPUS color model,bottom,0.5,26,1,1,0.913,0,1,0,0,0,0,0,0.47
+vertical_all,CAMPUS color model,bottom,0.5,26,21,21,0.876,0,21,0,0,0,0,0,0.47
+pin,CAMPUS color model,bottom,0.5,26,1,1,0.913,0,1,0,0,0,0,0,0.47
+pin+thin,CAMPUS color model,bottom,0.5,26,1,1,0.913,0,1,0,0,0,0,0,0.47
+stack,CAMPUS color model,bottom,0.75,26,1,1,0.528,1,0,0,0,0,0,0,0.74
+vertical_all,CAMPUS color model,bottom,0.75,26,1,1,0.528,1,0,0,0,0,0,0,0.74
+pin,CAMPUS color model,bottom,0.75,26,1,1,0.528,1,0,0,0,0,0,0,0.74
+pin+thin,CAMPUS color model,bottom,0.75,26,1,1,0.528,1,0,0,0,0,0,0,0.74
+stack,CAMPUS color model,post,0.25,26,25,25,0.879,0,25,0,0,0,0,0,0.31
+vertical_all,CAMPUS color model,post,0.25,26,25,25,0.879,0,25,0,0,0,0,0,0.31
+pin,CAMPUS color model,post,0.25,26,25,25,0.879,0,25,0,0,0,0,0,0.31
+pin+thin,CAMPUS color model,post,0.25,26,25,25,0.879,0,25,0,0,0,0,0,0.31
+stack,CAMPUS color model,post,0.5,26,5,5,0.874,0,5,0,0,0,0,0,0.61
+vertical_all,CAMPUS color model,post,0.5,26,19,19,0.862,0,19,0,0,0,0,0,0.61
+pin,CAMPUS color model,post,0.5,26,6,6,0.844,1,5,0,0,0,0,0,0.61
+pin+thin,CAMPUS color model,post,0.5,26,13,13,0.847,1,12,0,0,0,0,0,0.61
+stack,CAMPUS color model,post,0.75,26,0,0,,0,0,0,0,0,0,0,0.88
+vertical_all,CAMPUS color model,post,0.75,26,1,2,0.791,1,1,0,0,1,0,0,0.88
+pin,CAMPUS color model,post,0.75,26,0,0,,0,0,0,0,0,0,0,0.88
+pin+thin,CAMPUS color model,post,0.75,26,1,1,0.767,1,0,0,0,0,0,0,0.88
+stack,CAMPUS color model,barrel_side/other,0.25,52,52,52,0.814,17,35,0,0,6,52,46,0.12
+vertical_all,CAMPUS color model,barrel_side/other,0.25,52,52,52,0.814,17,35,0,0,6,52,46,0.12
+pin,CAMPUS color model,barrel_side/other,0.25,52,52,52,0.814,17,35,0,0,6,52,46,0.12
+pin+thin,CAMPUS color model,barrel_side/other,0.25,52,52,52,0.814,17,35,0,0,6,52,46,0.12
+stack,CAMPUS color model,barrel_side/other,0.5,52,48,48,0.821,5,42,1,1,6,52,47,0.39
+vertical_all,CAMPUS color model,barrel_side/other,0.5,52,48,48,0.821,5,42,1,1,6,52,47,0.39
+pin,CAMPUS color model,barrel_side/other,0.5,52,48,48,0.821,5,42,1,1,6,52,47,0.39
+pin+thin,CAMPUS color model,barrel_side/other,0.5,52,48,48,0.821,5,42,1,1,6,52,47,0.39
+stack,CAMPUS color model,barrel_side/other,0.75,52,23,29,0.787,5,24,0,1,13,52,46,0.7
+vertical_all,CAMPUS color model,barrel_side/other,0.75,52,27,33,0.793,5,28,0,1,13,52,46,0.7
+pin,CAMPUS color model,barrel_side/other,0.75,52,23,29,0.787,5,24,0,1,13,52,46,0.7
+pin+thin,CAMPUS color model,barrel_side/other,0.75,52,23,29,0.787,5,24,0,1,13,52,46,0.7
+stack,CAMPUS color model,barrel_low/other,0.25,52,51,51,0.842,10,41,0,1,7,52,46,0.11
+vertical_all,CAMPUS color model,barrel_low/other,0.25,52,51,51,0.842,10,41,0,1,7,52,46,0.11
+pin,CAMPUS color model,barrel_low/other,0.25,52,51,51,0.842,10,41,0,1,7,52,46,0.11
+pin+thin,CAMPUS color model,barrel_low/other,0.25,52,51,51,0.842,10,41,0,1,7,52,46,0.11
+stack,CAMPUS color model,barrel_low/other,0.5,52,48,48,0.846,3,44,1,1,7,52,46,0.36
+vertical_all,CAMPUS color model,barrel_low/other,0.5,52,48,48,0.846,3,44,1,1,7,52,46,0.36
+pin,CAMPUS color model,barrel_low/other,0.5,52,48,48,0.846,3,44,1,1,7,52,46,0.36
+pin+thin,CAMPUS color model,barrel_low/other,0.5,52,48,48,0.846,3,44,1,1,7,52,46,0.36
+stack,CAMPUS color model,barrel_low/other,0.75,52,39,47,0.807,10,32,5,2,16,52,46,0.62
+vertical_all,CAMPUS color model,barrel_low/other,0.75,52,40,48,0.809,10,33,5,2,16,52,46,0.62
+pin,CAMPUS color model,barrel_low/other,0.75,52,39,47,0.807,10,32,5,2,16,52,46,0.62
+pin+thin,CAMPUS color model,barrel_low/other,0.75,52,39,47,0.807,10,32,5,2,16,52,46,0.62
+stack,CAMPUS color model,barrel_front/other,0.75,25,7,16,0.802,1,10,5,1,13,25,20,0.71
+vertical_all,CAMPUS color model,barrel_front/other,0.75,25,8,18,0.801,1,12,5,1,14,25,20,0.71
+pin,CAMPUS color model,barrel_front/other,0.75,25,7,16,0.802,1,10,5,1,13,25,20,0.71
+pin+thin,CAMPUS color model,barrel_front/other,0.75,25,7,16,0.802,1,10,5,1,13,25,20,0.71
+stack,CAMPUS color model,barrel_side/same,0.25,52,44,46,0.797,11,32,3,1,11,52,39,0.12
+vertical_all,CAMPUS color model,barrel_side/same,0.25,52,51,51,0.824,11,38,2,1,7,52,44,0.12
+pin,CAMPUS color model,barrel_side/same,0.25,52,44,46,0.797,11,32,3,1,11,52,39,0.12
+pin+thin,CAMPUS color model,barrel_side/same,0.25,52,44,46,0.797,11,32,3,1,11,52,39,0.12
+stack,CAMPUS color model,barrel_side/same,0.5,52,26,29,0.684,6,10,13,0,5,52,35,0.4
+vertical_all,CAMPUS color model,barrel_side/same,0.5,52,50,50,0.772,12,34,4,0,5,52,42,0.4
+pin,CAMPUS color model,barrel_side/same,0.5,52,26,29,0.684,6,10,13,0,5,52,35,0.4
+pin+thin,CAMPUS color model,barrel_side/same,0.5,52,26,29,0.684,6,10,13,0,5,52,35,0.4
+stack,CAMPUS color model,barrel_side/same,0.75,52,11,13,0.715,0,2,11,0,4,52,36,0.7
+vertical_all,CAMPUS color model,barrel_side/same,0.75,52,12,14,0.718,1,2,11,0,4,52,36,0.7
+pin,CAMPUS color model,barrel_side/same,0.75,52,11,13,0.715,0,2,11,0,4,52,36,0.7
+pin+thin,CAMPUS color model,barrel_side/same,0.75,52,11,13,0.715,0,2,11,0,4,52,36,0.7
+stack,CAMPUS color model,barrel_low/same,0.25,52,49,51,0.809,16,33,2,0,5,52,46,0.1
+vertical_all,CAMPUS color model,barrel_low/same,0.25,52,49,51,0.809,16,33,2,0,5,52,46,0.1
+pin,CAMPUS color model,barrel_low/same,0.25,52,49,51,0.809,16,33,2,0,5,52,46,0.1
+pin+thin,CAMPUS color model,barrel_low/same,0.25,52,49,51,0.809,16,33,2,0,5,52,46,0.1
+stack,CAMPUS color model,barrel_low/same,0.5,52,45,47,0.831,2,44,1,0,6,52,43,0.35
+vertical_all,CAMPUS color model,barrel_low/same,0.5,52,46,48,0.83,3,44,1,0,6,52,43,0.35
+pin,CAMPUS color model,barrel_low/same,0.5,52,45,47,0.831,2,44,1,0,6,52,43,0.35
+pin+thin,CAMPUS color model,barrel_low/same,0.5,52,45,47,0.831,2,44,1,0,6,52,43,0.35
+stack,CAMPUS color model,barrel_low/same,0.75,52,14,18,0.801,1,16,1,0,8,52,46,0.61
+vertical_all,CAMPUS color model,barrel_low/same,0.75,52,22,26,0.809,1,24,1,0,8,52,46,0.61
+pin,CAMPUS color model,barrel_low/same,0.75,52,14,18,0.801,1,16,1,0,8,52,46,0.61
+pin+thin,CAMPUS color model,barrel_low/same,0.75,52,15,19,0.805,1,17,1,0,8,52,46,0.61
+stack,CAMPUS color model,barrel_front/same,0.75,25,2,6,0.691,2,4,0,0,8,25,21,0.68
+vertical_all,CAMPUS color model,barrel_front/same,0.75,25,4,8,0.724,2,6,0,0,8,25,21,0.68
+pin,CAMPUS color model,barrel_front/same,0.75,25,2,6,0.691,2,4,0,0,8,25,21,0.68
+pin+thin,CAMPUS color model,barrel_front/same,0.75,25,2,6,0.691,2,4,0,0,8,25,21,0.68
+stack,CAMPUS color model,block/same,0.25,52,52,52,0.854,1,51,0,2,2,0,0,0.17
+vertical_all,CAMPUS color model,block/same,0.25,52,52,52,0.854,1,51,0,2,2,0,0,0.17
+pin,CAMPUS color model,block/same,0.25,52,52,52,0.854,1,51,0,2,2,0,0,0.17
+pin+thin,CAMPUS color model,block/same,0.25,52,52,52,0.854,1,51,0,2,2,0,0,0.17
+stack,CAMPUS color model,block/same,0.5,52,51,51,0.846,2,47,2,0,0,0,0,0.43
+vertical_all,CAMPUS color model,block/same,0.5,52,51,51,0.846,2,47,2,0,0,0,0,0.43
+pin,CAMPUS color model,block/same,0.5,52,51,51,0.846,2,47,2,0,0,0,0,0.43
+pin+thin,CAMPUS color model,block/same,0.5,52,51,51,0.846,2,47,2,0,0,0,0,0.43
+stack,CAMPUS color model,block/same,0.75,52,3,3,0.737,1,0,2,0,0,0,0,0.69
+vertical_all,CAMPUS color model,block/same,0.75,52,3,3,0.737,1,0,2,0,0,0,0,0.69
+pin,CAMPUS color model,block/same,0.75,52,3,3,0.737,1,0,2,0,0,0,0,0.69
+pin+thin,CAMPUS color model,block/same,0.75,52,14,14,0.816,1,11,2,0,0,0,0,0.69
+stack,CAMPUS color model,block/other,0.25,52,52,52,0.847,7,45,0,2,2,0,0,0.17
+vertical_all,CAMPUS color model,block/other,0.25,52,52,52,0.847,7,45,0,2,2,0,0,0.17
+pin,CAMPUS color model,block/other,0.25,52,52,52,0.844,7,45,0,2,2,0,0,0.17
+pin+thin,CAMPUS color model,block/other,0.25,52,52,52,0.844,7,45,0,2,2,0,0,0.17
+stack,CAMPUS color model,block/other,0.5,52,51,51,0.843,6,45,0,2,2,0,0,0.43
+vertical_all,CAMPUS color model,block/other,0.5,52,51,51,0.843,6,45,0,2,2,0,0,0.43
+pin,CAMPUS color model,block/other,0.5,52,51,51,0.843,6,45,0,2,2,0,0,0.43
+pin+thin,CAMPUS color model,block/other,0.5,52,51,51,0.843,6,45,0,2,2,0,0,0.43
+stack,CAMPUS color model,block/other,0.75,52,1,2,0.727,1,1,0,3,4,0,0,0.69
+vertical_all,CAMPUS color model,block/other,0.75,52,1,2,0.727,1,1,0,3,4,0,0,0.69
+pin,CAMPUS color model,block/other,0.75,52,1,2,0.727,1,1,0,3,4,0,0,0.69
+pin+thin,CAMPUS color model,block/other,0.75,52,1,2,0.727,1,1,0,3,4,0,0,0.69
+stack,CAMPUS color model,barrel_front/other,0.25,23,19,20,0.841,2,17,1,2,10,23,15,0.2
+vertical_all,CAMPUS color model,barrel_front/other,0.25,23,19,20,0.841,2,17,1,2,10,23,15,0.2
+pin,CAMPUS color model,barrel_front/other,0.25,23,19,20,0.841,2,17,1,2,10,23,15,0.2
+pin+thin,CAMPUS color model,barrel_front/other,0.25,23,19,20,0.841,2,17,1,2,10,23,15,0.2
+stack,CAMPUS color model,barrel_front/other,0.5,24,19,20,0.843,0,20,0,2,6,24,20,0.43
+vertical_all,CAMPUS color model,barrel_front/other,0.5,24,19,20,0.843,0,20,0,2,6,24,20,0.43
+pin,CAMPUS color model,barrel_front/other,0.5,24,19,20,0.843,0,20,0,2,6,24,20,0.43
+pin+thin,CAMPUS color model,barrel_front/other,0.5,24,19,20,0.843,0,20,0,2,6,24,20,0.43
+stack,CAMPUS color model,barrel_front/same,0.25,23,22,22,0.849,1,21,0,1,7,23,17,0.21
+vertical_all,CAMPUS color model,barrel_front/same,0.25,23,22,22,0.849,1,21,0,1,7,23,17,0.21
+pin,CAMPUS color model,barrel_front/same,0.25,23,22,22,0.849,1,21,0,1,7,23,17,0.21
+pin+thin,CAMPUS color model,barrel_front/same,0.25,23,22,22,0.849,1,21,0,1,7,23,17,0.21
+stack,CAMPUS color model,barrel_front/same,0.5,24,14,18,0.827,1,14,3,1,10,24,19,0.44
+vertical_all,CAMPUS color model,barrel_front/same,0.5,24,14,18,0.827,1,14,3,1,10,24,19,0.44
+pin,CAMPUS color model,barrel_front/same,0.5,24,14,18,0.827,1,14,3,1,10,24,19,0.44
+pin+thin,CAMPUS color model,barrel_front/same,0.5,24,14,18,0.827,1,14,3,1,10,24,19,0.44
