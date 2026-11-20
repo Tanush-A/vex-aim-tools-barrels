@@ -25,6 +25,13 @@ No false box on any clean empty frame. Test frames (47) untouched.
 - Thresholds read from each frame's labels reach about two thirds on black and cool-lit wood, almost nothing under mid and warm lamps: thresholds alone are not enough there; many misses are stripes that come out in pieces.
 - Given perfect home masks the detector finds 28 of 29; with medium simulated damage 64 of 145. Left on the white tables: 1 hidden at the side (campus `occl_02`; A2) and 2 in home `cluster_01` (A3). Expected sizes are right; bottoms inferred from the top row are 4–7 px low for far barrels (A4).
 
+## New data (data session, 2026-11-19; details in `DATA.md`, "Conditions shot this week")
+
+- **4 conditions in.** The black ottoman lid at home under the lamp aimed down at it, at warm 6, mid 6, cool 6 and mid 3: 36 frames, every one with the vendor's saved answer, split by scene 28 train / 8 test. Not boxed yet, no slider labels yet (Tanush, after a later shoot).
+- **The vendor save works** (the first real vendor files; `report.py --vendor` can run on them once the frames are boxed).
+- **First look, no score:** with the lamp at mid 6 the barrels are plain to see and the vendor reports them, but our fixed color ranges miss them (orange reads hue 14 to 19 against our 3 to 13; blue sits on the lower edge of its range), and our detector drew no box on the three check frames. `lampmid3` is very dark (barrels around the brightness floor of 40) and the vendor still names barrels on it. This is the kind of case the adaptive thresholds (F) are for.
+- **Open:** the close-up check; boxes and slider labels for the ottoman frames; the 16-shot occlusion set (R1 in `DATA.md`); no white-table condition has a vendor file yet.
+
 ## Now
 
 `TODO.md`: Claude on A2, A3, A4, H, I now; Tanush shoots and labels as tables come up; F as data arrives; G on Sunday.
@@ -35,4 +42,4 @@ Shoot and label (E) with the data session (`HANDOFF.md` has its prompt); live-ch
 
 ## Open questions
 
-Can the camera's auto exposure / white balance be locked (not asked yet)? Vendor detector: how its output is saved next to a frame (B).
+Can the camera's auto exposure / white balance be locked (not asked yet)? The vendor save works on the robot (checked 2026-11-19, `RUNBOOK.md`); its moving-barrel timing and stream-speed checks were not done.

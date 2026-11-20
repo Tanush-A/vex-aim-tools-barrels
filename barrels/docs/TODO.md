@@ -1,6 +1,6 @@
 # TODO.md — the plan for the week (meeting with Dave: Monday 2026-11-23)
 
-**Updated:** 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
+**Updated:** 2026-11-20 (data session: the state of the shoot under "Tanush" and in "Done this week") · 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
 
 ## The goal
 
@@ -43,9 +43,9 @@ Still missed on the white tables: one barrel in home `cluster_01` that shows onl
 ## Tanush
 
 1. **Start the data session** (prompt in `HANDOFF.md`).
-2. **First shoot, first two minutes: the vendor save.** `simple_cli BarrelTracker`, one orange and one blue barrel, `tm save`: the console line ends `vendor: 2 objects (OrangeBarrel, BlueBarrel)` and `robot_snapN_vendor.png` shows a tight box on each (`RUNBOOK.md`).
-3. **Same sitting: the close-up check.** A barrel about 2 cm from the bumper with a far barrel behind it in the picture: both get a box. A barrel seated in the kicker: if it gets no box, `tm save` it.
-4. **Shoot conditions**, 9 shots each (list below), as tables and lights come up. Two lights on one arrangement: same session.
+2. **First shoot, first two minutes: the vendor save.** `simple_cli BarrelTracker`, one orange and one blue barrel, `tm save`: the console line ends `vendor: 2 objects (OrangeBarrel, BlueBarrel)` and `robot_snapN_vendor.png` shows a tight box on each (`RUNBOOK.md`). **Done 2026-11-19: it works.**
+3. **Same sitting: the close-up check.** A barrel about 2 cm from the bumper with a far barrel behind it in the picture: both get a box. A barrel seated in the kicker: if it gets no box, `tm save` it. **Open:** tried live on the black ottoman lid 2026-11-19 and not conclusive there (our colors fail on that surface); repeat on a surface where our boxes work.
+4. **Shoot conditions**, 9 shots each (list below), as tables and lights come up. Two lights on one arrangement: same session. **State (the running table in `DATA.md`, "Conditions shot this week"): 4 conditions in on 2026-11-19, the black ottoman lid under the lamp at warm 6, mid 6, cool 6 and mid 3; 36 frames, each with the vendor's answer; split 28 train / 8 test; not boxed yet.**
 5. **Box every frame** (`box_tool.py`).
 6. **Slider labels**, three frames per condition (`core_01`, `occl_01`, `clutter_01`): `python barrels/tools/hs_slider.py --filter <light>_<surface>`. Criterion: as much barrel painted as needed to detect it, as little else as possible. On first open, check that a slider knob follows the mouse.
 7. **Tell Claude when a condition is in** (F is re-run each time).
@@ -88,4 +88,5 @@ Conditions to try for: white table with window light, overhead light, both, sun,
 ## Done this week
 
 - **2026-11-18:** A, the detector given good segmentation: the test, `cap_behind` (a barrel behind a found barrel, from its visible top) and `stripe_join` (a stripe in pieces), on by default and merged on Tanush's "understood" · B, `tm save` stores the vendor's detections with each frame (merged; live check open) · C, the shot list · D, the slider tool `tools/hs_slider.py` (merged; window unchecked) · F, the histogram-against-thresholds script (merged; dry run).
+- **2026-11-19 (data session):** the vendor save checked on the robot, it works (closes B) · the first four conditions shot and imported with the vendor's answers: the black ottoman lid under four lamp settings (`4A8B_lamp{warm6,mid6,cool6,mid3}_ottoman_*`, 36 frames; boxes and slider labels open).
 - **Before (the 2026-11-09 list):** hs color model adopted · doc cleanup · move to the CLI · data: wood ladder 117, black 15, ruler 12 · `tm seg` · eval table `tools/report.py` · side occlusion explained, first fix off · histograms + `HISTOGRAMS-FOR-DAVE.pdf`. Tried and not adopted 2026-11-16: one color range fit on all tables; thresholds read from labels as a ceiling (53 of 152 on black + bright wood).
