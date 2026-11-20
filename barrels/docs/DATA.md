@@ -6,7 +6,7 @@
 
 Kept current by the detector work (Claude, main session). The data session: at the start of each sitting, and whenever Tanush says "check requests", read this section and say what is still open; tick a shot here (date, condition) when its frame is imported. These are extra to the 9 shots per condition. **Consolidated 2026-11-20: one list of 16 shots replaces the earlier requests R1 to R5.**
 
-**R1. The occlusion set: 16 shots, once, on any ordinary table in ordinary light.** Names `occlx_01`–`occlx_16`. In shots 1 to 14 keep one free, fully visible barrel somewhere in view as a reference. "Box" = a matte box or book that is not orange or blue. Why: every occlusion number so far is simulated; these are the real check, and they are also where the vendor detector is compared with ours on hidden barrels.
+**R1. The occlusion set: 19 shots, once, on any ordinary table in ordinary light.** Names `occlx_01`–`occlx_19`. In shots 1 to 14 and 17 to 19 keep one free, fully visible barrel somewhere in view as a reference. "Box" = a matte box or book that is not orange or blue. Why: every occlusion number so far is simulated; these are the real check, and they are also where the vendor detector is compared with ours on hidden barrels.
 
 | # | shot | checks |
 |---|---|---|
@@ -26,10 +26,13 @@ Kept current by the detector work (Claude, main session). The data session: at t
 | 14 | a hand resting on a barrel, down to just above its stripe | false-box trap |
 | 15 | NO barrels: clutter that looks striped (an orange thing with a blue band, or orange / blue / orange things stacked) | false-box trap |
 | 16 | NO barrels: an orange thing resting on a blue thing, both about barrel-wide, and the box standing alone | false-box trap |
+| 17 | a barrel with only about a quarter of it inside the left or right frame edge | frame-edge sliver |
+| 18 | a pencil standing in front of the stripe near one end of it | a cut stripe |
+| 19 | a blue block hiding three quarters of an orange barrel, the block's top lower than the barrel's top | painted occluder |
 
 State: open (none shot yet).
 
-**R2 (optional). The same 16 on a second ordinary table or light**, so the check does not rest on one table.
+**R2 (optional). The same 19 on a second ordinary table or light**, so the check does not rest on one table.
 
 ## Now (2026-11-09)
 
