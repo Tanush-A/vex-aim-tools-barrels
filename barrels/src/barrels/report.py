@@ -20,6 +20,15 @@ The data flows in five steps, each one function:
 
 ``make_report`` chains 1-4; ``tools/report.py`` is the command; ``tests/conftest.py`` prints the same table at
 the end of a test run.
+
+The vendor arm (2026-11-18). An arm can also be the robot's built-in detector: ``vendor_arm()`` takes its boxes from
+the files ``data/vendor/<stem>_vendor.json`` saved with each frame instead of running the color model and the
+detector, and they are scored by the same ``evaluate_frame(rule="v2")`` against the same labels. When either arm is
+the vendor, BOTH arms are scored only on the frames the vendor was measured on (``vendor_coverage``): a frame with
+no vendor file, or with ``available: false``, is left out and counted in the footer, never scored as "the vendor
+saw nothing". Two looser counts (``loose_counts``: found by overlap alone, found by position) are reported next to
+the strict ones, because the vendor may not draw its boxes the way our labels are drawn; they never enter the
+score. The never-regress check that reads this table is ``gate.py``.
 """
 from __future__ import annotations
 
@@ -45,6 +54,9 @@ FIT_SET = "4A8B_window_light"       # the frames the color model is fit on -> sc
 ALL_KEY = "ALL"
 COLUMNS = ("found", "missed", "false", "width", "bottom")          # per arm, in table order
 SCORE_COLUMNS = ("score", "neg_false", "clean_neg_false")
+VENDOR = "vendor"                   # the kind of an arm whose boxes are read from data/vendor/ instead of being detected
+LOOSE_KEYS = ("found_iou", "false_iou", "found_center", "false_center")       # the two looser counts (reporting only)
+CENTER_TOL_WIDTHS = 0.5             # "in the same place": the two box centers at most this many true-box widths apart
 
 
 class TestFrameError(ValueError):
@@ -156,19 +168,33 @@ def refuse_test_frames(stems, splits: dict[str, list[str]], allow_test: bool = F
 @dataclass(frozen=True)
 class Arm:
     """One side of the comparison: a color-model file (a results ``config.json`` with a fitted ``model``) and
-    the detector settings (``det_overrides`` are the DetConfig fields changed from the default)."""
+    the detector settings (``det_overrides`` are the DetConfig fields changed from the default). ``kind="vendor"``
+    (``vendor_arm``) is the robot's built-in detector instead: no model, no DetConfig, its boxes are read from
+    the saved ``data/vendor/<stem>_vendor.json`` files."""
     name: str
-    model_path: Path
+    model_path: Path | None
     det_overrides: dict = field(default_factory=dict)
+    kind: str = "detector"          # "detector" | VENDOR
+
+    @property
+    def is_vendor(self) -> bool:
+        return self.kind == VENDOR
 
     def det_config(self):
         from . import detector as det
         return dataclasses.replace(det.DetConfig(), **self.det_overrides)
 
     def describe(self) -> str:
+        if self.is_vendor:
+            return "the robot's built-in detector (vendor), its boxes as saved with each frame in data/vendor/<stem>_vendor.json"
         ov = ", ".join(f"{k}={v}" for k, v in self.det_overrides.items()) or "defaults"
         p = Path(self.model_path)
         return f"{p.parent.name}/{p.name}; DetConfig {ov}"
+
+
+def vendor_arm(name: str = "baseline") -> Arm:
+    """The robot's built-in detector as an arm (candidate or baseline)."""
+    return Arm(name, None, {}, VENDOR)
 
 
 def parse_det_overrides(items: list[str] | None) -> dict:
@@ -229,43 +255,143 @@ class FrameCache:
         return self._masks[stem]
 
 
-def score_frame(stem: str, mask, det_cfg, cam) -> ed.DetImageResult:
-    """Class mask -> boxes -> scored against the box label under the v2 rule (the same three lines every
-    experiment script uses)."""
-    from . import detect_types as dtp, detector as det, io
-    label = io.load_boxes(stem)
+def box_center(b) -> tuple[float, float]:
+    x0, y0, x1, y1 = b.bbox
+    return (x0 + x1) / 2, (y0 + y1) / 2
+
+
+def loose_counts(preds: list, gts: list) -> dict[str, int]:
+    """Two looser ways of counting one frame's boxes, next to the v2 rule and never instead of it:
+
+    * ``found_iou`` / ``false_iou``: same color and IoU >= 0.5; the bottom edge is not checked.
+    * ``found_center`` / ``false_center``: same color and the two box centers at most half the TRUE box's width
+      apart (``CENTER_TOL_WIDTHS``), nearest pair first. This one does not depend on how tight a box is or on
+      whether it covers the whole barrel: it only asks "is there a box of the right color on this barrel".
+
+    Each true barrel and each box is used at most once (``eval_det.match_best_first``); ``false_*`` are the boxes
+    left over. Made for the vendor comparison, whose boxes may follow another convention than our labels."""
+    def dist(p, g) -> float:
+        (px, py), (gx, gy) = box_center(p), box_center(g)
+        return math.hypot(px - gx, py - gy)
+    by_iou = ed.match_best_first(preds, gts, lambda p, g: ed.box_iou(p.bbox, g.bbox), ed.IOU_THR)
+    by_center = ed.match_best_first(preds, gts, lambda p, g: 1.0 / (1.0 + dist(p, g)), 0.0,
+                                    eligible=lambda p, g: dist(p, g) <= CENTER_TOL_WIDTHS * g.width)
+    return {"found_iou": len(by_iou), "false_iou": len(preds) - len(by_iou),
+            "found_center": len(by_center), "false_center": len(preds) - len(by_center)}
+
+
+def score_boxes(stem: str, preds: list, cam, loose: dict | None = None, labels_dir: Path | str | None = None) -> ed.DetImageResult:
+    """Boxes (ours or the vendor's) scored against the frame's box label under the v2 rule. With ``loose`` (a
+    dict), the frame's ``loose_counts`` are also put into it under the stem."""
+    from . import detect_types as dtp, io
+    label = io.load_boxes(stem, labels_dir)
     gts = [b.with_ground(cam) for b in dtp.barrels_from_boxes(label)]
-    preds = det.detect(mask, det_cfg, cam)
+    if loose is not None:
+        loose[stem] = loose_counts(preds, gts)
     return ed.evaluate_frame(stem, preds, gts, cam, rule="v2", clean=label.get("clean", True))
 
 
+def score_frame(stem: str, mask, det_cfg, cam, loose: dict | None = None, labels_dir: Path | str | None = None) -> ed.DetImageResult:
+    """Class mask -> boxes -> scored against the box label under the v2 rule (the same three lines every
+    experiment script uses)."""
+    from . import detector as det
+    return score_boxes(stem, det.detect(mask, det_cfg, cam), cam, loose, labels_dir)
+
+
+@dataclass
+class VendorCoverage:
+    """Which of the selected frames the vendor detector was measured on, and what was set aside."""
+    measured: dict[str, list[str]] = field(default_factory=dict)    # set key -> stems with a usable vendor record
+    total: dict[str, int] = field(default_factory=dict)             # set key -> frames selected, with or without one
+    barrels: dict[str, list] = field(default_factory=dict)          # stem -> the vendor's barrels (each file is read once)
+    no_file: list[str] = field(default_factory=list)                # frames with no <stem>_vendor.json
+    not_measured: list[str] = field(default_factory=list)           # frames whose file says available: false
+    unreadable: dict[str, str] = field(default_factory=dict)        # stem -> why its file could not be used
+    other_objects: int = 0                                          # vendor objects that are not barrels (ball, robot, tag)
+    no_box: int = 0                                                 # vendor barrel objects without a usable box
+
+    @property
+    def stems(self) -> set[str]:
+        return set(self.barrels)
+
+    def to_dict(self) -> dict:
+        return {"frames_with_vendor": {k: len(v) for k, v in self.measured.items()}, "frames_selected": dict(self.total),
+                "stems": {k: list(v) for k, v in self.measured.items()}, "no_file": list(self.no_file),
+                "not_measured": list(self.not_measured), "unreadable": dict(self.unreadable),
+                "other_objects_ignored": self.other_objects, "barrels_without_box_ignored": self.no_box}
+
+
+def vendor_coverage(selection: Selection, splits: dict[str, list[str]], vendor_dir: Path | str | None = None) -> VendorCoverage:
+    """Read the vendor file of every selected frame once and sort the frames: measured (the file is there and says
+    ``available: true``; an empty object list is a measurement: the vendor saw nothing), no file, not measured
+    (``available: false``), unreadable. Only the two barrel classes are kept as boxes (``io.vendor_barrels``); other
+    objects are counted. Test frames are refused first, before any vendor file is opened."""
+    from . import io
+    refuse_test_frames(selection.stems, splits, allow_test=selection.split == "test")
+    cov = VendorCoverage()
+    for key, stems in selection.sets.items():
+        cov.total[key], cov.measured[key] = len(stems), []
+        for s in stems:
+            try:
+                meta = io.load_vendor(s, vendor_dir)
+            except FileNotFoundError:
+                cov.no_file.append(s); continue
+            except ValueError as e:             # bad JSON or a record that breaks the schema
+                cov.unreadable[s] = str(e); continue
+            if not meta["available"]:           # "not measured" is not "saw nothing"
+                cov.not_measured.append(s); continue
+            barrels, counts = io.vendor_barrels(meta)
+            cov.barrels[s] = barrels
+            cov.other_objects += counts["other"]; cov.no_box += counts["no_box"]
+            cov.measured[key].append(s)
+    return cov
+
+
 def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=None, home_protocol: str = "loso",
-            cache: FrameCache | None = None) -> dict[str, ed.DetImageResult]:
+            cache: FrameCache | None = None, only: set[str] | None = None, loose: dict | None = None,
+            vendor: VendorCoverage | None = None, labels_dir: Path | str | None = None,
+            vendor_dir: Path | str | None = None) -> dict[str, ed.DetImageResult]:
     """stem -> scored frame for one arm.
 
     ``home_protocol="loso"`` (default): the frames of ``FIT_SET`` (home) are the ones the color model was fit
     on, so each home scene is segmented by a model re-fit (same ``Config``) on the other home scenes — the
     protocol behind the published home number. ``"fixed"``: the model file as it is on the home frames too
-    (what the robot runs; optimistic for a model that learned from those very frames)."""
-    from . import cv as bcv, geometry as geo, pipeline as pl, worldmap_bridge as wb
+    (what the robot runs; optimistic for a model that learned from those very frames).
+
+    ``only``: score just these stems (the vendor comparison: the frames that have a vendor file). The home re-fit
+    still learns from every other home scene in ``selection``, so a frame's score does not depend on ``only``.
+    ``loose``: a dict that receives stem -> ``loose_counts``. A vendor arm opens no image: it scores the boxes
+    in ``vendor`` (``vendor_coverage``, computed here when not given)."""
+    from . import geometry as geo
     if home_protocol not in ("loso", "fixed"):
         raise ValueError(f"home_protocol must be 'loso' or 'fixed', got {home_protocol!r}")
     refuse_test_frames(selection.stems, splits, allow_test=selection.split == "test")
     cam = cam or geo.AIM_4A8B6118_BOXFIT
+    out: dict[str, ed.DetImageResult] = {}
+    if arm.is_vendor:
+        vendor = vendor or vendor_coverage(selection, splits, vendor_dir)
+        for s in selection.stems:
+            if s in vendor.barrels and (only is None or s in only):
+                out[s] = score_boxes(s, vendor.barrels[s], cam, loose, labels_dir)
+        return out
+    from . import cv as bcv, pipeline as pl, worldmap_bridge as wb
     cache = cache or FrameCache()
     model = wb.BarrelDetectorHook.load(arm.model_path, cam=cam).model
     dcfg = arm.det_config()
-    out: dict[str, ed.DetImageResult] = {}
     for key, stems in selection.sets.items():
         if key == FIT_SET and home_protocol == "loso" and selection.split == "train":
             scenes = {s: parse_name(s)["scene"] for s in stems}
             for fold in bcv.loso_folds(stems, scenes):
+                held = [s for s in fold.held_out if only is None or s in only]
+                if not held:
+                    continue
                 m = pl.fit([cache.frame(s) for s in fold.train], [cache.mask(s) for s in fold.train], model.cfg)
-                for s in fold.held_out:
-                    out[s] = score_frame(s, pl.segment(cache.frame(s), m)[0], dcfg, cam)
+                for s in held:
+                    out[s] = score_frame(s, pl.segment(cache.frame(s), m)[0], dcfg, cam, loose, labels_dir)
         else:
             for s in stems:
-                out[s] = score_frame(s, pl.segment(cache.frame(s), model)[0], dcfg, cam)
+                if only is None or s in only:
+                    out[s] = score_frame(s, pl.segment(cache.frame(s), model)[0], dcfg, cam, loose, labels_dir)
     return out
 
 
@@ -285,17 +411,24 @@ class Cell:
     neg_false: int = 0          # false boxes on negative frames
     clean_neg_false: int = 0    # ... on clean negative frames
     disqualified: bool = False  # a false box on a clean negative frame (EVAL.md rule 4)
+    loose: dict | None = None   # the looser counts (LOOSE_KEYS) summed over the frames; None when not asked for
 
     def to_dict(self) -> dict:
-        return {k: (None if isinstance(v, float) and math.isnan(v) else v) for k, v in dataclasses.asdict(self).items()}
+        d = {k: (None if isinstance(v, float) and math.isnan(v) else v) for k, v in dataclasses.asdict(self).items()}
+        if d["loose"] is None:
+            del d["loose"]          # a report without the looser counts is written exactly as before they existed
+        return d
 
 
-def summarize(results: list[ed.DetImageResult]) -> Cell:
+def summarize(results: list[ed.DetImageResult], loose: list[dict] | None = None) -> Cell:
     """Pool scored frames into one Cell. Counts are sums over frames and both colors; the two medians are over
-    the matched pairs; score and disqualifier come from ``eval_det.score`` unchanged."""
+    the matched pairs; score and disqualifier come from ``eval_det.score`` unchanged. ``loose`` (the frames'
+    ``loose_counts``, same order) is summed into ``Cell.loose``."""
     if not results:
         return Cell()
     c = Cell(frames=len(results))
+    if loose is not None:
+        c.loose = {k: sum(x[k] for x in loose) for k in LOOSE_KEYS}
     widths, bottoms = [], []
     for r in results:
         c.barrels += sum(r.n_gt.values())
@@ -344,11 +477,16 @@ class Row:
                 "candidate": self.cand.to_dict(), "baseline": self.base.to_dict(), "delta": self.delta}
 
 
-def build_rows(sets: dict[str, list[str]], cand: dict[str, ed.DetImageResult], base: dict[str, ed.DetImageResult]) -> list[Row]:
+def build_rows(sets: dict[str, list[str]], cand: dict[str, ed.DetImageResult], base: dict[str, ed.DetImageResult],
+               cand_loose: dict | None = None, base_loose: dict | None = None) -> list[Row]:
     """Per data set: one row per scenario tag (alphabetical), then the set's subtotal (which carries the
-    headline score). Last, one ALL row over the sets that are not indicative (counts only meaningful there)."""
+    headline score). Last, one ALL row over the sets that are not indicative (counts only meaningful there).
+    ``cand_loose`` / ``base_loose`` (stem -> ``loose_counts``) add the looser counts to every cell."""
     rows: list[Row] = []
     keys = list(sets)
+
+    def cell(res: dict, loose: dict | None, stems: list[str]) -> Cell:
+        return summarize([res[s] for s in stems], None if loose is None else [loose[s] for s in stems])
     for key in keys:
         label, ind = set_label(key, keys), is_indicative(key)
         by_scene: dict[str, list[str]] = {}
@@ -356,11 +494,11 @@ def build_rows(sets: dict[str, list[str]], cand: dict[str, ed.DetImageResult], b
             by_scene.setdefault(parse_name(s)["scene"], []).append(s)
         for scene in sorted(by_scene):
             st = by_scene[scene]
-            rows.append(Row(key, label, scene, "scene", summarize([cand[s] for s in st]), summarize([base[s] for s in st]), ind))
-        rows.append(Row(key, label, "", "subtotal", summarize([cand[s] for s in sets[key]]), summarize([base[s] for s in sets[key]]), ind))
+            rows.append(Row(key, label, scene, "scene", cell(cand, cand_loose, st), cell(base, base_loose, st), ind))
+        rows.append(Row(key, label, "", "subtotal", cell(cand, cand_loose, sets[key]), cell(base, base_loose, sets[key]), ind))
     real = [s for k in keys if not is_indicative(k) for s in sets[k]]
     if sum(1 for k in keys if not is_indicative(k)) > 1:
-        rows.append(Row(ALL_KEY, ALL_KEY, "", "total", summarize([cand[s] for s in real]), summarize([base[s] for s in real]), False))
+        rows.append(Row(ALL_KEY, ALL_KEY, "", "total", cell(cand, cand_loose, real), cell(base, base_loose, real), False))
     return rows
 
 
@@ -373,6 +511,8 @@ class Report:
     home_protocol: str = "loso"
     git: str = ""
     seconds: float = math.nan
+    vendor: VendorCoverage | None = None    # set when an arm is the vendor: the rows hold only the frames it was measured on
+    loose: bool = False                     # the looser counts are in the cells and are printed
 
     def subtotal(self, label_or_key: str) -> Row:
         for r in self.rows:
@@ -383,8 +523,13 @@ class Report:
 
 def make_report(candidate: Arm | None = None, baseline: Arm | None = None, split: str = "train",
                 only_sets: list[str] | None = None, home_protocol: str = "loso", cam=None,
-                labels_dir: Path | str | None = None, splits: dict[str, list[str]] | None = None) -> Report:
-    """Steps 1-4 in one call: select the frames, run both arms, build the rows."""
+                labels_dir: Path | str | None = None, splits: dict[str, list[str]] | None = None,
+                loose: bool = False, vendor_dir: Path | str | None = None) -> Report:
+    """Steps 1-4 in one call: select the frames, run both arms, build the rows.
+
+    When either arm is the vendor, the frames it was measured on are found first (``vendor_coverage``) and both
+    arms are scored on those frames only; the looser counts are then always on. ``loose=True`` adds them to any
+    other comparison. Passing the same ``Arm`` object as candidate and baseline runs it once (the gate does)."""
     import time
     from . import cv as bcv
     t0 = time.time()
@@ -392,10 +537,21 @@ def make_report(candidate: Arm | None = None, baseline: Arm | None = None, split
     candidate, baseline = candidate or dc, baseline or db
     splits = splits if splits is not None else splits_mod.load_splits()
     sel = select_frames(labeled_stems(labels_dir), splits, split=split, only_sets=only_sets)
+    vendor = vendor_coverage(sel, splits, vendor_dir) if (candidate.is_vendor or baseline.is_vendor) else None
+    only = None if vendor is None else vendor.stems
+    loose = bool(loose or vendor is not None)
     cache = FrameCache()
-    cres = run_arm(candidate, sel, splits, cam=cam, home_protocol=home_protocol, cache=cache)
-    bres = run_arm(baseline, sel, splits, cam=cam, home_protocol=home_protocol, cache=cache)
-    return Report(build_rows(sel.sets, cres, bres), candidate, baseline, sel, home_protocol, bcv.git_hash(), time.time() - t0)
+
+    def run(arm: Arm) -> tuple[dict, dict | None]:
+        counts: dict | None = {} if loose else None
+        return run_arm(arm, sel, splits, cam=cam, home_protocol=home_protocol, cache=cache, only=only, loose=counts,
+                       vendor=vendor, labels_dir=labels_dir), counts
+
+    cres, cloose = run(candidate)
+    bres, bloose = (cres, cloose) if baseline is candidate else run(baseline)
+    shown = sel if vendor is None else Selection({k: v for k, v in vendor.measured.items() if v}, sel.skipped, sel.split)
+    return Report(build_rows(shown.sets, cres, bres, cloose, bloose), candidate, baseline, shown, home_protocol,
+                  bcv.git_hash(), time.time() - t0, vendor, loose)
 
 
 # ---------------------------------------------------------------- 5. the same rows, four ways
@@ -432,6 +588,61 @@ def _cells(row: Row) -> dict:
     return out
 
 
+def _some(stems, n: int = 4) -> str:
+    stems = list(stems)
+    return ", ".join(stems[:n]) + (", ..." if len(stems) > n else "")
+
+
+def vendor_lines(rep: Report) -> list[str]:
+    """Footer lines of a vendor comparison: how many frames of each set have a vendor file, what was left out
+    and why, what was ignored, and the caveat about the vendor's box convention. Empty for any other report."""
+    v = rep.vendor
+    if v is None:
+        return []
+    keys = list(v.total)
+    n_with = sum(len(x) for x in v.measured.values())
+    lines = ["VENDOR COMPARISON: both arms are scored on the frames that have a vendor file, and only on those ("
+             + f"{n_with} of {sum(v.total.values())} frames): "
+             + ", ".join(f"{set_label(k, keys)} {len(v.measured[k])} of {v.total[k]}" for k in keys) + "."]
+    left = [f"{len(v.no_file)} with no vendor file"]
+    if v.not_measured:
+        left.append(f"{len(v.not_measured)} not measured ('available: false' in the file; this is not 'the vendor saw nothing'): {_some(v.not_measured)}")
+    if v.unreadable:
+        left.append(f"{len(v.unreadable)} with a vendor file that could not be read: {_some(v.unreadable)}")
+    lines.append("Left out, for both arms: " + "; ".join(left) + ".")
+    lines.append(f"Vendor objects that are not barrels (ball, robot, tag) are ignored: {v.other_objects}. "
+                 f"Vendor barrels without a usable box, ignored: {v.no_box}.")
+    lines.append("Caveat: the vendor may not draw its boxes the way our labels are drawn (how tight, whether the whole barrel is covered), "
+                 "so the v2 rule may be harsh on it. Read the looser counts below next to the strict ones; the score is the strict one.")
+    return lines
+
+
+def loose_lines(rep: Report) -> list[str]:
+    """The small second table: per set, strict found next to the two looser counts, candidate/baseline."""
+    rows = [r for r in rep.rows if r.kind != "scene" and r.cand.loose is not None and r.base.loose is not None]
+    if not (rep.loose and rows):
+        return []
+
+    def pair(a, b) -> str:
+        return f"{a}/{b}"
+
+    name_w = max([len("set")] + [len(f"{r.label} all") for r in rows])
+    head = f"{'set':{name_w}} {'brls':>4} | {'strict c/b':>10} | {'overlap c/b':>11} {'false c/b':>9} | {'place c/b':>9} {'false c/b':>9}"
+    out = ["", "LOOSER COUNTS per set, candidate/baseline (reporting only: the table and the score above are the v2 rule, unchanged)",
+           head, "-" * len(head)]
+    for r in rows:
+        c, b = r.cand.loose, r.base.loose
+        name = f"{r.label} all"
+        out.append(f"{name:{name_w}} {r.cand.barrels:>4} | {pair(r.cand.found, r.base.found):>10} | "
+                   f"{pair(c['found_iou'], b['found_iou']):>11} {pair(c['false_iou'], b['false_iou']):>9} | "
+                   f"{pair(c['found_center'], b['found_center']):>9} {pair(c['false_center'], b['false_center']):>9}")
+    out.append("-" * len(head))
+    out += textwrap.wrap("strict = barrels found under the v2 rule (the table above). overlap = same color and IoU >= 0.5, the bottom edge not "
+                         "checked. place = same color and the two box centers at most half the true box's width apart (it does not depend "
+                         "on how tight a box is). false = boxes left without a barrel under that count.", width=120, subsequent_indent="    ")
+    return out
+
+
 def footer_lines(rep: Report) -> list[str]:
     sel = rep.selection
     n = {k: len(v) for k, v in sel.sets.items()}
@@ -445,6 +656,7 @@ def footer_lines(rep: Report) -> list[str]:
              "found / miss = true barrels with / without a right box; false = boxes that match no barrel; width = median box width / true width over the found;",
              "bot = median |bottom-edge error| in px over the found; score = mean of the orange and blue F1 (pooled over the set's frames), on the set rows only.",
              "negF c/b = false boxes on empty (negative) frames, candidate/baseline; DQ:c / DQ:b = that arm drew a box on a CLEAN empty frame, which disqualifies it."]
+    lines += vendor_lines(rep)
     if FIT_SET in sel.sets and sel.split == "train":
         if rep.home_protocol == "loso":
             lines.append("HOME is scored leave-one-scene-out: the color model is fit on these frames, so each scene is segmented by a model re-fit without it "
@@ -488,6 +700,7 @@ def format_text(rep: Report) -> str:
     out.append(rule)
     for line in footer_lines(rep):
         out += textwrap.wrap(line, width=120, subsequent_indent="    ")
+    out += loose_lines(rep)
     return "\n".join(out)
 
 
@@ -501,6 +714,17 @@ def format_markdown(rep: Report, title: str = "Eval report") -> str:
             vals = [f"**{v}**" if v else v for v in vals]
         lines.append("| " + " | ".join(vals) + " |")
     lines += [""] + [f"- {x}" for x in footer_lines(rep)] + [""]
+    if rep.loose:
+        lines += ["## Looser counts (reporting only; candidate / baseline)", "",
+                  "| set / scenario | barrels | strict found | overlap found | overlap false | place found | place false |", "|---|" + "---:|" * 6]
+        for r in rep.rows:
+            c, b = r.cand.loose, r.base.loose
+            if c is None or b is None:
+                continue
+            vals = [_cells(r)["name"].strip(), str(r.cand.barrels), f"{r.cand.found} / {r.base.found}"] + [f"{c[k]} / {b[k]}" for k in LOOSE_KEYS]
+            lines.append("| " + " | ".join(f"**{v}**" if r.kind != "scene" else v for v in vals) + " |")
+        lines += ["", "- strict = the v2 rule. overlap = same color and IoU >= 0.5, bottom edge not checked. place = same color and box centers "
+                  "at most half the true box's width apart. false = boxes left without a barrel under that count.", ""]
     return "\n".join(lines)
 
 
@@ -510,7 +734,8 @@ def write_csv(rep: Report, path: Path | str) -> Path:
     with path.open("w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["set", "label", "scene", "kind", "indicative", "frames", "barrels"]
-                   + [f"{a}_{k}" for a in ("cand", "base", "delta") for k in COLUMNS + SCORE_COLUMNS] + ["cand_disqualified", "base_disqualified"])
+                   + [f"{a}_{k}" for a in ("cand", "base", "delta") for k in COLUMNS + SCORE_COLUMNS] + ["cand_disqualified", "base_disqualified"]
+                   + ([f"{a}_{k}" for a in ("cand", "base") for k in LOOSE_KEYS] if rep.loose else []))
         for r in rep.rows:
             d = r.delta
 
@@ -518,12 +743,15 @@ def write_csv(rep: Report, path: Path | str) -> Path:
                 return "" if x is None or (isinstance(x, float) and math.isnan(x)) else (f"{x:.4f}" if isinstance(x, float) else x)
             w.writerow([r.set_key, r.label, r.scene, r.kind, int(r.indicative), r.cand.frames, r.cand.barrels]
                        + [v(getattr(r.cand, k)) for k in COLUMNS + SCORE_COLUMNS] + [v(getattr(r.base, k)) for k in COLUMNS + SCORE_COLUMNS]
-                       + [v(d[k]) for k in COLUMNS + SCORE_COLUMNS] + [int(r.cand.disqualified), int(r.base.disqualified)])
+                       + [v(d[k]) for k in COLUMNS + SCORE_COLUMNS] + [int(r.cand.disqualified), int(r.base.disqualified)]
+                       + ([v((cell.loose or {}).get(k)) for cell in (r.cand, r.base) for k in LOOSE_KEYS] if rep.loose else []))
     return path
 
 
 def to_json(rep: Report) -> dict:
     def arm(a: Arm) -> dict:
+        if a.is_vendor:
+            return {"name": a.name, "kind": VENDOR, "source": "data/vendor/<stem>_vendor.json"}
         mp = Path(a.model_path)
         d = {"name": a.name, "model_path": str(mp.relative_to(PKG_ROOT)) if mp.is_relative_to(PKG_ROOT) else str(mp),
              "det_overrides": a.det_overrides, "det": a.det_config().to_dict()}
@@ -532,10 +760,16 @@ def to_json(rep: Report) -> dict:
         except (OSError, ValueError):
             d["model_config_hash"] = None
         return d
-    return {"git": rep.git, "rule": "v2", "split": rep.selection.split, "home_protocol": rep.home_protocol, "seconds": round(rep.seconds, 2),
-            "candidate": arm(rep.candidate), "baseline": arm(rep.baseline),
-            "sets": {k: {"label": set_label(k, list(rep.selection.sets)), "indicative": is_indicative(k), "stems": v} for k, v in rep.selection.sets.items()},
-            "skipped": rep.selection.skipped, "rows": [r.to_dict() for r in rep.rows]}
+    out = {"git": rep.git, "rule": "v2", "split": rep.selection.split, "home_protocol": rep.home_protocol, "seconds": round(rep.seconds, 2),
+           "candidate": arm(rep.candidate), "baseline": arm(rep.baseline),
+           "sets": {k: {"label": set_label(k, list(rep.selection.sets)), "indicative": is_indicative(k), "stems": v} for k, v in rep.selection.sets.items()},
+           "skipped": rep.selection.skipped, "rows": [r.to_dict() for r in rep.rows]}
+    if rep.loose:           # each cell then carries "loose": {found_iou, false_iou, found_center, false_center}
+        out["loose"] = {"found_iou / false_iou": "same color and IoU >= 0.5, bottom edge not checked",
+                        "found_center / false_center": f"same color and box centers at most {CENTER_TOL_WIDTHS} of the true box's width apart"}
+    if rep.vendor is not None:
+        out["vendor"] = rep.vendor.to_dict()
+    return out
 
 
 def write_all(rep: Report, out_dir: Path | str, title: str = "Eval report") -> Path:

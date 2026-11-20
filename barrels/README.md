@@ -23,6 +23,8 @@ cd barrels/live && simple_cli BarrelTracker                                 # 5b
 python barrels/tools/box_tool.py --filter window                            # 6. draw the ground-truth boxes on new frames
 python barrels/tools/hs_slider.py --filter window_light                     # 6b. set the color thresholds by hand on a frame (six sliders, live segmentation + boxes) → data/labels/<stem>_hs.json
 python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
+python barrels/tools/report.py --vendor                                     # 7b. the same table against the robot's built-in (vendor) detector, on the frames that have a vendor file
+python barrels/tools/report.py --gate                                       # 7c. the never-regress check: PASS / FAIL against results/baseline/baseline.json (run before every merge; --save-baseline after one)
 ```
 
 `detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`); `tm save` also writes what the robot's built-in detector reported for the frame (`robot_snapN_vendor.json`), which `tools/import_snaps.py` moves to `data/vendor/`.
