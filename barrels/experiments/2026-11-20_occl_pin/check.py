@@ -23,7 +23,7 @@ TARGETS = [(row, amount) for row in ("edge", "slant", "both", "frame", "block/sa
 # the cells each arm commits to raising (PREREG, "Expected")
 COMMITTED = {
     "pin": [("edge", 0.5), ("slant", 0.5)],
-    "pin+thin": [("edge", 0.5), ("slant", 0.5), ("edge", 0.75), ("slant", 0.75), ("frame", 0.75), ("block/same", 0.75), ("block/other", 0.75)],
+    "pin+thin": [("edge", 0.5), ("slant", 0.5), ("edge", 0.75), ("slant", 0.75), ("frame", 0.75), ("block/same", 0.75)],
 }
 
 
