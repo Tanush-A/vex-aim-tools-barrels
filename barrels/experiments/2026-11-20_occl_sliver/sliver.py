@@ -45,6 +45,7 @@ add("frame", thin_frame=True)
 add("close", own_close=True)
 add("span", thin_span=True)
 add("sliver", **{k: True for k in FOUR})
+ARMS["defaults"] = det.DetConfig()   # NOT pinned: whatever the code's defaults are (after the verdict it must equal `span`)
 
 
 def register() -> None:

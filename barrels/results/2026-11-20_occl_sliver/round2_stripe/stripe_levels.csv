@@ -1,0 +1,64 @@
+level,arm,barrels,found,missed,false
+perfect masks,start,29,28,1,0
+perfect masks,bridge,29,28,1,0
+perfect masks,sliver,29,28,1,0
+stripe patch 0.03 W,start,580,545,35,12
+stripe patch 0.03 W,bridge,580,554,26,8
+stripe patch 0.03 W,sliver,580,554,26,8
+stripe patch 0.06 W,start,580,544,36,13
+stripe patch 0.06 W,bridge,580,555,25,8
+stripe patch 0.06 W,sliver,580,555,25,8
+stripe patch 0.1 W,start,580,543,37,13
+stripe patch 0.1 W,bridge,580,555,25,8
+stripe patch 0.1 W,sliver,580,555,25,8
+stripe patch 0.15 W,start,580,538,42,15
+stripe patch 0.15 W,bridge,580,555,25,8
+stripe patch 0.15 W,sliver,580,556,24,7
+stripe patch 0.2 W,start,580,543,37,9
+stripe patch 0.2 W,bridge,580,562,18,1
+stripe patch 0.2 W,sliver,580,562,18,1
+stripe patch 0.3 W,start,580,547,33,5
+stripe patch 0.3 W,bridge,580,557,23,4
+stripe patch 0.3 W,sliver,580,557,23,3
+one stripe break 0.03 W,start,580,560,20,0
+one stripe break 0.03 W,bridge,580,560,20,0
+one stripe break 0.03 W,sliver,580,560,20,0
+one stripe break 0.06 W,start,580,553,27,9
+one stripe break 0.06 W,bridge,580,555,25,8
+one stripe break 0.06 W,sliver,580,557,23,7
+one stripe break 0.1 W,start,580,536,44,18
+one stripe break 0.1 W,bridge,580,556,24,7
+one stripe break 0.1 W,sliver,580,558,22,6
+one stripe break 0.15 W,start,580,539,41,11
+one stripe break 0.15 W,bridge,580,559,21,3
+one stripe break 0.15 W,sliver,580,559,21,3
+one stripe break 0.2 W,start,580,545,35,2
+one stripe break 0.2 W,bridge,580,560,20,0
+one stripe break 0.2 W,sliver,580,560,20,0
+one stripe break 0.3 W,start,580,535,45,3
+one stripe break 0.3 W,bridge,580,553,27,2
+one stripe break 0.3 W,sliver,580,553,27,2
+two stripe breaks 0.03 W,start,580,560,20,1
+two stripe breaks 0.03 W,bridge,580,560,20,0
+two stripe breaks 0.03 W,sliver,580,560,20,0
+two stripe breaks 0.06 W,start,580,553,27,13
+two stripe breaks 0.06 W,bridge,580,559,21,5
+two stripe breaks 0.06 W,sliver,580,560,20,4
+two stripe breaks 0.1 W,start,580,541,39,10
+two stripe breaks 0.1 W,bridge,580,559,21,5
+two stripe breaks 0.1 W,sliver,580,561,19,3
+two stripe breaks 0.15 W,start,580,535,45,2
+two stripe breaks 0.15 W,bridge,580,558,22,2
+two stripe breaks 0.15 W,sliver,580,558,22,2
+two stripe breaks 0.2 W,start,580,530,50,2
+two stripe breaks 0.2 W,bridge,580,557,23,0
+two stripe breaks 0.2 W,sliver,580,558,22,0
+two stripe breaks 0.3 W,start,580,465,115,4
+two stripe breaks 0.3 W,bridge,580,481,99,3
+two stripe breaks 0.3 W,sliver,580,525,55,3
+"white tables, bad day",start,580,547,33,5
+"white tables, bad day",bridge,580,563,17,0
+"white tables, bad day",sliver,580,563,17,0
+medium,start,580,400,180,3
+medium,bridge,580,413,167,4
+medium,sliver,580,455,125,4

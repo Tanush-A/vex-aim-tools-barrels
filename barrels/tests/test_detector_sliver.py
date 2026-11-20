@@ -164,3 +164,9 @@ def test_thin_span_refuses_a_span_whose_body_crosses_the_stripe_rows():
     mask[y0 + 3:y1 - 3, truth[0] + 2:truth[0] + 30] = io.BLUE       # body color across the stripe rows on the left
     s = [s for s in det.find_stripes(mask, CAM, OFF) if s.small][0]
     assert det._body_crosses(mask, s, truth[0], truth[2])
+
+
+def test_defaults_after_the_verdict():
+    """results/2026-11-20_occl_sliver/verdict.md: thin_span on; stripe_bridge, thin_frame, own_close off."""
+    d = det.DetConfig()
+    assert d.thin_span and not (d.stripe_bridge or d.thin_frame or d.own_close)

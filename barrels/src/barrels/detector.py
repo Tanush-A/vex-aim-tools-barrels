@@ -39,6 +39,11 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
                        side, and a partly seen stripe that no side reason places is a barrel W wide from that end
                        (``pin_outline``); a thin piece of stripe is a barrel only as a full slice with such an end
                        (``pin_thin``).
+  2026-11-20 (sliver, experiments/2026-11-20_occl_sliver)  a thin full slice whose body shows the barrel's whole width gets that width
+                       (``thin_span``, on). Built and off (each failed one clause of the pre-registered rule): two stripe pieces with
+                       body over the whole gap are one stripe (``stripe_bridge``); a thin full slice cut by the frame edge is W wide
+                       from its other end (``thin_frame``); the end where the body closes on the stripe is the barrel's own side
+                       (``own_close``).
   2026-11-20 (combined)  the two branches of 2026-11-20 together (experiments/2026-11-20_occl_combined): on by default
                        are half_stripe, half_thin, post_pair, stripe_wide, cap_low, pin_outline and pin_thin; slice_behind
                        is off (false boxes on damaged masks), as are slice_box, cover_unpinned and stripe_two. A piece under
@@ -167,17 +172,22 @@ class DetConfig:
                                  # three lines (top, stripe, bottom) lies within this x the barrel's height of the seen one, on average
                                  # over the columns within half a lid's width of that end
     # a stripe cut through, a sliver with stripe and body in view (2026-11-20, experiments/2026-11-20_occl_sliver, PREREG.md)
-    stripe_bridge: bool = False  # with stripe_join: two pieces that share rows and fit in one barrel's width are one stripe, gap included,
+    # Of the four, only thin_span passed the pre-registered rule (results/2026-11-20_occl_sliver/verdict.md); the other three are OFF and
+    # named there with exactly what fails
+    stripe_bridge: bool = False  # OFF (scorecard 45 -> 48 boxes where no barrel is; medium damage 3 -> 4 false boxes). With stripe_join: two pieces that share rows and fit in one barrel's width are one stripe, gap included,
                                  # also when one fails the stripe-shape test, if each is no taller than stripe_h_max stripe heights by the
                                  # finder's height measure, body color is right above and right below in EVERY column of the gap, and the
-                                 # gap is at most half the joined span (see _join_pieces)
-    thin_frame: bool = False     # with pin_thin: a thin full slice whose seen part touches the frame edge on exactly one side is W wide
+                                 # gap is at most half the joined span, and the two are at the same rows (box middles within half a stripe
+                                 # height); a partly seen stripe inside a found same-colored barrel's box at its stripe's rows is its piece
+    thin_frame: bool = False     # OFF (frame edge at 75 %: too big 3 -> 8, boxes 2-3 px past a clipped hand box). With pin_thin: a thin full slice whose seen part touches the frame edge on exactly one side is W wide
                                  # from its other end (the frame is a hidden side that is known)
-    own_close: bool = False      # with side_hidden: a partly seen full slice that no side reason and no outline places is W wide from the
+    own_close: bool = False      # OFF (bad day 5 -> 6 false boxes; 3 scorecard scenes lost). With side_hidden: a partly seen full slice that no side reason and no outline places is W wide from the
                                  # end where the body closes on the stripe (top and bottom both bottom_tol x H in, over the last 0.05 W),
-                                 # when at the other end at least one of them stands (at most 0.1 x H in) (see _closed_end)
-    thin_span: bool = False      # with pin_thin: a thin full slice whose body joined to it is seen stripe_full to body_width x W wide gets
-                                 # that span as its box (the barrel's whole width is seen, only its stripe is hidden)
+                                 # when at the other end at least one of them stands (at most 0.1 x H in), and the own end is not against
+                                 # barrel color (see _closed_end)
+    thin_span: bool = True       # ON since 2026-11-20 (A8). With pin_thin: a thin full slice whose body joined to it is seen stripe_full to
+                                 # body_width x W wide gets that span as its box (the barrel's whole width is seen, only its stripe is
+                                 # hidden), unless the body color crosses the stripe's rows in a column of it (a body-colored thing in front)
 
     def to_dict(self) -> dict:
         return asdict(self)

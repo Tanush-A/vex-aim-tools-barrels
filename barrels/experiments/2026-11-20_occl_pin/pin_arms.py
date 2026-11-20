@@ -7,6 +7,7 @@ import dataclasses
 from barrels import detector as det
 
 _FIELDS = {f.name for f in dataclasses.fields(det.DetConfig)}
+SLIVER = ("stripe_bridge", "thin_frame", "own_close", "thin_span")   # switches of 2026-11-20 (occl_sliver), pinned off so this experiment does not move
 NEW = ("pin_outline", "pin_thin")                                 # the switches this experiment adds (PREREG.md)
 LATER = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low")   # switches of the parallel branch wip/occl-vertical (merged 2026-11-20 on wip/occl-combined), pinned off so this experiment does not move
 
@@ -20,7 +21,7 @@ def _arm(**on) -> tuple[det.DetConfig, str]:
     """(DetConfig, the same as a report.py --cand-det string) for `base` with these fields changed."""
     kw = {"stripe_join": True, "cap_behind": True, "stripe_w_min": 0.4, "occl_body_side": False, "side_hidden": True, "seam_height": True,
           "cap_seen_bottom": True, "slice_box": False, "cover_unpinned": False, "stripe_two": False, "edge_check": True, "cap_same": True,
-          **_known(**{k: False for k in NEW + LATER}), **on}
+          **_known(**{k: False for k in NEW + LATER + SLIVER}), **on}
     text = ",".join(f"{k}={str(v).lower() if isinstance(v, bool) else v}" for k, v in kw.items())
     return dataclasses.replace(det.DetConfig(), **kw), text
 
