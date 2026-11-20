@@ -1,0 +1,361 @@
+arm,pool,row,amount,n,found_v2,right_place,mean_iou,too_small,about_right,too_big,false_boxes,false_boxes_v2,fronts,fronts_found,median_hidden_share
+rules,HOME hand masks,frame,0.25,24,24,24,0.968,1,23,0,0,0,0,0,0.21
+rules,ALL,frame,0.25,100,100,100,0.92,1,99,0,0,0,0,0,0.21
+union1,HOME hand masks,frame,0.25,24,24,24,0.968,1,23,0,0,0,0,0,0.21
+union1,ALL,frame,0.25,100,100,100,0.92,1,99,0,0,0,0,0,0.21
+rules,HOME hand masks,frame,0.5,24,24,24,0.956,1,23,0,0,0,0,0,0.5
+rules,ALL,frame,0.5,100,99,99,0.898,3,94,2,0,0,0,0,0.5
+union1,HOME hand masks,frame,0.5,24,24,24,0.956,1,23,0,0,0,0,0,0.5
+union1,ALL,frame,0.5,100,100,100,0.898,3,95,2,0,0,0,0,0.5
+rules,HOME hand masks,frame,0.75,24,1,1,0.91,0,1,0,0,0,0,0,0.79
+rules,ALL,frame,0.75,100,3,3,0.841,0,2,1,0,0,0,0,0.79
+union1,HOME hand masks,frame,0.75,24,3,3,0.816,0,1,2,0,0,0,0,0.79
+union1,ALL,frame,0.75,100,6,6,0.819,0,3,3,0,0,0,0,0.79
+rules,HOME hand masks,edge,0.25,24,24,24,0.789,0,24,0,0,0,0,0,0.21
+rules,ALL,edge,0.25,100,100,100,0.765,12,88,0,0,0,0,0,0.21
+union1,HOME hand masks,edge,0.25,24,24,24,0.789,0,24,0,0,0,0,0,0.21
+union1,ALL,edge,0.25,100,100,100,0.765,12,88,0,0,0,0,0,0.21
+rules,HOME hand masks,edge,0.5,24,23,23,0.61,0,23,0,0,0,0,0,0.5
+rules,ALL,edge,0.5,100,82,86,0.587,4,82,0,0,4,0,0,0.5
+union1,HOME hand masks,edge,0.5,24,24,24,0.611,0,24,0,0,0,0,0,0.5
+union1,ALL,edge,0.5,100,91,95,0.59,4,91,0,0,4,0,0,0.5
+rules,HOME hand masks,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+rules,ALL,edge,0.75,100,0,0,,0,0,0,0,0,0,0,0.79
+union1,HOME hand masks,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+union1,ALL,edge,0.75,100,0,0,,0,0,0,0,0,0,0,0.79
+rules,HOME hand masks,slant,0.25,48,48,48,0.856,16,32,0,0,0,0,0,0.22
+rules,ALL,slant,0.25,200,200,200,0.821,83,114,3,0,0,0,0,0.21
+union1,HOME hand masks,slant,0.25,48,48,48,0.856,16,32,0,0,0,0,0,0.22
+union1,ALL,slant,0.25,200,200,200,0.821,83,114,3,0,0,0,0,0.21
+rules,HOME hand masks,slant,0.5,48,44,44,0.789,0,44,0,0,0,0,0,0.5
+rules,ALL,slant,0.5,200,154,156,0.768,9,147,0,0,2,0,0,0.5
+union1,HOME hand masks,slant,0.5,48,47,48,0.778,0,48,0,0,1,0,0,0.5
+union1,ALL,slant,0.5,200,175,178,0.759,9,169,0,0,3,0,0,0.5
+rules,HOME hand masks,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.78
+rules,ALL,slant,0.75,200,0,0,,0,0,0,0,0,0,0,0.79
+union1,HOME hand masks,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.78
+union1,ALL,slant,0.75,200,0,0,,0,0,0,0,0,0,0,0.79
+rules,HOME hand masks,both,0.25,12,12,12,0.915,2,10,0,0,0,0,0,0.15
+rules,ALL,both,0.25,50,50,50,0.877,10,40,0,0,0,0,0,0.13
+union1,HOME hand masks,both,0.25,12,12,12,0.915,2,10,0,0,0,0,0,0.15
+union1,ALL,both,0.25,50,50,50,0.877,10,40,0,0,0,0,0,0.13
+rules,HOME hand masks,both,0.5,12,12,12,0.942,0,12,0,0,0,0,0,0.43
+rules,ALL,both,0.5,50,49,50,0.9,2,48,0,0,1,0,0,0.41
+union1,HOME hand masks,both,0.5,12,12,12,0.942,0,12,0,0,0,0,0,0.43
+union1,ALL,both,0.5,50,49,50,0.9,2,48,0,0,1,0,0,0.41
+rules,HOME hand masks,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.72
+rules,ALL,both,0.75,50,0,0,,0,0,0,0,0,0,0,0.7
+union1,HOME hand masks,both,0.75,12,3,3,0.861,0,3,0,0,0,0,0,0.72
+union1,ALL,both,0.75,50,7,7,0.792,1,6,0,0,0,0,0,0.7
+rules,HOME hand masks,top,0.25,12,12,12,0.91,1,10,1,0,0,0,0,0.24
+rules,ALL,top,0.25,50,50,50,0.872,2,47,1,0,0,0,0,0.25
+union1,HOME hand masks,top,0.25,12,12,12,0.91,1,10,1,0,0,0,0,0.24
+union1,ALL,top,0.25,50,50,50,0.872,2,47,1,0,0,0,0,0.25
+rules,HOME hand masks,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.51
+rules,ALL,top,0.5,50,2,2,0.829,2,0,0,0,0,0,0,0.52
+union1,HOME hand masks,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.51
+union1,ALL,top,0.5,50,2,2,0.829,2,0,0,0,0,0,0,0.52
+rules,HOME hand masks,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+rules,ALL,top,0.75,50,0,0,,0,0,0,0,0,0,0,0.78
+union1,HOME hand masks,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+union1,ALL,top,0.75,50,0,0,,0,0,0,0,0,0,0,0.78
+rules,HOME hand masks,bottom,0.25,12,12,12,0.927,1,11,0,0,0,0,0,0.22
+rules,ALL,bottom,0.25,50,49,50,0.889,1,49,0,0,1,0,0,0.22
+union1,HOME hand masks,bottom,0.25,12,12,12,0.927,1,11,0,0,0,0,0,0.22
+union1,ALL,bottom,0.25,50,49,50,0.889,1,49,0,0,1,0,0,0.22
+rules,HOME hand masks,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.5
+rules,ALL,bottom,0.5,50,1,1,0.913,0,1,0,0,0,0,0,0.48
+union1,HOME hand masks,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.5
+union1,ALL,bottom,0.5,50,1,1,0.913,0,1,0,0,0,0,0,0.48
+rules,HOME hand masks,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.76
+rules,ALL,bottom,0.75,50,1,1,0.528,1,0,0,0,0,0,0,0.75
+union1,HOME hand masks,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.76
+union1,ALL,bottom,0.75,50,1,1,0.528,1,0,0,0,0,0,0,0.75
+rules,HOME hand masks,post,0.25,12,12,12,0.952,1,11,0,0,0,0,0,0.29
+rules,ALL,post,0.25,50,49,49,0.901,1,48,0,0,0,0,0,0.3
+union1,HOME hand masks,post,0.25,12,12,12,0.952,1,11,0,0,0,0,0,0.29
+union1,ALL,post,0.25,50,50,50,0.9,1,49,0,0,0,0,0,0.3
+rules,HOME hand masks,post,0.5,12,0,0,,0,0,0,0,0,0,0,0.57
+rules,ALL,post,0.5,50,9,9,0.874,0,9,0,0,0,0,0,0.59
+union1,HOME hand masks,post,0.5,12,11,11,0.882,0,11,0,0,0,0,0,0.57
+union1,ALL,post,0.5,50,32,33,0.875,0,33,0,0,1,0,0,0.59
+rules,HOME hand masks,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.84
+rules,ALL,post,0.75,50,0,0,,0,0,0,0,0,0,0,0.86
+union1,HOME hand masks,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.84
+union1,ALL,post,0.75,50,0,0,,0,0,0,0,0,0,0,0.86
+rules,HOME hand masks,barrel_side/other,0.25,24,23,23,0.903,2,21,0,0,0,24,24,0.16
+rules,ALL,barrel_side/other,0.25,100,99,99,0.834,26,73,0,0,6,100,94,0.14
+union1,HOME hand masks,barrel_side/other,0.25,24,24,24,0.903,2,22,0,0,0,24,24,0.16
+union1,ALL,barrel_side/other,0.25,100,100,100,0.835,26,74,0,0,6,100,94,0.14
+rules,HOME hand masks,barrel_side/other,0.5,24,24,24,0.904,0,24,0,1,1,24,24,0.43
+rules,ALL,barrel_side/other,0.5,100,94,96,0.835,6,87,3,4,11,100,95,0.41
+union1,HOME hand masks,barrel_side/other,0.5,24,24,24,0.904,0,24,0,1,1,24,24,0.43
+union1,ALL,barrel_side/other,0.5,100,97,99,0.834,6,90,3,4,11,100,95,0.41
+rules,HOME hand masks,barrel_side/other,0.75,24,18,18,0.889,1,14,3,0,0,24,24,0.69
+rules,ALL,barrel_side/other,0.75,100,49,60,0.806,10,47,3,1,18,100,94,0.7
+union1,HOME hand masks,barrel_side/other,0.75,24,19,19,0.889,1,15,3,0,0,24,24,0.69
+union1,ALL,barrel_side/other,0.75,100,50,61,0.808,10,48,3,1,18,100,94,0.7
+rules,HOME hand masks,barrel_low/other,0.25,24,24,24,0.911,1,23,0,0,4,24,20,0.15
+rules,ALL,barrel_low/other,0.25,100,98,98,0.854,17,81,0,1,11,100,90,0.13
+union1,HOME hand masks,barrel_low/other,0.25,24,24,24,0.911,1,23,0,0,4,24,20,0.15
+union1,ALL,barrel_low/other,0.25,100,100,100,0.853,17,83,0,1,11,100,90,0.13
+rules,HOME hand masks,barrel_low/other,0.5,24,23,23,0.912,0,23,0,0,4,24,20,0.38
+rules,ALL,barrel_low/other,0.5,100,92,92,0.864,4,87,1,1,11,100,90,0.38
+union1,HOME hand masks,barrel_low/other,0.5,24,24,24,0.91,0,24,0,0,4,24,20,0.38
+union1,ALL,barrel_low/other,0.5,100,98,99,0.859,5,93,1,1,12,100,90,0.38
+rules,HOME hand masks,barrel_low/other,0.75,24,21,22,0.907,0,21,1,0,5,24,20,0.6
+rules,ALL,barrel_low/other,0.75,100,77,90,0.832,15,67,8,2,25,100,90,0.63
+union1,HOME hand masks,barrel_low/other,0.75,24,21,22,0.907,0,21,1,0,5,24,20,0.6
+union1,ALL,barrel_low/other,0.75,100,77,90,0.832,15,67,8,2,25,100,90,0.63
+rules,HOME hand masks,barrel_front/other,0.25,12,11,11,0.932,0,11,0,0,4,12,8,0.27
+rules,ALL,barrel_front/other,0.25,47,39,41,0.867,2,38,1,3,19,47,32,0.23
+union1,HOME hand masks,barrel_front/other,0.25,12,12,12,0.926,0,12,0,0,4,12,8,0.27
+union1,ALL,barrel_front/other,0.25,47,43,45,0.867,2,42,1,3,19,47,32,0.23
+rules,HOME hand masks,barrel_front/other,0.5,12,10,10,0.954,0,10,0,0,3,12,9,0.53
+rules,ALL,barrel_front/other,0.5,48,38,39,0.875,0,39,0,3,12,48,39,0.47
+union1,HOME hand masks,barrel_front/other,0.5,12,11,11,0.945,0,11,0,0,3,12,9,0.53
+union1,ALL,barrel_front/other,0.5,48,40,42,0.87,0,42,0,3,13,48,39,0.47
+rules,HOME hand masks,barrel_front/other,0.75,12,6,6,0.884,0,6,0,0,1,12,11,0.79
+rules,ALL,barrel_front/other,0.75,49,17,28,0.826,1,22,5,1,17,49,42,0.74
+union1,HOME hand masks,barrel_front/other,0.75,12,8,9,0.854,1,8,0,0,2,12,11,0.79
+union1,ALL,barrel_front/other,0.75,49,20,34,0.814,3,26,5,1,20,49,42,0.74
+rules,HOME hand masks,barrel_side/same,0.25,24,16,21,0.816,2,17,2,0,6,24,21,0.15
+rules,ALL,barrel_side/same,0.25,100,81,88,0.808,18,65,5,2,21,100,81,0.15
+union1,HOME hand masks,barrel_side/same,0.25,24,16,21,0.816,2,17,2,0,6,24,21,0.15
+union1,ALL,barrel_side/same,0.25,100,81,88,0.808,18,65,5,2,21,100,81,0.15
+rules,HOME hand masks,barrel_side/same,0.5,24,1,9,0.601,0,0,9,0,1,24,23,0.41
+rules,ALL,barrel_side/same,0.5,100,36,49,0.658,7,14,28,2,9,100,77,0.42
+union1,HOME hand masks,barrel_side/same,0.5,24,1,9,0.601,0,0,9,0,1,24,23,0.41
+union1,ALL,barrel_side/same,0.5,100,36,49,0.658,7,14,28,2,9,100,77,0.42
+rules,HOME hand masks,barrel_side/same,0.75,24,1,9,0.722,0,0,9,0,0,24,23,0.68
+rules,ALL,barrel_side/same,0.75,100,16,31,0.703,1,3,27,4,10,100,79,0.7
+union1,HOME hand masks,barrel_side/same,0.75,24,1,9,0.722,0,0,9,0,0,24,23,0.68
+union1,ALL,barrel_side/same,0.75,100,16,31,0.703,1,3,27,4,10,100,79,0.7
+rules,HOME hand masks,barrel_low/same,0.25,24,20,23,0.866,6,17,0,0,4,24,23,0.15
+rules,ALL,barrel_low/same,0.25,100,91,98,0.83,25,70,3,0,13,100,91,0.13
+union1,HOME hand masks,barrel_low/same,0.25,24,20,23,0.866,6,17,0,0,4,24,23,0.15
+union1,ALL,barrel_low/same,0.25,100,92,99,0.829,26,70,3,0,13,100,92,0.13
+rules,HOME hand masks,barrel_low/same,0.5,24,18,19,0.884,1,17,1,0,3,24,22,0.39
+rules,ALL,barrel_low/same,0.5,100,85,89,0.841,4,82,3,0,12,100,87,0.39
+union1,HOME hand masks,barrel_low/same,0.5,24,18,19,0.884,1,17,1,0,3,24,22,0.39
+union1,ALL,barrel_low/same,0.5,100,87,91,0.841,5,83,3,0,13,100,88,0.39
+rules,HOME hand masks,barrel_low/same,0.75,24,8,8,0.875,0,8,0,0,3,24,21,0.63
+rules,ALL,barrel_low/same,0.75,100,26,32,0.825,2,28,2,0,15,100,89,0.64
+union1,HOME hand masks,barrel_low/same,0.75,24,8,8,0.875,0,8,0,0,3,24,21,0.63
+union1,ALL,barrel_low/same,0.75,100,26,33,0.82,3,28,2,0,16,100,89,0.64
+rules,HOME hand masks,barrel_front/same,0.25,12,12,12,0.921,1,11,0,0,3,12,9,0.18
+rules,ALL,barrel_front/same,0.25,47,44,45,0.875,2,43,0,4,18,47,34,0.22
+union1,HOME hand masks,barrel_front/same,0.25,12,12,12,0.921,1,11,0,0,3,12,9,0.18
+union1,ALL,barrel_front/same,0.25,47,44,45,0.875,2,43,0,4,18,47,34,0.22
+rules,HOME hand masks,barrel_front/same,0.5,12,11,12,0.92,1,11,0,2,5,12,10,0.46
+rules,ALL,barrel_front/same,0.5,48,29,37,0.85,3,30,4,6,24,48,38,0.47
+union1,HOME hand masks,barrel_front/same,0.5,12,11,12,0.92,1,11,0,2,5,12,10,0.46
+union1,ALL,barrel_front/same,0.5,48,32,43,0.843,5,34,4,6,27,48,38,0.47
+rules,HOME hand masks,barrel_front/same,0.75,12,0,0,,0,0,0,0,1,12,11,0.73
+rules,ALL,barrel_front/same,0.75,49,2,7,0.698,3,4,0,2,14,49,42,0.74
+union1,HOME hand masks,barrel_front/same,0.75,12,1,4,0.786,1,3,0,0,4,12,11,0.73
+union1,ALL,barrel_front/same,0.75,49,4,15,0.737,4,11,0,2,20,49,42,0.74
+rules,HOME hand masks,block/same,0.25,24,24,24,0.924,0,24,0,0,0,0,0,0.19
+rules,ALL,block/same,0.25,100,100,100,0.873,1,99,0,2,2,0,0,0.18
+union1,HOME hand masks,block/same,0.25,24,24,24,0.924,0,24,0,0,0,0,0,0.19
+union1,ALL,block/same,0.25,100,100,100,0.873,1,99,0,2,2,0,0,0.18
+rules,HOME hand masks,block/same,0.5,24,24,24,0.925,0,24,0,0,0,0,0,0.43
+rules,ALL,block/same,0.5,100,99,99,0.867,2,95,2,0,0,0,0,0.43
+union1,HOME hand masks,block/same,0.5,24,24,24,0.925,0,24,0,0,0,0,0,0.43
+union1,ALL,block/same,0.5,100,99,99,0.867,2,95,2,0,0,0,0,0.43
+rules,HOME hand masks,block/same,0.75,24,1,1,0.899,0,1,0,0,0,0,0,0.68
+rules,ALL,block/same,0.75,100,5,5,0.775,1,2,2,0,0,0,0,0.69
+union1,HOME hand masks,block/same,0.75,24,1,1,0.899,0,1,0,0,0,0,0,0.68
+union1,ALL,block/same,0.75,100,5,5,0.775,1,2,2,0,0,0,0,0.69
+rules,HOME hand masks,block/other,0.25,24,24,24,0.907,1,23,0,0,0,0,0,0.19
+rules,ALL,block/other,0.25,100,100,100,0.861,9,91,0,2,2,0,0,0.18
+union1,HOME hand masks,block/other,0.25,24,24,24,0.907,1,23,0,0,0,0,0,0.19
+union1,ALL,block/other,0.25,100,100,100,0.861,9,91,0,2,2,0,0,0.18
+rules,HOME hand masks,block/other,0.5,24,24,24,0.899,1,23,0,0,0,0,0,0.43
+rules,ALL,block/other,0.5,100,99,99,0.856,8,91,0,2,2,0,0,0.43
+union1,HOME hand masks,block/other,0.5,24,24,24,0.899,1,23,0,0,0,0,0,0.43
+union1,ALL,block/other,0.5,100,99,99,0.856,8,91,0,2,2,0,0,0.43
+rules,HOME hand masks,block/other,0.75,24,1,1,0.887,0,1,0,0,0,0,0,0.68
+rules,ALL,block/other,0.75,100,3,4,0.776,1,3,0,3,4,0,0,0.69
+union1,HOME hand masks,block/other,0.75,24,1,1,0.887,0,1,0,0,0,0,0,0.68
+union1,ALL,block/other,0.75,100,3,4,0.776,1,3,0,3,4,0,0,0.69
+rules,HOME color model,frame,0.25,24,24,24,0.902,0,24,0,0,0,0,0,0.21
+union1,HOME color model,frame,0.25,24,24,24,0.902,0,24,0,0,0,0,0,0.21
+rules,HOME color model,frame,0.5,24,24,24,0.873,1,22,1,0,0,0,0,0.49
+union1,HOME color model,frame,0.5,24,24,24,0.873,1,22,1,0,0,0,0,0.49
+rules,HOME color model,frame,0.75,24,1,1,0.784,0,0,1,0,0,0,0,0.79
+union1,HOME color model,frame,0.75,24,1,1,0.784,0,0,1,0,0,0,0,0.79
+rules,HOME color model,edge,0.25,24,24,24,0.762,3,21,0,0,0,0,0,0.21
+union1,HOME color model,edge,0.25,24,24,24,0.762,3,21,0,0,0,0,0,0.21
+rules,HOME color model,edge,0.5,24,21,22,0.585,0,22,0,0,1,0,0,0.49
+union1,HOME color model,edge,0.5,24,23,24,0.585,0,24,0,0,1,0,0,0.49
+rules,HOME color model,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+union1,HOME color model,edge,0.75,24,0,0,,0,0,0,0,0,0,0,0.79
+rules,HOME color model,slant,0.25,48,48,48,0.81,20,28,0,0,0,0,0,0.21
+union1,HOME color model,slant,0.25,48,48,48,0.81,20,28,0,0,0,0,0,0.21
+rules,HOME color model,slant,0.5,48,39,39,0.771,0,39,0,0,0,0,0,0.5
+union1,HOME color model,slant,0.5,48,44,44,0.764,0,44,0,0,0,0,0,0.5
+rules,HOME color model,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.79
+union1,HOME color model,slant,0.75,48,0,0,,0,0,0,0,0,0,0,0.79
+rules,HOME color model,both,0.25,12,12,12,0.876,2,10,0,0,0,0,0,0.14
+union1,HOME color model,both,0.25,12,12,12,0.876,2,10,0,0,0,0,0,0.14
+rules,HOME color model,both,0.5,12,12,12,0.903,0,12,0,0,0,0,0,0.41
+union1,HOME color model,both,0.5,12,12,12,0.903,0,12,0,0,0,0,0,0.41
+rules,HOME color model,both,0.75,12,0,0,,0,0,0,0,0,0,0,0.71
+union1,HOME color model,both,0.75,12,2,2,0.707,0,2,0,0,0,0,0,0.71
+rules,HOME color model,top,0.25,12,12,12,0.869,0,12,0,0,0,0,0,0.26
+union1,HOME color model,top,0.25,12,12,12,0.869,0,12,0,0,0,0,0,0.26
+rules,HOME color model,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.53
+union1,HOME color model,top,0.5,12,0,0,,0,0,0,0,0,0,0,0.53
+rules,HOME color model,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+union1,HOME color model,top,0.75,12,0,0,,0,0,0,0,0,0,0,0.78
+rules,HOME color model,bottom,0.25,12,12,12,0.885,0,12,0,0,0,0,0,0.22
+union1,HOME color model,bottom,0.25,12,12,12,0.885,0,12,0,0,0,0,0,0.22
+rules,HOME color model,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.48
+union1,HOME color model,bottom,0.5,12,0,0,,0,0,0,0,0,0,0,0.48
+rules,HOME color model,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.74
+union1,HOME color model,bottom,0.75,12,0,0,,0,0,0,0,0,0,0,0.74
+rules,HOME color model,post,0.25,12,12,12,0.894,0,12,0,0,0,0,0,0.29
+union1,HOME color model,post,0.25,12,12,12,0.894,0,12,0,0,0,0,0,0.29
+rules,HOME color model,post,0.5,12,4,4,0.874,0,4,0,0,0,0,0,0.58
+union1,HOME color model,post,0.5,12,9,10,0.864,0,10,0,0,1,0,0,0.58
+rules,HOME color model,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.85
+union1,HOME color model,post,0.75,12,0,0,,0,0,0,0,0,0,0,0.85
+rules,HOME color model,barrel_side/other,0.25,24,24,24,0.811,7,17,0,0,0,24,24,0.17
+union1,HOME color model,barrel_side/other,0.25,24,24,24,0.811,7,17,0,0,0,24,24,0.17
+rules,HOME color model,barrel_side/other,0.5,24,22,24,0.793,1,21,2,2,4,24,24,0.44
+union1,HOME color model,barrel_side/other,0.5,24,22,24,0.793,1,21,2,2,4,24,24,0.44
+rules,HOME color model,barrel_side/other,0.75,24,8,13,0.735,4,9,0,0,5,24,24,0.72
+union1,HOME color model,barrel_side/other,0.75,24,8,13,0.735,4,9,0,0,5,24,24,0.72
+rules,HOME color model,barrel_low/other,0.25,24,23,23,0.819,6,17,0,0,0,24,24,0.19
+union1,HOME color model,barrel_low/other,0.25,24,24,24,0.821,6,18,0,0,0,24,24,0.19
+rules,HOME color model,barrel_low/other,0.5,24,21,21,0.853,1,20,0,0,0,24,24,0.43
+union1,HOME color model,barrel_low/other,0.5,24,24,24,0.859,1,23,0,0,0,24,24,0.43
+rules,HOME color model,barrel_low/other,0.75,24,17,21,0.807,5,14,2,0,4,24,24,0.69
+union1,HOME color model,barrel_low/other,0.75,24,17,21,0.807,5,14,2,0,4,24,24,0.69
+rules,HOME color model,barrel_front/other,0.25,12,9,10,0.848,0,10,0,1,5,12,9,0.3
+union1,HOME color model,barrel_front/other,0.25,12,11,12,0.854,0,12,0,1,5,12,9,0.3
+rules,HOME color model,barrel_front/other,0.5,12,9,9,0.857,0,9,0,1,3,12,10,0.56
+union1,HOME color model,barrel_front/other,0.5,12,9,10,0.845,0,10,0,1,4,12,10,0.56
+rules,HOME color model,barrel_front/other,0.75,12,4,6,0.832,0,6,0,0,3,12,11,0.79
+union1,HOME color model,barrel_front/other,0.75,12,4,7,0.809,1,6,0,0,4,12,11,0.79
+rules,HOME color model,barrel_side/same,0.25,24,21,21,0.823,5,16,0,1,4,24,21,0.18
+union1,HOME color model,barrel_side/same,0.25,24,21,21,0.823,5,16,0,1,4,24,21,0.18
+rules,HOME color model,barrel_side/same,0.5,24,9,11,0.636,1,4,6,2,3,24,19,0.45
+union1,HOME color model,barrel_side/same,0.5,24,9,11,0.636,1,4,6,2,3,24,19,0.45
+rules,HOME color model,barrel_side/same,0.75,24,4,9,0.666,1,1,7,4,6,24,20,0.73
+union1,HOME color model,barrel_side/same,0.75,24,4,9,0.666,1,1,7,4,6,24,20,0.73
+rules,HOME color model,barrel_low/same,0.25,24,22,24,0.839,3,20,1,0,4,24,22,0.2
+union1,HOME color model,barrel_low/same,0.25,24,22,24,0.839,3,20,1,0,4,24,22,0.2
+rules,HOME color model,barrel_low/same,0.5,24,22,23,0.827,1,21,1,0,3,24,22,0.46
+union1,HOME color model,barrel_low/same,0.5,24,22,23,0.827,1,21,1,0,3,24,22,0.46
+rules,HOME color model,barrel_low/same,0.75,24,4,6,0.831,1,4,1,0,4,24,22,0.72
+union1,HOME color model,barrel_low/same,0.75,24,4,7,0.804,2,4,1,0,5,24,22,0.72
+rules,HOME color model,barrel_front/same,0.25,12,10,11,0.876,0,11,0,3,8,12,8,0.31
+union1,HOME color model,barrel_front/same,0.25,12,10,11,0.876,0,11,0,3,8,12,8,0.31
+rules,HOME color model,barrel_front/same,0.5,12,4,7,0.791,1,5,1,3,9,12,9,0.54
+union1,HOME color model,barrel_front/same,0.5,12,5,10,0.776,2,7,1,3,11,12,9,0.54
+rules,HOME color model,barrel_front/same,0.75,12,0,1,0.736,1,0,0,2,5,12,10,0.76
+union1,HOME color model,barrel_front/same,0.75,12,0,3,0.729,1,2,0,2,7,12,10,0.76
+rules,HOME color model,block/same,0.25,24,24,24,0.863,0,24,0,0,0,0,0,0.18
+union1,HOME color model,block/same,0.25,24,24,24,0.863,0,24,0,0,0,0,0,0.18
+rules,HOME color model,block/same,0.5,24,24,24,0.855,0,24,0,0,0,0,0,0.42
+union1,HOME color model,block/same,0.5,24,24,24,0.855,0,24,0,0,0,0,0,0.42
+rules,HOME color model,block/same,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+union1,HOME color model,block/same,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+rules,HOME color model,block/other,0.25,24,24,24,0.845,1,23,0,0,0,0,0,0.18
+union1,HOME color model,block/other,0.25,24,24,24,0.845,1,23,0,0,0,0,0,0.18
+rules,HOME color model,block/other,0.5,24,24,24,0.84,1,23,0,0,0,0,0,0.42
+union1,HOME color model,block/other,0.5,24,24,24,0.84,1,23,0,0,0,0,0,0.42
+rules,HOME color model,block/other,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+union1,HOME color model,block/other,0.75,24,1,1,0.764,0,1,0,0,0,0,0,0.67
+rules,CAMPUS color model,frame,0.25,52,52,52,0.906,0,52,0,0,0,0,0,0.19
+union1,CAMPUS color model,frame,0.25,52,52,52,0.906,0,52,0,0,0,0,0,0.19
+rules,CAMPUS color model,frame,0.5,52,51,51,0.883,1,49,1,0,0,0,0,0.5
+union1,CAMPUS color model,frame,0.5,52,52,52,0.883,1,50,1,0,0,0,0,0.5
+rules,CAMPUS color model,frame,0.75,52,1,1,0.829,0,1,0,0,0,0,0,0.81
+union1,CAMPUS color model,frame,0.75,52,2,2,0.842,0,2,0,0,0,0,0,0.81
+rules,CAMPUS color model,edge,0.25,52,52,52,0.754,9,43,0,0,0,0,0,0.19
+union1,CAMPUS color model,edge,0.25,52,52,52,0.754,9,43,0,0,0,0,0,0.19
+rules,CAMPUS color model,edge,0.5,52,38,41,0.575,4,37,0,0,3,0,0,0.5
+union1,CAMPUS color model,edge,0.5,52,44,47,0.583,4,43,0,0,3,0,0,0.5
+rules,CAMPUS color model,edge,0.75,52,0,0,,0,0,0,0,0,0,0,0.81
+union1,CAMPUS color model,edge,0.75,52,0,0,,0,0,0,0,0,0,0,0.81
+rules,CAMPUS color model,slant,0.25,104,104,104,0.81,47,54,3,0,0,0,0,0.2
+union1,CAMPUS color model,slant,0.25,104,104,104,0.81,47,54,3,0,0,0,0,0.2
+rules,CAMPUS color model,slant,0.5,104,71,73,0.753,9,64,0,0,2,0,0,0.5
+union1,CAMPUS color model,slant,0.5,104,84,86,0.746,9,77,0,0,2,0,0,0.5
+rules,CAMPUS color model,slant,0.75,104,0,0,,0,0,0,0,0,0,0,0.8
+union1,CAMPUS color model,slant,0.75,104,0,0,,0,0,0,0,0,0,0,0.8
+rules,CAMPUS color model,both,0.25,26,26,26,0.861,6,20,0,0,0,0,0,0.12
+union1,CAMPUS color model,both,0.25,26,26,26,0.861,6,20,0,0,0,0,0,0.12
+rules,CAMPUS color model,both,0.5,26,25,26,0.879,2,24,0,0,1,0,0,0.38
+union1,CAMPUS color model,both,0.5,26,25,26,0.879,2,24,0,0,1,0,0,0.38
+rules,CAMPUS color model,both,0.75,26,0,0,,0,0,0,0,0,0,0,0.69
+union1,CAMPUS color model,both,0.75,26,2,2,0.774,1,1,0,0,0,0,0,0.69
+rules,CAMPUS color model,top,0.25,26,26,26,0.856,1,25,0,0,0,0,0,0.26
+union1,CAMPUS color model,top,0.25,26,26,26,0.856,1,25,0,0,0,0,0,0.26
+rules,CAMPUS color model,top,0.5,26,2,2,0.829,2,0,0,0,0,0,0,0.53
+union1,CAMPUS color model,top,0.5,26,2,2,0.829,2,0,0,0,0,0,0,0.53
+rules,CAMPUS color model,top,0.75,26,0,0,,0,0,0,0,0,0,0,0.78
+union1,CAMPUS color model,top,0.75,26,0,0,,0,0,0,0,0,0,0,0.78
+rules,CAMPUS color model,bottom,0.25,26,25,26,0.873,0,26,0,0,1,0,0,0.22
+union1,CAMPUS color model,bottom,0.25,26,25,26,0.873,0,26,0,0,1,0,0,0.22
+rules,CAMPUS color model,bottom,0.5,26,1,1,0.913,0,1,0,0,0,0,0,0.47
+union1,CAMPUS color model,bottom,0.5,26,1,1,0.913,0,1,0,0,0,0,0,0.47
+rules,CAMPUS color model,bottom,0.75,26,1,1,0.528,1,0,0,0,0,0,0,0.74
+union1,CAMPUS color model,bottom,0.75,26,1,1,0.528,1,0,0,0,0,0,0,0.74
+rules,CAMPUS color model,post,0.25,26,25,25,0.879,0,25,0,0,0,0,0,0.31
+union1,CAMPUS color model,post,0.25,26,26,26,0.878,0,26,0,0,0,0,0,0.31
+rules,CAMPUS color model,post,0.5,26,5,5,0.874,0,5,0,0,0,0,0,0.61
+union1,CAMPUS color model,post,0.5,26,12,12,0.878,0,12,0,0,0,0,0,0.61
+rules,CAMPUS color model,post,0.75,26,0,0,,0,0,0,0,0,0,0,0.88
+union1,CAMPUS color model,post,0.75,26,0,0,,0,0,0,0,0,0,0,0.88
+rules,CAMPUS color model,barrel_side/other,0.25,52,52,52,0.814,17,35,0,0,6,52,46,0.12
+union1,CAMPUS color model,barrel_side/other,0.25,52,52,52,0.814,17,35,0,0,6,52,46,0.12
+rules,CAMPUS color model,barrel_side/other,0.5,52,48,48,0.821,5,42,1,1,6,52,47,0.39
+union1,CAMPUS color model,barrel_side/other,0.5,52,51,51,0.821,5,45,1,1,6,52,47,0.39
+rules,CAMPUS color model,barrel_side/other,0.75,52,23,29,0.787,5,24,0,1,13,52,46,0.7
+union1,CAMPUS color model,barrel_side/other,0.75,52,23,29,0.787,5,24,0,1,13,52,46,0.7
+rules,CAMPUS color model,barrel_low/other,0.25,52,51,51,0.842,10,41,0,1,7,52,46,0.11
+union1,CAMPUS color model,barrel_low/other,0.25,52,52,52,0.841,10,42,0,1,7,52,46,0.11
+rules,CAMPUS color model,barrel_low/other,0.5,52,48,48,0.846,3,44,1,1,7,52,46,0.36
+union1,CAMPUS color model,barrel_low/other,0.5,52,50,51,0.836,4,46,1,1,8,52,46,0.36
+rules,CAMPUS color model,barrel_low/other,0.75,52,39,47,0.807,10,32,5,2,16,52,46,0.62
+union1,CAMPUS color model,barrel_low/other,0.75,52,39,47,0.807,10,32,5,2,16,52,46,0.62
+rules,CAMPUS color model,barrel_front/other,0.75,25,7,16,0.802,1,10,5,1,13,25,20,0.71
+union1,CAMPUS color model,barrel_front/other,0.75,25,8,18,0.795,1,12,5,1,14,25,20,0.71
+rules,CAMPUS color model,barrel_side/same,0.25,52,44,46,0.797,11,32,3,1,11,52,39,0.12
+union1,CAMPUS color model,barrel_side/same,0.25,52,44,46,0.797,11,32,3,1,11,52,39,0.12
+rules,CAMPUS color model,barrel_side/same,0.5,52,26,29,0.684,6,10,13,0,5,52,35,0.4
+union1,CAMPUS color model,barrel_side/same,0.5,52,26,29,0.684,6,10,13,0,5,52,35,0.4
+rules,CAMPUS color model,barrel_side/same,0.75,52,11,13,0.715,0,2,11,0,4,52,36,0.7
+union1,CAMPUS color model,barrel_side/same,0.75,52,11,13,0.715,0,2,11,0,4,52,36,0.7
+rules,CAMPUS color model,barrel_low/same,0.25,52,49,51,0.809,16,33,2,0,5,52,46,0.1
+union1,CAMPUS color model,barrel_low/same,0.25,52,50,52,0.808,17,33,2,0,5,52,47,0.1
+rules,CAMPUS color model,barrel_low/same,0.5,52,45,47,0.831,2,44,1,0,6,52,43,0.35
+union1,CAMPUS color model,barrel_low/same,0.5,52,47,49,0.83,3,45,1,0,7,52,44,0.35
+rules,CAMPUS color model,barrel_low/same,0.75,52,14,18,0.801,1,16,1,0,8,52,46,0.61
+union1,CAMPUS color model,barrel_low/same,0.75,52,14,18,0.801,1,16,1,0,8,52,46,0.61
+rules,CAMPUS color model,barrel_front/same,0.75,25,2,6,0.691,2,4,0,0,8,25,21,0.68
+union1,CAMPUS color model,barrel_front/same,0.75,25,3,8,0.715,2,6,0,0,9,25,21,0.68
+rules,CAMPUS color model,block/same,0.25,52,52,52,0.854,1,51,0,2,2,0,0,0.17
+union1,CAMPUS color model,block/same,0.25,52,52,52,0.854,1,51,0,2,2,0,0,0.17
+rules,CAMPUS color model,block/same,0.5,52,51,51,0.846,2,47,2,0,0,0,0,0.43
+union1,CAMPUS color model,block/same,0.5,52,51,51,0.846,2,47,2,0,0,0,0,0.43
+rules,CAMPUS color model,block/same,0.75,52,3,3,0.737,1,0,2,0,0,0,0,0.69
+union1,CAMPUS color model,block/same,0.75,52,3,3,0.737,1,0,2,0,0,0,0,0.69
+rules,CAMPUS color model,block/other,0.25,52,52,52,0.847,7,45,0,2,2,0,0,0.17
+union1,CAMPUS color model,block/other,0.25,52,52,52,0.847,7,45,0,2,2,0,0,0.17
+rules,CAMPUS color model,block/other,0.5,52,51,51,0.843,6,45,0,2,2,0,0,0.43
+union1,CAMPUS color model,block/other,0.5,52,51,51,0.843,6,45,0,2,2,0,0,0.43
+rules,CAMPUS color model,block/other,0.75,52,1,2,0.727,1,1,0,3,4,0,0,0.69
+union1,CAMPUS color model,block/other,0.75,52,1,2,0.727,1,1,0,3,4,0,0,0.69
+rules,CAMPUS color model,barrel_front/other,0.25,23,19,20,0.841,2,17,1,2,10,23,15,0.2
+union1,CAMPUS color model,barrel_front/other,0.25,23,20,21,0.841,2,18,1,2,10,23,15,0.2
+rules,CAMPUS color model,barrel_front/other,0.5,24,19,20,0.843,0,20,0,2,6,24,20,0.43
+union1,CAMPUS color model,barrel_front/other,0.5,24,20,21,0.842,0,21,0,2,6,24,20,0.43
+rules,CAMPUS color model,barrel_front/same,0.25,23,22,22,0.849,1,21,0,1,7,23,17,0.21
+union1,CAMPUS color model,barrel_front/same,0.25,23,22,22,0.849,1,21,0,1,7,23,17,0.21
+rules,CAMPUS color model,barrel_front/same,0.5,24,14,18,0.827,1,14,3,1,10,24,19,0.44
+union1,CAMPUS color model,barrel_front/same,0.5,24,16,21,0.83,2,16,3,1,11,24,19,0.44

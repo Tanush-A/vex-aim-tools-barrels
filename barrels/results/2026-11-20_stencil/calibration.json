@@ -1,0 +1,702 @@
+{
+ "git": "53f4aa1",
+ "grid": [
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 0.25,
+   "band_full": 1.0,
+   "T0": 0.18,
+   "accept": 0.23,
+   "found_floor": 280,
+   "found_T0": 241,
+   "found_accept": 205,
+   "false_floor": {
+    "A1": 0,
+    "A2": 2,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 0.5,
+   "band_full": 1.0,
+   "T0": 0.15,
+   "accept": 0.2,
+   "found_floor": 280,
+   "found_T0": 261,
+   "found_accept": 224,
+   "false_floor": {
+    "A1": 0,
+    "A2": 2,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 1.0,
+   "band_full": 1.0,
+   "T0": 0.13,
+   "accept": 0.18,
+   "found_floor": 273,
+   "found_T0": 265,
+   "found_accept": 223,
+   "false_floor": {
+    "A1": 0,
+    "A2": 2,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 0.25,
+   "band_full": 1.0,
+   "T0": 0.17,
+   "accept": 0.22,
+   "found_floor": 239,
+   "found_T0": 202,
+   "found_accept": 174,
+   "false_floor": {
+    "A1": 0,
+    "A2": 1,
+    "A3": 0,
+    "A4": 0,
+    "B": 1
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 0.5,
+   "band_full": 1.0,
+   "T0": 0.14,
+   "accept": 0.19,
+   "found_floor": 238,
+   "found_T0": 217,
+   "found_accept": 195,
+   "false_floor": {
+    "A1": 0,
+    "A2": 2,
+    "A3": 0,
+    "A4": 0,
+    "B": 2
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 1.0,
+   "band_full": 1.0,
+   "T0": 0.11,
+   "accept": 0.16,
+   "found_floor": 238,
+   "found_T0": 234,
+   "found_accept": 195,
+   "false_floor": {
+    "A1": 0,
+    "A2": 1,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 0.25,
+   "band_full": 1.0,
+   "T0": 0.16,
+   "accept": 0.21,
+   "found_floor": 187,
+   "found_T0": 156,
+   "found_accept": 140,
+   "false_floor": {
+    "A1": 0,
+    "A2": 1,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 0.5,
+   "band_full": 1.0,
+   "T0": 0.13,
+   "accept": 0.18,
+   "found_floor": 187,
+   "found_T0": 176,
+   "found_accept": 148,
+   "false_floor": {
+    "A1": 0,
+    "A2": 1,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 1.0,
+   "band_full": 1.0,
+   "T0": 0.1,
+   "accept": 0.15,
+   "found_floor": 178,
+   "found_T0": 178,
+   "found_accept": 149,
+   "false_floor": {
+    "A1": 0,
+    "A2": 0,
+    "A3": 0,
+    "A4": 0,
+    "B": 0
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 0.25,
+   "band_full": 0.5,
+   "T0": null,
+   "accept": null,
+   "found_floor": 286,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 8,
+    "A2": 10,
+    "A3": 2,
+    "A4": 0,
+    "B": 2
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 0.5,
+   "band_full": 0.5,
+   "T0": null,
+   "accept": null,
+   "found_floor": 299,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 3,
+    "A2": 3,
+    "A3": 2,
+    "A4": 0,
+    "B": 1
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 1.0,
+   "band_full": 0.5,
+   "T0": 0.7,
+   "accept": 0.75,
+   "found_floor": 288,
+   "found_T0": 93,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 2,
+    "A2": 3,
+    "A3": 6,
+    "A4": 0,
+    "B": 2
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 0.25,
+   "band_full": 0.5,
+   "T0": null,
+   "accept": null,
+   "found_floor": 265,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 9,
+    "A2": 12,
+    "A3": 2,
+    "A4": 0,
+    "B": 4
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 0.5,
+   "band_full": 0.5,
+   "T0": null,
+   "accept": null,
+   "found_floor": 277,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 4,
+    "A2": 5,
+    "A3": 2,
+    "A4": 0,
+    "B": 1
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 1.0,
+   "band_full": 0.5,
+   "T0": 0.69,
+   "accept": 0.74,
+   "found_floor": 277,
+   "found_T0": 91,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 2,
+    "A2": 3,
+    "A3": 4,
+    "A4": 0,
+    "B": 3
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 0.25,
+   "band_full": 0.5,
+   "T0": null,
+   "accept": null,
+   "found_floor": 234,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 9,
+    "A2": 13,
+    "A3": 2,
+    "A4": 0,
+    "B": 5
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 0.5,
+   "band_full": 0.5,
+   "T0": null,
+   "accept": null,
+   "found_floor": 244,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 4,
+    "A2": 7,
+    "A3": 2,
+    "A4": 0,
+    "B": 3
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 1.0,
+   "band_full": 0.5,
+   "T0": 0.7,
+   "accept": 0.75,
+   "found_floor": 249,
+   "found_T0": 60,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 3,
+    "A2": 3,
+    "A3": 2,
+    "A4": 0,
+    "B": 2
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 0.25,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 290,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 11,
+    "A2": 14,
+    "A3": 10,
+    "A4": 0,
+    "B": 6
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 0.5,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 298,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 5,
+    "A2": 8,
+    "A3": 12,
+    "A4": 0,
+    "B": 9
+   }
+  },
+  {
+   "absent_cost": 0.1,
+   "outside_cost": 1.0,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 316,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 2,
+    "A2": 4,
+    "A3": 6,
+    "A4": 0,
+    "B": 5
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 0.25,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 281,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 10,
+    "A2": 17,
+    "A3": 6,
+    "A4": 0,
+    "B": 3
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 0.5,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 292,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 6,
+    "A2": 8,
+    "A3": 5,
+    "A4": 0,
+    "B": 3
+   }
+  },
+  {
+   "absent_cost": 0.25,
+   "outside_cost": 1.0,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 294,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 2,
+    "A2": 3,
+    "A3": 10,
+    "A4": 0,
+    "B": 2
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 0.25,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 249,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 14,
+    "A2": 17,
+    "A3": 11,
+    "A4": 0,
+    "B": 5
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 0.5,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 267,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 7,
+    "A2": 10,
+    "A3": 5,
+    "A4": 0,
+    "B": 4
+   }
+  },
+  {
+   "absent_cost": 0.5,
+   "outside_cost": 1.0,
+   "band_full": 0.25,
+   "T0": null,
+   "accept": null,
+   "found_floor": 267,
+   "found_T0": null,
+   "found_accept": null,
+   "false_floor": {
+    "A1": 3,
+    "A2": 3,
+    "A3": 9,
+    "A4": 0,
+    "B": 4
+   }
+  }
+ ],
+ "chosen": {
+  "absent_cost": 0.1,
+  "outside_cost": 0.5,
+  "band_full": 1.0,
+  "T0": 0.15,
+  "accept_by_rule": 0.2,
+  "accept": 0.2,
+  "veto": -0.01
+ },
+ "direct": {
+  "A1": [
+   28,
+   0
+  ],
+  "A2": [
+   27,
+   0
+  ],
+  "A3": [
+   132,
+   0
+  ],
+  "A4": [
+   0,
+   0
+  ],
+  "B": [
+   38,
+   0
+  ]
+ },
+ "rules_on_same_masks": {
+  "A1": [
+   28,
+   0
+  ],
+  "A2": [
+   28,
+   0
+  ],
+  "A3": [
+   144,
+   0
+  ],
+  "A4": [
+   0,
+   0
+  ],
+  "B": [
+   92,
+   1
+  ]
+ },
+ "barrels": {
+  "A1": 29,
+  "A2": 29,
+  "A3": 145,
+  "A4": 0,
+  "B": 145
+ },
+ "loso": [
+  {
+   "scene": "close",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 23,
+   "barrels": 24,
+   "false": 0
+  },
+  {
+   "scene": "cluster",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 50,
+   "barrels": 96,
+   "false": 0
+  },
+  {
+   "scene": "core",
+   "T0_without_it": 0.13,
+   "accept": 0.18,
+   "found": 46,
+   "barrels": 60,
+   "false": 0
+  },
+  {
+   "scene": "edge",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 7,
+   "barrels": 12,
+   "false": 0
+  },
+  {
+   "scene": "far",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 23,
+   "barrels": 48,
+   "false": 0
+  },
+  {
+   "scene": "neg",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 0,
+   "barrels": 0,
+   "false": 0
+  },
+  {
+   "scene": "occl",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 31,
+   "barrels": 48,
+   "false": 0
+  },
+  {
+   "scene": "top",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 7,
+   "barrels": 12,
+   "false": 0
+  },
+  {
+   "scene": "topstripe",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 11,
+   "barrels": 12,
+   "false": 0
+  },
+  {
+   "scene": "touch",
+   "T0_without_it": 0.15,
+   "accept": 0.2,
+   "found": 27,
+   "barrels": 36,
+   "false": 0
+  }
+ ],
+ "lowest_right_rule_box_scores": [
+  [
+   0.043,
+   "A3|4A8B_window_light_cluster_01|seed11",
+   [
+    357,
+    111,
+    399,
+    162
+   ]
+  ],
+  [
+   0.045,
+   "A3|4A8B_window_light_cluster_01|seed12",
+   [
+    357,
+    111,
+    399,
+    162
+   ]
+  ],
+  [
+   0.045,
+   "A3|4A8B_window_light_cluster_01|seed13",
+   [
+    357,
+    111,
+    399,
+    162
+   ]
+  ],
+  [
+   0.047,
+   "A3|4A8B_window_light_cluster_01|seed10",
+   [
+    357,
+    111,
+    399,
+    162
+   ]
+  ],
+  [
+   0.13,
+   "A3|4A8B_window_light_cluster_01|seed12",
+   [
+    315,
+    118,
+    366,
+    162
+   ]
+  ],
+  [
+   0.136,
+   "A3|4A8B_window_light_occl_02|seed10",
+   [
+    399,
+    117,
+    439,
+    161
+   ]
+  ],
+  [
+   0.136,
+   "A3|4A8B_window_light_occl_01|seed10",
+   [
+    388,
+    116,
+    429,
+    158
+   ]
+  ],
+  [
+   0.136,
+   "A3|4A8B_window_light_occl_02|seed11",
+   [
+    399,
+    117,
+    439,
+    161
+   ]
+  ]
+ ],
+ "seeds": [
+  10,
+  11,
+  12,
+  13,
+  14
+ ],
+ "masks": {
+  "A1": 16,
+  "A2": 16,
+  "A3": 80,
+  "A4": 10,
+  "B": 80
+ }
+}
