@@ -1,9 +1,9 @@
 {
- "git": "2192769",
+ "git": "f8227e9",
  "rule": "v2",
  "split": "train",
  "home_protocol": "loso",
- "seconds": 16.4,
+ "seconds": 1617.91,
  "candidate": {
   "name": "candidate",
   "model_path": "results/2026-11-09_hs_candidate/config.json",

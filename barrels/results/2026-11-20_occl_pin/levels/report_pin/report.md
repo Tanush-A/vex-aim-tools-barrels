@@ -149,7 +149,7 @@ baseline  = 2026-11-09_hs_candidate/config.json; DetConfig stripe_join=True, cap
 delta = candidate - baseline ('.' = no change). Frames: train split only, test frames never opened; HOME 16, CAMPUS 21,
     4A8B_lampcool1_wood 10, 4A8B_lampcool3_wood 10, 4A8B_lampcool6_wood 10, 4A8B_lampmid1_wood 10, 4A8B_lampmid3_wood
     10, 4A8B_lampmid6_wood 10, 4A8B_lampwarm1_wood 10, 4A8B_lampwarm3_wood 10, 4A8B_lampwarm6_wood 10, 4A8B_window_black
-    10, DAVE* 12. git 2192769; 16.4 s.
+    10, DAVE* 12. git f8227e9; 1617.9 s.
 Rule: EVAL.md v2, as eval_det implements it — a box is right when same color, IoU >= 0.5 and bottom edge within max(3
     px, 10 % of the true height).
 found / miss = true barrels with / without a right box; false = boxes that match no barrel; width = median box width /
@@ -291,7 +291,7 @@ The ALL row adds up the counts of the sets that are not indicative; it has no sc
 
 - candidate = 2026-11-09_hs_candidate/config.json; DetConfig stripe_join=True, cap_behind=True, stripe_w_min=0.4, occl_body_side=False, side_hidden=True, seam_height=True, cap_seen_bottom=True, slice_box=False, cover_unpinned=False, stripe_two=False, edge_check=True, cap_same=True, pin_outline=True, pin_thin=False
 - baseline  = 2026-11-09_hs_candidate/config.json; DetConfig stripe_join=True, cap_behind=True, stripe_w_min=0.4, occl_body_side=False, side_hidden=True, seam_height=True, cap_seen_bottom=True, slice_box=False, cover_unpinned=False, stripe_two=False, edge_check=True, cap_same=True, pin_outline=False, pin_thin=False
-- delta = candidate - baseline ('.' = no change). Frames: train split only, test frames never opened; HOME 16, CAMPUS 21, 4A8B_lampcool1_wood 10, 4A8B_lampcool3_wood 10, 4A8B_lampcool6_wood 10, 4A8B_lampmid1_wood 10, 4A8B_lampmid3_wood 10, 4A8B_lampmid6_wood 10, 4A8B_lampwarm1_wood 10, 4A8B_lampwarm3_wood 10, 4A8B_lampwarm6_wood 10, 4A8B_window_black 10, DAVE* 12. git 2192769; 16.4 s.
+- delta = candidate - baseline ('.' = no change). Frames: train split only, test frames never opened; HOME 16, CAMPUS 21, 4A8B_lampcool1_wood 10, 4A8B_lampcool3_wood 10, 4A8B_lampcool6_wood 10, 4A8B_lampmid1_wood 10, 4A8B_lampmid3_wood 10, 4A8B_lampmid6_wood 10, 4A8B_lampwarm1_wood 10, 4A8B_lampwarm3_wood 10, 4A8B_lampwarm6_wood 10, 4A8B_window_black 10, DAVE* 12. git f8227e9; 1617.9 s.
 - Rule: EVAL.md v2, as eval_det implements it — a box is right when same color, IoU >= 0.5 and bottom edge within max(3 px, 10 % of the true height).
 - found / miss = true barrels with / without a right box; false = boxes that match no barrel; width = median box width / true width over the found;
 - bot = median |bottom-edge error| in px over the found; score = mean of the orange and blue F1 (pooled over the set's frames), on the set rows only.
