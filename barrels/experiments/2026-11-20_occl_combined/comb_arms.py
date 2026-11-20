@@ -82,6 +82,12 @@ ARMS = {
 if VERIFY is not None:
     ARMS["combined+verify"] = _arm(_stack, verify=VERIFY, **_on(SIX + PIN))
     ARMS["combined+verify2"] = _arm(_stack, verify=VERIFY2, skip_half=True, **_on(SIX + PIN))
+# each branch alone, exactly as its own experiment pins it (the other branch's switches off): for "does the combination
+# find less, or draw more wrong boxes, than either branch alone?" (interactions.py; run_levels.py --arms ...)
+_vert = _load("vert_arms_2026_11_20", HERE.parent / "2026-11-20_occl_vertical" / "vert_arms.py")
+_pin = _load("pin_arms_2026_11_20", HERE.parent / "2026-11-20_occl_pin" / "pin_arms.py")
+ALONE = {"vertical_alone": _arm(_vert.ARMS["all"]), "pin_alone": _arm(_pin.ARMS["pin"]), "pin+thin_alone": _arm(_pin.ARMS["pin+thin"])}
+ARMS.update(ALONE)
 BASE = SOURCE_BASE                  # the name the scorecard's harness reads for choosing the source barrels
 REPORT_ONLY = ("combined+cover",)
 RULES_DETECT = det.detect           # the rule detector itself, whatever is installed later
