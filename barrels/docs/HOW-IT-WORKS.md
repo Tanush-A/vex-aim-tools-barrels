@@ -405,6 +405,47 @@ Every 5 % (`amounts.md`): hidden from above, found at 40 / 45 / 50 / 55 / 60 %: 
 Round 1 failed for `post_pair` (1 box) and `slice_behind` (6 boxes on the scorecard, 1 at medium damage): a strip of a blue barrel's upper body between a finger and its own orange stripe passed as a full slice of an orange barrel (HOME `far_02`), and a fragment of a found barrel's own stripe got a second box. Round 2 added "a full slice ends in seen edges" and "a piece of a found barrel's stripe is not another barrel", and test 8 above.
 
 *Not built, because the mask cannot say.* **A top alone or a base alone** (three quarters hidden from above or from below by something that is not a barrel): no stripe, so the only reading is the width against one row, and a class mask shows the thing in front as nothing. Pieces of that size and place exist on two negative campus frames (a blue cloth), on hands (27 in the hand clip) and on a printed box. **Same color straight in front, three quarters hidden:** the back barrel shows 0.19 of the front barrel's height above its top, where the top tolerance is 0.15. **Same color beside at the same rows, three quarters hidden:** the joined stripe is 1.10 barrels wide and one barrel alone reaches 1.04. **One known ambiguity:** a barrel seen through a slot, upper body cut down to about the stripe's height and nothing under the stripe, is two equal bands and may be read as a barrel of the other color.
+### Where is a cut barrel, sideways? The outline (2026-11-20, branch `wip/occl-pin`; **`pin_outline` on by default on that branch; `pin_thin` built and OFF**, awaiting the walkthrough)
+
+What was asked (Tanush, 2026-11-19): the cover box stays off; a box where no barrel is, a box half off the barrel and a box nearly two barrels wide all count against a method. So: find out **where** the cut barrel is, and draw a box one barrel wide there, only when that is known. Experiment `experiments/2026-11-20_occl_pin` (`PREREG.md` with its addendum; `results/2026-11-20_occl_pin/shape_census.md`, `end_census.md`, `slant_census.md`, `thin_census.md`, `verdict.md`, `by_eye.md`; round 1 in `round1/`).
+
+**What was measured first (the censuses).** The stripe's row gives the distance, and the distance gives not only the barrel's size but its whole outline as the camera sees it from 43 mm up: the top edge is the far rim of the lid (18 of 25.5 mm = 0.71 of the width), nearly flat, and then a shoulder runs down to the full width at mid-height; the bottom edge is the near rim of the base with a corner running up; the stripe is an arc, lowest in the middle. On the 50 free-standing train barrels:
+
+- The arcs are too small to use: the top edge rises 1 px across a 55 px barrel, the stripe sags 1 to 2 px. The highest point of the top edge says nothing (the top is flat).
+- **The corners are large**: in the last 8 % before a barrel's own side the top is 10 to 13 px lower and the bottom 13 to 17 px higher than in the middle (55 px barrel). A side cut by an edge has square corners.
+- The side between lid and middle is a curve (the radius falls off with the square of the height above the middle); a straight side predicts the shoulder twice as deep as it is seen.
+- A quarter of a barrel seen from its middle, both sides cut, has no cue at all: nothing in the mask says where that barrel is.
+- The mask cannot show "empty table here, so the barrel is not hidden here": a thing that is not barrel-colored is unpainted, exactly like the table.
+
+**The rule (`pin_outline`, in `_outline_place`, called from `_partly_seen`).** It is asked only where the detector had nothing before: a stripe narrower than 0.8 of a barrel, with no reason for either side to be hidden (or one for both). Before: a box centred on what is seen, a quarter barrel off when half is hidden, or no box under 0.4 of a barrel.
+
+1. Build the outline for the stripe's distance (`Outline`): the top line, the stripe's middle line, the bottom line, as rows per column.
+2. Read the same three lines off the mask in the seen columns (`_seen_lines`).
+3. Ask each end of the seen part by itself: put the outline with its side on that end and compare, over the columns within half a lid's width of the end (0.353 W), each seen line with the predicted one. The end's cost is the **largest** of the three lines' mean distances in rows (after taking out each line's own up-down offset).
+4. An end that costs at most `pin_good` (0.05) of the barrel's height is the barrel's own side. **Exactly one such end: the box is one barrel wide from that end.** Neither or both: the outline does not know, and the detector does what it did before.
+5. A box placed this way never takes the place of a box that is already there.
+
+Why each end by itself, and the largest of the three: round 1 slid the whole outline over the seen part and took the mean of the lines. A slanted edge imitates a rounded corner on the top line or on the bottom line, never both, and with the mean one good line paid for a bad one: the box went to the wrong side of the seen part (slanted edge at 50 %: 154 → 148 found, 3 new false boxes). Asked at one end with all three lines, a slanted cut costs 0.09 of the height (as a straight cut does) and a barrel's own side 0.05 in the median; 1 of 843 cut ends costs 0.05 or less (`end_census.md`), and on the scorecard's scenes the rule is never wrong by more than 0.15 of a width when it speaks.
+
+*In numbers (scorecard, HOME `core_02`, the orange barrel (368, 120, 418, 173), its left half hidden by a straight edge).* The stripe piece is columns 393 to 416 at row 148.5: distance 204 mm, W 50, H 54. Seen: columns 393 to 418, half a barrel. Window 18 px, limit 0.05 × 54 = 2.7 rows. Left end (the cut): put the barrel's side at column 393 and the top should run down and the bottom up over the next 7 px; they do not: cost 4.6 rows. Right end: cost 1.8 rows. Exactly one end is the barrel's own: the box is 418 − 50 = 368 to 418, (368, 120, 418, 172), overlap 0.98. Before: (380, 120, 431, 172), overlap 0.59. The blue barrel beside it, cut the same way: its own end costs 3.1 rows (ragged corner), over the limit; the outline does not know and the box stays the centred one.
+
+**`pin_thin` (built, OFF).** A barrel three quarters hidden shows a stripe piece narrower than a stripe is tall, which the finder refuses. With the switch the finder's floor is 0.45 of a stripe height (as with `slice_box`), and such a thin piece is a barrel only when it is a full slice (top and bottom where its row predicts them) **and** exactly one of its ends is the barrel's own side; the box is one barrel wide from that end. No cover box. A thin piece inside a found barrel's box at its stripe's rows is that stripe's; thin pieces never change another barrel's box.
+
+*Result* (found of n scenes; `results/2026-11-20_occl_pin/scorecard.md`, `scorecard_check.md`):
+
+| what hides the barrel | 50 % hidden: before → `pin_outline` | 75 % hidden: before → `pin_outline` → with `pin_thin` too |
+|---|---|---|
+| a straight upright edge | 82 → 90 of 100 | 0 → 2 → 28 of 100 |
+| a slanted edge | 154 → 170 of 200 | 0 → 0 → 0 of 200 |
+| both sides | 49 → 49 of 50 | 0 → 0 → 0 of 50 |
+| the frame edge | 99 → 99 of 100 | 3 → 3 → 29 of 100 |
+| a block of the body color | 99 → 99 of 100 | 5 → 5 → 36 of 100 |
+| a block of the stripe color | 99 → 99 of 100 | 3 → 3 → 3 of 100 |
+| a post across the middle | 9 → 11 of 50 | 0 → 0 → 5 of 50 |
+
+All 3888 scenes: found 2417 → 2445 → 2556; boxes where no barrel is 45 → 45 → 45; too big, of the right-place boxes, 4.11 % → 3.98 % → 3.89 %; no cell lower. The eval table (HOME 28 / 1 / 0, CAMPUS 35 / 0 / 0, nothing on a negative frame), the perfect and the damaged masks (143 / 99 / 21 of 145 with 0 / 1 / 0 false boxes) and all 337 recorded frames are the same with either switch.
+
+*Why `pin_thin` is off.* By the letter of the pre-registered rule: it committed to raising the slanted edge at 75 %, and that cell stays 0 (the slant cuts into the corner itself). Every other clause holds. *What nothing here handles:* a quarter or half of a barrel seen with both sides cut (no cue: no box, or the centred one as before); a slanted edge hiding three quarters; and an own side whose corner is ragged, shadowed or under a highlight (then the outline does not know: a miss, not a wrong box; about a third of the straight-edge scenes). The cuts were made on the mask: there is no real train frame of a barrel cut at the side by a straight thing that is not a barrel.
 
 ### The code, in call order
 
@@ -441,6 +482,11 @@ Round 1 failed for `post_pair` (1 box) and `slice_behind` (6 boxes on the scorec
 | `_find_stripes_cores`, the `W_two` lines | `stripe_wide` (on): `stripe_two`'s cut of a stripe wider than 1.2 barrels, only where body color is seen right above and right below it |
 | `caps_behind`, the height test | `cap_low` (on): a top counts from 0.4 of an upper body tall (0.5 before) |
 | `detect`, its last lines | after the caps: `post_pairs`, then `slices_behind` on the pieces left, then `half_stripes`; all three only add to what was found (a `half_stripes` box may replace a box made from a corner of the same band) |
+| `Outline`, `LID_HALF` | 2026-11-20: the barrel's outline for a distance, as three lines (top, stripe, bottom), a row for every column; half the lid's width in barrel widths (0.353) |
+| `_seen_lines(mask, body, x0, x1, y0, y1, lim_top, lim_bot)` | the same three lines as they are seen, per column |
+| `_end_costs(stripe, mask, cam, cfg, sx0, sx1)` | how far each end of the seen part is from being the barrel's own side (largest of the three lines' mean distances, in barrel heights) |
+| `_outline_place(stripe, mask, cam, cfg, sx0, sx1)` | `pin_outline` (on): exactly one end costs at most `pin_good` → the box is W wide from that end; else None. Called from `_partly_seen` when no side reason places the stripe; with `pin_thin` (off) for every thin piece |
+| `detect`, the `pin_outline` lines | a box placed by the outline that would be a found barrel's duplicate is not used: the piece is treated as before the switch |
 | `draw(image, barrels)` | the output image (yellow = orange barrel, green = blue barrel, 1 px) |
 
 `detect` itself is about twenty lines; read it with the table above beside it.
@@ -478,6 +524,9 @@ Round 1 failed for `post_pair` (1 box) and `slice_behind` (6 boxes on the scorec
 | `stripe_wide` | True | `stripe_two`, only where body color is seen right above and right below the stripe | 2026-11-20: same color beside, half hidden, 36 → 88 of 100, without `stripe_two`'s 3 false boxes. Uses `body_width` |
 | `slice_behind` | True | a piece under the finder's width floor that is a full slice with exactly one side hidden by a found nearer barrel or the frame edge: W from the seen edge of the other side | 2026-11-20: same color beside and lower, three quarters hidden, 26 → 42 of 100; medium damage 99 → 114 of 145. Uses `close_px`, `body_width`, `bottom_tol` |
 | `cap_low` | True | the cap rule's height floor is `width_min` (0.4) × an upper body instead of `height_min` (0.5) | 2026-11-20: a barrel straight in front hiding three quarters: 17 → 22 of 49 (other color), 2 → 8 (same color); no box appears anywhere else at 0.4, 0.3 or 0.25 |
+| `pin_outline` | True | a partly seen stripe that no side reason places: if exactly one end of what is seen follows the barrel's outline (top corner, stripe, bottom corner), the box is W wide from that end; else as before | 2026-11-20: straight edge at 50 % hidden 82 → 90 of 100, slanted 154 → 170 of 200, nothing else moves, no false box added anywhere. Uses `pin_good` and the lid's width |
+| `pin_good` | 0.05 | an end is the barrel's own side when each of the three lines lies within this × the barrel's height of the predicted one, on average over the columns within half a lid's width of the end | 2026-11-20, `end_census.md`: own sides cost a median 0.05, cut sides 0.09 (10th percentile 0.073); 1 of 843 cut ends is under 0.05 |
+| `pin_thin` | False | with `pin_outline`: the finder's floor is 0.45 of a stripe height; a piece under the old floor is a barrel only as a full slice with exactly one own end; the box is W wide from that end | 2026-11-20: three quarters hidden by a straight edge, the frame or a block of the body color 0–5 → 28–36 of 100, no false box added. Off: the pre-registered rule committed to the slanted edge at 75 %, which stays 0 |
 | `stripe_merge` | 1.4 | a band wider than this × a barrel is several merged stripes | touching same-color barrels' stripes meet at the bulges; cut evenly |
 | `stripe_full` | 0.8 | a stripe narrower than this × a barrel is partly hidden → widen to a full barrel | a free-standing stripe is 0.85–1.05 widths after erosion |
 | `min_stripe_px` | 4 | stripes thinner than this cannot be resolved → stripeless pieces allowed | 4 px is the expected stripe at ≈ 60 cm, the far end of a table |

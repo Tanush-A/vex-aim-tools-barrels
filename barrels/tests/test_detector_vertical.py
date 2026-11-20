@@ -13,7 +13,8 @@ from test_detector import CAM, CFG2, paint_barrel
 from test_detector_occl import _close, _front_of_other_color, _one_barrel
 
 NEW = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low")
-BASE = dataclasses.replace(CFG2, slice_box=False, cover_unpinned=False, stripe_two=False, **{k: False for k in NEW})   # the detector before this round
+BASE = dataclasses.replace(CFG2, slice_box=False, cover_unpinned=False, stripe_two=False, **{k: False for k in NEW},   # the detector before this round
+                           pin_outline=False, pin_thin=False)   # ... and without the switches of the parallel branch (tests/test_detector_pin.py; together: test_detector_combined.py)
 HALF = dataclasses.replace(BASE, half_stripe=True)
 THIN = dataclasses.replace(BASE, half_stripe=True, half_thin=True)
 POST = dataclasses.replace(BASE, post_pair=True)

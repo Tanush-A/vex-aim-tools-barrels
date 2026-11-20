@@ -7,7 +7,8 @@ from barrels import detector as det
 BASE = dataclasses.replace(det.DetConfig(), stripe_join=False, cap_behind=False, stripe_w_min=0.4, occl_body_side=False,
                            side_hidden=False, seam_height=False, cap_seen_bottom=False,   # switches of 2026-11-19, pinned off so this experiment does not move
                            slice_box=False, cover_unpinned=False, stripe_two=False, edge_check=False, cap_same=False,   # ... and those of the occlusion round
-                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False)   # ... and of 2026-11-20
+                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False,   # ... and of 2026-11-20 (occl_vertical)
+                           pin_outline=False, pin_thin=False)                                                          # ... and of 2026-11-20 (occl_pin)
 SIDE = {"stripe_w_min": 0.25, "occl_body_side": True}
 
 ARMS = {

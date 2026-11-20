@@ -34,7 +34,8 @@ _spec = importlib.util.spec_from_file_location("occl_arms_2026_11_19", HERE.pare
 occl_arms = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(occl_arms)
 
 RULES_CFG = occl_arms.ARMS["edge+cap"]            # today's default on this branch, spelled out
-assert RULES_CFG == det.DetConfig(), "the rule detector's defaults moved: the `rules` arm is no longer today's default"
+# (on wip/stencil this was asserted equal to det.DetConfig(); on wip/occl-combined the defaults have moved on, and `rules` stays the
+# detector this experiment was run with, so its numbers reproduce)
 SOURCE_BASE = occl_arms.BASE                      # what chose the scorecard's 50 source barrels on 2026-11-19 (kept, so the scenes are the same)
 STENCIL = stn.StencilConfig()
 _cal = OUT / "calibration.json"

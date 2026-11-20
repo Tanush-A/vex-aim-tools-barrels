@@ -1,0 +1,18 @@
+set,frame,barrel,seen,centred,outline,cost_H,span,note
+HOME hand masks,window_light_cluster_01,"orange [313, 115, 356, 164]",,,,,,no stripe piece of it
+HOME hand masks,window_light_cluster_01,"orange [361, 117, 400, 163]",,,,,,no stripe piece of it
+HOME hand masks,window_light_cluster_02,"orange [390, 116, 432, 163]",0.9,-0.024,-0.021,0.023,0.11,knows
+HOME hand masks,window_light_far_02,"orange [244, 105, 273, 135]",0.86,0.034,0.017,0.017,0.15,knows
+HOME hand masks,window_light_occl_01,"blue [386, 115, 430, 161]",,,,,,no stripe piece of it
+HOME hand masks,window_light_occl_02,"orange [395, 114, 441, 158]",,,,,,no stripe piece of it
+HOME hand masks,window_light_touch_02,"orange [148, 121, 192, 176]",0.95,0.023,0.052,0.022,0.15,knows
+HOME,window_light_cluster_01,"orange [313, 115, 356, 164]",,,,,,no stripe piece of it
+HOME,window_light_cluster_01,"orange [361, 117, 400, 163]",0.38,-0.256,-0.288,0.019,0.47,does not know
+HOME,window_light_cluster_02,"orange [390, 116, 432, 163]",0.86,0.024,0.194,0.045,0.17,knows
+HOME,window_light_far_02,"orange [244, 105, 273, 135]",0.79,0.034,0.041,0.018,0.22,knows
+HOME,window_light_occl_01,"blue [386, 115, 430, 161]",1.02,0.034,0.034,0.056,0.13,does not know
+HOME,window_light_occl_02,"orange [395, 114, 441, 158]",,,,,,no stripe piece of it
+HOME,window_light_touch_02,"orange [148, 121, 192, 176]",0.8,0.011,-0.005,0.017,0.25,knows
+CAMPUS,campus_light_cluster_02,"blue [379, 117, 419, 163]",0.88,-0.037,-0.09,0.031,0.15,knows
+CAMPUS,campus_light_clutter_02,"blue [475, 122, 522, 174]",0.47,0.138,0.08,0.038,0.44,does not know
+CAMPUS,campus_light_occl_02,"blue [275, 123, 328, 180]",0.64,-0.142,-0.157,0.067,0.38,does not know

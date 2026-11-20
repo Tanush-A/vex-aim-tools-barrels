@@ -1,0 +1,2063 @@
+pool,stem,kind,seen,cut_side,end,what,size,W,fill_top,fill_bottom
+HOME hand masks,4A8B_window_light_close_01,none,1.0,,L,own,over 70 px,82.8,0.201,0.104
+HOME hand masks,4A8B_window_light_close_01,none,1.0,,R,own,over 70 px,82.8,0.271,0.014
+HOME hand masks,4A8B_window_light_close_01,edge,0.75,L,L,cut straight,over 70 px,82.8,0.986,0.812
+HOME hand masks,4A8B_window_light_close_01,edge,0.75,L,R,own,over 70 px,82.8,0.271,0.014
+HOME hand masks,4A8B_window_light_close_01,edge,0.75,R,L,own,over 70 px,82.8,0.201,0.104
+HOME hand masks,4A8B_window_light_close_01,edge,0.75,R,R,cut straight,over 70 px,82.8,0.938,0.861
+HOME hand masks,4A8B_window_light_close_01,edge,0.5,L,L,cut straight,over 70 px,83.5,1.0,0.993
+HOME hand masks,4A8B_window_light_close_01,edge,0.5,L,R,own,over 70 px,83.5,0.271,0.014
+HOME hand masks,4A8B_window_light_close_01,edge,0.5,R,L,own,over 70 px,82.1,0.201,0.104
+HOME hand masks,4A8B_window_light_close_01,edge,0.5,R,R,cut straight,over 70 px,82.1,1.0,0.938
+HOME hand masks,4A8B_window_light_close_01,edge,0.25,L,L,cut straight,over 70 px,82.1,0.875,0.75
+HOME hand masks,4A8B_window_light_close_01,edge,0.25,L,R,own,over 70 px,82.1,0.375,0.062
+HOME hand masks,4A8B_window_light_close_01,edge,0.25,R,L,own,over 70 px,80.7,0.201,0.299
+HOME hand masks,4A8B_window_light_close_01,edge,0.25,R,R,cut straight,over 70 px,80.7,0.736,0.757
+HOME hand masks,4A8B_window_light_close_01,both,0.75,L,L,cut straight,over 70 px,82.8,0.799,0.479
+HOME hand masks,4A8B_window_light_close_01,both,0.75,L,R,cut straight,over 70 px,82.8,0.729,0.514
+HOME hand masks,4A8B_window_light_close_01,both,0.5,L,L,cut straight,over 70 px,83.5,0.986,0.812
+HOME hand masks,4A8B_window_light_close_01,both,0.5,L,R,cut straight,over 70 px,83.5,0.938,0.861
+HOME hand masks,4A8B_window_light_close_01,both,0.25,L,L,cut straight,over 70 px,83.5,1.0,0.951
+HOME hand masks,4A8B_window_light_close_01,both,0.25,L,R,cut straight,over 70 px,83.5,1.0,0.993
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,L,L,cut slanted,over 70 px,82.8,0.868,0.0
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,L,R,own,over 70 px,82.8,0.271,0.014
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,L,L,cut slanted,over 70 px,82.8,0.0,0.59
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,L,R,own,over 70 px,82.8,0.271,0.014
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,R,L,own,over 70 px,82.8,0.201,0.104
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,R,R,cut slanted,over 70 px,82.8,0.0,0.632
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,R,L,own,over 70 px,82.8,0.201,0.104
+HOME hand masks,4A8B_window_light_close_01,slant,0.75,R,R,cut slanted,over 70 px,82.8,0.729,0.0
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,L,L,cut slanted,over 70 px,82.8,0.931,0.0
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,L,R,own,over 70 px,82.8,0.271,0.021
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,L,L,cut slanted,over 70 px,83.5,0.0,0.938
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,L,R,own,over 70 px,83.5,0.271,0.014
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,R,L,own,over 70 px,82.1,0.201,0.104
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,R,R,cut slanted,over 70 px,82.1,0.0,0.965
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,R,L,own,over 70 px,81.4,0.201,0.146
+HOME hand masks,4A8B_window_light_close_01,slant,0.5,R,R,cut slanted,over 70 px,81.4,0.931,0.0
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,L,L,cut slanted,over 70 px,82.1,0.896,0.0
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,L,R,own,over 70 px,82.1,0.375,0.236
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,L,L,cut slanted,over 70 px,82.1,0.0,0.889
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,L,R,own,over 70 px,82.1,0.514,0.035
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,R,L,own,over 70 px,80.7,0.382,0.243
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,R,R,cut slanted,over 70 px,80.7,0.0,0.944
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,R,L,own,over 70 px,80.7,0.201,0.5
+HOME hand masks,4A8B_window_light_close_01,slant,0.25,R,R,cut slanted,over 70 px,80.7,0.91,0.0
+HOME hand masks,4A8B_window_light_close_02,none,1.0,,L,own,over 70 px,80.7,0.222,0.097
+HOME hand masks,4A8B_window_light_close_02,none,1.0,,R,own,over 70 px,80.7,0.285,0.049
+HOME hand masks,4A8B_window_light_close_02,edge,0.75,L,L,cut straight,over 70 px,81.4,0.875,0.792
+HOME hand masks,4A8B_window_light_close_02,edge,0.75,L,R,own,over 70 px,81.4,0.236,0.021
+HOME hand masks,4A8B_window_light_close_02,edge,0.75,R,L,own,over 70 px,81.4,0.222,0.097
+HOME hand masks,4A8B_window_light_close_02,edge,0.75,R,R,cut straight,over 70 px,81.4,0.938,0.958
+HOME hand masks,4A8B_window_light_close_02,edge,0.5,L,L,cut straight,over 70 px,81.4,1.0,1.0
+HOME hand masks,4A8B_window_light_close_02,edge,0.5,L,R,own,over 70 px,81.4,0.236,0.021
+HOME hand masks,4A8B_window_light_close_02,edge,0.5,R,L,own,over 70 px,80.7,0.222,0.097
+HOME hand masks,4A8B_window_light_close_02,edge,0.5,R,R,cut straight,over 70 px,80.7,0.951,0.944
+HOME hand masks,4A8B_window_light_close_02,edge,0.25,L,L,cut straight,over 70 px,80.7,0.854,0.674
+HOME hand masks,4A8B_window_light_close_02,edge,0.25,L,R,own,over 70 px,80.7,0.333,0.056
+HOME hand masks,4A8B_window_light_close_02,edge,0.25,R,L,own,over 70 px,79.3,0.312,0.264
+HOME hand masks,4A8B_window_light_close_02,edge,0.25,R,R,cut straight,over 70 px,79.3,0.847,0.778
+HOME hand masks,4A8B_window_light_close_02,both,0.75,L,L,cut straight,over 70 px,81.4,0.708,0.486
+HOME hand masks,4A8B_window_light_close_02,both,0.75,L,R,cut straight,over 70 px,81.4,0.715,0.583
+HOME hand masks,4A8B_window_light_close_02,both,0.5,L,L,cut straight,over 70 px,82.1,0.875,0.792
+HOME hand masks,4A8B_window_light_close_02,both,0.5,L,R,cut straight,over 70 px,82.1,0.938,0.958
+HOME hand masks,4A8B_window_light_close_02,both,0.25,L,L,cut straight,over 70 px,82.1,0.965,0.972
+HOME hand masks,4A8B_window_light_close_02,both,0.25,L,R,cut straight,over 70 px,82.1,1.0,1.0
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,L,L,cut slanted,over 70 px,81.4,0.715,0.0
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,L,R,own,over 70 px,81.4,0.236,0.021
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,L,L,cut slanted,over 70 px,81.4,0.0,0.597
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,L,R,own,over 70 px,81.4,0.236,0.021
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,R,L,own,over 70 px,81.4,0.222,0.097
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,R,R,cut slanted,over 70 px,81.4,0.0,0.715
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,R,L,own,over 70 px,81.4,0.222,0.097
+HOME hand masks,4A8B_window_light_close_02,slant,0.75,R,R,cut slanted,over 70 px,81.4,0.694,0.0
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,L,L,cut slanted,over 70 px,81.4,0.861,0.0
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,L,R,own,over 70 px,81.4,0.236,0.021
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,L,L,cut slanted,over 70 px,81.4,0.0,0.951
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,L,R,own,over 70 px,81.4,0.236,0.021
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,R,L,own,over 70 px,80.7,0.264,0.097
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,R,R,cut slanted,over 70 px,80.7,0.0,0.972
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,R,L,own,over 70 px,80.7,0.222,0.174
+HOME hand masks,4A8B_window_light_close_02,slant,0.5,R,R,cut slanted,over 70 px,80.7,0.896,0.0
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,L,L,cut slanted,over 70 px,80.7,0.854,0.0
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,L,R,own,over 70 px,80.7,0.333,0.306
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,L,L,cut slanted,over 70 px,80.7,0.0,0.924
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,L,R,own,over 70 px,80.7,0.486,0.035
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,R,L,own,over 70 px,79.3,0.451,0.215
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,R,R,cut slanted,over 70 px,79.3,0.0,0.938
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,R,L,own,over 70 px,78.6,0.264,0.465
+HOME hand masks,4A8B_window_light_close_02,slant,0.25,R,R,cut slanted,over 70 px,78.6,0.826,0.0
+HOME hand masks,4A8B_window_light_cluster_02,none,1.0,,L,own,45 to 70 px,49.4,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,none,1.0,,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,L,L,cut straight,45 to 70 px,49.4,0.918,0.98
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,L,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,R,L,own,45 to 70 px,49.1,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,R,R,cut straight,45 to 70 px,49.1,0.918,0.918
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,L,L,cut straight,45 to 70 px,49.4,1.0,1.0
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,L,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,R,L,own,45 to 70 px,48.7,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,R,R,cut straight,45 to 70 px,48.7,1.0,1.0
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,L,L,cut straight,45 to 70 px,49.4,1.0,0.98
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,L,R,own,45 to 70 px,49.4,0.714,0.633
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,R,L,own,45 to 70 px,48.7,0.531,0.429
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,R,R,cut straight,45 to 70 px,48.7,0.98,0.796
+HOME hand masks,4A8B_window_light_cluster_02,both,0.75,L,L,cut straight,45 to 70 px,49.4,0.857,0.776
+HOME hand masks,4A8B_window_light_cluster_02,both,0.75,L,R,cut straight,45 to 70 px,49.4,0.857,0.857
+HOME hand masks,4A8B_window_light_cluster_02,both,0.5,L,L,cut straight,45 to 70 px,49.4,0.918,0.98
+HOME hand masks,4A8B_window_light_cluster_02,both,0.5,L,R,cut straight,45 to 70 px,49.4,0.918,0.918
+HOME hand masks,4A8B_window_light_cluster_02,both,0.25,L,L,cut straight,45 to 70 px,49.4,1.0,1.0
+HOME hand masks,4A8B_window_light_cluster_02,both,0.25,L,R,cut straight,45 to 70 px,49.4,1.0,1.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,49.4,0.776,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,49.4,0.0,0.837
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,49.1,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,49.1,0.0,0.857
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,48.7,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,48.7,0.776,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,49.4,0.918,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,49.4,0.0,0.898
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,49.4,0.592,0.51
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,48.7,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,48.7,0.0,1.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,48.7,0.429,0.327
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,48.7,0.918,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,L,cut slanted,45 to 70 px,49.4,0.898,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,R,own,45 to 70 px,49.4,0.714,0.633
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,L,cut slanted,45 to 70 px,49.4,0.0,0.857
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,R,own,45 to 70 px,49.4,0.531,0.633
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,48.7,0.49,0.327
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,48.7,0.0,0.918
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,48.4,0.531,0.633
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,48.4,0.898,0.0
+HOME hand masks,4A8B_window_light_cluster_02,none,1.0,,L,own,45 to 70 px,52.9,0.125,0.203
+HOME hand masks,4A8B_window_light_cluster_02,none,1.0,,R,own,45 to 70 px,52.9,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,L,L,cut straight,45 to 70 px,53.6,0.891,0.75
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,L,R,own,45 to 70 px,53.6,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,R,L,own,45 to 70 px,52.9,0.125,0.203
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.75,R,R,cut straight,45 to 70 px,52.9,0.906,0.984
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,L,L,cut straight,45 to 70 px,53.6,1.0,0.922
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,L,R,own,45 to 70 px,53.6,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,R,L,own,45 to 70 px,52.9,0.125,0.297
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.5,R,R,cut straight,45 to 70 px,52.9,1.0,0.891
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,L,L,cut straight,45 to 70 px,53.6,1.0,0.562
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,L,R,own,45 to 70 px,53.6,0.734,0.062
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,R,L,own,45 to 70 px,51.5,0.094,0.297
+HOME hand masks,4A8B_window_light_cluster_02,edge,0.25,R,R,cut straight,45 to 70 px,51.5,0.734,0.781
+HOME hand masks,4A8B_window_light_cluster_02,both,0.75,L,L,cut straight,45 to 70 px,52.9,0.703,0.578
+HOME hand masks,4A8B_window_light_cluster_02,both,0.75,L,R,cut straight,45 to 70 px,52.9,0.75,0.562
+HOME hand masks,4A8B_window_light_cluster_02,both,0.5,L,L,cut straight,45 to 70 px,53.6,0.891,0.75
+HOME hand masks,4A8B_window_light_cluster_02,both,0.5,L,R,cut straight,45 to 70 px,53.6,0.906,0.984
+HOME hand masks,4A8B_window_light_cluster_02,both,0.25,L,L,cut straight,45 to 70 px,53.6,1.0,0.766
+HOME hand masks,4A8B_window_light_cluster_02,both,0.25,L,R,cut straight,45 to 70 px,53.6,1.0,0.922
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,53.6,0.812,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,53.6,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,53.6,0.0,0.656
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,53.6,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,52.9,0.125,0.203
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,52.9,0.0,0.688
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,52.9,0.125,0.203
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,52.9,0.703,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,53.6,0.953,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,53.6,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,53.6,0.0,0.734
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,53.6,0.516,0.031
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,52.9,0.125,0.297
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,52.9,0.0,0.938
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,52.9,0.062,0.297
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,52.9,0.953,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,L,cut slanted,45 to 70 px,53.6,0.906,0.0
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,R,own,45 to 70 px,53.6,0.734,0.297
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,L,cut slanted,45 to 70 px,53.6,0.0,0.891
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,L,R,own,45 to 70 px,53.6,0.578,0.031
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,51.5,0.312,0.297
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.0,0.969
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,51.5,0.094,0.578
+HOME hand masks,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.938,0.0
+HOME hand masks,4A8B_window_light_core_01,none,1.0,,L,own,45 to 70 px,52.9,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,none,1.0,,R,own,45 to 70 px,52.9,0.5,0.484
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,L,L,cut straight,45 to 70 px,52.9,0.953,0.953
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,L,R,own,45 to 70 px,52.9,0.5,0.484
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,R,L,own,45 to 70 px,53.6,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,R,R,cut straight,45 to 70 px,53.6,1.0,0.922
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,L,L,cut straight,45 to 70 px,52.9,1.0,0.984
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,L,R,own,45 to 70 px,52.9,0.5,0.484
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,R,L,own,45 to 70 px,53.6,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,R,R,cut straight,45 to 70 px,53.6,1.0,1.0
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,L,L,cut straight,45 to 70 px,52.2,0.984,0.891
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,L,R,own,45 to 70 px,52.2,0.578,0.609
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,R,L,own,45 to 70 px,52.9,0.406,0.266
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,R,R,cut straight,45 to 70 px,52.9,0.844,0.734
+HOME hand masks,4A8B_window_light_core_01,both,0.75,L,L,cut straight,45 to 70 px,53.6,0.875,0.719
+HOME hand masks,4A8B_window_light_core_01,both,0.75,L,R,cut straight,45 to 70 px,53.6,0.891,0.797
+HOME hand masks,4A8B_window_light_core_01,both,0.5,L,L,cut straight,45 to 70 px,53.6,0.953,0.953
+HOME hand masks,4A8B_window_light_core_01,both,0.5,L,R,cut straight,45 to 70 px,53.6,1.0,0.922
+HOME hand masks,4A8B_window_light_core_01,both,0.25,L,L,cut straight,45 to 70 px,53.6,1.0,1.0
+HOME hand masks,4A8B_window_light_core_01,both,0.25,L,R,cut straight,45 to 70 px,53.6,1.0,1.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.859,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,52.9,0.5,0.484
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.0,0.766
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,52.9,0.5,0.484
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,53.6,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,53.6,0.0,0.781
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,53.6,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,53.6,0.875,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.875,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,52.9,0.5,0.609
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.0,0.953
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,52.9,0.5,0.484
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,53.6,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,53.6,0.0,0.953
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,53.6,0.406,0.203
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,53.6,0.875,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,52.2,0.844,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,52.2,0.5,0.688
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,52.2,0.0,0.938
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,52.2,0.422,0.609
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,52.9,0.484,0.266
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,52.9,0.0,0.938
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,52.9,0.406,0.375
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,52.9,0.812,0.0
+HOME hand masks,4A8B_window_light_core_01,none,1.0,,L,own,45 to 70 px,51.5,0.344,0.141
+HOME hand masks,4A8B_window_light_core_01,none,1.0,,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,L,L,cut straight,45 to 70 px,51.5,0.938,0.828
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,L,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,R,L,own,45 to 70 px,51.5,0.344,0.141
+HOME hand masks,4A8B_window_light_core_01,edge,0.75,R,R,cut straight,45 to 70 px,51.5,1.0,0.938
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,L,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,R,L,own,45 to 70 px,51.5,0.344,0.141
+HOME hand masks,4A8B_window_light_core_01,edge,0.5,R,R,cut straight,45 to 70 px,51.5,1.0,0.969
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,L,L,cut straight,45 to 70 px,51.1,0.812,0.766
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,L,R,own,45 to 70 px,51.1,0.594,0.531
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,R,L,own,45 to 70 px,51.5,0.406,0.25
+HOME hand masks,4A8B_window_light_core_01,edge,0.25,R,R,cut straight,45 to 70 px,51.5,0.906,0.719
+HOME hand masks,4A8B_window_light_core_01,both,0.75,L,L,cut straight,45 to 70 px,51.5,0.875,0.641
+HOME hand masks,4A8B_window_light_core_01,both,0.75,L,R,cut straight,45 to 70 px,51.5,0.828,0.797
+HOME hand masks,4A8B_window_light_core_01,both,0.5,L,L,cut straight,45 to 70 px,51.5,0.938,0.828
+HOME hand masks,4A8B_window_light_core_01,both,0.5,L,R,cut straight,45 to 70 px,51.5,1.0,0.938
+HOME hand masks,4A8B_window_light_core_01,both,0.25,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_core_01,both,0.25,L,R,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.844,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.0,0.719
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,51.5,0.344,0.141
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.0,0.75
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,51.5,0.344,0.141
+HOME hand masks,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.797,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,51.5,0.875,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,51.5,0.0,0.953
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,51.5,0.484,0.422
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,51.5,0.344,0.141
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,51.5,0.0,0.953
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,51.5,0.344,0.188
+HOME hand masks,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,51.5,0.875,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.857,0.0
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,50.8,0.388,0.571
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.0,0.939
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,50.8,0.429,0.429
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,51.5,0.375,0.25
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.0,0.906
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,51.5,0.406,0.484
+HOME hand masks,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.844,0.0
+HOME hand masks,4A8B_window_light_core_02,none,1.0,,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,none,1.0,,R,own,45 to 70 px,49.4,0.408,0.163
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,L,L,cut straight,45 to 70 px,50.1,1.0,1.0
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,L,R,own,45 to 70 px,50.1,0.408,0.163
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,R,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,R,R,cut straight,45 to 70 px,49.4,1.0,0.857
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,L,L,cut straight,45 to 70 px,50.1,0.878,1.0
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,L,R,own,45 to 70 px,50.1,0.408,0.224
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,R,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,R,R,cut straight,45 to 70 px,49.4,0.898,1.0
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,L,L,cut straight,45 to 70 px,49.4,0.837,0.857
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,L,R,own,45 to 70 px,49.4,0.408,0.224
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,R,L,own,45 to 70 px,48.7,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,R,R,cut straight,45 to 70 px,48.7,0.755,0.816
+HOME hand masks,4A8B_window_light_core_02,both,0.75,L,L,cut straight,45 to 70 px,49.4,0.816,0.878
+HOME hand masks,4A8B_window_light_core_02,both,0.75,L,R,cut straight,45 to 70 px,49.4,0.878,0.776
+HOME hand masks,4A8B_window_light_core_02,both,0.5,L,L,cut straight,45 to 70 px,50.1,1.0,1.0
+HOME hand masks,4A8B_window_light_core_02,both,0.5,L,R,cut straight,45 to 70 px,50.1,1.0,0.857
+HOME hand masks,4A8B_window_light_core_02,both,0.25,L,L,cut straight,45 to 70 px,50.1,0.878,0.98
+HOME hand masks,4A8B_window_light_core_02,both,0.25,L,R,cut straight,45 to 70 px,50.1,0.857,0.878
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.1,0.857,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,50.1,0.408,0.163
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.1,0.0,0.878
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,50.1,0.408,0.163
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,49.4,0.0,0.735
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,49.4,0.857,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,49.8,0.755,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,49.8,0.408,0.224
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,49.8,0.0,0.918
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,49.8,0.408,0.163
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,49.4,0.0,0.837
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,49.4,0.245,0.265
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,49.4,0.755,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,49.4,0.878,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,49.4,0.408,0.429
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,49.4,0.0,0.939
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,49.4,0.531,0.224
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,48.7,0.531,0.265
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,48.7,0.0,1.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,48.7,0.245,0.429
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,48.7,0.878,0.0
+HOME hand masks,4A8B_window_light_core_02,none,1.0,,L,own,45 to 70 px,51.5,0.234,0.297
+HOME hand masks,4A8B_window_light_core_02,none,1.0,,R,own,45 to 70 px,51.5,0.578,0.016
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,L,L,cut straight,45 to 70 px,51.5,0.875,0.766
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,L,R,own,45 to 70 px,51.5,0.578,0.016
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,R,L,own,45 to 70 px,50.8,0.061,0.143
+HOME hand masks,4A8B_window_light_core_02,edge,0.75,R,R,cut straight,45 to 70 px,50.8,0.857,1.0
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,L,L,cut straight,45 to 70 px,51.5,0.891,1.0
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,L,R,own,45 to 70 px,51.5,0.578,0.016
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,R,L,own,45 to 70 px,50.8,0.082,0.143
+HOME hand masks,4A8B_window_light_core_02,edge,0.5,R,R,cut straight,45 to 70 px,50.8,1.0,0.878
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,L,L,cut straight,45 to 70 px,52.2,0.953,0.594
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,L,R,own,45 to 70 px,52.2,0.703,0.047
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,R,L,own,45 to 70 px,50.1,0.082,0.408
+HOME hand masks,4A8B_window_light_core_02,edge,0.25,R,R,cut straight,45 to 70 px,50.1,0.837,0.939
+HOME hand masks,4A8B_window_light_core_02,both,0.75,L,L,cut straight,45 to 70 px,51.5,0.75,0.594
+HOME hand masks,4A8B_window_light_core_02,both,0.75,L,R,cut straight,45 to 70 px,51.5,0.844,0.609
+HOME hand masks,4A8B_window_light_core_02,both,0.5,L,L,cut straight,45 to 70 px,51.5,0.875,0.766
+HOME hand masks,4A8B_window_light_core_02,both,0.5,L,R,cut straight,45 to 70 px,51.5,0.891,1.0
+HOME hand masks,4A8B_window_light_core_02,both,0.25,L,L,cut straight,45 to 70 px,51.5,0.875,0.938
+HOME hand masks,4A8B_window_light_core_02,both,0.25,L,R,cut straight,45 to 70 px,51.5,0.891,1.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.812,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,51.5,0.578,0.016
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.0,0.625
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,51.5,0.578,0.016
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,50.8,0.061,0.143
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,50.8,0.0,0.796
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,50.8,0.061,0.143
+HOME hand masks,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,50.8,0.837,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.2,0.781,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,52.2,0.578,0.016
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,51.8,0.0,0.922
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,51.8,0.703,0.016
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,50.8,0.082,0.143
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,50.8,0.0,0.98
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,50.8,0.082,0.306
+HOME hand masks,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,50.8,0.878,0.0
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,52.2,0.0,0.844
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,52.2,0.734,0.016
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,50.1,0.163,0.306
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,50.1,0.0,0.918
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,50.1,0.082,0.51
+HOME hand masks,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,50.1,0.878,0.0
+HOME hand masks,4A8B_window_light_core_03,none,1.0,,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,none,1.0,,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,edge,0.75,L,L,cut straight,under 45 px,32.0,1.0,0.8
+HOME hand masks,4A8B_window_light_core_03,edge,0.75,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,edge,0.75,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,edge,0.75,R,R,cut straight,under 45 px,32.0,1.0,0.8
+HOME hand masks,4A8B_window_light_core_03,edge,0.5,L,L,cut straight,under 45 px,32.0,1.0,0.8
+HOME hand masks,4A8B_window_light_core_03,edge,0.5,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,edge,0.5,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,edge,0.5,R,R,cut straight,under 45 px,32.0,1.0,0.8
+HOME hand masks,4A8B_window_light_core_03,edge,0.25,L,L,cut straight,under 45 px,32.0,0.88,0.68
+HOME hand masks,4A8B_window_light_core_03,edge,0.25,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,edge,0.25,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,edge,0.25,R,R,cut straight,under 45 px,32.0,0.76,0.88
+HOME hand masks,4A8B_window_light_core_03,both,0.75,L,L,cut straight,under 45 px,32.0,1.0,0.84
+HOME hand masks,4A8B_window_light_core_03,both,0.75,L,R,cut straight,under 45 px,32.0,1.0,0.84
+HOME hand masks,4A8B_window_light_core_03,both,0.5,L,L,cut straight,under 45 px,32.0,1.0,1.0
+HOME hand masks,4A8B_window_light_core_03,both,0.5,L,R,cut straight,under 45 px,32.0,1.0,1.0
+HOME hand masks,4A8B_window_light_core_03,both,0.25,L,L,cut straight,under 45 px,32.0,1.0,1.0
+HOME hand masks,4A8B_window_light_core_03,both,0.25,L,R,cut straight,under 45 px,32.0,1.0,1.0
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,L,L,cut slanted,under 45 px,32.0,0.92,0.0
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,L,L,cut slanted,under 45 px,32.0,0.0,0.72
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,R,R,cut slanted,under 45 px,32.0,0.0,0.84
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,slant,0.75,R,R,cut slanted,under 45 px,32.0,0.92,0.0
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,L,L,cut slanted,under 45 px,32.0,0.92,0.0
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,L,L,cut slanted,under 45 px,32.0,0.0,0.8
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,L,R,own,under 45 px,32.0,0.68,0.52
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.0,0.8
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,R,L,own,under 45 px,32.0,0.56,0.72
+HOME hand masks,4A8B_window_light_core_03,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.92,0.0
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,L,L,cut slanted,under 45 px,32.0,0.92,0.0
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,L,R,own,under 45 px,32.0,0.68,0.32
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,L,L,cut slanted,under 45 px,32.0,0.04,0.84
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,L,R,own,under 45 px,32.0,0.56,0.52
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,R,L,own,under 45 px,32.0,0.48,0.72
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.0,0.8
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,R,L,own,under 45 px,32.0,0.56,0.48
+HOME hand masks,4A8B_window_light_core_03,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.92,0.0
+HOME hand masks,4A8B_window_light_far_02,none,1.0,,L,own,under 45 px,32.0,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,none,1.0,,R,own,under 45 px,32.0,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,L,L,cut straight,under 45 px,32.7,0.88,1.0
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,L,R,own,under 45 px,32.7,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,R,L,own,under 45 px,32.7,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,R,R,cut straight,under 45 px,32.7,1.0,1.0
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,L,L,cut straight,under 45 px,32.0,1.0,1.0
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,L,R,own,under 45 px,32.0,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,R,L,own,under 45 px,32.0,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,R,R,cut straight,under 45 px,32.0,0.84,1.0
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,L,L,cut straight,under 45 px,32.0,0.96,0.64
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,L,R,own,under 45 px,32.0,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,R,L,own,under 45 px,32.0,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,R,R,cut straight,under 45 px,32.0,0.84,0.84
+HOME hand masks,4A8B_window_light_far_02,both,0.75,L,L,cut straight,under 45 px,32.7,0.92,0.92
+HOME hand masks,4A8B_window_light_far_02,both,0.75,L,R,cut straight,under 45 px,32.7,1.0,0.84
+HOME hand masks,4A8B_window_light_far_02,both,0.5,L,L,cut straight,under 45 px,32.7,0.88,1.0
+HOME hand masks,4A8B_window_light_far_02,both,0.5,L,R,cut straight,under 45 px,32.7,1.0,1.0
+HOME hand masks,4A8B_window_light_far_02,both,0.25,L,L,cut straight,under 45 px,32.7,0.88,1.0
+HOME hand masks,4A8B_window_light_far_02,both,0.25,L,R,cut straight,under 45 px,32.7,1.0,1.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,32.7,0.92,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,32.7,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,32.7,0.0,0.88
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,32.7,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,32.7,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,32.7,0.0,0.92
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,32.7,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,32.7,0.96,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,32.0,0.88,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,32.0,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,32.0,0.0,0.92
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,32.0,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,32.0,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.0,0.92
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,32.0,0.52,0.52
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.96,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,L,L,cut slanted,under 45 px,32.0,0.96,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,L,R,own,under 45 px,32.0,0.48,0.32
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,L,L,cut slanted,under 45 px,32.0,0.0,0.88
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,L,R,own,under 45 px,32.0,0.48,0.12
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,32.0,0.56,0.52
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.0,0.92
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,32.0,0.52,0.6
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.88,0.0
+HOME hand masks,4A8B_window_light_far_02,none,1.0,,L,own,under 45 px,33.4,0.4,0.32
+HOME hand masks,4A8B_window_light_far_02,none,1.0,,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,L,L,cut straight,under 45 px,33.4,1.0,0.8
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,L,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,R,L,own,under 45 px,33.4,0.4,0.32
+HOME hand masks,4A8B_window_light_far_02,edge,0.75,R,R,cut straight,under 45 px,33.4,1.0,0.96
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,L,L,cut straight,under 45 px,33.4,1.0,1.0
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,L,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,R,L,own,under 45 px,33.4,0.4,0.32
+HOME hand masks,4A8B_window_light_far_02,edge,0.5,R,R,cut straight,under 45 px,33.4,1.0,0.92
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,L,L,cut straight,under 45 px,33.4,0.72,0.64
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,L,R,own,under 45 px,33.4,0.72,0.64
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,R,L,own,under 45 px,33.4,0.4,0.44
+HOME hand masks,4A8B_window_light_far_02,edge,0.25,R,R,cut straight,under 45 px,33.4,0.76,0.84
+HOME hand masks,4A8B_window_light_far_02,both,0.75,L,L,cut straight,under 45 px,33.4,0.76,0.64
+HOME hand masks,4A8B_window_light_far_02,both,0.75,L,R,cut straight,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,both,0.5,L,L,cut straight,under 45 px,33.4,1.0,0.8
+HOME hand masks,4A8B_window_light_far_02,both,0.5,L,R,cut straight,under 45 px,33.4,1.0,0.96
+HOME hand masks,4A8B_window_light_far_02,both,0.25,L,L,cut straight,under 45 px,33.8,1.0,0.96
+HOME hand masks,4A8B_window_light_far_02,both,0.25,L,R,cut straight,under 45 px,33.8,1.0,1.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,33.4,0.92,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,33.4,0.0,0.76
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,33.4,0.4,0.32
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,33.4,0.0,0.8
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,33.4,0.4,0.32
+HOME hand masks,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,33.4,0.88,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,33.4,0.96,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,33.4,0.0,1.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,33.4,0.72,0.48
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,33.4,0.4,0.32
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,33.4,0.0,1.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,33.4,0.4,0.44
+HOME hand masks,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,33.4,0.96,0.0
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,L,L,cut slanted,under 45 px,33.4,0.0,0.88
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,L,R,own,under 45 px,33.4,0.44,0.48
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,33.4,0.64,0.44
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,33.4,0.0,0.96
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,33.4,0.4,0.44
+HOME hand masks,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,33.4,0.96,0.0
+HOME hand masks,4A8B_window_light_touch_02,none,1.0,,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,none,1.0,,R,own,45 to 70 px,51.5,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,edge,0.75,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_touch_02,edge,0.75,L,R,own,45 to 70 px,51.5,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,edge,0.75,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,edge,0.75,R,R,cut straight,45 to 70 px,51.5,1.0,0.953
+HOME hand masks,4A8B_window_light_touch_02,edge,0.5,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_touch_02,edge,0.5,L,R,own,45 to 70 px,51.5,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,edge,0.5,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,edge,0.5,R,R,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_touch_02,edge,0.25,L,L,cut straight,45 to 70 px,50.8,0.898,0.837
+HOME hand masks,4A8B_window_light_touch_02,edge,0.25,L,R,own,45 to 70 px,50.8,0.306,0.184
+HOME hand masks,4A8B_window_light_touch_02,edge,0.25,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,edge,0.25,R,R,cut straight,45 to 70 px,51.5,0.875,0.922
+HOME hand masks,4A8B_window_light_touch_02,both,0.75,L,L,cut straight,45 to 70 px,51.5,0.922,0.984
+HOME hand masks,4A8B_window_light_touch_02,both,0.75,L,R,cut straight,45 to 70 px,51.5,0.953,0.812
+HOME hand masks,4A8B_window_light_touch_02,both,0.5,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_touch_02,both,0.5,L,R,cut straight,45 to 70 px,51.5,1.0,0.953
+HOME hand masks,4A8B_window_light_touch_02,both,0.25,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_touch_02,both,0.25,L,R,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.891,0.0
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,L,R,own,45 to 70 px,51.5,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.0,0.938
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,L,R,own,45 to 70 px,51.5,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.0,0.844
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.906,0.0
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,51.1,0.953,0.0
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,L,R,own,45 to 70 px,51.1,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,51.5,0.0,0.938
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,L,R,own,45 to 70 px,51.5,0.391,0.234
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,51.5,0.0,0.938
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME hand masks,4A8B_window_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,51.5,0.953,0.0
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.959,0.0
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,L,R,own,45 to 70 px,50.8,0.306,0.367
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.0,0.918
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,L,R,own,45 to 70 px,50.8,0.367,0.184
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,R,L,own,45 to 70 px,51.5,0.656,0.453
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.0,0.938
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,R,L,own,45 to 70 px,51.5,0.609,0.469
+HOME hand masks,4A8B_window_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.938,0.0
+HOME color model,4A8B_window_light_close_01,none,1.0,,L,own,over 70 px,82.8,0.424,0.264
+HOME color model,4A8B_window_light_close_01,none,1.0,,R,own,over 70 px,82.8,0.347,0.146
+HOME color model,4A8B_window_light_close_01,edge,0.75,L,L,cut straight,over 70 px,83.5,0.958,0.882
+HOME color model,4A8B_window_light_close_01,edge,0.75,L,R,own,over 70 px,83.5,0.347,0.146
+HOME color model,4A8B_window_light_close_01,edge,0.75,R,L,own,over 70 px,82.8,0.424,0.264
+HOME color model,4A8B_window_light_close_01,edge,0.75,R,R,cut straight,over 70 px,82.8,0.951,0.389
+HOME color model,4A8B_window_light_close_01,edge,0.5,L,L,cut straight,over 70 px,83.5,1.0,0.931
+HOME color model,4A8B_window_light_close_01,edge,0.5,L,R,own,over 70 px,83.5,0.347,0.146
+HOME color model,4A8B_window_light_close_01,edge,0.5,R,L,own,over 70 px,82.1,0.424,0.264
+HOME color model,4A8B_window_light_close_01,edge,0.5,R,R,cut straight,over 70 px,82.1,1.0,0.993
+HOME color model,4A8B_window_light_close_01,edge,0.25,L,L,cut straight,over 70 px,82.1,0.0,0.639
+HOME color model,4A8B_window_light_close_01,edge,0.25,L,R,own,over 70 px,82.1,0.174,0.41
+HOME color model,4A8B_window_light_close_01,edge,0.25,R,L,own,over 70 px,81.4,0.549,0.438
+HOME color model,4A8B_window_light_close_01,edge,0.25,R,R,cut straight,over 70 px,81.4,0.861,0.757
+HOME color model,4A8B_window_light_close_01,both,0.75,L,L,cut straight,over 70 px,83.5,0.736,0.562
+HOME color model,4A8B_window_light_close_01,both,0.75,L,R,cut straight,over 70 px,83.5,0.785,0.361
+HOME color model,4A8B_window_light_close_01,both,0.5,L,L,cut straight,over 70 px,83.5,0.958,0.882
+HOME color model,4A8B_window_light_close_01,both,0.5,L,R,cut straight,over 70 px,83.5,0.951,0.389
+HOME color model,4A8B_window_light_close_01,both,0.25,L,L,cut straight,over 70 px,83.5,1.0,1.0
+HOME color model,4A8B_window_light_close_01,both,0.25,L,R,cut straight,over 70 px,83.5,1.0,0.958
+HOME color model,4A8B_window_light_close_01,slant,0.75,L,L,cut slanted,over 70 px,83.5,0.771,0.0
+HOME color model,4A8B_window_light_close_01,slant,0.75,L,R,own,over 70 px,83.5,0.347,0.146
+HOME color model,4A8B_window_light_close_01,slant,0.75,L,L,cut slanted,over 70 px,83.5,0.0,0.688
+HOME color model,4A8B_window_light_close_01,slant,0.75,L,R,own,over 70 px,83.5,0.347,0.146
+HOME color model,4A8B_window_light_close_01,slant,0.75,R,L,own,over 70 px,82.8,0.424,0.264
+HOME color model,4A8B_window_light_close_01,slant,0.75,R,R,cut slanted,over 70 px,82.8,0.0,0.299
+HOME color model,4A8B_window_light_close_01,slant,0.75,R,L,own,over 70 px,82.8,0.424,0.264
+HOME color model,4A8B_window_light_close_01,slant,0.75,R,R,cut slanted,over 70 px,82.8,0.771,0.0
+HOME color model,4A8B_window_light_close_01,slant,0.5,L,L,cut slanted,over 70 px,82.8,0.917,0.0
+HOME color model,4A8B_window_light_close_01,slant,0.5,L,R,own,over 70 px,82.8,0.347,0.181
+HOME color model,4A8B_window_light_close_01,slant,0.5,L,L,cut slanted,over 70 px,82.8,0.0,0.972
+HOME color model,4A8B_window_light_close_01,slant,0.5,L,R,own,over 70 px,82.8,0.347,0.146
+HOME color model,4A8B_window_light_close_01,slant,0.5,R,L,own,over 70 px,82.1,0.424,0.264
+HOME color model,4A8B_window_light_close_01,slant,0.5,R,R,cut slanted,over 70 px,82.1,0.0,0.958
+HOME color model,4A8B_window_light_close_01,slant,0.5,R,L,own,over 70 px,82.1,0.424,0.264
+HOME color model,4A8B_window_light_close_01,slant,0.5,R,R,cut slanted,over 70 px,82.1,0.917,0.0
+HOME color model,4A8B_window_light_close_01,slant,0.25,L,L,cut slanted,over 70 px,82.1,0.875,0.0
+HOME color model,4A8B_window_light_close_01,slant,0.25,L,R,own,over 70 px,82.1,0.375,0.403
+HOME color model,4A8B_window_light_close_01,slant,0.25,L,L,cut slanted,over 70 px,82.1,0.0,0.257
+HOME color model,4A8B_window_light_close_01,slant,0.25,L,R,own,over 70 px,82.1,0.174,0.41
+HOME color model,4A8B_window_light_close_01,slant,0.25,R,L,own,over 70 px,81.4,0.389,0.375
+HOME color model,4A8B_window_light_close_01,slant,0.25,R,R,cut slanted,over 70 px,81.4,0.0,0.951
+HOME color model,4A8B_window_light_close_01,slant,0.25,R,L,own,over 70 px,80.7,0.417,0.451
+HOME color model,4A8B_window_light_close_01,slant,0.25,R,R,cut slanted,over 70 px,80.7,0.882,0.0
+HOME color model,4A8B_window_light_close_02,none,1.0,,L,own,over 70 px,80.7,0.417,0.264
+HOME color model,4A8B_window_light_close_02,none,1.0,,R,own,over 70 px,80.7,0.354,0.118
+HOME color model,4A8B_window_light_close_02,edge,0.75,L,L,cut straight,over 70 px,81.4,0.938,0.875
+HOME color model,4A8B_window_light_close_02,edge,0.75,L,R,own,over 70 px,81.4,0.354,0.118
+HOME color model,4A8B_window_light_close_02,edge,0.75,R,L,own,over 70 px,81.4,0.417,0.264
+HOME color model,4A8B_window_light_close_02,edge,0.75,R,R,cut straight,over 70 px,81.4,0.882,0.875
+HOME color model,4A8B_window_light_close_02,edge,0.5,L,L,cut straight,over 70 px,81.4,0.986,0.931
+HOME color model,4A8B_window_light_close_02,edge,0.5,L,R,own,over 70 px,81.4,0.354,0.118
+HOME color model,4A8B_window_light_close_02,edge,0.5,R,L,own,over 70 px,80.7,0.417,0.264
+HOME color model,4A8B_window_light_close_02,edge,0.5,R,R,cut straight,over 70 px,80.7,1.0,0.931
+HOME color model,4A8B_window_light_close_02,edge,0.25,L,L,cut straight,over 70 px,80.7,0.924,0.771
+HOME color model,4A8B_window_light_close_02,edge,0.25,L,R,own,over 70 px,80.7,0.472,0.215
+HOME color model,4A8B_window_light_close_02,edge,0.25,R,L,own,over 70 px,79.3,0.542,0.319
+HOME color model,4A8B_window_light_close_02,edge,0.25,R,R,cut straight,over 70 px,79.3,0.924,0.722
+HOME color model,4A8B_window_light_close_02,both,0.75,L,L,cut straight,over 70 px,81.4,0.778,0.688
+HOME color model,4A8B_window_light_close_02,both,0.75,L,R,cut straight,over 70 px,81.4,0.778,0.597
+HOME color model,4A8B_window_light_close_02,both,0.5,L,L,cut straight,over 70 px,82.1,0.938,0.875
+HOME color model,4A8B_window_light_close_02,both,0.5,L,R,cut straight,over 70 px,82.1,0.882,0.875
+HOME color model,4A8B_window_light_close_02,both,0.25,L,L,cut straight,over 70 px,82.1,1.0,0.944
+HOME color model,4A8B_window_light_close_02,both,0.25,L,R,cut straight,over 70 px,82.1,1.0,0.944
+HOME color model,4A8B_window_light_close_02,slant,0.75,L,L,cut slanted,over 70 px,81.4,0.764,0.0
+HOME color model,4A8B_window_light_close_02,slant,0.75,L,R,own,over 70 px,81.4,0.354,0.118
+HOME color model,4A8B_window_light_close_02,slant,0.75,L,L,cut slanted,over 70 px,81.4,0.0,0.722
+HOME color model,4A8B_window_light_close_02,slant,0.75,L,R,own,over 70 px,81.4,0.354,0.118
+HOME color model,4A8B_window_light_close_02,slant,0.75,R,L,own,over 70 px,81.4,0.417,0.264
+HOME color model,4A8B_window_light_close_02,slant,0.75,R,R,cut slanted,over 70 px,81.4,0.0,0.708
+HOME color model,4A8B_window_light_close_02,slant,0.75,R,L,own,over 70 px,81.4,0.417,0.264
+HOME color model,4A8B_window_light_close_02,slant,0.75,R,R,cut slanted,over 70 px,81.4,0.736,0.0
+HOME color model,4A8B_window_light_close_02,slant,0.5,L,L,cut slanted,over 70 px,81.4,0.875,0.0
+HOME color model,4A8B_window_light_close_02,slant,0.5,L,R,own,over 70 px,81.4,0.354,0.146
+HOME color model,4A8B_window_light_close_02,slant,0.5,L,L,cut slanted,over 70 px,81.4,0.0,0.917
+HOME color model,4A8B_window_light_close_02,slant,0.5,L,R,own,over 70 px,81.4,0.41,0.118
+HOME color model,4A8B_window_light_close_02,slant,0.5,R,L,own,over 70 px,80.7,0.417,0.264
+HOME color model,4A8B_window_light_close_02,slant,0.5,R,R,cut slanted,over 70 px,80.7,0.0,0.917
+HOME color model,4A8B_window_light_close_02,slant,0.5,R,L,own,over 70 px,80.0,0.417,0.319
+HOME color model,4A8B_window_light_close_02,slant,0.5,R,R,cut slanted,over 70 px,80.0,0.944,0.0
+HOME color model,4A8B_window_light_close_02,slant,0.25,L,L,cut slanted,over 70 px,80.0,0.917,0.0
+HOME color model,4A8B_window_light_close_02,slant,0.25,L,R,own,over 70 px,80.0,0.472,0.34
+HOME color model,4A8B_window_light_close_02,slant,0.25,L,L,cut slanted,over 70 px,80.7,0.0,0.924
+HOME color model,4A8B_window_light_close_02,slant,0.25,L,R,own,over 70 px,80.7,0.465,0.181
+HOME color model,4A8B_window_light_close_02,slant,0.25,R,L,own,over 70 px,79.3,0.514,0.319
+HOME color model,4A8B_window_light_close_02,slant,0.25,R,R,cut slanted,over 70 px,79.3,0.0,0.944
+HOME color model,4A8B_window_light_close_02,slant,0.25,R,L,own,over 70 px,78.6,0.479,0.472
+HOME color model,4A8B_window_light_close_02,slant,0.25,R,R,cut slanted,over 70 px,78.6,0.833,0.0
+HOME color model,4A8B_window_light_cluster_02,none,1.0,,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,none,1.0,,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,L,L,cut straight,45 to 70 px,48.0,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,L,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,R,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,R,R,cut straight,45 to 70 px,48.0,1.0,0.98
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,L,L,cut straight,45 to 70 px,48.0,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,L,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,R,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,R,R,cut straight,45 to 70 px,48.0,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,L,L,cut straight,45 to 70 px,48.0,0.98,0.837
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,L,R,own,45 to 70 px,48.0,0.714,0.469
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,R,L,own,45 to 70 px,47.3,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,R,R,cut straight,45 to 70 px,47.3,0.878,0.735
+HOME color model,4A8B_window_light_cluster_02,both,0.75,L,L,cut straight,45 to 70 px,48.0,0.98,0.878
+HOME color model,4A8B_window_light_cluster_02,both,0.75,L,R,cut straight,45 to 70 px,48.0,1.0,0.796
+HOME color model,4A8B_window_light_cluster_02,both,0.5,L,L,cut straight,45 to 70 px,48.0,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,both,0.5,L,R,cut straight,45 to 70 px,48.0,1.0,0.98
+HOME color model,4A8B_window_light_cluster_02,both,0.25,L,L,cut straight,45 to 70 px,48.4,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,both,0.25,L,R,cut straight,45 to 70 px,48.4,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,48.0,1.0,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,48.0,0.0,0.878
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,48.0,0.0,0.755
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,48.0,0.898,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,48.0,0.898,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,48.0,0.0,0.959
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,48.0,0.714,0.388
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,48.0,0.0,0.959
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,48.0,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,48.0,0.898,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,L,L,cut slanted,45 to 70 px,48.0,0.898,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,L,R,own,45 to 70 px,48.0,0.714,0.633
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,L,L,cut slanted,45 to 70 px,48.0,0.0,0.898
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,L,R,own,45 to 70 px,48.0,0.469,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,47.3,0.551,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,47.3,0.0,0.939
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,47.3,0.633,0.469
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,47.3,0.898,0.0
+HOME color model,4A8B_window_light_cluster_02,none,1.0,,L,own,45 to 70 px,52.2,0.406,0.328
+HOME color model,4A8B_window_light_cluster_02,none,1.0,,R,own,45 to 70 px,52.2,0.688,0.203
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,L,L,cut straight,45 to 70 px,52.9,0.641,0.875
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,R,L,own,45 to 70 px,52.2,0.391,0.094
+HOME color model,4A8B_window_light_cluster_02,edge,0.75,R,R,cut straight,45 to 70 px,52.2,0.891,0.906
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,L,L,cut straight,45 to 70 px,52.9,0.875,1.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,R,L,own,45 to 70 px,52.2,0.391,0.094
+HOME color model,4A8B_window_light_cluster_02,edge,0.5,R,R,cut straight,45 to 70 px,52.2,0.875,0.953
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,L,L,cut straight,45 to 70 px,52.9,0.562,0.359
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,R,L,own,45 to 70 px,51.5,0.141,0.141
+HOME color model,4A8B_window_light_cluster_02,edge,0.25,R,R,cut straight,45 to 70 px,51.5,0.906,0.906
+HOME color model,4A8B_window_light_cluster_02,both,0.75,L,L,cut straight,45 to 70 px,52.9,0.703,0.812
+HOME color model,4A8B_window_light_cluster_02,both,0.75,L,R,cut straight,45 to 70 px,52.9,0.703,0.312
+HOME color model,4A8B_window_light_cluster_02,both,0.5,L,L,cut straight,45 to 70 px,52.9,0.766,0.875
+HOME color model,4A8B_window_light_cluster_02,both,0.5,L,R,cut straight,45 to 70 px,52.9,0.891,0.906
+HOME color model,4A8B_window_light_cluster_02,both,0.25,L,L,cut straight,45 to 70 px,52.9,0.875,0.953
+HOME color model,4A8B_window_light_cluster_02,both,0.25,L,R,cut straight,45 to 70 px,52.9,1.0,1.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.625,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.0,0.766
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,52.2,0.391,0.094
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,52.2,0.0,0.531
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,52.2,0.391,0.094
+HOME color model,4A8B_window_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,52.2,0.688,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.781,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.0,0.906
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,52.9,0.531,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,52.2,0.266,0.094
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,52.2,0.0,1.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,52.2,0.391,0.141
+HOME color model,4A8B_window_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,52.2,0.906,0.0
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,51.5,0.0,0.141
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.0,0.984
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,51.5,0.266,0.188
+HOME color model,4A8B_window_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,51.5,0.859,0.0
+HOME color model,4A8B_window_light_core_01,none,1.0,,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,none,1.0,,R,own,45 to 70 px,52.9,0.469,0.297
+HOME color model,4A8B_window_light_core_01,edge,0.75,L,L,cut straight,45 to 70 px,52.9,0.953,0.984
+HOME color model,4A8B_window_light_core_01,edge,0.75,L,R,own,45 to 70 px,52.9,0.469,0.297
+HOME color model,4A8B_window_light_core_01,edge,0.75,R,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,edge,0.75,R,R,cut straight,45 to 70 px,52.9,0.828,0.844
+HOME color model,4A8B_window_light_core_01,edge,0.5,L,L,cut straight,45 to 70 px,52.9,1.0,1.0
+HOME color model,4A8B_window_light_core_01,edge,0.5,L,R,own,45 to 70 px,52.9,0.547,0.391
+HOME color model,4A8B_window_light_core_01,edge,0.5,R,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,edge,0.5,R,R,cut straight,45 to 70 px,52.9,0.891,1.0
+HOME color model,4A8B_window_light_core_01,edge,0.25,L,L,cut straight,45 to 70 px,52.2,1.0,0.906
+HOME color model,4A8B_window_light_core_01,edge,0.25,L,R,own,45 to 70 px,52.2,0.641,0.484
+HOME color model,4A8B_window_light_core_01,edge,0.25,R,L,own,45 to 70 px,52.9,0.516,0.266
+HOME color model,4A8B_window_light_core_01,edge,0.25,R,R,cut straight,45 to 70 px,52.9,0.641,0.719
+HOME color model,4A8B_window_light_core_01,both,0.75,L,L,cut straight,45 to 70 px,52.9,0.703,0.703
+HOME color model,4A8B_window_light_core_01,both,0.75,L,R,cut straight,45 to 70 px,52.9,0.75,0.688
+HOME color model,4A8B_window_light_core_01,both,0.5,L,L,cut straight,45 to 70 px,52.9,0.953,0.984
+HOME color model,4A8B_window_light_core_01,both,0.5,L,R,cut straight,45 to 70 px,52.9,0.828,0.844
+HOME color model,4A8B_window_light_core_01,both,0.25,L,L,cut straight,45 to 70 px,53.2,1.0,0.969
+HOME color model,4A8B_window_light_core_01,both,0.25,L,R,cut straight,45 to 70 px,53.2,1.0,0.891
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.719,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,52.9,0.469,0.297
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.0,0.797
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,52.9,0.547,0.297
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,52.9,0.0,0.672
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,52.9,0.703,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.938,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,52.9,0.547,0.391
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.0,0.906
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,52.9,0.547,0.297
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,52.9,0.0,0.875
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,52.9,0.516,0.203
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,52.9,0.828,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,52.2,0.906,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,52.2,0.641,0.531
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,52.2,0.0,0.938
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,52.2,0.484,0.484
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,52.2,0.406,0.203
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,52.2,0.0,0.922
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,52.2,0.516,0.344
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,52.2,0.891,0.0
+HOME color model,4A8B_window_light_core_01,none,1.0,,L,own,45 to 70 px,50.8,0.347,0.286
+HOME color model,4A8B_window_light_core_01,none,1.0,,R,own,45 to 70 px,50.8,0.49,0.245
+HOME color model,4A8B_window_light_core_01,edge,0.75,L,L,cut straight,45 to 70 px,51.5,0.906,0.984
+HOME color model,4A8B_window_light_core_01,edge,0.75,L,R,own,45 to 70 px,51.5,0.578,0.344
+HOME color model,4A8B_window_light_core_01,edge,0.75,R,L,own,45 to 70 px,51.5,0.453,0.391
+HOME color model,4A8B_window_light_core_01,edge,0.75,R,R,cut straight,45 to 70 px,51.5,0.875,0.953
+HOME color model,4A8B_window_light_core_01,edge,0.5,L,L,cut straight,45 to 70 px,51.5,0.922,1.0
+HOME color model,4A8B_window_light_core_01,edge,0.5,L,R,own,45 to 70 px,51.5,0.578,0.344
+HOME color model,4A8B_window_light_core_01,edge,0.5,R,L,own,45 to 70 px,50.8,0.347,0.286
+HOME color model,4A8B_window_light_core_01,edge,0.5,R,R,cut straight,45 to 70 px,50.8,1.0,1.0
+HOME color model,4A8B_window_light_core_01,edge,0.25,L,L,cut straight,45 to 70 px,50.8,0.939,0.714
+HOME color model,4A8B_window_light_core_01,edge,0.25,L,R,own,45 to 70 px,50.8,0.612,0.327
+HOME color model,4A8B_window_light_core_01,edge,0.25,R,L,own,45 to 70 px,50.8,0.449,0.388
+HOME color model,4A8B_window_light_core_01,edge,0.25,R,R,cut straight,45 to 70 px,50.8,0.939,0.837
+HOME color model,4A8B_window_light_core_01,both,0.75,L,L,cut straight,45 to 70 px,51.5,0.859,0.812
+HOME color model,4A8B_window_light_core_01,both,0.75,L,R,cut straight,45 to 70 px,51.5,0.859,0.734
+HOME color model,4A8B_window_light_core_01,both,0.5,L,L,cut straight,45 to 70 px,51.5,0.906,0.984
+HOME color model,4A8B_window_light_core_01,both,0.5,L,R,cut straight,45 to 70 px,51.5,0.875,0.953
+HOME color model,4A8B_window_light_core_01,both,0.25,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME color model,4A8B_window_light_core_01,both,0.25,L,R,cut straight,45 to 70 px,51.5,0.953,1.0
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.828,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,51.5,0.578,0.344
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.0,0.875
+HOME color model,4A8B_window_light_core_01,slant,0.75,L,R,own,45 to 70 px,51.5,0.578,0.344
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,51.5,0.453,0.391
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.0,0.766
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,L,own,45 to 70 px,51.5,0.453,0.391
+HOME color model,4A8B_window_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.812,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,50.8,0.959,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,50.8,0.49,0.245
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,50.8,0.0,0.918
+HOME color model,4A8B_window_light_core_01,slant,0.5,L,R,own,45 to 70 px,50.8,0.612,0.245
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,50.8,0.347,0.286
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,50.8,0.0,0.918
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,L,own,45 to 70 px,50.8,0.347,0.286
+HOME color model,4A8B_window_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,50.8,0.898,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.939,0.0
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,50.8,0.612,0.347
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.0,0.857
+HOME color model,4A8B_window_light_core_01,slant,0.25,L,R,own,45 to 70 px,50.8,0.449,0.327
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,50.8,0.469,0.286
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,50.8,0.0,0.878
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,L,own,45 to 70 px,50.8,0.449,0.571
+HOME color model,4A8B_window_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,50.8,0.939,0.0
+HOME color model,4A8B_window_light_core_02,none,1.0,,L,own,45 to 70 px,50.1,0.327,0.469
+HOME color model,4A8B_window_light_core_02,none,1.0,,R,own,45 to 70 px,50.1,0.51,0.204
+HOME color model,4A8B_window_light_core_02,edge,0.75,L,L,cut straight,45 to 70 px,50.1,0.939,1.0
+HOME color model,4A8B_window_light_core_02,edge,0.75,L,R,own,45 to 70 px,50.1,0.51,0.204
+HOME color model,4A8B_window_light_core_02,edge,0.75,R,L,own,45 to 70 px,50.1,0.327,0.469
+HOME color model,4A8B_window_light_core_02,edge,0.75,R,R,cut straight,45 to 70 px,50.1,0.857,1.0
+HOME color model,4A8B_window_light_core_02,edge,0.5,L,L,cut straight,45 to 70 px,50.1,1.0,1.0
+HOME color model,4A8B_window_light_core_02,edge,0.5,L,R,own,45 to 70 px,50.1,0.633,0.204
+HOME color model,4A8B_window_light_core_02,edge,0.5,R,L,own,45 to 70 px,49.4,0.327,0.469
+HOME color model,4A8B_window_light_core_02,edge,0.5,R,R,cut straight,45 to 70 px,49.4,0.857,1.0
+HOME color model,4A8B_window_light_core_02,edge,0.25,L,L,cut straight,45 to 70 px,50.1,0.959,0.694
+HOME color model,4A8B_window_light_core_02,edge,0.25,L,R,own,45 to 70 px,50.1,0.633,0.204
+HOME color model,4A8B_window_light_core_02,edge,0.25,R,L,own,45 to 70 px,48.7,0.429,0.592
+HOME color model,4A8B_window_light_core_02,edge,0.25,R,R,cut straight,45 to 70 px,48.7,0.837,0.898
+HOME color model,4A8B_window_light_core_02,both,0.75,L,L,cut straight,45 to 70 px,50.1,0.776,0.816
+HOME color model,4A8B_window_light_core_02,both,0.75,L,R,cut straight,45 to 70 px,50.1,0.837,0.796
+HOME color model,4A8B_window_light_core_02,both,0.5,L,L,cut straight,45 to 70 px,50.1,0.939,1.0
+HOME color model,4A8B_window_light_core_02,both,0.5,L,R,cut straight,45 to 70 px,50.1,0.857,1.0
+HOME color model,4A8B_window_light_core_02,both,0.25,L,L,cut straight,45 to 70 px,50.1,1.0,1.0
+HOME color model,4A8B_window_light_core_02,both,0.25,L,R,cut straight,45 to 70 px,50.1,1.0,1.0
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.1,0.796,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,50.1,0.51,0.204
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.1,0.0,0.918
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,50.1,0.633,0.204
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,50.1,0.327,0.469
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,50.1,0.0,0.857
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,50.1,0.327,0.469
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,50.1,0.796,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,50.1,0.939,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,50.1,0.633,0.204
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,50.1,0.0,0.918
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,50.1,0.633,0.204
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,49.4,0.327,0.469
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,49.4,0.0,0.918
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,49.4,0.327,0.469
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,49.4,0.816,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,49.4,0.939,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,49.4,0.633,0.367
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,49.4,0.0,0.898
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,49.4,0.531,0.204
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,48.7,0.429,0.469
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,48.7,0.0,0.959
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,48.7,0.327,0.694
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,48.7,0.898,0.0
+HOME color model,4A8B_window_light_core_02,none,1.0,,L,own,45 to 70 px,50.8,0.224,0.204
+HOME color model,4A8B_window_light_core_02,none,1.0,,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,edge,0.75,L,L,cut straight,45 to 70 px,50.8,0.571,0.714
+HOME color model,4A8B_window_light_core_02,edge,0.75,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,edge,0.75,R,L,own,45 to 70 px,50.1,0.224,0.204
+HOME color model,4A8B_window_light_core_02,edge,0.75,R,R,cut straight,45 to 70 px,50.1,0.878,0.939
+HOME color model,4A8B_window_light_core_02,edge,0.5,L,L,cut straight,45 to 70 px,50.8,0.959,0.796
+HOME color model,4A8B_window_light_core_02,edge,0.5,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,edge,0.5,R,L,own,45 to 70 px,50.1,0.224,0.327
+HOME color model,4A8B_window_light_core_02,edge,0.5,R,R,cut straight,45 to 70 px,50.1,0.878,0.918
+HOME color model,4A8B_window_light_core_02,edge,0.25,L,L,cut straight,45 to 70 px,50.8,0.878,0.633
+HOME color model,4A8B_window_light_core_02,edge,0.25,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,edge,0.25,R,L,own,45 to 70 px,49.8,0.408,0.531
+HOME color model,4A8B_window_light_core_02,edge,0.25,R,R,cut straight,45 to 70 px,49.8,1.0,0.918
+HOME color model,4A8B_window_light_core_02,both,0.75,L,L,cut straight,45 to 70 px,50.8,0.571,0.49
+HOME color model,4A8B_window_light_core_02,both,0.75,L,R,cut straight,45 to 70 px,50.8,0.878,0.51
+HOME color model,4A8B_window_light_core_02,both,0.5,L,L,cut straight,45 to 70 px,50.8,0.571,0.714
+HOME color model,4A8B_window_light_core_02,both,0.5,L,R,cut straight,45 to 70 px,50.8,0.878,0.939
+HOME color model,4A8B_window_light_core_02,both,0.25,L,L,cut straight,45 to 70 px,50.8,0.939,0.939
+HOME color model,4A8B_window_light_core_02,both,0.25,L,R,cut straight,45 to 70 px,50.8,0.98,0.939
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.8,0.551,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.8,0.0,0.592
+HOME color model,4A8B_window_light_core_02,slant,0.75,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,50.1,0.224,0.204
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,50.1,0.0,0.633
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,L,own,45 to 70 px,50.1,0.224,0.327
+HOME color model,4A8B_window_light_core_02,slant,0.75,R,R,cut slanted,45 to 70 px,50.1,0.857,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,50.8,0.918,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,L,cut slanted,45 to 70 px,50.8,0.0,0.816
+HOME color model,4A8B_window_light_core_02,slant,0.5,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,50.1,0.408,0.327
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,50.1,0.0,0.918
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,L,own,45 to 70 px,50.1,0.224,0.429
+HOME color model,4A8B_window_light_core_02,slant,0.5,R,R,cut slanted,45 to 70 px,50.1,0.939,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.857,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,L,cut slanted,45 to 70 px,50.8,0.0,0.918
+HOME color model,4A8B_window_light_core_02,slant,0.25,L,R,own,45 to 70 px,50.8,0.612,0.0
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,49.4,0.347,0.429
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,49.4,0.0,0.939
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,L,own,45 to 70 px,49.4,0.408,0.633
+HOME color model,4A8B_window_light_core_02,slant,0.25,R,R,cut slanted,45 to 70 px,49.4,0.918,0.0
+HOME color model,4A8B_window_light_core_03,none,1.0,,L,own,under 45 px,32.0,0.48,0.52
+HOME color model,4A8B_window_light_core_03,none,1.0,,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,edge,0.75,L,L,cut straight,under 45 px,32.0,0.8,1.0
+HOME color model,4A8B_window_light_core_03,edge,0.75,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,edge,0.75,R,L,own,under 45 px,32.0,0.48,0.52
+HOME color model,4A8B_window_light_core_03,edge,0.75,R,R,cut straight,under 45 px,32.0,0.96,1.0
+HOME color model,4A8B_window_light_core_03,edge,0.5,L,L,cut straight,under 45 px,32.0,0.84,1.0
+HOME color model,4A8B_window_light_core_03,edge,0.5,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,edge,0.5,R,L,own,under 45 px,32.0,0.64,0.52
+HOME color model,4A8B_window_light_core_03,edge,0.5,R,R,cut straight,under 45 px,32.0,1.0,1.0
+HOME color model,4A8B_window_light_core_03,edge,0.25,L,L,cut straight,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,edge,0.25,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,edge,0.25,R,L,own,under 45 px,32.0,0.64,0.52
+HOME color model,4A8B_window_light_core_03,edge,0.25,R,R,cut straight,under 45 px,32.0,0.84,0.72
+HOME color model,4A8B_window_light_core_03,both,0.75,L,L,cut straight,under 45 px,32.0,0.8,1.0
+HOME color model,4A8B_window_light_core_03,both,0.75,L,R,cut straight,under 45 px,32.0,0.92,0.92
+HOME color model,4A8B_window_light_core_03,both,0.5,L,L,cut straight,under 45 px,32.0,0.8,1.0
+HOME color model,4A8B_window_light_core_03,both,0.5,L,R,cut straight,under 45 px,32.0,0.96,1.0
+HOME color model,4A8B_window_light_core_03,both,0.25,L,L,cut straight,under 45 px,32.0,1.0,1.0
+HOME color model,4A8B_window_light_core_03,both,0.25,L,R,cut straight,under 45 px,32.0,1.0,1.0
+HOME color model,4A8B_window_light_core_03,slant,0.75,L,L,cut slanted,under 45 px,32.0,0.76,0.0
+HOME color model,4A8B_window_light_core_03,slant,0.75,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,slant,0.75,L,L,cut slanted,under 45 px,32.0,0.0,1.0
+HOME color model,4A8B_window_light_core_03,slant,0.75,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,slant,0.75,R,L,own,under 45 px,32.0,0.48,0.52
+HOME color model,4A8B_window_light_core_03,slant,0.75,R,R,cut slanted,under 45 px,32.0,0.0,0.92
+HOME color model,4A8B_window_light_core_03,slant,0.75,R,L,own,under 45 px,32.0,0.48,0.52
+HOME color model,4A8B_window_light_core_03,slant,0.75,R,R,cut slanted,under 45 px,32.0,0.8,0.0
+HOME color model,4A8B_window_light_core_03,slant,0.5,L,L,cut slanted,under 45 px,32.0,0.76,0.0
+HOME color model,4A8B_window_light_core_03,slant,0.5,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,slant,0.5,L,L,cut slanted,under 45 px,32.0,0.0,1.0
+HOME color model,4A8B_window_light_core_03,slant,0.5,L,R,own,under 45 px,32.0,0.64,0.56
+HOME color model,4A8B_window_light_core_03,slant,0.5,R,L,own,under 45 px,32.0,0.64,0.52
+HOME color model,4A8B_window_light_core_03,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.0,1.0
+HOME color model,4A8B_window_light_core_03,slant,0.5,R,L,own,under 45 px,32.0,0.64,0.52
+HOME color model,4A8B_window_light_core_03,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.92,0.0
+HOME color model,4A8B_window_light_core_03,slant,0.25,L,L,cut slanted,under 45 px,32.0,0.92,0.0
+HOME color model,4A8B_window_light_core_03,slant,0.25,L,R,own,under 45 px,32.0,0.64,0.32
+HOME color model,4A8B_window_light_core_03,slant,0.25,R,L,own,under 45 px,32.0,0.32,0.52
+HOME color model,4A8B_window_light_core_03,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.0,1.0
+HOME color model,4A8B_window_light_core_03,slant,0.25,R,L,own,under 45 px,32.0,0.64,0.44
+HOME color model,4A8B_window_light_core_03,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.92,0.0
+HOME color model,4A8B_window_light_far_02,none,1.0,,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,none,1.0,,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,edge,0.75,L,L,cut straight,under 45 px,31.3,1.0,1.0
+HOME color model,4A8B_window_light_far_02,edge,0.75,L,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,edge,0.75,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,edge,0.75,R,R,cut straight,under 45 px,31.3,1.0,0.92
+HOME color model,4A8B_window_light_far_02,edge,0.5,L,L,cut straight,under 45 px,31.3,1.0,1.0
+HOME color model,4A8B_window_light_far_02,edge,0.5,L,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,edge,0.5,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,edge,0.5,R,R,cut straight,under 45 px,31.3,1.0,1.0
+HOME color model,4A8B_window_light_far_02,edge,0.25,L,L,cut straight,under 45 px,31.3,0.92,0.72
+HOME color model,4A8B_window_light_far_02,edge,0.25,L,R,own,under 45 px,31.3,0.92,0.72
+HOME color model,4A8B_window_light_far_02,edge,0.25,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,edge,0.25,R,R,cut straight,under 45 px,31.3,0.96,0.84
+HOME color model,4A8B_window_light_far_02,both,0.75,L,L,cut straight,under 45 px,31.3,1.0,0.88
+HOME color model,4A8B_window_light_far_02,both,0.75,L,R,cut straight,under 45 px,31.3,1.0,0.72
+HOME color model,4A8B_window_light_far_02,both,0.5,L,L,cut straight,under 45 px,31.3,1.0,1.0
+HOME color model,4A8B_window_light_far_02,both,0.5,L,R,cut straight,under 45 px,31.3,1.0,0.92
+HOME color model,4A8B_window_light_far_02,both,0.25,L,L,cut straight,under 45 px,32.0,1.0,1.0
+HOME color model,4A8B_window_light_far_02,both,0.25,L,R,cut straight,under 45 px,32.0,1.0,1.0
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,31.3,0.92,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,31.3,0.0,0.96
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,31.3,0.0,0.76
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,31.3,0.92,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,31.3,0.92,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,31.3,0.0,1.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,31.3,0.92,0.56
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,31.3,0.0,1.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,31.3,0.92,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,31.3,0.44,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,31.3,0.0,0.96
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,31.3,0.76,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,31.3,0.92,0.0
+HOME color model,4A8B_window_light_far_02,none,1.0,,L,own,under 45 px,32.7,0.08,0.12
+HOME color model,4A8B_window_light_far_02,none,1.0,,R,own,under 45 px,32.7,0.64,0.0
+HOME color model,4A8B_window_light_far_02,edge,0.75,L,L,cut straight,under 45 px,32.7,0.92,0.8
+HOME color model,4A8B_window_light_far_02,edge,0.75,L,R,own,under 45 px,32.7,0.64,0.0
+HOME color model,4A8B_window_light_far_02,edge,0.75,R,L,own,under 45 px,32.7,0.08,0.12
+HOME color model,4A8B_window_light_far_02,edge,0.75,R,R,cut straight,under 45 px,32.7,1.0,0.8
+HOME color model,4A8B_window_light_far_02,edge,0.5,L,L,cut straight,under 45 px,32.7,1.0,0.88
+HOME color model,4A8B_window_light_far_02,edge,0.5,L,R,own,under 45 px,32.7,0.64,0.0
+HOME color model,4A8B_window_light_far_02,edge,0.5,R,L,own,under 45 px,32.0,0.08,0.2
+HOME color model,4A8B_window_light_far_02,edge,0.5,R,R,cut straight,under 45 px,32.0,1.0,1.0
+HOME color model,4A8B_window_light_far_02,edge,0.25,L,L,cut straight,under 45 px,32.4,1.0,0.6
+HOME color model,4A8B_window_light_far_02,edge,0.25,L,R,own,under 45 px,32.4,0.84,0.04
+HOME color model,4A8B_window_light_far_02,edge,0.25,R,L,own,under 45 px,32.0,0.32,0.2
+HOME color model,4A8B_window_light_far_02,edge,0.25,R,R,cut straight,under 45 px,32.0,0.84,0.76
+HOME color model,4A8B_window_light_far_02,both,0.75,L,L,cut straight,under 45 px,32.7,0.44,0.56
+HOME color model,4A8B_window_light_far_02,both,0.75,L,R,cut straight,under 45 px,32.7,0.8,0.32
+HOME color model,4A8B_window_light_far_02,both,0.5,L,L,cut straight,under 45 px,32.7,0.92,0.8
+HOME color model,4A8B_window_light_far_02,both,0.5,L,R,cut straight,under 45 px,32.7,1.0,0.8
+HOME color model,4A8B_window_light_far_02,both,0.25,L,L,cut straight,under 45 px,32.7,1.0,0.8
+HOME color model,4A8B_window_light_far_02,both,0.25,L,R,cut straight,under 45 px,32.7,1.0,0.88
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,32.7,0.68,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,32.7,0.64,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,L,cut slanted,under 45 px,32.7,0.0,0.76
+HOME color model,4A8B_window_light_far_02,slant,0.75,L,R,own,under 45 px,32.7,0.64,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,32.7,0.08,0.12
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,32.7,0.0,0.64
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,L,own,under 45 px,32.7,0.08,0.12
+HOME color model,4A8B_window_light_far_02,slant,0.75,R,R,cut slanted,under 45 px,32.7,0.84,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,32.4,1.0,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,32.4,0.64,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,L,cut slanted,under 45 px,32.4,0.0,0.84
+HOME color model,4A8B_window_light_far_02,slant,0.5,L,R,own,under 45 px,32.4,0.64,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,32.0,0.08,0.2
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,32.0,0.0,1.0
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,L,own,under 45 px,32.0,0.08,0.2
+HOME color model,4A8B_window_light_far_02,slant,0.5,R,R,cut slanted,under 45 px,32.0,1.0,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.25,L,L,cut slanted,under 45 px,32.4,0.0,0.92
+HOME color model,4A8B_window_light_far_02,slant,0.25,L,R,own,under 45 px,32.4,0.68,0.0
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,32.0,0.4,0.2
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.0,1.0
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,L,own,under 45 px,32.0,0.2,0.4
+HOME color model,4A8B_window_light_far_02,slant,0.25,R,R,cut slanted,under 45 px,32.0,0.92,0.0
+HOME color model,4A8B_window_light_touch_02,none,1.0,,L,own,45 to 70 px,50.8,0.531,0.347
+HOME color model,4A8B_window_light_touch_02,none,1.0,,R,own,45 to 70 px,50.8,0.327,0.224
+HOME color model,4A8B_window_light_touch_02,edge,0.75,L,L,cut straight,45 to 70 px,50.8,0.918,0.959
+HOME color model,4A8B_window_light_touch_02,edge,0.75,L,R,own,45 to 70 px,50.8,0.327,0.224
+HOME color model,4A8B_window_light_touch_02,edge,0.75,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME color model,4A8B_window_light_touch_02,edge,0.75,R,R,cut straight,45 to 70 px,51.5,0.875,0.891
+HOME color model,4A8B_window_light_touch_02,edge,0.5,L,L,cut straight,45 to 70 px,50.8,1.0,1.0
+HOME color model,4A8B_window_light_touch_02,edge,0.5,L,R,own,45 to 70 px,50.8,0.408,0.224
+HOME color model,4A8B_window_light_touch_02,edge,0.5,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME color model,4A8B_window_light_touch_02,edge,0.5,R,R,cut straight,45 to 70 px,51.5,0.875,1.0
+HOME color model,4A8B_window_light_touch_02,edge,0.25,L,L,cut straight,45 to 70 px,50.1,0.837,0.755
+HOME color model,4A8B_window_light_touch_02,edge,0.25,L,R,own,45 to 70 px,50.1,0.408,0.388
+HOME color model,4A8B_window_light_touch_02,edge,0.25,R,L,own,45 to 70 px,50.8,0.653,0.449
+HOME color model,4A8B_window_light_touch_02,edge,0.25,R,R,cut straight,45 to 70 px,50.8,0.98,0.878
+HOME color model,4A8B_window_light_touch_02,both,0.75,L,L,cut straight,45 to 70 px,51.5,0.875,0.828
+HOME color model,4A8B_window_light_touch_02,both,0.75,L,R,cut straight,45 to 70 px,51.5,0.812,0.688
+HOME color model,4A8B_window_light_touch_02,both,0.5,L,L,cut straight,45 to 70 px,51.5,0.922,0.969
+HOME color model,4A8B_window_light_touch_02,both,0.5,L,R,cut straight,45 to 70 px,51.5,0.875,0.891
+HOME color model,4A8B_window_light_touch_02,both,0.25,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME color model,4A8B_window_light_touch_02,both,0.25,L,R,cut straight,45 to 70 px,51.5,1.0,1.0
+HOME color model,4A8B_window_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.8,0.816,0.0
+HOME color model,4A8B_window_light_touch_02,slant,0.75,L,R,own,45 to 70 px,50.8,0.327,0.224
+HOME color model,4A8B_window_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,50.8,0.0,0.776
+HOME color model,4A8B_window_light_touch_02,slant,0.75,L,R,own,45 to 70 px,50.8,0.408,0.224
+HOME color model,4A8B_window_light_touch_02,slant,0.75,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME color model,4A8B_window_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.0,0.75
+HOME color model,4A8B_window_light_touch_02,slant,0.75,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME color model,4A8B_window_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,51.5,0.766,0.0
+HOME color model,4A8B_window_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,50.8,0.939,0.0
+HOME color model,4A8B_window_light_touch_02,slant,0.5,L,R,own,45 to 70 px,50.8,0.408,0.224
+HOME color model,4A8B_window_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,50.8,0.0,0.939
+HOME color model,4A8B_window_light_touch_02,slant,0.5,L,R,own,45 to 70 px,50.8,0.408,0.224
+HOME color model,4A8B_window_light_touch_02,slant,0.5,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME color model,4A8B_window_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,51.5,0.0,0.938
+HOME color model,4A8B_window_light_touch_02,slant,0.5,R,L,own,45 to 70 px,51.5,0.609,0.453
+HOME color model,4A8B_window_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,51.5,0.828,0.0
+HOME color model,4A8B_window_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,50.1,0.939,0.0
+HOME color model,4A8B_window_light_touch_02,slant,0.25,L,R,own,45 to 70 px,50.1,0.408,0.367
+HOME color model,4A8B_window_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,50.1,0.0,0.837
+HOME color model,4A8B_window_light_touch_02,slant,0.25,L,R,own,45 to 70 px,50.1,0.388,0.306
+HOME color model,4A8B_window_light_touch_02,slant,0.25,R,L,own,45 to 70 px,50.8,0.571,0.347
+HOME color model,4A8B_window_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,50.8,0.0,0.878
+HOME color model,4A8B_window_light_touch_02,slant,0.25,R,L,own,45 to 70 px,50.8,0.653,0.612
+HOME color model,4A8B_window_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,50.8,0.939,0.0
+CAMPUS color model,4A8B_campus_light_close_01,none,1.0,,L,own,over 70 px,150.3,0.273,0.0
+CAMPUS color model,4A8B_campus_light_close_01,none,1.0,,R,own,over 70 px,150.3,0.324,0.033
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.75,L,L,cut straight,over 70 px,151.7,0.928,0.767
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.75,L,R,own,over 70 px,151.7,0.324,0.033
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.75,R,L,own,over 70 px,151.7,0.273,0.0
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.75,R,R,cut straight,over 70 px,151.7,0.913,0.754
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.5,L,L,cut straight,over 70 px,151.0,0.986,0.921
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.5,L,R,own,over 70 px,151.0,0.324,0.033
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.5,R,L,own,over 70 px,150.3,0.273,0.0
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.5,R,R,cut straight,over 70 px,150.3,0.99,0.932
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.25,L,L,cut straight,over 70 px,147.5,0.81,0.593
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.25,L,R,own,over 70 px,147.5,0.455,0.19
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.25,R,L,own,over 70 px,146.1,0.324,0.054
+CAMPUS color model,4A8B_campus_light_close_01,edge,0.25,R,R,cut straight,over 70 px,146.1,0.8,0.512
+CAMPUS color model,4A8B_campus_light_close_01,both,0.75,L,L,cut straight,over 70 px,151.7,0.721,0.256
+CAMPUS color model,4A8B_campus_light_close_01,both,0.75,L,R,cut straight,over 70 px,151.7,0.688,0.312
+CAMPUS color model,4A8B_campus_light_close_01,both,0.5,L,L,cut straight,over 70 px,153.1,0.934,0.783
+CAMPUS color model,4A8B_campus_light_close_01,both,0.5,L,R,cut straight,over 70 px,153.1,0.921,0.771
+CAMPUS color model,4A8B_campus_light_close_01,both,0.25,L,L,cut straight,over 70 px,153.8,0.998,0.955
+CAMPUS color model,4A8B_campus_light_close_01,both,0.25,L,R,cut straight,over 70 px,153.8,0.994,0.955
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,L,L,cut slanted,over 70 px,151.7,0.764,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,L,R,own,over 70 px,151.7,0.324,0.033
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,L,L,cut slanted,over 70 px,151.7,0.0,0.446
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,L,R,own,over 70 px,151.7,0.324,0.033
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,R,L,own,over 70 px,151.7,0.273,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,R,R,cut slanted,over 70 px,151.7,0.0,0.467
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,R,L,own,over 70 px,151.0,0.273,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.75,R,R,cut slanted,over 70 px,151.0,0.713,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,L,L,cut slanted,over 70 px,150.3,0.915,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,L,R,own,over 70 px,150.3,0.324,0.062
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,L,L,cut slanted,over 70 px,151.0,0.0,0.963
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,L,R,own,over 70 px,151.0,0.355,0.033
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,R,L,own,over 70 px,150.3,0.302,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,R,R,cut slanted,over 70 px,150.3,0.0,0.963
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,R,L,own,over 70 px,149.6,0.273,0.008
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.5,R,R,cut slanted,over 70 px,149.6,0.909,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,L,L,cut slanted,over 70 px,146.8,0.872,0.0
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,L,R,own,over 70 px,146.8,0.455,0.444
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,L,L,cut slanted,over 70 px,148.2,0.0,0.936
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,L,R,own,over 70 px,148.2,0.455,0.19
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,R,L,own,over 70 px,146.8,0.481,0.033
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,R,R,cut slanted,over 70 px,146.8,0.0,0.853
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,R,L,own,over 70 px,144.7,0.324,0.324
+CAMPUS color model,4A8B_campus_light_close_01,slant,0.25,R,R,cut slanted,over 70 px,144.7,0.884,0.0
+CAMPUS color model,4A8B_campus_light_cluster_02,none,1.0,,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,none,1.0,,R,own,45 to 70 px,46.6,0.245,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.75,L,L,cut straight,45 to 70 px,46.6,0.939,0.959
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.75,L,R,own,45 to 70 px,46.6,0.245,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.75,R,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.75,R,R,cut straight,45 to 70 px,46.6,0.735,0.898
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.5,L,L,cut straight,45 to 70 px,46.6,0.98,1.0
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.5,L,R,own,45 to 70 px,46.6,0.347,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.5,R,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.5,R,R,cut straight,45 to 70 px,46.6,0.959,1.0
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.25,L,L,cut straight,45 to 70 px,45.9,0.694,0.755
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.25,L,R,own,45 to 70 px,45.9,0.551,0.612
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.25,R,L,own,45 to 70 px,46.6,0.449,0.388
+CAMPUS color model,4A8B_campus_light_cluster_02,edge,0.25,R,R,cut straight,45 to 70 px,46.6,0.653,0.653
+CAMPUS color model,4A8B_campus_light_cluster_02,both,0.75,L,L,cut straight,45 to 70 px,46.6,0.653,0.735
+CAMPUS color model,4A8B_campus_light_cluster_02,both,0.75,L,R,cut straight,45 to 70 px,46.6,0.51,0.837
+CAMPUS color model,4A8B_campus_light_cluster_02,both,0.5,L,L,cut straight,45 to 70 px,46.6,0.939,0.959
+CAMPUS color model,4A8B_campus_light_cluster_02,both,0.5,L,R,cut straight,45 to 70 px,46.6,0.735,0.898
+CAMPUS color model,4A8B_campus_light_cluster_02,both,0.25,L,L,cut straight,45 to 70 px,47.0,0.939,1.0
+CAMPUS color model,4A8B_campus_light_cluster_02,both,0.25,L,R,cut straight,45 to 70 px,47.0,0.857,1.0
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,46.6,0.714,0.0
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,46.6,0.245,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,L,L,cut slanted,45 to 70 px,46.6,0.0,0.755
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,L,R,own,45 to 70 px,46.6,0.245,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,46.6,0.0,0.796
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,R,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.75,R,R,cut slanted,45 to 70 px,46.6,0.51,0.0
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,46.6,0.918,0.0
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,46.6,0.347,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,L,L,cut slanted,45 to 70 px,46.6,0.0,0.959
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,L,R,own,45 to 70 px,46.6,0.449,0.51
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,46.6,0.0,0.959
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,R,L,own,45 to 70 px,46.6,0.327,0.306
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.5,R,R,cut slanted,45 to 70 px,46.6,0.776,0.0
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,46.6,0.51,0.388
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,46.6,0.0,0.918
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.25,R,L,own,45 to 70 px,46.6,0.449,0.408
+CAMPUS color model,4A8B_campus_light_cluster_02,slant,0.25,R,R,cut slanted,45 to 70 px,46.6,0.878,0.0
+CAMPUS color model,4A8B_campus_light_clutter_02,none,1.0,,L,own,45 to 70 px,57.1,0.344,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,none,1.0,,R,own,45 to 70 px,57.1,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.75,L,L,cut straight,45 to 70 px,57.1,0.25,1.0
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.75,L,R,own,45 to 70 px,57.1,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.75,R,L,own,45 to 70 px,57.1,0.344,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.75,R,R,cut straight,45 to 70 px,57.1,0.875,0.953
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.5,L,L,cut straight,45 to 70 px,57.1,0.516,1.0
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.5,L,R,own,45 to 70 px,57.1,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.5,R,L,own,45 to 70 px,57.1,0.719,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.5,R,R,cut straight,45 to 70 px,57.1,0.766,1.0
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.25,L,L,cut straight,45 to 70 px,56.4,0.953,0.953
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.25,L,R,own,45 to 70 px,56.4,0.203,0.328
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.25,R,L,own,45 to 70 px,56.4,0.719,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,edge,0.25,R,R,cut straight,45 to 70 px,56.4,0.797,0.672
+CAMPUS color model,4A8B_campus_light_clutter_02,both,0.75,L,L,cut straight,45 to 70 px,57.1,0.25,0.844
+CAMPUS color model,4A8B_campus_light_clutter_02,both,0.75,L,R,cut straight,45 to 70 px,57.1,0.984,0.828
+CAMPUS color model,4A8B_campus_light_clutter_02,both,0.5,L,L,cut straight,45 to 70 px,57.1,0.25,1.0
+CAMPUS color model,4A8B_campus_light_clutter_02,both,0.5,L,R,cut straight,45 to 70 px,57.1,0.875,0.953
+CAMPUS color model,4A8B_campus_light_clutter_02,both,0.25,L,L,cut straight,45 to 70 px,57.4,0.531,1.0
+CAMPUS color model,4A8B_campus_light_clutter_02,both,0.25,L,R,cut straight,45 to 70 px,57.4,0.703,1.0
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,L,L,cut slanted,45 to 70 px,57.1,0.25,0.0
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,L,R,own,45 to 70 px,57.1,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,L,L,cut slanted,45 to 70 px,57.1,0.0,0.844
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,L,R,own,45 to 70 px,57.1,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,R,L,own,45 to 70 px,57.1,0.531,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,R,R,cut slanted,45 to 70 px,57.1,0.0,0.781
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,R,L,own,45 to 70 px,57.1,0.344,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.75,R,R,cut slanted,45 to 70 px,57.1,0.922,0.0
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,L,L,cut slanted,45 to 70 px,56.4,0.297,0.0
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,L,R,own,45 to 70 px,56.4,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,L,L,cut slanted,45 to 70 px,56.4,0.0,0.953
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,L,R,own,45 to 70 px,56.4,0.203,0.281
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,R,L,own,45 to 70 px,57.1,0.719,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,R,R,cut slanted,45 to 70 px,57.1,0.0,0.953
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,R,L,own,45 to 70 px,57.1,0.719,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.5,R,R,cut slanted,45 to 70 px,57.1,0.812,0.0
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,L,L,cut slanted,45 to 70 px,56.4,0.891,0.0
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,L,R,own,45 to 70 px,56.4,0.203,0.328
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,L,L,cut slanted,45 to 70 px,56.4,0.0,0.875
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,L,R,own,45 to 70 px,56.4,0.219,0.328
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,R,L,own,45 to 70 px,56.4,0.719,0.016
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,R,R,cut slanted,45 to 70 px,56.4,0.0,0.938
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,R,L,own,45 to 70 px,56.4,0.719,0.234
+CAMPUS color model,4A8B_campus_light_clutter_02,slant,0.25,R,R,cut slanted,45 to 70 px,56.4,0.719,0.0
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,L,own,over 70 px,109.9,0.344,0.0
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,R,own,over 70 px,109.9,0.266,0.117
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,L,cut straight,over 70 px,109.9,0.82,0.695
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,R,own,over 70 px,109.9,0.266,0.117
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,L,own,over 70 px,111.3,0.344,0.0
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,R,cut straight,over 70 px,111.3,0.984,0.699
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,L,cut straight,over 70 px,108.5,1.0,0.902
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,R,own,over 70 px,108.5,0.266,0.152
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,L,own,over 70 px,112.0,0.344,0.0
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,R,cut straight,over 70 px,112.0,0.945,0.938
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,L,L,cut straight,over 70 px,105.7,0.82,0.781
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,L,R,own,over 70 px,105.7,0.328,0.402
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,L,own,over 70 px,110.6,0.574,0.152
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,R,cut straight,over 70 px,110.6,0.852,0.492
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,L,cut straight,over 70 px,109.9,0.621,0.145
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,R,cut straight,over 70 px,109.9,0.742,0.363
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,L,cut straight,over 70 px,111.3,0.82,0.695
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,R,cut straight,over 70 px,111.3,0.984,0.699
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,L,cut straight,over 70 px,112.0,0.953,0.938
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,R,cut straight,over 70 px,112.0,1.0,0.848
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,over 70 px,109.2,0.641,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,over 70 px,109.2,0.266,0.117
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,over 70 px,109.9,0.0,0.32
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,over 70 px,109.9,0.266,0.117
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,over 70 px,111.3,0.344,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,over 70 px,111.3,0.0,0.477
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,over 70 px,111.3,0.344,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,over 70 px,111.3,0.785,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,over 70 px,107.8,0.898,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,over 70 px,107.8,0.266,0.227
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,over 70 px,108.5,0.0,0.93
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,over 70 px,108.5,0.266,0.117
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,over 70 px,112.0,0.457,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,over 70 px,112.0,0.0,0.844
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,over 70 px,112.0,0.344,0.004
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,over 70 px,112.0,0.875,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,L,cut slanted,over 70 px,105.0,0.849,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,R,own,over 70 px,105.0,0.196,0.542
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,L,cut slanted,over 70 px,105.7,0.0,0.953
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,R,own,over 70 px,105.7,0.297,0.402
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,L,own,over 70 px,110.6,0.805,0.012
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,R,cut slanted,over 70 px,110.6,0.0,0.645
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,L,own,over 70 px,110.6,0.516,0.297
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,R,cut slanted,over 70 px,110.6,0.852,0.0
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,L,own,under 45 px,36.2,0.04,0.0
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,L,cut straight,under 45 px,36.2,0.4,0.48
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,L,own,under 45 px,36.2,0.04,0.0
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,R,cut straight,under 45 px,36.2,0.96,0.92
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,L,cut straight,under 45 px,36.2,0.68,0.88
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,L,own,under 45 px,36.2,0.12,0.0
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,R,cut straight,under 45 px,36.2,0.24,0.48
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,L,own,under 45 px,36.9,0.12,0.08
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,R,cut straight,under 45 px,36.9,0.08,0.24
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,L,cut straight,under 45 px,36.2,0.04,0.28
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,R,cut straight,under 45 px,36.2,0.96,0.68
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,L,cut straight,under 45 px,36.2,0.4,0.48
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,R,cut straight,under 45 px,36.2,0.96,0.92
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,L,cut straight,under 45 px,36.2,0.28,0.52
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,R,cut straight,under 45 px,36.2,0.52,0.8
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,under 45 px,36.2,0.32,0.04
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,under 45 px,36.2,0.0,0.48
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,under 45 px,36.2,0.04,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,under 45 px,36.2,0.0,0.72
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,under 45 px,36.2,0.04,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,under 45 px,36.2,0.92,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,under 45 px,36.2,0.48,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,under 45 px,36.2,0.0,0.72
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,under 45 px,36.2,0.76,0.36
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,under 45 px,36.2,0.12,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,under 45 px,36.2,0.0,0.72
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,under 45 px,36.2,0.12,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,under 45 px,36.2,0.44,0.0
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,R,own,45 to 70 px,64.0,0.642,0.185
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,L,cut straight,45 to 70 px,64.7,0.87,0.81
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,R,own,45 to 70 px,64.7,0.68,0.27
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,R,cut straight,45 to 70 px,64.0,0.877,0.938
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,L,cut straight,45 to 70 px,64.7,0.78,0.99
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,R,own,45 to 70 px,64.7,0.68,0.27
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,R,cut straight,45 to 70 px,64.0,0.988,0.975
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,L,L,cut straight,45 to 70 px,64.0,0.926,0.556
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,L,R,own,45 to 70 px,64.0,0.728,0.235
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,L,own,45 to 70 px,63.3,0.494,0.543
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,R,cut straight,45 to 70 px,63.3,0.605,0.691
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,L,cut straight,45 to 70 px,64.0,0.593,0.568
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,R,cut straight,45 to 70 px,64.0,0.84,0.568
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,L,cut straight,45 to 70 px,64.7,0.87,0.81
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,R,cut straight,45 to 70 px,64.7,0.87,0.95
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,L,cut straight,45 to 70 px,64.7,0.9,1.0
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,R,cut straight,45 to 70 px,64.7,0.8,0.99
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,64.7,0.53,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,45 to 70 px,64.7,0.68,0.27
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,64.7,0.0,0.62
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,45 to 70 px,64.7,0.68,0.27
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,64.0,0.0,0.765
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,64.0,0.765,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,64.7,0.84,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,45 to 70 px,64.7,0.68,0.27
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,64.7,0.0,0.88
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,45 to 70 px,64.7,0.68,0.27
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,64.0,0.0,0.951
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,45 to 70 px,64.0,0.42,0.296
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,64.0,0.778,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,64.0,0.877,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,R,own,45 to 70 px,64.0,0.728,0.383
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,64.0,0.0,0.938
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,R,own,45 to 70 px,64.0,0.42,0.235
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,L,own,45 to 70 px,62.6,0.407,0.37
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,62.6,0.0,0.716
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,L,own,45 to 70 px,62.6,0.494,0.506
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,62.6,0.802,0.0
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,L,own,45 to 70 px,65.4,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,none,1.0,,R,own,45 to 70 px,65.4,0.54,0.15
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,L,cut straight,45 to 70 px,65.4,0.87,0.59
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,L,R,own,45 to 70 px,65.4,0.54,0.15
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,L,own,45 to 70 px,65.4,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.75,R,R,cut straight,45 to 70 px,65.4,0.89,0.99
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,L,cut straight,45 to 70 px,66.1,0.77,0.93
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,L,R,own,45 to 70 px,66.1,0.54,0.15
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,L,own,45 to 70 px,64.7,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.5,R,R,cut straight,45 to 70 px,64.7,0.56,0.83
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,L,L,cut straight,45 to 70 px,65.4,0.9,0.62
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,L,R,own,45 to 70 px,65.4,0.62,0.18
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,L,own,45 to 70 px,63.3,0.198,0.37
+CAMPUS color model,4A8B_campus_light_core_01,edge,0.25,R,R,cut straight,45 to 70 px,63.3,0.802,0.827
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,L,cut straight,45 to 70 px,65.4,0.86,0.66
+CAMPUS color model,4A8B_campus_light_core_01,both,0.75,L,R,cut straight,45 to 70 px,65.4,0.84,0.73
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,L,cut straight,45 to 70 px,65.4,0.87,0.59
+CAMPUS color model,4A8B_campus_light_core_01,both,0.5,L,R,cut straight,45 to 70 px,65.4,0.89,0.99
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,L,cut straight,45 to 70 px,66.1,0.57,0.83
+CAMPUS color model,4A8B_campus_light_core_01,both,0.25,L,R,cut straight,45 to 70 px,66.1,0.72,0.89
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,66.1,0.9,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,45 to 70 px,66.1,0.54,0.15
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,L,cut slanted,45 to 70 px,65.7,0.0,0.64
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,L,R,own,45 to 70 px,65.7,0.54,0.15
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,45 to 70 px,65.1,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,65.1,0.0,0.76
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,L,own,45 to 70 px,64.7,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.75,R,R,cut slanted,45 to 70 px,64.7,0.84,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,66.1,0.57,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,45 to 70 px,66.1,0.54,0.15
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,L,cut slanted,45 to 70 px,66.1,0.0,0.77
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,L,R,own,45 to 70 px,66.1,0.62,0.15
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,45 to 70 px,64.7,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,64.7,0.0,0.85
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,L,own,45 to 70 px,64.7,0.29,0.3
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.5,R,R,cut slanted,45 to 70 px,64.7,0.67,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,65.4,0.9,0.0
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,R,own,45 to 70 px,65.4,0.62,0.28
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,L,cut slanted,45 to 70 px,65.4,0.0,0.84
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,L,R,own,45 to 70 px,65.4,0.63,0.15
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,L,own,45 to 70 px,63.3,0.37,0.37
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,63.3,0.0,0.765
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,L,own,45 to 70 px,63.3,0.198,0.531
+CAMPUS color model,4A8B_campus_light_core_01,slant,0.25,R,R,cut slanted,45 to 70 px,63.3,0.914,0.0
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,R,own,under 45 px,43.9,0.278,0.472
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,L,cut straight,under 45 px,43.9,0.972,0.944
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,R,own,under 45 px,43.9,0.278,0.472
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,R,cut straight,under 45 px,43.9,0.861,0.917
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,L,cut straight,under 45 px,43.9,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,R,own,under 45 px,43.9,0.278,0.472
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,R,cut straight,under 45 px,43.9,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,L,cut straight,under 45 px,43.9,0.528,0.778
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,R,own,under 45 px,43.9,0.361,0.611
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,L,own,under 45 px,43.9,0.444,0.222
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,R,cut straight,under 45 px,43.9,0.694,0.556
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,L,cut straight,under 45 px,43.9,0.667,0.472
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,R,cut straight,under 45 px,43.9,0.556,0.694
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,L,cut straight,under 45 px,43.9,0.972,0.944
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,R,cut straight,under 45 px,43.9,0.861,0.917
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,L,cut straight,under 45 px,44.2,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,R,cut straight,under 45 px,44.2,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,43.9,0.75,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,43.9,0.278,0.472
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,43.9,0.0,0.75
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,43.9,0.278,0.472
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,43.9,0.0,0.75
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,43.9,0.667,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,43.9,0.889,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,43.9,0.278,0.472
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,43.9,0.0,0.944
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,43.9,0.361,0.472
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,43.9,0.0,0.944
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,43.9,0.306,0.111
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,43.9,0.889,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,43.9,0.639,0.167
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,43.9,0.0,0.889
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,43.9,0.306,0.417
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,43.9,0.861,0.0
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,L,own,under 45 px,36.9,0.48,0.12
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,L,cut straight,under 45 px,36.9,0.6,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,L,own,under 45 px,36.9,0.48,0.12
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,R,cut straight,under 45 px,36.9,0.64,0.88
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,L,cut straight,under 45 px,36.9,0.6,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,L,own,under 45 px,36.9,0.88,0.12
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,R,cut straight,under 45 px,36.9,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,L,cut straight,under 45 px,36.2,0.52,0.88
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,R,own,under 45 px,36.2,0.32,0.68
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,L,own,under 45 px,36.9,0.88,0.2
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,R,cut straight,under 45 px,36.9,1.0,0.76
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,L,cut straight,under 45 px,36.9,0.6,0.76
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,R,cut straight,under 45 px,36.9,0.4,0.64
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,L,cut straight,under 45 px,36.9,0.6,1.0
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,R,cut straight,under 45 px,36.9,0.64,0.88
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,L,cut straight,under 45 px,36.9,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,R,cut straight,under 45 px,36.9,1.0,1.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,36.9,0.6,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,36.9,0.0,0.92
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,36.9,0.88,0.12
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,36.9,0.0,0.68
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,36.9,0.48,0.12
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,36.9,0.56,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,36.9,0.6,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,36.9,0.0,0.92
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,36.9,0.16,0.36
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,36.9,0.88,0.12
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,36.9,0.0,0.92
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,36.9,0.88,0.12
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,36.9,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,36.9,0.84,0.12
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,36.9,0.0,0.88
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,36.9,0.88,0.28
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,36.9,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,L,own,under 45 px,41.1,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,R,own,under 45 px,41.1,0.111,0.333
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,L,cut straight,under 45 px,41.1,0.611,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,R,own,under 45 px,41.1,0.111,0.333
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,L,own,under 45 px,41.1,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,R,cut straight,under 45 px,41.1,0.472,0.889
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,L,cut straight,under 45 px,41.1,0.944,0.972
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,R,own,under 45 px,41.1,0.444,0.333
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,L,own,under 45 px,40.4,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,R,cut straight,under 45 px,40.4,0.5,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,L,cut straight,under 45 px,41.1,0.861,0.75
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,R,own,under 45 px,41.1,0.583,0.417
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,L,own,under 45 px,40.4,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,R,cut straight,under 45 px,40.4,0.972,0.667
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,L,cut straight,under 45 px,41.1,0.944,0.806
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,R,cut straight,under 45 px,41.1,0.222,0.75
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,L,cut straight,under 45 px,41.1,0.611,1.0
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,R,cut straight,under 45 px,41.1,0.472,0.889
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,L,cut straight,under 45 px,41.1,0.944,1.0
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,R,cut straight,under 45 px,41.1,0.917,1.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,41.1,0.861,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,41.1,0.111,0.333
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,41.1,0.0,0.944
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,41.1,0.444,0.333
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,41.1,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,41.1,0.0,0.833
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,41.1,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,41.1,0.222,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,41.1,0.861,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,41.1,0.444,0.417
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,41.1,0.0,0.889
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,41.1,0.444,0.333
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,40.4,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,40.4,0.0,0.889
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,40.4,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,40.4,0.417,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,40.4,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,40.4,0.0,0.889
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,40.4,1.0,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,40.4,0.667,0.0
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,L,own,under 45 px,39.0,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,none,1.0,,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,L,cut straight,under 45 px,39.0,0.833,0.944
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,L,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,L,own,under 45 px,39.0,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.75,R,R,cut straight,under 45 px,39.0,0.972,0.944
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,L,cut straight,under 45 px,39.0,0.944,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,L,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,L,own,under 45 px,38.3,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.5,R,R,cut straight,under 45 px,38.3,0.833,1.0
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,L,cut straight,under 45 px,39.0,0.972,0.75
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,L,R,own,under 45 px,39.0,0.722,0.278
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,L,own,under 45 px,37.9,0.639,0.5
+CAMPUS color model,4A8B_campus_light_far_01,edge,0.25,R,R,cut straight,under 45 px,37.9,0.889,0.917
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,L,cut straight,under 45 px,39.0,0.889,0.806
+CAMPUS color model,4A8B_campus_light_far_01,both,0.75,L,R,cut straight,under 45 px,39.0,0.944,0.75
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,L,cut straight,under 45 px,39.0,0.833,0.944
+CAMPUS color model,4A8B_campus_light_far_01,both,0.5,L,R,cut straight,under 45 px,39.0,0.972,0.944
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,L,cut straight,under 45 px,39.0,0.833,1.0
+CAMPUS color model,4A8B_campus_light_far_01,both,0.25,L,R,cut straight,under 45 px,39.0,0.889,1.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,39.0,0.778,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,L,cut slanted,under 45 px,39.0,0.0,0.806
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,L,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,39.0,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,39.0,0.0,0.75
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,L,own,under 45 px,39.0,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.75,R,R,cut slanted,under 45 px,39.0,0.861,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,39.0,0.75,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,L,cut slanted,under 45 px,39.0,0.0,0.944
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,L,R,own,under 45 px,39.0,0.722,0.222
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,38.3,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,38.3,0.0,0.944
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,L,own,under 45 px,38.3,0.639,0.389
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.5,R,R,cut slanted,under 45 px,38.3,0.806,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,L,L,cut slanted,under 45 px,39.0,0.861,0.0
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,L,R,own,under 45 px,39.0,0.722,0.25
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,L,L,cut slanted,under 45 px,39.0,0.0,0.889
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,L,R,own,under 45 px,39.0,0.472,0.278
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,37.6,0.556,0.5
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,37.6,0.0,0.917
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,L,own,under 45 px,37.6,0.639,0.5
+CAMPUS color model,4A8B_campus_light_far_01,slant,0.25,R,R,cut slanted,under 45 px,37.6,0.75,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,none,1.0,,L,own,45 to 70 px,57.1,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,none,1.0,,R,own,45 to 70 px,57.1,0.203,0.203
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,L,L,cut straight,45 to 70 px,57.1,0.891,0.859
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,L,R,own,45 to 70 px,57.1,0.203,0.203
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,R,L,own,45 to 70 px,57.8,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,R,R,cut straight,45 to 70 px,57.8,0.875,0.797
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,L,L,cut straight,45 to 70 px,57.1,1.0,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,L,R,own,45 to 70 px,57.1,0.219,0.297
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,R,L,own,45 to 70 px,57.8,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,R,R,cut straight,45 to 70 px,57.8,0.875,0.875
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,L,L,cut straight,45 to 70 px,55.7,0.734,0.766
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,L,R,own,45 to 70 px,55.7,0.219,0.391
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,R,L,own,45 to 70 px,57.1,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,R,R,cut straight,45 to 70 px,57.1,0.938,0.344
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.75,L,L,cut straight,45 to 70 px,57.1,0.953,0.312
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.75,L,R,cut straight,45 to 70 px,57.1,0.703,0.578
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.5,L,L,cut straight,45 to 70 px,57.8,0.891,0.859
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.5,L,R,cut straight,45 to 70 px,57.8,0.875,0.797
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.25,L,L,cut straight,45 to 70 px,57.8,1.0,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.25,L,R,cut straight,45 to 70 px,57.8,1.0,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,L,cut slanted,45 to 70 px,57.1,0.859,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,R,own,45 to 70 px,57.1,0.203,0.297
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,L,cut slanted,45 to 70 px,57.1,0.0,0.625
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,R,own,45 to 70 px,57.1,0.219,0.203
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,L,own,45 to 70 px,57.8,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,R,cut slanted,45 to 70 px,57.8,0.0,0.625
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,L,own,45 to 70 px,57.8,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,R,cut slanted,45 to 70 px,57.8,0.703,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,L,cut slanted,45 to 70 px,56.4,0.875,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,R,own,45 to 70 px,56.4,0.219,0.297
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,L,cut slanted,45 to 70 px,56.4,0.0,0.938
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,R,own,45 to 70 px,56.4,0.219,0.297
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,L,own,45 to 70 px,57.8,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,R,cut slanted,45 to 70 px,57.8,0.0,0.828
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,L,own,45 to 70 px,57.8,0.5,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,R,cut slanted,45 to 70 px,57.8,0.781,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,L,cut slanted,45 to 70 px,55.7,0.875,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,R,own,45 to 70 px,55.7,0.219,0.656
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,L,cut slanted,45 to 70 px,55.7,0.0,0.969
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,R,own,45 to 70 px,55.7,0.672,0.391
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,L,own,45 to 70 px,57.1,0.625,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,R,cut slanted,45 to 70 px,57.1,0.0,0.891
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,L,own,45 to 70 px,57.1,0.5,0.031
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,R,cut slanted,45 to 70 px,57.1,0.797,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,none,1.0,,L,own,45 to 70 px,56.4,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,none,1.0,,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,L,L,cut straight,45 to 70 px,56.4,0.609,0.75
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,L,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,R,L,own,45 to 70 px,55.7,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.75,R,R,cut straight,45 to 70 px,55.7,0.891,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,L,L,cut straight,45 to 70 px,56.4,0.75,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,L,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,R,L,own,45 to 70 px,55.7,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.5,R,R,cut straight,45 to 70 px,55.7,0.938,0.938
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,L,L,cut straight,45 to 70 px,56.4,0.734,0.906
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,L,R,own,45 to 70 px,56.4,0.125,0.406
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,R,L,own,45 to 70 px,55.0,0.0,0.016
+CAMPUS color model,4A8B_campus_light_hand_02,edge,0.25,R,R,cut straight,45 to 70 px,55.0,0.828,0.844
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.75,L,L,cut straight,45 to 70 px,56.4,0.516,0.547
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.75,L,R,cut straight,45 to 70 px,56.4,0.781,0.812
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.5,L,L,cut straight,45 to 70 px,56.4,0.609,0.75
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.5,L,R,cut straight,45 to 70 px,56.4,0.891,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.25,L,L,cut straight,45 to 70 px,56.4,0.969,0.953
+CAMPUS color model,4A8B_campus_light_hand_02,both,0.25,L,R,cut straight,45 to 70 px,56.4,1.0,1.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,L,cut slanted,45 to 70 px,56.4,0.547,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,L,cut slanted,45 to 70 px,56.4,0.0,0.625
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,L,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,L,own,45 to 70 px,55.7,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,R,cut slanted,45 to 70 px,55.7,0.0,0.75
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,L,own,45 to 70 px,55.7,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.75,R,R,cut slanted,45 to 70 px,55.7,0.781,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,L,cut slanted,45 to 70 px,56.4,0.672,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,L,cut slanted,45 to 70 px,56.4,0.0,0.906
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,L,R,own,45 to 70 px,56.4,0.125,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,L,own,45 to 70 px,55.7,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,R,cut slanted,45 to 70 px,55.7,0.0,0.938
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,L,own,45 to 70 px,55.7,0.0,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.5,R,R,cut slanted,45 to 70 px,55.7,0.906,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,L,cut slanted,45 to 70 px,56.4,0.859,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,R,own,45 to 70 px,56.4,0.125,0.453
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,L,cut slanted,45 to 70 px,56.4,0.0,0.891
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,L,R,own,45 to 70 px,56.4,0.375,0.359
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,L,own,45 to 70 px,55.0,0.078,0.0
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,R,cut slanted,45 to 70 px,55.0,0.0,0.922
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,L,own,45 to 70 px,54.6,0.0,0.031
+CAMPUS color model,4A8B_campus_light_hand_02,slant,0.25,R,R,cut slanted,45 to 70 px,54.6,0.969,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,none,1.0,,L,own,over 70 px,92.5,0.286,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,none,1.0,,R,own,over 70 px,92.5,0.214,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,L,L,cut straight,over 70 px,91.8,0.852,0.878
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,L,R,own,over 70 px,91.8,0.214,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,R,L,own,over 70 px,93.9,0.286,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,R,R,cut straight,over 70 px,93.9,0.985,0.679
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,L,L,cut straight,over 70 px,90.4,1.0,0.959
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,L,R,own,over 70 px,90.4,0.16,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,R,L,own,over 70 px,95.3,0.286,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,R,R,cut straight,over 70 px,95.3,0.954,0.99
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,L,L,cut straight,over 70 px,88.3,0.811,0.408
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,L,R,own,over 70 px,88.3,0.13,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,R,L,own,over 70 px,94.6,0.0,0.005
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,R,R,cut straight,over 70 px,94.6,0.0,0.429
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.75,L,L,cut straight,over 70 px,93.2,0.668,0.26
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.75,L,R,cut straight,over 70 px,93.2,0.765,0.066
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.5,L,L,cut straight,over 70 px,93.2,0.852,0.878
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.5,L,R,cut straight,over 70 px,93.2,0.985,0.679
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.25,L,L,cut straight,over 70 px,93.2,0.959,0.99
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.25,L,R,cut straight,over 70 px,93.2,1.0,0.893
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,L,cut slanted,over 70 px,91.8,0.699,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,R,own,over 70 px,91.8,0.214,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,L,cut slanted,over 70 px,91.8,0.0,0.551
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,R,own,over 70 px,91.8,0.214,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,L,own,over 70 px,93.9,0.286,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,R,cut slanted,over 70 px,93.9,0.0,0.245
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,L,own,over 70 px,93.9,0.286,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,R,cut slanted,over 70 px,93.9,0.832,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,L,cut slanted,over 70 px,89.7,0.87,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,R,own,over 70 px,89.7,0.16,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,L,cut slanted,over 70 px,90.4,0.0,0.97
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,R,own,over 70 px,90.4,0.16,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,L,own,over 70 px,95.3,0.398,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,R,cut slanted,over 70 px,95.3,0.0,0.842
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,L,own,over 70 px,95.3,0.0,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,R,cut slanted,over 70 px,95.3,0.0,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,L,L,cut slanted,over 70 px,87.7,0.893,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,L,R,own,over 70 px,87.7,0.13,0.852
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,L,L,cut slanted,over 70 px,87.7,0.0,0.87
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,L,R,own,over 70 px,87.7,0.343,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,R,L,own,over 70 px,94.6,0.0,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,R,R,cut slanted,over 70 px,94.6,0.0,0.867
+CAMPUS color model,4A8B_campus_light_plain_01,none,1.0,,L,own,over 70 px,85.6,0.112,0.083
+CAMPUS color model,4A8B_campus_light_plain_01,none,1.0,,R,own,over 70 px,85.6,0.391,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,L,L,cut straight,over 70 px,87.0,0.911,0.68
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,L,R,own,over 70 px,87.0,0.391,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,R,L,own,over 70 px,84.9,0.056,0.035
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.75,R,R,cut straight,over 70 px,84.9,0.847,0.91
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,L,L,cut straight,over 70 px,87.7,0.935,0.947
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,L,R,own,over 70 px,87.7,0.391,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,R,L,own,over 70 px,83.5,0.056,0.069
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.5,R,R,cut straight,over 70 px,83.5,0.979,0.958
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,L,L,cut straight,over 70 px,87.7,0.917,0.385
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,L,R,own,over 70 px,87.7,0.604,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,R,L,own,over 70 px,81.4,0.014,0.285
+CAMPUS color model,4A8B_campus_light_plain_01,edge,0.25,R,R,cut straight,over 70 px,81.4,0.799,0.847
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.75,L,L,cut straight,over 70 px,86.3,0.769,0.379
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.75,L,R,cut straight,over 70 px,86.3,0.686,0.219
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.5,L,L,cut straight,over 70 px,86.3,0.911,0.68
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.5,L,R,cut straight,over 70 px,86.3,0.864,0.917
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.25,L,L,cut straight,over 70 px,87.0,0.988,0.864
+CAMPUS color model,4A8B_campus_light_plain_01,both,0.25,L,R,cut straight,over 70 px,87.0,0.935,0.953
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,L,cut slanted,over 70 px,87.0,0.876,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,R,own,over 70 px,87.0,0.391,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,L,cut slanted,over 70 px,87.0,0.0,0.479
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,L,R,own,over 70 px,87.0,0.391,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,L,own,over 70 px,84.9,0.056,0.035
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,R,cut slanted,over 70 px,84.9,0.0,0.514
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,L,own,over 70 px,84.9,0.056,0.035
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.75,R,R,cut slanted,over 70 px,84.9,0.667,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,L,cut slanted,over 70 px,87.7,0.864,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,R,own,over 70 px,87.7,0.391,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,L,cut slanted,over 70 px,87.7,0.0,0.817
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,L,R,own,over 70 px,87.7,0.462,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,L,own,over 70 px,83.5,0.056,0.069
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,R,cut slanted,over 70 px,83.5,0.0,1.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,L,own,over 70 px,83.5,0.056,0.16
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.5,R,R,cut slanted,over 70 px,83.5,0.806,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,L,L,cut slanted,over 70 px,87.7,0.0,0.87
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,L,R,own,over 70 px,87.7,0.663,0.0
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,R,L,own,over 70 px,81.4,0.174,0.167
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,R,R,cut slanted,over 70 px,81.4,0.0,0.917
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,R,L,own,over 70 px,81.4,0.014,0.479
+CAMPUS color model,4A8B_campus_light_plain_01,slant,0.25,R,R,cut slanted,over 70 px,81.4,0.84,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,none,1.0,,L,own,over 70 px,65.4,0.49,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,none,1.0,,R,own,over 70 px,65.4,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,L,L,cut straight,over 70 px,65.4,0.9,0.74
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,L,R,own,over 70 px,65.4,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,R,L,own,over 70 px,65.4,0.49,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,R,R,cut straight,over 70 px,65.4,0.96,0.97
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,L,L,cut straight,over 70 px,64.7,0.9,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,L,R,own,over 70 px,64.7,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,R,L,own,over 70 px,66.1,0.59,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,R,R,cut straight,over 70 px,66.1,1.0,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.25,L,L,cut straight,over 70 px,64.0,0.914,0.765
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.25,L,R,own,over 70 px,64.0,0.198,0.272
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.75,L,L,cut straight,over 70 px,65.4,0.81,0.06
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.75,L,R,cut straight,over 70 px,65.4,0.74,0.71
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.5,L,L,cut straight,over 70 px,65.4,0.9,0.74
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.5,L,R,cut straight,over 70 px,65.4,0.96,0.97
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.25,L,L,cut straight,over 70 px,66.1,1.0,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.25,L,R,cut straight,over 70 px,66.1,1.0,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,L,cut slanted,over 70 px,65.1,0.76,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,R,own,over 70 px,65.1,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,L,cut slanted,over 70 px,65.4,0.0,0.38
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,R,own,over 70 px,65.4,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,L,own,over 70 px,65.4,0.59,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,R,cut slanted,over 70 px,65.4,0.0,0.76
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,L,own,over 70 px,65.4,0.49,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,R,cut slanted,over 70 px,65.4,0.78,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,L,cut slanted,over 70 px,64.7,0.82,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,R,own,over 70 px,64.7,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,L,cut slanted,over 70 px,64.7,0.0,0.97
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,R,own,over 70 px,64.7,0.19,0.28
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,L,own,over 70 px,66.1,0.59,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,R,cut slanted,over 70 px,66.1,0.0,0.9
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,L,own,over 70 px,66.1,0.59,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,R,cut slanted,over 70 px,66.1,0.9,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,L,L,cut slanted,over 70 px,64.0,0.877,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,L,R,own,over 70 px,64.0,0.111,0.469
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,L,L,cut slanted,over 70 px,64.0,0.0,0.938
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,L,R,own,over 70 px,64.0,0.222,0.272
+CAMPUS color model,4A8B_campus_light_plain_02,none,1.0,,L,own,45 to 70 px,63.3,0.37,0.16
+CAMPUS color model,4A8B_campus_light_plain_02,none,1.0,,R,own,45 to 70 px,63.3,0.444,0.012
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,L,L,cut straight,45 to 70 px,64.0,0.926,0.802
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,L,R,own,45 to 70 px,64.0,0.444,0.012
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,R,L,own,45 to 70 px,63.3,0.37,0.16
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.75,R,R,cut straight,45 to 70 px,63.3,0.889,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,L,L,cut straight,45 to 70 px,64.7,0.94,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,L,R,own,45 to 70 px,64.7,0.51,0.1
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,R,L,own,45 to 70 px,62.6,0.37,0.16
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.5,R,R,cut straight,45 to 70 px,62.6,1.0,0.938
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.25,L,L,cut straight,45 to 70 px,64.7,0.94,0.62
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.25,L,R,own,45 to 70 px,64.7,0.71,0.13
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.25,R,L,own,45 to 70 px,61.9,0.432,0.395
+CAMPUS color model,4A8B_campus_light_plain_02,edge,0.25,R,R,cut straight,45 to 70 px,61.9,0.914,0.852
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.75,L,L,cut straight,45 to 70 px,64.0,0.802,0.519
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.75,L,R,cut straight,45 to 70 px,64.0,0.716,0.568
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.5,L,L,cut straight,45 to 70 px,64.0,0.926,0.802
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.5,L,R,cut straight,45 to 70 px,64.0,0.889,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.25,L,L,cut straight,45 to 70 px,64.0,1.0,0.951
+CAMPUS color model,4A8B_campus_light_plain_02,both,0.25,L,R,cut straight,45 to 70 px,64.0,0.951,1.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,L,cut slanted,45 to 70 px,64.0,0.802,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,R,own,45 to 70 px,64.0,0.444,0.012
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,L,cut slanted,45 to 70 px,64.0,0.0,0.642
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,L,R,own,45 to 70 px,64.0,0.444,0.012
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,L,own,45 to 70 px,63.3,0.37,0.16
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,R,cut slanted,45 to 70 px,63.3,0.0,0.889
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,L,own,45 to 70 px,63.3,0.37,0.16
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.75,R,R,cut slanted,45 to 70 px,63.3,0.691,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,L,cut slanted,45 to 70 px,64.7,0.94,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,R,own,45 to 70 px,64.7,0.51,0.1
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,L,cut slanted,45 to 70 px,64.7,0.0,0.9
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,L,R,own,45 to 70 px,64.7,0.61,0.1
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,L,own,45 to 70 px,62.6,0.37,0.16
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,R,cut slanted,45 to 70 px,62.6,0.0,0.988
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,L,own,45 to 70 px,62.6,0.37,0.235
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.5,R,R,cut slanted,45 to 70 px,62.6,0.914,0.0
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,L,L,cut slanted,45 to 70 px,64.7,0.0,0.89
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,L,R,own,45 to 70 px,64.7,0.63,0.1
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,R,L,own,45 to 70 px,61.9,0.568,0.309
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,R,R,cut slanted,45 to 70 px,61.9,0.0,0.926
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,R,L,own,45 to 70 px,61.9,0.432,0.667
+CAMPUS color model,4A8B_campus_light_plain_02,slant,0.25,R,R,cut slanted,45 to 70 px,61.9,0.926,0.0
+CAMPUS color model,4A8B_campus_light_room_01,none,1.0,,L,own,45 to 70 px,54.3,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,none,1.0,,R,own,45 to 70 px,54.3,0.109,0.297
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,L,L,cut straight,45 to 70 px,54.3,0.906,0.828
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,L,R,own,45 to 70 px,54.3,0.109,0.297
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,R,L,own,45 to 70 px,54.3,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,R,R,cut straight,45 to 70 px,54.3,0.953,0.078
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,L,L,cut straight,45 to 70 px,54.3,1.0,0.484
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,L,R,own,45 to 70 px,54.3,0.109,0.516
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,R,L,own,45 to 70 px,55.0,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,R,R,cut straight,45 to 70 px,55.0,1.0,0.75
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.25,R,L,own,45 to 70 px,54.6,0.484,0.0
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.25,R,R,cut straight,45 to 70 px,54.6,0.906,0.266
+CAMPUS color model,4A8B_campus_light_room_01,both,0.75,L,L,cut straight,45 to 70 px,54.3,0.812,0.25
+CAMPUS color model,4A8B_campus_light_room_01,both,0.75,L,R,cut straight,45 to 70 px,54.3,0.609,0.438
+CAMPUS color model,4A8B_campus_light_room_01,both,0.5,L,L,cut straight,45 to 70 px,54.3,0.906,0.828
+CAMPUS color model,4A8B_campus_light_room_01,both,0.5,L,R,cut straight,45 to 70 px,54.3,0.953,0.078
+CAMPUS color model,4A8B_campus_light_room_01,both,0.25,L,L,cut straight,45 to 70 px,54.3,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_01,both,0.25,L,R,cut straight,45 to 70 px,54.3,1.0,0.484
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,L,cut slanted,45 to 70 px,54.3,0.797,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,R,own,45 to 70 px,54.3,0.109,0.516
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,L,cut slanted,45 to 70 px,54.3,0.0,0.703
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,R,own,45 to 70 px,54.3,0.109,0.297
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,L,own,45 to 70 px,54.3,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,R,cut slanted,45 to 70 px,54.3,0.0,0.359
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,L,own,45 to 70 px,54.3,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,R,cut slanted,45 to 70 px,54.3,0.719,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,L,cut slanted,45 to 70 px,53.6,0.953,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,R,own,45 to 70 px,53.6,0.109,0.766
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,L,cut slanted,45 to 70 px,53.6,0.0,0.844
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,R,own,45 to 70 px,53.6,0.109,0.766
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,L,own,45 to 70 px,55.0,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,R,cut slanted,45 to 70 px,55.0,0.0,0.422
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,L,own,45 to 70 px,55.0,0.375,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,R,cut slanted,45 to 70 px,55.0,0.953,0.0
+CAMPUS color model,4A8B_campus_light_room_01,none,1.0,,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,none,1.0,,R,own,45 to 70 px,50.8,0.51,0.327
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,L,L,cut straight,45 to 70 px,51.5,0.984,0.984
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,L,R,own,45 to 70 px,51.5,0.594,0.406
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,R,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.75,R,R,cut straight,45 to 70 px,50.8,0.857,1.0
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,L,L,cut straight,45 to 70 px,51.5,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,L,R,own,45 to 70 px,51.5,0.703,0.406
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,R,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.5,R,R,cut straight,45 to 70 px,50.8,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.25,L,L,cut straight,45 to 70 px,50.8,0.959,0.735
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.25,L,R,own,45 to 70 px,50.8,0.633,0.327
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.25,R,L,own,45 to 70 px,50.1,0.408,0.592
+CAMPUS color model,4A8B_campus_light_room_01,edge,0.25,R,R,cut straight,45 to 70 px,50.1,0.796,0.939
+CAMPUS color model,4A8B_campus_light_room_01,both,0.75,L,L,cut straight,45 to 70 px,51.5,0.812,0.781
+CAMPUS color model,4A8B_campus_light_room_01,both,0.75,L,R,cut straight,45 to 70 px,51.5,0.859,0.891
+CAMPUS color model,4A8B_campus_light_room_01,both,0.5,L,L,cut straight,45 to 70 px,51.5,0.984,0.984
+CAMPUS color model,4A8B_campus_light_room_01,both,0.5,L,R,cut straight,45 to 70 px,51.5,0.875,1.0
+CAMPUS color model,4A8B_campus_light_room_01,both,0.25,L,L,cut straight,45 to 70 px,51.5,0.969,1.0
+CAMPUS color model,4A8B_campus_light_room_01,both,0.25,L,R,cut straight,45 to 70 px,51.5,0.906,1.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.828,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,R,own,45 to 70 px,51.5,0.594,0.406
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,L,cut slanted,45 to 70 px,51.5,0.0,0.844
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,L,R,own,45 to 70 px,51.5,0.594,0.406
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,R,cut slanted,45 to 70 px,50.8,0.0,0.918
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.75,R,R,cut slanted,45 to 70 px,50.8,0.776,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,L,cut slanted,45 to 70 px,51.5,0.891,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,R,own,45 to 70 px,51.5,0.594,0.406
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,L,cut slanted,45 to 70 px,51.5,0.0,0.891
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,L,R,own,45 to 70 px,51.5,0.703,0.406
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,R,cut slanted,45 to 70 px,50.8,0.0,0.898
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,L,own,45 to 70 px,50.8,0.306,0.388
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.5,R,R,cut slanted,45 to 70 px,50.8,0.816,0.0
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.25,R,L,own,45 to 70 px,50.1,0.531,0.388
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.25,R,R,cut slanted,45 to 70 px,50.1,0.0,0.898
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.25,R,L,own,45 to 70 px,50.1,0.306,0.49
+CAMPUS color model,4A8B_campus_light_room_01,slant,0.25,R,R,cut slanted,45 to 70 px,50.1,0.898,0.0
+CAMPUS color model,4A8B_campus_light_room_03,none,1.0,,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,none,1.0,,R,own,under 45 px,39.7,0.333,0.278
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,L,L,cut straight,under 45 px,39.7,0.639,0.917
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,L,R,own,under 45 px,39.7,0.333,0.278
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,R,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,R,R,cut straight,under 45 px,39.7,0.694,0.75
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,L,L,cut straight,under 45 px,39.7,0.667,1.0
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,L,R,own,under 45 px,39.7,0.333,0.361
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,R,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,R,R,cut straight,under 45 px,39.7,0.694,0.833
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.25,L,L,cut straight,under 45 px,39.7,0.667,0.583
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.25,L,R,own,under 45 px,39.7,0.528,0.444
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.25,R,L,own,under 45 px,39.7,0.639,0.139
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.25,R,R,cut straight,under 45 px,39.7,0.861,0.444
+CAMPUS color model,4A8B_campus_light_room_03,both,0.75,L,L,cut straight,under 45 px,39.7,0.583,0.639
+CAMPUS color model,4A8B_campus_light_room_03,both,0.75,L,R,cut straight,under 45 px,39.7,0.639,0.556
+CAMPUS color model,4A8B_campus_light_room_03,both,0.5,L,L,cut straight,under 45 px,39.7,0.639,0.917
+CAMPUS color model,4A8B_campus_light_room_03,both,0.5,L,R,cut straight,under 45 px,39.7,0.694,0.75
+CAMPUS color model,4A8B_campus_light_room_03,both,0.25,L,L,cut straight,under 45 px,39.7,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_03,both,0.25,L,R,cut straight,under 45 px,39.7,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,L,cut slanted,under 45 px,39.7,0.583,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,R,own,under 45 px,39.7,0.333,0.361
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,L,cut slanted,under 45 px,39.7,0.0,0.778
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,R,own,under 45 px,39.7,0.333,0.278
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,R,cut slanted,under 45 px,39.7,0.0,0.556
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,R,cut slanted,under 45 px,39.7,0.639,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,L,cut slanted,under 45 px,39.7,0.667,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,R,own,under 45 px,39.7,0.333,0.361
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,L,cut slanted,under 45 px,39.7,0.0,0.972
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,R,own,under 45 px,39.7,0.333,0.361
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,R,cut slanted,under 45 px,39.7,0.0,0.833
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,L,own,under 45 px,39.7,0.361,0.083
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,R,cut slanted,under 45 px,39.7,0.667,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.25,R,L,own,under 45 px,39.7,0.5,0.083
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.25,R,R,cut slanted,under 45 px,39.7,0.0,0.889
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.25,R,L,own,under 45 px,39.7,0.639,0.389
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.25,R,R,cut slanted,under 45 px,39.7,0.806,0.0
+CAMPUS color model,4A8B_campus_light_room_03,none,1.0,,L,own,under 45 px,39.0,0.083,0.278
+CAMPUS color model,4A8B_campus_light_room_03,none,1.0,,R,own,under 45 px,39.0,0.583,0.583
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,L,L,cut straight,under 45 px,39.0,0.722,1.0
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,L,R,own,under 45 px,39.0,0.583,0.583
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,R,L,own,under 45 px,39.7,0.083,0.278
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.75,R,R,cut straight,under 45 px,39.7,0.861,0.833
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,L,L,cut straight,under 45 px,39.0,0.833,0.917
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,L,R,own,under 45 px,39.0,0.583,0.583
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,R,L,own,under 45 px,39.7,0.139,0.278
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.5,R,R,cut straight,under 45 px,39.7,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.25,L,L,cut straight,under 45 px,39.0,0.75,0.861
+CAMPUS color model,4A8B_campus_light_room_03,edge,0.25,L,R,own,under 45 px,39.0,0.583,0.694
+CAMPUS color model,4A8B_campus_light_room_03,both,0.75,L,L,cut straight,under 45 px,39.7,0.389,0.75
+CAMPUS color model,4A8B_campus_light_room_03,both,0.75,L,R,cut straight,under 45 px,39.7,0.944,0.833
+CAMPUS color model,4A8B_campus_light_room_03,both,0.5,L,L,cut straight,under 45 px,39.7,0.722,1.0
+CAMPUS color model,4A8B_campus_light_room_03,both,0.5,L,R,cut straight,under 45 px,39.7,0.861,0.833
+CAMPUS color model,4A8B_campus_light_room_03,both,0.25,L,L,cut straight,under 45 px,39.7,1.0,1.0
+CAMPUS color model,4A8B_campus_light_room_03,both,0.25,L,R,cut straight,under 45 px,39.7,1.0,0.944
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,L,cut slanted,under 45 px,39.0,0.5,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,R,own,under 45 px,39.0,0.583,0.583
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,L,cut slanted,under 45 px,39.0,0.0,0.833
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,L,R,own,under 45 px,39.0,0.583,0.583
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,L,own,under 45 px,39.7,0.139,0.278
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,R,cut slanted,under 45 px,39.7,0.0,0.806
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,L,own,under 45 px,39.7,0.083,0.278
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.75,R,R,cut slanted,under 45 px,39.7,0.944,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,L,cut slanted,under 45 px,39.0,0.75,0.0
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,R,own,under 45 px,39.0,0.583,0.694
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,L,cut slanted,under 45 px,39.0,0.0,0.972
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,L,R,own,under 45 px,39.0,0.583,0.583
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,L,own,under 45 px,39.7,0.139,0.278
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,R,cut slanted,under 45 px,39.7,0.0,0.917
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,L,own,under 45 px,39.7,0.139,0.278
+CAMPUS color model,4A8B_campus_light_room_03,slant,0.5,R,R,cut slanted,under 45 px,39.7,0.889,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,none,1.0,,L,own,45 to 70 px,52.9,0.094,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,none,1.0,,R,own,45 to 70 px,52.9,0.141,0.141
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,L,L,cut straight,45 to 70 px,52.9,0.328,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,L,R,own,45 to 70 px,52.9,0.141,0.141
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,R,L,own,45 to 70 px,53.6,0.094,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,R,R,cut straight,45 to 70 px,53.6,0.516,0.875
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,L,L,cut straight,45 to 70 px,52.9,0.5,0.906
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,L,R,own,45 to 70 px,52.9,0.141,0.141
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,R,L,own,45 to 70 px,53.6,0.438,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,R,R,cut straight,45 to 70 px,53.6,0.953,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,L,L,cut straight,45 to 70 px,52.5,0.766,0.703
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,L,R,own,45 to 70 px,52.5,0.219,0.172
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,R,L,own,45 to 70 px,52.9,0.547,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,R,R,cut straight,45 to 70 px,52.9,0.875,0.672
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.75,L,L,cut straight,45 to 70 px,52.9,0.281,0.797
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.75,L,R,cut straight,45 to 70 px,52.9,0.422,0.672
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.5,L,L,cut straight,45 to 70 px,53.6,0.328,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.5,L,R,cut straight,45 to 70 px,53.6,0.516,0.875
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.25,L,L,cut straight,45 to 70 px,53.6,0.984,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.25,L,R,cut straight,45 to 70 px,53.6,1.0,0.938
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.281,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,R,own,45 to 70 px,52.9,0.141,0.141
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.0,0.875
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,R,own,45 to 70 px,52.9,0.141,0.141
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,L,own,45 to 70 px,53.6,0.438,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,53.6,0.0,0.781
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,L,own,45 to 70 px,53.6,0.094,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,53.6,0.453,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.5,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,R,own,45 to 70 px,52.9,0.141,0.172
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.0,0.922
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,R,own,45 to 70 px,52.9,0.141,0.141
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,L,own,45 to 70 px,53.6,0.547,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,53.6,0.0,0.891
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,L,own,45 to 70 px,53.6,0.438,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,53.6,0.953,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,52.5,0.484,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,L,R,own,45 to 70 px,52.5,0.141,0.359
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,52.5,0.0,0.906
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,L,R,own,45 to 70 px,52.5,0.375,0.172
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,L,own,45 to 70 px,52.9,0.609,0.219
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,52.9,0.0,0.922
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,L,own,45 to 70 px,52.9,0.547,0.391
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,52.9,0.875,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,none,1.0,,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,none,1.0,,R,own,45 to 70 px,52.9,0.109,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,L,L,cut straight,45 to 70 px,52.9,0.469,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,L,R,own,45 to 70 px,52.9,0.109,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,R,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.75,R,R,cut straight,45 to 70 px,52.9,0.375,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,L,L,cut straight,45 to 70 px,52.9,1.0,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,L,R,own,45 to 70 px,52.9,0.5,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,R,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.5,R,R,cut straight,45 to 70 px,52.9,0.391,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,L,L,cut straight,45 to 70 px,52.2,0.75,0.578
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,L,R,own,45 to 70 px,52.2,0.5,0.344
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,R,L,own,45 to 70 px,52.2,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,edge,0.25,R,R,cut straight,45 to 70 px,52.2,0.406,0.703
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.75,L,L,cut straight,45 to 70 px,52.9,0.469,0.797
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.75,L,R,cut straight,45 to 70 px,52.9,0.25,0.594
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.5,L,L,cut straight,45 to 70 px,52.9,0.469,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.5,L,R,cut straight,45 to 70 px,52.9,0.375,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.25,L,L,cut straight,45 to 70 px,52.9,0.891,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,both,0.25,L,R,cut straight,45 to 70 px,52.9,0.875,1.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.531,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,R,own,45 to 70 px,52.9,0.109,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,L,cut slanted,45 to 70 px,52.9,0.0,0.859
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,L,R,own,45 to 70 px,52.9,0.422,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,52.9,0.0,0.766
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.75,R,R,cut slanted,45 to 70 px,52.9,0.281,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.953,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,R,own,45 to 70 px,52.9,0.5,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,L,cut slanted,45 to 70 px,52.9,0.0,0.938
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,L,R,own,45 to 70 px,52.9,0.5,0.266
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,52.9,0.0,0.938
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,L,own,45 to 70 px,52.9,0.266,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.5,R,R,cut slanted,45 to 70 px,52.9,0.375,0.0
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,L,L,cut slanted,45 to 70 px,52.2,0.0,0.844
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,L,R,own,45 to 70 px,52.2,0.219,0.516
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,L,own,45 to 70 px,52.2,0.516,0.156
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,52.2,0.0,0.922
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,L,own,45 to 70 px,52.2,0.266,0.344
+CAMPUS color model,4A8B_campus_light_touch_02,slant,0.25,R,R,cut slanted,45 to 70 px,52.2,0.516,0.0
+CAMPUS color model,4A8B_campus_light_window_01,none,1.0,,L,own,45 to 70 px,65.4,0.68,0.08
+CAMPUS color model,4A8B_campus_light_window_01,none,1.0,,R,own,45 to 70 px,65.4,0.47,0.32
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,L,L,cut straight,45 to 70 px,65.4,0.97,0.8
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,L,R,own,45 to 70 px,65.4,0.47,0.32
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,R,L,own,45 to 70 px,66.1,0.68,0.08
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,R,R,cut straight,45 to 70 px,66.1,1.0,0.86
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,L,L,cut straight,45 to 70 px,65.4,1.0,0.94
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,L,R,own,45 to 70 px,65.4,0.47,0.32
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,R,L,own,45 to 70 px,66.1,0.68,0.1
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,R,R,cut straight,45 to 70 px,66.1,1.0,1.0
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.25,L,L,cut straight,45 to 70 px,64.0,0.864,0.827
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.25,L,R,own,45 to 70 px,64.0,0.383,0.395
+CAMPUS color model,4A8B_campus_light_window_01,both,0.75,L,L,cut straight,45 to 70 px,66.1,0.83,0.34
+CAMPUS color model,4A8B_campus_light_window_01,both,0.75,L,R,cut straight,45 to 70 px,66.1,0.94,0.7
+CAMPUS color model,4A8B_campus_light_window_01,both,0.5,L,L,cut straight,45 to 70 px,66.1,0.97,0.8
+CAMPUS color model,4A8B_campus_light_window_01,both,0.5,L,R,cut straight,45 to 70 px,66.1,1.0,0.86
+CAMPUS color model,4A8B_campus_light_window_01,both,0.25,L,L,cut straight,45 to 70 px,66.1,1.0,0.9
+CAMPUS color model,4A8B_campus_light_window_01,both,0.25,L,R,cut straight,45 to 70 px,66.1,1.0,0.94
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,L,cut slanted,45 to 70 px,65.4,0.81,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,R,own,45 to 70 px,65.4,0.47,0.32
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,L,cut slanted,45 to 70 px,65.4,0.0,0.56
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,R,own,45 to 70 px,65.4,0.47,0.32
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,L,own,45 to 70 px,66.1,0.68,0.08
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,R,cut slanted,45 to 70 px,66.1,0.0,0.73
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,L,own,45 to 70 px,66.1,0.68,0.08
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,R,cut slanted,45 to 70 px,66.1,0.9,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,L,cut slanted,45 to 70 px,64.7,0.88,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,R,own,45 to 70 px,64.7,0.47,0.4
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,L,cut slanted,45 to 70 px,64.7,0.0,0.86
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,R,own,45 to 70 px,64.7,0.47,0.32
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,L,own,45 to 70 px,66.1,0.68,0.08
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,R,cut slanted,45 to 70 px,66.1,0.0,0.9
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,L,own,45 to 70 px,66.1,0.68,0.1
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,R,cut slanted,45 to 70 px,66.1,0.88,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,L,cut slanted,45 to 70 px,63.7,0.877,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,R,own,45 to 70 px,63.7,0.284,0.531
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,L,cut slanted,45 to 70 px,64.0,0.0,0.988
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,R,own,45 to 70 px,64.0,0.506,0.309
+CAMPUS color model,4A8B_campus_light_window_01,none,1.0,,L,own,45 to 70 px,65.4,0.63,0.59
+CAMPUS color model,4A8B_campus_light_window_01,none,1.0,,R,own,45 to 70 px,65.4,0.44,0.06
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,L,L,cut straight,45 to 70 px,65.4,0.9,0.92
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,L,R,own,45 to 70 px,65.4,0.44,0.06
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,R,L,own,45 to 70 px,65.4,0.63,0.59
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.75,R,R,cut straight,45 to 70 px,65.4,0.62,0.94
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,L,L,cut straight,45 to 70 px,66.1,0.89,1.0
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,L,R,own,45 to 70 px,66.1,0.44,0.06
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,R,L,own,45 to 70 px,64.7,0.63,0.59
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.5,R,R,cut straight,45 to 70 px,64.7,0.91,0.97
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.25,L,L,cut straight,45 to 70 px,65.4,0.8,0.56
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.25,L,R,own,45 to 70 px,65.4,0.79,0.08
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.25,R,L,own,45 to 70 px,64.0,0.0,0.84
+CAMPUS color model,4A8B_campus_light_window_01,edge,0.25,R,R,cut straight,45 to 70 px,64.0,0.0,0.951
+CAMPUS color model,4A8B_campus_light_window_01,both,0.75,L,L,cut straight,45 to 70 px,65.4,0.72,0.68
+CAMPUS color model,4A8B_campus_light_window_01,both,0.75,L,R,cut straight,45 to 70 px,65.4,0.4,0.57
+CAMPUS color model,4A8B_campus_light_window_01,both,0.5,L,L,cut straight,45 to 70 px,66.1,0.9,0.92
+CAMPUS color model,4A8B_campus_light_window_01,both,0.5,L,R,cut straight,45 to 70 px,66.1,0.62,0.94
+CAMPUS color model,4A8B_campus_light_window_01,both,0.25,L,L,cut straight,45 to 70 px,66.1,0.92,0.98
+CAMPUS color model,4A8B_campus_light_window_01,both,0.25,L,R,cut straight,45 to 70 px,66.1,0.92,1.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,L,cut slanted,45 to 70 px,65.4,0.81,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,R,own,45 to 70 px,65.4,0.44,0.06
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,L,cut slanted,45 to 70 px,65.4,0.0,0.76
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,L,R,own,45 to 70 px,65.4,0.44,0.06
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,L,own,45 to 70 px,65.4,0.63,0.59
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,R,cut slanted,45 to 70 px,65.4,0.0,0.71
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,L,own,45 to 70 px,65.4,0.63,0.59
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.75,R,R,cut slanted,45 to 70 px,65.4,0.39,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,L,cut slanted,45 to 70 px,66.1,0.84,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,R,own,45 to 70 px,66.1,0.44,0.06
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,L,cut slanted,45 to 70 px,66.1,0.0,0.9
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,L,R,own,45 to 70 px,66.1,0.53,0.06
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,L,own,45 to 70 px,64.7,0.72,0.59
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,R,cut slanted,45 to 70 px,64.7,0.0,0.97
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,L,own,45 to 70 px,64.7,0.63,0.59
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.5,R,R,cut slanted,45 to 70 px,64.7,0.84,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,L,cut slanted,45 to 70 px,65.4,0.69,0.0
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,R,own,45 to 70 px,65.4,0.79,0.3
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,L,cut slanted,45 to 70 px,65.4,0.0,0.89
+CAMPUS color model,4A8B_campus_light_window_01,slant,0.25,L,R,own,45 to 70 px,65.4,0.77,0.08

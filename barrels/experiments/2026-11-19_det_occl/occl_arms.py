@@ -8,7 +8,8 @@ from barrels import detector as det
 
 _FIELDS = {f.name for f in dataclasses.fields(det.DetConfig)}
 NEW = ("slice_box", "cover_unpinned", "stripe_two", "edge_check", "cap_same")     # the switches this experiment adds (PREREG.md)
-LATER = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low")   # switches added after this experiment (2026-11-20), pinned off so it does not move
+LATER = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low",   # switches added after this experiment (2026-11-20, occl_vertical), pinned off so it does not move
+         "pin_outline", "pin_thin")                                               # ... and those of occl_pin
 
 
 def _known(**kw) -> dict:
