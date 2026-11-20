@@ -21,6 +21,23 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-20 — The occlusion work is merged; what stays off; realistic damage levels judge new rules
+
+- **Decision:** (1) `wip/occl-combined` is merged into `barrels`: `side_hidden`, `seam_height`, `cap_seen_bottom`, `edge_check`, `cap_same`, `half_stripe`, `half_thin`, `post_pair`, `stripe_wide`, `cap_low`, `pin_outline`, `pin_thin` are on by default. (2) Off: the full-size cover box (`slice_box`, `cover_unpinned`, `stripe_two`; Tanush 2026-11-19), `slice_behind`, the stencil as a checker. (3) New detector rules are judged on the damage levels measured from real white-table segmentation (`degrade.REALISTIC`); the old "medium" and the "bad day" level with its stripe patch are reported, not decisive. (4) Postponed work is listed in `TODO.md` under "Later" with P1 / P2. (5) Camera calibration is closed: no box on home or campus depends on the top-row bottom.
+- **Why:** eval table home 27 → 28 of 29, campus 34 → 35 of 35, no false box, nothing on a negative frame; never-regress check passed against the stored baseline (re-saved after the merge); occlusion scorecard 2153 → 2737 of 3888 with boxes where no barrel is 88 → 45. Tanush: no false positives; as many cases as possible. Every occlusion number is simulated until the 16-shot occlusion set (`DATA.md`) exists.
+- **Alternatives:** the cover box on (finds three quarters hidden, oversized boxes: rejected by Tanush); the stencil as the detector (fails never-regress).
+- **Who:** Tanush ("understood", 2026-11-20); Claude Code.
+
+---
+
+## 2026-11-19 — The vendor comparison and the never-regress check are part of the eval tooling
+
+- **Decision:** `tools/report.py --vendor` (the vendor's saved boxes scored by the same v2 rule on the same frames, with two looser counts shown beside it) and `tools/report.py --gate` (compares the eval table with `results/baseline/baseline.json`; fails when a HOME or CAMPUS scenario row loses a found barrel or gains a false box, or any set gains a box on an empty frame) are merged. `EVAL.md` gets a pointer paragraph; the rule for what counts as a hit is unchanged. The gate is run before every merge of main code; the baseline is re-saved when a change that passes is merged. A new ordinary condition becomes protected by adding it to `results/baseline/protected.json`.
+- **Why:** the week's goal is "at least as good as the vendor" and "never regress"; both are now a command instead of a reading by eye.
+- **Who:** Tanush ("vendor column with never regress is ok", 2026-11-19); Claude Code.
+
+---
+
 ## 2026-11-18 (later) — `stripe_join` and `cap_behind` on by default; calibration un-parked
 
 - **Decision:** (1) The two new detector parts are on by default and merged: `cap_behind` (a barrel behind a found barrel, from its visible top) and `stripe_join` (stripe pieces that share rows and fit in one barrel's width are one stripe). (2) The two boxes on which the pre-registered rule failed do not block it: black `occl_04` boxed 7 px below a hidden, hand-estimated bottom, and one wrong box in the wood clip. (3) The ruler calibration is un-parked, using the 12 frames already shot (no new shots).

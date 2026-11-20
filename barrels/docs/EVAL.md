@@ -12,6 +12,8 @@
 
 **The one table** (2026-11-11; presentation only, the rule above is unchanged): `python barrels/tools/report.py` prints data set × scenario rows with found / missed / false / width ratio / bottom error for a candidate and a baseline side by side and the difference, the headline score per data set and the clean-negative disqualifier; train frames only (test frames are refused unless `--split test` is given for a planned look). `--help` shows how to choose the two arms. Code: `src/barrels/report.py`.
 
+**The vendor comparison and the never-regress check** (2026-11-18; reporting and checking tools, the rule above is unchanged): `python barrels/tools/report.py --vendor` scores the robot's built-in detector from the boxes saved with each frame, by rule 2 against the same labels, on the frames that have a vendor file, and prints two looser counts next to the strict ones (found by overlap alone; found by position), which are not the score. `python barrels/tools/report.py --gate` compares the table row by row with a stored baseline and fails when a HOME or CAMPUS scenario row lost a found barrel or gained a false box, or any set gained a box on an empty frame. Both: `HOW-IT-WORKS.md` §4.
+
 Commands: `python barrels/tools/eval_boxes.py --pred DIR --split train --gt-boxes --rule v2`; the experiment scripts call `eval_det.evaluate_frame(..., rule="v2")` directly. Code: `src/barrels/eval_det.py`.
 
 Everything below is the full statement and the record.

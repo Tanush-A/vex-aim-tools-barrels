@@ -1,6 +1,6 @@
 # RUNBOOK.md — robot setup / ops
 
-**Updated:** 2026-11-18 (`tm save` also stores the vendor detector's answer; not yet checked on the robot) · 2026-11-09 (hs front end is the default; `BARRELS_MODEL`). Tanush's robot: **AIM-4A8B6118**.
+**Updated:** 2026-11-19 (the vendor save checked on the robot: it works) · 2026-11-18 (`tm save` also stores the vendor detector's answer) · 2026-11-09 (hs front end is the default; `BARRELS_MODEL`). Tanush's robot: **AIM-4A8B6118**.
 
 ## Now — run the live view
 
@@ -57,11 +57,11 @@ At the `C>` prompt (both programs):
 - Quit with **Ctrl+\** before powering the robot off (below). If the window stops updating, `restart img_thread` at the prompt restarts the camera stream.
 - Edit → test cycle: change the `.fsm`, run `genfsm` again, then `runfsm('BarrelViewer')` at the prompt (reloads that module; a change to `barrel_live.py` needs `simple_cli` restarted). If `simple_cli` warns that the `.py` is older than the `.fsm`, you forgot `genfsm`.
 
-## The vendor detector's answer with every frame (2026-11-18; NOT yet checked on the robot)
+## The vendor detector's answer with every frame (2026-11-18; checked on the robot 2026-11-19)
 
 The robot's built-in detector ("aivision") runs on the robot all the time and its object list arrives in every status packet (about 20 a second): `robot.robot0.status['aivision']['objects']` = `{count, items}`; each item has `type_str` (`aiobj` for a model object, `tag` for an AprilTag), `id` (0 SportsBall, 1 BlueBarrel, 2 OrangeBarrel, 3 Robot), `name`, `originx`, `originy`, `width`, `height` (top-left corner and size, in **320×240** units: multiply by 2 for our 640×480 frame) and `score`. Nothing has to be requested or switched on, so reading it does not slow the image stream (tag detection, the slow one, stays off).
 
-`tm save` pairs each camera frame with the list that was current when the frame arrived and writes the three files of the table above. `barrels/tools/import_snaps.py` then moves the `.json` to `barrels/data/vendor/<stem>_vendor.json` under the frame's new name (the dry run shows it; the `_vendor.png` look-at copies stay in `snapshots/`, delete them when done). Schema: `DATA.md`, "Vendor detections".
+`tm save` pairs each camera frame with the list that was current when the frame arrived and writes the three files of the table above. `barrels/tools/import_snaps.py` then moves the `.json` to `barrels/data/vendor/<stem>_vendor.json` under the frame's new name (the dry run shows it; the `_vendor.png` look-at copies stay in `snapshots/`, delete them when done). Schema: `DATA.md`, "Vendor detections". Once the frames are imported, assigned to a split and boxed: `python barrels/tools/report.py --vendor` scores the vendor next to our detector on those frames (`HOW-IT-WORKS.md` §4).
 
 **First live check (once, before the first shoot that relies on it):**
 
@@ -72,6 +72,8 @@ The robot's built-in detector ("aivision") runs on the robot all the time and it
 5. Timing: with the barrels in view, move one quickly and `tm save` while it moves; in the `_vendor.png` the box may trail or lead the barrel by a little. For still scenes (every planned shot) this does not matter; say how large it is.
 6. The stream is not slowed: the tracker window updates as fast as before, and `tm rec` writes about as many frames in ten seconds as it did before (the 2026-11-16 recordings have 49 and 51 files).
 7. `python barrels/tools/import_snaps.py --src barrels/live/snapshots --light test --surface test --scenes core,neg --dry-run`: each line shows the frame's new name and `+ data/vendor/<stem>_vendor.json`.
+
+**Result of the first live check, 2026-11-19 (Tanush with the data session, on the black ottoman lid):** steps 1 to 4 pass. The console line ends with the vendor's objects, the `.json` says `"available": true` and `"read_at": "frame"`, the boxes in `_vendor.png` sit tight on the right barrels (not shifted, not half size), `score` runs 0 to 100 (98 and 99 seen), and an empty frame gives `0 objects`. Step 7: the importer carried all 36 vendor files of the first shoot under the frames' new names. Not done: step 5 (a moving barrel) and step 6 (the stream speed). Seen in passing: `tm save` starts again at `robot_snap0` when the top level of `snapshots/` holds no `robot_snapN.png`, so move a finished session's files into a subfolder, never mix two sessions there; the camera's auto exposure darkens the whole frame when a hand comes in, so wait about three seconds after the hand is out.
 
 ## Networking
 

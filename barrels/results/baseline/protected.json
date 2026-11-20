@@ -1,0 +1,4 @@
+{
+ "protected": ["HOME", "CAMPUS"],
+ "note": "The data sets the never-regress check protects (python barrels/tools/report.py --gate): a scenario row of one of these may not lose a found barrel or gain a false box. Names as the eval table prints them (HOME, CAMPUS) or a full {robot}_{light}_{surface} key. To protect a new ordinary condition: add its name here, run python barrels/tools/report.py --save-baseline, commit both files. Extreme sets (black table, orange wood) and Dave's stay off this list: they are shown for information only."
+}
