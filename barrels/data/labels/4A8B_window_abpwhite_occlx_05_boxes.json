@@ -16,7 +16,9 @@
     98,
     170
    ],
-   "flags": [],
+   "flags": [
+    "occluded"
+   ],
    "note": ""
   },
   {

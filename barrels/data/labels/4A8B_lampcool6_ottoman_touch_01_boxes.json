@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_ottoman_touch_01",
  "image_sha1": "6f3c1c413d452e750ea87668e839d2b3fa605122",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",

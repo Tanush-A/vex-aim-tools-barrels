@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_ottoman_touch_01",
  "image_sha1": "564f5551e5bdd58481fbea4321a030dc12686a3c",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",

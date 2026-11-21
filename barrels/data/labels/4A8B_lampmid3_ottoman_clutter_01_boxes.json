@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_ottoman_clutter_01",
  "image_sha1": "7634e755c8d50a38b1635554bb8ac51db9280bc7",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "manual",

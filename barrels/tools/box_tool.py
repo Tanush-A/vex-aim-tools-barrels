@@ -44,6 +44,7 @@ VIEWS = ("boxes", "raw")
 FLAG_KEYS = {"x": "occluded", "h": "held", "e": "bottom_estimated", "s": "no_stripe"}
 GRAB_PX = 6          # image pixels within which an edge/corner is grabbed
 MIN_BOX_PX = 4       # smaller drags count as clicks
+EDGE_SNAP_PX = 2     # a cursor this close to the right or bottom frame edge snaps onto it
 SHAPE = (io.FRAME_H, io.FRAME_W)
 
 
@@ -176,6 +177,12 @@ class Session:
     def on_mouse(self, event, sx, sy, flags, _):
         x, y = int(sx / self.scale), int(sy / self.scale)
         x = min(max(x, 0), SHAPE[1]); y = min(max(y, 0), SHAPE[0])
+        # the window never reports the last column/row + 1, so the right and bottom frame edges (640, 480) were
+        # unreachable and a cut barrel never got `truncated`: within EDGE_SNAP_PX of them counts as on them
+        if x >= SHAPE[1] - EDGE_SNAP_PX:
+            x = SHAPE[1]
+        if y >= SHAPE[0] - EDGE_SNAP_PX:
+            y = SHAPE[0]
         self.cursor = (x, y)
         if event == cv2.EVENT_LBUTTONDOWN:
             b = self.selected()

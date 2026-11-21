@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_ottoman_occl_01",
  "image_sha1": "6d3e7861d18fa66a8654a5f890fb137196c0f42a",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "manual",

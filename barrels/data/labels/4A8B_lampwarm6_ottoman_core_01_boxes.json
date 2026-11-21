@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_ottoman_core_01",
  "image_sha1": "ee050c6fef3d36adf7a6a61addc74574293a51b9",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",
@@ -11,10 +11,10 @@
    "id": 1,
    "color": "blue",
    "bbox": [
-    77,
+    79,
     133,
     155,
-    208
+    209
    ],
    "flags": [],
    "note": "copied from lampmid6"
@@ -47,10 +47,10 @@
    "id": 4,
    "color": "orange",
    "bbox": [
-    413,
+    415,
     126,
     479,
-    190
+    191
    ],
    "flags": [],
    "note": "copied from lampmid6"

@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_ottoman_occl_01",
  "image_sha1": "a1c6fac33a8964e17020627d4a604efaffcabbd2",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "manual",

@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_ottoman_close_01",
  "image_sha1": "69569caee24d9f609f582454e30a3a5eb244ca38",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",
@@ -14,9 +14,11 @@
     218,
     232,
     470,
-    477
+    480
    ],
-   "flags": [],
+   "flags": [
+    "truncated"
+   ],
    "note": "copied from lampmid6"
   }
  ]

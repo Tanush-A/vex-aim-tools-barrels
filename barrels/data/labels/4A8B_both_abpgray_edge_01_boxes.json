@@ -25,11 +25,11 @@
    "bbox": [
     588,
     150,
-    638,
+    640,
     260
    ],
    "flags": [
-    "occluded"
+    "truncated"
    ],
    "note": ""
   }

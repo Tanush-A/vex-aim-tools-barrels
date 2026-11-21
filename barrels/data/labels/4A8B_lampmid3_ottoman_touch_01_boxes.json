@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_ottoman_touch_01",
  "image_sha1": "b1f8585d63b16f1154fdbb421dd25a29cde8c85e",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",

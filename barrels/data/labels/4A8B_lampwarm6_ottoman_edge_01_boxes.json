@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_ottoman_edge_01",
  "image_sha1": "b28573c8f3ea1fda97b07578b1fe171752ce9cf4",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",

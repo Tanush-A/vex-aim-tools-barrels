@@ -14,9 +14,10 @@
     97,
     330,
     514,
-    478
+    480
    ],
    "flags": [
+    "truncated",
     "held",
     "no_stripe"
    ],
