@@ -27,12 +27,13 @@ No false box on any clean empty frame. Test frames (47) untouched.
 
 ## New data (data session, 2026-11-19; details in `DATA.md`, "Conditions shot this week")
 
+- **2026-11-21: the occlusion set shot** (R1, 18 of 19, `4A8B_window_abpwhite_occlx_*`, white table at ABP under window light, vendor files on all; split 17 / 1; not boxed). These are the first real occlusion frames. `occlx_16` is open. On a heavy-overlap test frame (not imported, kept locally) ours boxed all four barrels and the vendor drew a duplicate.
 - **2026-11-20, later: condition 6 in**, the glossy gray table at ABP on campus under window light plus a weak yellow overhead (10 frames with vendor files incl. `held_01`, split 8 / 2, not boxed). The table does not read as a barrel color. On the first test frame **our detector missed the orange barrel** (the orange paint reads very red here, hue 0–4, on or below the lower edge of 3–13); the vendor found it. **The kicker check passed** (ours and the vendor boxed a barrel seated in the kicker), so the close-up check is done. The occlusion set was not shot (the window light was changing).
 - **2026-11-20: condition 5 in**, pale wood under weak overhead light on campus (9 frames with vendor files, split 7 / 2, not boxed). The table itself reads orange to the camera, and on a test frame our detector drew one false box on bare table: another case for the adaptive thresholds. **The close-up check passed** there (ours boxed near and far barrels on all three test frames; the vendor missed the near one on two); a barrel seated in the kicker is still unchecked.
 - **2026-11-19: 4 conditions in.** The black ottoman lid at home under the lamp aimed down at it, at warm 6, mid 6, cool 6 and mid 3: 36 frames, every one with the vendor's saved answer, split by scene 28 train / 8 test. Not boxed yet, no slider labels yet (Tanush, after a later shoot).
 - **The vendor save works** (the first real vendor files; `report.py --vendor` can run on them once the frames are boxed).
 - **First look, no score:** with the lamp at mid 6 the barrels are plain to see and the vendor reports them, but our fixed color ranges miss them (orange reads hue 14 to 19 against our 3 to 13; blue sits on the lower edge of its range), and our detector drew no box on the three check frames. `lampmid3` is very dark (barrels around the brightness floor of 40) and the vendor still names barrels on it. This is the kind of case the adaptive thresholds (F) are for.
-- **Open:** boxes for all 55 new frames; slider labels and slider labels for the ottoman frames; the 16-shot occlusion set (R1 in `DATA.md`); no white-table condition has a vendor file yet.
+- **Open:** boxes for all 73 new frames; slider labels and slider labels for the ottoman frames; the 16-shot occlusion set (R1 in `DATA.md`); no white-table condition has a vendor file yet.
 
 ## Now
 
