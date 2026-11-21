@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_ottoman_touch_01",
+ "image_sha1": "564f5551e5bdd58481fbea4321a030dc12686a3c",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    198,
+    129,
+    262,
+    198
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    262,
+    129,
+    325,
+    198
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    324,
+    128,
+    389,
+    199
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

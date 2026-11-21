@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_edge_01",
+ "image_sha1": "e2ff274a367e44d4fc7fcc48f408e15d7c373462",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    291,
+    127,
+    356,
+    197
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    588,
+    150,
+    638,
+    260
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  }
+ ]
+}

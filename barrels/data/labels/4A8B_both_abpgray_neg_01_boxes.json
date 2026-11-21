@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_neg_01",
+ "image_sha1": "44551950ab3020dc885610200639eb8ca2326cf3",
+ "reviewed": true,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

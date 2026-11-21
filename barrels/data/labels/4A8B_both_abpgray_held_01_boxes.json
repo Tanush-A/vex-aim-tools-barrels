@@ -1,0 +1,26 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_held_01",
+ "image_sha1": "798a7aaef041c1bc1dde08cd218ca1bc8d64afe2",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    97,
+    330,
+    514,
+    478
+   ],
+   "flags": [
+    "held",
+    "no_stripe"
+   ],
+   "note": ""
+  }
+ ]
+}

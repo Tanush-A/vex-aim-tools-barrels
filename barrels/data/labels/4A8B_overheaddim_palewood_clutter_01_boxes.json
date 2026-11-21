@@ -1,0 +1,62 @@
+{
+ "version": 1,
+ "stem": "4A8B_overheaddim_palewood_clutter_01",
+ "image_sha1": "18ec8d176053011f2195255eb2c96e765aa786e6",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    136,
+    118,
+    187,
+    169
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    138,
+    144,
+    231,
+    242
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    421,
+    119,
+    474,
+    171
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    557,
+    134,
+    637,
+    216
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_overheaddim_palewood_core_01",
+ "image_sha1": "3adb8359bfbd77576be2cffbcf38dd67ee58b9f5",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    125,
+    137,
+    207,
+    223
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    246,
+    111,
+    282,
+    148
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    364,
+    105,
+    396,
+    138
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    428,
+    118,
+    479,
+    169
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

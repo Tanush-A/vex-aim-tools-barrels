@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_touch_01",
+ "image_sha1": "12e2891163f15a30fc1f8c31e9c419d462bdc4f2",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    193,
+    124,
+    247,
+    181
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    246,
+    123,
+    301,
+    181
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    299,
+    122,
+    352,
+    179
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

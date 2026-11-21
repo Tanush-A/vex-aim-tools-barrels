@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_ottoman_edge_01",
+ "image_sha1": "6bf6ada176e84d354a16305b47126267896d6361",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    141,
+    43,
+    229
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    267,
+    139,
+    351,
+    231
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_ottoman_edge_01",
+ "image_sha1": "b28573c8f3ea1fda97b07578b1fe171752ce9cf4",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    141,
+    43,
+    229
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    267,
+    139,
+    351,
+    231
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

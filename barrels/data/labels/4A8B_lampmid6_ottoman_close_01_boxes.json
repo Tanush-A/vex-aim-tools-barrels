@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_ottoman_close_01",
+ "image_sha1": "473ce4f85c4a75d7ae067ae74a716c1e85a368ea",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    218,
+    232,
+    470,
+    477
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

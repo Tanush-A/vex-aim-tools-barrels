@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_abpwhite_occlx_15",
+ "image_sha1": "aba6122b39ed769014f45e03687d09a3364d08cb",
+ "reviewed": true,
+ "negative": true,
+ "clean": false,
+ "source": "manual",
+ "barrels": []
+}

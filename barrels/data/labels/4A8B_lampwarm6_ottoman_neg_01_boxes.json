@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_ottoman_neg_01",
+ "image_sha1": "25f333f26f5f31e20c1e7740b62f067f64fa00c6",
+ "reviewed": false,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}
