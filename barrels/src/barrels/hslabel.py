@@ -161,7 +161,7 @@ def scene_matches(stem: str, scenes: tuple[str, ...] | None) -> bool:
 
 @dataclass
 class Selection:
-    stems: list[str]                                              # the frames to label, sorted by name
+    stems: list[str]                                              # the frames to label: by condition, then in the order of ``scenes``
     refused: dict[str, list[str]] = field(default_factory=dict)   # reason -> stems that matched but may not be opened
 
 
@@ -169,7 +169,8 @@ def select_frames(stems: list[str], splits: dict[str, list[str]], scenes: tuple[
                   filter_: str = "") -> Selection:
     """The frames the slider tool will show: name contains ``filter_``, scene is in ``scenes``, and the frame is
     a train frame. Frames that match but may not be opened are listed under ``refused`` by reason; there is no
-    way to include them."""
+    way to include them. Order: by condition (light_surface), and inside it in the order the scenes were given, so
+    ``core_01,clutter_01,occl_02`` opens core_01 first and ``c`` on the next frame copies it (Tanush, 2026-11-21)."""
     keep: list[str] = []
     refused: dict[str, list[str]] = {}
     for stem in sorted(set(stems)):
@@ -180,7 +181,16 @@ def select_frames(stems: list[str], splits: dict[str, list[str]], scenes: tuple[
             refused.setdefault(why, []).append(stem)
         else:
             keep.append(stem)
-    return Selection(keep, refused)
+    return Selection(sorted(keep, key=lambda s: _scene_order(s, scenes)), refused)
+
+
+def _scene_order(stem: str, scenes: tuple[str, ...] | None) -> tuple:
+    try:
+        t = io.parse_name(stem)
+    except ValueError:
+        return ("", 0, stem)
+    rank = 0 if scenes is None else next((i for i, s in enumerate(scenes) if s in (f"{t['scene']}_{t['nn']}", t["scene"])), len(scenes))
+    return (f"{t['robot']}_{t['light']}_{t['surface']}", rank, stem)
 
 
 # ---------------------------------------------------------------- the label
