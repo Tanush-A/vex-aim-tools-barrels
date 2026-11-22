@@ -1,0 +1,24 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_ottoman_clutter_01",
+ "image_sha1": "75eb89fa78f41faf9657489fed307b54bd3fee52",
+ "orange": {
+  "h_lo": 5,
+  "h_hi": 25,
+  "s_lo": 166
+ },
+ "blue": {
+  "h_lo": 75,
+  "h_hi": 135,
+  "s_lo": 10
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "0d0a7c4",
+ "boxes_drawn": 3,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": ""
+}

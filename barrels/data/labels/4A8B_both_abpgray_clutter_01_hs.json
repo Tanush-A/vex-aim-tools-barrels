@@ -1,0 +1,24 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_clutter_01",
+ "image_sha1": "c097217881dd4f177015eca21266dc4acbcb62bc",
+ "orange": {
+  "h_lo": -2,
+  "h_hi": 19,
+  "s_lo": 159
+ },
+ "blue": {
+  "h_lo": 102,
+  "h_hi": 117,
+  "s_lo": 113
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "5b77c72",
+ "boxes_drawn": 4,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": ""
+}

@@ -1,0 +1,24 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_ottoman_occl_02",
+ "image_sha1": "4fe566a9f3965cbe22e017ac018387b91ab842bd",
+ "orange": {
+  "h_lo": 4,
+  "h_hi": 23,
+  "s_lo": 136
+ },
+ "blue": {
+  "h_lo": 95,
+  "h_hi": 115,
+  "s_lo": 43
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "0d0a7c4",
+ "boxes_drawn": 1,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": ""
+}
