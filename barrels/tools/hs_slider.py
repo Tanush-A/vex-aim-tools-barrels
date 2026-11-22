@@ -58,7 +58,7 @@ SLIDERS = (("orange", "h_lo", "orange hue low", -30, 60), ("orange", "h_hi", "or
 ROW_H = 26                        # one slider row
 TRACK_X0, TRACK_RIGHT = 180, 130  # the track starts this far into its column and ends this far before the column's end
 TOP_PAD = 18
-PANEL_H = TOP_PAD + 3 * ROW_H + 4 * 20 + 2
+PANEL_H = TOP_PAD + 3 * ROW_H + 5 * 20 + 2
 FONT, FS = cv2.FONT_HERSHEY_SIMPLEX, 0.45
 BG, FG, DIMTXT, HILITE = (32, 32, 32), (235, 235, 235), (150, 150, 150), (0, 255, 255)
 HELP = "drag a slider, or 1-6 then - = ([ ] by 5)   b boxes   t truth   m paint   r adopted   c copy previous   u undo   w save   n/p next/prev   q quit"
@@ -78,6 +78,23 @@ def value_to_x(v: int, lo: int, hi: int, x0: int, x1: int) -> int:
 
 def x_to_value(x: float, lo: int, hi: int, x0: int, x1: int) -> int:
     return min(max(lo + int(round((x - x0) * (hi - lo) / (x1 - x0))), lo), hi)
+
+
+def score(mask: np.ndarray, truth: list[dict] | None, row0: int) -> tuple[float, float] | None:
+    """(share of the pixels inside the hand-drawn boxes that are painted, share of the pixels outside every box that
+    are painted), both from row ``row0`` down (nothing above it is ever painted); None without boxes. The boxes hold
+    the barrel plus some table at the corners, so the first number tops out below 100 %."""
+    if not truth:
+        return None
+    inside = np.zeros(mask.shape, bool)
+    for b in truth:
+        x0, y0, x1, y1 = b["bbox"]
+        inside[y0:y1, x0:x1] = True
+    painted = mask != 0
+    inside[:row0] = False
+    outside = ~inside
+    outside[:row0] = False
+    return float(painted[inside].mean()) if inside.any() else 0.0, float(painted[outside].mean()) if outside.any() else 0.0
 
 
 def seg_picture(bgr: np.ndarray, mask: np.ndarray, barrels: list, truth: list[dict] | None, show_boxes: bool,
@@ -266,6 +283,9 @@ class Session:
                     self.sel = self.grab = i
                     self.pending, self.msg, self._view = None, "", None
                     self.set_value(i, x_to_value(x, lo, hi, x0, x1))
+                    break
+            else:       # say where the click landed, so a window that reports other coordinates shows up at once
+                self.msg, self._view = f"click at x {x:.0f}, y {y:.0f}: not on a slider track (tracks: y {h + TOP_PAD}-{h + TOP_PAD + 2 * ROW_H}, x {TRACK_X0}-{w - TRACK_RIGHT} and {w + TRACK_X0}-{2 * w - TRACK_RIGHT})", None
         elif event == cv2.EVENT_MOUSEMOVE and self.grab is not None:
             _, _, _, lo, hi = SLIDERS[self.grab]
             x0, x1, _ = track(self.grab, w, h)
@@ -279,10 +299,14 @@ class Session:
         state = ("UNSAVED *" if self.dirty else "saved") if self.has_label else ("none yet, changed *" if self.dirty else "none yet")
         truth = "none" if self.truth is None else f"{len(self.truth)} ({'shown' if self.show_truth else 'hidden'})"
         cfg = self.base.cfg
+        sc = score(self.result()[0], self.truth, cfg.horizon_row)
+        scored = ("score: no boxes on this frame" if sc is None else
+                  f"score: barrels painted {100 * sc[0]:.1f} % of the inside of your boxes (first: push this up)   "
+                  f"painted outside your boxes {100 * sc[1]:.2f} % (second: keep this down)")
         return [f"[{self.idx + 1}/{len(self.stems)}] {self.stem}   label: {state}   detector boxes={len(barrels)}{'' if self.show_boxes else ' (hidden)'}"
                 f"   truth boxes={truth}   paint={PAINTS[self.paint]}",
                 hl.describe(self.thr) + f"      fixed: rows >= {cfg.horizon_row}, V >= {cfg.v_min}, model {cfg.short_hash()}",
-                self.msg, HELP]
+                scored, self.msg, HELP]
 
     def render(self) -> np.ndarray:
         if self._view is not None:
@@ -307,7 +331,7 @@ class Session:
             cv2.putText(view, text, (x1 + 14, yc + 5), FONT, FS, HILITE if on else FG, 1, cv2.LINE_AA)
         y = h + TOP_PAD + 3 * ROW_H + 8
         for j, line in enumerate(self.status()):
-            color = HILITE if j == 2 else DIMTXT if j == 3 else FG
+            color = HILITE if j == 3 else DIMTXT if j == 4 else FG
             cv2.putText(view, line, (8, y + j * 20), FONT, FS, color, 1, cv2.LINE_AA)
         if self.scale != 1:
             view = cv2.resize(view, None, fx=self.scale, fy=self.scale, interpolation=cv2.INTER_NEAREST if self.scale > 1 else cv2.INTER_AREA)

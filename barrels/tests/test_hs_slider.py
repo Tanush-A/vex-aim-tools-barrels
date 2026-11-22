@@ -130,7 +130,7 @@ def test_unsaved_changes_are_not_lost_silently(dirs):
     assert s.on_key(ord("n")) and s.stem == B and s.on_key(ord("p")) and s.stem == A      # untouched: moves, writes nothing
     assert not list(dirs[1].iterdir())
     _click(s, 2, 100)
-    assert s.on_key(ord("n")) and s.stem == A and "UNSAVED" in s.msg and "UNSAVED" in s.status()[2]
+    assert s.on_key(ord("n")) and s.stem == A and "UNSAVED" in s.msg and "UNSAVED" in s.status()[3]
     assert s.on_key(ord("b")) and s.on_key(ord("n")) and s.stem == A                      # another key in between: asks again
     assert s.on_key(ord("p")) and s.stem == A                                             # a different leave key: asks again
     assert s.on_key(ord("q")) is True and s.on_key(27) is False                           # q then Esc = the same key twice
@@ -222,3 +222,13 @@ def test_command_line_lists_only_train_frames_and_selftest_writes_the_picture(tm
     assert cv2.imread(str(png)).shape == (480 + tool.PANEL_H, 1280, 3)
     assert "orange hue -3..13 (=177..13) S>=140" in capsys.readouterr().out
     assert not list(tmp_path.glob("*_hs.json"))                                           # the selftest saves no label
+
+
+def test_score_counts_painted_pixels_inside_and_outside_the_boxes():
+    mask = np.zeros((480, 640), np.uint8)
+    mask[100:110, 100:110] = ORANGE                        # half of the 10 x 20 box
+    mask[300:302, 300:310] = BLUE                          # 20 px outside it
+    inside, outside = tool.score(mask, [{"bbox": [100, 100, 110, 120]}], row0=50)
+    assert inside == 0.5
+    assert outside == 20 / (430 * 640 - 200)
+    assert tool.score(mask, None, 50) is None and tool.score(mask, [], 50) is None
