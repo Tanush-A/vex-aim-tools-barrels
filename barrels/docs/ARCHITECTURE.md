@@ -70,6 +70,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | front end | `priors.py` | the robust (median / MAD) color model used for the wall and table | `band_stats`, `reject_like` |
 | front end | `boxfit.py` | percentile RGB boxes and their diagnostics | `Box`, `fit_box`, `in_box`, `fullness`, `pca` |
 | front end | `adaptive.py` | the adaptive color rule (2026-11-23, **off** by default, `Config.hs_adapt`): per frame, a threshold moved along a line through the home point on one number of the frame's own histogram; the slope fit with every place weighted equally (`experiments/2026-11-24_adaptive`) | `Term`, `adapted_boxes`, `frame_thresholds`, `fit_slope`, `place_weights` |
+| front end | `lightcolor.py` | the blue box follows the light (2026-11-25, **off** by default, `Config.hs_light`): the light's warmth from the frame's brightest pixels lowers the blue S floor and hue low end; failed its PREREG (`experiments/2026-11-25_color`) | `light_warmth`, `share`, `warm_blue_boxes`, `validate` |
 | analysis | `conditions.py` | place (table + room) and light kind (window / overhead / lamp / mixed) of each condition, from `data/conditions.json`; a missing one is guessed from its tags and flagged | `info`, `load_table` |
 | front end | `cleanup.py` | speck removal / opening / hole filling; **off** (tie, 2026-10-28) | `apply` |
 | geometry ★ | `geometry.py` | pinhole camera: row ↔ distance, the barrel's rows and width at any distance, presets | `CameraModel`, `barrel_rows`, `horizon_row`, `AIM_4A8B6118_BOXFIT` |

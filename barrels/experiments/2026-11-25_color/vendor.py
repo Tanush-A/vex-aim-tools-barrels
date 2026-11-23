@@ -37,7 +37,9 @@ def counts(res, loose, stems) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", type=Path, default=cm.RESULTS / "config.json")
+    ap.add_argument("--name", default="vendor", help="output files <name>.md and <name>_per_barrel.csv")
     a = ap.parse_args()
+    a.model = a.model.resolve()
     if not a.model.exists():
         alt = cm.RESULTS / "config_best_not_passing.json"
         print(f"{a.model} does not exist; using {alt}")
@@ -89,7 +91,7 @@ def main() -> int:
         n_gt = sum(res["vendor"][s].n_gt.values())
         for g in range(n_gt):
             rows.append({"stem": s, "condition": cm.condition_of(s), "gt": g + 1, **{n: int(g in fo[n]) for n in arms}})
-    with open(cm.RESULTS / "vendor_per_barrel.csv", "w", newline="") as fh:
+    with open(cm.RESULTS / f"{a.name}_per_barrel.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
     miss = defaultdict(int)
     gain = defaultdict(int)
@@ -102,7 +104,7 @@ def main() -> int:
             gain[r["condition"]] += 1
     L += ["", "Barrels (strict) the vendor finds and the candidate misses, per condition: " + (", ".join(f"{c} {n}" for c, n in sorted(miss.items(), key=lambda t: -t[1])) or "none")
           + ". The other way: " + (", ".join(f"{c} {n}" for c, n in sorted(gain.items(), key=lambda t: -t[1])) or "none") + ".", ""]
-    (cm.RESULTS / "vendor.md").write_text("\n".join(L) + "\n")
+    (cm.RESULTS / f"{a.name}.md").write_text("\n".join(L) + "\n")
     print("\n".join(L))
     return 0
 
