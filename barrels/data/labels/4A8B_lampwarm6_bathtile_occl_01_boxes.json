@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_bathtile_occl_01",
  "image_sha1": "e5072bb916b424b916034d75535f7c07402a4718",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",

@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_window_glass_touch_01",
  "image_sha1": "d4ca01d0bc57156cefb9e388dffc84928a7240dd",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

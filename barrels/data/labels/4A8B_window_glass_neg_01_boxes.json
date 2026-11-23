@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_window_glass_neg_01",
  "image_sha1": "cb75fd6796987d6c54d3d986aee3a934bbd2c6c9",
- "reviewed": false,
+ "reviewed": true,
  "negative": true,
  "clean": true,
  "source": "manual",

@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_bathtile_edge_01",
  "image_sha1": "2e65a58ab4b28437be3f04b3f66aa4346225b462",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

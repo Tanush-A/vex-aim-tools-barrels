@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_glass_close_01",
  "image_sha1": "0371ebf9eed9e613519b656cf389e36f76c5326e",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

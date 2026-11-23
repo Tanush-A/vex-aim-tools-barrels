@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_window_glass_occl_02",
  "image_sha1": "0b1f884d5ad82d081cb739be784ec0a0a1cbf42e",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "claude_proposal",

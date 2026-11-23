@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_bathtile_neg_01",
  "image_sha1": "4fa6c99d8b68c4b8a4739c8ceafbba484016e618",
- "reviewed": false,
+ "reviewed": true,
  "negative": true,
  "clean": true,
  "source": "manual",

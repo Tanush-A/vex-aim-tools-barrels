@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_clutter_01",
+ "image_sha1": "bbef55f7610a918837bf436f47232735b76856f8",
+ "orange": {
+  "h_lo": 6,
+  "h_hi": 12,
+  "s_lo": 158
+ },
+ "blue": {
+  "h_lo": 103,
+  "h_hi": 112,
+  "s_lo": 182
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "d59978b",
+ "boxes_drawn": 4,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": "",
+ "proposed": true,
+ "proposed_by": "computed",
+ "moved": true,
+ "proposal": {
+  "orange": {
+   "h_lo": 7,
+   "h_hi": 10,
+   "s_lo": 183
+  },
+  "blue": {
+   "h_lo": 103,
+   "h_hi": 110,
+   "s_lo": 182
+  }
+ },
+ "ranges": {
+  "orange": {
+   "h_lo": [
+    6,
+    8
+   ],
+   "h_hi": [
+    8,
+    13
+   ],
+   "s_lo": [
+    150,
+    216
+   ]
+  },
+  "blue": {
+   "h_lo": [
+    60,
+    109
+   ],
+   "h_hi": [
+    109,
+    112
+   ],
+   "s_lo": [
+    167,
+    197
+   ]
+  }
+ }
+}

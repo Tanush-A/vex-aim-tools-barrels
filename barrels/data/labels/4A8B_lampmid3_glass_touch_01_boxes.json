@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_glass_touch_01",
  "image_sha1": "0cc2442d9e73156989a6f996745dbb25a1061106",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

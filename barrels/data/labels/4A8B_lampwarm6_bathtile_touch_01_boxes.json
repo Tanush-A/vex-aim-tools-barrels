@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_bathtile_touch_01",
  "image_sha1": "0d99fc3e39eb7b20a9361770c776ed5ad1e98af8",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_glass_neg_02",
  "image_sha1": "ea21a1634cea6cdc01ef547b7cc51f6f467b577e",
- "reviewed": false,
+ "reviewed": true,
  "negative": true,
  "clean": false,
  "source": "claude_proposal",

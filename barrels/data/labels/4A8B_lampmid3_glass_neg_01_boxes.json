@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_glass_neg_01",
  "image_sha1": "f9a662326f1534c6e166944d6f14eddd0ac3ac6e",
- "reviewed": false,
+ "reviewed": true,
  "negative": true,
  "clean": true,
  "source": "manual",

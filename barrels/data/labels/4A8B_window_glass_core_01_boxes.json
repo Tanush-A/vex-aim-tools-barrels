@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_window_glass_core_01",
  "image_sha1": "fc0945bff0485260c897e47d00dd06d4c9f703e4",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_glass_edge_01",
  "image_sha1": "06df905eb86040a32410c35908f4ccb535333934",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

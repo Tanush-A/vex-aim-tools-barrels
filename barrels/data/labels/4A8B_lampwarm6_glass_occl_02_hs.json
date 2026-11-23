@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_glass_occl_02",
+ "image_sha1": "c94b955f3725bb663659ff082a24696f6fb8042a",
+ "orange": {
+  "h_lo": 4,
+  "h_hi": 9,
+  "s_lo": 175
+ },
+ "blue": {
+  "h_lo": 106,
+  "h_hi": 114,
+  "s_lo": 176
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "d59978b",
+ "boxes_drawn": 1,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": "",
+ "proposed": true,
+ "proposed_by": "computed",
+ "moved": true,
+ "proposal": {
+  "orange": {
+   "h_lo": 6,
+   "h_hi": 8,
+   "s_lo": 186
+  },
+  "blue": {
+   "h_lo": 106,
+   "h_hi": 145,
+   "s_lo": 196
+  }
+ },
+ "ranges": {
+  "orange": {
+   "h_lo": [
+    6,
+    8
+   ],
+   "h_hi": [
+    7,
+    9
+   ],
+   "s_lo": [
+    151,
+    221
+   ]
+  },
+  "blue": {
+   "h_lo": [
+    60,
+    111
+   ],
+   "h_hi": [
+    110,
+    150
+   ],
+   "s_lo": [
+    168,
+    224
+   ]
+  }
+ }
+}

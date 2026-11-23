@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_bathtile_core_01",
  "image_sha1": "9aee575ca673e60d5e1894edf0e7a09aa04ff15a",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

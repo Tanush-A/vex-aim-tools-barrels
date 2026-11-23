@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_bathtile_close_01",
  "image_sha1": "3ab271e8e1a3cca0819c08b990768c241f2f01bf",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

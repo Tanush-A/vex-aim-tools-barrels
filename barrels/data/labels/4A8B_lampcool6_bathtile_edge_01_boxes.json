@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_bathtile_edge_01",
  "image_sha1": "54d2dcda11873319ba3b102125cff6acbc1249b3",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

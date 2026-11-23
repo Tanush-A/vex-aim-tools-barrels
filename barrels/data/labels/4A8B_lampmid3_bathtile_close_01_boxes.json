@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_bathtile_close_01",
  "image_sha1": "2aec1de26cb37b7f7dc86492bd15d27805da7cc5",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

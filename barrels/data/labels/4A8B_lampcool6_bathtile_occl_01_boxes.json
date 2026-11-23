@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_bathtile_occl_01",
  "image_sha1": "c8ce748c7b930cb47fe09a1207109a2271102ab2",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "manual",

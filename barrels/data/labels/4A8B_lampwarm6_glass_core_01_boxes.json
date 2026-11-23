@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_glass_core_01",
  "image_sha1": "39e73b8d555ea2c954faf285a570fae68fa620c1",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

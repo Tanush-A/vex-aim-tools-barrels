@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_core_01",
+ "image_sha1": "da323590f6d4674b391cf68802933529fa40da88",
+ "orange": {
+  "h_lo": 4,
+  "h_hi": 12,
+  "s_lo": 180
+ },
+ "blue": {
+  "h_lo": 60,
+  "h_hi": 146,
+  "s_lo": 10
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "d59978b",
+ "boxes_drawn": 4,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": "",
+ "proposed": true,
+ "proposed_by": "computed",
+ "moved": true,
+ "proposal": {
+  "orange": {
+   "h_lo": 4,
+   "h_hi": 10,
+   "s_lo": 180
+  },
+  "blue": {
+   "h_lo": 60,
+   "h_hi": 146,
+   "s_lo": 8
+  }
+ },
+ "ranges": {
+  "orange": {
+   "h_lo": [
+    -30,
+    10
+   ],
+   "h_hi": [
+    9,
+    11
+   ],
+   "s_lo": [
+    146,
+    214
+   ]
+  },
+  "blue": {
+   "h_lo": [
+    60,
+    98
+   ],
+   "h_hi": [
+    95,
+    150
+   ],
+   "s_lo": [
+    0,
+    66
+   ]
+  }
+ }
+}

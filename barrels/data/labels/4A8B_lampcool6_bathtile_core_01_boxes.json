@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_bathtile_core_01",
  "image_sha1": "55c1bc0ea211c38e7a1372c6a47879acd5bb6460",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

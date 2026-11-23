@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_bathtile_clutter_01",
  "image_sha1": "916dfd44fe27d773a56c9cb4c4121d75a560bea4",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "claude_proposal",

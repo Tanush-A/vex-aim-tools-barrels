@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_bathtile_clutter_01",
  "image_sha1": "7215725445ad66857c5037a1c867fb49eddc3f08",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "claude_proposal",

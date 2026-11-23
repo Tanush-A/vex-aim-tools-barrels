@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampwarm6_glass_touch_01",
  "image_sha1": "5557e9697e8a4cd50f7feeb9ba51dd24cc19c4d0",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

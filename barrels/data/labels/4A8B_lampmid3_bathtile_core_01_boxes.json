@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_bathtile_core_01",
  "image_sha1": "345c84ae258f5399a8f3e098d2f73188e92373e9",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

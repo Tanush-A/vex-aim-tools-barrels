@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampcool6_glass_touch_01",
  "image_sha1": "69e2de2f17800fd949f9e7ae6197afd5c8bb3d88",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": true,
  "source": "claude_proposal",

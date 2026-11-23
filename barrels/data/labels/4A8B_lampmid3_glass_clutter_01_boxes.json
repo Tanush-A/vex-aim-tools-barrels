@@ -2,7 +2,7 @@
  "version": 1,
  "stem": "4A8B_lampmid3_glass_clutter_01",
  "image_sha1": "1acc2e5fc5e53914b30e7e584083565daed29807",
- "reviewed": false,
+ "reviewed": true,
  "negative": false,
  "clean": false,
  "source": "claude_proposal",
