@@ -34,7 +34,9 @@ def test_box_labels_valid_and_match_image(stem):
     if scene == "neg":
         assert meta["negative"] and not meta["barrels"]
     elif scene not in ("calib", "ruler", "horizon", "held"):      # held: a barrel in the kicker may be left unboxed (Tanush, 2026-11-08)
-        assert meta["barrels"], "a positive frame with no boxes"
+        # a frame outside the neg scenes may be an intentional empty shot (the occlusion set's traps, occlx_15 / 16,
+        # 2026-11-20): then it must say so (negative) rather than just lack boxes
+        assert meta["barrels"] or meta["negative"], "a positive frame with no boxes"
 
 
 def test_all_window_light_frames_have_boxes():
