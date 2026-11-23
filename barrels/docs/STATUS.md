@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-24. Overnight report: `OVERNIGHT-2026-11-24.md`. Ours 59 of 123 against the vendor's 99 on the 7 new conditions (the color step fails on the ottoman and gray table; Tanush's slider thresholds fix most of it there); no histogram-to-threshold relation yet with 3 labelled places; close-up false box fixed on `wip/tomorrow` (waits for "understood"). 2026-11-24: everything is on `barrels` (Tanush: understood): adaptive thresholds off by default, slider and box proposals by Claude, the one command `python barrels/experiments/run_all.py`.
+**Updated:** 2026-11-25. Final report of the week's push: `REPORT-2026-11-25.md`. Test look done (pre-registered, one configuration): home 9 of 9, campus 22 of 24; new conditions ours 14 of 32 against the vendor's 23 (the gap is the color step on the ottoman and the dim / warm bathroom); we draw fewer false boxes. Waiting for Tanush: "understood" on the verify step (`wip/final`), protecting the new conditions, the orange conflict, a fresh try of the light rule.
 
 ## What runs
 

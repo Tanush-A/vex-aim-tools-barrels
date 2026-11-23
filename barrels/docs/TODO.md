@@ -41,7 +41,7 @@ Still missed on the white tables: one barrel in home `cluster_01` that shows onl
 | **H** | **Vendor column in the eval table.** Reads `data/vendor/<stem>_vendor.json`, scores the vendor's boxes by the same rule against the same labels, next to ours. Ready before the first frames arrive. Eval = main code: `wip/` branch, walkthrough. | **merged 2026-11-19 (Tanush: ok).** `python barrels/tools/report.py --vendor`; run only on made-up vendor files so far |
 | **I** | **The never-regress rule as a command.** One command that compares the eval table with the stored numbers for home and campus, row by row, and fails on any drop. Run before every merge. With H. | **merged 2026-11-19 with H.** `python barrels/tools/report.py --gate` against `results/baseline/`; fails and names the row when a home or campus row drops |
 | **F** | **Histogram against the hand-set thresholds.** Script merged; needs about 8 ordinary conditions. Re-run as conditions and slider labels arrive: `python barrels/experiments/2026-11-18_hs_relation/run.py`. If a relation holds: the adaptive rule, pre-registered, scored with the eval table. | waiting on data |
-| **G** | **Against the vendor, and one look at the test frames**, after the adaptive rule is in (or shown not to work). | Sunday 2026-11-22 |
+| **G** | **Against the vendor, and one look at the test frames** | **done 2026-11-25** (adaptive rules shown not to work in four rounds): home 9 of 9, campus 22 of 24; new conditions ours 14 of 32, vendor 23 of 32; `REPORT-2026-11-25.md` |
 
 ## Tanush
 
