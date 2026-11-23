@@ -14,6 +14,13 @@ In order, each step run as its own command, its exit code recorded, and the next
 6. thresholds as ranges          (python barrels/experiments/2026-11-24_adaptive_range/run.py), only if that file
                                  exists: the range of each threshold around the slider labels, whether anything
                                  predicts it, and the range rule R2's test; exit 0 = R2 passed, 1 = it failed
+7. the color candidates          (python barrels/experiments/2026-11-25_color/test.py), only if that file exists: the
+                                 pre-registered leave-one-place-out test of the re-centred constant (C1), the blue box
+                                 that follows the light (C2) and both (C3); exit 0 = a family passed, 1 = none did;
+                                 writes the chosen family's model file (results/2026-11-25_color/config.json, or
+                                 config_best_not_passing.json)
+8. ours (candidate) vs vendor    (python barrels/experiments/2026-11-25_color/vendor.py), only if that file exists:
+                                 the candidate model next to the fixed one and the vendor, per condition
 
 Then ONE page, results/<today>_run_all/summary.md: at the top what is missing in the data (frames imported but not
 boxed, slider labels not set, frames in no split, how many test frames each new condition has: counted from
@@ -41,6 +48,9 @@ REPO = BARRELS.parent
 VENDOR_SCRIPT = BARRELS / "experiments" / "2026-11-24_vendor" / "run.py"
 ADAPTIVE_SCRIPT = BARRELS / "experiments" / "2026-11-24_adaptive" / "run.py"
 RANGE_SCRIPT = BARRELS / "experiments" / "2026-11-24_adaptive_range" / "run.py"
+COLOR_SCRIPT = BARRELS / "experiments" / "2026-11-25_color" / "test.py"
+COLOR_VENDOR_SCRIPT = BARRELS / "experiments" / "2026-11-25_color" / "vendor.py"
+COLOR_RESULTS = BARRELS / "results" / "2026-11-25_color"
 GEOMETRY_SCENES = ("calib", "ruler", "horizon")
 SLIDER_SCENES = ("core_01", "clutter_01")              # plus one occl frame: occl_01, or occl_02 when occl_01 is a test frame
 KNOWN_GATE_FAILS = {   # failing gate row -> why it is known (so a known failure is not mistaken for a new one)
@@ -118,6 +128,8 @@ def default_steps(py: str = sys.executable) -> list[Step]:
         Step("vendor", [py, str(VENDOR_SCRIPT.relative_to(REPO))], requires=VENDOR_SCRIPT),
         Step("adaptive", [py, str(ADAPTIVE_SCRIPT.relative_to(REPO))], requires=ADAPTIVE_SCRIPT),
         Step("adaptive_range", [py, str(RANGE_SCRIPT.relative_to(REPO))], requires=RANGE_SCRIPT, timeout=3600.0),
+        Step("color", [py, str(COLOR_SCRIPT.relative_to(REPO))], requires=COLOR_SCRIPT, timeout=4 * 3600.0),
+        Step("color_vendor", [py, str(COLOR_VENDOR_SCRIPT.relative_to(REPO))], requires=COLOR_VENDOR_SCRIPT),
     ]
 
 
@@ -313,6 +325,29 @@ def range_lines(r: StepResult | None, decide: list[str]) -> list[str]:
     return L
 
 
+def color_lines(r: StepResult | None, decide: list[str], results_dir: Path = COLOR_RESULTS) -> list[str]:
+    """The 2026-11-25 color test's section: which family was chosen, whether it passed its PREREG, the model file."""
+    L = ["## The color candidates (2026-11-25)", ""]
+    if r is None or r.status == "skipped":
+        return L + ["Not run: `experiments/2026-11-25_color/test.py` is not on this branch.", ""]
+    js = results_dir / "test" / "chosen.json"
+    if not r.ran or not js.exists():
+        decide.append("The color test gave no verdict: see its log.")
+        return L + [f"No verdict ({r.status}, exit {r.code}): see its log.", ""]
+    c = json.loads(js.read_text())
+    pick, passing = c.get("pick"), c.get("passing", [])
+    names = {"C1": "re-centred constant", "C2": "blue box follows the light", "C3": "both"}
+    L.append(f"**{'PASS' if passing else 'FAIL'}**: chosen family {pick} ({names.get(pick, pick)})"
+             + (" passes its pre-registered acceptance." if passing else ", the best of the three, does NOT pass.")
+             + f" Model file: `{'config.json' if passing else 'config_best_not_passing.json'}` in `results/2026-11-25_color/`; "
+             "page: `results/2026-11-25_color/test/summary.md`.")
+    L.append("")
+    if passing:
+        decide.append(f"The color family {pick} passed its pre-registered test: make it the default (walkthrough first, "
+                      "`results/2026-11-25_color/walkthrough.md`; then worldmap_bridge.DEFAULT_MODEL)?")
+    return L
+
+
 def write_summary(out_dir: Path, results: list[StepResult], gaps: dict, today: str) -> str:
     by = {r.name: r for r in results}
     L = [f"# Run all, {today}", "",
@@ -364,6 +399,11 @@ def write_summary(out_dir: Path, results: list[StepResult], gaps: dict, today: s
         elif a.code not in (0, 1):
             decide.append("The adaptive script did not give a verdict: see its log.")
     L += range_lines(by.get("adaptive_range"), decide)
+    L += color_lines(by.get("color"), decide)
+    cv = by.get("color_vendor")
+    if cv is not None and cv.status != "skipped":
+        L += ["## Ours (candidate color model) against the vendor", "",
+              f"{cv.status}: `results/2026-11-25_color/vendor.md`" + (f" (log `{cv.log.name}`)" if cv.log else "") + ".", ""]
     gaps_todo = [condition(k) for k, x in gaps.items() if x["no_split"] or x["train_not_boxed"] or x["slider_missing"]]
     if gaps_todo:
         decide.insert(0, "Finish the data (top of this page) for: " + ", ".join(gaps_todo) + ".")

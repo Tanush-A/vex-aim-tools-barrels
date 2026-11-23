@@ -59,7 +59,7 @@ def test_step_environment_is_passed(ra, tmp_path):
 
 def test_default_steps_order_and_test_env(ra):
     steps = ra.default_steps("python")
-    assert [s.name for s in steps] == ["tests", "gate", "eval_table", "vendor", "adaptive", "adaptive_range"]
+    assert [s.name for s in steps] == ["tests", "gate", "eval_table", "vendor", "adaptive", "adaptive_range", "color", "color_vendor"]
     assert steps[0].env == {"BARRELS_NO_REPORT": "1"}
     assert steps[1].cmd[-1] == "--gate" and steps[2].cmd[-2:] == ["--base-model", "default"]
     assert all("test" not in " ".join(s.cmd[2:]) or s.name == "tests" for s in steps)     # no --split test anywhere
@@ -205,3 +205,19 @@ def test_place_found_indices(ve):
     preds = [Barrel(color=BLUE, bbox=(310, 110, 340, 150)),            # on gt 1 (index 1), small: place yes
              Barrel(color=BLUE, bbox=(100, 100, 150, 160))]            # on gt 0 but wrong color
     assert ve.place_found(preds, gts) == {1}
+
+
+def test_color_lines(ra, tmp_path):
+    """The 2026-11-25 color step: skipped, no verdict, a pass and a fail are each said plainly."""
+    decide = []
+    assert "not on this branch" in "\n".join(ra.color_lines(ra.StepResult("color", "c", "skipped", None, 0.0, ""), decide, tmp_path))
+    assert "No verdict" in "\n".join(ra.color_lines(ra.StepResult("color", "c", "failed", 1, 1.0, ""), decide, tmp_path)) and decide
+    (tmp_path / "test").mkdir()
+    (tmp_path / "test" / "chosen.json").write_text('{"pick": "C2", "passing": ["C2"]}')
+    decide = []
+    text = "\n".join(ra.color_lines(ra.StepResult("color", "c", "ok", 0, 1.0, ""), decide, tmp_path))
+    assert "**PASS**" in text and "C2" in text and "config.json" in text and decide
+    (tmp_path / "test" / "chosen.json").write_text('{"pick": "C3", "passing": []}')
+    decide = []
+    text = "\n".join(ra.color_lines(ra.StepResult("color", "c", "failed", 1, 1.0, ""), decide, tmp_path))
+    assert "**FAIL**" in text and "does NOT pass" in text and "config_best_not_passing.json" in text and not decide

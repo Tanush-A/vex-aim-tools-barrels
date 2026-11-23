@@ -12,6 +12,8 @@ training pixels. Two color models (``Config.color_model``):
   "hs" with ``Config.hs_adapt`` set (2026-11-23, OFF by default): the same, but some of the six thresholds are moved
     per frame along a line on one number read off that frame's own histogram (``adaptive.py``). Pixels are never
     changed and nothing is carried between frames.
+  "hs" with ``Config.hs_light`` set (2026-11-25, OFF by default): the blue box's S floor and hue low end are lowered
+    per frame by how yellow the frame's light is (``lightcolor.py``); orange and the pixels are untouched.
 
 No image correction anywhere: pixel values are never rescaled; the priors compare pixels to
 band statistics and the boxes are fixed thresholds. Frames with no barrels need no special
@@ -90,10 +92,13 @@ class Config:
     # hs: the adaptive rule (2026-11-23, OFF by default; adaptive.py): terms (threshold, feature, b, f_home, max_delta)
     # that move a threshold per frame by b * (this frame's feature - f_home). Empty = off = the fixed model.
     hs_adapt: tuple = ()
+    # hs: the blue box follows the light's warmth (2026-11-25, OFF by default; lightcolor.py): (w0, w1, s_warm, h_warm).
+    # Empty = off = the fixed model.
+    hs_light: tuple = ()
 
-    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes", "color_model", "hs_s_pct", "hs_h_pct", "hs_h_margin", "hs_adapt")
+    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes", "color_model", "hs_s_pct", "hs_h_pct", "hs_h_margin", "hs_adapt", "hs_light")
     _DEFAULTS = {"min_blob_px": 0, "open_px": 0, "fill_holes": False, "color_model": "rgb_box", "hs_s_pct": 10.0, "hs_h_pct": (2.0, 98.0), "hs_h_margin": 0.0,
-                 "hs_adapt": ()}
+                 "hs_adapt": (), "hs_light": ()}
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -108,6 +113,8 @@ class Config:
             d["hs_s_pct"] = tuple(d["hs_s_pct"])
         if "hs_adapt" in d:
             d["hs_adapt"] = tuple(tuple(t) for t in (d["hs_adapt"] or ()))
+        if "hs_light" in d:
+            d["hs_light"] = tuple(float(x) for x in (d["hs_light"] or ()))
         if d.get("refit") is not None:
             r = dict(d["refit"])
             for key in ("inner_pct", "pct", "outer_pct"):
@@ -324,6 +331,9 @@ def segment(frame: Frame, model: Model) -> tuple[np.ndarray, dict]:
         if cfg.hs_adapt:                                  # the adaptive rule (off by default): boxes moved by this frame's own histogram
             from . import adaptive
             boxes, info["adapt"] = adaptive.adapted_boxes(frame, model)
+        if cfg.hs_light:                                  # the blue box follows the light's warmth (off by default)
+            from . import lightcolor
+            boxes, info["light"] = lightcolor.warm_blue_boxes(frame.rgb, boxes, cfg.hs_light)
         for c in CLASSES:
             cand[c] = keep & bf.in_box(frame.hs(HUE_SHIFT[c]), boxes[c])
             info[f"cand_{c}"] = int(cand[c].sum())

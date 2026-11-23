@@ -1,0 +1,361 @@
+stem,place,condition,class,scene,param,his,lo,hi,lo_why,hi_why,fixed_inside,found_his,n_boxes,found_adopted
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,orange_h_lo,-2,-5,0,outside paint,barrel lost,False,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,orange_h_hi,19,17,90,false box,open,False,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,orange_s_lo,159,150,171,outside paint,false box,False,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,blue_h_lo,102,23,111,false box,barrel lost,True,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,blue_h_hi,117,114,118,false box,outside paint,False,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,blue_s_lo,113,69,144,outside paint,false box,True,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,v_min,40,20,105,outside paint,barrel lost,True,4,4,3
+4A8B_both_abpgray_clutter_01,abp_gray,both_abpgray,ordinary,clutter,horizon_row,50,0,130,open,barrel lost,True,4,4,3
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,orange_h_lo,-1,-30,1,open,barrel lost,False,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,orange_h_hi,6,1,90,barrel lost,open,True,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,orange_s_lo,167,156,231,outside paint,barrel lost,False,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,blue_h_lo,102,23,113,false box,barrel lost,True,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,blue_h_hi,121,116,126,barrel lost,outside paint,True,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,blue_s_lo,79,63,240,outside paint,barrel lost,True,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,v_min,40,0,100,open,barrel lost,True,4,4,2
+4A8B_both_abpgray_core_01,abp_gray,both_abpgray,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,2
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,orange_h_lo,-5,-12,3,outside paint,barrel lost,True,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,orange_h_hi,6,-1,90,barrel lost,open,True,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,orange_s_lo,200,180,246,outside paint,barrel lost,False,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,blue_h_lo,104,0,112,open,barrel lost,True,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,blue_h_hi,126,120,136,barrel lost,outside paint,False,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,blue_s_lo,179,171,246,outside paint,barrel lost,False,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,v_min,40,35,75,outside paint,barrel lost,True,1,1,1
+4A8B_both_abpgray_occl_02,abp_gray,both_abpgray,ordinary,occl,horizon_row,50,0,140,open,barrel lost,True,1,1,1
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,orange_h_lo,9,9,12,outside paint,barrel lost,False,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,orange_h_hi,18,11,19,barrel lost,outside paint,True,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,orange_s_lo,155,150,222,outside paint,barrel lost,False,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,blue_h_lo,88,73,99,false box,barrel lost,False,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,blue_h_hi,111,102,111,barrel lost,outside paint,False,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,blue_s_lo,57,54,120,false box,barrel lost,True,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,v_min,40,0,70,open,barrel lost,True,4,4,3
+4A8B_lampcool6_bathtile_clutter_01,home_bathtile,lampcool6_bathtile,ordinary,clutter,horizon_row,50,0,110,open,barrel lost,True,4,4,3
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,orange_h_lo,-25,-30,12,open,barrel lost,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,orange_h_hi,14,10,14,barrel lost,outside paint,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,orange_s_lo,49,0,219,open,barrel lost,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,blue_h_lo,68,51,103,outside paint,barrel lost,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,blue_h_hi,145,100,178,barrel lost,open,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,blue_s_lo,9,0,162,open,barrel lost,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,v_min,40,35,80,outside paint,barrel lost,True,4,4,4
+4A8B_lampcool6_bathtile_core_01,home_bathtile,lampcool6_bathtile,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,4
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,orange_h_lo,7,6,12,outside paint,barrel lost,False,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,orange_h_hi,15,11,19,barrel lost,outside paint,True,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,orange_s_lo,178,162,207,outside paint,barrel lost,False,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,blue_h_lo,98,89,103,outside paint,barrel lost,True,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,blue_h_hi,115,104,115,barrel lost,outside paint,False,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,blue_s_lo,87,51,132,outside paint,barrel lost,True,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,v_min,40,0,80,open,barrel lost,True,1,1,0
+4A8B_lampcool6_bathtile_occl_02,home_bathtile,lampcool6_bathtile,ordinary,occl,horizon_row,50,0,110,open,barrel lost,True,1,1,0
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,orange_h_lo,4,3,7,outside paint,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,orange_h_hi,12,8,14,barrel lost,outside paint,True,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,orange_s_lo,135,123,210,false box,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,blue_h_lo,103,24,108,false box,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,blue_h_hi,110,109,111,barrel lost,outside paint,False,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,blue_s_lo,199,189,225,outside paint,barrel lost,False,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,v_min,40,0,115,open,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_clutter_01,home_glass,lampcool6_glass,ordinary,clutter,horizon_row,50,0,110,open,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,orange_h_lo,3,-30,7,open,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,orange_h_hi,13,8,90,barrel lost,open,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,orange_s_lo,140,0,195,open,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,blue_h_lo,103,1,109,open,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,blue_h_hi,119,109,179,barrel lost,open,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,blue_s_lo,138,93,231,barrel lost,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,v_min,40,0,150,open,open,True,4,4,4
+4A8B_lampcool6_glass_core_01,home_glass,lampcool6_glass,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,4
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,orange_h_lo,2,0,8,outside paint,barrel lost,True,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,orange_h_hi,12,6,15,barrel lost,outside paint,True,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,orange_s_lo,168,135,225,outside paint,barrel lost,True,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,blue_h_lo,106,105,111,outside paint,barrel lost,False,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,blue_h_hi,113,110,113,barrel lost,outside paint,False,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,blue_s_lo,182,132,234,outside paint,barrel lost,False,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,v_min,40,20,125,outside paint,barrel lost,True,1,1,1
+4A8B_lampcool6_glass_occl_02,home_glass,lampcool6_glass,ordinary,occl,horizon_row,50,0,130,open,barrel lost,True,1,1,1
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,orange_h_lo,4,-1,11,outside paint,barrel lost,True,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,orange_h_hi,23,18,90,false box,open,False,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,orange_s_lo,116,108,153,outside paint,barrel lost,True,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,blue_h_lo,97,86,106,outside paint,barrel lost,True,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,blue_h_hi,112,107,115,barrel lost,outside paint,False,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,blue_s_lo,98,98,105,false box,false box,False,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,v_min,40,40,65,barrel lost,barrel lost,True,4,4,0
+4A8B_lampcool6_ottoman_clutter_01,home_ottoman,lampcool6_ottoman,ordinary,clutter,horizon_row,50,0,130,open,barrel lost,True,4,4,0
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,orange_h_lo,5,-30,16,open,barrel lost,True,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,orange_h_hi,23,15,90,barrel lost,open,False,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,orange_s_lo,105,75,183,outside paint,barrel lost,True,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,blue_h_lo,99,0,104,open,barrel lost,True,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,blue_h_hi,114,107,179,barrel lost,open,True,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,blue_s_lo,96,0,174,open,barrel lost,True,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,v_min,40,0,85,open,barrel lost,True,4,4,1
+4A8B_lampcool6_ottoman_core_01,home_ottoman,lampcool6_ottoman,ordinary,core,horizon_row,50,0,130,open,barrel lost,True,4,4,1
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,orange_h_lo,4,-2,8,outside paint,barrel lost,True,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,orange_h_hi,23,14,90,barrel lost,open,False,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,orange_s_lo,101,93,153,outside paint,barrel lost,True,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,blue_h_lo,97,4,106,outside paint,barrel lost,True,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,blue_h_hi,110,105,111,barrel lost,outside paint,False,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,blue_s_lo,98,75,156,outside paint,barrel lost,True,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,v_min,40,0,55,open,barrel lost,True,1,1,0
+4A8B_lampcool6_ottoman_occl_02,home_ottoman,lampcool6_ottoman,ordinary,occl,horizon_row,50,0,150,open,open,True,1,1,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,orange_h_lo,7,7,12,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,orange_h_hi,16,10,17,barrel lost,outside paint,True,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,orange_s_lo,190,186,222,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,blue_h_lo,60,39,107,outside paint,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,blue_h_hi,117,112,124,barrel lost,outside paint,True,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,blue_s_lo,7,0,27,open,barrel lost,False,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,v_min,40,40,45,outside paint,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_clutter_01,home_bathtile,lampmid3_bathtile,ordinary,clutter,horizon_row,50,0,120,open,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,orange_h_lo,6,-30,12,open,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,orange_h_hi,16,10,16,barrel lost,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,orange_s_lo,185,180,222,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,blue_h_lo,60,34,90,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,blue_h_hi,140,114,178,barrel lost,open,True,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,blue_s_lo,9,0,30,open,barrel lost,False,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,v_min,40,35,50,outside paint,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_core_01,home_bathtile,lampmid3_bathtile,ordinary,core,horizon_row,50,0,110,open,barrel lost,True,4,4,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,orange_h_lo,8,8,11,outside paint,barrel lost,False,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,orange_h_hi,15,11,15,barrel lost,barrel lost,True,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,orange_s_lo,160,153,174,outside paint,barrel lost,False,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,blue_h_lo,78,58,80,false box,barrel lost,False,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,blue_h_hi,126,104,128,barrel lost,barrel lost,True,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,blue_s_lo,25,25,48,barrel lost,barrel lost,False,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,v_min,40,35,55,outside paint,barrel lost,True,1,1,0
+4A8B_lampmid3_bathtile_occl_02,home_bathtile,lampmid3_bathtile,ordinary,occl,horizon_row,50,0,110,open,barrel lost,True,1,1,0
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,orange_h_lo,2,1,7,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,orange_h_hi,14,8,15,barrel lost,outside paint,True,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,orange_s_lo,155,138,201,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,blue_h_lo,105,20,110,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,blue_h_hi,112,109,112,barrel lost,outside paint,False,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,blue_s_lo,186,171,210,outside paint,barrel lost,False,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,v_min,40,0,115,open,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_clutter_01,home_glass,lampmid3_glass,ordinary,clutter,horizon_row,50,0,110,open,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,orange_h_lo,3,-30,8,open,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,orange_h_hi,13,7,90,barrel lost,open,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,orange_s_lo,140,57,204,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,blue_h_lo,103,1,109,open,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,blue_h_hi,119,109,179,barrel lost,open,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,blue_s_lo,113,75,228,barrel lost,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,v_min,40,0,150,open,open,True,4,4,4
+4A8B_lampmid3_glass_core_01,home_glass,lampmid3_glass,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,4
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,orange_h_lo,-7,-30,8,open,barrel lost,True,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,orange_h_hi,9,6,10,barrel lost,outside paint,False,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,orange_s_lo,126,96,219,outside paint,barrel lost,True,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,blue_h_lo,105,23,109,outside paint,barrel lost,True,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,blue_h_hi,113,109,113,barrel lost,outside paint,False,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,blue_s_lo,202,180,231,outside paint,barrel lost,False,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,v_min,40,25,125,outside paint,barrel lost,True,1,1,1
+4A8B_lampmid3_glass_occl_02,home_glass,lampmid3_glass,ordinary,occl,horizon_row,50,0,130,open,barrel lost,True,1,1,1
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,orange_h_lo,4,-30,23,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,orange_h_hi,23,4,90,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,orange_s_lo,146,138,255,outside paint,open,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,blue_h_lo,95,14,110,outside paint,open,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,blue_h_hi,110,95,175,open,outside paint,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,blue_s_lo,98,0,255,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,v_min,40,0,150,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_clutter_01,home_ottoman,lampmid3_ottoman,extreme,clutter,horizon_row,50,0,150,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,orange_h_lo,4,-30,23,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,orange_h_hi,23,4,90,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,orange_s_lo,101,99,255,outside paint,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,blue_h_lo,97,22,110,outside paint,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,blue_h_hi,110,97,179,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,blue_s_lo,98,0,255,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,v_min,40,10,150,outside paint,open,True,0,4,0
+4A8B_lampmid3_ottoman_core_01,home_ottoman,lampmid3_ottoman,extreme,core,horizon_row,50,0,150,open,open,True,0,4,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,orange_h_lo,4,-30,23,open,open,True,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,orange_h_hi,23,4,90,open,open,True,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,orange_s_lo,151,147,255,outside paint,open,False,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,blue_h_lo,95,26,110,outside paint,open,True,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,blue_h_hi,110,95,179,open,open,True,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,blue_s_lo,98,0,255,open,open,True,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,v_min,40,0,150,open,open,True,0,1,0
+4A8B_lampmid3_ottoman_occl_02,home_ottoman,lampmid3_ottoman,extreme,occl,horizon_row,50,0,150,open,open,True,0,1,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,orange_h_lo,8,8,10,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,orange_h_hi,15,9,15,barrel lost,outside paint,True,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,orange_s_lo,191,191,222,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,blue_h_lo,60,32,96,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,blue_h_hi,110,102,114,barrel lost,outside paint,False,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,blue_s_lo,8,0,57,open,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,v_min,40,35,60,outside paint,barrel lost,True,4,4,0
+4A8B_lampmid6_bathtile_clutter_01,home_bathtile,lampmid6_bathtile,ordinary,clutter,horizon_row,50,0,120,open,barrel lost,True,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,orange_h_lo,4,-30,10,open,barrel lost,True,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,orange_h_hi,12,9,12,barrel lost,outside paint,False,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,orange_s_lo,180,174,213,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,blue_h_lo,60,30,98,outside paint,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,blue_h_hi,146,96,178,barrel lost,open,True,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,blue_s_lo,10,0,66,open,barrel lost,False,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,v_min,40,0,65,open,barrel lost,True,4,4,0
+4A8B_lampmid6_bathtile_core_01,home_bathtile,lampmid6_bathtile,ordinary,core,horizon_row,50,0,110,open,barrel lost,True,4,4,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,orange_h_lo,8,8,13,outside paint,open,False,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,orange_h_hi,13,8,13,open,outside paint,True,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,orange_s_lo,203,201,255,outside paint,open,False,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,blue_h_lo,94,41,105,false box,open,True,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,blue_h_hi,105,94,128,open,outside paint,True,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,blue_s_lo,82,0,255,open,open,True,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,v_min,40,0,150,open,open,True,0,1,0
+4A8B_lampmid6_bathtile_occl_02,home_bathtile,lampmid6_bathtile,ordinary,occl,horizon_row,50,0,150,open,open,True,0,1,0
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,orange_h_lo,6,6,8,outside paint,barrel lost,False,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,orange_h_hi,12,8,13,barrel lost,outside paint,True,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,orange_s_lo,158,132,216,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,blue_h_lo,103,24,108,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,blue_h_hi,112,109,112,barrel lost,outside paint,False,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,blue_s_lo,182,168,198,outside paint,barrel lost,False,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,v_min,40,0,120,open,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_clutter_01,home_glass,lampmid6_glass,ordinary,clutter,horizon_row,50,0,110,open,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,orange_h_lo,3,-30,8,open,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,orange_h_hi,13,7,90,barrel lost,open,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,orange_s_lo,140,75,216,outside paint,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,blue_h_lo,103,1,109,open,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,blue_h_hi,119,109,179,barrel lost,open,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,blue_s_lo,113,51,222,barrel lost,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,v_min,40,0,140,open,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_core_01,home_glass,lampmid6_glass,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,4
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,orange_h_lo,2,1,9,outside paint,open,True,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,orange_h_hi,9,7,10,barrel lost,outside paint,False,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,orange_s_lo,158,123,213,outside paint,barrel lost,True,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,blue_h_lo,106,24,110,outside paint,barrel lost,True,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,blue_h_hi,112,110,114,barrel lost,outside paint,False,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,blue_s_lo,179,102,231,outside paint,barrel lost,True,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,v_min,40,0,115,open,barrel lost,True,1,1,1
+4A8B_lampmid6_glass_occl_02,home_glass,lampmid6_glass,ordinary,occl,horizon_row,50,0,130,open,barrel lost,True,1,1,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,orange_h_lo,4,-30,16,open,barrel lost,True,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,orange_h_hi,23,15,90,barrel lost,open,False,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,orange_s_lo,181,180,213,outside paint,barrel lost,False,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,blue_h_lo,95,77,105,outside paint,barrel lost,True,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,blue_h_hi,115,105,117,barrel lost,barrel lost,False,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,blue_s_lo,48,18,105,outside paint,barrel lost,False,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,v_min,40,30,55,outside paint,barrel lost,True,3,4,1
+4A8B_lampmid6_ottoman_clutter_01,home_ottoman,lampmid6_ottoman,ordinary,clutter,horizon_row,50,0,130,open,barrel lost,True,3,4,1
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,orange_h_lo,4,-30,16,open,barrel lost,True,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,orange_h_hi,23,15,90,barrel lost,open,False,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,orange_s_lo,171,165,204,outside paint,barrel lost,False,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,blue_h_lo,95,37,107,outside paint,barrel lost,True,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,blue_h_hi,115,107,179,barrel lost,open,True,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,blue_s_lo,48,0,111,open,barrel lost,False,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,v_min,40,20,60,outside paint,barrel lost,True,4,4,2
+4A8B_lampmid6_ottoman_core_01,home_ottoman,lampmid6_ottoman,ordinary,core,horizon_row,50,0,130,open,barrel lost,True,4,4,2
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,orange_h_lo,4,-30,13,open,barrel lost,True,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,orange_h_hi,23,14,90,barrel lost,open,False,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,orange_s_lo,136,132,192,outside paint,barrel lost,True,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,blue_h_lo,95,33,103,outside paint,barrel lost,True,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,blue_h_hi,115,103,117,barrel lost,outside paint,False,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,blue_s_lo,43,0,117,open,barrel lost,True,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,v_min,40,10,50,outside paint,barrel lost,True,1,1,0
+4A8B_lampmid6_ottoman_occl_02,home_ottoman,lampmid6_ottoman,ordinary,occl,horizon_row,50,0,150,open,open,True,1,1,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,orange_h_lo,7,7,7,outside paint,barrel lost,False,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,orange_h_hi,11,8,11,barrel lost,false box,False,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,orange_s_lo,191,186,198,outside paint,barrel lost,False,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,blue_h_lo,60,50,68,barrel lost,barrel lost,False,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,blue_h_hi,112,88,130,barrel lost,false box,True,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,blue_s_lo,7,0,33,open,barrel lost,False,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,v_min,40,30,50,outside paint,barrel lost,True,2,4,0
+4A8B_lampwarm6_bathtile_clutter_01,home_bathtile,lampwarm6_bathtile,ordinary,clutter,horizon_row,50,0,140,open,barrel lost,True,2,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,orange_h_lo,4,-30,9,open,barrel lost,True,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,orange_h_hi,10,8,10,barrel lost,outside paint,False,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,orange_s_lo,185,156,219,outside paint,barrel lost,False,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,blue_h_lo,60,58,74,barrel lost,barrel lost,False,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,blue_h_hi,150,138,156,barrel lost,barrel lost,False,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,blue_s_lo,0,0,12,open,barrel lost,False,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,v_min,40,0,60,open,barrel lost,True,1,4,0
+4A8B_lampwarm6_bathtile_core_01,home_bathtile,lampwarm6_bathtile,ordinary,core,horizon_row,50,0,130,open,barrel lost,True,1,4,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,orange_h_lo,3,-30,10,open,open,True,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,orange_h_hi,10,3,10,open,outside paint,False,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,orange_s_lo,145,138,255,outside paint,open,True,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,blue_h_lo,120,33,131,false box,open,True,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,blue_h_hi,131,120,162,open,outside paint,False,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,blue_s_lo,23,0,255,open,open,True,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,v_min,40,0,150,open,open,True,0,1,0
+4A8B_lampwarm6_bathtile_occl_02,home_bathtile,lampwarm6_bathtile,ordinary,occl,horizon_row,50,0,150,open,open,True,0,1,0
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,orange_h_lo,0,-30,8,open,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,orange_h_hi,12,12,12,false box,outside paint,False,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,orange_s_lo,131,114,201,outside paint,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,blue_h_lo,105,27,109,outside paint,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,blue_h_hi,113,109,113,barrel lost,outside paint,False,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,blue_s_lo,147,138,183,false box,barrel lost,False,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,v_min,40,5,50,outside paint,false box,True,4,4,4
+4A8B_lampwarm6_glass_clutter_01,home_glass,lampwarm6_glass,ordinary,clutter,horizon_row,50,0,100,open,false box,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,orange_h_lo,3,-30,8,open,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,orange_h_hi,13,7,90,barrel lost,open,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,orange_s_lo,164,111,216,outside paint,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,blue_h_lo,103,1,111,open,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,blue_h_hi,119,109,179,barrel lost,open,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,blue_s_lo,129,48,207,outside paint,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,v_min,40,10,120,outside paint,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_core_01,home_glass,lampwarm6_glass,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,4
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,orange_h_lo,4,2,7,outside paint,barrel lost,True,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,orange_h_hi,9,6,10,barrel lost,outside paint,False,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,orange_s_lo,175,153,216,outside paint,barrel lost,False,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,blue_h_lo,106,24,110,outside paint,barrel lost,True,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,blue_h_hi,114,110,116,barrel lost,outside paint,False,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,blue_s_lo,176,126,201,outside paint,barrel lost,False,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,v_min,40,0,110,open,barrel lost,True,1,1,1
+4A8B_lampwarm6_glass_occl_02,home_glass,lampwarm6_glass,ordinary,occl,horizon_row,50,0,130,open,barrel lost,True,1,1,1
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,orange_h_lo,5,-30,13,open,barrel lost,True,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,orange_h_hi,25,16,90,barrel lost,open,False,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,orange_s_lo,166,165,207,outside paint,barrel lost,False,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,blue_h_lo,75,37,101,outside paint,barrel lost,False,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,blue_h_hi,135,103,163,barrel lost,outside paint,True,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,blue_s_lo,10,0,48,open,barrel lost,False,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,v_min,40,35,50,outside paint,barrel lost,True,3,4,0
+4A8B_lampwarm6_ottoman_clutter_01,home_ottoman,lampwarm6_ottoman,ordinary,clutter,horizon_row,50,0,150,open,open,True,3,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,orange_h_lo,4,-30,12,open,barrel lost,True,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,orange_h_hi,25,15,90,barrel lost,open,False,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,orange_s_lo,176,174,180,outside paint,barrel lost,False,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,blue_h_lo,80,37,103,outside paint,barrel lost,True,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,blue_h_hi,135,110,176,barrel lost,outside paint,True,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,blue_s_lo,0,0,18,open,barrel lost,False,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,v_min,40,40,40,outside paint,barrel lost,True,4,4,0
+4A8B_lampwarm6_ottoman_core_01,home_ottoman,lampwarm6_ottoman,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,orange_h_lo,5,-30,12,open,barrel lost,True,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,orange_h_hi,25,17,90,barrel lost,open,False,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,orange_s_lo,151,150,171,outside paint,barrel lost,False,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,blue_h_lo,100,36,116,outside paint,barrel lost,True,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,blue_h_hi,140,108,154,barrel lost,false box,True,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,blue_s_lo,15,0,66,open,barrel lost,False,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,v_min,40,35,65,outside paint,barrel lost,True,1,1,0
+4A8B_lampwarm6_ottoman_occl_02,home_ottoman,lampwarm6_ottoman,ordinary,occl,horizon_row,50,0,100,open,false box,True,1,1,0
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,orange_h_lo,-3,-6,6,outside paint,barrel lost,True,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,orange_h_hi,16,13,90,false box,open,True,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,orange_s_lo,166,165,198,outside paint,false box,False,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,blue_h_lo,104,103,109,outside paint,barrel lost,True,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,blue_h_hi,117,110,122,barrel lost,outside paint,True,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,blue_s_lo,131,36,231,outside paint,barrel lost,True,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,v_min,40,0,60,open,barrel lost,True,3,4,4
+4A8B_overheaddim_palewood_clutter_01,uc_palewood,overheaddim_palewood,ordinary,clutter,horizon_row,50,0,90,open,false box,True,3,4,4
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,orange_h_lo,-1,-3,7,outside paint,barrel lost,True,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,orange_h_hi,14,6,15,barrel lost,outside paint,True,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,orange_s_lo,168,168,222,outside paint,barrel lost,False,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,blue_h_lo,101,20,108,outside paint,false box,True,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,blue_h_hi,132,111,167,barrel lost,outside paint,True,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,blue_s_lo,98,33,132,outside paint,false box,True,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,v_min,40,0,115,open,barrel lost,True,4,4,0
+4A8B_overheaddim_palewood_core_01,uc_palewood,overheaddim_palewood,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,orange_h_lo,-3,-6,11,outside paint,open,True,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,orange_h_hi,11,-3,11,open,outside paint,False,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,orange_s_lo,153,153,255,outside paint,open,False,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,blue_h_lo,109,105,139,outside paint,open,False,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,blue_h_hi,139,109,169,open,outside paint,True,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,blue_s_lo,135,42,255,outside paint,open,True,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,v_min,40,0,150,open,open,True,0,1,0
+4A8B_overheaddim_palewood_occl_02,uc_palewood,overheaddim_palewood,ordinary,occl,horizon_row,50,0,150,open,open,True,0,1,0
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,orange_h_lo,3,1,7,outside paint,barrel lost,True,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,orange_h_hi,12,7,12,barrel lost,false box,False,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,orange_s_lo,161,150,189,false box,barrel lost,False,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,blue_h_lo,104,14,106,outside paint,barrel lost,True,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,blue_h_hi,112,110,112,barrel lost,outside paint,False,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,blue_s_lo,207,198,222,outside paint,barrel lost,False,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,v_min,40,5,125,false box,barrel lost,True,4,4,4
+4A8B_window_glass_clutter_01,home_glass,window_glass,ordinary,clutter,horizon_row,50,0,110,open,barrel lost,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,orange_h_lo,-30,-30,3,open,barrel lost,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,orange_h_hi,15,3,90,barrel lost,open,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,orange_s_lo,116,51,180,outside paint,barrel lost,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,blue_h_lo,103,1,109,open,barrel lost,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,blue_h_hi,117,109,179,barrel lost,open,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,blue_s_lo,193,162,234,outside paint,barrel lost,False,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,v_min,40,10,145,outside paint,barrel lost,True,4,4,4
+4A8B_window_glass_core_01,home_glass,window_glass,ordinary,core,horizon_row,50,0,120,open,barrel lost,True,4,4,4
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,orange_h_lo,-11,-30,-4,open,false box,False,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,orange_h_hi,10,5,17,barrel lost,outside paint,True,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,orange_s_lo,153,117,189,outside paint,false box,True,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,blue_h_lo,104,104,109,outside paint,barrel lost,False,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,blue_h_hi,113,112,114,barrel lost,outside paint,False,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,blue_s_lo,208,204,234,outside paint,barrel lost,False,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,v_min,40,35,145,outside paint,barrel lost,True,1,1,0
+4A8B_window_glass_occl_02,home_glass,window_glass,ordinary,occl,horizon_row,50,0,130,open,barrel lost,True,1,1,0

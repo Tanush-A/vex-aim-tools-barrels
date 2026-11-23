@@ -1,0 +1,54 @@
+NEVER-REGRESS CHECK
+this run : 2026-11-09_hs_candidate/config.json; DetConfig defaults; git 748cb29
+baseline : saved 2026-11-23 from git a146428 (2026-11-09_hs_candidate/config.json; DetConfig defaults)
+Protected sets: HOME, CAMPUS. A scenario row of a protected set fails the check when it loses a found barrel or gains a false box.
+Every other set is listed for information and cannot fail it. A new box on an empty frame fails it in any set.
+
+GOT WORSE in a protected set: none
+GOT BETTER in a protected set: none
+NEW BOX ON AN EMPTY FRAME (any set): 2 row(s)
+  4A8B_lampmid3_glass neg  found 0 of 0, false boxes 1; 1 new box(es) on an empty frame
+  4A8B_window_glass occlx  found 0 of 0, false boxes 1; 1 new box(es) on an empty frame
+NEW since the baseline (not compared, cannot fail): 9 row(s)
+  4A8B_lampcool6_bathtile (whole set)  found 13 of 15, false boxes 0
+  4A8B_lampcool6_glass (whole set)     found 15 of 15, false boxes 0
+  4A8B_lampmid3_bathtile (whole set)   found 1 of 15, false boxes 0
+  4A8B_lampmid3_glass (whole set)      found 15 of 15, false boxes 2; 1 new box(es) on an empty frame
+  4A8B_lampmid6_bathtile (whole set)   found 1 of 15, false boxes 0
+  4A8B_lampmid6_glass (whole set)      found 15 of 15, false boxes 2
+  4A8B_lampwarm6_bathtile (whole set)  found 1 of 15, false boxes 0
+  4A8B_lampwarm6_glass (whole set)     found 15 of 15, false boxes 1
+  4A8B_window_glass (whole set)        found 14 of 15, false boxes 2; 1 new box(es) on an empty frame
+
+Set totals, baseline -> this run:
+  HOME                       found 28 -> 28 of 29; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [protected]
+  CAMPUS                     found 35 -> 35 of 35; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [protected]
+  4A8B_both_abpgray          found 10 -> 10 of 16; false boxes 2 -> 2; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampcool1_wood        found 0 -> 0 of 21; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampcool3_wood        found 2 -> 2 of 21; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampcool6_bathtile    found 13 of 15, false boxes 0  [information only, new]
+  4A8B_lampcool6_glass       found 15 of 15, false boxes 0  [information only, new]
+  4A8B_lampcool6_ottoman     found 3 -> 3 of 15; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampcool6_wood        found 2 -> 2 of 21; false boxes 4 -> 4; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampmid1_wood         found 0 -> 0 of 21; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampmid3_bathtile     found 1 of 15, false boxes 0  [information only, new]
+  4A8B_lampmid3_glass        found 15 of 15, false boxes 2; 1 new box(es) on an empty frame  [information only, new]
+  4A8B_lampmid3_ottoman      found 1 -> 1 of 15; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampmid3_wood         found 1 -> 1 of 21; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampmid6_bathtile     found 1 of 15, false boxes 0  [information only, new]
+  4A8B_lampmid6_glass        found 15 of 15, false boxes 2  [information only, new]
+  4A8B_lampmid6_ottoman      found 6 -> 6 of 15; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampmid6_wood         found 1 -> 1 of 21; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampwarm1_wood        found 0 -> 0 of 21; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampwarm3_wood        found 1 -> 1 of 21; false boxes 0 -> 0; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampwarm6_bathtile    found 1 of 15, false boxes 0  [information only, new]
+  4A8B_lampwarm6_glass       found 15 of 15, false boxes 1  [information only, new]
+  4A8B_lampwarm6_ottoman     found 0 -> 0 of 15; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_lampwarm6_wood        found 0 -> 0 of 21; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_overheaddim_palewood  found 13 -> 13 of 15; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_window_abpwhite       found 26 -> 26 of 32; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_window_black          found 5 -> 5 of 26; false boxes 1 -> 1; boxes on empty frames 0 -> 0  [information only]
+  4A8B_window_glass          found 14 of 15, false boxes 2; 1 new box(es) on an empty frame  [information only, new]
+  DAVE*                      found 13 -> 13 of 34; false boxes 4 -> 4; boxes on empty frames 0 -> 0  [information only]
+
+RESULT: FAIL. a new box on an empty frame in 2 row(s) (4A8B_lampmid3_glass neg, 4A8B_window_glass occlx). This change must not become the default as it is.
