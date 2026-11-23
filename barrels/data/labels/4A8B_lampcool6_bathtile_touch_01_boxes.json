@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_touch_01",
+ "image_sha1": "8c1021cbc279e4d20272cd7099a68e5cceb27705",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    285,
+    121,
+    337,
+    177
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    337,
+    123,
+    390,
+    180
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    390,
+    124,
+    446,
+    183
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

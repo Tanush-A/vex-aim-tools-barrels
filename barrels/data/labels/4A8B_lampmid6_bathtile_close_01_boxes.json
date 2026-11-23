@@ -1,0 +1,42 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_close_01",
+ "image_sha1": "0b3814ad5881075ca4a5a24f648f7c1ddfab1a49",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    122,
+    242,
+    395,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    122,
+    242,
+    395,
+    480
+   ],
+   "proposed_color": "orange"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 1,
+  "kept": 1,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "one barrel at the bumper, cut by the bottom edge"
+ }
+}

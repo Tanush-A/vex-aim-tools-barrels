@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_glass_touch_01",
+ "image_sha1": "5557e9697e8a4cd50f7feeb9ba51dd24cc19c4d0",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    224,
+    124,
+    280,
+    185
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    280,
+    122,
+    335,
+    185
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    335,
+    122,
+    390,
+    184
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

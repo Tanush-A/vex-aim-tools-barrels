@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid3_glass_close_01",
+ "image_sha1": "e4911872da2febdbf4ea2660c1ab106e2079800b",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    164,
+    249,
+    438,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

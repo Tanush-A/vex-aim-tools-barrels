@@ -1,0 +1,100 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_core_01",
+ "image_sha1": "da323590f6d4674b391cf68802933529fa40da88",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    223,
+    115,
+    270,
+    165
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    223,
+    115,
+    270,
+    165
+   ],
+   "proposed_color": "orange"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    328,
+    106,
+    358,
+    138
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    328,
+    106,
+    358,
+    138
+   ],
+   "proposed_color": "orange"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    374,
+    140,
+    457,
+    226
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    374,
+    140,
+    457,
+    226
+   ],
+   "proposed_color": "blue"
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    475,
+    110,
+    513,
+    147
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    475,
+    110,
+    513,
+    147
+   ],
+   "proposed_color": "blue"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 4,
+  "kept": 4,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "four barrels on the tile floor; dark mat far right is not a barrel color"
+ }
+}

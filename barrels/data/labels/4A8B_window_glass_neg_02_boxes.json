@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_glass_neg_02",
+ "image_sha1": "b47cc57cd268d51101ebcf7659e86797bdd98716",
+ "reviewed": false,
+ "negative": true,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": []
+}

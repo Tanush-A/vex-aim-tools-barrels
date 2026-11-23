@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_bathtile_touch_01",
+ "image_sha1": "0d99fc3e39eb7b20a9361770c776ed5ad1e98af8",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    285,
+    121,
+    337,
+    177
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    337,
+    123,
+    390,
+    180
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    390,
+    124,
+    446,
+    183
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

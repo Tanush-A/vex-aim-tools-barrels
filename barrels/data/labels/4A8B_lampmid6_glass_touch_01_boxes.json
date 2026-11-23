@@ -1,0 +1,80 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_touch_01",
+ "image_sha1": "057bde39cc1ba83f52ad9a9adfe3ae3607260b4a",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    224,
+    124,
+    280,
+    185
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    224,
+    124,
+    280,
+    185
+   ],
+   "proposed_color": "blue"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    280,
+    122,
+    335,
+    185
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    280,
+    122,
+    335,
+    185
+   ],
+   "proposed_color": "orange"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    335,
+    122,
+    390,
+    184
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    335,
+    122,
+    390,
+    184
+   ],
+   "proposed_color": "orange"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 3,
+  "kept": 3,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "three touching; reflections below are not barrels"
+ }
+}

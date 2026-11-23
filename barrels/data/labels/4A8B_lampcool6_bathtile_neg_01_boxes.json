@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_neg_01",
+ "image_sha1": "12d69f5ffc6260146866e7f0698a3bceb6df49e3",
+ "reviewed": false,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

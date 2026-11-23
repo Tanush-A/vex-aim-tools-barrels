@@ -1,0 +1,62 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_edge_01",
+ "image_sha1": "b4ed912fdb323037c75f8f22215408cf466143f8",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    127,
+    31,
+    196
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    0,
+    127,
+    31,
+    196
+   ],
+   "proposed_color": "blue"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    279,
+    122,
+    331,
+    178
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    279,
+    122,
+    331,
+    178
+   ],
+   "proposed_color": "orange"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 2,
+  "kept": 2,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": ""
+ }
+}

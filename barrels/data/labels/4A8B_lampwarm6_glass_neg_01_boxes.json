@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_glass_neg_01",
+ "image_sha1": "f107e56e35f12847794f88947267bd5c760a9b2b",
+ "reviewed": false,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

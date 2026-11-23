@@ -1,0 +1,80 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_touch_01",
+ "image_sha1": "30cc81ec988bc1a36bc7120e3128d879ebcd07ad",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    285,
+    121,
+    337,
+    177
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    285,
+    121,
+    337,
+    177
+   ],
+   "proposed_color": "orange"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    337,
+    123,
+    390,
+    180
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    337,
+    123,
+    390,
+    180
+   ],
+   "proposed_color": "blue"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    390,
+    124,
+    446,
+    183
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    390,
+    124,
+    446,
+    183
+   ],
+   "proposed_color": "blue"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 3,
+  "kept": 3,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "three touching"
+ }
+}

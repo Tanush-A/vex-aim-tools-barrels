@@ -1,0 +1,42 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_occl_02",
+ "image_sha1": "b8cc4e689a090e688cbbf37d05cfdd244c42a264",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    346,
+    107,
+    376,
+    137
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    346,
+    107,
+    376,
+    137
+   ],
+   "proposed_color": "orange"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 1,
+  "kept": 1,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "blue Vaseline tin, purple stand, yellow notepad, jar with blue/red label, a red translucent thing at the left edge, black bag"
+ }
+}
