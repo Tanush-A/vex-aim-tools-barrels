@@ -23,6 +23,8 @@ Every pixel becomes orange (1), blue (2) or other (0). A pixel is a barrel color
 
 **Open question (TODO steps 8 and 10):** the thresholds are fixed, so a strong color cast can move orange out of its hue range. The plan is to look at hue/saturation histograms across light settings first, then decide what an adaptive version keys on.
 
+**The adaptive rule (2026-11-23, branch `wip/adaptive`, OFF by default, not adopted).** A switch, `Config.hs_adapt`: per frame, a threshold moves along a line through the home point, `fixed + b · (feature − home's feature)`, clipped, where the feature is one number from that frame's own histogram (pixels never changed, nothing from other frames). Pre-registered: the two orange hue ends follow `orange_peak_h`, the blue saturation floor follows `blue_s_p90`; `b` fit on Tanush's slider labels with every place weighted equally (`src/barrels/adaptive.py`, places in `data/conditions.json`). Judged leave one *place* out by `python barrels/experiments/2026-11-24_adaptive/run.py` (exit 0 = passes its PREREG). Tonight: fails (3 labelled places, a new box on an empty frame, the ottoman worse). `HOW-IT-WORKS.md` §1, "The adaptive rule".
+
 ## 2. Camera geometry (`geometry.py`)
 
 Pinhole camera 43.47 mm above the table, tilted down 22.25°, focal length 400 px. Two formulas: a point at distance d and height z lands on row `240 + f·tan(atan((h − z)/d) − tilt)`, and backwards a row gives a distance. The barrel is 24 mm tall, 25.5 mm wide at the bulge, stripe 6 mm at mid-height. So for a barrel at any distance the geometry says its top row, stripe rows, bottom row and width (`barrel_rows`); and seeing any one of those tells you the distance and therefore all the others. At 20 cm: 51 px wide, 55 tall, bottom at row 174. Horizon row 76.

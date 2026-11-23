@@ -1,0 +1,60 @@
+{
+ "date": "2026-11-23",
+ "git": "6ace4f5",
+ "terms": [
+  [
+   "orange_h_lo",
+   "orange_peak_h",
+   0.2160391049060194,
+   21.25,
+   10.0
+  ],
+  [
+   "orange_h_hi",
+   "orange_peak_h",
+   0.14196819831111993,
+   21.25,
+   10.0
+  ],
+  [
+   "blue_s_lo",
+   "blue_s_p90",
+   0.04183086436167479,
+   105.125,
+   60.0
+  ]
+ ],
+ "hand_places": [
+  "abp_gray",
+  "home_ottoman",
+  "uc_palewood"
+ ],
+ "places_seen": [
+  "abp_gray",
+  "abp_white",
+  "campus_study",
+  "home_black",
+  "home_ottoman",
+  "home_white",
+  "home_wooddesk",
+  "uc_palewood"
+ ],
+ "conditions_seen": [
+  "both_abpgray",
+  "campus_light",
+  "lampcool3_wood",
+  "lampcool6_ottoman",
+  "lampcool6_wood",
+  "lampmid3_ottoman",
+  "lampmid3_wood",
+  "lampmid6_ottoman",
+  "lampmid6_wood",
+  "lampwarm3_wood",
+  "lampwarm6_ottoman",
+  "lampwarm6_wood",
+  "overheaddim_palewood",
+  "window_abpwhite",
+  "window_black",
+  "window_light"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "date": "2026-11-23",
+ "git": "6ace4f5",
+ "terms": [
+  [
+   "orange_h_lo",
+   "orange_peak_h",
+   0.2160391049060194,
+   21.25,
+   10.0
+  ],
+  [
+   "orange_h_hi",
+   "orange_peak_h",
+   0.14196819831111993,
+   21.25,
+   10.0
+  ],
+  [
+   "blue_s_lo",
+   "blue_s_p90",
+   0.04183086436167479,
+   105.125,
+   60.0
+  ]
+ ],
+ "hand_places": [
+  "abp_gray",
+  "home_ottoman",
+  "uc_palewood"
+ ],
+ "hand_conditions": [
+  "both_abpgray",
+  "lampcool6_ottoman",
+  "lampmid6_ottoman",
+  "lampwarm6_ottoman",
+  "overheaddim_palewood"
+ ],
+ "home_refs": {
+  "orange_peak_h": 21.25,
+  "blue_s_p90": 105.125
+ }
+}

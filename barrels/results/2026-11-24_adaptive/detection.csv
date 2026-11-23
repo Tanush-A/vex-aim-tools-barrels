@@ -1,0 +1,9 @@
+condition,place,light,frames,barrels,fixed_found,fixed_false,fixed_neg,fixed_clean_neg,fixed_score,adapt_found,adapt_false,adapt_neg,adapt_clean_neg,adapt_score,frozen_found,frozen_false,hand_found
+both_abpgray,abp_gray,mixed,8,16,10,2,0,0,0.6844919786096257,16,2,1,0,0.9375,,,15
+campus_light,campus_study,overhead,21,35,35,0,0,0,1.0,35,0,0,0,1.0,,,
+lampcool6_ottoman,home_ottoman,lamp,7,15,3,0,0,0,0.33333333333333337,2,0,0,0,0.2361111111111111,,,15
+lampmid6_ottoman,home_ottoman,lamp,7,15,6,0,0,0,0.5096153846153846,2,1,0,0,0.2,,,13
+lampwarm6_ottoman,home_ottoman,lamp,7,15,0,1,0,0,0.0,0,0,0,0,0.0,,,12
+overheaddim_palewood,uc_palewood,overhead,7,15,12,1,0,0,0.8663101604278075,12,1,0,0,0.8541666666666667,,,11
+window_abpwhite,abp_white,window,17,32,26,2,1,0,0.8461538461538461,26,2,1,0,0.8461538461538461,,,
+window_light,home_white,window,16,29,28,1,0,0,0.96875,28,0,0,0,0.9838709677419355,,,
