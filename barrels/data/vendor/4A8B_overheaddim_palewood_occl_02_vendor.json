@@ -1,0 +1,45 @@
+{
+ "version": 1,
+ "available": true,
+ "error": "",
+ "time": 1795199864.031722,
+ "frame_count": 3481,
+ "read_at": "frame",
+ "image_size": [
+  640,
+  480
+ ],
+ "source_size": [
+  320,
+  240
+ ],
+ "classnames": [
+  "SportsBall",
+  "BlueBarrel",
+  "OrangeBarrel",
+  "Robot"
+ ],
+ "objects": [
+  {
+   "name": "OrangeBarrel",
+   "class_id": 2,
+   "bbox": [
+    358,
+    108,
+    392,
+    166
+   ],
+   "raw": {
+    "type": 4,
+    "id": 2,
+    "type_str": "aiobj",
+    "originx": 179,
+    "originy": 54,
+    "width": 17,
+    "height": 29,
+    "score": 99,
+    "name": "OrangeBarrel"
+   }
+  }
+ ]
+}

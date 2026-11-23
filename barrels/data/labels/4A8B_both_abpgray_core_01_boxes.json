@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_core_01",
+ "image_sha1": "9bd83822f601ececa504d18db13c76862ddec144",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    134,
+    125,
+    194,
+    186
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    233,
+    165,
+    353,
+    299
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    372,
+    109,
+    408,
+    147
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    408,
+    125,
+    472,
+    192
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

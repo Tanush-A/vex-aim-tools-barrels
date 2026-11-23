@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_overheaddim_palewood_occl_02",
+ "image_sha1": "3ebf743183681dafef32e84ae10df2e8d5ca31f4",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    344,
+    115,
+    388,
+    162
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  }
+ ]
+}

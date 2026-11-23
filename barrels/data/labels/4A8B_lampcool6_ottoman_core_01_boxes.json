@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_ottoman_core_01",
+ "image_sha1": "139ef5f2448f1ba6f15efc719d9147823fc6c8ef",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    77,
+    133,
+    155,
+    208
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    155,
+    166,
+    280,
+    311
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    273,
+    113,
+    316,
+    160
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    413,
+    126,
+    479,
+    190
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

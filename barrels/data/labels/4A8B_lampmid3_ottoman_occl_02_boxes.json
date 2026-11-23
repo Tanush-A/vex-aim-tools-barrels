@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid3_ottoman_occl_02",
+ "image_sha1": "e6d17585cf90504a06947eb2101a199cf82f1ce6",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    225,
+    125,
+    286,
+    192
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

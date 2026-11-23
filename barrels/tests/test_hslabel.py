@@ -161,7 +161,7 @@ def test_select_all_scenes_refuses_test_geometry_unassigned_and_other_splits():
 
 def test_select_by_filter_and_scene_list():
     assert hl.select_frames(STEMS, SPLITS, scenes=("core",)).stems == ["4A8B_sun_white_core_01", "4A8B_sun_white_core_02"]
-    assert hl.select_frames(STEMS, SPLITS, scenes=("touch_01", "core_02")).stems == ["4A8B_sun_white_core_02", "4A8B_sun_white_touch_01"]
+    assert hl.select_frames(STEMS, SPLITS, scenes=("touch_01", "core_02")).stems == ["4A8B_sun_white_touch_01", "4A8B_sun_white_core_02"]   # in the order given
     named = hl.select_frames(STEMS, SPLITS, scenes=None, filter_="4A8B_sun_white_neg_01")       # asking for a test frame by name
     assert named.stems == [] and named.refused == {hl.REFUSE_TEST: ["4A8B_sun_white_neg_01"]}
     assert hl.select_frames(STEMS, SPLITS, filter_="dim_gray").stems == []

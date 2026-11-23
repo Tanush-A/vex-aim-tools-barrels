@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_abpwhite_occlx_18",
+ "image_sha1": "5f1e3888336d233802b5a6b6dd4bd85bfd1e1b0e",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    102,
+    118,
+    153,
+    166
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    311,
+    134,
+    381,
+    210
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  }
+ ]
+}

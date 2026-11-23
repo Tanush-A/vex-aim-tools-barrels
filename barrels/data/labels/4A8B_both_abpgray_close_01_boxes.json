@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_close_01",
+ "image_sha1": "7b4d2e2ab428d9e4911fc0bdec8767d31cc2f98d",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    189,
+    250,
+    467,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid3_ottoman_neg_02",
+ "image_sha1": "feeabb0e76fdf4ea08b56fa2ca864ef7c000e250",
+ "reviewed": true,
+ "negative": true,
+ "clean": false,
+ "source": "manual",
+ "barrels": []
+}

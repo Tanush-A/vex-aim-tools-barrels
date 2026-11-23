@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_overheaddim_palewood_touch_01",
+ "image_sha1": "ed97f4f979b6f84900801ff01d0d166157137c5b",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    253,
+    118,
+    302,
+    172
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    300,
+    118,
+    349,
+    173
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    350,
+    119,
+    402,
+    174
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

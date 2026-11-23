@@ -1,0 +1,63 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_clutter_01",
+ "image_sha1": "c097217881dd4f177015eca21266dc4acbcb62bc",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    34,
+    132,
+    110,
+    203
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    205,
+    114,
+    246,
+    158
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    365,
+    123,
+    422,
+    182
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    506,
+    124,
+    579,
+    190
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}
