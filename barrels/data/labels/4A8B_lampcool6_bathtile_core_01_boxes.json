@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_core_01",
+ "image_sha1": "55c1bc0ea211c38e7a1372c6a47879acd5bb6460",
+ "reviewed": false,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    223,
+    115,
+    270,
+    165
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    328,
+    106,
+    358,
+    138
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    374,
+    140,
+    457,
+    226
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    475,
+    110,
+    513,
+    147
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}
