@@ -21,6 +21,14 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-23 — A cut stripe is filled; a sliver at the frame edge gets a box; the own-side sliver waits for real frames
+
+- **Decision:** merge `wip/occl-sliver` with `thin_span`, `stripe_bridge` and `thin_frame` on and `own_close` off.
+- **Why:** `stripe_bridge` failed the A8 rule only on harsher-than-real damage (scorecard wrong boxes 45 → 48, old "medium" 3 → 4) while at "bad day" it goes 547 found / 5 false → 563 / 0 and never joined two barrels' stripes (0 of 114 pairs). `thin_frame` failed only "too big", boxes 2–3 px past hand boxes clipped at the frame; frame edge at 75 % hidden 29 → 88 of 100. Gate after the switch: home 28 of 29, campus 35 of 35, no row worse, nothing on an empty frame; report only, one more false box on a wood `touch` frame and one more barrel found on Dave's frames. `own_close` is fooled when a back barrel's cut end follows the round outline of the barrel in front; it waits for the real occlusion shots.
+- **Who:** Tanush ("follow ur rec", 2026-11-23); Claude.
+
+---
+
 ## 2026-11-20 — The occlusion work is merged; what stays off; realistic damage levels judge new rules
 
 - **Decision:** (1) `wip/occl-combined` is merged into `barrels`: `side_hidden`, `seam_height`, `cap_seen_bottom`, `edge_check`, `cap_same`, `half_stripe`, `half_thin`, `post_pair`, `stripe_wide`, `cap_low`, `pin_outline`, `pin_thin` are on by default. (2) Off: the full-size cover box (`slice_box`, `cover_unpinned`, `stripe_two`; Tanush 2026-11-19), `slice_behind`, the stencil as a checker. (3) New detector rules are judged on the damage levels measured from real white-table segmentation (`degrade.REALISTIC`); the old "medium" and the "bad day" level with its stripe patch are reported, not decisive. (4) Postponed work is listed in `TODO.md` under "Later" with P1 / P2. (5) Camera calibration is closed: no box on home or campus depends on the top-row bottom.
