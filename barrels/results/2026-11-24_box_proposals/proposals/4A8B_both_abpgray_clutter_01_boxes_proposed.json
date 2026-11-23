@@ -1,0 +1,62 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_clutter_01",
+ "image_sha1": "c097217881dd4f177015eca21266dc4acbcb62bc",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": false,
+ "note": "orange pills in a blister pack, Pepsi can (blue), purple tag, sunglasses / glass lid in front",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    37,
+    133,
+    109,
+    200
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    207,
+    115,
+    245,
+    157
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": "far, behind the sunglasses from ~row 150; bottom from the stripe in the middle (stripe 133-142) and the expected height for its 38 px width"
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    367,
+    126,
+    418,
+    182
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    510,
+    129,
+    576,
+    190
+   ],
+   "flags": [],
+   "note": "upper-left edge touches the orange pill pack; edge taken from the stripe (510)"
+  }
+ ]
+}

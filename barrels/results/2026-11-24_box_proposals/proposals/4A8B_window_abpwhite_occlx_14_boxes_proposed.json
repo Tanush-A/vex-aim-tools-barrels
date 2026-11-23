@@ -1,0 +1,38 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_abpwhite_occlx_14",
+ "image_sha1": "7025e333051d0c56415e19a0c1f81c2ace53ea82",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "a hand covers the top of the left barrel",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    0,
+    119,
+    47,
+    177
+   ],
+   "flags": [
+    "occluded",
+    "truncated"
+   ],
+   "note": "hand hides everything above the blue stripe (row 145); top from the expected height ~58 at bottom 177; cut by the left edge"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    192,
+    122,
+    243,
+    178
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

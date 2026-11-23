@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_overheaddim_palewood_close_01",
+ "image_sha1": "29a044172f743f084de1eeb35289970fdf0626c3",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "one close-up barrel; red extinguisher in the back taken as not orange",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    292,
+    242,
+    564,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "very close, bottom cut by the frame below the stripe"
+  }
+ ]
+}

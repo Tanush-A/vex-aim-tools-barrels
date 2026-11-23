@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_ottoman_occl_02",
+ "image_sha1": "4fe566a9f3965cbe22e017ac018387b91ab842bd",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": false,
+ "note": "blue eraser label and a red-orange packet are non-barrel color; white arc above the barrel taken as a cup rim behind it, not the lid",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    226,
+    127,
+    287,
+    191
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "right part behind the eraser from x 261; right edge from the expected width (~61 px at bottom 191)"
+  }
+ ]
+}

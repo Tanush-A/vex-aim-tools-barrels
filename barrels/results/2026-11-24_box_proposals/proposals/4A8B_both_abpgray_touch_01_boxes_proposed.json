@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_touch_01",
+ "image_sha1": "12e2891163f15a30fc1f8c31e9c419d462bdc4f2",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "three touching in a row; glossy table reflects them (reflection not boxed)",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    194,
+    127,
+    248,
+    183
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    248,
+    126,
+    302,
+    181
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    302,
+    125,
+    352,
+    180
+   ],
+   "flags": [],
+   "note": "split line between the two blues at ~302 (shadow gap)"
+  }
+ ]
+}

@@ -60,7 +60,9 @@ def strokes_path(image_path: Path | str, labels_dir: Path | str | None = None) -
 
 
 # side files that may sit next to an image and are never images to label/evaluate
-SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes", "_vendor", "_hs")
+# (_boxes_proposed / _hs_proposed: Claude's proposals; never truth, never read by eval; docs/DATA.md "Box proposals")
+SIDE_SUFFIXES = ("_mask", "_strokes", "_inst", "_pred", "_overlay", "_orange", "_blue", "_boxes", "_vendor", "_hs",
+                 "_boxes_proposed", "_hs_proposed")
 
 
 def list_images(raw_dir: Path | str | None = None) -> list[Path]:
@@ -295,10 +297,105 @@ def save_boxes(image_or_stem: Path | str, meta: dict, labels_dir: Path | str | N
     out = {"version": BOXES_JSON_VERSION, "stem": stem, "image_sha1": meta.get("image_sha1", ""),
            "reviewed": bool(meta.get("reviewed", False)), "negative": not meta["barrels"],
            "clean": bool(meta.get("clean", True)), "source": meta.get("source", "manual"), "barrels": []}
+    if "proposal" in meta:                      # a label started from Claude's proposal: what happened to it
+        out["proposal"] = dict(meta["proposal"])
     for i, b in enumerate(sorted(meta["barrels"], key=lambda b: (b["bbox"][0], b["bbox"][1])), 1):
-        out["barrels"].append({"id": i, "color": b["color"], "bbox": [int(v) for v in b["bbox"]],
-                               "flags": [f for f in BOX_FLAGS if f in b.get("flags", ())], "note": b.get("note", "")})
+        rec = {"id": i, "color": b["color"], "bbox": [int(v) for v in b["bbox"]],
+               "flags": [f for f in BOX_FLAGS if f in b.get("flags", ())], "note": b.get("note", "")}
+        if "moved" in b:                        # started from a proposal (box_tool.py): did the labeler change this box
+            rec["moved"] = bool(b["moved"])
+        if b.get("proposed_bbox") is not None:  # ... and where the proposal had put it
+            rec["proposed_bbox"] = [int(v) for v in b["proposed_bbox"]]
+        if b.get("proposed_color") is not None:
+            rec["proposed_color"] = b["proposed_color"]
+        out["barrels"].append(rec)
     p = boxes_path(stem, labels_dir)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(out, indent=1) + "\n")
+    return p
+
+
+# ---------------------------------------------------------------- Claude's box proposals (docs/DATA.md "Box proposals")
+#
+# <stem>_boxes_proposed.json: boxes Claude drew by LOOKING at the frame (tools/box_look.py), never from our detector or
+# the vendor's. A starting point for box_tool.py, never truth: no eval, report, split or analysis code reads them (the
+# label globs are "*_boxes.json", which this name does not match). Train / unassigned frames only.
+
+PROPOSAL_BY = "claude"
+PROPOSAL_SOURCE = "claude_proposal"        # ``source`` of a box label that box_tool.py started from a proposal
+
+
+def proposal_path(image_or_stem: Path | str, labels_dir: Path | str | None = None) -> Path:
+    """``data/labels/<stem>_boxes_proposed.json`` — Claude's proposed boxes for a frame (not a label)."""
+    return Path(labels_dir or LABELS_DIR) / f"{Path(image_or_stem).stem}_boxes_proposed.json"
+
+
+def validate_proposal(meta: dict, shape: tuple[int, int] = (FRAME_H, FRAME_W)) -> None:
+    """Raise ValueError unless ``meta`` is a well-formed proposal: a box label (``validate_boxes``) with
+    ``proposed_by`` "claude", string notes, and no ``reviewed`` field (a proposal is never reviewed truth)."""
+    validate_boxes(meta, shape)
+    if meta.get("proposed_by") != PROPOSAL_BY:
+        raise ValueError(f"a proposal needs proposed_by={PROPOSAL_BY!r}, got {meta.get('proposed_by')!r}")
+    if "reviewed" in meta:
+        raise ValueError("a proposal has no 'reviewed' field (only the label box_tool.py saves is reviewed)")
+    if not isinstance(meta.get("note", ""), str):
+        raise ValueError("note must be a string")
+    for b in meta["barrels"]:
+        if not isinstance(b.get("note", ""), str):
+            raise ValueError(f"barrel note must be a string, got {b.get('note')!r}")
+
+
+def load_proposal(image_or_stem: Path | str, labels_dir: Path | str | None = None, *,
+                  check_image: bool = True, raw_dir: Path | str | None = None) -> dict:
+    """Claude's proposal for a stem. Raises FileNotFoundError, or ValueError when it is malformed, is another
+    frame's, or (check_image, image found in raw_dir) the image changed since it was made."""
+    import json
+    stem = Path(image_or_stem).stem
+    p = proposal_path(stem, labels_dir)
+    if not p.exists():
+        raise FileNotFoundError(p)
+    meta = json.loads(p.read_text())
+    validate_proposal(meta)
+    if meta.get("stem", stem) != stem:
+        raise ValueError(f"{p.name}: holds the proposal of {meta.get('stem')!r}")
+    if check_image and meta.get("image_sha1"):
+        img = find_image(stem, raw_dir)
+        if img is not None and file_sha1(img) != meta["image_sha1"]:
+            raise ValueError(f"{p.name} is stale: {img.name} changed since the proposal was made")
+    return meta
+
+
+def normalize_proposal(meta: dict, stem: str, shape: tuple[int, int] = (FRAME_H, FRAME_W)) -> dict:
+    """A draft proposal (Claude's hand-written JSON) in the stored form: bbox rounded, ordered and clipped to the
+    frame, barrels sorted left to right and renumbered 1..N, ``truncated`` set exactly when the box touches the
+    frame edge, flags in BOX_FLAGS order, ``negative`` derived, ``proposed_by`` "claude", no ``reviewed``.
+    Raises ValueError when the result is not a valid proposal (e.g. an unknown color or flag, an empty box)."""
+    h, w = shape
+    barrels = []
+    for b in meta.get("barrels", []):
+        if not (isinstance(b.get("bbox"), (list, tuple)) and len(b["bbox"]) == 4):
+            raise ValueError(f"bbox must be [x0, y0, x1, y1], got {b.get('bbox')!r}")
+        x0, y0, x1, y1 = (int(round(float(v))) for v in b["bbox"])
+        bb = [max(0, min(x0, x1)), max(0, min(y0, y1)), min(w, max(x0, x1)), min(h, max(y0, y1))]
+        flags = set(b.get("flags", ())) - {"truncated"}
+        if touches_frame(bb, shape):
+            flags.add("truncated")
+        barrels.append({"color": b.get("color"), "bbox": bb, "flags": [f for f in BOX_FLAGS if f in flags] + sorted(flags - set(BOX_FLAGS)),
+                        "note": b.get("note", "")})
+    barrels.sort(key=lambda b: (b["bbox"][0], b["bbox"][1]))
+    out = {"version": BOXES_JSON_VERSION, "stem": stem, "image_sha1": meta.get("image_sha1", ""),
+           "proposed_by": PROPOSAL_BY, "negative": not barrels, "clean": bool(meta.get("clean", True)),
+           "note": meta.get("note", ""), "barrels": [{"id": i, **b} for i, b in enumerate(barrels, 1)]}
+    validate_proposal(out, shape)
+    return out
+
+
+def save_proposal(image_or_stem: Path | str, meta: dict, labels_dir: Path | str | None = None) -> Path:
+    """``normalize_proposal`` and write ``<stem>_boxes_proposed.json``. Nothing is written when it is invalid."""
+    import json
+    stem = Path(image_or_stem).stem
+    out = normalize_proposal(meta, stem)
+    p = proposal_path(stem, labels_dir)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out, indent=1) + "\n")
     return p
