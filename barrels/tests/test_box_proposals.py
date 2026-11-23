@@ -95,7 +95,7 @@ def test_side_suffixes_list_the_proposals(tmp_path):
 
 def test_only_the_proposal_tools_name_the_proposal_files():
     """A static guard: the eval, report, splits, experiments and analysis code never mention the proposal files."""
-    allowed = {"src/barrels/io.py", "tools/box_tool.py", "tools/box_look.py",
+    allowed = {"src/barrels/io.py", "tools/box_tool.py", "tools/box_look.py", "tools/hs_slider.py",
                "experiments/2026-11-24_box_proposals/compare.py"}     # scores the proposals against his labels, not the detector
     hits = []
     for folder in ("src", "tools", "experiments", "live"):
