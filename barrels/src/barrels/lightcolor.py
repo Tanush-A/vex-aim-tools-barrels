@@ -15,7 +15,10 @@ range) the more yellow it is.
    (R - B) / (R + G + B) is the light's warmth: about 0 under daylight or white ceiling light, about 0.25 under the
    lamp's middle setting, 0.4 under its warm setting. A warm-colored TABLE under neutral light (the pale wood) does
    not count, because its brightest pixels are still near white.
-2. ``warm_blue_boxes``: with ``(w0, w1, s_warm, h_warm)``, the share t = (warmth - w0) / (w1 - w0), clipped to 0..1;
+   Read from the whole frame (the four-number form), a close orange barrel or yellow clutter among the brightest things
+   reads as a warm light; read from the rows above the horizon gate (``rows`` = 50, the six-number form, round 2 of the
+   2026-11-25 test), where no barrel can be, it does not.
+2. ``warm_blue_boxes``: with ``(w0, w1, s_warm, h_warm[, rows, top])``, the share t = (warmth - w0) / (w1 - w0), clipped to 0..1;
    the blue box's S floor moves from the model's value toward ``s_warm`` and its hue low end from the model's value
    toward ``h_warm`` by that share. At warmth <= w0 nothing changes (the adopted model); the rule only ever LOWERS the
    two numbers, never raises them, and never touches orange.
@@ -53,25 +56,34 @@ def share(warmth: float, w0: float, w1: float) -> float:
     return float(np.clip((warmth - w0) / (w1 - w0), 0.0, 1.0))
 
 
-def validate(params) -> tuple[float, float, float, float]:
-    """``(w0, w1, s_warm, h_warm)`` as floats; ValueError when it is not four finite numbers with w0 < w1."""
+def validate(params) -> tuple[float, float, float, float, int, float]:
+    """``(w0, w1, s_warm, h_warm[, rows, top])`` -> six numbers; ValueError when it is not four or six finite numbers
+    with w0 < w1. ``rows`` = 0 (the four-number form): the light is read from the whole frame, its brightest ``top`` %
+    (5); ``rows`` > 0: from the rows above that row only, where no barrel can be."""
     try:
-        w0, w1, s_warm, h_warm = (float(x) for x in params)
+        vals = [float(x) for x in params]
     except (TypeError, ValueError):
-        raise ValueError(f"hs_light must be (w0, w1, s_warm, h_warm), got {params!r}") from None
-    if not all(np.isfinite([w0, w1, s_warm, h_warm])) or w1 <= w0:
+        raise ValueError(f"hs_light must be (w0, w1, s_warm, h_warm[, rows, top]), got {params!r}") from None
+    if len(vals) == 4:
+        vals += [0.0, TOP_SHARE]
+    if len(vals) != 6:
+        raise ValueError(f"hs_light must be (w0, w1, s_warm, h_warm[, rows, top]), got {params!r}")
+    w0, w1, s_warm, h_warm, rows, top = vals
+    if not all(np.isfinite(vals)) or w1 <= w0:
         raise ValueError(f"hs_light needs finite numbers with w0 < w1, got {params!r}")
     if not (0 <= s_warm <= 255 and 0 <= h_warm <= 179):
         raise ValueError(f"hs_light: s_warm must be 0-255 and h_warm 0-179, got {params!r}")
-    return w0, w1, s_warm, h_warm
+    if not (0 <= rows <= 480 and rows == int(rows) and 0 < top <= 100):
+        raise ValueError(f"hs_light: rows must be a whole number 0-480 and top in (0, 100], got {params!r}")
+    return w0, w1, s_warm, h_warm, int(rows), top
 
 
 def warm_blue_boxes(rgb: np.ndarray, boxes: dict, params) -> tuple[dict, dict]:
     """(boxes with the blue box moved for this frame's light, info). Only the blue box's lower corner moves: its S floor
     toward ``s_warm`` and its hue low end toward ``h_warm`` by ``share(light_warmth)``; a value already below its target
     is left as it is. The other boxes are returned untouched."""
-    w0, w1, s_warm, h_warm = validate(params)
-    w = light_warmth(rgb)
+    w0, w1, s_warm, h_warm, rows, top = validate(params)
+    w = light_warmth(rgb[:rows] if rows else rgb, top)
     t = share(w, w0, w1)
     out = dict(boxes)
     b = boxes[BLUE]

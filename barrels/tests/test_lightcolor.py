@@ -43,7 +43,11 @@ def test_share_and_validate():
     for bad in ((0.2, 0.1, 40, 92), (0.1, 0.2, 40), ("a", 0.2, 40, 92), (0.1, 0.2, 300, 92), (0.1, 0.2, 40, 200), (0.1, np.nan, 40, 92)):
         with pytest.raises(ValueError):
             lc.validate(bad)
-    assert lc.validate([0.1, 0.25, 40, 92]) == P
+    assert lc.validate([0.1, 0.25, 40, 92]) == P + (0, 5.0)
+    assert lc.validate((0.1, 0.25, 40, 92, 50, 20)) == P + (50, 20.0)
+    for bad in ((0.1, 0.25, 40, 92, 50), (0.1, 0.25, 40, 92, 50.5, 20), (0.1, 0.25, 40, 92, 50, 0)):
+        with pytest.raises(ValueError):
+            lc.validate(bad)
 
 
 def test_warm_blue_boxes_moves_only_the_blue_lower_corner_and_only_down():
@@ -81,3 +85,13 @@ def test_segment_paints_the_washed_out_blue_only_under_a_warm_light():
         assert (mask_on[patch] == BLUE).all() == want
         assert "light" in info and ("light" not in pl.segment(f, m)[1])
         assert (mask_on[:200] == mask_off[:200]).all()                  # nothing else moves on this frame
+
+
+def test_band_reading_ignores_what_is_below_the_horizon_gate():
+    """Round 2: the light read from rows 0-49 only; a warm-looking table and close barrels below row 50 do not count."""
+    rgb = np.full((480, 640, 3), 200, np.uint8)
+    rgb[50:] = (230, 120, 30)                                       # orange things fill everything below row 50
+    out, info = lc.warm_blue_boxes(rgb, BOXES, P + (50, 20))
+    assert abs(info["warmth"]) < 0.01 and out[BLUE] == BOXES[BLUE]
+    out, info = lc.warm_blue_boxes(rgb, BOXES, P)                    # the whole-frame reading is fooled
+    assert info["warmth"] > 0.25 and out[BLUE].lo == (92.0, 40.0)

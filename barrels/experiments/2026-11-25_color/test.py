@@ -68,8 +68,10 @@ class Setting:
         o, b = self.six[:3], self.six[3:]
         t = f"orange {o[0]}..{o[1]} S>={o[2]}, blue {b[0]}..{b[1]} S>={b[2]}"
         if self.light:
-            w0, w1, s, h = self.light
+            w0, w1, s, h = self.light[:4]
             t += f"; light rule w0 {w0:g}, w1 {w1:g}, blue S -> {s:g}, hue low -> {h:g}"
+            if len(self.light) > 4:
+                t += f" (light read from rows < {self.light[4]:g}, brightest {self.light[5]:g} %)"
         return t
 
 
@@ -77,13 +79,19 @@ FIXED = Setting()
 O_GRID = list(itertools.product((0, 1, 2, 3), (13, 14, 15, 16, 17), (140, 150, 160, 170)))
 
 
-def families() -> dict[str, list[Setting]]:
+BAND = (50, 20)          # round 2 (PREREG addendum): the light read from rows 0-49, brightest 20 %
+
+
+def families(round_: int = 1) -> dict[str, list[Setting]]:
     c1 = [Setting((ol, oh, os_, bl, 119, bs)) for (ol, oh, os_), bl, bs in itertools.product(O_GRID, (100, 103), (100, 113, 125))]
     c2 = [Setting(ADOPTED, (w0, w1, s, h)) for w0, w1, s, h in itertools.product((0.06, 0.08, 0.10, 0.12), (0.20, 0.25, 0.30), (30, 40, 50), (92, 98))]
     c3 = [Setting((ol, oh, os_, 103, 119, 113), (w0, w1, 40, 92)) for (ol, oh, os_), w0, w1 in itertools.product(O_GRID, (0.08, 0.10), (0.22, 0.25))]
+    if round_ == 2:
+        c2 = [Setting(s.six, s.light + BAND) for s in c2]
+        c3 = [Setting(s.six, s.light + BAND) for s in c3]
     for fam in (c1, c2, c3):
         fam.sort(key=lambda s: s.distance())        # grid order = closest to the adopted values first (tie rule 3)
-    return {"C1": c1, "C2": c2, "C3": c3}
+    return {"C1": c1, "C2": c2, "C3": c3} if round_ == 1 else {"C1": c1, "C2b": c2, "C3b": c3}
 
 
 # ---------------------------------------------------------------- per-frame runs
@@ -208,8 +216,10 @@ def choose(res: dict, family: list[Setting], train_stems: list[str]) -> tuple[Se
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jobs", type=int, default=8)
+    ap.add_argument("--round", type=int, default=2, choices=(1, 2), help="1 = the PREREG as first written; 2 = the addendum (default)")
     a = ap.parse_args()
-    fams = families()
+    fams = families(a.round)
+    out_dir = OUT if a.round == 2 else cm.RESULTS / "test_round1"
     settings = [FIXED] + [s for f in fams.values() for s in f]
     settings = list(dict.fromkeys(settings))
     fr = frames()
@@ -254,7 +264,8 @@ def main() -> int:
          f"Ordinary train frames: {len(ordinary)} at {len(places)} places; test frames never opened. Each cell: found / "
          "barrels, false boxes (boxes on empty frames), score. Each family's setting is chosen on the other 7 places by "
          "the written rule and scored on the held-out place.", "",
-         "## Per condition", "", "| condition | place | fixed | C1 constant | C2 light | C3 both |", "|---|---|---|---|---|---|"]
+         f"Round {a.round} ({'the PREREG addendum: the light read above the horizon gate' if a.round == 2 else 'the PREREG as first written'}).", "",
+         "## Per condition", "", "| condition | place | fixed | " + " | ".join(fams) + " |", "|---|---|---|" + "---|" * len(fams)]
     verdict = {}
     for c in conds:
         stems_c = [s for s in ordinary if cm.condition_of(s) == c]
@@ -263,7 +274,7 @@ def main() -> int:
         L.append(f"| {c} | {cm.place_of(c)} | {fmt(f)} | " + " | ".join(fmt(x, f) for x in cells) + " |")
     tot_f = cell_of(fixed_held, ordinary)
     L.append("| **all ordinary** | | " + fmt(tot_f) + " | " + " | ".join(fmt(cell_of(results[n]["held"], ordinary), tot_f) for n in fams) + " |")
-    L += ["", "## Per place (found - 2 x false; held out)", "", "| place | fixed | C1 | C2 | C3 |", "|---|---:|---:|---:|---:|"]
+    L += ["", "## Per place (found - 2 x false; held out)", "", "| place | fixed | " + " | ".join(fams) + " |", "|---|---:|" + "---:|" * len(fams)]
     for p in places:
         f = cell_of(fixed_held, st_of(p))
         L.append(f"| {p} | {f.net:.0f} | " + " | ".join(f"{cell_of(results[n]['held'], st_of(p)).net:.0f}" for n in fams) + " |")
@@ -297,13 +308,14 @@ def main() -> int:
         L.append(f"| {p} | " + " | ".join(f"{results[n]['chosen'][p][0].describe()} ({results[n]['chosen'][p][1]['eligible']} eligible)" for n in fams) + " |")
     L.append("| **all 8 (final)** | " + " | ".join(results[n]["final"].describe() for n in fams) + " |")
     # extreme, report only (the final setting of each family)
-    L += ["", "## Extreme sets (report only; each family's final setting)", "", "| condition | fixed | C1 | C2 | C3 |", "|---|---|---|---|---|"]
+    L += ["", "## Extreme sets (report only; each family's final setting)", "", "| condition | fixed | " + " | ".join(fams) + " |", "|---|---|" + "---|" * len(fams)]
     for c in sorted({cm.condition_of(s) for s in fr["extreme"]}):
         sc = [s for s in fr["extreme"] if cm.condition_of(s) == c]
         f = cell(res, sc, FIXED.key)
         L.append(f"| {c} | {fmt(f)} | " + " | ".join(fmt(cell(res, sc, results[n]['final'].key), f) for n in fams) + " |")
-    (OUT / "summary.md").write_text("\n".join(L) + "\n")
-    with open(OUT / "per_frame.csv", "w", newline="") as fh:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "summary.md").write_text("\n".join(L) + "\n")
+    with open(out_dir / "per_frame.csv", "w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["stem", "condition", "place", "arm", "found", "false", "barrels", "found_ids"])
         for s in ordinary:
@@ -313,8 +325,10 @@ def main() -> int:
                   "final": dataclasses.asdict(results[n]["final"]), "final_info": results[n]["final_info"], "verdict": verdict[n]} for n in fams}
     chosen["pick"] = pick
     chosen["passing"] = passing
-    (OUT / "chosen.json").write_text(json.dumps(chosen, indent=1, default=float) + "\n")
-    write_model(results[pick]["final"], passing=bool(passing), family=pick)
+    chosen["round"] = a.round
+    (out_dir / "chosen.json").write_text(json.dumps(chosen, indent=1, default=float) + "\n")
+    if a.round == 2:
+        write_model(results[pick]["final"], passing=bool(passing), family=pick)
     print("\n".join(L))
     return 0 if passing else 1
 

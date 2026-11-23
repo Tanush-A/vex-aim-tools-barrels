@@ -104,3 +104,27 @@ box on frames whose light is plainly white (the warmth per condition is printed)
 `results/2026-11-25_color/test/`: `summary.md` (per condition fixed vs each family leave-one-place-out; per place; the
 acceptance clauses; the chosen settings per fold), `per_frame.csv`, `chosen.json`; the final model file
 `results/2026-11-25_color/config.json` when a family passes (else `config_best_not_passing.json`), `gate.txt`.
+
+## Addendum, round 2 (dated 2026-11-25, written after round 1 and before round 2 ran)
+
+**Round 1 (results in `results/2026-11-25_color/test_round1/`): no family passes.** C1 +5 net (the ottoman's orange
+shift is not learnable from the other places); C2 +22 found but +6 false, a new box on `lampmid6_glass_neg_02`, and
+`lampmid6_glass` -0.023, better in 2 of 8 places; C3 -1 net.
+
+**What was wrong with C2, found by reading the warmth per frame (no further look at scores):** the white patch was
+taken from the whole frame, so wherever an orange barrel is among the brightest things in view (a close-up; a barrel
+on the black ottoman) or yellow clutter is, the "light" reads warm under white light: `lampcool6_bathtile close_01`
+0.50, `lampcool6_ottoman core_01` 0.40, `lampmid6_glass close_01` 0.18, `neg_02` 0.08. The light estimate was
+contaminated by the very objects it is meant to help find.
+
+**The one change for round 2:** the light's warmth is read from the rows ABOVE the horizon gate (rows 0-49), where no
+barrel can ever be (the band v1 used for its background prior), as the median (R - B) / (R + G + B + 1) of the brightest
+20 % of those rows' pixels. Within a condition this reads 0.18-0.23 (bathroom mid), 0.13-0.17 (ottoman mid 6), 0.33-0.35
+(bathroom warm), at most 0.07 on every white-light condition except the empty `lampwarm6_glass neg_02` (0.13).
+`Config.hs_light` takes it as two more numbers, (w0, w1, s_warm, h_warm, rows, top) = (..., 50, 20); the four-number
+form keeps round 1's whole-frame 5 % reading.
+
+**Round 2 families:** C2b = C2's grid with the band reading; C3b = C3's grid with the band reading. C1 is not re-run
+(its round-1 result stands). Same selection rule, same acceptance A1-A4 (unchanged, although A1's "better in 4 of 8
+places" is hard for a rule that by design changes nothing under white light: stated now, not relaxed), same choice
+among the families, C1 entering with its round-1 numbers. This is the last round.
