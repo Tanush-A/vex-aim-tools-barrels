@@ -197,3 +197,23 @@ def assign_holdout_by_scene(stems: list[str], splits: dict[str, list[str]] | Non
         for i, nn in enumerate(new):
             splits["test" if i < k else "train"] += by_nn[nn]
     return splits
+
+
+DELIBERATELY_UNSPLIT_ROBOTS = ("DAVE",)     # Dave's snapshots: an outside check, kept out of every split on purpose
+
+
+def look_refusal(stem: str, splits: dict[str, list[str]]) -> str | None:
+    """Why Claude may not LOOK at this frame to propose boxes (tools/box_look.py), or None when it may.
+    Allowed: train frames, and frames kept out of every split on purpose (geometry-only scenes calib / ruler /
+    horizon, Dave's snapshots). Refused: test (and dev / measured) frames, and a frame in no split yet — it may
+    still become a test frame, so its split is assigned first (tools/make_splits.py). Names and lists only."""
+    where = next((name for name in SPLIT_NAMES if stem in splits.get(name, ())), None)
+    if where == "train":
+        return None
+    if where == "test":
+        return "test frame (held out; never opened)"
+    if where is not None:
+        return f"split {where} (only train frames get proposals)"
+    if stem.split("_", 1)[0] in DELIBERATELY_UNSPLIT_ROBOTS or _scene(stem) in UNASSIGNED_SCENES:
+        return None
+    return "in no split yet: assign splits first (python barrels/tools/make_splits.py --v2 --filter <robot>_<light>_<surface>)"
