@@ -21,6 +21,13 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-24 — Close-up fix merged; which new conditions are ordinary
+
+- **Decision:** (1) `closeup_side` and `closeup_stripe` are merged and on (the fruit box on the trap shot `occlx_15` is gone; pale wood `close_01` is found; nothing else moves; gate passes). (2) The gray table and the ottoman under the cool 6, mid 6 and warm 6 lamp settings are ordinary conditions; `lampmid3_ottoman` is extreme (too dark: no thresholds find more than 1 of 15). The vendor beats the fixed color model on the ordinary ones, so they are targets for the adaptive thresholds.
+- **Who:** Tanush, 2026-11-24.
+
+---
+
 ## 2026-11-23 — A cut stripe is filled; a sliver at the frame edge gets a box; the own-side sliver waits for real frames
 
 - **Decision:** merge `wip/occl-sliver` with `thin_span`, `stripe_bridge` and `thin_frame` on and `own_close` off.
