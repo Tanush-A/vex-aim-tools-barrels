@@ -1,0 +1,31 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks,start,1,16,29,28,1,0
+perfect masks,close,1,16,29,28,1,0
+"white tables, typical",start,5,80,145,145,0,0
+"white tables, typical",start,20,320,580,579,1,0
+"white tables, typical",close,5,80,145,145,0,0
+"white tables, typical",close,20,320,580,579,1,0
+"white tables, bad day",start,5,80,145,140,5,0
+"white tables, bad day",start,20,320,580,563,17,0
+"white tables, bad day",close,5,80,145,140,5,0
+"white tables, bad day",close,20,320,580,563,17,0
+bad day without the stripe patch,start,5,80,145,144,1,0
+bad day without the stripe patch,start,20,320,580,577,3,0
+bad day without the stripe patch,close,5,80,145,144,1,0
+bad day without the stripe patch,close,20,320,580,577,3,0
+light,start,5,80,145,143,2,0
+light,start,20,320,580,574,6,0
+light,close,5,80,145,143,2,0
+light,close,20,320,580,574,6,0
+medium,start,5,80,145,112,33,2
+medium,start,20,320,580,445,135,4
+medium,close,5,80,145,116,29,2
+medium,close,20,320,580,455,125,4
+heavy,start,5,80,145,25,120,0
+heavy,start,20,320,580,103,477,0
+heavy,close,5,80,145,25,120,0
+heavy,close,20,320,580,103,477,0
+"white tables, worst seen",start,5,80,145,113,32,1
+"white tables, worst seen",start,20,320,580,440,140,4
+"white tables, worst seen",close,5,80,145,116,29,0
+"white tables, worst seen",close,20,320,580,454,126,4
