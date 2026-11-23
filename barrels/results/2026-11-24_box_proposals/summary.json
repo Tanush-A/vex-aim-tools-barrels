@@ -1,0 +1,942 @@
+{
+ "totals": {
+  "frames": 12,
+  "label_barrels": 27,
+  "found": 27,
+  "missed": 0,
+  "extra": 0,
+  "iou_median": 0.894,
+  "iou_min": 0.803,
+  "iou_ge_0.8": 27,
+  "iou_ge_0.9": 10,
+  "edge_err_median_px": 1.0,
+  "edge_err_max_px": 5,
+  "edges_within_3px": 100,
+  "edges": 108,
+  "bottom_err_median_px": 1,
+  "bottom_err_max_px": 3,
+  "color_mistakes": 0,
+  "flag_mistakes": 2,
+  "clean_mistakes": 1,
+  "negative_mistakes": 0
+ },
+ "frames": {
+  "4A8B_both_abpgray_clutter_01": {
+   "n_label": 4,
+   "n_prop": 4,
+   "found": 4,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      34,
+      132,
+      110,
+      203
+     ],
+     "proposal_bbox": [
+      37,
+      133,
+      109,
+      200
+     ],
+     "iou": 0.894,
+     "edge_err": [
+      3,
+      1,
+      -1,
+      -3
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "occluded"
+     ],
+     "proposal_flags": [],
+     "flag_diff": [
+      "occluded"
+     ],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      205,
+      114,
+      246,
+      158
+     ],
+     "proposal_bbox": [
+      207,
+      115,
+      245,
+      157
+     ],
+     "iou": 0.885,
+     "edge_err": [
+      2,
+      1,
+      -1,
+      -1
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "occluded"
+     ],
+     "proposal_flags": [
+      "bottom_estimated",
+      "occluded"
+     ],
+     "flag_diff": [
+      "bottom_estimated"
+     ],
+     "label_note": "",
+     "proposal_note": "far, behind the sunglasses from ~row 150; bottom from the stripe in the middle (stripe 133-142) and the expected height for its 38 px width"
+    },
+    {
+     "label_bbox": [
+      365,
+      123,
+      422,
+      182
+     ],
+     "proposal_bbox": [
+      367,
+      126,
+      418,
+      182
+     ],
+     "iou": 0.849,
+     "edge_err": [
+      2,
+      3,
+      -4,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      506,
+      124,
+      579,
+      190
+     ],
+     "proposal_bbox": [
+      510,
+      129,
+      576,
+      190
+     ],
+     "iou": 0.836,
+     "edge_err": [
+      4,
+      5,
+      -3,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "upper-left edge touches the orange pill pack; edge taken from the stripe (510)"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": false,
+   "proposal_clean": false,
+   "negative_ok": true
+  },
+  "4A8B_both_abpgray_neg_02": {
+   "n_label": 0,
+   "n_prop": 0,
+   "found": 0,
+   "missed": [],
+   "extra": [],
+   "barrels": [],
+   "clean_ok": true,
+   "label_clean": false,
+   "proposal_clean": false,
+   "negative_ok": true
+  },
+  "4A8B_both_abpgray_touch_01": {
+   "n_label": 3,
+   "n_prop": 3,
+   "found": 3,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      246,
+      123,
+      301,
+      181
+     ],
+     "proposal_bbox": [
+      248,
+      126,
+      302,
+      181
+     ],
+     "iou": 0.898,
+     "edge_err": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      193,
+      124,
+      247,
+      181
+     ],
+     "proposal_bbox": [
+      194,
+      127,
+      248,
+      183
+     ],
+     "iou": 0.883,
+     "edge_err": [
+      1,
+      3,
+      1,
+      2
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      299,
+      122,
+      352,
+      179
+     ],
+     "proposal_bbox": [
+      302,
+      125,
+      352,
+      180
+     ],
+     "iou": 0.879,
+     "edge_err": [
+      3,
+      3,
+      0,
+      1
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "split line between the two blues at ~302 (shadow gap)"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_lampmid6_ottoman_core_01": {
+   "n_label": 4,
+   "n_prop": 4,
+   "found": 4,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      155,
+      166,
+      280,
+      311
+     ],
+     "proposal_bbox": [
+      159,
+      168,
+      281,
+      309
+     ],
+     "iou": 0.934,
+     "edge_err": [
+      4,
+      2,
+      1,
+      -2
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      413,
+      126,
+      479,
+      190
+     ],
+     "proposal_bbox": [
+      417,
+      126,
+      479,
+      189
+     ],
+     "iou": 0.925,
+     "edge_err": [
+      4,
+      0,
+      0,
+      -1
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      273,
+      113,
+      316,
+      160
+     ],
+     "proposal_bbox": [
+      274,
+      114,
+      316,
+      157
+     ],
+     "iou": 0.894,
+     "edge_err": [
+      1,
+      1,
+      0,
+      -3
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "far; bottom blurs into its shadow"
+    },
+    {
+     "label_bbox": [
+      77,
+      133,
+      155,
+      208
+     ],
+     "proposal_bbox": [
+      81,
+      133,
+      153,
+      205
+     ],
+     "iou": 0.886,
+     "edge_err": [
+      4,
+      0,
+      -2,
+      -3
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_lampmid6_ottoman_occl_02": {
+   "n_label": 1,
+   "n_prop": 1,
+   "found": 1,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      225,
+      125,
+      286,
+      192
+     ],
+     "proposal_bbox": [
+      226,
+      127,
+      287,
+      191
+     ],
+     "iou": 0.925,
+     "edge_err": [
+      1,
+      2,
+      1,
+      -1
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "occluded"
+     ],
+     "proposal_flags": [
+      "occluded"
+     ],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "right part behind the eraser from x 261; right edge from the expected width (~61 px at bottom 191)"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": false,
+   "proposal_clean": false,
+   "negative_ok": true
+  },
+  "4A8B_lampmid6_wood_occl_02": {
+   "n_label": 2,
+   "n_prop": 2,
+   "found": 2,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      182,
+      148,
+      267,
+      244
+     ],
+     "proposal_bbox": [
+      183,
+      151,
+      266,
+      244
+     ],
+     "iou": 0.946,
+     "edge_err": [
+      1,
+      3,
+      -1,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      175,
+      117,
+      218,
+      162
+     ],
+     "proposal_bbox": [
+      177,
+      120,
+      217,
+      162
+     ],
+     "iou": 0.868,
+     "edge_err": [
+      2,
+      3,
+      -1,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "bottom_estimated",
+      "occluded"
+     ],
+     "proposal_flags": [
+      "bottom_estimated",
+      "occluded"
+     ],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "behind the blue barrel, lower half hidden from row ~150; bottom from the stripe (136-145) being mid-height"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_overheaddim_palewood_close_01": {
+   "n_label": 1,
+   "n_prop": 1,
+   "found": 1,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      291,
+      243,
+      566,
+      480
+     ],
+     "proposal_bbox": [
+      292,
+      242,
+      564,
+      480
+     ],
+     "iou": 0.985,
+     "edge_err": [
+      1,
+      -1,
+      -2,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "very close, bottom cut by the frame below the stripe"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_overheaddim_palewood_edge_01": {
+   "n_label": 2,
+   "n_prop": 2,
+   "found": 2,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      0,
+      131,
+      35,
+      199
+     ],
+     "proposal_bbox": [
+      0,
+      131,
+      33,
+      200
+     ],
+     "iou": 0.93,
+     "edge_err": [
+      0,
+      0,
+      -2,
+      1
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "cut by the left edge"
+    },
+    {
+     "label_bbox": [
+      313,
+      125,
+      375,
+      191
+     ],
+     "proposal_bbox": [
+      314,
+      128,
+      373,
+      192
+     ],
+     "iou": 0.895,
+     "edge_err": [
+      1,
+      3,
+      -2,
+      1
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_window_abpwhite_occlx_05": {
+   "n_label": 2,
+   "n_prop": 2,
+   "found": 2,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      316,
+      133,
+      390,
+      212
+     ],
+     "proposal_bbox": [
+      320,
+      134,
+      388,
+      210
+     ],
+     "iou": 0.884,
+     "edge_err": [
+      4,
+      1,
+      -2,
+      -2
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "in front of the black box"
+    },
+    {
+     "label_bbox": [
+      46,
+      118,
+      98,
+      170
+     ],
+     "proposal_bbox": [
+      51,
+      120,
+      99,
+      167
+     ],
+     "iou": 0.803,
+     "edge_err": [
+      5,
+      2,
+      1,
+      -3
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "occluded"
+     ],
+     "proposal_flags": [
+      "occluded"
+     ],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "between two black objects, both sides possibly clipped; visible 52-97, expected width ~48 at bottom 167"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_window_abpwhite_occlx_14": {
+   "n_label": 2,
+   "n_prop": 2,
+   "found": 2,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      0,
+      120,
+      45,
+      179
+     ],
+     "proposal_bbox": [
+      0,
+      119,
+      47,
+      177
+     ],
+     "iou": 0.911,
+     "edge_err": [
+      0,
+      -1,
+      2,
+      -2
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "occluded"
+     ],
+     "proposal_flags": [
+      "occluded"
+     ],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "hand hides everything above the blue stripe (row 145); top from the expected height ~58 at bottom 177; cut by the left edge"
+    },
+    {
+     "label_bbox": [
+      190,
+      120,
+      244,
+      177
+     ],
+     "proposal_bbox": [
+      192,
+      122,
+      243,
+      178
+     ],
+     "iou": 0.896,
+     "edge_err": [
+      2,
+      2,
+      -1,
+      1
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    }
+   ],
+   "clean_ok": false,
+   "label_clean": false,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_window_light_cluster_02": {
+   "n_label": 4,
+   "n_prop": 4,
+   "found": 4,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      306,
+      119,
+      351,
+      170
+     ],
+     "proposal_bbox": [
+      306,
+      120,
+      351,
+      168
+     ],
+     "iou": 0.941,
+     "edge_err": [
+      0,
+      1,
+      0,
+      -2
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      390,
+      116,
+      432,
+      163
+     ],
+     "proposal_bbox": [
+      388,
+      117,
+      431,
+      162
+     ],
+     "iou": 0.894,
+     "edge_err": [
+      -2,
+      1,
+      -1,
+      -1
+     ],
+     "color_ok": true,
+     "label_flags": [
+      "occluded"
+     ],
+     "proposal_flags": [
+      "occluded"
+     ],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "farther back; left side behind the blue; visible from ~393, width 43 from the expected size at bottom 162"
+    },
+    {
+     "label_bbox": [
+      443,
+      122,
+      500,
+      179
+     ],
+     "proposal_bbox": [
+      445,
+      124,
+      498,
+      177
+     ],
+     "iou": 0.865,
+     "edge_err": [
+      2,
+      2,
+      -2,
+      -2
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      351,
+      119,
+      398,
+      167
+     ],
+     "proposal_bbox": [
+      352,
+      121,
+      395,
+      166
+     ],
+     "iou": 0.858,
+     "edge_err": [
+      1,
+      2,
+      -3,
+      -1
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  },
+  "4A8B_window_light_core_01": {
+   "n_label": 2,
+   "n_prop": 2,
+   "found": 2,
+   "missed": [],
+   "extra": [],
+   "barrels": [
+    {
+     "label_bbox": [
+      239,
+      123,
+      290,
+      178
+     ],
+     "proposal_bbox": [
+      241,
+      124,
+      290,
+      178
+     ],
+     "iou": 0.943,
+     "edge_err": [
+      2,
+      1,
+      0,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": ""
+    },
+    {
+     "label_bbox": [
+      292,
+      121,
+      342,
+      176
+     ],
+     "proposal_bbox": [
+      294,
+      123,
+      342,
+      176
+     ],
+     "iou": 0.925,
+     "edge_err": [
+      2,
+      2,
+      0,
+      0
+     ],
+     "color_ok": true,
+     "label_flags": [],
+     "proposal_flags": [],
+     "flag_diff": [],
+     "label_note": "",
+     "proposal_note": "left edge: stripe pokes out to ~293"
+    }
+   ],
+   "clean_ok": true,
+   "label_clean": true,
+   "proposal_clean": true,
+   "negative_ok": true
+  }
+ }
+}

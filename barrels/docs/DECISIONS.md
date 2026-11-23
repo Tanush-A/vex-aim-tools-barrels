@@ -21,6 +21,15 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-24 — Labels may start from Claude's proposals; Tanush checks every frame
+
+- **Decision:** box labels and slider labels may start from values a Claude session proposes by looking at the picture (and, for slider labels, at renders of the painted pixels under a few settings). Tanush checks and corrects every frame before it counts. Never from our detector or the vendor's (both are scored against these labels). Proposals live in `_boxes_proposed.json` / `_hs_proposed.json`, which no eval reads; the saved label records that it started from a proposal and whether he changed it.
+- **Why:** labeling is the slowest step of the week; a Claude labeler's mistakes are independent of the detector's, so the scoring stays fair as long as each frame is checked. Replaces the rule "never pre-fill labels" (2026-10, which was about the detector).
+- **Risk, stated:** accepting a proposal at a glance would make the labels partly Claude's. Accuracy of the proposals is measured on frames Tanush already boxed before they are used (`results/2026-11-24_box_proposals/`).
+- **Who:** Tanush, 2026-11-24 ("Claude is smart enough to draw the boxes and I'll just check").
+
+---
+
 ## 2026-11-24 — Close-up fix merged; which new conditions are ordinary
 
 - **Decision:** (1) `closeup_side` and `closeup_stripe` are merged and on (the fruit box on the trap shot `occlx_15` is gone; pale wood `close_01` is found; nothing else moves; gate passes). (2) The gray table and the ottoman under the cool 6, mid 6 and warm 6 lamp settings are ordinary conditions; `lampmid3_ottoman` is extreme (too dark: no thresholds find more than 1 of 15). The vendor beats the fixed color model on the ordinary ones, so they are targets for the adaptive thresholds.

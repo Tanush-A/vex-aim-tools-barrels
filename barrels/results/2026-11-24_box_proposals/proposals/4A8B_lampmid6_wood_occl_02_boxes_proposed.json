@@ -1,0 +1,38 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_wood_occl_02",
+ "image_sha1": "dec15c0dfcca7e5b6a34bdccbf0082f74e2fbb6b",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "yellow sticky notes at the right edge are yellow, not orange",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    177,
+    120,
+    217,
+    162
+   ],
+   "flags": [
+    "occluded",
+    "bottom_estimated"
+   ],
+   "note": "behind the blue barrel, lower half hidden from row ~150; bottom from the stripe (136-145) being mid-height"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    183,
+    151,
+    266,
+    244
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

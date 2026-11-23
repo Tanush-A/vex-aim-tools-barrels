@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_overheaddim_palewood_edge_01",
+ "image_sha1": "e5a3db83fccec232fbbb8a5cd55c502d29be54c1",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "red fire extinguisher in the back is red, not orange (judgement call for clean)",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    131,
+    33,
+    200
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "cut by the left edge"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    314,
+    128,
+    373,
+    192
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

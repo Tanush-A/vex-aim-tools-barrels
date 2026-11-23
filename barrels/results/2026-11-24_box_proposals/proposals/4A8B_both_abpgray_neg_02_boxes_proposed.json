@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_both_abpgray_neg_02",
+ "image_sha1": "bc2a10ecc07dc3f76cbbbd57ea8a506000fb029a",
+ "proposed_by": "claude",
+ "negative": true,
+ "clean": false,
+ "note": "no barrels; orange pills and blue Pepsi can / Vaseline tin are non-barrel color",
+ "barrels": []
+}
