@@ -1,6 +1,6 @@
 # STATUS.md — where we are
 
-**Updated:** 2026-11-20. The occlusion work is merged (Tanush: "understood"): side occlusion, hidden bottoms, cut from above or below, a post, same-colored pairs, a cut barrel placed by its own rounded corners. Home 28 of 29, campus 35 of 35, no false box; occlusion scorecard 2153 → 2737 of 3888 (simulated). Running: A8 (fill a cut stripe; a sliver with stripe and body gets a good box). Tanush has shot 36 ottoman frames (4 lamp settings) with vendor detections; boxing and slider labels pending. Plan: `TODO.md`.
+**Updated:** 2026-11-24. Overnight report: `OVERNIGHT-2026-11-24.md`. Ours 59 of 123 against the vendor's 99 on the 7 new conditions (the color step fails on the ottoman and gray table; Tanush's slider thresholds fix most of it there); no histogram-to-threshold relation yet with 3 labelled places; close-up false box fixed on `wip/tomorrow` (waits for "understood"). Tomorrow: import, box, slider-label, then `python barrels/experiments/run_all.py` on `wip/tomorrow`.
 
 ## What runs
 
