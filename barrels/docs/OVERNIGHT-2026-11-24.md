@@ -15,7 +15,7 @@ Written by Claude for Tanush. Plain English. Read sections 1 to 3; the rest is r
 1. **Say "understood" on the close-up fix** (section 4.1). It is on branch `wip/tomorrow`; I merge it on your word.
 2. **Tomorrow, after importing, boxing and slider-labelling:** switch to the combined branch and run one command:
    ```
-   git checkout wip/tomorrow && git pull
+   git checkout barrels && git pull
    python barrels/experiments/run_all.py
    ```
    It runs the tests, the never-regress check, the full table, ours against the vendor per condition, and the adaptive-rule test, and writes one page: `barrels/results/<date>_run_all/summary.md`. Last night's dry run took a few minutes and worked end to end.
