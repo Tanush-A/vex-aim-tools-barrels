@@ -49,6 +49,9 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
                        is off (false boxes on damaged masks), as are slice_box, cover_unpinned and stripe_two. A piece under
                        the finder's old width floor is handed to the left-over rules whether or not the lower floor of
                        pin_thin also lets it into the stripe step.
+  2026-11-23 (A9, experiments/2026-11-23_closeup_shape)  the stripeless close-up piece: one cut by the frame's side as well
+                       as its bottom must be seen down to where its top row puts the stripe (``closeup_side``); a piece whose
+                       predicted stripe runs past the frame bottom is a close-up too (``closeup_stripe``).
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -188,6 +191,15 @@ class DetConfig:
     thin_span: bool = True       # ON since 2026-11-20 (A8). With pin_thin: a thin full slice whose body joined to it is seen stripe_full to
                                  # body_width x W wide gets that span as its box (the barrel's whole width is seen, only its stripe is
                                  # hidden), unless the body color crosses the stripe's rows in a column of it (a body-colored thing in front)
+    # the stripeless close-up piece (2026-11-23, TODO A9, experiments/2026-11-23_closeup_shape, PREREG.md)
+    closeup_side: bool = True    # ON since 2026-11-23 on wip/closeup-shape (passed every clause of PREREG.md). A stripeless piece kept as a close-up (its box reaches the frame bottom) that the frame's left or right
+                                 # side also cuts shows neither its width nor its stripe: it is a barrel only when its body is seen from its
+                                 # top row down to where that row puts the stripe's top (or to the frame bottom, when that is higher), within
+                                 # max(bottom_tol_min_px, bottom_tol x that height) (see _seen_to_stripe). False = kept as before (a printed
+                                 # orange fruit cut by the frame corner got a box on an empty frame)
+    closeup_stripe: bool = True  # ON since 2026-11-23 on wip/closeup-shape (passed every clause of PREREG.md). A stripeless piece whose predicted stripe (from its top row) runs past the frame bottom is a close-up as
+                                 # well: no stripe can be seen there with body below it, as when the piece reaches the frame bottom. False =
+                                 # only a piece whose box reaches the frame bottom (a barrel whose stripe straddles the frame bottom was missed)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -323,6 +335,11 @@ def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = De
 def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
                  log: list | None = None) -> list[Barrel]:
     """Step 1 alone: class mask (0 other / 1 orange / 2 blue / 255 ignore) -> barrels, one per barrel-shaped piece."""
+    return [b for b, _ in _step1_pieces(mask, cfg, cam, log)]
+
+
+def _step1_pieces(mask: np.ndarray, cfg: DetConfig, cam: geo.CameraModel, log: list | None = None) -> list[tuple[Barrel, int]]:
+    """``detect_step1``'s barrels, each with the bottom row its own pixels reach (before the bottom is resolved)."""
     h, w = mask.shape
     out = []
     for blob in find_blobs(mask, cfg):
@@ -345,9 +362,30 @@ def detect_step1(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.Camera
                 flags.add("truncated")
             n_o, n_b = piece.n_orange, piece.n_blue
             color = ORANGE if n_o >= n_b else BLUE
-            out.append(Barrel(color=color, bbox=(x0, y0, x1, y1), confidence=max(n_o, n_b) / (n_o + n_b),
-                              flags=frozenset(flags), area=int(piece.pixels.sum()), source="det1"))
-    return sorted(out, key=lambda b: b.bbox[0])
+            out.append((Barrel(color=color, bbox=(x0, y0, x1, y1), confidence=max(n_o, n_b) / (n_o + n_b),
+                               flags=frozenset(flags), area=int(piece.pixels.sum()), source="det1"), piece.bbox[3]))
+    return sorted(out, key=lambda bs: bs[0].bbox[0])
+
+
+def _closeup_stripe_rows(cam: geo.CameraModel, top_row: float) -> tuple[float, float]:
+    """(stripe top row, stripe bottom row) of a barrel whose lid's far edge is at ``top_row``; inf where the geometry puts
+    them at or behind the camera (far below the frame)."""
+    d = cam._d_axis_from_point_row(top_row, geo.BARREL_HEIGHT_MM, +geo.BARREL_END_DIAMETER_MM / 2)
+    if not math.isfinite(d) or d <= 0:
+        return math.inf, math.inf
+    try:
+        r = cam.barrel_rows(d)
+    except ValueError:
+        return math.inf, math.inf
+    return r.stripe_top, r.stripe_bottom
+
+
+def _seen_to_stripe(cam: geo.CameraModel, cfg: DetConfig, top_row: int, seen_bottom: int, h: int) -> bool:
+    """``closeup_side``: is the piece's body seen from ``top_row`` down to where that row puts the stripe's top (or to the
+    frame bottom, when that is higher), within max(bottom_tol_min_px, bottom_tol x that height)?"""
+    target = min(float(h), _closeup_stripe_rows(cam, top_row)[0])
+    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * (target - top_row))
+    return seen_bottom >= target - tol
 
 
 # ---------------------------------------------------------------- step 2: the stripe is the barrel
@@ -1202,9 +1240,11 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     bottom (the stripe is below the frame) or the expected stripe is too thin to resolve at that distance.
     With cfg.require_stripe=False this is step 1 alone (the detector before 2026-11-05; ``detect_image.py --step1``)."""
     h, w = mask.shape
-    pieces = detect_step1(mask, cfg, cam, log)
+    seen = _step1_pieces(mask, cfg, cam, log)
+    pieces = [b for b, _ in seen]
     if not cfg.require_stripe:
         return pieces
+    seen_bottom = {id(b): y for b, y in seen}
     out: list[Barrel] = []
     aside = cfg.post_pair or cfg.slice_behind                # 2026-11-20: pieces that give no box alone are kept for these two
     narrows: list[Stripe] = []                               # ... refused by the finder for their width
@@ -1264,7 +1304,15 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
             continue                                         # the stripe barrels already account for this piece
         g = _stripe_geometry(cam, (p.bbox[1] + p.bbox[3]) / 2)
         hs = (g[1].stripe_bottom - g[1].stripe_top) if g else math.inf
-        if p.bbox[3] >= h or hs < cfg.min_stripe_px:
+        close = p.bbox[3] >= h
+        if not close and cfg.closeup_stripe and _closeup_stripe_rows(cam, p.bbox[1])[1] >= h:
+            close = True                                     # 2026-11-23: its stripe straddles the frame bottom (no body below it in view)
+        if (close and cfg.closeup_side and (p.bbox[0] == 0 or p.bbox[2] == w)
+                and not _seen_to_stripe(cam, cfg, p.bbox[1], seen_bottom[id(p)], h)):
+            # 2026-11-23: cut by the frame's side too, so its width says nothing; its body is not seen down to its stripe
+            _note(log, "piece", "closeup_side", p.bbox, body=p.color, seen_bottom=seen_bottom[id(p)])
+            continue
+        if close or hs < cfg.min_stripe_px:
             out.append(p)                                    # stripe below the frame, or too far to resolve one
         else:
             _note(log, "piece", "stripeless", p.bbox, body=p.color, expected_stripe_h=hs)
