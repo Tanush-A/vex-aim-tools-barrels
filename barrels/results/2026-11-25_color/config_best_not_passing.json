@@ -50,7 +50,7 @@
   "hs_light": []
  },
  "config_hash": "eb863d84",
- "git": "5185038",
+ "git": "651c105",
  "fit_frames": "chosen by the PREREG rule on the ordinary train frames of 8 places (experiments/2026-11-25_color)",
  "passed_prereg": false,
  "base_model": "eb863d84",
