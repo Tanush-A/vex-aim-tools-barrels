@@ -19,7 +19,7 @@ from barrels.io import BLUE, ORANGE, PKG_ROOT  # noqa: E402
 OUT = PKG_ROOT / "results" / "2026-11-23_closeup_shape"
 _FIELDS = {f.name for f in dataclasses.fields(det.DetConfig)}
 NEW = ("closeup_side", "closeup_stripe")   # this experiment's switches (PREREG.md); pinned off in START
-START = det.DetConfig(**{k: False for k in NEW if k in _FIELDS})      # origin/barrels e0d01e0, field by field
+START = det.DetConfig(**{k: False for k in NEW + ("verify_front", "verify_readings") if k in _FIELDS})      # origin/barrels e0d01e0, field by field (2026-11-24: occl_strict's switches pinned off too)
 ARMS = {"start": START}
 if set(NEW) <= _FIELDS:
     ARMS["side"] = dataclasses.replace(START, closeup_side=True)       # rule A

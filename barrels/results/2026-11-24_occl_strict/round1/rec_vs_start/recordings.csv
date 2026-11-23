@@ -1,0 +1,10 @@
+arm,frame,what,color,bbox,flags,source
+strict,2026-11-07_campus/r2_pan/frame_057,removed,blue,"[274, 111, 316, 160]",occluded+top_inferred,det2
+strict,2026-11-07_campus/r4_hand_occlusion/frame_011,removed,blue,"[274, 105, 307, 142]",occluded+top_inferred,det2
+strict,2026-11-07_campus/r4_hand_occlusion/frame_033,removed,orange,"[276, 97, 301, 124]",bottom_inferred+occluded+top_inferred,det2
+strict,2026-11-07_campus/r4_hand_occlusion/frame_033,removed,orange,"[402, 104, 441, 143]",occluded+top_inferred,det2
+strict,2026-11-16_wood/rec_2026-11-16_121306/frame_018,removed,orange,"[250, 117, 298, 169]",bottom_inferred+occluded+top_inferred,det2
+strict,2026-11-16_wood/rec_2026-11-16_121306/frame_023,removed,orange,"[253, 118, 303, 173]",bottom_inferred+occluded+top_inferred,det2
+strict,2026-11-16_wood/rec_2026-11-16_121306/frame_024,removed,orange,"[251, 118, 302, 173]",bottom_inferred+occluded+top_inferred,det2
+strict,2026-11-16_wood/rec_2026-11-16_121306/frame_024,removed,orange,"[289, 119, 341, 176]",bottom_inferred+occluded+top_inferred,det2
+strict,2026-11-16_wood/rec_2026-11-16_121306/frame_026,removed,orange,"[264, 119, 316, 174]",bottom_inferred+occluded+top_inferred,det2

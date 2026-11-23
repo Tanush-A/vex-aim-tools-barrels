@@ -1,0 +1,15 @@
+level,arm,stem,seed,color,box,flags,drawn_by,width_over_expected,best_overlap_same_color,that_truth_box,that_truth_also_missed
+medium,start,touch_02,0,orange,"[214, 123, 265, 173]",occluded,stripe step,1.01,0.32,"[240, 122, 289, 174]",0
+medium,strict,touch_02,0,orange,"[214, 123, 265, 173]",occluded,stripe step,1.01,0.32,"[240, 122, 289, 174]",0
+medium,start,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,strict,cluster_01,3,blue,"[363, 120, 421, 171]",,stripe step,1.17,0.43,"[388, 118, 437, 170]",1
+medium,start,occl_02,8,orange,"[394, 131, 462, 205]",bottom_inferred+occluded+top_inferred,stripe step,0.99,0.21,"[395, 114, 441, 158]",1
+medium,start,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+medium,strict,occl_01,14,orange,"[373, 135, 453, 228]",occluded,stripe step,0.98,0.43,"[340, 139, 423, 229]",0
+"white tables, worst seen",start,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",strict,touch_02,3,orange,"[168, 123, 225, 175]",bottom_inferred+occluded,caps_behind,1.1,0.3,"[148, 121, 192, 176]",1
+"white tables, worst seen",start,occl_01,11,blue,"[369, 125, 429, 190]",bottom_inferred+occluded+top_inferred,stripe step,1.0,0.35,"[386, 115, 430, 161]",1
+"white tables, worst seen",start,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",strict,occl_01,14,orange,"[371, 135, 452, 228]",occluded,stripe step,0.99,0.45,"[340, 139, 423, 229]",0
+"white tables, worst seen",start,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1
+"white tables, worst seen",strict,cluster_01,18,blue,"[354, 120, 412, 171]",,stripe step,1.17,0.34,"[331, 119, 382, 171]",1

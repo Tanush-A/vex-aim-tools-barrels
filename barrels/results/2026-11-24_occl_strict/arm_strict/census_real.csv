@@ -1,0 +1,257 @@
+bed,set,extreme,scene,color,box,kind,true,flags,source,band_h,band_w,over_top,over_bot,stage,ev,side,front_box,front_sil,front_px,front_lay,own_top,own_bot,horizon,above,below,below_horizon_bottom
+real,HOME,0,4A8B_window_light_close_01,orange,308 144 388 235,hit,1,,det2,0.743,0.999,0,0,stripe,308 183 385 206,0.975,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_close_02,blue,311 142 390 233,hit,1,,det2,0.709,0.987,0,0,stripe,311 180 387 203,0.987,0.0,0.0,0.0,0.0,1,1,0,0.158,0.0,1
+real,HOME,0,4A8B_window_light_cluster_01,orange,315 118 366 162,hit,1,bottom_inferred occluded,det3,,,0,0,cap,315 118 347 136,1.353,0.583,0.415,0.409,0.33,1,0,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_cluster_01,blue,326 120 383 173,hit,1,,det2,0.673,1.304,0,0,stripe,335 141 377 153,1.488,0.0,0.0,0.0,0.0,0,1,0,0.381,0.0,1
+real,HOME,0,4A8B_window_light_cluster_01,blue,391 116 437 170,hit,1,top_inferred,det2,0.797,0.903,1,0,stripe,392 141 433 152,0.944,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_cluster_02,orange,308 120 350 168,hit,1,,det2,0.727,0.937,0,0,stripe,308 140 350 151,0.875,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_cluster_02,blue,350 112 396 168,hit,1,,det2,0.659,0.851,0,0,stripe,355 139 393 149,1.852,0.0,0.0,0.0,0.0,1,1,0,0.026,0.0,1
+real,HOME,0,4A8B_window_light_cluster_02,orange,394 117 430 161,hit,1,occluded,det2,0.698,0.747,0,0,stripe,398 135 429 145,0.814,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_cluster_02,blue,439 120 500 179,hit,1,,det2,0.752,1.042,0,0,stripe,443 144 494 158,1.389,0.0,0.0,0.0,0.0,1,1,0,0.059,0.0,1
+real,HOME,0,4A8B_window_light_core_01,blue,240 120 294 179,hit,1,,det2,0.668,0.933,0,0,stripe,241 146 289 158,1.218,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_core_01,orange,293 122 340 174,hit,1,,det2,0.761,0.919,0,0,stripe,294 144 339 156,0.919,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_core_02,orange,370 121 417 171,hit,1,,det2,0.703,0.985,0,0,stripe,370 142 416 154,0.945,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_core_02,blue,420 118 475 176,hit,1,top_inferred,det2,0.771,0.971,1,0,stripe,421 143 468 155,1.506,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_core_03,orange,318 107 344 136,hit,1,,det2,0.592,1.186,0,0,stripe,318 120 344 125,0.811,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_edge_01,blue,0 132 32 197,hit,1,occluded truncated,det2,0.698,0.466,0,0,stripe,0 158 26 174,0.514,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_far_02,blue,216 104 249 144,hit,1,,det2,0.537,1.464,0,0,stripe,220 124 249 131,1.605,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_far_02,orange,240 106 271 135,hit,1,occluded,det2,0.618,1.925,0,0,stripe,248 118 271 123,1.664,0.043,0.043,0.036,0.036,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_far_02,orange,332 107 363 135,hit,1,occluded,det2,0.598,1.167,0,0,stripe,335 119 360 125,0.789,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_far_02,blue,434 107 467 140,hit,1,,det2,4.22,2.624,0,0,stripe,436 120 464 126,1.019,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_occl_01,orange,344 134 429 228,hit,1,,det2,0.775,1.009,0,0,stripe,344 177 419 201,1.086,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_occl_01,blue,387 112 432 158,hit,1,bottom_inferred occluded,det3,,,0,0,cap,387 112 432 134,1.0,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_occl_02,blue,396 134 476 230,hit,1,,det2,0.816,1.035,0,0,stripe,396 176 473 202,1.022,0.0,0.0,0.0,0.0,0,1,0,0.247,0.0,1
+real,HOME,0,4A8B_window_light_occl_02,orange,399 117 439 161,hit,1,bottom_inferred occluded,det3,,,0,0,cap,399 117 439 134,1.025,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_top_01,orange,164 260 449 480,hit,1,truncated,det1,,,0,0,piece,164 260 449 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_topstripe_01,orange,176 242 423 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,176 242 423 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_touch_02,orange,149 123 191 174,hit,1,occluded,det2,0.609,0.684,0,0,stripe,153 144 188 156,1.505,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_touch_02,blue,190 122 238 179,hit,1,,det2,0.668,0.933,0,0,stripe,192 146 237 158,0.914,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,HOME,0,4A8B_window_light_touch_02,orange,241 122 287 174,hit,1,,det2,0.736,0.925,0,0,stripe,241 143 287 156,0.905,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_close_01,orange,255 185 395 358,hit,1,,det2,0.847,0.938,0,0,stripe,260 266 390 313,0.945,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_cluster_02,orange,237 117 277 165,hit,1,,det2,0.581,0.836,0,0,stripe,238 139 276 148,0.858,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_cluster_02,orange,287 132 345 200,hit,1,,det2,0.674,0.85,0,0,stripe,288 162 345 177,2.009,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_cluster_02,blue,338 119 386 173,hit,1,occluded,det2,0.681,2.544,0,0,stripe,344 141 380 160,1.806,0.028,0.003,0.004,0.004,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_cluster_02,blue,370 117 416 166,hit,1,occluded,det2,0.655,2.768,0,0,stripe,380 137 415 152,0.761,0.171,0.166,0.174,0.174,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_clutter_02,orange,200 124 261 184,hit,1,,det2,0.623,0.917,0,0,stripe,202 152 252 164,1.587,0.0,0.0,0.0,0.0,1,1,0,0.02,0.0,1
+real,CAMPUS,0,4A8B_campus_light_clutter_02,blue,440 122 494 179,hit,1,,det2,0.734,1.615,0,0,stripe,440 146 493 160,0.996,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_clutter_02,blue,470 122 521 171,hit,1,occluded,det2,0.688,1.67,0,0,stripe,494 144 516 157,0.524,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_core_01,blue,95 163 202 285,hit,1,,det2,0.856,0.958,0,0,stripe,102 214 199 251,0.986,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_core_01,orange,247 110 279 144,hit,1,occluded,det2,0.532,0.837,0,0,stripe,250 125 277 131,0.892,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_core_01,blue,336 132 393 198,hit,1,,det2,0.684,0.927,0,0,stripe,336 160 392 176,0.895,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_core_01,orange,397 133 461 200,hit,1,,det2,0.678,0.979,0,0,stripe,398 160 457 178,0.994,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_edge_01,orange,605 144 640 227,hit,1,occluded truncated,det2,0.794,0.459,0,0,stripe,609 174 640 198,0.459,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_far_01,orange,198 116 235 160,hit,1,occluded,det2,0.611,0.837,0,0,stripe,199 136 234 144,0.837,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_far_01,blue,240 110 271 146,hit,1,,det2,0.621,0.84,0,0,stripe,241 126 271 133,0.84,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_far_01,blue,314 111 355 153,hit,1,occluded top_inferred,det2,0.66,0.859,1,0,stripe,320 131 352 139,1.498,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_far_01,orange,379 112 414 149,hit,1,,det2,0.595,0.854,0,0,stripe,380 128 412 136,0.906,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_hand_02,blue,127 124 186 186,hit,1,,det2,0.623,0.917,0,0,stripe,133 151 184 165,1.04,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_hand_02,orange,387 119 455 184,hit,1,,det2,0.704,0.97,0,0,stripe,395 149 447 164,1.904,0.0,0.0,0.0,0.0,1,1,0,0.058,0.0,1
+real,CAMPUS,0,4A8B_campus_light_held_01,blue,98 334 505 480,hit,1,truncated,det1,,,0,0,piece,98 334 505 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_occl_02,blue,277 127 331 178,hit,1,occluded,det2,0.652,0.352,0,0,stripe,278 148 294 160,0.63,0.0,0.0,0.0,0.0,1,1,0,0.25,0.0,1
+real,CAMPUS,0,4A8B_campus_light_plain_01,blue,65 150 162 253,hit,1,,det2,0.816,1.024,0,0,stripe,74 193 162 221,1.068,0.0,0.0,0.0,0.0,1,1,0,0.693,0.0,1
+real,CAMPUS,0,4A8B_campus_light_plain_01,orange,501 147 600 241,hit,1,,det2,0.878,1.15,0,0,stripe,503 181 592 212,1.186,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_plain_02,blue,80 131 151 200,hit,1,,det2,0.678,0.948,0,0,stripe,93 160 148 178,1.103,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_plain_02,orange,421 130 484 198,hit,1,,det2,0.754,0.969,0,0,stripe,421 158 480 176,1.001,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_room_01,blue,65 125 122 178,hit,1,,det2,0.576,0.884,0,0,stripe,72 149 117 160,1.05,0.0,0.0,0.0,0.0,1,1,0,0.178,0.0,1
+real,CAMPUS,0,4A8B_campus_light_room_01,orange,341 122 387 173,hit,1,,det2,0.609,0.899,0,0,stripe,341 144 384 156,0.899,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_room_03,blue,180 112 214 152,hit,1,occluded,det2,0.483,0.806,0,0,stripe,181 130 212 137,0.857,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_room_03,orange,217 112 250 150,hit,1,occluded,det2,0.585,0.839,0,0,stripe,220 129 249 137,0.839,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_top_01,orange,167 281 479 480,hit,1,truncated,det1,,,0,0,piece,167 281 479 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_topstripe_01,orange,230 241 463 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,230 241 463 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_touch_02,blue,224 120 275 177,hit,1,top_inferred,det2,0.66,0.92,1,0,stripe,227 147 272 159,0.902,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_touch_02,blue,273 120 321 176,hit,1,top_inferred,det2,0.664,0.851,1,0,stripe,275 147 320 158,0.87,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_window_01,blue,160 133 221 202,hit,1,,det2,0.732,0.938,0,0,stripe,166 161 221 179,0.938,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,CAMPUS,0,4A8B_campus_light_window_01,orange,374 133 434 201,hit,1,,det2,0.665,0.913,0,0,stripe,374 164 431 178,0.913,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_close_01,orange,188 250 466 480,hit,1,truncated,det1,,,0,0,piece,188 250 466 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,blue,35 128 109 200,hit,1,top_inferred,det2,0.747,1.115,1,0,stripe,40 159 106 177,1.241,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,orange,207 117 244 152,loose,1,,det2,0.644,0.886,0,0,stripe,208 132 244 141,0.886,0.0,0.0,0.0,0.0,1,1,0,0.0,0.028,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,blue,365 118 422 180,hit,1,,det2,0.583,0.989,0,0,stripe,368 147 421 160,1.064,0.0,0.0,0.0,0.0,1,1,0,0.17,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,orange,505 128 576 195,hit,1,,det2,0.748,1.177,0,0,stripe,510 151 571 168,1.437,0.0,0.0,0.0,0.0,1,1,0,0.148,0.016,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_core_01,orange,135 132 188 185,hit,1,bottom_inferred occluded,det2,0.692,0.987,0,0,stripe,145 152 171 164,0.935,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_core_01,blue,374 110 407 146,hit,1,,det2,0.319,0.809,0,0,stripe,376 126 405 130,0.92,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_edge_01,blue,589 151 640 251,hit,1,occluded truncated,det2,0.916,0.535,0,0,stripe,595 191 640 220,0.568,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_held_01,blue,95 331 518 480,hit,1,truncated,det1,,,0,0,piece,95 331 518 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_occl_02,blue,368 124 421 179,hit,1,occluded,det2,0.573,0.421,0,0,stripe,396 150 419 160,0.659,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_both_abpgray,0,4A8B_both_abpgray_touch_01,blue,294 124 351 178,hit,1,,det2,0.672,0.996,0,0,stripe,302 146 349 157,1.954,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool3_wood,1,4A8B_lampcool3_wood_close_01,blue,118 240 355 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,118 240 355 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampcool3_wood,1,4A8B_lampcool3_wood_occl_04,orange,186 126 239 185,hit,1,top_inferred,det2,0.85,1.147,0,0,stripe,189 156 239 185,0.81,0.0,0.0,0.0,0.0,0,1,0,0.0,1.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_close_01,orange,126 244 390 480,hit,1,truncated,det1,,,0,0,piece,126 244 390 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_clutter_01,blue,74 132 148 208,hit,1,,det2,0.819,1.144,0,0,stripe,87 164 148 185,1.085,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_clutter_01,blue,296 110 343 150,hit,1,occluded top_inferred,det2,0.779,0.915,1,0,stripe,296 128 326 138,1.195,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_clutter_01,orange,496 122 554 191,hit,1,occluded,det2,0.53,0.588,0,0,stripe,502 156 537 168,1.378,0.0,0.0,0.0,0.0,1,1,0,0.029,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,orange,224 115 267 166,hit,1,occluded,det2,0.669,0.907,0,0,stripe,239 138 267 148,0.929,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,orange,327 104 358 138,hit,1,occluded,det2,0.474,0.749,0,0,stripe,331 120 355 125,1.186,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,blue,381 140 454 223,hit,1,occluded,det2,0.836,0.971,0,0,stripe,389 176 447 199,0.945,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,blue,481 112 511 148,hit,1,bottom_inferred occluded,det2,0.725,0.948,0,0,stripe,495 126 505 133,0.813,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_edge_01,blue,0 131 28 192,hit,1,occluded truncated,det2,0.912,0.496,0,0,stripe,0 154 24 173,0.463,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_edge_01,orange,280 122 330 180,hit,1,,det2,0.664,0.889,0,0,stripe,284 147 329 158,0.945,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_touch_01,orange,285 123 336 179,hit,1,,det2,0.59,0.813,0,0,stripe,291 147 334 158,0.964,0.0,0.0,0.0,0.0,1,1,0,0.047,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_touch_01,blue,340 124 395 179,hit,1,,det2,0.793,1.99,0,0,stripe,340 147 384 162,0.811,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_touch_01,blue,384 125 442 182,hit,1,bottom_inferred occluded,det2,0.845,1.94,0,0,stripe,406 150 434 163,0.844,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_close_01,orange,174 251 434 480,hit,1,truncated,det1,,,0,0,piece,174 251 434 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,blue,154 140 243 235,hit,1,top_inferred,det2,0.757,0.946,1,0,stripe,165 179 241 205,2.514,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,blue,259 112 304 166,hit,1,occluded,det2,0.768,0.486,0,0,stripe,279 136 298 147,0.796,0.0,0.0,0.0,0.0,1,1,0,0.105,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,orange,357 104 387 134,hit,1,,det2,0.625,1.056,0,0,stripe,358 117 386 123,0.99,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,orange,522 112 578 171,hit,1,,det2,0.962,1.633,0,0,stripe,522 139 576 153,2.315,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,orange,143 112 184 154,hit,1,bottom_inferred,det2,0.703,0.821,0,1,stripe,144 128 184 151,2.007,0.1,0.057,0.071,0.071,1,0,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,blue,180 120 232 186,hit,1,,det2,0.765,0.976,0,0,stripe,180 150 232 165,1.561,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,orange,300 133 367 210,hit,1,,det2,0.75,1.011,0,0,stripe,302 166 365 186,0.968,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,blue,373 109 413 152,hit,1,,det2,0.694,0.906,0,0,stripe,374 128 409 136,1.035,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_edge_01,blue,0 145 39 239,hit,1,occluded truncated,det2,0.851,0.432,0,0,stripe,0 180 35 206,0.481,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_edge_01,orange,407 124 462 183,hit,1,,det2,0.783,1.073,0,0,stripe,407 148 459 163,1.0,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_occl_02,blue,256 116 301 166,hit,1,occluded,det2,0.636,0.49,0,0,stripe,278 136 298 146,0.735,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_touch_01,blue,224 120 278 186,hit,1,,det2,0.696,0.958,0,0,stripe,225 150 278 165,0.958,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_touch_01,orange,282 123 336 184,hit,1,,det2,0.774,1.958,0,0,stripe,283 149 333 164,0.916,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_touch_01,orange,333 123 389 182,hit,1,,det2,0.788,1.007,0,0,stripe,336 148 387 162,0.97,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_ottoman,0,4A8B_lampcool6_ottoman_core_01,blue,277 114 315 158,hit,1,occluded,det2,0.62,0.759,0,0,stripe,287 135 312 143,0.873,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampcool6_ottoman,0,4A8B_lampcool6_ottoman_touch_01,blue,243 131 324 197,hit,1,top_inferred,det2,0.767,1.052,0,0,stripe,248 171 319 176,1.808,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampcool6_ottoman,0,4A8B_lampcool6_ottoman_touch_01,orange,328 128 389 198,hit,1,occluded top_inferred,det2,0.674,0.726,0,0,stripe,347 163 384 176,0.943,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_close_01,blue,114 270 355 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,114 270 355 480,,0.0,0.0,0.0,0.0,1,0,0,0.485,0.0,1
+real,4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_cluster_01,orange,220 115 268 163,wrongcolor,0,occluded top_inferred,det2,,,0,0,half_stripe,224 130 266 148,1.0,0.0,0.0,0.0,0.0,0,1,0,0.0,0.476,1
+real,4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_occl_02,orange,179 112 225 164,hit,1,bottom_inferred occluded,det2,0.427,0.111,0,0,stripe,181 138 215 145,0.796,0.853,0.626,0.674,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_occl_02,orange,186 131 261 215,part,1,occluded top_inferred,det2,1.286,1.115,0,0,stripe,186 157 217 192,,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_occl_04,orange,186 141 266 214,part,1,occluded,det2,1.436,1.159,0,0,stripe,189 153 232 191,1.204,0.0,0.0,0.0,0.0,1,1,0,0.023,0.047,1
+real,4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_touch_02,orange,194 126 269 196,part,1,top_inferred,det2,0.516,1.029,0,0,stripe,206 159 257 170,1.829,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid3_bathtile,0,4A8B_lampmid3_bathtile_close_01,orange,127 294 386 480,hit,1,truncated,det1,,,0,0,piece,127 294 386 480,,0.0,0.0,0.0,0.0,1,0,0,0.645,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_close_01,orange,170 251 435 480,hit,1,truncated,det1,,,0,0,piece,170 251 435 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,blue,155 140 243 234,hit,1,top_inferred,det2,0.757,0.971,1,0,stripe,165 180 242 204,1.668,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,blue,255 115 300 165,hit,1,occluded,det2,0.688,0.468,0,0,stripe,280 136 298 146,0.713,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,orange,358 98 390 134,hit,1,,det2,0.632,1.001,0,0,stripe,358 117 386 122,1.068,0.0,0.0,0.0,0.0,1,1,0,0.071,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,orange,523 117 582 171,hit,1,top_inferred,det2,1.001,1.537,1,0,stripe,522 140 583 157,2.315,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,orange,143 112 185 154,hit,1,bottom_inferred,det2,0.625,0.834,0,1,stripe,144 126 185 151,2.062,0.122,0.059,0.072,0.072,1,0,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,blue,180 123 233 186,hit,1,,det2,0.774,0.988,0,0,stripe,180 149 232 164,1.599,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,orange,299 133 368 210,hit,1,,det2,0.75,0.997,0,0,stripe,301 167 365 185,0.997,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,blue,374 109 412 151,hit,1,,det2,0.7,0.94,0,0,stripe,375 127 410 136,0.992,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_edge_01,blue,0 146 39 238,hit,1,occluded truncated,det2,0.851,0.432,0,0,stripe,0 180 34 206,0.481,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_edge_01,orange,407 123 462 182,hit,1,,det2,0.708,1.048,0,0,stripe,408 149 459 163,0.994,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_occl_02,blue,255 116 300 165,hit,1,occluded,det2,0.688,0.512,0,0,stripe,280 136 299 146,0.69,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_occl_02,orange,577 117 636 167,false,0,top_inferred,det2,1.484,1.588,0,0,stripe,580 135 632 161,1.608,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_touch_01,blue,224 123 278 185,hit,1,,det2,0.77,0.964,0,0,stripe,228 150 278 164,0.964,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_touch_01,orange,281 123 337 184,hit,1,,det2,0.708,1.97,0,0,stripe,282 149 333 163,0.94,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_touch_01,orange,333 123 389 182,hit,1,,det2,0.723,0.97,0,0,stripe,337 148 387 162,0.952,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid3_ottoman,0,4A8B_lampmid3_ottoman_close_01,orange,229 272 428 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,229 272 428 480,,0.0,0.0,0.0,0.0,1,0,0,0.749,0.0,1
+real,4A8B_lampmid3_ottoman,0,4A8B_lampmid3_ottoman_clutter_01,blue,95 150 175 229,loose,1,bottom_inferred occluded,det2,,,0,0,half_stripe,95 190 175 213,1.0,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampmid3_wood,1,4A8B_lampmid3_wood_close_01,blue,121 243 347 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,121 243 347 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampmid3_wood,1,4A8B_lampmid3_wood_close_01,orange,214 231 458 469,wrongcolor,0,bottom_inferred occluded,det3,,,0,0,cap,320 231 458 354,0.873,0.177,0.081,0.234,0.234,1,0,0,0.978,0.0,1
+real,4A8B_lampmid6_bathtile,0,4A8B_lampmid6_bathtile_close_01,orange,124 246 390 480,hit,1,truncated,det1,,,0,0,piece,124 246 390 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_close_01,orange,169 251 435 480,hit,1,truncated,det1,,,0,0,piece,169 251 435 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,blue,155 140 243 234,hit,1,top_inferred,det2,0.754,0.979,1,0,stripe,165 180 242 205,1.475,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,blue,255 116 300 165,hit,1,occluded,det2,0.76,0.486,0,0,stripe,279 136 298 147,0.707,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,orange,358 104 390 134,hit,1,,det2,0.625,0.99,0,0,stripe,358 117 386 123,1.056,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,orange,521 110 560 171,hit,1,occluded,det2,0.717,0.657,0,0,stripe,522 140 560 153,0.801,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,orange,554 117 604 171,part,1,occluded top_inferred,det2,1.25,0.764,1,0,stripe,560 136 598 160,1.568,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,orange,143 110 184 154,hit,1,bottom_inferred,det2,0.647,0.85,0,1,stripe,144 128 184 150,2.046,0.075,0.026,0.034,0.034,1,0,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,blue,181 124 232 185,hit,1,,det2,0.77,1.0,0,0,stripe,181 149 232 165,1.571,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,orange,299 133 368 211,hit,1,,det2,0.753,0.987,0,0,stripe,300 166 367 185,1.002,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,blue,374 110 411 151,hit,1,,det2,0.79,0.966,0,0,stripe,374 127 409 136,0.966,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_edge_01,blue,0 147 38 237,hit,1,occluded truncated,det2,0.848,0.442,0,0,stripe,0 181 34 206,0.467,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_edge_01,orange,406 123 463 184,hit,1,,det2,0.712,1.037,0,0,stripe,407 148 459 163,1.037,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_occl_02,blue,255 116 300 165,hit,1,occluded,det2,0.768,0.508,0,0,stripe,280 136 299 147,0.685,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_touch_01,blue,225 123 278 184,hit,1,,det2,0.77,0.964,0,0,stripe,228 150 278 164,0.946,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_touch_01,orange,281 123 336 184,hit,1,,det2,0.715,1.952,0,0,stripe,282 149 333 163,0.94,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_touch_01,orange,333 122 389 182,hit,1,,det2,0.716,0.989,0,0,stripe,336 148 388 162,0.97,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_clutter_01,orange,314 142 401 233,hit,1,bottom_inferred occluded top_inferred,det2,0.579,0.603,0,0,stripe,362 190 384 206,1.029,0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,1
+real,4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_core_01,orange,154 164 281 310,hit,1,,det2,0.821,0.814,0,0,stripe,182 229 280 270,1.055,0.0,0.0,0.0,0.0,1,1,0,0.071,0.0,1
+real,4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_core_01,orange,416 125 474 190,hit,1,bottom_inferred occluded top_inferred,det2,0.524,0.515,0,0,stripe,448 158 465 168,0.964,0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,1
+real,4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_edge_01,orange,269 140 350 230,hit,1,occluded top_inferred,det2,0.599,0.651,0,0,stripe,295 186 328 201,0.995,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_touch_01,blue,242 131 320 195,hit,1,top_inferred,det2,0.826,1.037,0,0,stripe,248 171 318 176,1.674,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_touch_01,orange,323 128 389 198,hit,1,occluded top_inferred,det2,0.557,0.609,0,0,stripe,345 163 384 174,1.031,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_lampmid6_wood,1,4A8B_lampmid6_wood_close_01,blue,120 242 352 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,120 242 352 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampwarm3_wood,1,4A8B_lampwarm3_wood_close_01,blue,124 248 338 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,124 248 338 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampwarm6_bathtile,0,4A8B_lampwarm6_bathtile_close_01,orange,124 246 390 480,hit,1,truncated,det1,,,0,0,piece,124 246 390 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_close_01,orange,167 251 436 480,hit,1,truncated,det1,,,0,0,piece,167 251 436 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,blue,155 140 242 233,hit,1,top_inferred,det2,0.757,1.008,1,0,stripe,166 179 242 205,1.269,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,blue,254 117 299 164,hit,1,occluded,det2,0.768,0.508,0,0,stripe,280 136 299 147,0.663,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,orange,357 101 392 134,hit,1,,det2,0.632,0.935,0,0,stripe,358 117 386 122,1.168,0.0,0.0,0.0,0.0,1,1,0,0.107,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,orange,518 112 566 172,hit,1,occluded,det2,0.717,0.657,0,0,stripe,523 140 561 153,1.642,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,orange,555 117 605 172,part,1,occluded,det2,1.172,0.663,0,0,stripe,561 136 599 160,1.568,0.0,0.0,0.0,0.0,1,1,0,0.684,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,orange,142 109 189 154,hit,1,bottom_inferred,det2,0.63,0.888,0,1,stripe,144 126 189 150,2.149,0.156,0.091,0.117,0.117,1,0,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,blue,182 124 232 184,hit,1,,det2,0.77,1.0,0,0,stripe,182 149 232 165,1.571,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,orange,299 133 368 211,hit,1,,det2,0.75,0.968,0,0,stripe,301 167 367 185,0.997,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,blue,375 110 411 150,hit,1,,det2,0.8,0.992,0,0,stripe,375 127 409 136,0.94,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_edge_01,blue,0 147 37 237,hit,1,occluded truncated,det2,0.848,0.455,0,0,stripe,0 180 34 207,0.455,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_edge_01,orange,406 123 463 184,hit,1,,det2,0.708,0.994,0,0,stripe,408 149 459 163,1.03,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_occl_02,blue,254 117 299 164,hit,1,occluded,det2,0.76,0.508,0,0,stripe,280 136 299 147,0.663,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_touch_01,blue,226 123 277 184,hit,1,,det2,0.77,0.982,0,0,stripe,229 150 277 164,0.91,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_touch_01,orange,280 123 335 184,hit,1,,det2,0.708,1.934,0,0,stripe,283 149 335 163,0.994,0.0,0.0,0.0,0.0,1,1,0,0.038,0.0,1
+real,4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_touch_01,orange,335 122 389 183,hit,1,,det2,0.712,1.0,0,0,stripe,335 149 388 162,0.982,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_lampwarm6_ottoman,0,4A8B_lampwarm6_ottoman_core_01,orange,166 248 282 480,part,1,bottom_inferred truncated,det1,,,0,0,piece,166 248 282 480,,0.0,0.0,0.0,0.0,1,0,0,0.534,0.0,1
+real,4A8B_lampwarm6_wood,1,4A8B_lampwarm6_wood_close_01,orange,102 265 512 480,wrongcolor,0,truncated,det1,,,0,0,piece,102 265 512 480,,0.0,0.0,0.0,0.0,0,0,1,0.983,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_close_01,orange,292 241 568 477,hit,1,,det1,,,0,0,piece,292 241 568 477,,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,orange,139 143 239 235,hit,1,bottom_inferred top_inferred,det2,0.775,0.986,1,1,stripe,144 184 227 211,1.188,0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,blue,139 120 183 168,hit,1,bottom_inferred occluded,det3,,,0,0,cap,139 120 183 138,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,blue,425 117 472 168,hit,1,top_inferred,det2,0.797,1.375,1,0,stripe,425 140 469 153,0.965,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,orange,557 136 640 211,hit,1,bottom_inferred truncated,det2,0.846,1.127,0,1,stripe,560 167 640 190,1.578,0.0,0.0,0.0,0.0,1,0,0,0.113,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,orange,127 140 204 218,hit,1,bottom_inferred,det2,0.75,0.998,0,1,stripe,131 173 204 196,1.025,0.0,0.0,0.0,0.0,1,0,0,0.151,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,orange,235 273 564 480,false,0,bottom_inferred truncated,det1,,,0,0,piece,235 273 564 480,,0.0,0.0,0.0,0.0,1,0,1,0.523,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,blue,249 112 280 146,hit,1,,det2,0.616,0.913,0,0,stripe,250 126 280 134,0.832,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,orange,362 105 400 138,hit,1,bottom_inferred,det2,0.592,0.811,0,1,stripe,368 120 394 125,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,blue,431 118 476 168,hit,1,,det2,0.65,1.175,0,0,stripe,431 139 473 151,0.944,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_edge_01,orange,314 126 380 188,hit,1,bottom_inferred,det2,0.662,0.925,0,1,stripe,317 155 372 169,3.547,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_touch_01,blue,256 121 298 170,hit,1,,det2,0.637,0.903,0,0,stripe,257 141 298 152,0.862,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_touch_01,orange,300 120 352 172,hit,1,bottom_inferred,det2,0.698,0.898,0,1,stripe,303 143 348 154,0.958,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_touch_01,orange,348 120 406 172,hit,1,bottom_inferred,det2,0.694,0.951,0,1,stripe,352 143 400 155,1.249,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_01,orange,103 122 152 173,hit,1,occluded,det2,0.625,0.482,0,0,stripe,128 142 150 154,0.603,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_01,blue,310 123 359 177,hit,1,,det2,0.757,0.971,0,0,stripe,310 144 357 157,0.952,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_02,blue,310 123 358 177,hit,1,,det2,0.757,0.971,0,0,stripe,310 144 357 157,0.932,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_03,blue,319 132 389 211,hit,1,,det2,0.753,0.987,0,0,stripe,320 166 387 185,1.016,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_04,orange,101 121 151 172,hit,1,occluded,det2,0.698,0.419,0,0,stripe,104 143 120 154,0.639,0.0,0.0,0.0,0.0,1,1,0,0.125,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_04,blue,320 134 388 212,hit,1,,det2,0.753,1.002,0,0,stripe,320 166 387 185,0.987,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_05,orange,50 121 99 170,hit,1,occluded,det2,0.727,0.729,0,0,stripe,61 139 96 152,1.02,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_05,blue,318 130 388 211,hit,1,,det2,0.753,1.002,0,0,stripe,320 166 387 185,1.016,0.0,0.0,0.0,0.0,1,1,0,0.045,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_06,blue,320 135 388 211,hit,1,,det2,0.753,1.002,0,0,stripe,320 166 386 185,0.987,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_07,orange,111 118 156 165,hit,1,bottom_inferred occluded,det2,,,0,0,half_stripe,112 137 156 143,1.0,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_07,blue,321 135 388 211,hit,1,,det2,0.753,1.002,0,0,stripe,321 166 387 185,0.973,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_08,orange,113 115 157 166,hit,1,occluded top_inferred,det2,,,0,0,half_stripe,113 139 156 148,1.0,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_08,blue,321 135 388 212,hit,1,,det2,0.746,0.977,0,0,stripe,321 168 387 185,0.963,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_09,blue,107 117 153 168,hit,1,occluded,det2,0.618,1.448,0,0,stripe,111 136 142 150,0.756,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_09,blue,127 118 174 168,hit,1,occluded,det2,0.737,0.465,0,0,stripe,142 139 173 150,0.676,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_10,orange,100 118 171 197,hit,1,,det2,0.762,1.012,0,0,stripe,110 157 170 175,1.14,0.0,0.0,0.0,0.0,1,1,0,0.017,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_11,blue,87 136 170 230,hit,1,,det2,0.775,1.061,0,0,stripe,94 176 169 202,1.061,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_11,orange,101 118 145 166,hit,1,bottom_inferred occluded,det3,,,0,0,cap,101 118 145 137,,0.053,0.001,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_13,orange,104 118 151 165,hit,1,,det2,0.678,0.987,0,0,stripe,107 136 149 148,1.031,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_13,blue,314 132 390 211,hit,1,top_inferred,det2,0.75,1.026,1,0,stripe,316 167 380 185,3.814,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_14,blue,192 123 242 178,hit,1,,det2,0.752,0.964,0,0,stripe,194 144 242 158,0.964,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_17,blue,0 128 16 185,hit,1,occluded truncated,det2,0.712,0.255,0,0,stripe,0 149 13 162,0.291,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_17,blue,144 117 185 160,hit,1,,det2,0.714,0.973,0,0,stripe,146 133 183 144,0.95,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_18,orange,104 119 151 166,hit,1,,det2,0.673,0.98,0,0,stripe,107 137 149 148,1.023,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_18,blue,315 134 382 213,hit,1,occluded,det2,0.692,0.52,0,0,stripe,345 167 380 185,0.968,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_19,blue,25 135 107 211,hit,1,,det2,0.811,1.162,0,0,stripe,32 164 104 187,1.191,0.0,0.0,0.0,0.0,1,1,0,0.014,0.0,1
+real,4A8B_window_black,1,4A8B_window_black_close_02,orange,159 258 366 480,hit,1,truncated,det1,,,0,0,piece,159 258 366 480,,0.0,0.0,0.0,0.0,1,0,0,0.449,0.0,1
+real,4A8B_window_black,1,4A8B_window_black_clutter_02,blue,480 123 540 192,hit,1,occluded top_inferred,det2,0.463,0.26,0,0,stripe,481 155 496 164,1.229,0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,1
+real,4A8B_window_black,1,4A8B_window_black_clutter_02,orange,539 143 640 235,loose,1,bottom_inferred top_inferred truncated,det2,0.711,1.669,1,1,stripe,540 188 640 213,1.24,0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,1
+real,4A8B_window_black,1,4A8B_window_black_held_01,orange,102 335 416 480,hit,1,truncated,det1,,,0,0,piece,102 335 416 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_black,1,4A8B_window_black_occl_04,blue,271 159 377 272,hit,1,occluded,det2,0.773,0.35,0,0,stripe,277 212 308 237,1.03,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_black,1,4A8B_window_black_touch_02,orange,241 133 323 209,hit,1,bottom_inferred,det2,0.786,1.739,0,1,stripe,241 170 320 188,1.22,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_close_01,orange,174 251 434 480,hit,1,truncated,det1,,,0,0,piece,174 251 434 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_clutter_01,blue,154 140 243 236,hit,1,top_inferred,det2,0.754,0.954,1,0,stripe,164 180 241 205,2.516,0.0,0.0,0.0,0.0,0,1,1,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_clutter_01,blue,256 112 301 167,hit,1,occluded,det2,0.602,0.468,0,0,stripe,279 136 298 146,0.735,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_clutter_01,orange,358 99 386 134,hit,1,,det2,0.632,1.135,0,0,stripe,358 116 386 123,0.935,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_clutter_01,orange,527 117 586 171,hit,1,top_inferred,det2,0.919,1.535,1,0,stripe,524 139 589 160,1.673,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_core_01,orange,144 112 179 152,hit,1,occluded,det2,0.676,0.806,0,0,stripe,149 129 176 138,0.932,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_core_01,blue,176 122 233 186,hit,1,,det2,0.7,0.982,0,0,stripe,179 150 232 164,1.589,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_core_01,orange,301 134 367 210,hit,1,,det2,0.75,1.011,0,0,stripe,303 167 364 185,0.953,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_core_01,blue,373 109 414 152,hit,1,,det2,0.753,0.88,0,0,stripe,375 128 409 136,1.061,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_edge_01,blue,0 145 39 228,hit,1,bottom_inferred occluded truncated,det2,0.851,0.432,0,1,stripe,0 180 35 206,0.481,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_edge_01,orange,408 124 462 183,hit,1,,det2,0.783,1.073,0,0,stripe,409 148 459 163,0.982,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_occl_02,blue,268 115 307 168,loose,1,occluded,det2,0.602,0.468,0,0,stripe,279 136 298 146,0.869,0.0,0.0,0.0,0.0,1,1,0,0.105,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_touch_01,blue,224 123 279 187,hit,1,,det2,0.704,0.952,0,0,stripe,226 150 277 163,0.988,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_touch_01,orange,282 123 334 184,hit,1,,det2,0.708,1.988,0,0,stripe,282 149 333 163,0.94,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,4A8B_window_glass,0,4A8B_window_glass_touch_01,orange,338 123 388 182,hit,1,,det2,0.788,1.062,0,0,stripe,339 148 387 162,0.915,0.0,0.0,0.0,0.0,1,1,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_01,blue,170 165 304 293,hit,1,occluded top_inferred,det2,0.469,0.622,0,0,stripe,221 239 295 256,1.126,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_01,orange,392 160 503 272,loose,1,bottom_inferred occluded,det3,,,0,0,cap,392 160 469 204,0.694,0.244,0.103,0.121,0.121,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_01,orange,446 168 573 290,hit,1,,det2,0.486,0.519,0,0,stripe,469 228 561 252,0.914,0.0,0.0,0.0,0.0,1,1,0,0.467,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_02,orange,396 168 520 258,part,1,bottom_inferred occluded,det3,,,0,0,cap,396 168 450 202,0.435,0.0,0.0,0.0,0.0,1,0,0,0.389,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_02,orange,450 166 563 290,hit,1,occluded,det2,0.535,0.379,0,0,stripe,463 219 550 253,0.973,0.0,0.0,0.0,0.0,1,1,0,0.138,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_03,blue,192 246 357 480,part,1,bottom_inferred truncated,det1,,,0,0,piece,192 246 357 480,,0.0,0.0,0.0,0.0,1,0,0,0.818,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_04,orange,400 240 561 480,part,1,bottom_inferred truncated,det1,,,0,0,piece,400 240 561 480,,0.0,0.0,0.0,0.0,1,0,0,1.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_06,orange,146 349 542 480,hit,1,truncated,det1,,,0,0,piece,146 349 542 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_06,orange,384 126 433 189,hit,1,occluded top_inferred,det2,0.451,0.702,0,0,stripe,392 160 427 169,,0.0,0.0,0.0,0.0,0,1,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_07,orange,136 346 544 480,hit,1,truncated,det1,,,0,0,piece,136 346 544 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_08,orange,61 273 341 480,hit,1,truncated,det1,,,0,0,piece,61 273 341 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_08,blue,385 292 640 480,hit,1,truncated,det1,,,0,0,piece,385 292 640 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_09,orange,15 279 315 480,hit,1,truncated,det1,,,0,0,piece,15 279 315 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_09,blue,350 253 597 480,hit,1,bottom_inferred truncated,det1,,,0,0,piece,350 253 597 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_10,blue,270 338 640 480,hit,1,truncated,det1,,,0,0,piece,270 338 640 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_10,orange,384 176 516 306,hit,1,occluded,det2,0.554,0.528,0,0,stripe,438 245 504 267,1.057,0.0,0.0,0.0,0.0,1,1,0,0.303,0.0,1
+real,DAVE*,0,DAVE_office_speckle_snap_11,blue,0 339 382 480,hit,1,truncated,det1,,,0,0,piece,0 339 382 480,,0.0,0.0,0.0,0.0,1,0,0,0.0,0.0,1
