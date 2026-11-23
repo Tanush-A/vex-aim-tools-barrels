@@ -95,7 +95,8 @@ def test_side_suffixes_list_the_proposals(tmp_path):
 
 def test_only_the_proposal_tools_name_the_proposal_files():
     """A static guard: the eval, report, splits, experiments and analysis code never mention the proposal files."""
-    allowed = {"src/barrels/io.py", "tools/box_tool.py", "tools/box_look.py"}
+    allowed = {"src/barrels/io.py", "tools/box_tool.py", "tools/box_look.py",
+               "experiments/2026-11-24_box_proposals/compare.py"}     # scores the proposals against his labels, not the detector
     hits = []
     for folder in ("src", "tools", "experiments", "live"):
         for p in (ROOT / folder).rglob("*.py"):
@@ -143,6 +144,17 @@ def test_box_look_draws_and_saves(dirs, tmp_path):
     assert saved["image_sha1"] == io.file_sha1(raw / f"{A}.png") and len(saved["barrels"]) == 3
     draft.write_text(json.dumps({"barrels": [{"color": "green", "bbox": [1, 1, 9, 9]}]}))
     assert box_look.main([B, "--boxes", str(draft), "--save"] + common) == 1 and not io.proposal_path(B, labels).exists()
+
+
+def test_box_look_todo_lists_train_frames_without_label_or_proposal(dirs, capsys):
+    raw, labels, sfile = dirs
+    io.save_proposal(B, DRAFT, labels)
+    cv2.imwrite(str(raw / f"{NEW}.png"), np.zeros((480, 640, 3), np.uint8))     # not split yet: not listed
+    assert box_look.todo_stems(raw, labels, SPLITS) == [A]                     # B has a proposal, T is test
+    io.save_boxes(A, {"barrels": []}, labels)
+    assert box_look.todo_stems(raw, labels, SPLITS) == []
+    assert box_look.main(["--todo", "", "--raw", str(raw), "--labels", str(labels), "--splits", str(sfile)]) == 0
+    assert "nothing to propose" in capsys.readouterr().out
 
 
 def test_render_grid_lines_sit_on_pixel_boundaries():

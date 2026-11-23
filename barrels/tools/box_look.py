@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """A look helper for a Claude session that proposes box labels (docs/DATA.md, "Box proposals"). No window.
 
+    python barrels/tools/box_look.py --todo <light>_<surface>                         # the frames to propose (names only)
     python barrels/tools/box_look.py <stem> --out /tmp/look.png                       # the whole frame, x2, grid every 40 px
     python barrels/tools/box_look.py <stem> --out /tmp/z.png --zoom 200,150,360,300 --grid 10
     python barrels/tools/box_look.py <stem> --out /tmp/look.png --sizes              # + expected barrel sizes per row (left panel)
@@ -156,6 +157,12 @@ def render(img: np.ndarray, crop=None, scale: int | None = None, grid: int = 40,
     return out
 
 
+def todo_stems(raw_dir: Path, labels_dir: Path, splits: dict[str, list[str]], name_filter: str = "") -> list[str]:
+    """Frames (names only, nothing opened) that may get a proposal and have neither a label nor a proposal."""
+    return [p.stem for p in io.list_images(raw_dir) if name_filter in p.stem and sp.look_refusal(p.stem, splits) is None
+            and not io.boxes_path(p, labels_dir).exists() and not io.proposal_path(p, labels_dir).exists()]
+
+
 def load_draft(path: Path, stem: str) -> dict:
     """A draft proposal file, normalized and validated (raises ValueError with the reason)."""
     try:
@@ -167,7 +174,10 @@ def load_draft(path: Path, stem: str) -> dict:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("stem", help="frame stem (or a path to it in data/raw)")
+    ap.add_argument("stem", nargs="?", default=None, help="frame stem (or a path to it in data/raw)")
+    ap.add_argument("--todo", metavar="FILTER", default=None,
+                    help="no picture: list the frames whose name contains FILTER that may get a proposal (train or kept out of "
+                         "every split on purpose) and have neither a label nor a proposal ('' = all)")
     ap.add_argument("--out", type=Path, default=None, help="PNG to write")
     ap.add_argument("--zoom", type=parse_box, default=None, metavar="x0,y0,x1,y1", help="crop (frame px) to enlarge")
     ap.add_argument("--grid", type=int, default=None, help="grid spacing in frame px (default 40, or 10 when zoomed)")
@@ -181,9 +191,16 @@ def main(argv=None) -> int:
     ap.add_argument("--labels", type=Path, default=io.LABELS_DIR)
     ap.add_argument("--splits", type=Path, default=None, help="splits file (default data/splits.json)")
     args = ap.parse_args(argv)
+    splits = sp.load_splits(args.splits)
+    if args.todo is not None:
+        todo = todo_stems(args.raw, args.labels, splits, args.todo)
+        print("\n".join(todo) if todo else "nothing to propose")
+        return 0
+    if args.stem is None:
+        ap.error("give a stem (or --todo FILTER)")
     stem = Path(args.stem).stem
     try:
-        require_lookable(stem, sp.load_splits(args.splits))       # before the image is read
+        require_lookable(stem, splits)       # before the image is read
     except Refused as e:
         print(f"REFUSED {e}"); return 2
     if args.out is None and not args.save:

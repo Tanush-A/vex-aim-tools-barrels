@@ -20,7 +20,8 @@ python barrels/tools/segment_image.py barrels/data/raw/4A8B_window_light_touch_0
 python barrels/experiments/2026-11-08_seg_hs_v2/run.py                      # 4. reproduce the headline numbers (v1 front end vs hs, home + campus, ≈ 1 min)
 cd barrels/live && simple_cli BarrelViewer                                  # 5. live on the robot, per frame (robot on, setup.zsh sourced; docs/RUNBOOK.md)
 cd barrels/live && simple_cli BarrelTracker                                 # 5b. live, boxes that persist (shown after 3 of the last 4 frames agree)
-python barrels/tools/box_tool.py --filter window                            # 6. draw the ground-truth boxes on new frames
+python barrels/tools/box_tool.py --filter window                            # 6. draw the ground-truth boxes on new frames (--proposed: only frames with Claude's proposal; a accepts, r rejects)
+python barrels/tools/box_look.py <stem> --out /tmp/look.png [--zoom x0,y0,x1,y1] [--boxes draft.json [--save]]   # 6a. for a Claude session: the frame with a pixel grid, to propose boxes by looking (train frames only)
 python barrels/tools/hs_slider.py --filter window_light                     # 6b. set the color thresholds by hand on a frame (six sliders, live segmentation + boxes) → data/labels/<stem>_hs.json
 python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
 python barrels/tools/report.py --vendor                                     # 7b. the same table against the robot's built-in (vendor) detector, on the frames that have a vendor file
