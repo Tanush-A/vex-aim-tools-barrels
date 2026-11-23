@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_clutter_01",
+ "image_sha1": "9e343bddf1df3be2d2cee3e219df740435012066",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": false,
+ "note": "red/pink translucent thing, blue Vaseline tin, purple stand, yellow notepad, jar with blue/red label, black bag",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    73,
+    133,
+    152,
+    209
+   ],
+   "flags": [],
+   "note": "right side against the black bag"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    292,
+    111,
+    330,
+    152
+   ],
+   "flags": [],
+   "note": "right side touches the Vaseline tin"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    410,
+    108,
+    442,
+    141
+   ],
+   "flags": [],
+   "note": "far, in front of the yellow notepad"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    495,
+    128,
+    565,
+    191
+   ],
+   "flags": [],
+   "note": "in front of the jar; the blue at its right is the jar label, not a barrel"
+  }
+ ]
+}

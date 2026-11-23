@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_neg_02",
+ "image_sha1": "c07514f397283612c77e93e406f15c07ae72b2e3",
+ "proposed_by": "claude",
+ "negative": true,
+ "clean": false,
+ "note": "clutter only: blue tin, orange glue stick, purple stand, yellow notepad, jar",
+ "barrels": []
+}

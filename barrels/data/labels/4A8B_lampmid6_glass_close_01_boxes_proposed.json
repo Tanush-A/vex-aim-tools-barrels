@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_close_01",
+ "image_sha1": "f2bae9222b797f37121467757d362017deb28279",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "one barrel at the bumper, cut by the bottom edge",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    164,
+    249,
+    438,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "sides at the widest bulge (rows 380-430); the blue stripe at the bottom is cut by the frame"
+  }
+ ]
+}

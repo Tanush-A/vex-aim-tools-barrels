@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_glass_occlx_16",
+ "image_sha1": "d7839436f476ac14b6e6d1c8c4c9429173fcf8e7",
+ "proposed_by": "claude",
+ "negative": true,
+ "clean": false,
+ "note": "R1 16: no barrels; orange notepad on a blue tin with a blue marker, glue stick standing alone",
+ "barrels": []
+}
