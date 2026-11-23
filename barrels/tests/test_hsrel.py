@@ -112,6 +112,45 @@ def test_loco_recovers_a_line_and_falls_back_when_n_is_small():
     assert out[0]["feats"] == (1,)
 
 
+def test_leave_one_group_out_holds_out_every_row_of_a_place_together():
+    # three places; place "a" has three near-copies of one point that sits OFF the line of the others
+    x = np.array([[0.0], [0.1], [0.2], [5.0], [6.0], [7.0], [8.0]])
+    y = np.array([10.0, 10.0, 10.0, 5.0, 6.0, 7.0, 8.0])
+    g = ["a", "a", "a", "b", "b", "c", "c"]
+    # leave one condition out: each "a" row is predicted with its two copies still in, so the line bends toward them
+    loco_err = hr.loo_error(x, y, (0,))
+    lopo_err = hr.loo_error(x, y, (0,), groups=g)
+    assert lopo_err > loco_err                                       # holding out the whole place is the harder test
+    held = hr._held_sets(len(y), g)
+    assert held[0].tolist() == [True, True, True, False, False, False, False]
+    assert hr.n_groups(7, g) == 3 and hr.n_groups(7, None) == 7
+
+
+def test_nested_selection_needs_enough_places_not_enough_rows():
+    rng = np.random.default_rng(1)
+    x = rng.normal(size=(6, 2))
+    y = 2 * x[:, 0]
+    assert hr.select_features(x, y, 1) == (0,)                       # six rows: a choice is possible
+    assert hr.select_features(x, y, 1, groups=["a", "a", "a", "b", "b", "b"]) is None   # two places: it is not
+    out = hr.loco(x, y, 1, groups=["a", "a", "a", "b", "b", "b"])
+    assert all(o["fallback"] for o in out)                           # one training place: the mean of the other place
+    assert out[0]["pred"] == pytest.approx(float(np.mean(y[3:])))
+    three = hr.loco(x, y, 1, groups=["a", "a", "b", "b", "c", "c"])  # three places: two left inside, still no choice
+    assert all(o["fallback"] for o in three)
+    x8 = rng.normal(size=(8, 2))
+    y8 = 2 * x8[:, 0]
+    ok = hr.loco(x8, y8, 1, groups=["a", "a", "b", "b", "c", "c", "d", "d"])   # four places: three left inside
+    assert all(not o["fallback"] and o["feats"] == (0,) for o in ok)
+    assert [o["pred"] for o in ok] == pytest.approx(list(y8))
+
+
+def test_optimistic_with_groups_runs():
+    x = np.column_stack([np.arange(6.0), np.zeros(6)])
+    y = 3 * x[:, 0]
+    preds, feats = hr.loco_optimistic(x, y, 1, groups=["a", "a", "b", "b", "c", "c"])
+    assert feats == (0,) and preds == pytest.approx(list(y))
+
+
 def test_choosing_the_feature_outside_the_loop_is_optimistic():
     """Pure noise: no feature predicts y. Choosing the feature on all conditions first still finds one that
     'works'; the nested choice does not, and is no better than the mean of the others."""

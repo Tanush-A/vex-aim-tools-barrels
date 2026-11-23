@@ -160,8 +160,10 @@ def window_stats(hist: np.ndarray, lo: int, hi: int) -> tuple[float, float]:
     return float(lo + int(np.argmax(m))), hh.wpct(w.sum(0), _S_CENTERS[S_COLOR // 2:], (90,))[0]
 
 
-def frame_features(hist: np.ndarray, v_mean: float, ref: Reference) -> dict[str, float]:
-    """The nine pre-registered features of one frame (``FEATURES``), from ``gated_hist`` output."""
+def frame_features(hist: np.ndarray, v_mean: float, ref: Reference | None) -> dict[str, float]:
+    """The nine pre-registered features of one frame (``FEATURES``), from ``gated_hist`` output. With
+    ``ref=None`` the two that compare the frame with the reference (``ref_*``) are nan: what the adaptive
+    color rule (``adaptive.py``) uses, so that the pipeline needs nothing but the frame."""
     n = hist.sum()
     nan = float("nan")
     f = {k: nan for k in FEATURES}
@@ -172,6 +174,8 @@ def frame_features(hist: np.ndarray, v_mean: float, ref: Reference) -> dict[str,
     f["s_share100"] = float(hist[:, S_HIGH // 2:].sum() / n)
     for name, (lo, hi) in WINDOWS.items():
         f[f"{name}_peak_h"], f[f"{name}_s_p90"] = window_stats(hist, lo, hi)
+    if ref is None:
+        return f
     hp, sq = _hue_profile(hist), _s_quantiles(hist)
     if hp is not None:
         f["ref_hue_shift"] = hue_shift(hp, ref.hue_profile)
@@ -303,59 +307,86 @@ def fit_predict(x_train: np.ndarray, y_train: np.ndarray, x_test: np.ndarray) ->
     return np.column_stack([np.ones(len(x_test)), x_test]) @ coef
 
 
-def loo_error(x: np.ndarray, y: np.ndarray, feats: tuple[int, ...]) -> float:
-    """Mean |error| of leave-one-out predictions with the given feature columns."""
+def _held_sets(n: int, groups) -> list[np.ndarray]:
+    """The rows held out together: one row at a time (``groups`` None), or every row of one group (leave one
+    group out; a group = a place, all conditions that share a table and a room)."""
+    if groups is None:
+        return [np.arange(n) == i for i in range(n)]
+    g = np.asarray(groups, object)
+    return [g == v for v in dict.fromkeys(g.tolist())]
+
+
+def n_groups(n: int, groups) -> int:
+    return n if groups is None else len(set(np.asarray(groups, object).tolist()))
+
+
+def loo_error(x: np.ndarray, y: np.ndarray, feats: tuple[int, ...], groups=None) -> float:
+    """Mean |error| of leave-one-out predictions with the given feature columns. With ``groups``: leave one
+    group out, every row of the held-out group predicted from the other groups; the mean is over rows."""
     n = len(y)
     err = []
-    for i in range(n):
-        tr = np.arange(n) != i
-        err.append(abs(float(fit_predict(x[tr][:, feats], y[tr], x[i:i + 1][:, feats])[0]) - y[i]))
+    for held in _held_sets(n, groups):
+        tr = ~held
+        err.extend(np.abs(fit_predict(x[tr][:, feats], y[tr], x[held][:, feats]) - y[held]).tolist())
     return float(np.mean(err))
 
 
-def select_features(x: np.ndarray, y: np.ndarray, max_features: int = 1, usable=None) -> tuple[int, ...] | None:
+def select_features(x: np.ndarray, y: np.ndarray, max_features: int = 1, usable=None, groups=None) -> tuple[int, ...] | None:
     """The feature set (one column, or up to ``max_features``) with the smallest leave-one-out error **over
-    these rows only**. A column is a candidate when it is finite and not constant here (and listed in ``usable``
-    when given); a set of k columns needs at least k + 2 rows, so every inner fit has a determined line. A pair
-    is taken only when its error is below the best single column's. None when there is no candidate."""
+    these rows only** (leave one group out when ``groups`` is given). A column is a candidate when it is finite
+    and not constant here (and listed in ``usable`` when given); a set of k columns needs at least k + 2 rows
+    (groups), so every inner fit has a determined line. A pair is taken only when its error is below the best
+    single column's. None when there is no candidate."""
     n, m = x.shape
+    ng = n_groups(n, groups)
     cols = [j for j in (range(m) if usable is None else usable) if np.isfinite(x[:, j]).all() and np.ptp(x[:, j]) > 0]
     best, best_err = None, np.inf
     for k in range(1, max_features + 1):
-        if n < k + 2:
+        if ng < k + 2:
             break
         for feats in itertools.combinations(cols, k):
-            e = loo_error(x, y, feats)
+            e = loo_error(x, y, feats, groups)
             if e < best_err - 1e-12:
                 best, best_err = feats, e
     return best
 
 
-def loco(x: np.ndarray, y: np.ndarray, max_features: int = 1) -> list[dict]:
-    """Leave one condition out, nested. For each row i: choose the feature(s) on the other rows only
-    (``select_features``), fit on the other rows, predict row i. A column that is nan for row i is not a
-    candidate for that row. With no candidate (too few conditions) the prediction falls back to the mean of the
-    others and ``fallback`` is True. Returns one dict per row: pred, feats, fallback."""
+def loco(x: np.ndarray, y: np.ndarray, max_features: int = 1, groups=None) -> list[dict]:
+    """Leave one condition out, nested (``groups`` given: leave one GROUP out, e.g. one place, nested the same
+    way). For each held-out set: choose the feature(s) on the other rows only (``select_features``, by the same
+    kind of hold-out), fit on the other rows, predict the held-out rows. A column that is nan for a held-out row
+    is not a candidate for it. With no candidate (too few conditions / places) the prediction falls back to the
+    mean of the others and ``fallback`` is True. Returns one dict per row: pred, feats, fallback."""
     x, y = np.asarray(x, float), np.asarray(y, float)
     n = len(y)
-    out = []
-    for i in range(n):
-        tr = np.arange(n) != i
-        usable = [j for j in range(x.shape[1]) if np.isfinite(x[i, j])]
-        feats = select_features(x[tr], y[tr], max_features, usable) if tr.sum() else None
-        if feats is None:
-            out.append({"pred": float(np.mean(y[tr])) if tr.sum() else float("nan"), "feats": (), "fallback": True})
-        else:
-            out.append({"pred": float(fit_predict(x[tr][:, feats], y[tr], x[i:i + 1][:, feats])[0]), "feats": feats, "fallback": False})
+    out: list[dict | None] = [None] * n
+    g_arr = None if groups is None else np.asarray(groups, object)
+    for held in _held_sets(n, groups):
+        tr = ~held
+        g_tr = None if g_arr is None else g_arr[tr]
+        for i in np.flatnonzero(held):
+            usable = [j for j in range(x.shape[1]) if np.isfinite(x[i, j])]
+            feats = select_features(x[tr], y[tr], max_features, usable, g_tr) if tr.sum() else None
+            if feats is None:
+                out[i] = {"pred": float(np.mean(y[tr])) if tr.sum() else float("nan"), "feats": (), "fallback": True}
+            else:
+                out[i] = {"pred": float(fit_predict(x[tr][:, feats], y[tr], x[i:i + 1][:, feats])[0]), "feats": feats, "fallback": False}
     return out
 
 
-def loco_optimistic(x: np.ndarray, y: np.ndarray, max_features: int = 1) -> tuple[list[float], tuple[int, ...]]:
+def loco_optimistic(x: np.ndarray, y: np.ndarray, max_features: int = 1, groups=None) -> tuple[list[float], tuple[int, ...]]:
     """The WRONG way, kept to show the size of the mistake: the feature is chosen once on all conditions, then
-    each is predicted leave-one-out. The held-out condition helped choose its own predictor."""
+    each is predicted leave-one-out (one group out with ``groups``). The held-out rows helped choose their own
+    predictor."""
     x, y = np.asarray(x, float), np.asarray(y, float)
-    feats = select_features(x, y, max_features)
+    feats = select_features(x, y, max_features, groups=groups)
     n = len(y)
-    if feats is None:
-        return [float(np.mean(y[np.arange(n) != i])) if n > 1 else float("nan") for i in range(n)], ()
-    return [float(fit_predict(x[np.arange(n) != i][:, feats], y[np.arange(n) != i], x[i:i + 1][:, feats])[0]) for i in range(n)], feats
+    out = [float("nan")] * n
+    for held in _held_sets(n, groups):
+        tr = ~held
+        for i in np.flatnonzero(held):
+            if feats is None:
+                out[i] = float(np.mean(y[tr])) if tr.sum() else float("nan")
+            else:
+                out[i] = float(fit_predict(x[tr][:, feats], y[tr], x[i:i + 1][:, feats])[0])
+    return out, (feats or ())

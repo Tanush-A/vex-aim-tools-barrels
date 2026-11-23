@@ -9,6 +9,9 @@ training pixels. Two color models (``Config.color_model``):
     labeled training pixels as percentiles; only the horizon and brightness gates remain, nothing is adapted per
     image — the top-row priors and the per-image saturation floor are what removed the barrels in a real room.
     horizon gate -> brightness gate -> per class: hue in sector AND S >= floor -> tie rule -> mask {0,1,2}
+  "hs" with ``Config.hs_adapt`` set (2026-11-23, OFF by default): the same, but some of the six thresholds are moved
+    per frame along a line on one number read off that frame's own histogram (``adaptive.py``). Pixels are never
+    changed and nothing is carried between frames.
 
 No image correction anywhere: pixel values are never rescaled; the priors compare pixels to
 band statistics and the boxes are fixed thresholds. Frames with no barrels need no special
@@ -84,9 +87,13 @@ class Config:
     hs_s_pct: float | tuple[float, float] = 10.0   # hs: the class's S floor = this percentile of its labeled pixels' S; a pair = (orange, blue)
     hs_h_pct: tuple[float, float] = (2.0, 98.0)   # hs: the hue sector = these percentiles of the labeled pixels above the S floor ...
     hs_h_margin: float = 0.0                # hs: ... widened by this many hue units (OpenCV 0-179) on each side
+    # hs: the adaptive rule (2026-11-23, OFF by default; adaptive.py): terms (threshold, feature, b, f_home, max_delta)
+    # that move a threshold per frame by b * (this frame's feature - f_home). Empty = off = the fixed model.
+    hs_adapt: tuple = ()
 
-    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes", "color_model", "hs_s_pct", "hs_h_pct", "hs_h_margin")
-    _DEFAULTS = {"min_blob_px": 0, "open_px": 0, "fill_holes": False, "color_model": "rgb_box", "hs_s_pct": 10.0, "hs_h_pct": (2.0, 98.0), "hs_h_margin": 0.0}
+    _HASH_OMIT_AT_DEFAULT = ("min_blob_px", "open_px", "fill_holes", "color_model", "hs_s_pct", "hs_h_pct", "hs_h_margin", "hs_adapt")
+    _DEFAULTS = {"min_blob_px": 0, "open_px": 0, "fill_holes": False, "color_model": "rgb_box", "hs_s_pct": 10.0, "hs_h_pct": (2.0, 98.0), "hs_h_margin": 0.0,
+                 "hs_adapt": ()}
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -99,6 +106,8 @@ class Config:
                 d[key] = tuple(d[key])
         if isinstance(d.get("hs_s_pct"), list):
             d["hs_s_pct"] = tuple(d["hs_s_pct"])
+        if "hs_adapt" in d:
+            d["hs_adapt"] = tuple(tuple(t) for t in (d["hs_adapt"] or ()))
         if d.get("refit") is not None:
             r = dict(d["refit"])
             for key in ("inner_pct", "pct", "outer_pct"):
@@ -311,8 +320,12 @@ def segment(frame: Frame, model: Model) -> tuple[np.ndarray, dict]:
     cand = {}
     if cfg.color_model == "hs":
         info["color_model"] = "hs"                        # no priors, no per-image floor: the sector and the S floor are the model
+        boxes = model.boxes
+        if cfg.hs_adapt:                                  # the adaptive rule (off by default): boxes moved by this frame's own histogram
+            from . import adaptive
+            boxes, info["adapt"] = adaptive.adapted_boxes(frame, model)
         for c in CLASSES:
-            cand[c] = keep & bf.in_box(frame.hs(HUE_SHIFT[c]), model.boxes[c])
+            cand[c] = keep & bf.in_box(frame.hs(HUE_SHIFT[c]), boxes[c])
             info[f"cand_{c}"] = int(cand[c].sum())
     else:
         smin, s_info = effective_s_min(frame, cfg)
