@@ -25,6 +25,8 @@ python barrels/tools/hs_slider.py --filter window_light                     # 6b
 python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
 python barrels/tools/report.py --vendor                                     # 7b. the same table against the robot's built-in (vendor) detector, on the frames that have a vendor file
 python barrels/tools/report.py --gate                                       # 7c. the never-regress check: PASS / FAIL against results/baseline/baseline.json (run before every merge; --save-baseline after one)
+python barrels/experiments/2026-11-24_vendor/run.py                        # 7d. ours vs the vendor per condition on the real vendor files, with a check of the files; summary.md in results/<today>_vendor/
+python barrels/experiments/run_all.py                                       # 7e. the nightly run: tests, gate, eval table, vendor, adaptive rule (if present) -> ONE page results/<today>_run_all/summary.md
 ```
 
 `detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`); `tm save` also writes what the robot's built-in detector reported for the frame (`robot_snapN_vendor.json`), which `tools/import_snaps.py` moves to `data/vendor/`.

@@ -1,4 +1,4 @@
-# Ours against the vendor detector, per condition (2026-11-23, git e0d01e0)
+# Ours against the vendor detector, per condition (2026-11-23, git 093203b)
 
 Train frames with a vendor file only; test frames are never opened. Ours = the default color model and detector. Strict = the v2 rule (same color, IoU at least 0.5, bottom edge within a tenth of the height). Overlap = same color and IoU at least 0.5. Place = a box of the right color centered on the barrel. False = boxes on no barrel; empty = boxes on frames with no barrel.
 

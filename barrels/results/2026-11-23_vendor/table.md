@@ -69,7 +69,7 @@ candidate = 2026-11-09_hs_candidate/config.json; DetConfig defaults
 baseline  = the robot's built-in detector (vendor), its boxes as saved with each frame in data/vendor/<stem>_vendor.json
 delta = candidate - baseline ('.' = no change). Frames: train split only, test frames never opened; 4A8B_both_abpgray 8,
     4A8B_lampcool6_ottoman 7, 4A8B_lampmid3_ottoman 7, 4A8B_lampmid6_ottoman 7, 4A8B_lampwarm6_ottoman 7,
-    4A8B_overheaddim_palewood 7, 4A8B_window_abpwhite 17. git e0d01e0; nan s.
+    4A8B_overheaddim_palewood 7, 4A8B_window_abpwhite 17. git 093203b; nan s.
 Rule: EVAL.md v2, as eval_det implements it — a box is right when same color, IoU >= 0.5 and bottom edge within max(3
     px, 10 % of the true height).
 found / miss = true barrels with / without a right box; false = boxes that match no barrel; width = median box width /
