@@ -1,0 +1,6558 @@
+{
+ "git": "3d7b897",
+ "rule": "v2",
+ "split": "test",
+ "home_protocol": "loso",
+ "seconds": 9.93,
+ "candidate": {
+  "name": "candidate",
+  "model_path": "results/2026-11-09_hs_candidate/config.json",
+  "det_overrides": {},
+  "det": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": false,
+   "cover_unpinned": false,
+   "stripe_two": false,
+   "edge_check": true,
+   "cap_same": true,
+   "half_stripe": true,
+   "half_thin": true,
+   "post_pair": true,
+   "stripe_wide": true,
+   "slice_behind": false,
+   "cap_low": true,
+   "pin_outline": true,
+   "pin_thin": true,
+   "pin_good": 0.05,
+   "stripe_bridge": true,
+   "thin_frame": true,
+   "own_close": false,
+   "thin_span": true,
+   "closeup_side": true,
+   "closeup_stripe": true,
+   "verify_front": true,
+   "verify_readings": true
+  },
+  "model_config_hash": "eb863d84"
+ },
+ "baseline": {
+  "name": "baseline",
+  "model_path": "results/2026-11-09_hs_candidate/config.json",
+  "det_overrides": {
+   "verify_front": false,
+   "verify_readings": false
+  },
+  "det": {
+   "min_area_px": 20,
+   "close_px": 3,
+   "bottom_tol": 0.15,
+   "bottom_tol_min_px": 4,
+   "width_min": 0.4,
+   "width_max": 1.6,
+   "split_search": 0.25,
+   "min_width_px": 16.0,
+   "require_stripe": true,
+   "stripe_h_min": 0.45,
+   "stripe_h_max": 1.6,
+   "band_h_max": 3.0,
+   "stripe_w_min": 0.4,
+   "stripe_merge": 1.4,
+   "stripe_full": 0.8,
+   "min_stripe_px": 4.0,
+   "stripe_mode": "cores",
+   "dark_stripe": false,
+   "height_min": 0.5,
+   "height_max": 1.5,
+   "body_min": 0.1,
+   "cover_rows": true,
+   "body_width": 1.2,
+   "occl_body_side": false,
+   "stripe_join": true,
+   "cap_behind": true,
+   "side_hidden": true,
+   "seam_height": true,
+   "cap_seen_bottom": true,
+   "slice_box": false,
+   "cover_unpinned": false,
+   "stripe_two": false,
+   "edge_check": true,
+   "cap_same": true,
+   "half_stripe": true,
+   "half_thin": true,
+   "post_pair": true,
+   "stripe_wide": true,
+   "slice_behind": false,
+   "cap_low": true,
+   "pin_outline": true,
+   "pin_thin": true,
+   "pin_good": 0.05,
+   "stripe_bridge": true,
+   "thin_frame": true,
+   "own_close": false,
+   "thin_span": true,
+   "closeup_side": true,
+   "closeup_stripe": true,
+   "verify_front": false,
+   "verify_readings": false
+  },
+  "model_config_hash": "eb863d84"
+ },
+ "sets": {
+  "4A8B_window_light": {
+   "label": "HOME",
+   "indicative": false,
+   "stems": [
+    "4A8B_window_light_core_04",
+    "4A8B_window_light_edge_02",
+    "4A8B_window_light_far_01",
+    "4A8B_window_light_neg_03",
+    "4A8B_window_light_touch_01"
+   ]
+  },
+  "4A8B_campus_light": {
+   "label": "CAMPUS",
+   "indicative": false,
+   "stems": [
+    "4A8B_campus_light_cluster_01",
+    "4A8B_campus_light_clutter_01",
+    "4A8B_campus_light_core_02",
+    "4A8B_campus_light_hand_01",
+    "4A8B_campus_light_neg_01",
+    "4A8B_campus_light_occl_01",
+    "4A8B_campus_light_plain_03",
+    "4A8B_campus_light_room_02",
+    "4A8B_campus_light_touch_01",
+    "4A8B_campus_light_window_02"
+   ]
+  },
+  "4A8B_both_abpgray": {
+   "label": "4A8B_both_abpgray",
+   "indicative": false,
+   "stems": [
+    "4A8B_both_abpgray_neg_01",
+    "4A8B_both_abpgray_occl_01"
+   ]
+  },
+  "4A8B_lampcool1_wood": {
+   "label": "4A8B_lampcool1_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampcool1_wood_neg_01",
+    "4A8B_lampcool1_wood_occl_03",
+    "4A8B_lampcool1_wood_touch_01"
+   ]
+  },
+  "4A8B_lampcool3_wood": {
+   "label": "4A8B_lampcool3_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampcool3_wood_neg_01",
+    "4A8B_lampcool3_wood_occl_03",
+    "4A8B_lampcool3_wood_touch_01"
+   ]
+  },
+  "4A8B_lampcool6_bathtile": {
+   "label": "4A8B_lampcool6_bathtile",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampcool6_bathtile_neg_01",
+    "4A8B_lampcool6_bathtile_occl_01"
+   ]
+  },
+  "4A8B_lampcool6_glass": {
+   "label": "4A8B_lampcool6_glass",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampcool6_glass_neg_01",
+    "4A8B_lampcool6_glass_occl_01"
+   ]
+  },
+  "4A8B_lampcool6_ottoman": {
+   "label": "4A8B_lampcool6_ottoman",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampcool6_ottoman_neg_01",
+    "4A8B_lampcool6_ottoman_occl_01"
+   ]
+  },
+  "4A8B_lampcool6_wood": {
+   "label": "4A8B_lampcool6_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampcool6_wood_neg_01",
+    "4A8B_lampcool6_wood_occl_03",
+    "4A8B_lampcool6_wood_touch_01"
+   ]
+  },
+  "4A8B_lampmid1_wood": {
+   "label": "4A8B_lampmid1_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid1_wood_neg_01",
+    "4A8B_lampmid1_wood_occl_03",
+    "4A8B_lampmid1_wood_touch_01"
+   ]
+  },
+  "4A8B_lampmid3_bathtile": {
+   "label": "4A8B_lampmid3_bathtile",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid3_bathtile_neg_01",
+    "4A8B_lampmid3_bathtile_occl_01"
+   ]
+  },
+  "4A8B_lampmid3_glass": {
+   "label": "4A8B_lampmid3_glass",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid3_glass_neg_01",
+    "4A8B_lampmid3_glass_occl_01"
+   ]
+  },
+  "4A8B_lampmid3_ottoman": {
+   "label": "4A8B_lampmid3_ottoman",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid3_ottoman_neg_01",
+    "4A8B_lampmid3_ottoman_occl_01"
+   ]
+  },
+  "4A8B_lampmid3_wood": {
+   "label": "4A8B_lampmid3_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid3_wood_neg_01",
+    "4A8B_lampmid3_wood_occl_03",
+    "4A8B_lampmid3_wood_touch_01"
+   ]
+  },
+  "4A8B_lampmid6_bathtile": {
+   "label": "4A8B_lampmid6_bathtile",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid6_bathtile_neg_01",
+    "4A8B_lampmid6_bathtile_occl_01"
+   ]
+  },
+  "4A8B_lampmid6_glass": {
+   "label": "4A8B_lampmid6_glass",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid6_glass_neg_01",
+    "4A8B_lampmid6_glass_occl_01"
+   ]
+  },
+  "4A8B_lampmid6_ottoman": {
+   "label": "4A8B_lampmid6_ottoman",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid6_ottoman_neg_01",
+    "4A8B_lampmid6_ottoman_occl_01"
+   ]
+  },
+  "4A8B_lampmid6_wood": {
+   "label": "4A8B_lampmid6_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampmid6_wood_neg_01",
+    "4A8B_lampmid6_wood_occl_03",
+    "4A8B_lampmid6_wood_touch_01"
+   ]
+  },
+  "4A8B_lampwarm1_wood": {
+   "label": "4A8B_lampwarm1_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampwarm1_wood_neg_01",
+    "4A8B_lampwarm1_wood_occl_03",
+    "4A8B_lampwarm1_wood_touch_01"
+   ]
+  },
+  "4A8B_lampwarm3_wood": {
+   "label": "4A8B_lampwarm3_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampwarm3_wood_neg_01",
+    "4A8B_lampwarm3_wood_occl_03",
+    "4A8B_lampwarm3_wood_touch_01"
+   ]
+  },
+  "4A8B_lampwarm6_bathtile": {
+   "label": "4A8B_lampwarm6_bathtile",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampwarm6_bathtile_neg_01",
+    "4A8B_lampwarm6_bathtile_occl_01"
+   ]
+  },
+  "4A8B_lampwarm6_glass": {
+   "label": "4A8B_lampwarm6_glass",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampwarm6_glass_neg_01",
+    "4A8B_lampwarm6_glass_occl_01"
+   ]
+  },
+  "4A8B_lampwarm6_ottoman": {
+   "label": "4A8B_lampwarm6_ottoman",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampwarm6_ottoman_neg_01",
+    "4A8B_lampwarm6_ottoman_occl_01"
+   ]
+  },
+  "4A8B_lampwarm6_wood": {
+   "label": "4A8B_lampwarm6_wood",
+   "indicative": false,
+   "stems": [
+    "4A8B_lampwarm6_wood_neg_01",
+    "4A8B_lampwarm6_wood_occl_03",
+    "4A8B_lampwarm6_wood_touch_01"
+   ]
+  },
+  "4A8B_overheaddim_palewood": {
+   "label": "4A8B_overheaddim_palewood",
+   "indicative": false,
+   "stems": [
+    "4A8B_overheaddim_palewood_neg_01",
+    "4A8B_overheaddim_palewood_occl_01"
+   ]
+  },
+  "4A8B_window_abpwhite": {
+   "label": "4A8B_window_abpwhite",
+   "indicative": false,
+   "stems": [
+    "4A8B_window_abpwhite_occlx_12"
+   ]
+  },
+  "4A8B_window_black": {
+   "label": "4A8B_window_black",
+   "indicative": false,
+   "stems": [
+    "4A8B_window_black_close_01",
+    "4A8B_window_black_clutter_01",
+    "4A8B_window_black_neg_02",
+    "4A8B_window_black_occl_01",
+    "4A8B_window_black_touch_01"
+   ]
+  },
+  "4A8B_window_glass": {
+   "label": "4A8B_window_glass",
+   "indicative": false,
+   "stems": [
+    "4A8B_window_glass_neg_01",
+    "4A8B_window_glass_occl_01"
+   ]
+  }
+ },
+ "skipped": {
+  "not a test frame": [
+   "4A8B_both_abpgray_close_01",
+   "4A8B_both_abpgray_clutter_01",
+   "4A8B_both_abpgray_core_01",
+   "4A8B_both_abpgray_edge_01",
+   "4A8B_both_abpgray_held_01",
+   "4A8B_both_abpgray_neg_02",
+   "4A8B_both_abpgray_occl_02",
+   "4A8B_both_abpgray_touch_01",
+   "4A8B_campus_light_close_01",
+   "4A8B_campus_light_cluster_02",
+   "4A8B_campus_light_clutter_02",
+   "4A8B_campus_light_core_01",
+   "4A8B_campus_light_edge_01",
+   "4A8B_campus_light_far_01",
+   "4A8B_campus_light_hand_02",
+   "4A8B_campus_light_held_01",
+   "4A8B_campus_light_neg_02",
+   "4A8B_campus_light_neg_03",
+   "4A8B_campus_light_neg_04",
+   "4A8B_campus_light_neg_05",
+   "4A8B_campus_light_occl_02",
+   "4A8B_campus_light_plain_01",
+   "4A8B_campus_light_plain_02",
+   "4A8B_campus_light_room_01",
+   "4A8B_campus_light_room_03",
+   "4A8B_campus_light_top_01",
+   "4A8B_campus_light_topstripe_01",
+   "4A8B_campus_light_touch_02",
+   "4A8B_campus_light_window_01",
+   "4A8B_lampcool1_wood_close_01",
+   "4A8B_lampcool1_wood_cluster_01",
+   "4A8B_lampcool1_wood_clutter_01",
+   "4A8B_lampcool1_wood_core_01",
+   "4A8B_lampcool1_wood_held_01",
+   "4A8B_lampcool1_wood_neg_02",
+   "4A8B_lampcool1_wood_occl_01",
+   "4A8B_lampcool1_wood_occl_02",
+   "4A8B_lampcool1_wood_occl_04",
+   "4A8B_lampcool1_wood_touch_02",
+   "4A8B_lampcool3_wood_close_01",
+   "4A8B_lampcool3_wood_cluster_01",
+   "4A8B_lampcool3_wood_clutter_01",
+   "4A8B_lampcool3_wood_core_01",
+   "4A8B_lampcool3_wood_held_01",
+   "4A8B_lampcool3_wood_neg_02",
+   "4A8B_lampcool3_wood_occl_01",
+   "4A8B_lampcool3_wood_occl_02",
+   "4A8B_lampcool3_wood_occl_04",
+   "4A8B_lampcool3_wood_touch_02",
+   "4A8B_lampcool6_bathtile_close_01",
+   "4A8B_lampcool6_bathtile_clutter_01",
+   "4A8B_lampcool6_bathtile_core_01",
+   "4A8B_lampcool6_bathtile_edge_01",
+   "4A8B_lampcool6_bathtile_neg_02",
+   "4A8B_lampcool6_bathtile_occl_02",
+   "4A8B_lampcool6_bathtile_touch_01",
+   "4A8B_lampcool6_glass_close_01",
+   "4A8B_lampcool6_glass_clutter_01",
+   "4A8B_lampcool6_glass_core_01",
+   "4A8B_lampcool6_glass_edge_01",
+   "4A8B_lampcool6_glass_neg_02",
+   "4A8B_lampcool6_glass_occl_02",
+   "4A8B_lampcool6_glass_touch_01",
+   "4A8B_lampcool6_ottoman_close_01",
+   "4A8B_lampcool6_ottoman_clutter_01",
+   "4A8B_lampcool6_ottoman_core_01",
+   "4A8B_lampcool6_ottoman_edge_01",
+   "4A8B_lampcool6_ottoman_neg_02",
+   "4A8B_lampcool6_ottoman_occl_02",
+   "4A8B_lampcool6_ottoman_touch_01",
+   "4A8B_lampcool6_wood_close_01",
+   "4A8B_lampcool6_wood_cluster_01",
+   "4A8B_lampcool6_wood_clutter_01",
+   "4A8B_lampcool6_wood_core_01",
+   "4A8B_lampcool6_wood_held_01",
+   "4A8B_lampcool6_wood_neg_02",
+   "4A8B_lampcool6_wood_occl_01",
+   "4A8B_lampcool6_wood_occl_02",
+   "4A8B_lampcool6_wood_occl_04",
+   "4A8B_lampcool6_wood_touch_02",
+   "4A8B_lampmid1_wood_close_01",
+   "4A8B_lampmid1_wood_cluster_01",
+   "4A8B_lampmid1_wood_clutter_01",
+   "4A8B_lampmid1_wood_core_01",
+   "4A8B_lampmid1_wood_held_01",
+   "4A8B_lampmid1_wood_neg_02",
+   "4A8B_lampmid1_wood_occl_01",
+   "4A8B_lampmid1_wood_occl_02",
+   "4A8B_lampmid1_wood_occl_04",
+   "4A8B_lampmid1_wood_touch_02",
+   "4A8B_lampmid3_bathtile_close_01",
+   "4A8B_lampmid3_bathtile_clutter_01",
+   "4A8B_lampmid3_bathtile_core_01",
+   "4A8B_lampmid3_bathtile_edge_01",
+   "4A8B_lampmid3_bathtile_neg_02",
+   "4A8B_lampmid3_bathtile_occl_02",
+   "4A8B_lampmid3_bathtile_touch_01",
+   "4A8B_lampmid3_glass_close_01",
+   "4A8B_lampmid3_glass_clutter_01",
+   "4A8B_lampmid3_glass_core_01",
+   "4A8B_lampmid3_glass_edge_01",
+   "4A8B_lampmid3_glass_neg_02",
+   "4A8B_lampmid3_glass_occl_02",
+   "4A8B_lampmid3_glass_touch_01",
+   "4A8B_lampmid3_ottoman_close_01",
+   "4A8B_lampmid3_ottoman_clutter_01",
+   "4A8B_lampmid3_ottoman_core_01",
+   "4A8B_lampmid3_ottoman_edge_01",
+   "4A8B_lampmid3_ottoman_neg_02",
+   "4A8B_lampmid3_ottoman_occl_02",
+   "4A8B_lampmid3_ottoman_touch_01",
+   "4A8B_lampmid3_wood_close_01",
+   "4A8B_lampmid3_wood_cluster_01",
+   "4A8B_lampmid3_wood_clutter_01",
+   "4A8B_lampmid3_wood_core_01",
+   "4A8B_lampmid3_wood_held_01",
+   "4A8B_lampmid3_wood_neg_02",
+   "4A8B_lampmid3_wood_occl_01",
+   "4A8B_lampmid3_wood_occl_02",
+   "4A8B_lampmid3_wood_occl_04",
+   "4A8B_lampmid3_wood_touch_02",
+   "4A8B_lampmid6_bathtile_close_01",
+   "4A8B_lampmid6_bathtile_clutter_01",
+   "4A8B_lampmid6_bathtile_core_01",
+   "4A8B_lampmid6_bathtile_edge_01",
+   "4A8B_lampmid6_bathtile_neg_02",
+   "4A8B_lampmid6_bathtile_occl_02",
+   "4A8B_lampmid6_bathtile_touch_01",
+   "4A8B_lampmid6_glass_close_01",
+   "4A8B_lampmid6_glass_clutter_01",
+   "4A8B_lampmid6_glass_core_01",
+   "4A8B_lampmid6_glass_edge_01",
+   "4A8B_lampmid6_glass_neg_02",
+   "4A8B_lampmid6_glass_occl_02",
+   "4A8B_lampmid6_glass_touch_01",
+   "4A8B_lampmid6_ottoman_close_01",
+   "4A8B_lampmid6_ottoman_clutter_01",
+   "4A8B_lampmid6_ottoman_core_01",
+   "4A8B_lampmid6_ottoman_edge_01",
+   "4A8B_lampmid6_ottoman_neg_02",
+   "4A8B_lampmid6_ottoman_occl_02",
+   "4A8B_lampmid6_ottoman_touch_01",
+   "4A8B_lampmid6_wood_close_01",
+   "4A8B_lampmid6_wood_cluster_01",
+   "4A8B_lampmid6_wood_clutter_01",
+   "4A8B_lampmid6_wood_core_01",
+   "4A8B_lampmid6_wood_held_01",
+   "4A8B_lampmid6_wood_neg_02",
+   "4A8B_lampmid6_wood_occl_01",
+   "4A8B_lampmid6_wood_occl_02",
+   "4A8B_lampmid6_wood_occl_04",
+   "4A8B_lampmid6_wood_touch_02",
+   "4A8B_lampwarm1_wood_close_01",
+   "4A8B_lampwarm1_wood_cluster_01",
+   "4A8B_lampwarm1_wood_clutter_01",
+   "4A8B_lampwarm1_wood_core_01",
+   "4A8B_lampwarm1_wood_held_01",
+   "4A8B_lampwarm1_wood_neg_02",
+   "4A8B_lampwarm1_wood_occl_01",
+   "4A8B_lampwarm1_wood_occl_02",
+   "4A8B_lampwarm1_wood_occl_04",
+   "4A8B_lampwarm1_wood_touch_02",
+   "4A8B_lampwarm3_wood_close_01",
+   "4A8B_lampwarm3_wood_cluster_01",
+   "4A8B_lampwarm3_wood_clutter_01",
+   "4A8B_lampwarm3_wood_core_01",
+   "4A8B_lampwarm3_wood_held_01",
+   "4A8B_lampwarm3_wood_neg_02",
+   "4A8B_lampwarm3_wood_occl_01",
+   "4A8B_lampwarm3_wood_occl_02",
+   "4A8B_lampwarm3_wood_occl_04",
+   "4A8B_lampwarm3_wood_touch_02",
+   "4A8B_lampwarm6_bathtile_close_01",
+   "4A8B_lampwarm6_bathtile_clutter_01",
+   "4A8B_lampwarm6_bathtile_core_01",
+   "4A8B_lampwarm6_bathtile_edge_01",
+   "4A8B_lampwarm6_bathtile_neg_02",
+   "4A8B_lampwarm6_bathtile_occl_02",
+   "4A8B_lampwarm6_bathtile_touch_01",
+   "4A8B_lampwarm6_glass_close_01",
+   "4A8B_lampwarm6_glass_clutter_01",
+   "4A8B_lampwarm6_glass_core_01",
+   "4A8B_lampwarm6_glass_edge_01",
+   "4A8B_lampwarm6_glass_neg_02",
+   "4A8B_lampwarm6_glass_occl_02",
+   "4A8B_lampwarm6_glass_touch_01",
+   "4A8B_lampwarm6_ottoman_close_01",
+   "4A8B_lampwarm6_ottoman_clutter_01",
+   "4A8B_lampwarm6_ottoman_core_01",
+   "4A8B_lampwarm6_ottoman_edge_01",
+   "4A8B_lampwarm6_ottoman_neg_02",
+   "4A8B_lampwarm6_ottoman_occl_02",
+   "4A8B_lampwarm6_ottoman_touch_01",
+   "4A8B_lampwarm6_wood_close_01",
+   "4A8B_lampwarm6_wood_cluster_01",
+   "4A8B_lampwarm6_wood_clutter_01",
+   "4A8B_lampwarm6_wood_core_01",
+   "4A8B_lampwarm6_wood_held_01",
+   "4A8B_lampwarm6_wood_neg_02",
+   "4A8B_lampwarm6_wood_occl_01",
+   "4A8B_lampwarm6_wood_occl_02",
+   "4A8B_lampwarm6_wood_occl_04",
+   "4A8B_lampwarm6_wood_touch_02",
+   "4A8B_overheaddim_palewood_close_01",
+   "4A8B_overheaddim_palewood_clutter_01",
+   "4A8B_overheaddim_palewood_core_01",
+   "4A8B_overheaddim_palewood_edge_01",
+   "4A8B_overheaddim_palewood_neg_02",
+   "4A8B_overheaddim_palewood_occl_02",
+   "4A8B_overheaddim_palewood_touch_01",
+   "4A8B_window_abpwhite_occlx_01",
+   "4A8B_window_abpwhite_occlx_02",
+   "4A8B_window_abpwhite_occlx_03",
+   "4A8B_window_abpwhite_occlx_04",
+   "4A8B_window_abpwhite_occlx_05",
+   "4A8B_window_abpwhite_occlx_06",
+   "4A8B_window_abpwhite_occlx_07",
+   "4A8B_window_abpwhite_occlx_08",
+   "4A8B_window_abpwhite_occlx_09",
+   "4A8B_window_abpwhite_occlx_10",
+   "4A8B_window_abpwhite_occlx_11",
+   "4A8B_window_abpwhite_occlx_13",
+   "4A8B_window_abpwhite_occlx_14",
+   "4A8B_window_abpwhite_occlx_15",
+   "4A8B_window_abpwhite_occlx_17",
+   "4A8B_window_abpwhite_occlx_18",
+   "4A8B_window_abpwhite_occlx_19",
+   "4A8B_window_black_close_02",
+   "4A8B_window_black_cluster_01",
+   "4A8B_window_black_clutter_02",
+   "4A8B_window_black_far_01",
+   "4A8B_window_black_held_01",
+   "4A8B_window_black_neg_01",
+   "4A8B_window_black_occl_02",
+   "4A8B_window_black_occl_03",
+   "4A8B_window_black_occl_04",
+   "4A8B_window_black_touch_02",
+   "4A8B_window_glass_close_01",
+   "4A8B_window_glass_clutter_01",
+   "4A8B_window_glass_core_01",
+   "4A8B_window_glass_edge_01",
+   "4A8B_window_glass_neg_02",
+   "4A8B_window_glass_occl_02",
+   "4A8B_window_glass_occlx_16",
+   "4A8B_window_glass_touch_01",
+   "4A8B_window_light_close_01",
+   "4A8B_window_light_close_02",
+   "4A8B_window_light_cluster_01",
+   "4A8B_window_light_cluster_02",
+   "4A8B_window_light_core_01",
+   "4A8B_window_light_core_02",
+   "4A8B_window_light_core_03",
+   "4A8B_window_light_edge_01",
+   "4A8B_window_light_far_02",
+   "4A8B_window_light_neg_01",
+   "4A8B_window_light_neg_02",
+   "4A8B_window_light_occl_01",
+   "4A8B_window_light_occl_02",
+   "4A8B_window_light_top_01",
+   "4A8B_window_light_topstripe_01",
+   "4A8B_window_light_touch_02",
+   "DAVE_office_speckle_snap_00",
+   "DAVE_office_speckle_snap_01",
+   "DAVE_office_speckle_snap_02",
+   "DAVE_office_speckle_snap_03",
+   "DAVE_office_speckle_snap_04",
+   "DAVE_office_speckle_snap_05",
+   "DAVE_office_speckle_snap_06",
+   "DAVE_office_speckle_snap_07",
+   "DAVE_office_speckle_snap_08",
+   "DAVE_office_speckle_snap_09",
+   "DAVE_office_speckle_snap_10",
+   "DAVE_office_speckle_snap_11"
+  ],
+  "geometry-only scene": [
+   "4A8B_lampmid6_wood_calib_01",
+   "4A8B_lampmid6_wood_calib_02",
+   "4A8B_lampmid6_wood_calib_03",
+   "4A8B_lampmid6_wood_calib_04",
+   "4A8B_lampmid6_wood_calib_05",
+   "4A8B_lampmid6_wood_calib_06",
+   "4A8B_lampmid6_wood_calib_07",
+   "4A8B_lampmid6_wood_calib_08",
+   "4A8B_lampmid6_wood_calib_09",
+   "4A8B_lampmid6_wood_calib_10",
+   "4A8B_lampmid6_wood_calib_11",
+   "4A8B_lampmid6_wood_calib_12"
+  ]
+ },
+ "rows": [
+  {
+   "set": "4A8B_window_light",
+   "label": "HOME",
+   "scene": "core",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 1,
+    "found": 1,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9459459459459459,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 1,
+    "found": 1,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9459459459459459,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_light",
+   "label": "HOME",
+   "scene": "edge",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 1,
+    "found": 1,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 1,
+    "found": 1,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_light",
+   "label": "HOME",
+   "scene": "far",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 4,
+    "missed": 0,
+    "false": 0,
+    "width": 1.08125,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 4,
+     "false_iou": 0,
+     "found_center": 4,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 4,
+    "missed": 0,
+    "false": 0,
+    "width": 1.08125,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 4,
+     "false_iou": 0,
+     "found_center": 4,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_light",
+   "label": "HOME",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_light",
+   "label": "HOME",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 3,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9361702127659575,
+    "bottom": 0.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 3,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9361702127659575,
+    "bottom": 0.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_light",
+   "label": "HOME",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 5,
+    "barrels": 9,
+    "found": 9,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 9,
+     "false_iou": 0,
+     "found_center": 9,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 5,
+    "barrels": 9,
+    "found": 9,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 9,
+     "false_iou": 0,
+     "found_center": 9,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "cluster",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 3,
+    "missed": 1,
+    "false": 0,
+    "width": 1.1142857142857143,
+    "bottom": 2.0,
+    "score": 0.8333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 3,
+    "missed": 1,
+    "false": 0,
+    "width": 1.1142857142857143,
+    "bottom": 2.0,
+    "score": 0.8333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "clutter",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 3,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0408163265306123,
+    "bottom": 2.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 3,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0408163265306123,
+    "bottom": 2.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "core",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 4,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9191176470588236,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 4,
+     "false_iou": 0,
+     "found_center": 4,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 4,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9191176470588236,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 4,
+     "false_iou": 0,
+     "found_center": 4,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "hand",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 1,
+    "width": 1.0315149802148107,
+    "bottom": 0.5,
+    "score": 0.8333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 1,
+     "found_center": 2,
+     "false_center": 1
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 1,
+    "width": 1.0315149802148107,
+    "bottom": 0.5,
+    "score": 0.8333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 1,
+     "found_center": 2,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.9886363636363636,
+    "bottom": 1.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.9886363636363636,
+    "bottom": 1.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "plain",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9772727272727273,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9772727272727273,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "room",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9225490196078432,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9225490196078432,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 3,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9107142857142857,
+    "bottom": 2.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 3,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9107142857142857,
+    "bottom": 2.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 3,
+     "false_iou": 0,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "window",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9036004645760743,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9036004645760743,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_campus_light",
+   "label": "CAMPUS",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 10,
+    "barrels": 24,
+    "found": 22,
+    "missed": 2,
+    "false": 1,
+    "width": 0.9351706036745406,
+    "bottom": 1.5,
+    "score": 0.9365942028985508,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 22,
+     "false_iou": 1,
+     "found_center": 22,
+     "false_center": 1
+    }
+   },
+   "baseline": {
+    "frames": 10,
+    "barrels": 24,
+    "found": 22,
+    "missed": 2,
+    "false": 1,
+    "width": 0.9351706036745406,
+    "bottom": 1.5,
+    "score": 0.9365942028985508,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 22,
+     "false_iou": 1,
+     "found_center": 22,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_both_abpgray",
+   "label": "4A8B_both_abpgray",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_both_abpgray",
+   "label": "4A8B_both_abpgray",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_both_abpgray",
+   "label": "4A8B_both_abpgray",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool1_wood",
+   "label": "4A8B_lampcool1_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool1_wood",
+   "label": "4A8B_lampcool1_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool1_wood",
+   "label": "4A8B_lampcool1_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool1_wood",
+   "label": "4A8B_lampcool1_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool3_wood",
+   "label": "4A8B_lampcool3_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool3_wood",
+   "label": "4A8B_lampcool3_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool3_wood",
+   "label": "4A8B_lampcool3_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool3_wood",
+   "label": "4A8B_lampcool3_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_bathtile",
+   "label": "4A8B_lampcool6_bathtile",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_bathtile",
+   "label": "4A8B_lampcool6_bathtile",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0484615384615386,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 1,
+    "width": 1.0484615384615386,
+    "bottom": 1.5,
+    "score": 0.8333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 1,
+     "found_center": 2,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": -1,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.16666666666666674,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_bathtile",
+   "label": "4A8B_lampcool6_bathtile",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 1.0484615384615386,
+    "bottom": 1.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 1,
+    "width": 1.0484615384615386,
+    "bottom": 1.5,
+    "score": 0.8333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 1,
+     "found_center": 2,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": -1,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.16666666666666674,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_glass",
+   "label": "4A8B_lampcool6_glass",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_glass",
+   "label": "4A8B_lampcool6_glass",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9921767142199724,
+    "bottom": 2.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9921767142199724,
+    "bottom": 2.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_glass",
+   "label": "4A8B_lampcool6_glass",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9921767142199724,
+    "bottom": 2.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9921767142199724,
+    "bottom": 2.5,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_ottoman",
+   "label": "4A8B_lampcool6_ottoman",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_ottoman",
+   "label": "4A8B_lampcool6_ottoman",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.90625,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.90625,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_ottoman",
+   "label": "4A8B_lampcool6_ottoman",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.90625,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.90625,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_wood",
+   "label": "4A8B_lampcool6_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_wood",
+   "label": "4A8B_lampcool6_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 0.9651162790697675,
+    "bottom": 9.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 0.9651162790697675,
+    "bottom": 9.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": -1,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_wood",
+   "label": "4A8B_lampcool6_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 1,
+    "missed": 2,
+    "false": 0,
+    "width": 1.0,
+    "bottom": 2.0,
+    "score": 0.3333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": -1,
+    "missed": 1,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": -0.3333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampcool6_wood",
+   "label": "4A8B_lampcool6_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 1,
+    "missed": 4,
+    "false": 0,
+    "width": 0.9651162790697675,
+    "bottom": 9.0,
+    "score": 0.3333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 2,
+    "missed": 3,
+    "false": 1,
+    "width": 0.9825581395348837,
+    "bottom": 5.5,
+    "score": 0.5333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 1,
+     "found_center": 3,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": -1,
+    "missed": 1,
+    "false": -1,
+    "width": -0.0174418604651162,
+    "bottom": 3.5,
+    "score": -0.2,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid1_wood",
+   "label": "4A8B_lampmid1_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid1_wood",
+   "label": "4A8B_lampmid1_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid1_wood",
+   "label": "4A8B_lampmid1_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid1_wood",
+   "label": "4A8B_lampmid1_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_bathtile",
+   "label": "4A8B_lampmid3_bathtile",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_bathtile",
+   "label": "4A8B_lampmid3_bathtile",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_bathtile",
+   "label": "4A8B_lampmid3_bathtile",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_glass",
+   "label": "4A8B_lampmid3_glass",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_glass",
+   "label": "4A8B_lampmid3_glass",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 0.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 0.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_glass",
+   "label": "4A8B_lampmid3_glass",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 0.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 0.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_ottoman",
+   "label": "4A8B_lampmid3_ottoman",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_ottoman",
+   "label": "4A8B_lampmid3_ottoman",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_ottoman",
+   "label": "4A8B_lampmid3_ottoman",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_wood",
+   "label": "4A8B_lampmid3_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_wood",
+   "label": "4A8B_lampmid3_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_wood",
+   "label": "4A8B_lampmid3_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid3_wood",
+   "label": "4A8B_lampmid3_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_bathtile",
+   "label": "4A8B_lampmid6_bathtile",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_bathtile",
+   "label": "4A8B_lampmid6_bathtile",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_bathtile",
+   "label": "4A8B_lampmid6_bathtile",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_glass",
+   "label": "4A8B_lampmid6_glass",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_glass",
+   "label": "4A8B_lampmid6_glass",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 1.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 1.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_glass",
+   "label": "4A8B_lampmid6_glass",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 1.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0731707317073171,
+    "bottom": 1.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 1
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_ottoman",
+   "label": "4A8B_lampmid6_ottoman",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_ottoman",
+   "label": "4A8B_lampmid6_ottoman",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_ottoman",
+   "label": "4A8B_lampmid6_ottoman",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_wood",
+   "label": "4A8B_lampmid6_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_wood",
+   "label": "4A8B_lampmid6_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_wood",
+   "label": "4A8B_lampmid6_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampmid6_wood",
+   "label": "4A8B_lampmid6_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm1_wood",
+   "label": "4A8B_lampwarm1_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm1_wood",
+   "label": "4A8B_lampwarm1_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm1_wood",
+   "label": "4A8B_lampwarm1_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm1_wood",
+   "label": "4A8B_lampwarm1_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm3_wood",
+   "label": "4A8B_lampwarm3_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm3_wood",
+   "label": "4A8B_lampwarm3_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm3_wood",
+   "label": "4A8B_lampwarm3_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm3_wood",
+   "label": "4A8B_lampwarm3_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_bathtile",
+   "label": "4A8B_lampwarm6_bathtile",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_bathtile",
+   "label": "4A8B_lampwarm6_bathtile",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_bathtile",
+   "label": "4A8B_lampwarm6_bathtile",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_glass",
+   "label": "4A8B_lampwarm6_glass",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_glass",
+   "label": "4A8B_lampwarm6_glass",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.048780487804878,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.048780487804878,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_glass",
+   "label": "4A8B_lampwarm6_glass",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.048780487804878,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.048780487804878,
+    "bottom": 2.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_ottoman",
+   "label": "4A8B_lampwarm6_ottoman",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_ottoman",
+   "label": "4A8B_lampwarm6_ottoman",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_ottoman",
+   "label": "4A8B_lampwarm6_ottoman",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_wood",
+   "label": "4A8B_lampwarm6_wood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_wood",
+   "label": "4A8B_lampwarm6_wood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 0,
+    "missed": 2,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_wood",
+   "label": "4A8B_lampwarm6_wood",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_lampwarm6_wood",
+   "label": "4A8B_lampwarm6_wood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 3,
+    "barrels": 5,
+    "found": 0,
+    "missed": 5,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_overheaddim_palewood",
+   "label": "4A8B_overheaddim_palewood",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_overheaddim_palewood",
+   "label": "4A8B_overheaddim_palewood",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.0657894736842106,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.0657894736842106,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_overheaddim_palewood",
+   "label": "4A8B_overheaddim_palewood",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.0657894736842106,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 0,
+    "width": 1.0657894736842106,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_abpwhite",
+   "label": "4A8B_window_abpwhite",
+   "scene": "occlx",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9396575531621099,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9396575531621099,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_abpwhite",
+   "label": "4A8B_window_abpwhite",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9396575531621099,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 2,
+    "missed": 0,
+    "false": 0,
+    "width": 0.9396575531621099,
+    "bottom": 1.0,
+    "score": 1.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_black",
+   "label": "4A8B_window_black",
+   "scene": "close",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 1,
+    "missed": 2,
+    "false": 0,
+    "width": 0.8385269121813032,
+    "bottom": 0.0,
+    "score": 0.3333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 1,
+    "missed": 2,
+    "false": 0,
+    "width": 0.8385269121813032,
+    "bottom": 0.0,
+    "score": 0.3333333333333333,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_black",
+   "label": "4A8B_window_black",
+   "scene": "clutter",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 0,
+    "missed": 4,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 4,
+    "found": 0,
+    "missed": 4,
+    "false": 1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 1,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": -1,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_black",
+   "label": "4A8B_window_black",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_black",
+   "label": "4A8B_window_black",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 1,
+    "found": 0,
+    "missed": 1,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 1,
+    "found": 0,
+    "missed": 1,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_black",
+   "label": "4A8B_window_black",
+   "scene": "touch",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 3,
+    "found": 0,
+    "missed": 3,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_black",
+   "label": "4A8B_window_black",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 5,
+    "barrels": 11,
+    "found": 1,
+    "missed": 10,
+    "false": 0,
+    "width": 0.8385269121813032,
+    "bottom": 0.0,
+    "score": 0.16666666666666669,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 0,
+     "found_center": 1,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 5,
+    "barrels": 11,
+    "found": 1,
+    "missed": 10,
+    "false": 1,
+    "width": 0.8385269121813032,
+    "bottom": 0.0,
+    "score": 0.14285714285714288,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 1,
+     "false_iou": 1,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": -1,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.023809523809523808,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_glass",
+   "label": "4A8B_window_glass",
+   "scene": "neg",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 0,
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 0,
+     "false_iou": 0,
+     "found_center": 0,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": null,
+    "bottom": null,
+    "score": null,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_glass",
+   "label": "4A8B_window_glass",
+   "scene": "occl",
+   "kind": "scene",
+   "indicative": false,
+   "candidate": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0975609756097562,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 1,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0975609756097562,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "4A8B_window_glass",
+   "label": "4A8B_window_glass",
+   "scene": "",
+   "kind": "subtotal",
+   "indicative": false,
+   "candidate": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0975609756097562,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "baseline": {
+    "frames": 2,
+    "barrels": 2,
+    "found": 1,
+    "missed": 1,
+    "false": 1,
+    "width": 1.0975609756097562,
+    "bottom": 3.0,
+    "score": 0.5,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 2,
+     "false_iou": 0,
+     "found_center": 2,
+     "false_center": 0
+    }
+   },
+   "delta": {
+    "found": 0,
+    "missed": 0,
+    "false": 0,
+    "width": 0.0,
+    "bottom": 0.0,
+    "score": 0.0,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  },
+  {
+   "set": "ALL",
+   "label": "ALL",
+   "scene": "",
+   "kind": "total",
+   "indicative": false,
+   "candidate": {
+    "frames": 78,
+    "barrels": 121,
+    "found": 47,
+    "missed": 74,
+    "false": 6,
+    "width": 0.9651162790697675,
+    "bottom": 1.0,
+    "score": 0.5428571428571428,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 50,
+     "false_iou": 3,
+     "found_center": 50,
+     "false_center": 3
+    }
+   },
+   "baseline": {
+    "frames": 78,
+    "barrels": 121,
+    "found": 48,
+    "missed": 73,
+    "false": 9,
+    "width": 0.9768763213530656,
+    "bottom": 1.5,
+    "score": 0.5424414927261226,
+    "neg_false": 0,
+    "clean_neg_false": 0,
+    "disqualified": false,
+    "loose": {
+     "found_iou": 51,
+     "false_iou": 6,
+     "found_center": 53,
+     "false_center": 4
+    }
+   },
+   "delta": {
+    "found": -1,
+    "missed": 1,
+    "false": -3,
+    "width": -0.011760042283298078,
+    "bottom": -0.5,
+    "score": 0.00041565013102018433,
+    "neg_false": 0,
+    "clean_neg_false": 0
+   }
+  }
+ ],
+ "loose": {
+  "found_iou / false_iou": "same color and IoU >= 0.5, bottom edge not checked",
+  "found_center / false_center": "same color and box centers at most 0.5 of the true box's width apart"
+ }
+}
