@@ -1,0 +1,74 @@
+{
+ "date": "2026-11-23",
+ "git": "999b73a",
+ "terms": [
+  [
+   "orange_h_lo",
+   "orange_peak_h",
+   0.21428571428571427,
+   21.25,
+   10.0
+  ],
+  [
+   "orange_h_hi",
+   "orange_peak_h",
+   -7.880239520958085,
+   21.25,
+   10.0
+  ],
+  [
+   "orange_s_lo",
+   "orange_s_p90",
+   -1.6453305351521514,
+   172.875,
+   60.0
+  ],
+  [
+   "blue_h_lo",
+   "blue_peak_h",
+   -1.4982904395947763,
+   102.9375,
+   10.0
+  ],
+  [
+   "blue_h_hi",
+   "blue_peak_h",
+   -0.5503685503685507,
+   102.9375,
+   10.0
+  ]
+ ],
+ "hand_places": [
+  "abp_gray",
+  "home_ottoman",
+  "uc_palewood"
+ ],
+ "places_seen": [
+  "abp_gray",
+  "abp_white",
+  "campus_study",
+  "home_black",
+  "home_ottoman",
+  "home_white",
+  "home_wooddesk",
+  "uc_palewood"
+ ],
+ "conditions_seen": [
+  "both_abpgray",
+  "campus_light",
+  "lampcool3_wood",
+  "lampcool6_ottoman",
+  "lampcool6_wood",
+  "lampmid3_ottoman",
+  "lampmid3_wood",
+  "lampmid6_ottoman",
+  "lampmid6_wood",
+  "lampwarm3_wood",
+  "lampwarm6_ottoman",
+  "lampwarm6_wood",
+  "overheaddim_palewood",
+  "window_abpwhite",
+  "window_black",
+  "window_light"
+ ]
+}
