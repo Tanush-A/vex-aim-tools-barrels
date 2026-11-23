@@ -16,7 +16,7 @@
  "v_min": 40,
  "horizon_row": 50,
  "base_model": "eb863d84",
- "detector_git": "d6133fe",
+ "detector_git": "dd4eec7",
  "boxes_drawn": 4,
  "criterion": "as much barrel painted as needed to detect it, as little else as possible",
  "reviewed": true,

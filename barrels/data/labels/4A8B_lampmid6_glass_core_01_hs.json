@@ -16,7 +16,7 @@
  "v_min": 40,
  "horizon_row": 50,
  "base_model": "eb863d84",
- "detector_git": "d6133fe",
+ "detector_git": "dd4eec7",
  "boxes_drawn": 4,
  "criterion": "as much barrel painted as needed to detect it, as little else as possible",
  "reviewed": true,
@@ -25,5 +25,34 @@
  "proposed_by": null,
  "moved": null,
  "proposal": null,
- "ranges": null
+ "ranges": {
+  "orange": {
+   "h_lo": [
+    -30,
+    8
+   ],
+   "h_hi": [
+    7,
+    60
+   ],
+   "s_lo": [
+    74,
+    216
+   ]
+  },
+  "blue": {
+   "h_lo": [
+    60,
+    110
+   ],
+   "h_hi": [
+    108,
+    150
+   ],
+   "s_lo": [
+    51,
+    223
+   ]
+  }
+ }
 }
