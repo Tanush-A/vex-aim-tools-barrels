@@ -372,7 +372,9 @@ def propose(fe: FrameEval, adopted: dict, coarse: int = 4) -> Proposal:
     # the most of his barrels found, then the fewest false boxes; ties keep the earlier (more careful) candidate
     src, anchor = max(cands, key=lambda c: (len(fe.evaluate(c[1]).found), -fe.evaluate(c[1]).n_false, -cands.index(c)))
     ranges = sweep(fe, anchor, DET, coarse=coarse)
-    mid = {t: int(round((r.lo + r.hi) / 2)) for t, r in ranges.items()}
+    # the middle of a range that ran into a slider's end (or the other end of its sector) says nothing: there the anchor
+    # (the net optimum, tight on the barrels) stays
+    mid = {t: (anchor[t] if {r.lo_why, r.hi_why} & {OPEN, OTHER_END} else int(round((r.lo + r.hi) / 2))) for t, r in ranges.items()}
     for c in CLASS_NAMES:
         if mid[f"{c}_h_lo"] > mid[f"{c}_h_hi"]:
             mid[f"{c}_h_lo"], mid[f"{c}_h_hi"] = anchor[f"{c}_h_lo"], anchor[f"{c}_h_hi"]
