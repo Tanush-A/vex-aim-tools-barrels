@@ -160,8 +160,10 @@ def window_stats(hist: np.ndarray, lo: int, hi: int) -> tuple[float, float]:
     return float(lo + int(np.argmax(m))), hh.wpct(w.sum(0), _S_CENTERS[S_COLOR // 2:], (90,))[0]
 
 
-def frame_features(hist: np.ndarray, v_mean: float, ref: Reference) -> dict[str, float]:
-    """The nine pre-registered features of one frame (``FEATURES``), from ``gated_hist`` output."""
+def frame_features(hist: np.ndarray, v_mean: float, ref: Reference | None) -> dict[str, float]:
+    """The nine pre-registered features of one frame (``FEATURES``), from ``gated_hist`` output. With
+    ``ref=None`` the two that compare the frame with the reference (``ref_*``) are nan: what the adaptive
+    color rule (``adaptive.py``) uses, so that the pipeline needs nothing but the frame."""
     n = hist.sum()
     nan = float("nan")
     f = {k: nan for k in FEATURES}
@@ -172,6 +174,8 @@ def frame_features(hist: np.ndarray, v_mean: float, ref: Reference) -> dict[str,
     f["s_share100"] = float(hist[:, S_HIGH // 2:].sum() / n)
     for name, (lo, hi) in WINDOWS.items():
         f[f"{name}_peak_h"], f[f"{name}_s_p90"] = window_stats(hist, lo, hi)
+    if ref is None:
+        return f
     hp, sq = _hue_profile(hist), _s_quantiles(hist)
     if hp is not None:
         f["ref_hue_shift"] = hue_shift(hp, ref.hue_profile)
