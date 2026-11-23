@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_light_core_01",
+ "image_sha1": "ac855455c1661d5a003b54c9b863e8910282ebf7",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "two barrels touching, nothing else",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    241,
+    124,
+    290,
+    178
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    294,
+    123,
+    342,
+    176
+   ],
+   "flags": [],
+   "note": "left edge: stripe pokes out to ~293"
+  }
+ ]
+}

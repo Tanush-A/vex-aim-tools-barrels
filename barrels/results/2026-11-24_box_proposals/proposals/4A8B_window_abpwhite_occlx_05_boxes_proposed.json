@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_abpwhite_occlx_05",
+ "image_sha1": "6785ef3b2f874cd22c5b43d1e245396d660fe9b3",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "two black objects; orange barrel seen through the gap between them",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    51,
+    120,
+    99,
+    167
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "between two black objects, both sides possibly clipped; visible 52-97, expected width ~48 at bottom 167"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    320,
+    134,
+    388,
+    210
+   ],
+   "flags": [],
+   "note": "in front of the black box"
+  }
+ ]
+}

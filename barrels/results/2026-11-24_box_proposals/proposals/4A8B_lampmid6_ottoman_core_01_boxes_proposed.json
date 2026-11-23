@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_ottoman_core_01",
+ "image_sha1": "03626759f3aaa86deb06f532bcc547e178bd615b",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "dark scene, four barrels",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    81,
+    133,
+    153,
+    205
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    159,
+    168,
+    281,
+    309
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "color": "blue",
+   "bbox": [
+    274,
+    114,
+    316,
+    157
+   ],
+   "flags": [],
+   "note": "far; bottom blurs into its shadow"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    417,
+    126,
+    479,
+    189
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}
