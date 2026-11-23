@@ -24,6 +24,24 @@ def main(argv=None) -> int:
         print(__doc__)
         return 2
     C = K.battery()
+    load = C.load
+
+    def patched_load(name, path):
+        # the levels harness groups the train frames with 2026-11-16_hs_pooled's group_of, which knows only HOME, CAMPUS and
+        # BLACK; the sets shot since then would raise KeyError. Only its HOME list is used, so any other set is "OTHER"
+        mod = load(name, path)
+        pooled = getattr(mod, "pooled", None)
+        if pooled is not None and not getattr(pooled, "_other_ok", False):
+            known = pooled.group_of
+
+            def group_of(stem):
+                try:
+                    return known(stem)
+                except KeyError:
+                    return "OTHER"
+            pooled.group_of, pooled._other_ok = group_of, True
+        return mod
+    C.load = patched_load
     mod = C.load(f"comb_{argv[0]}", K.COMB / PARTS[argv[0]])
     return mod.main(argv[1:])
 
