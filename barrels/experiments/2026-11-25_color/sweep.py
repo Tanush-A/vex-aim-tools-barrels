@@ -38,7 +38,18 @@ OUT = cm.RESULTS / "sweep"
 
 
 def spans(a: dict) -> dict[str, list[int]]:
-    """The values each parameter takes, in the order from STRICT to LOOSE (so a walk along it only adds paint)."""
+    """The values each parameter takes, in the order from STRICT to LOOSE (so a walk along it only adds paint); his own
+    value is always one of them."""
+    out = _spans(a)
+    for p, vals in out.items():
+        if a[p] not in vals:
+            loose_down = vals[0] > vals[-1]
+            vals = sorted(set(vals) | {a[p]}, reverse=loose_down)
+            out[p] = vals
+    return out
+
+
+def _spans(a: dict) -> dict[str, list[int]]:
     return {
         "orange_h_lo": list(range(a["orange_h_hi"], -31, -1)),
         "orange_h_hi": list(range(a["orange_h_lo"], 91)),
