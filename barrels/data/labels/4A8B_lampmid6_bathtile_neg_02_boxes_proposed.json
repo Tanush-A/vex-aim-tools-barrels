@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_neg_02",
+ "image_sha1": "9ec156d66ce7eb9dced19b08f4420bdcf0f5f723",
+ "proposed_by": "claude",
+ "negative": true,
+ "clean": false,
+ "note": "clutter only: red/pink translucent thing, blue Vaseline tin, purple stand, yellow notepad, jar",
+ "barrels": []
+}

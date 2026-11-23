@@ -1,0 +1,108 @@
+{
+ "version": 1,
+ "available": true,
+ "error": "",
+ "time": 1795460050.490422,
+ "frame_count": 6429,
+ "read_at": "frame",
+ "image_size": [
+  640,
+  480
+ ],
+ "source_size": [
+  320,
+  240
+ ],
+ "classnames": [
+  "SportsBall",
+  "BlueBarrel",
+  "OrangeBarrel",
+  "Robot"
+ ],
+ "objects": [
+  {
+   "name": "OrangeBarrel",
+   "class_id": 2,
+   "bbox": [
+    356,
+    92,
+    390,
+    140
+   ],
+   "raw": {
+    "type": 4,
+    "id": 2,
+    "type_str": "aiobj",
+    "originx": 178,
+    "originy": 46,
+    "width": 17,
+    "height": 24,
+    "score": 72,
+    "name": "OrangeBarrel"
+   }
+  },
+  {
+   "name": "BlueBarrel",
+   "class_id": 1,
+   "bbox": [
+    252,
+    102,
+    302,
+    172
+   ],
+   "raw": {
+    "type": 4,
+    "id": 1,
+    "type_str": "aiobj",
+    "originx": 126,
+    "originy": 51,
+    "width": 25,
+    "height": 35,
+    "score": 96,
+    "name": "BlueBarrel"
+   }
+  },
+  {
+   "name": "OrangeBarrel",
+   "class_id": 2,
+   "bbox": [
+    512,
+    112,
+    586,
+    172
+   ],
+   "raw": {
+    "type": 4,
+    "id": 2,
+    "type_str": "aiobj",
+    "originx": 256,
+    "originy": 56,
+    "width": 37,
+    "height": 30,
+    "score": 99,
+    "name": "OrangeBarrel"
+   }
+  },
+  {
+   "name": "BlueBarrel",
+   "class_id": 1,
+   "bbox": [
+    156,
+    132,
+    246,
+    234
+   ],
+   "raw": {
+    "type": 4,
+    "id": 1,
+    "type_str": "aiobj",
+    "originx": 78,
+    "originy": 66,
+    "width": 45,
+    "height": 51,
+    "score": 99,
+    "name": "BlueBarrel"
+   }
+  }
+ ]
+}

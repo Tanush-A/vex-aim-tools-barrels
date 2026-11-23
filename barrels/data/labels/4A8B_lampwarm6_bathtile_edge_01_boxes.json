@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_bathtile_edge_01",
+ "image_sha1": "e5b1a1419d341d6ce20f48ec1c422300f9b0ddba",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    127,
+    31,
+    196
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    279,
+    122,
+    331,
+    178
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

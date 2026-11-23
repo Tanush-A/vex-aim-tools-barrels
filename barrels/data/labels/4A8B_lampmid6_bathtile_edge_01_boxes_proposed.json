@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_edge_01",
+ "image_sha1": "b4ed912fdb323037c75f8f22215408cf466143f8",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    127,
+    31,
+    196
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "cut by the left frame edge"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    279,
+    122,
+    331,
+    178
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_occl_01",
+ "image_sha1": "c4c02a716651b0684eecd685d7bb553469a1e6a7",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    295,
+    139,
+    377,
+    229
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    335,
+    118,
+    388,
+    171
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": ""
+  }
+ ]
+}

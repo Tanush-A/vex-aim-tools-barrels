@@ -1,0 +1,42 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_occl_02",
+ "image_sha1": "165d38e5dcb7e893160ad463eb1a9158c0033156",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    254,
+    114,
+    300,
+    163
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    254,
+    114,
+    300,
+    163
+   ],
+   "proposed_color": "blue"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 1,
+  "kept": 1,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "purple stand, orange glue stick, yellow notepad, blue tin, keys, jar with blue/red label"
+ }
+}

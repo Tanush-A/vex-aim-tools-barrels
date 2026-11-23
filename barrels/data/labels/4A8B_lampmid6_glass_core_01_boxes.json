@@ -1,0 +1,102 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_core_01",
+ "image_sha1": "f9c23904970c2fc5a3d00541884b2ad69a815d4b",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    143,
+    112,
+    182,
+    152
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    143,
+    112,
+    182,
+    152
+   ],
+   "proposed_color": "orange"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    176,
+    123,
+    233,
+    185
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    176,
+    123,
+    233,
+    185
+   ],
+   "proposed_color": "blue"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    298,
+    132,
+    369,
+    210
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    298,
+    132,
+    369,
+    210
+   ],
+   "proposed_color": "orange"
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    371,
+    111,
+    412,
+    151
+   ],
+   "flags": [],
+   "note": "",
+   "moved": false,
+   "proposed_bbox": [
+    371,
+    111,
+    412,
+    151
+   ],
+   "proposed_color": "blue"
+  }
+ ],
+ "proposal": {
+  "by": "claude",
+  "proposed": 4,
+  "kept": 4,
+  "moved": 0,
+  "deleted": 0,
+  "added": 0,
+  "note": "four barrels, mirror image of each in the glass under it (not barrels); pale cloth top right is not blue"
+ }
+}

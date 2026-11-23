@@ -1,0 +1,59 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_clutter_01",
+ "image_sha1": "916dfd44fe27d773a56c9cb4c4121d75a560bea4",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    73,
+    133,
+    152,
+    209
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    292,
+    111,
+    330,
+    152
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    410,
+    108,
+    442,
+    141
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    495,
+    128,
+    565,
+    191
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid3_glass_core_01",
+ "image_sha1": "54f50f0be522d8e4d95d170afab7226fe8e7aa07",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    143,
+    112,
+    182,
+    152
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    176,
+    123,
+    233,
+    185
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    298,
+    132,
+    369,
+    210
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "blue",
+   "bbox": [
+    371,
+    111,
+    412,
+    151
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

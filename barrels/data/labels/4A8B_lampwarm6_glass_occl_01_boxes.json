@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_glass_occl_01",
+ "image_sha1": "f1288f66d3c3783ab16b864a6edb4c338bd8b7c4",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    295,
+    139,
+    377,
+    229
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    335,
+    118,
+    388,
+    171
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

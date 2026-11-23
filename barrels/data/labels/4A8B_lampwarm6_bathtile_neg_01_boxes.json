@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_bathtile_neg_01",
+ "image_sha1": "5d1c72872ca351dc9ab7954a0f4a72c01a60fda3",
+ "reviewed": true,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

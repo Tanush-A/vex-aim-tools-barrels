@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_clutter_01",
+ "image_sha1": "bbef55f7610a918837bf436f47232735b76856f8",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": false,
+ "note": "blue tin standing on edge behind the near blue barrel, orange glue stick, purple stand, yellow notepad, jar with blue/red label",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    160,
+    141,
+    243,
+    233
+   ],
+   "flags": [],
+   "note": "in front of the blue tin; top taken where the lid curve ends, the tin behind is the same blue"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    254,
+    114,
+    300,
+    163
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "behind the purple stand as in occl_02; left edge from the expected width"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    359,
+    104,
+    387,
+    133
+   ],
+   "flags": [],
+   "note": "far, in front of the yellow notepad"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    520,
+    118,
+    579,
+    169
+   ],
+   "flags": [],
+   "note": "right side touches the jar"
+  }
+ ]
+}

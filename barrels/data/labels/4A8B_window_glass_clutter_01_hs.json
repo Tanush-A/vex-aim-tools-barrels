@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_glass_clutter_01",
+ "image_sha1": "217ed12c00529644fb561cb463c284d9fd017a6f",
+ "orange": {
+  "h_lo": 3,
+  "h_hi": 12,
+  "s_lo": 161
+ },
+ "blue": {
+  "h_lo": 104,
+  "h_hi": 112,
+  "s_lo": 207
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "v_min": 40,
+ "horizon_row": 50,
+ "base_model": "eb863d84",
+ "detector_git": "d59978b",
+ "boxes_drawn": 4,
+ "criterion": "as much barrel painted as needed to detect it, as little else as possible",
+ "reviewed": true,
+ "note": "",
+ "proposed": true,
+ "proposed_by": "computed",
+ "moved": true,
+ "proposal": {
+  "orange": {
+   "h_lo": 4,
+   "h_hi": 10,
+   "s_lo": 165
+  },
+  "blue": {
+   "h_lo": 105,
+   "h_hi": 110,
+   "s_lo": 208
+  }
+ },
+ "ranges": {
+  "orange": {
+   "h_lo": [
+    1,
+    7
+   ],
+   "h_hi": [
+    7,
+    12
+   ],
+   "s_lo": [
+    140,
+    190
+   ]
+  },
+  "blue": {
+   "h_lo": [
+    60,
+    107
+   ],
+   "h_hi": [
+    110,
+    111
+   ],
+   "s_lo": [
+    192,
+    224
+   ]
+  }
+ }
+}

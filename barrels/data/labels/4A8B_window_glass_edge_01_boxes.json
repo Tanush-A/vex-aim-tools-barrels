@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_glass_edge_01",
+ "image_sha1": "49bfa15be88ebc15f50801fc4222376d14b9891a",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    145,
+    40,
+    237
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    405,
+    123,
+    464,
+    184
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

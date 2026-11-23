@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_glass_occl_02",
+ "image_sha1": "c94b955f3725bb663659ff082a24696f6fb8042a",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    254,
+    114,
+    300,
+    163
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

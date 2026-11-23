@@ -1,0 +1,61 @@
+{
+ "version": 1,
+ "stem": "4A8B_window_glass_clutter_01",
+ "image_sha1": "217ed12c00529644fb561cb463c284d9fd017a6f",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    160,
+    141,
+    243,
+    233
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "blue",
+   "bbox": [
+    254,
+    114,
+    300,
+    163
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    359,
+    104,
+    387,
+    133
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 4,
+   "color": "orange",
+   "bbox": [
+    520,
+    118,
+    579,
+    169
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

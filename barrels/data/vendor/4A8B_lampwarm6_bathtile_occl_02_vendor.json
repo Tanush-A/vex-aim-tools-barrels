@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "available": true,
+ "error": "",
+ "time": 1795460937.432249,
+ "frame_count": 13368,
+ "read_at": "frame",
+ "image_size": [
+  640,
+  480
+ ],
+ "source_size": [
+  320,
+  240
+ ],
+ "classnames": [
+  "SportsBall",
+  "BlueBarrel",
+  "OrangeBarrel",
+  "Robot"
+ ],
+ "objects": []
+}

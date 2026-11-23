@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_edge_01",
+ "image_sha1": "f6b2fffa3118f75b8b6c0c75af7d8ff7f57bf1c1",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    145,
+    40,
+    237
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "note": "cut by the left frame edge"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    405,
+    123,
+    464,
+    184
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_occl_02",
+ "image_sha1": "df466dfec2f6413648d4f73760673ff5bb9571da",
+ "reviewed": true,
+ "negative": false,
+ "clean": false,
+ "source": "claude_proposal",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "orange",
+   "bbox": [
+    346,
+    107,
+    376,
+    137
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

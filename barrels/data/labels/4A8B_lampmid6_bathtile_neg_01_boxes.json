@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_neg_01",
+ "image_sha1": "ce2e3c225c1bbdd5dc098f1ec38fd05d8cdb4b39",
+ "reviewed": true,
+ "negative": true,
+ "clean": true,
+ "source": "manual",
+ "barrels": []
+}

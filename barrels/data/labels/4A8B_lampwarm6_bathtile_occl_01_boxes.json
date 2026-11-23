@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_bathtile_occl_01",
+ "image_sha1": "e5072bb916b424b916034d75535f7c07402a4718",
+ "reviewed": true,
+ "negative": false,
+ "clean": true,
+ "source": "manual",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    305,
+    129,
+    370,
+    197
+   ],
+   "flags": [],
+   "note": "copied from lampmid6"
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    334,
+    118,
+    384,
+    171
+   ],
+   "flags": [
+    "occluded"
+   ],
+   "note": "copied from lampmid6"
+  }
+ ]
+}

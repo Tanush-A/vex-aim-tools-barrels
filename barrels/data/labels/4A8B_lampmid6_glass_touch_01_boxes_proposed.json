@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_glass_touch_01",
+ "image_sha1": "057bde39cc1ba83f52ad9a9adfe3ae3607260b4a",
+ "proposed_by": "claude",
+ "negative": false,
+ "clean": true,
+ "note": "three touching; reflections below are not barrels",
+ "barrels": [
+  {
+   "id": 1,
+   "color": "blue",
+   "bbox": [
+    224,
+    124,
+    280,
+    185
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": 2,
+   "color": "orange",
+   "bbox": [
+    280,
+    122,
+    335,
+    185
+   ],
+   "flags": [],
+   "note": "shared edge with its neighbours at the touching seam"
+  },
+  {
+   "id": 3,
+   "color": "orange",
+   "bbox": [
+    335,
+    122,
+    390,
+    184
+   ],
+   "flags": [],
+   "note": ""
+  }
+ ]
+}
