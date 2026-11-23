@@ -11,6 +11,9 @@ In order, each step run as its own command, its exit code recorded, and the next
 4. ours against the vendor       (python barrels/experiments/2026-11-24_vendor/run.py)
 5. the adaptive-threshold rule   (python barrels/experiments/2026-11-24_adaptive/run.py), only if that file exists;
                                  exit 0 = the pre-registered rule passed, 1 = it failed
+6. thresholds as ranges          (python barrels/experiments/2026-11-24_adaptive_range/run.py), only if that file
+                                 exists: the range of each threshold around the slider labels, whether anything
+                                 predicts it, and the range rule R2's test; exit 0 = R2 passed, 1 = it failed
 
 Then ONE page, results/<today>_run_all/summary.md: at the top what is missing in the data (frames imported but not
 boxed, slider labels not set, frames in no split, how many test frames each new condition has: counted from
@@ -37,6 +40,7 @@ BARRELS = Path(__file__).resolve().parents[1]          # barrels/
 REPO = BARRELS.parent
 VENDOR_SCRIPT = BARRELS / "experiments" / "2026-11-24_vendor" / "run.py"
 ADAPTIVE_SCRIPT = BARRELS / "experiments" / "2026-11-24_adaptive" / "run.py"
+RANGE_SCRIPT = BARRELS / "experiments" / "2026-11-24_adaptive_range" / "run.py"
 GEOMETRY_SCENES = ("calib", "ruler", "horizon")
 SLIDER_SCENES = ("core_01", "clutter_01")              # plus one occl frame: occl_01, or occl_02 when occl_01 is a test frame
 KNOWN_GATE_FAILS = {   # failing gate row -> why it is known (so a known failure is not mistaken for a new one)
@@ -113,6 +117,7 @@ def default_steps(py: str = sys.executable) -> list[Step]:
         Step("eval_table", [py, "barrels/tools/report.py", "--base-model", "default"]),
         Step("vendor", [py, str(VENDOR_SCRIPT.relative_to(REPO))], requires=VENDOR_SCRIPT),
         Step("adaptive", [py, str(ADAPTIVE_SCRIPT.relative_to(REPO))], requires=ADAPTIVE_SCRIPT),
+        Step("adaptive_range", [py, str(RANGE_SCRIPT.relative_to(REPO))], requires=RANGE_SCRIPT, timeout=3600.0),
     ]
 
 
@@ -278,6 +283,36 @@ def vendor_lines(r: StepResult | None) -> tuple[list[str], dict | None]:
     return L, s
 
 
+def range_lines(r: StepResult | None, decide: list[str]) -> list[str]:
+    """The range experiment's section: in plain words whether the range version holds, and R2's verdict."""
+    L = ["## Thresholds as ranges (and the range rule R2)", ""]
+    if r is None or r.status == "skipped":
+        return L + ["Not run: `experiments/2026-11-24_adaptive_range/run.py` is not on this branch.", ""]
+    d = written_dir(r.output)
+    cfg = d / "config.json" if d else None
+    if not r.ran or not (cfg and cfg.exists()):
+        decide.append("The range experiment gave no verdict: see its log.")
+        return L + [f"No verdict ({r.status}, exit {r.code}): see its log.", ""]
+    c = json.loads(cfg.read_text())
+    parts = c.get("holds_parts", {})
+    yn = lambda x: "yes" if x else "no"  # noqa: E731
+    L.append(f"**The range version {'HOLDS' if c.get('holds') else 'does not hold'}.** In plain words: "
+             + ("a frame has a run of workable values for each threshold, R2 lands in the held-out runs more often than the fixed value, and it passes the detection test."
+                if c.get("holds") else
+                "the parts that fail are " + ", ".join(x for x, ok in (("the runs do not hold when all six move together (a)", parts.get("a")),
+                                                                       ("R2 does not land inside held-out runs more often than fixed (b)", parts.get("b")),
+                                                                       ("R2 fails the detection test (c)", parts.get("c"))) if not ok) + "."))
+    L.append(f"Parts: (a) ranges hold jointly {yn(parts.get('a'))}; (b) R2 beats fixed on a constrained threshold {yn(parts.get('b'))}"
+             + (f" ({', '.join(parts.get('b_thresholds', []))})" if parts.get("b_thresholds") else "") + f"; (c) R2 passes C2-C6 {yn(parts.get('c'))}.")
+    fails = [k for k, v in c.get("clauses", {}).items() if not v.get("pass")]
+    L.append(f"R2: **{'PASS' if c.get('passed') else 'FAIL'}**" + (f" (failed: {', '.join(fails)})" if fails else "") + "."
+             + (f" Its page: `{(d / 'summary.md').relative_to(REPO) if d.is_relative_to(REPO) else d / 'summary.md'}`." if (d / "summary.md").exists() else ""))
+    L.append("")
+    if c.get("passed"):
+        decide.append("The range rule R2 passed its pre-registered test: adopt it (walkthrough first, then the never-regress check)?")
+    return L
+
+
 def write_summary(out_dir: Path, results: list[StepResult], gaps: dict, today: str) -> str:
     by = {r.name: r for r in results}
     L = [f"# Run all, {today}", "",
@@ -328,6 +363,7 @@ def write_summary(out_dir: Path, results: list[StepResult], gaps: dict, today: s
             decide.append("The adaptive rule passed its pre-registered test: adopt it (walkthrough first, then the never-regress check)?")
         elif a.code not in (0, 1):
             decide.append("The adaptive script did not give a verdict: see its log.")
+    L += range_lines(by.get("adaptive_range"), decide)
     gaps_todo = [condition(k) for k, x in gaps.items() if x["no_split"] or x["train_not_boxed"] or x["slider_missing"]]
     if gaps_todo:
         decide.insert(0, "Finish the data (top of this page) for: " + ", ".join(gaps_todo) + ".")

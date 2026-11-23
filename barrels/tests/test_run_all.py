@@ -59,11 +59,30 @@ def test_step_environment_is_passed(ra, tmp_path):
 
 def test_default_steps_order_and_test_env(ra):
     steps = ra.default_steps("python")
-    assert [s.name for s in steps] == ["tests", "gate", "eval_table", "vendor", "adaptive"]
+    assert [s.name for s in steps] == ["tests", "gate", "eval_table", "vendor", "adaptive", "adaptive_range"]
     assert steps[0].env == {"BARRELS_NO_REPORT": "1"}
     assert steps[1].cmd[-1] == "--gate" and steps[2].cmd[-2:] == ["--base-model", "default"]
     assert all("test" not in " ".join(s.cmd[2:]) or s.name == "tests" for s in steps)     # no --split test anywhere
-    assert steps[4].requires == ra.ADAPTIVE_SCRIPT
+    assert steps[4].requires == ra.ADAPTIVE_SCRIPT and steps[5].requires == ra.RANGE_SCRIPT
+
+
+def test_range_section_says_in_plain_words_whether_the_range_version_holds(ra, tmp_path):
+    d = tmp_path / "res"
+    d.mkdir()
+    (d / "summary.md").write_text("x")
+    (d / "config.json").write_text(json.dumps({"holds": False, "passed": False, "holds_parts": {"a": True, "b": False, "c": False, "b_thresholds": []},
+                                                "clauses": {"C1": {"pass": False}, "C2": {"pass": True}, "C5": {"pass": False}}}))
+    decide = []
+    r = ra.StepResult("adaptive_range", "r", "failed", 1, 1.0, f"... written to {d}\n")
+    text = "\n".join(ra.range_lines(r, decide))
+    assert "does not hold" in text and "R2 does not land inside" in text and "detection test" in text and "hold when all six" not in text
+    assert "**FAIL** (failed: C1, C5)" in text and not decide
+    (d / "config.json").write_text(json.dumps({"holds": True, "passed": True, "holds_parts": {"a": True, "b": True, "c": True, "b_thresholds": ["blue_s_lo"]}, "clauses": {}}))
+    text = "\n".join(ra.range_lines(r, decide))
+    assert "**The range version HOLDS.**" in text and "(blue_s_lo)" in text and decide and "R2 passed" in decide[0]
+    assert "not on this branch" in "\n".join(ra.range_lines(ra.StepResult("adaptive_range", "r", "skipped", None, 0.0, ""), []))
+    decide = []
+    assert "No verdict" in "\n".join(ra.range_lines(ra.StepResult("adaptive_range", "r", "timeout", None, 9.0, ""), decide)) and decide
 
 
 def test_parse_pytest(ra):

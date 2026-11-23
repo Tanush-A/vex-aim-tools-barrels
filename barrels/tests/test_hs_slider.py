@@ -38,6 +38,7 @@ def dirs(tmp_path):
 
 
 def _session(dirs, stems=(A, B), **kw):
+    kw = {"propose": False, **kw}                       # the proposal has its own tests (test_hs_slider_proposal.py)
     return tool.Session(list(stems), SPLITS, hl.adopted_model(), dirs[0], dirs[1], git="testhash", **kw)
 
 

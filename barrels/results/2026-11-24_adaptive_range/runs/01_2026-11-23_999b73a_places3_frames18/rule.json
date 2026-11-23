@@ -1,0 +1,601 @@
+{
+ "date": "2026-11-23",
+ "git": "999b73a",
+ "terms": [
+  [
+   "orange_h_lo",
+   "orange_peak_h",
+   0.21428571428571427,
+   21.25,
+   10.0
+  ],
+  [
+   "orange_h_hi",
+   "orange_peak_h",
+   -7.880239520958085,
+   21.25,
+   10.0
+  ],
+  [
+   "orange_s_lo",
+   "orange_s_p90",
+   -1.6453305351521514,
+   172.875,
+   60.0
+  ],
+  [
+   "blue_h_lo",
+   "blue_peak_h",
+   -1.4982904395947763,
+   102.9375,
+   10.0
+  ],
+  [
+   "blue_h_hi",
+   "blue_peak_h",
+   -0.5503685503685507,
+   102.9375,
+   10.0
+  ]
+ ],
+ "info": {
+  "orange_h_lo": {
+   "why": "adapts on orange_peak_h",
+   "b": 0.21428571428571427,
+   "hits": 3.0,
+   "hits_fixed": 2.0,
+   "of": 3.0
+  },
+  "orange_h_hi": {
+   "why": "adapts on orange_peak_h",
+   "b": -7.880239520958085,
+   "hits": 1.9999999999999998,
+   "hits_fixed": 1.0,
+   "of": 3.0
+  },
+  "orange_s_lo": {
+   "why": "adapts on orange_s_p90",
+   "b": -1.6453305351521514,
+   "hits": 2.0,
+   "hits_fixed": 0.3333333333333333,
+   "of": 3.0
+  },
+  "blue_h_lo": {
+   "why": "adapts on blue_peak_h",
+   "b": -1.4982904395947763,
+   "hits": 1.9999999999999998,
+   "hits_fixed": 1.3333333333333333,
+   "of": 3.0
+  },
+  "blue_h_hi": {
+   "why": "adapts on blue_peak_h",
+   "b": -0.5503685503685507,
+   "hits": 1.6666666666666665,
+   "hits_fixed": 1.3333333333333333,
+   "of": 3.0
+  },
+  "blue_s_lo": {
+   "why": "no line beats fixed on the training ranges",
+   "b": 0.0,
+   "hits": 2.0,
+   "hits_fixed": 2.0,
+   "of": 3.0
+  }
+ },
+ "folds": {
+  "abp_gray": {
+   "terms": [
+    [
+     "orange_s_lo",
+     "orange_s_p90",
+     -1.6453305351521514,
+     172.875,
+     60.0
+    ],
+    [
+     "blue_h_lo",
+     "blue_peak_h",
+     -1.4982904395947763,
+     102.9375,
+     10.0
+    ],
+    [
+     "blue_h_hi",
+     "blue_peak_h",
+     -1.2771723467548513,
+     102.9375,
+     10.0
+    ]
+   ],
+   "train_places": [
+    "home_ottoman",
+    "uc_palewood"
+   ],
+   "info": {
+    "orange_h_lo": {
+     "why": "fixed inside every training range",
+     "b": 0.0
+    },
+    "orange_h_hi": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 1.0,
+     "hits_fixed": 1.0,
+     "of": 2.0
+    },
+    "orange_s_lo": {
+     "why": "adapts on orange_s_p90",
+     "b": -1.6453305351521514,
+     "hits": 1.0,
+     "hits_fixed": 0.3333333333333333,
+     "of": 2.0
+    },
+    "blue_h_lo": {
+     "why": "adapts on blue_peak_h",
+     "b": -1.4982904395947763,
+     "hits": 1.0,
+     "hits_fixed": 0.3333333333333333,
+     "of": 2.0
+    },
+    "blue_h_hi": {
+     "why": "adapts on blue_peak_h",
+     "b": -1.2771723467548513,
+     "hits": 1.6666666666666665,
+     "hits_fixed": 0.3333333333333333,
+     "of": 2.0
+    },
+    "blue_s_lo": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 1.0,
+     "hits_fixed": 1.0,
+     "of": 2.0
+    }
+   }
+  },
+  "campus_study": {
+   "terms": [
+    [
+     "orange_h_lo",
+     "orange_peak_h",
+     0.21428571428571427,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_h_hi",
+     "orange_peak_h",
+     -7.880239520958085,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_s_lo",
+     "orange_s_p90",
+     -1.6453305351521514,
+     172.875,
+     60.0
+    ],
+    [
+     "blue_h_lo",
+     "blue_peak_h",
+     -1.4982904395947763,
+     102.9375,
+     10.0
+    ],
+    [
+     "blue_h_hi",
+     "blue_peak_h",
+     -0.5503685503685507,
+     102.9375,
+     10.0
+    ]
+   ],
+   "train_places": [
+    "abp_gray",
+    "home_ottoman",
+    "uc_palewood"
+   ],
+   "info": {
+    "orange_h_lo": {
+     "why": "adapts on orange_peak_h",
+     "b": 0.21428571428571427,
+     "hits": 3.0,
+     "hits_fixed": 2.0,
+     "of": 3.0
+    },
+    "orange_h_hi": {
+     "why": "adapts on orange_peak_h",
+     "b": -7.880239520958085,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.0,
+     "of": 3.0
+    },
+    "orange_s_lo": {
+     "why": "adapts on orange_s_p90",
+     "b": -1.6453305351521514,
+     "hits": 2.0,
+     "hits_fixed": 0.3333333333333333,
+     "of": 3.0
+    },
+    "blue_h_lo": {
+     "why": "adapts on blue_peak_h",
+     "b": -1.4982904395947763,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.3333333333333333,
+     "of": 3.0
+    },
+    "blue_h_hi": {
+     "why": "adapts on blue_peak_h",
+     "b": -0.5503685503685507,
+     "hits": 1.6666666666666665,
+     "hits_fixed": 1.3333333333333333,
+     "of": 3.0
+    },
+    "blue_s_lo": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 2.0,
+     "hits_fixed": 2.0,
+     "of": 3.0
+    }
+   }
+  },
+  "home_ottoman": {
+   "terms": [
+    [
+     "orange_h_lo",
+     "orange_peak_h",
+     0.1607142857142857,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_h_hi",
+     "orange_peak_h",
+     -0.16519174041297935,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_s_lo",
+     "orange_s_p90",
+     -2.7579167025852462,
+     172.875,
+     60.0
+    ],
+    [
+     "blue_h_lo",
+     "blue_peak_h",
+     0.825552825552826,
+     102.9375,
+     10.0
+    ]
+   ],
+   "train_places": [
+    "abp_gray",
+    "uc_palewood"
+   ],
+   "info": {
+    "orange_h_lo": {
+     "why": "adapts on orange_peak_h",
+     "b": 0.1607142857142857,
+     "hits": 2.0,
+     "hits_fixed": 1.0,
+     "of": 2.0
+    },
+    "orange_h_hi": {
+     "why": "adapts on orange_peak_h",
+     "b": -0.16519174041297935,
+     "hits": 2.0,
+     "hits_fixed": 1.0,
+     "of": 2.0
+    },
+    "orange_s_lo": {
+     "why": "adapts on orange_s_p90",
+     "b": -2.7579167025852462,
+     "hits": 2.0,
+     "hits_fixed": 0.0,
+     "of": 2.0
+    },
+    "blue_h_lo": {
+     "why": "adapts on blue_peak_h",
+     "b": 0.825552825552826,
+     "hits": 2.0,
+     "hits_fixed": 1.0,
+     "of": 2.0
+    },
+    "blue_h_hi": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 1.0,
+     "hits_fixed": 1.0,
+     "of": 2.0
+    },
+    "blue_s_lo": {
+     "why": "fixed inside every training range",
+     "b": 0.0
+    }
+   }
+  },
+  "uc_palewood": {
+   "terms": [
+    [
+     "orange_h_lo",
+     "orange_peak_h",
+     0.21428571428571427,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_h_hi",
+     "orange_peak_h",
+     -7.880239520958085,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_s_lo",
+     "orange_s_p90",
+     -0.8706006626014308,
+     172.875,
+     60.0
+    ],
+    [
+     "blue_h_lo",
+     "blue_peak_h",
+     -2.5512528473804075,
+     102.9375,
+     10.0
+    ],
+    [
+     "blue_s_lo",
+     "blue_s_p90",
+     -0.07991845056065239,
+     105.125,
+     60.0
+    ]
+   ],
+   "train_places": [
+    "abp_gray",
+    "home_ottoman"
+   ],
+   "info": {
+    "orange_h_lo": {
+     "why": "adapts on orange_peak_h",
+     "b": 0.21428571428571427,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.0,
+     "of": 1.9999999999999998
+    },
+    "orange_h_hi": {
+     "why": "adapts on orange_peak_h",
+     "b": -7.880239520958085,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 0.0,
+     "of": 1.9999999999999998
+    },
+    "orange_s_lo": {
+     "why": "adapts on orange_s_p90",
+     "b": -0.8706006626014308,
+     "hits": 1.3333333333333333,
+     "hits_fixed": 0.3333333333333333,
+     "of": 1.9999999999999998
+    },
+    "blue_h_lo": {
+     "why": "adapts on blue_peak_h",
+     "b": -2.5512528473804075,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.3333333333333333,
+     "of": 1.9999999999999998
+    },
+    "blue_h_hi": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 1.3333333333333333,
+     "hits_fixed": 1.3333333333333333,
+     "of": 1.9999999999999998
+    },
+    "blue_s_lo": {
+     "why": "adapts on blue_s_p90",
+     "b": -0.07991845056065239,
+     "hits": 1.3333333333333333,
+     "hits_fixed": 1.0,
+     "of": 1.9999999999999998
+    }
+   }
+  },
+  "abp_white": {
+   "terms": [
+    [
+     "orange_h_lo",
+     "orange_peak_h",
+     0.21428571428571427,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_h_hi",
+     "orange_peak_h",
+     -7.880239520958085,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_s_lo",
+     "orange_s_p90",
+     -1.6453305351521514,
+     172.875,
+     60.0
+    ],
+    [
+     "blue_h_lo",
+     "blue_peak_h",
+     -1.4982904395947763,
+     102.9375,
+     10.0
+    ],
+    [
+     "blue_h_hi",
+     "blue_peak_h",
+     -0.5503685503685507,
+     102.9375,
+     10.0
+    ]
+   ],
+   "train_places": [
+    "abp_gray",
+    "home_ottoman",
+    "uc_palewood"
+   ],
+   "info": {
+    "orange_h_lo": {
+     "why": "adapts on orange_peak_h",
+     "b": 0.21428571428571427,
+     "hits": 3.0,
+     "hits_fixed": 2.0,
+     "of": 3.0
+    },
+    "orange_h_hi": {
+     "why": "adapts on orange_peak_h",
+     "b": -7.880239520958085,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.0,
+     "of": 3.0
+    },
+    "orange_s_lo": {
+     "why": "adapts on orange_s_p90",
+     "b": -1.6453305351521514,
+     "hits": 2.0,
+     "hits_fixed": 0.3333333333333333,
+     "of": 3.0
+    },
+    "blue_h_lo": {
+     "why": "adapts on blue_peak_h",
+     "b": -1.4982904395947763,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.3333333333333333,
+     "of": 3.0
+    },
+    "blue_h_hi": {
+     "why": "adapts on blue_peak_h",
+     "b": -0.5503685503685507,
+     "hits": 1.6666666666666665,
+     "hits_fixed": 1.3333333333333333,
+     "of": 3.0
+    },
+    "blue_s_lo": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 2.0,
+     "hits_fixed": 2.0,
+     "of": 3.0
+    }
+   }
+  },
+  "home_white": {
+   "terms": [
+    [
+     "orange_h_lo",
+     "orange_peak_h",
+     0.21428571428571427,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_h_hi",
+     "orange_peak_h",
+     -7.880239520958085,
+     21.25,
+     10.0
+    ],
+    [
+     "orange_s_lo",
+     "orange_s_p90",
+     -1.6453305351521514,
+     172.875,
+     60.0
+    ],
+    [
+     "blue_h_lo",
+     "blue_peak_h",
+     -1.4982904395947763,
+     102.9375,
+     10.0
+    ],
+    [
+     "blue_h_hi",
+     "blue_peak_h",
+     -0.5503685503685507,
+     102.9375,
+     10.0
+    ]
+   ],
+   "train_places": [
+    "abp_gray",
+    "home_ottoman",
+    "uc_palewood"
+   ],
+   "info": {
+    "orange_h_lo": {
+     "why": "adapts on orange_peak_h",
+     "b": 0.21428571428571427,
+     "hits": 3.0,
+     "hits_fixed": 2.0,
+     "of": 3.0
+    },
+    "orange_h_hi": {
+     "why": "adapts on orange_peak_h",
+     "b": -7.880239520958085,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.0,
+     "of": 3.0
+    },
+    "orange_s_lo": {
+     "why": "adapts on orange_s_p90",
+     "b": -1.6453305351521514,
+     "hits": 2.0,
+     "hits_fixed": 0.3333333333333333,
+     "of": 3.0
+    },
+    "blue_h_lo": {
+     "why": "adapts on blue_peak_h",
+     "b": -1.4982904395947763,
+     "hits": 1.9999999999999998,
+     "hits_fixed": 1.3333333333333333,
+     "of": 3.0
+    },
+    "blue_h_hi": {
+     "why": "adapts on blue_peak_h",
+     "b": -0.5503685503685507,
+     "hits": 1.6666666666666665,
+     "hits_fixed": 1.3333333333333333,
+     "of": 3.0
+    },
+    "blue_s_lo": {
+     "why": "no line beats fixed on the training ranges",
+     "b": 0.0,
+     "hits": 2.0,
+     "hits_fixed": 2.0,
+     "of": 3.0
+    }
+   }
+  }
+ },
+ "hand_places": [
+  "abp_gray",
+  "home_ottoman",
+  "uc_palewood"
+ ],
+ "f_home": {
+  "v_mean": 140.04102374969685,
+  "s_median": 32.75,
+  "s_share100": 0.0655280608101465,
+  "blue_peak_h": 102.9375,
+  "blue_s_p90": 105.125,
+  "orange_peak_h": 21.25,
+  "orange_s_p90": 172.875,
+  "ref_hue_shift": 0.25,
+  "ref_s_scale": 0.9945131099938016
+ }
+}

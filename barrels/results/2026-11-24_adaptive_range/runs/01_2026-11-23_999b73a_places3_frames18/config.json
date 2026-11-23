@@ -1,0 +1,1009 @@
+{
+ "date": "2026-11-23",
+ "git": "999b73a",
+ "passed": false,
+ "holds": false,
+ "holds_parts": {
+  "a": false,
+  "b": true,
+  "c": false,
+  "b_thresholds": [
+   "orange_s_lo"
+  ]
+ },
+ "clauses": {
+  "C1": {
+   "pass": false,
+   "text": "3 places with slider labels (abp_gray, home_ottoman, uc_palewood); 5 needed"
+  },
+  "C2": {
+   "pass": false,
+   "text": "found 112 vs 121 fixed (-9; +3 needed), more in 2 places (2 needed)"
+  },
+  "C3": {
+   "pass": true,
+   "text": "false boxes 8 vs 6 fixed (at most +2)"
+  },
+  "C4": {
+   "pass": true,
+   "text": "no new box on an empty frame"
+  },
+  "C5": {
+   "pass": false,
+   "text": "score drops by more than 0.02 in both_abpgray, CAMPUS, lampmid6_ottoman"
+  },
+  "C6": {
+   "pass": false,
+   "text": "R2 adds failing gate rows: 4A8B_campus_light|cluster, 4A8B_campus_light|edge, 4A8B_campus_light|occl, 4A8B_campus_light|room, 4A8B_window_light|core"
+  },
+  "C7": {
+   "pass": true,
+   "text": "not applicable: no place new since the frozen R2"
+  }
+ },
+ "constrained": {
+  "orange_h_lo": {
+   "fixed_outside": [
+    "both_abpgray"
+   ],
+   "median_width": 42.0,
+   "constrained": true
+  },
+  "orange_h_hi": {
+   "fixed_outside": [
+    "both_abpgray",
+    "lampcool6_ottoman",
+    "lampmid6_ottoman",
+    "lampwarm6_ottoman"
+   ],
+   "median_width": 45.0,
+   "constrained": true
+  },
+  "orange_s_lo": {
+   "fixed_outside": [
+    "both_abpgray",
+    "lampmid6_ottoman",
+    "lampwarm6_ottoman",
+    "overheaddim_palewood"
+   ],
+   "median_width": 54.0,
+   "constrained": true
+  },
+  "blue_h_lo": {
+   "fixed_outside": [
+    "lampcool6_ottoman",
+    "lampwarm6_ottoman",
+    "overheaddim_palewood"
+   ],
+   "median_width": 46.0,
+   "constrained": true
+  },
+  "blue_h_hi": {
+   "fixed_outside": [
+    "lampcool6_ottoman",
+    "lampmid6_ottoman",
+    "overheaddim_palewood"
+   ],
+   "median_width": 38.5,
+   "constrained": true
+  },
+  "blue_s_lo": {
+   "fixed_outside": [
+    "lampcool6_ottoman",
+    "lampmid6_ottoman",
+    "lampwarm6_ottoman"
+   ],
+   "median_width": 98.0,
+   "constrained": true
+  }
+ },
+ "rule_hits": {
+  "orange_h_lo": {
+   "fixed": 0.6666666666666666,
+   "r2": 0.6666666666666666,
+   "old": 0.6666666666666666
+  },
+  "orange_h_hi": {
+   "fixed": 0.3333333333333333,
+   "r2": 0.0,
+   "old": 0.6666666666666666
+  },
+  "orange_s_lo": {
+   "fixed": 0.1111111111111111,
+   "r2": 0.3333333333333333,
+   "old": 0.1111111111111111
+  },
+  "blue_h_lo": {
+   "fixed": 0.4444444444444444,
+   "r2": 0.3333333333333333,
+   "old": 0.4444444444444444
+  },
+  "blue_h_hi": {
+   "fixed": 0.4444444444444444,
+   "r2": 0.1111111111111111,
+   "old": 0.4444444444444444
+  },
+  "blue_s_lo": {
+   "fixed": 0.6666666666666666,
+   "r2": 0.3333333333333333,
+   "old": 0.3333333333333333
+  }
+ },
+ "condition_ranges": {
+  "det": {
+   "both_abpgray": {
+    "orange_h_lo": [
+     -3.0,
+     0.0,
+     false
+    ],
+    "orange_h_hi": [
+     17.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     157.0,
+     233.0,
+     true
+    ],
+    "blue_h_lo": [
+     60.0,
+     112.0,
+     false
+    ],
+    "blue_h_hi": [
+     116.0,
+     127.0,
+     true
+    ],
+    "blue_s_lo": [
+     85.0,
+     241.0,
+     true
+    ]
+   },
+   "lampcool6_ottoman": {
+    "orange_h_lo": [
+     2.0,
+     8.0,
+     false
+    ],
+    "orange_h_hi": [
+     18.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     110.0,
+     152.0,
+     false
+    ],
+    "blue_h_lo": [
+     93.0,
+     102.0,
+     false
+    ],
+    "blue_h_hi": [
+     107.0,
+     111.0,
+     false
+    ],
+    "blue_s_lo": [
+     98.0,
+     106.0,
+     false
+    ]
+   },
+   "lampmid3_ottoman": {
+    "orange_h_lo": [
+     -30.0,
+     23.0,
+     false
+    ],
+    "orange_h_hi": [
+     4.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     147.0,
+     255.0,
+     false
+    ],
+    "blue_h_lo": [
+     60.0,
+     110.0,
+     false
+    ],
+    "blue_h_hi": [
+     97.0,
+     150.0,
+     false
+    ],
+    "blue_s_lo": [
+     0.0,
+     255.0,
+     false
+    ]
+   },
+   "lampmid6_ottoman": {
+    "orange_h_lo": [
+     -30.0,
+     13.0,
+     false
+    ],
+    "orange_h_hi": [
+     15.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     179.0,
+     192.0,
+     false
+    ],
+    "blue_h_lo": [
+     76.0,
+     103.0,
+     false
+    ],
+    "blue_h_hi": [
+     107.0,
+     116.0,
+     false
+    ],
+    "blue_s_lo": [
+     19.0,
+     106.0,
+     false
+    ]
+   },
+   "lampwarm6_ottoman": {
+    "orange_h_lo": [
+     -30.0,
+     12.0,
+     false
+    ],
+    "orange_h_hi": [
+     17.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     164.0,
+     182.0,
+     true
+    ],
+    "blue_h_lo": [
+     60.0,
+     101.0,
+     false
+    ],
+    "blue_h_hi": [
+     110.0,
+     144.0,
+     false
+    ],
+    "blue_s_lo": [
+     0.0,
+     18.0,
+     false
+    ]
+   },
+   "overheaddim_palewood": {
+    "orange_h_lo": [
+     -3.0,
+     6.0,
+     false
+    ],
+    "orange_h_hi": [
+     6.0,
+     15.0,
+     true
+    ],
+    "orange_s_lo": [
+     168.0,
+     198.0,
+     false
+    ],
+    "blue_h_lo": [
+     106.0,
+     109.0,
+     false
+    ],
+    "blue_h_hi": [
+     110.0,
+     117.0,
+     false
+    ],
+    "blue_s_lo": [
+     111.0,
+     132.0,
+     false
+    ]
+   }
+  },
+  "pix": {
+   "both_abpgray": {
+    "orange_h_lo": [
+     -3.0,
+     0.0,
+     false
+    ],
+    "orange_h_hi": [
+     7.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     192.0,
+     203.0,
+     false
+    ],
+    "blue_h_lo": [
+     60.0,
+     107.0,
+     false
+    ],
+    "blue_h_hi": [
+     118.0,
+     127.0,
+     true
+    ],
+    "blue_s_lo": [
+     173.0,
+     215.0,
+     false
+    ]
+   },
+   "lampcool6_ottoman": {
+    "orange_h_lo": [
+     2.0,
+     10.0,
+     false
+    ],
+    "orange_h_hi": [
+     19.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     110.0,
+     141.0,
+     false
+    ],
+    "blue_h_lo": [
+     93.0,
+     102.0,
+     false
+    ],
+    "blue_h_hi": [
+     109.0,
+     111.0,
+     false
+    ],
+    "blue_s_lo": [
+     96.0,
+     132.0,
+     false
+    ]
+   },
+   "lampmid3_ottoman": {
+    "orange_h_lo": [
+     -30.0,
+     10.0,
+     false
+    ],
+    "orange_h_hi": [
+     17.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     147.0,
+     169.0,
+     false
+    ],
+    "blue_h_lo": [
+     60.0,
+     104.0,
+     false
+    ],
+    "blue_h_hi": [
+     109.0,
+     150.0,
+     false
+    ],
+    "blue_s_lo": [
+     0.0,
+     114.0,
+     false
+    ]
+   },
+   "lampmid6_ottoman": {
+    "orange_h_lo": [
+     -30.0,
+     10.0,
+     false
+    ],
+    "orange_h_hi": [
+     21.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     165.0,
+     193.0,
+     true
+    ],
+    "blue_h_lo": [
+     76.0,
+     102.0,
+     false
+    ],
+    "blue_h_hi": [
+     109.0,
+     116.0,
+     false
+    ],
+    "blue_s_lo": [
+     19.0,
+     86.0,
+     false
+    ]
+   },
+   "lampwarm6_ottoman": {
+    "orange_h_lo": [
+     -30.0,
+     10.0,
+     false
+    ],
+    "orange_h_hi": [
+     21.0,
+     60.0,
+     false
+    ],
+    "orange_s_lo": [
+     164.0,
+     190.0,
+     true
+    ],
+    "blue_h_lo": [
+     60.0,
+     96.0,
+     false
+    ],
+    "blue_h_hi": [
+     109.0,
+     144.0,
+     false
+    ],
+    "blue_s_lo": [
+     0.0,
+     26.0,
+     false
+    ]
+   },
+   "overheaddim_palewood": {
+    "orange_h_lo": [
+     -3.0,
+     1.0,
+     false
+    ],
+    "orange_h_hi": [
+     10.0,
+     11.0,
+     false
+    ],
+    "orange_s_lo": [
+     168.0,
+     175.0,
+     false
+    ],
+    "blue_h_lo": [
+     106.0,
+     106.0,
+     false
+    ],
+    "blue_h_hi": [
+     115.0,
+     117.0,
+     false
+    ],
+    "blue_s_lo": [
+     111.0,
+     156.0,
+     false
+    ]
+   }
+  },
+  "confirmed": {
+   "both_abpgray": {
+    "orange_h_lo": [
+     -2.0,
+     -2.0,
+     true
+    ],
+    "orange_h_hi": [
+     6.0,
+     19.0,
+     true
+    ],
+    "orange_s_lo": [
+     167.0,
+     167.0,
+     true
+    ],
+    "blue_h_lo": [
+     102.0,
+     102.0,
+     false
+    ],
+    "blue_h_hi": [
+     121.0,
+     121.0,
+     true
+    ],
+    "blue_s_lo": [
+     106.0,
+     121.0,
+     true
+    ]
+   },
+   "lampcool6_ottoman": {
+    "orange_h_lo": [
+     3.0,
+     5.0,
+     false
+    ],
+    "orange_h_hi": [
+     21.0,
+     32.0,
+     false
+    ],
+    "orange_s_lo": [
+     112.0,
+     114.0,
+     false
+    ],
+    "blue_h_lo": [
+     94.0,
+     99.0,
+     false
+    ],
+    "blue_h_hi": [
+     109.0,
+     112.0,
+     true
+    ],
+    "blue_s_lo": [
+     98.0,
+     104.0,
+     false
+    ]
+   },
+   "lampmid3_ottoman": {
+    "orange_h_lo": [
+     -4.0,
+     8.0,
+     false
+    ],
+    "orange_h_hi": [
+     19.0,
+     32.0,
+     false
+    ],
+    "orange_s_lo": [
+     149.0,
+     173.0,
+     false
+    ],
+    "blue_h_lo": [
+     87.0,
+     98.0,
+     false
+    ],
+    "blue_h_hi": [
+     107.0,
+     120.0,
+     false
+    ],
+    "blue_s_lo": [
+     74.0,
+     137.0,
+     false
+    ]
+   },
+   "lampmid6_ottoman": {
+    "orange_h_lo": [
+     -13.0,
+     8.0,
+     false
+    ],
+    "orange_h_hi": [
+     19.0,
+     41.0,
+     false
+    ],
+    "orange_s_lo": [
+     167.0,
+     196.0,
+     true
+    ],
+    "blue_h_lo": [
+     86.0,
+     99.0,
+     false
+    ],
+    "blue_h_hi": [
+     110.0,
+     115.0,
+     false
+    ],
+    "blue_s_lo": [
+     32.0,
+     77.0,
+     false
+    ]
+   },
+   "lampwarm6_ottoman": {
+    "orange_h_lo": [
+     -3.0,
+     6.0,
+     false
+    ],
+    "orange_h_hi": [
+     23.0,
+     33.0,
+     false
+    ],
+    "orange_s_lo": [
+     166.0,
+     176.0,
+     true
+    ],
+    "blue_h_lo": [
+     72.0,
+     97.0,
+     true
+    ],
+    "blue_h_hi": [
+     132.0,
+     137.0,
+     false
+    ],
+    "blue_s_lo": [
+     12.0,
+     13.0,
+     false
+    ]
+   },
+   "overheaddim_palewood": {
+    "orange_h_lo": [
+     -2.0,
+     3.0,
+     false
+    ],
+    "orange_h_hi": [
+     10.0,
+     14.0,
+     true
+    ],
+    "orange_s_lo": [
+     168.0,
+     190.0,
+     false
+    ],
+    "blue_h_lo": [
+     104.0,
+     108.0,
+     true
+    ],
+    "blue_h_hi": [
+     121.0,
+     141.0,
+     true
+    ],
+    "blue_s_lo": [
+     106.0,
+     195.0,
+     true
+    ]
+   }
+  }
+ },
+ "frozen": "rule_range_frozen_2026-11-23.json",
+ "new_places": [],
+ "n_test_refused": 60,
+ "frames": {
+  "4A8B_both_abpgray_clutter_01": {
+   "anchor": {
+    "orange_h_lo": -2,
+    "orange_h_hi": 19,
+    "orange_s_lo": 159,
+    "blue_h_lo": 102,
+    "blue_h_hi": 117,
+    "blue_s_lo": 113
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_both_abpgray_core_01": {
+   "anchor": {
+    "orange_h_lo": -1,
+    "orange_h_hi": 6,
+    "orange_s_lo": 167,
+    "blue_h_lo": 102,
+    "blue_h_hi": 121,
+    "blue_s_lo": 79
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_both_abpgray_occl_02": {
+   "anchor": {
+    "orange_h_lo": -5,
+    "orange_h_hi": 6,
+    "orange_s_lo": 200,
+    "blue_h_lo": 104,
+    "blue_h_hi": 126,
+    "blue_s_lo": 179
+   },
+   "found": 1,
+   "false": 0,
+   "n_boxes": 1,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampcool6_ottoman_clutter_01": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 116,
+    "blue_h_lo": 97,
+    "blue_h_hi": 112,
+    "blue_s_lo": 98
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampcool6_ottoman_core_01": {
+   "anchor": {
+    "orange_h_lo": 5,
+    "orange_h_hi": 23,
+    "orange_s_lo": 105,
+    "blue_h_lo": 99,
+    "blue_h_hi": 114,
+    "blue_s_lo": 96
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampcool6_ottoman_occl_02": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 101,
+    "blue_h_lo": 97,
+    "blue_h_hi": 110,
+    "blue_s_lo": 98
+   },
+   "found": 1,
+   "false": 0,
+   "n_boxes": 1,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampmid3_ottoman_clutter_01": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 146,
+    "blue_h_lo": 95,
+    "blue_h_hi": 110,
+    "blue_s_lo": 98
+   },
+   "found": 0,
+   "false": 1,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampmid3_ottoman_core_01": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 101,
+    "blue_h_lo": 97,
+    "blue_h_hi": 110,
+    "blue_s_lo": 98
+   },
+   "found": 0,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampmid3_ottoman_occl_02": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 151,
+    "blue_h_lo": 95,
+    "blue_h_hi": 110,
+    "blue_s_lo": 98
+   },
+   "found": 0,
+   "false": 0,
+   "n_boxes": 1,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampmid6_ottoman_clutter_01": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 181,
+    "blue_h_lo": 95,
+    "blue_h_hi": 115,
+    "blue_s_lo": 48
+   },
+   "found": 3,
+   "false": 1,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampmid6_ottoman_core_01": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 171,
+    "blue_h_lo": 95,
+    "blue_h_hi": 115,
+    "blue_s_lo": 48
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampmid6_ottoman_occl_02": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 23,
+    "orange_s_lo": 136,
+    "blue_h_lo": 95,
+    "blue_h_hi": 115,
+    "blue_s_lo": 43
+   },
+   "found": 1,
+   "false": 0,
+   "n_boxes": 1,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampwarm6_ottoman_clutter_01": {
+   "anchor": {
+    "orange_h_lo": 5,
+    "orange_h_hi": 25,
+    "orange_s_lo": 166,
+    "blue_h_lo": 75,
+    "blue_h_hi": 135,
+    "blue_s_lo": 10
+   },
+   "found": 3,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampwarm6_ottoman_core_01": {
+   "anchor": {
+    "orange_h_lo": 4,
+    "orange_h_hi": 25,
+    "orange_s_lo": 176,
+    "blue_h_lo": 80,
+    "blue_h_hi": 135,
+    "blue_s_lo": 0
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_lampwarm6_ottoman_occl_02": {
+   "anchor": {
+    "orange_h_lo": 5,
+    "orange_h_hi": 25,
+    "orange_s_lo": 151,
+    "blue_h_lo": 100,
+    "blue_h_hi": 140,
+    "blue_s_lo": 15
+   },
+   "found": 1,
+   "false": 0,
+   "n_boxes": 1,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_overheaddim_palewood_clutter_01": {
+   "anchor": {
+    "orange_h_lo": -3,
+    "orange_h_hi": 16,
+    "orange_s_lo": 166,
+    "blue_h_lo": 104,
+    "blue_h_hi": 117,
+    "blue_s_lo": 131
+   },
+   "found": 3,
+   "false": 1,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_overheaddim_palewood_core_01": {
+   "anchor": {
+    "orange_h_lo": -1,
+    "orange_h_hi": 14,
+    "orange_s_lo": 168,
+    "blue_h_lo": 101,
+    "blue_h_hi": 132,
+    "blue_s_lo": 98
+   },
+   "found": 4,
+   "false": 0,
+   "n_boxes": 4,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  },
+  "4A8B_overheaddim_palewood_occl_02": {
+   "anchor": {
+    "orange_h_lo": -3,
+    "orange_h_hi": 11,
+    "orange_s_lo": 153,
+    "blue_h_lo": 109,
+    "blue_h_hi": 139,
+    "blue_s_lo": 135
+   },
+   "found": 0,
+   "false": 0,
+   "n_boxes": 1,
+   "proposed": false,
+   "moved": null,
+   "proposed_by": null
+  }
+ }
+}

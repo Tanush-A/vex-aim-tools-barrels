@@ -556,6 +556,38 @@ def validate_hs(meta: dict) -> None:
             raise ValueError(f"{key} must be a string, got {meta[key]!r}")
     if "reviewed" in meta and not isinstance(meta["reviewed"], bool):
         raise ValueError(f"reviewed must be true or false, got {meta['reviewed']!r}")
+    validate_hs_provenance(meta)
+
+
+HS_PROPOSED_BY = ("claude", "computed")
+
+
+def validate_hs_ranges(ranges: dict) -> None:
+    """``{'orange': {'h_lo': [lo, hi], ...}, 'blue': {...}}``: each present entry two ints, lo <= hi."""
+    if not isinstance(ranges, dict):
+        raise ValueError(f"ranges must be a dict per color, got {ranges!r}")
+    for name, per in ranges.items():
+        if name not in HS_CLASSES or not isinstance(per, dict):
+            raise ValueError(f"ranges: unknown color {name!r} or not a dict")
+        for k, v in per.items():
+            if k not in HS_KEYS or not (isinstance(v, (list, tuple)) and len(v) == 2 and all(_is_int(x) for x in v) and v[0] <= v[1]):
+                raise ValueError(f"ranges[{name}][{k}] must be [lo, hi] ints with lo <= hi, got {v!r}")
+
+
+def validate_hs_provenance(meta: dict) -> None:
+    """The optional fields of a label saved from a proposal (2026-11-24): ``proposed`` (bool), ``proposed_by``
+    ('claude' | 'computed' | null), ``moved`` (bool: a slider was changed from the proposal), ``proposal`` (the six
+    numbers the sliders started at) and ``ranges`` (the feasible range of each slider)."""
+    if "proposed" in meta and not isinstance(meta["proposed"], bool):
+        raise ValueError(f"proposed must be true or false, got {meta['proposed']!r}")
+    if "proposed_by" in meta and meta["proposed_by"] not in (None, *HS_PROPOSED_BY):
+        raise ValueError(f"proposed_by must be one of {HS_PROPOSED_BY} or null, got {meta['proposed_by']!r}")
+    if "moved" in meta and not (meta["moved"] is None or isinstance(meta["moved"], bool)):
+        raise ValueError(f"moved must be true, false or null, got {meta['moved']!r}")
+    if meta.get("proposal") is not None:
+        validate_hs_thresholds(meta["proposal"])
+    if meta.get("ranges") is not None:
+        validate_hs_ranges(meta["ranges"])
 
 
 def load_hs(image_or_stem: Path | str, labels_dir: Path | str | None = None, *,
@@ -598,9 +630,58 @@ def save_hs(image_or_stem: Path | str, meta: dict, labels_dir: Path | str | None
             "base_model": meta["base_model"], "detector_git": meta.get("detector_git", "unknown"),
             "boxes_drawn": int(meta["boxes_drawn"]), "criterion": meta.get("criterion", HS_CRITERION),
             "reviewed": bool(meta.get("reviewed", False)), "note": meta.get("note", "")}
+    if any(k in meta for k in ("proposed", "proposed_by", "moved", "proposal", "ranges")):
+        out |= {"proposed": bool(meta.get("proposed", meta.get("proposed_by") is not None)), "proposed_by": meta.get("proposed_by"),
+                "moved": meta.get("moved"),
+                "proposal": None if meta.get("proposal") is None else {n: {k: int(meta["proposal"][n][k]) for k in HS_KEYS} for n in HS_CLASSES},
+                "ranges": None if meta.get("ranges") is None else {n: {k: [int(v[0]), int(v[1])] for k, v in per.items()} for n, per in meta["ranges"].items()}}
     p = hs_path(stem, labels_dir)
     p.parent.mkdir(parents=True, exist_ok=True)
     tmp = p.with_name(p.name + ".tmp")
     tmp.write_text(json.dumps(out, indent=1) + "\n")
     os.replace(tmp, p)
+    return p
+
+
+# ---------------------------------------------------------------- a proposal for the slider tool (2026-11-24)
+
+def hs_proposed_path(image_or_stem: Path | str, labels_dir: Path | str | None = None) -> Path:
+    """``data/labels/<stem>_hs_proposed.json`` — six numbers a Claude session proposes for the slider tool to start
+    from on a frame with no saved label, with its ``reasoning``. Not a label: nothing scores against it."""
+    return Path(labels_dir or LABELS_DIR) / f"{Path(image_or_stem).stem}_hs_proposed.json"
+
+
+def load_hs_proposed(image_or_stem: Path | str, labels_dir: Path | str | None = None) -> dict:
+    """The proposal dict (six numbers in the label form, ``reasoning``, ``by``). Raises FileNotFoundError or
+    ValueError."""
+    import json
+    stem = Path(image_or_stem).stem
+    p = hs_proposed_path(stem, labels_dir)
+    if not p.exists():
+        raise FileNotFoundError(p)
+    try:
+        d = json.loads(p.read_text())
+    except json.JSONDecodeError as e:
+        raise ValueError(f"{p.name}: not JSON ({e})") from None
+    if not isinstance(d, dict) or d.get("version") != HS_JSON_VERSION or d.get("stem") != stem:
+        raise ValueError(f"{p.name}: not a version {HS_JSON_VERSION} proposal for {stem}")
+    validate_hs_thresholds(d)
+    if not isinstance(d.get("reasoning", ""), str):
+        raise ValueError(f"{p.name}: reasoning must be a string")
+    return d
+
+
+def save_hs_proposed(image_or_stem: Path | str, thresholds: dict, reasoning: str, labels_dir: Path | str | None = None,
+                     by: str = "claude") -> Path:
+    """Write ``<stem>_hs_proposed.json``. The CALLER checks that the frame is a train frame."""
+    import json
+    validate_hs_thresholds(thresholds)
+    stem = Path(image_or_stem).stem
+    out = {"version": HS_JSON_VERSION, "stem": stem, "by": by}
+    for name in HS_CLASSES:
+        out[name] = {k: int(thresholds[name][k]) for k in HS_KEYS}
+    out |= {"hue_units": HS_HUE_UNITS, "reasoning": str(reasoning)}
+    p = hs_proposed_path(stem, labels_dir)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(out, indent=1) + "\n")
     return p

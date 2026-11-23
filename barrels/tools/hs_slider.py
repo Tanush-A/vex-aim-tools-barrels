@@ -6,6 +6,24 @@
     python barrels/tools/hs_slider.py --scenes core_01,touch_01 --unlabeled # only frames without a <stem>_hs.json
     python barrels/tools/hs_slider.py --filter window_white --list          # print which frames would open, and stop
     python barrels/tools/hs_slider.py --filter window_light_core_01 --selftest /tmp/x.png [--thresholds=-3,13,140,103,119,113] [--truth]
+    python barrels/tools/hs_slider.py --filter 4A8B_both_abpgray_core_01 --render-grid /tmp/g.png --try adopted --try computed --try "o:-1,6,167;b:102,121,79"
+    python barrels/tools/hs_slider.py --filter 4A8B_both_abpgray_core_01 --save-proposal "o:-1,6,167;b:102,121,79" --reasoning "why"
+
+Where the sliders start (2026-11-24). A frame with a saved label opens with it. A frame with no saved label opens with,
+in this order: the proposal a Claude session wrote for it (data/labels/<stem>_hs_proposed.json, written with
+--save-proposal; its reasoning is shown in the message line), else the COMPUTED proposal (only from the frame and your
+hand-drawn boxes: the setting that paints the most barrel minus outside pixels, then the middle of the range of each
+slider; it takes a few seconds and appears by itself unless you moved a slider first), else the adopted values. Each
+slider shows its feasible range as a shaded band: the values that, with the other five where they are at the start,
+still find every barrel of yours found at the start, add no false box and paint at most a little more outside your
+boxes (barrels.hsrange). If the start values look right, `w` accepts them. The label records where the start came from
+("proposed_by": "claude" | "computed" | null), the start values ("proposal"), whether you moved a slider ("moved") and
+the bands ("ranges"). The detector's boxes are never used as truth.
+
+--render-grid OUT.png (no window, for a Claude session choosing a proposal): the raw frame with your boxes, then one
+tile per --try setting (painted pixels, your boxes in white, the detector's boxes, and found / false / painted shares).
+A --try is "o:h_lo,h_hi,s_lo;b:h_lo,h_hi,s_lo" (either part may be left out: that color keeps the adopted values),
+or adopted, computed, claude, saved.
 
 The window: left the raw frame; right the same frame with every pixel the current thresholds do NOT label dimmed
 and the labeled pixels painted orange / blue, with the boxes today's detector draws from exactly that segmentation
@@ -41,13 +59,14 @@ from __future__ import annotations
 
 import argparse
 import sys
+import threading
 from pathlib import Path
 
 import cv2
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from barrels import detector as det, geometry as geo, hslabel as hl, io, pipeline as pl, splits as sp, viz, worldmap_bridge as wb  # noqa: E402
+from barrels import detector as det, geometry as geo, hslabel as hl, hsrange as hx, io, pipeline as pl, splits as sp, viz, worldmap_bridge as wb  # noqa: E402
 from barrels.io import BLUE, ORANGE  # noqa: E402
 
 WIN = "hs slider"
@@ -60,8 +79,10 @@ TRACK_X0, TRACK_RIGHT = 180, 130  # the track starts this far into its column an
 TOP_PAD = 18
 PANEL_H = TOP_PAD + 3 * ROW_H + 5 * 20 + 2
 FONT, FS = cv2.FONT_HERSHEY_SIMPLEX, 0.45
-BG, FG, DIMTXT, HILITE = (32, 32, 32), (235, 235, 235), (150, 150, 150), (0, 255, 255)
-HELP = "drag a slider, or 1-6 then - = ([ ] by 5)   b boxes   t truth   m paint   r adopted   c copy previous   u undo   w save   n/p next/prev   q quit"
+BG, FG, DIMTXT, HILITE, BAND = (32, 32, 32), (235, 235, 235), (150, 150, 150), (0, 255, 255), (60, 105, 60)
+HELP = "drag a slider, or 1-6 then - = ([ ] by 5)   b boxes   t truth   m paint   r adopted   c copy previous   u undo   w save/accept   n/p next/prev   q quit"
+PROVENANCE = ("proposed", "proposed_by", "moved", "proposal", "ranges")
+GUIDE_COARSE = 4         # the tool's range sweep jumps 4 steps, then refines (barrels.hsrange.sweep)
 STEPS = {"-": -1, "_": -1, "=": 1, "+": 1, "[": -5, "{": -5, "]": 5, "}": 5}
 
 
@@ -115,14 +136,42 @@ def seg_picture(bgr: np.ndarray, mask: np.ndarray, barrels: list, truth: list[di
     return out
 
 
+def compute_guide(img: np.ndarray, truth: list[dict], base: pl.Model, anchor: dict | None, cam=geo.AIM_4A8B6118_BOXFIT) -> dict:
+    """From the frame and the hand-drawn boxes only: with ``anchor`` None the computed proposal and its ranges
+    (``hsrange.propose``), else the ranges around ``anchor``. Returns {"proposal": nested | None, "ranges": {t: (lo, hi)},
+    "source": text}."""
+    fe = hx.FrameEval(img, {"barrels": truth}, base, cam=cam)
+    if anchor is None:
+        p = hx.propose(fe, hl.thresholds_from_model(base), coarse=GUIDE_COARSE)
+        return {"proposal": hx.nested(p.thresholds), "ranges": {t: (r.lo, r.hi) for t, r in p.ranges.items()}, "source": p.source}
+    r = hx.sweep(fe, hx.flat(anchor), hx.DET, coarse=GUIDE_COARSE)
+    return {"proposal": None, "ranges": {t: (x.lo, x.hi) for t, x in r.items()}, "source": "around the start values"}
+
+
+def ranges_nested(ranges: dict | None) -> dict | None:
+    """{t: (lo, hi)} -> the label form {'orange': {'h_lo': [lo, hi], ...}, ...}."""
+    if not ranges:
+        return None
+    return {c: {k: [int(ranges[f"{c}_{k}"][0]), int(ranges[f"{c}_{k}"][1])] for k in io.HS_KEYS if f"{c}_{k}" in ranges} for c in io.HS_CLASSES}
+
+
+def ranges_flat(ranges: dict | None) -> dict | None:
+    if not ranges:
+        return None
+    return {f"{c}_{k}": tuple(v) for c, per in ranges.items() for k, v in per.items()}
+
+
 class Session:
     """The tool's whole state and behavior without the window: ``render`` gives the picture, ``on_key`` and
     ``on_mouse`` change the state. A frame is opened only after ``hslabel.require_labelable`` passes."""
 
     def __init__(self, stems: list[str], splits: dict[str, list[str]], base: pl.Model, raw_dir: Path | str | None = None,
                  labels_dir: Path | str | None = None, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, scale: float = 1.0,
-                 git: str = "unknown"):
+                 git: str = "unknown", propose: bool = True, background: bool = True):
         self.stems, self.splits, self.base, self.cam, self.scale, self.git = list(stems), splits, base, cam, scale, git
+        self.propose, self.background = propose, background
+        self._guides: dict[tuple, dict] = {}
+        self._lock = threading.Lock()
         self.raw_dir, self.labels_dir = Path(raw_dir or io.RAW_DIR), Path(labels_dir or io.LABELS_DIR)
         self.adopted = hl.thresholds_from_model(base)
         self.det_cfg = det.DetConfig()
@@ -158,10 +207,15 @@ class Session:
             except ValueError as e:
                 self.msg = f"truth boxes not shown: {e}"
         self.thr = hl.copy_thresholds(self.adopted)
+        self.start, self.proposal, self.reasoning, self.ranges, self.prov = "adopted", None, "", None, {}
+        self.guide_key = None
         if io.hs_path(stem, self.labels_dir).exists():
             try:
                 meta = io.load_hs(stem, self.labels_dir, check_image=False)
                 self.thr, self.note, self.has_label = hl.copy_thresholds(meta), meta.get("note", ""), True
+                self.start = "saved label"
+                self.prov = {k: meta[k] for k in PROVENANCE if k in meta}
+                self.ranges = ranges_flat(meta.get("ranges"))
                 now = (self.base.cfg.short_hash(), self.base.cfg.v_min, self.base.cfg.horizon_row)
                 if meta.get("image_sha1") and meta["image_sha1"] != self.sha:
                     self.msg = "the image changed since this label was saved: check it, then w"
@@ -169,9 +223,80 @@ class Session:
                     self.msg = f"this label was set against model {meta['base_model']} (now {now[0]}): check it, then w"
             except ValueError as e:
                 self.msg = f"saved label ignored ({e}); starting from the adopted values"
+        if not self.has_label:
+            self._start_from_proposal(stem)
         self.baseline = hl.copy_thresholds(self.thr)
         self.grab = self.pending = None
         self._seg = self._view = None
+        if self.propose and self.truth and self.ranges is None:
+            anchor = None if self.start == "computing" else self.thr
+            self.guide_key = (stem, None if anchor is None else hx.key(hx.flat(anchor)))
+            self._request(self.guide_key, self.img, self.truth, anchor)
+        self.poll()
+
+    def _start_from_proposal(self, stem: str) -> None:
+        """No saved label: Claude's proposal file, else the computed proposal (asked for in ``load``), else adopted."""
+        p = io.hs_proposed_path(stem, self.labels_dir)
+        if p.exists():
+            try:
+                d = io.load_hs_proposed(stem, self.labels_dir)
+                self.thr = hl.copy_thresholds(d)
+                self.start, self.proposal, self.reasoning = "claude", hl.copy_thresholds(d), d.get("reasoning", "")
+                self.msg = "Claude's proposal: " + (self.reasoning or "(no reasoning given)") + "   (w accepts)"
+                if self.reasoning:
+                    print(f"{stem}: Claude's proposal: {self.reasoning}")
+                return
+            except ValueError as e:
+                self.msg = f"proposal file ignored ({e})"
+        if self.propose and self.truth:
+            self.start = "computing"
+            self.msg = "computing a proposal from your boxes (a few seconds) ..."
+
+    # ---------------------------------------------------------------- the guide (proposal and bands), off the window's thread
+    def _request(self, gkey: tuple, img, truth, anchor) -> None:
+        with self._lock:
+            if gkey in self._guides:
+                return
+            self._guides[gkey] = {}                     # empty = being computed
+        if self.background:
+            threading.Thread(target=self._run, args=(gkey, img, truth, anchor), daemon=True).start()
+        else:
+            self._run(gkey, img, truth, anchor)
+
+    def _run(self, gkey, img, truth, anchor) -> None:
+        try:
+            g = compute_guide(img, truth, self.base, anchor, self.cam)
+        except Exception as e:  # noqa: BLE001 - a failed proposal must not take the window down
+            g = {"error": f"{type(e).__name__}: {e}"}
+        with self._lock:
+            self._guides[gkey] = g
+
+    def poll(self) -> None:
+        """Apply a finished guide for the current frame: the bands, and (computed start) the proposal itself unless a
+        slider was moved meanwhile."""
+        if self.guide_key is None:
+            return
+        with self._lock:
+            g = self._guides.get(self.guide_key)
+        if not g:
+            return
+        self.guide_key = None
+        self._view = None
+        if "error" in g:
+            self.msg = f"no proposal: {g['error']}"
+            if self.start == "computing":
+                self.start = "adopted"
+            return
+        self.ranges = g["ranges"]
+        if self.start == "computing":
+            if self.dirty:
+                self.start = "adopted"
+                self.msg = "a computed proposal arrived after you moved a slider: not applied (bands shown)"
+            else:
+                self.set_thresholds(g["proposal"])
+                self.baseline = hl.copy_thresholds(self.thr)
+                self.start, self.proposal = "computed", hl.copy_thresholds(g["proposal"])
+                self.msg = f"computed proposal ({g['source']}); the bands are each slider's feasible range   (w accepts)"
 
     def set_value(self, i: int, v: int) -> None:
         """Set slider i, kept inside its range and with hue low <= hue high."""
@@ -201,14 +326,25 @@ class Session:
 
     def save(self) -> Path:
         _, barrels = self.result()
-        meta = hl.label_meta(self.stem, self.sha, self.thr, self.base, len(barrels), self.git, self.note)
+        meta = {**hl.label_meta(self.stem, self.sha, self.thr, self.base, len(barrels), self.git, self.note), **self.provenance()}
         p = io.save_hs(self.stem, meta, self.labels_dir)
+        self.prov = {k: meta[k] for k in PROVENANCE}
         self.baseline = hl.copy_thresholds(self.thr)
         self.has_label = True
         self.last_saved = (self.stem, hl.copy_thresholds(self.thr))
         self.msg = f"saved {p.name}: {hl.describe(self.thr)}, {len(barrels)} box(es)"
         print(self.msg)
         return p
+
+    def provenance(self) -> dict:
+        """The label's proposal fields: where the start values came from, whether a slider was moved, the bands."""
+        if self.prov:                                   # re-saving a label: keep its origin, update moved and the bands
+            prop = self.prov.get("proposal")
+            return {**{k: self.prov.get(k) for k in PROVENANCE}, "moved": (self.thr != prop) if prop else self.prov.get("moved"),
+                    "ranges": ranges_nested(self.ranges) or self.prov.get("ranges")}
+        by = self.start if self.start in io.HS_PROPOSED_BY else None
+        return {"proposed": by is not None, "proposed_by": by, "moved": (self.thr != self.proposal) if by else None,
+                "proposal": self.proposal if by else None, "ranges": ranges_nested(self.ranges)}
 
     def copy_previous(self) -> None:
         """Take the thresholds saved for the previous frame in the list; failing that, the last ones saved in
@@ -303,12 +439,14 @@ class Session:
         scored = ("score: no boxes on this frame" if sc is None else
                   f"score: barrels painted {100 * sc[0]:.1f} % of the inside of your boxes (first: push this up)   "
                   f"painted outside your boxes {100 * sc[1]:.2f} % (second: keep this down)")
+        start = {"computing": "computing a proposal ...", "claude": "Claude's proposal", "computed": "computed proposal"}.get(self.start, self.start)
         return [f"[{self.idx + 1}/{len(self.stems)}] {self.stem}   label: {state}   detector boxes={len(barrels)}{'' if self.show_boxes else ' (hidden)'}"
-                f"   truth boxes={truth}   paint={PAINTS[self.paint]}",
+                f"   truth boxes={truth}   paint={PAINTS[self.paint]}   start: {start}",
                 hl.describe(self.thr) + f"      fixed: rows >= {cfg.horizon_row}, V >= {cfg.v_min}, model {cfg.short_hash()}",
                 scored, self.msg, HELP]
 
     def render(self) -> np.ndarray:
+        self.poll()
         if self._view is not None:
             return self._view
         mask, barrels = self.result()
@@ -322,6 +460,9 @@ class Session:
             v = self.thr[name][key]
             on = i == self.sel
             cv2.putText(view, f"{i + 1} {label}", (col + 8, yc + 5), FONT, FS, HILITE if on else FG, 1, cv2.LINE_AA)
+            if self.ranges and f"{name}_{key}" in self.ranges:                         # the feasible range: a shaded band
+                rlo, rhi = self.ranges[f"{name}_{key}"]
+                cv2.rectangle(view, (value_to_x(rlo, lo, hi, x0, x1), yc - 6), (value_to_x(rhi, lo, hi, x0, x1), yc + 6), BAND, -1)
             cv2.line(view, (x0, yc), (x1, yc), (110, 110, 110), 2)
             ax = value_to_x(self.adopted[name][key], lo, hi, x0, x1)                     # a tick at the adopted value
             cv2.line(view, (ax, yc + 5), (ax, yc + 10), DIMTXT, 1)
@@ -332,6 +473,8 @@ class Session:
         y = h + TOP_PAD + 3 * ROW_H + 8
         for j, line in enumerate(self.status()):
             color = HILITE if j == 3 else DIMTXT if j == 4 else FG
+            if len(line) > 200:
+                line = line[:197] + "..."
             cv2.putText(view, line, (8, y + j * 20), FONT, FS, color, 1, cv2.LINE_AA)
         if self.scale != 1:
             view = cv2.resize(view, None, fx=self.scale, fy=self.scale, interpolation=cv2.INTER_NEAREST if self.scale > 1 else cv2.INTER_AREA)
@@ -352,6 +495,79 @@ def parse_thresholds(text: str) -> dict:
     return thr
 
 
+def parse_try(text: str, adopted: dict) -> dict:
+    """'o:-1,6,167;b:102,121,79' -> the thresholds dict; a color left out keeps the adopted values."""
+    thr = hl.copy_thresholds(adopted)
+    for part in (x.strip() for x in text.split(";") if x.strip()):
+        tag, _, nums = part.partition(":")
+        name = {"o": "orange", "orange": "orange", "b": "blue", "blue": "blue"}.get(tag.strip().lower())
+        if name is None:
+            raise ValueError(f"--try: each part is o:... or b:..., got {part!r}")
+        try:
+            v = [int(x) for x in nums.split(",")]
+        except ValueError:
+            raise ValueError(f"--try: three whole numbers after {tag}:, got {nums!r}") from None
+        if len(v) != 3:
+            raise ValueError(f"--try: three numbers (hue low, hue high, S floor) after {tag}:, got {len(v)}")
+        thr[name] = dict(zip(io.HS_KEYS, v))
+    io.validate_hs_thresholds(thr)
+    return thr
+
+
+def grid_tile(img: np.ndarray, truth: list[dict] | None, base: pl.Model, thr: dict, title: str, fe: hx.FrameEval | None,
+              cam=geo.AIM_4A8B6118_BOXFIT) -> np.ndarray:
+    """One labelled tile: the painted pixels with ``thr``, the hand boxes (white) and the detector's boxes, under a
+    two-line header (the setting; found / false against the hand boxes and the painted shares)."""
+    mask, _ = pl.segment(pl.Frame.from_image(img), hl.model_from_thresholds(base, thr))
+    barrels = det.detect(mask, det.DetConfig(), cam)
+    pic = seg_picture(img, mask, barrels, truth, True, True, "flat")
+    sc = score(mask, truth, base.cfg.horizon_row or 0)
+    line2 = f"detector boxes {len(barrels)}"
+    if fe is not None and truth:
+        o = fe.evaluate(hx.flat(thr))
+        line2 = f"found {len(o.found)}/{len(truth)} of your boxes, false {o.n_false}"
+    if sc is not None:
+        line2 += f"   painted: inside your boxes {100 * sc[0]:.1f} %, outside {100 * sc[1]:.2f} %"
+    head = np.full((44, pic.shape[1], 3), BG, np.uint8)
+    cv2.putText(head, f"{title}: {hl.describe(thr)}"[:110], (6, 17), FONT, FS, FG, 1, cv2.LINE_AA)
+    cv2.putText(head, line2[:110], (6, 37), FONT, FS, HILITE, 1, cv2.LINE_AA)
+    return np.vstack([head, pic])
+
+
+def render_grid(img: np.ndarray, truth: list[dict] | None, base: pl.Model, settings: list[tuple[str, dict]], cols: int = 3,
+                cam=geo.AIM_4A8B6118_BOXFIT) -> np.ndarray:
+    """The raw frame with the hand boxes, then one tile per (title, thresholds), ``cols`` per row."""
+    raw = img.copy()
+    for b in truth or []:
+        x0, y0, x1, y1 = b["bbox"]
+        cv2.rectangle(raw, (x0, y0), (x1 - 1, y1 - 1), (255, 255, 255), 1)
+    head = np.full((44, raw.shape[1], 3), BG, np.uint8)
+    cv2.putText(head, f"raw frame, your boxes (white): {len(truth or [])}", (6, 17), FONT, FS, FG, 1, cv2.LINE_AA)
+    cv2.putText(head, "each tile: painted pixels, your boxes white, detector boxes yellow (orange) / green (blue)", (6, 37), FONT, FS, DIMTXT, 1, cv2.LINE_AA)
+    fe = hx.FrameEval(img, {"barrels": truth}, base, cam=cam) if truth else None
+    tiles = [np.vstack([head, raw])] + [grid_tile(img, truth, base, thr, title, fe, cam) for title, thr in settings]
+    cols = max(1, min(cols, len(tiles)))
+    blank = np.full_like(tiles[0], BG)
+    rows = [np.hstack(tiles[i:i + cols] + [blank] * (cols - len(tiles[i:i + cols]))) for i in range(0, len(tiles), cols)]
+    return np.vstack(rows)
+
+
+def resolve_try(text: str, s: "Session") -> tuple[str, dict]:
+    """A --try value -> (title, thresholds): a keyword (adopted, computed, claude, saved) or numbers."""
+    t = text.strip().lower()
+    if t == "adopted":
+        return "adopted", hl.copy_thresholds(s.adopted)
+    if t == "computed":
+        if not s.truth:
+            raise ValueError("--try computed needs the frame's hand-drawn boxes")
+        return "computed", compute_guide(s.img, s.truth, s.base, None, s.cam)["proposal"]
+    if t == "claude":
+        return "claude", hl.copy_thresholds(io.load_hs_proposed(s.stem, s.labels_dir))
+    if t == "saved":
+        return "saved", hl.copy_thresholds(io.load_hs(s.stem, s.labels_dir, check_image=False))
+    return text, parse_try(text, s.adopted)
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--raw", type=Path, default=io.RAW_DIR)
@@ -365,7 +581,17 @@ def main(argv=None) -> int:
     ap.add_argument("--selftest", type=Path, default=None, metavar="OUT.png", help="no window: write the picture for the first selected frame")
     ap.add_argument("--thresholds", default="", help="selftest: six numbers 'o_hlo,o_hhi,o_s,b_hlo,b_hhi,b_s' instead of the saved / adopted ones (write --thresholds=-3,... when the first is negative)")
     ap.add_argument("--truth", action="store_true", help="selftest: draw the hand-drawn truth boxes too")
+    ap.add_argument("--no-propose", action="store_true", help="no computed proposal and no bands (start from the saved label, Claude's proposal or the adopted values)")
+    ap.add_argument("--render-grid", type=Path, default=None, metavar="OUT.png", help="no window: the first selected frame with each --try setting side by side")
+    ap.add_argument("--try", dest="tries", action="append", default=[], metavar="SETTING",
+                    help="render-grid: 'o:h_lo,h_hi,s_lo;b:h_lo,h_hi,s_lo' or adopted / computed / claude / saved (repeatable; write --try=o:-3,... when a number is negative)")
+    ap.add_argument("--save-proposal", default="", metavar="SETTING", help="write data/labels/<stem>_hs_proposed.json for the ONE selected frame (Claude's proposal)")
+    ap.add_argument("--reasoning", default="", help="save-proposal: why these numbers (shown in the window)")
     args = ap.parse_args(argv)
+    if args.render_grid is not None or args.save_proposal:
+        names = {p.stem for p in io.list_images(args.raw)}
+        if args.filter in names:            # a whole frame name: that frame, whatever its scene
+            args.scenes = "all"
 
     splits = sp.load_splits()
     sel = hl.select_frames([p.stem for p in io.list_images(args.raw)], splits, hl.parse_scenes(args.scenes), args.filter)
@@ -380,7 +606,27 @@ def main(argv=None) -> int:
     if not stems:
         print("no frames to label match (train frames only; --scenes all for every scene)")
         return 1
-    s = Session(stems, splits, hl.adopted_model(), args.raw, args.labels, scale=args.scale, git=hl.detector_git())
+    one_shot = args.selftest is not None or args.render_grid is not None or bool(args.save_proposal)
+    if args.save_proposal:
+        if len(stems) != 1:
+            print(f"--save-proposal needs exactly one frame; --filter selects {len(stems)}")
+            return 1
+        hl.require_labelable(stems[0], splits)
+        thr = parse_try(args.save_proposal, hl.thresholds_from_model(hl.adopted_model()))
+        p = io.save_hs_proposed(stems[0], thr, args.reasoning, args.labels)
+        print(f"wrote {p}: {hl.describe(thr)}")
+        return 0
+    s = Session(stems, splits, hl.adopted_model(), args.raw, args.labels, scale=args.scale, git=hl.detector_git(),
+                propose=not args.no_propose and args.render_grid is None, background=not one_shot)
+    if args.render_grid is not None:
+        settings = [resolve_try(t, s) for t in (args.tries or ["adopted"])]
+        pic = render_grid(s.img, s.truth, s.base, settings, cam=s.cam)
+        if not cv2.imwrite(str(args.render_grid), pic):
+            raise OSError(f"could not write {args.render_grid}")
+        for title, thr in settings:
+            print(f"{title}: {hl.describe(thr)}")
+        print(f"wrote {args.render_grid} ({s.stem})")
+        return 0
     if args.selftest is not None:
         if args.thresholds:
             s.set_thresholds(parse_thresholds(args.thresholds))
@@ -394,6 +640,7 @@ def main(argv=None) -> int:
     cv2.setMouseCallback(WIN, s.on_mouse)
     print(__doc__)
     while True:
+        s.poll()
         cv2.imshow(WIN, s.render())
         k = cv2.waitKey(20) & 0xFF
         if k == 255:
