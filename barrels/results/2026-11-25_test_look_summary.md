@@ -1,6 +1,6 @@
 # The one look at the test frames (2026-11-25), as it came
 
-Rule written first: `experiments/2026-11-25_test_look/PREREG.md`. Configuration: `wip/final` (today's detector + the verify step; color model `eb863d84`, adaptive rules off). Nothing was changed after these numbers. Full tables: `2026-11-25_test_look_ours/`, `2026-11-25_test_look_vendor/`.
+Rule written first: `experiments/2026-11-25_test_look/PREREG.md`. Configuration: `wip/final` (today's detector + the verify step; color model `eb863d84`, adaptive rules off). Nothing was changed after these numbers. Full tables: `2026-11-23_test_look_ours/`, `2026-11-23_test_look_vendor/` (folders dated by the machine clock).
 
 **Home and campus (strict v2):** home 9 of 9, no false box, score 1.00; campus 22 of 24, 1 false box, score 0.94 (train: 28 of 29 and 35 of 35).
 
