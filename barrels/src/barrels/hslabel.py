@@ -46,9 +46,25 @@ def copy_thresholds(thresholds: dict) -> dict:
     return {name: {k: int(thresholds[name][k]) for k in io.HS_KEYS} for name in io.HS_CLASSES}
 
 
-def model_from_thresholds(base_model: pl.Model, thresholds: dict) -> pl.Model:
+GATE_KEYS = ("v_min", "horizon_row")                 # the two fixed gates a label may set too (2026-11-25)
+GATE_LIMITS = {"v_min": (0, 150), "horizon_row": (0, 150)}
+
+
+def gates_of(base_model: pl.Model, meta: dict | None = None) -> dict:
+    """The two gates (brightness floor ``v_min``, ``horizon_row``) a label stands for: the label's own values when it
+    has them (every label saved since 2026-11-18 records them; before 2026-11-25 they were always the base model's,
+    40 and 50), else the base model's."""
+    out = {"v_min": int(base_model.cfg.v_min), "horizon_row": base_model.cfg.horizon_row}
+    for k in GATE_KEYS:
+        if meta is not None and k in meta:
+            out[k] = None if meta[k] is None else int(meta[k])
+    return out
+
+
+def model_from_thresholds(base_model: pl.Model, thresholds: dict, gates: dict | None = None) -> pl.Model:
     """``base_model`` with its two class boxes replaced by the hand-set thresholds; config, gates and tie rule
-    are the base model's. Raises ValueError when the base is not an hs model or the numbers are not valid."""
+    are the base model's, except the gates given in ``gates`` (``v_min``, ``horizon_row``; 2026-11-25). Raises
+    ValueError when the base is not an hs model or the numbers are not valid."""
     if base_model.cfg.color_model != "hs":
         raise ValueError(f"the base model must be an hs model, got color_model={base_model.cfg.color_model!r}")
     io.validate_hs_thresholds(thresholds)
@@ -56,7 +72,19 @@ def model_from_thresholds(base_model: pl.Model, thresholds: dict) -> pl.Model:
     for name, c in CLASS_OF.items():
         t, shift = thresholds[name], pl.HUE_SHIFT[c]
         boxes[c] = bf.Box((float(t["h_lo"] + shift), float(t["s_lo"])), (float(t["h_hi"] + shift), S_MAX))
-    return dataclasses.replace(base_model, boxes=boxes)
+    model = dataclasses.replace(base_model, boxes=boxes)
+    if gates:
+        bad = set(gates) - set(GATE_KEYS)
+        if bad:
+            raise ValueError(f"unknown gate(s) {sorted(bad)}; known: {GATE_KEYS}")
+        v = gates.get("v_min", base_model.cfg.v_min)
+        if not (isinstance(v, int) and 0 <= v <= 255):
+            raise ValueError(f"v_min must be an int 0-255, got {v!r}")
+        hz = gates.get("horizon_row", base_model.cfg.horizon_row)
+        if not (hz is None or (isinstance(hz, int) and 0 <= hz <= 480)):
+            raise ValueError(f"horizon_row must be an int 0-480 or None, got {hz!r}")
+        model = dataclasses.replace(model, cfg=dataclasses.replace(base_model.cfg, v_min=v, horizon_row=hz))
+    return model
 
 
 def thresholds_from_model(model: pl.Model) -> dict:
@@ -207,10 +235,12 @@ def detector_git() -> str:
 
 
 def label_meta(stem: str, image_sha1: str, thresholds: dict, base_model: pl.Model, boxes_drawn: int,
-               git: str, note: str = "") -> dict:
-    """The dict ``io.save_hs`` writes: the six numbers plus what they were set against (the base model's fixed
-    gates and hash, the detector's git hash, how many boxes it drew with them)."""
+               git: str, note: str = "", gates: dict | None = None) -> dict:
+    """The dict ``io.save_hs`` writes: the six numbers plus the two gates (``v_min``, ``horizon_row``: the values in
+    ``gates``, else the base model's; settable since 2026-11-25) and what they were set against (the base model's
+    hash, the detector's git hash, how many boxes it drew with them)."""
+    g = {**gates_of(base_model), **(gates or {})}
     return {"stem": Path(stem).stem, "image_sha1": image_sha1, **copy_thresholds(thresholds),
-            "v_min": int(base_model.cfg.v_min), "horizon_row": base_model.cfg.horizon_row,
+            "v_min": int(g["v_min"]), "horizon_row": g["horizon_row"],
             "base_model": base_model.cfg.short_hash(), "detector_git": git, "boxes_drawn": int(boxes_drawn),
             "reviewed": True, "note": note}
