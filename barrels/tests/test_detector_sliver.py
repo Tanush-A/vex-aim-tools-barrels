@@ -167,6 +167,7 @@ def test_thin_span_refuses_a_span_whose_body_crosses_the_stripe_rows():
 
 
 def test_defaults_after_the_verdict():
-    """results/2026-11-20_occl_sliver/verdict.md: thin_span on; stripe_bridge, thin_frame, own_close off."""
+    """results/2026-11-20_occl_sliver/verdict.md: thin_span on, own_close off; stripe_bridge and thin_frame
+    switched on by Tanush on 2026-11-23 (DECISIONS.md)."""
     d = det.DetConfig()
-    assert d.thin_span and not (d.stripe_bridge or d.thin_frame or d.own_close)
+    assert d.thin_span and d.stripe_bridge and d.thin_frame and not d.own_close

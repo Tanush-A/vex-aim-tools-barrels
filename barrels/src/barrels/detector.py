@@ -174,12 +174,12 @@ class DetConfig:
     # a stripe cut through, a sliver with stripe and body in view (2026-11-20, experiments/2026-11-20_occl_sliver, PREREG.md)
     # Of the four, only thin_span passed the pre-registered rule (results/2026-11-20_occl_sliver/verdict.md); the other three are OFF and
     # named there with exactly what fails
-    stripe_bridge: bool = False  # OFF (scorecard 45 -> 48 boxes where no barrel is; medium damage 3 -> 4 false boxes). With stripe_join: two pieces that share rows and fit in one barrel's width are one stripe, gap included,
+    stripe_bridge: bool = True   # ON since 2026-11-23 (Tanush; it failed the A8 rule by scorecard 45 -> 48 and medium 3 -> 4, both on harsher-than-real damage). With stripe_join: two pieces that share rows and fit in one barrel's width are one stripe, gap included,
                                  # also when one fails the stripe-shape test, if each is no taller than stripe_h_max stripe heights by the
                                  # finder's height measure, body color is right above and right below in EVERY column of the gap, and the
                                  # gap is at most half the joined span, and the two are at the same rows (box middles within half a stripe
                                  # height); a partly seen stripe inside a found same-colored barrel's box at its stripe's rows is its piece
-    thin_frame: bool = False     # OFF (frame edge at 75 %: too big 3 -> 8, boxes 2-3 px past a clipped hand box). With pin_thin: a thin full slice whose seen part touches the frame edge on exactly one side is W wide
+    thin_frame: bool = True      # ON since 2026-11-23 (Tanush; it failed the A8 rule only on 'too big', boxes 2-3 px past a frame-clipped hand box). With pin_thin: a thin full slice whose seen part touches the frame edge on exactly one side is W wide
                                  # from its other end (the frame is a hidden side that is known)
     own_close: bool = False      # OFF (bad day 5 -> 6 false boxes; 3 scorecard scenes lost). With side_hidden: a partly seen full slice that no side reason and no outline places is W wide from the
                                  # end where the body closes on the stripe (top and bottom both bottom_tol x H in, over the last 0.05 W),
