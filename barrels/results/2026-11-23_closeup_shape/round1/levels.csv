@@ -1,0 +1,61 @@
+level,arm,seeds,frames,barrels,found,missed,false
+perfect masks,start,1,16,29,28,1,0
+perfect masks,side,1,16,29,28,1,0
+perfect masks,stripe,1,16,29,28,1,0
+perfect masks,shape,1,16,29,28,1,0
+"white tables, typical",start,5,80,145,145,0,0
+"white tables, typical",start,20,320,580,579,1,0
+"white tables, typical",side,5,80,145,145,0,0
+"white tables, typical",side,20,320,580,579,1,0
+"white tables, typical",stripe,5,80,145,145,0,0
+"white tables, typical",stripe,20,320,580,579,1,0
+"white tables, typical",shape,5,80,145,145,0,0
+"white tables, typical",shape,20,320,580,579,1,0
+"white tables, bad day",start,5,80,145,140,5,0
+"white tables, bad day",start,20,320,580,563,17,0
+"white tables, bad day",side,5,80,145,140,5,0
+"white tables, bad day",side,20,320,580,563,17,0
+"white tables, bad day",stripe,5,80,145,140,5,0
+"white tables, bad day",stripe,20,320,580,563,17,0
+"white tables, bad day",shape,5,80,145,140,5,0
+"white tables, bad day",shape,20,320,580,563,17,0
+bad day without the stripe patch,start,5,80,145,144,1,0
+bad day without the stripe patch,start,20,320,580,577,3,0
+bad day without the stripe patch,side,5,80,145,144,1,0
+bad day without the stripe patch,side,20,320,580,577,3,0
+bad day without the stripe patch,stripe,5,80,145,144,1,0
+bad day without the stripe patch,stripe,20,320,580,577,3,0
+bad day without the stripe patch,shape,5,80,145,144,1,0
+bad day without the stripe patch,shape,20,320,580,577,3,0
+light,start,5,80,145,143,2,0
+light,start,20,320,580,574,6,0
+light,side,5,80,145,143,2,0
+light,side,20,320,580,574,6,0
+light,stripe,5,80,145,143,2,0
+light,stripe,20,320,580,574,6,0
+light,shape,5,80,145,143,2,0
+light,shape,20,320,580,574,6,0
+medium,start,5,80,145,112,33,2
+medium,start,20,320,580,445,135,4
+medium,side,5,80,145,112,33,2
+medium,side,20,320,580,445,135,4
+medium,stripe,5,80,145,112,33,2
+medium,stripe,20,320,580,445,135,4
+medium,shape,5,80,145,112,33,2
+medium,shape,20,320,580,445,135,4
+heavy,start,5,80,145,25,120,0
+heavy,start,20,320,580,103,477,0
+heavy,side,5,80,145,25,120,0
+heavy,side,20,320,580,103,477,0
+heavy,stripe,5,80,145,25,120,0
+heavy,stripe,20,320,580,103,477,0
+heavy,shape,5,80,145,25,120,0
+heavy,shape,20,320,580,103,477,0
+"white tables, worst seen",start,5,80,145,113,32,1
+"white tables, worst seen",start,20,320,580,440,140,4
+"white tables, worst seen",side,5,80,145,113,32,1
+"white tables, worst seen",side,20,320,580,440,140,4
+"white tables, worst seen",stripe,5,80,145,113,32,1
+"white tables, worst seen",stripe,20,320,580,440,140,4
+"white tables, worst seen",shape,5,80,145,113,32,1
+"white tables, worst seen",shape,20,320,580,440,140,4

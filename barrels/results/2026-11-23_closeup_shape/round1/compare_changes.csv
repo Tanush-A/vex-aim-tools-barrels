@@ -1,0 +1,5 @@
+arm,set,stem,what,box,source,on_barrel
+stripe,4A8B_overheaddim_palewood,4A8B_overheaddim_palewood_close_01,added,292 241 568 477,det1,1
+shape,4A8B_overheaddim_palewood,4A8B_overheaddim_palewood_close_01,added,292 241 568 477,det1,1
+side,4A8B_window_abpwhite,4A8B_window_abpwhite_occlx_15,removed,465 286 640 480,det1,0
+shape,4A8B_window_abpwhite,4A8B_window_abpwhite_occlx_15,removed,465 286 640 480,det1,0
