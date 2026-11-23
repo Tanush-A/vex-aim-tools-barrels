@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import math
 
+import cv2
 import numpy as np
 
 from barrels import detector as det, geometry as geo
@@ -142,8 +143,49 @@ def measure(mask: np.ndarray, found: list, log: list, cam: geo.CameraModel) -> l
             return float(band.any(axis=0).mean()) if band.size else 0.0
         above = resumes(y0 - 4 - g, y0 - 4) if "top_inferred" not in b.flags and g else 0.0
         below = resumes(y1 + 4, y1 + 4 + g) if "bottom_inferred" not in b.flags and g else 0.0
+        # side extent: the body color joined to the evidence (the stripe step's _body_span over the box's rows, the evidence rows
+        # left out), with the columns of every OTHER drawn box of this color removed, in barrel widths W (W from the evidence's
+        # row by the camera model for a stripe; the box's width otherwise)
+        side = math.nan
+        if ex1 > ex0 and y1 - y0 >= 2:
+            g2 = det._stripe_geometry(cam, (ey0 + ey1) / 2) if stage in ("stripe", "slice", "post_pair") else None
+            Wx = g2[1].width_px if g2 is not None else float(x1 - x0)
+            others = tuple((F.bbox[0], F.bbox[2]) for F in found if F is not b and F.color == b.color)
+            sp = det._body_span(mask, b.color, ex0, ex1, max(0, y0), min(h, y1), ey0, ey1, others)
+            if sp is not None and Wx > 0:
+                side = (max(sp[1], ex1) - min(sp[0], ex0)) / Wx
+        # vertical extent: an inferred edge whose body runs on PAST it (taller than the barrel) rather than stopping short of it
+        over_top = over_bot = 0
+        if ex1 > ex0 and ey1 > ey0:
+            tw, bw_ = det._body_extent(mask, b.color, ex0, ex1, ey0, ey1)
+            over_top = int("top_inferred" in b.flags and tw < y0)
+            over_bot = int("bottom_inferred" in b.flags and bw_ > y1)
+        # the whole band: the connected region of the stripe color holding the evidence stripe (closed mask, 8-connected), without
+        # the pixels inside any OTHER drawn box; its height (10th to 90th percentile of its rows) in expected stripe heights and its
+        # width in barrel widths, both at the evidence's row
+        band_h = band_w = math.nan
+        if stage in ("stripe", "slice", "post_pair") and ex1 > ex0 and ey1 > ey0:
+            g3 = det._stripe_geometry(cam, (ey0 + ey1) / 2)
+            if g3 is not None:
+                sc = BLUE if b.color == ORANGE else ORANGE
+                cm = det._closed(mask == sc, det.DetConfig())
+                n_, lab_ = cv2.connectedComponents(cm.astype(np.uint8), connectivity=8)
+                ids = np.unique(lab_[ey0:ey1, ex0:ex1][(mask[ey0:ey1, ex0:ex1] == sc)])
+                ids = ids[ids > 0]
+                if len(ids):
+                    reg = np.isin(lab_, ids)
+                    for F in found:
+                        if F is not b:
+                            reg[F.bbox[1]:F.bbox[3], F.bbox[0]:F.bbox[2]] = False
+                    ys, xs = np.nonzero(reg)
+                    if len(ys):
+                        Hs3 = g3[1].stripe_bottom - g3[1].stripe_top
+                        band_h = (np.percentile(ys, 90) - np.percentile(ys, 10) + 1) / Hs3
+                        band_w = (xs.max() - xs.min() + 1) / g3[1].width_px
         rows.append(dict(
-            stage=stage, ev=ev,
+            band_h=round(band_h, 3) if math.isfinite(band_h) else "", band_w=round(band_w, 3) if math.isfinite(band_w) else "",
+            over_top=over_top, over_bot=over_bot,
+            stage=stage, ev=ev, side=round(side, 3) if math.isfinite(side) else "",
             front_box=round(float(inbox[ey0:ey1, ex0:ex1].sum()) / area, 3),
             front_sil=round(float(insil[ey0:ey1, ex0:ex1].sum()) / area, 3),
             front_px=round(float((insil[ey0:ey1, ex0:ex1] & evpix).sum()) / max(1, n_ev), 3),

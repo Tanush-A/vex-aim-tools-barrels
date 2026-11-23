@@ -31,11 +31,13 @@ CREATORS = ("stripe_join", "stripe_bridge", "seam_height", "stripe_wide", "side_
             "closeup_stripe")
 
 # this experiment's switches (PREREG.md); pinned off in START so START = origin/barrels' detector, field by field
-NEW = tuple(n for n in ("verify_front",) if n in _FIELDS)
+NEW = tuple(n for n in ("verify_front", "verify_readings") if n in _FIELDS)
 START = det.DetConfig(**{k: False for k in NEW})
 ARMS = {"start": START}
 for n in NEW:
     ARMS[n] = dataclasses.replace(START, **{n: True})
+if NEW:
+    ARMS["strict"] = dataclasses.replace(START, **{n: True for n in NEW})     # every check of this experiment, the candidate default
 ARMS["defaults"] = det.DetConfig()     # NOT pinned
 
 
