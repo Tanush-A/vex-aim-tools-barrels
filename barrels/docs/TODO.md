@@ -1,6 +1,64 @@
 # TODO.md — the plan for the week (meeting with Dave: Monday 2026-11-23)
 
-**Updated:** 2026-11-23 (data session: 15 conditions in, boxed and slider-labelled) · 2026-11-21 (data session: the occlusion set shot, 18 of 19, `occlx_16` open) · 2026-11-20, later (data session: condition 6 in, kicker check passed, clutter-last shoot order) · 2026-11-20, later (data session: condition 5 in, close-up check passed) · 2026-11-20 (data session: the state of the shoot under "Tanush" and in "Done this week") · 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
+**Updated:** 2026-11-26 (reviewer session: the re-plan after the review, "Now" below) · 2026-11-23 (data session: 15 conditions in, boxed and slider-labelled) · 2026-11-21 (data session: the occlusion set shot, 18 of 19, `occlx_16` open) · 2026-11-20, later (data session: condition 6 in, kicker check passed, clutter-last shoot order) · 2026-11-20, later (data session: condition 5 in, close-up check passed) · 2026-11-20 (data session: the state of the shoot under "Tanush" and in "Done this week") · 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
+
+## Now: the re-plan after the review (2026-11-26)
+
+Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the detector's logic and the final report (`REPORT-2026-11-25.md`). **Order (Tanush, 2026-11-26): on his go, merge `wip/final`; then U1, the detector map, with recommendations for restructuring; pause. On his go, M, the measurement; pause. On his go, K, the collapse, after some planning. Then C, the color experiments: every idea listed there is tried. Each step waits for his go.** The reviewer session is the only one editing code for now; the main session is paused. The plan of the week of 2026-11-18 is kept below as the record.
+
+**Decisions from Tanush, 2026-11-26** (to be logged in `DECISIONS.md` by the main session):
+
+- **Labeling:** from now on Claude proposes every box and every threshold label, Tanush reviews briefly and adjusts. Claude may change the labeling tools and asks for a short review. Proposals come from looking at the picture, never from the detector.
+- **Never-regress is loosened.** It was meant as a general principle, not a strict rule. The size of the allowed margin is M2.
+- **The vendor counts as 100 % on a white table under window or overhead light.** An assumption, not a measurement; every table that uses it says so.
+- **The verify step: "understood" on both checks (2026-11-26).** `wip/final` merges into `barrels` on his go.
+
+### U. Understand what runs today (first; no code)
+
+| # | what | state |
+|---|---|---|
+| **U1** | **The detector map.** One flow chart of what `detect` does today, in order: the nine stages, every check inside each, what the check is for in one line, the real frame that motivated it, and how many real train boxes it changes. Answers "stripes first, body first, geometry first or occlusion first" on one page. A doc plus a walkthrough in chat. | open |
+| **U2** | **Mark every check on the map:** carries real weight / changes nothing on real frames / justified by simulated scenes only / works by accident. Ends in a proposed collapse list; Tanush decides what goes. | open, after U1 |
+| **D1** | **"More paint, box disappears", explained on real frames.** Known so far: the box is still drawn; extra paint under the barrel moves its bottom edge; the detector accepts a seen bottom within 15 % of the height, the score allows 10 %, so the box is counted as a miss plus a false box. Show three frames, then say what to change. | open |
+| **D2** | **Why a straight edge hiding half scores 90 of 100 in the simulated scenes and 0 of 2 on real frames** (`occlx_02`, `occlx_03`, a black box). | **diagnosed 2026-11-26, nothing changed.** The two real barrels are about 60 % hidden, not half (19 of 51 and 22 of 53 px showing). The detector has a cliff between the two: simulated on the same tables, 96 of 104 found at half hidden and 64 of 104 at 60 %. A third of the boxes at half hidden (34 of 99) are a guess centred on the visible half, a quarter width off, which passes the overlap rule only at that amount; at 60 % the stripe is under 0.4 of the width and no guess is drawn. Real extras the scenes lack: the stripe ends 5–6 px before the cut, and the cut leans. Two real frames are too few to say more. For K: one rule for a side-cut barrel, without the cliff |
+| **D3** | **The 25 barrels the hand thresholds still miss** (218 of 243): which are the detector's, which could no threshold paint, which had no hand label. First split: 6 on the ABP white table (no hand labels there; real occlusion), about 9 under the warm bathroom lamp (the slider could not reach the blue then), about 10 others. | open |
+| **D4** | **A same-colored barrel straight behind another** (`occlx_10`): one tall box around both, and the back barrel is never proposed. | **diagnosed 2026-11-26, nothing changed.** Every size check passes: the back barrel's top is 9 px above where the front barrel's top should be, and a seen top is accepted within 15 % of the height (10 px here); the box is 71 px wide against an allowed 75. The tolerance is that wide because the camera tilt differs between places. The back barrel shows no stripe, so nothing else proposes it, and once its top is taken as the front barrel's top no "barrel behind" piece is left. The mask does show it: the upper part is narrower and shifted 6 px to the left. For C: an idea for the list (the outline steps sideways where two barrels overlap) |
+
+### M. Fix the measurement (before any new experiment is judged)
+
+| # | what | state |
+|---|---|---|
+| **M1** | **Count placements and places, not lamp settings.** The 243 train barrels are 108 placements at 6 places. A box on a real barrel with a bad bottom edge counts once, not as a miss plus a false box. Vendor on the white table: assumed 100 % (decision above). Eval = main code: walkthrough first. | open |
+| **M2** | **The never-regress check with a margin** (decision above). Propose the margin from how much the score moves under a change that means nothing (one hue unit). | open |
+| **M3** | **Pass rules above the noise.** One barrel is about 0.03 of a condition's score; a rule tighter than that rejects everything. Write the standard pass rule once and reuse it. | open, with M2 |
+
+### K. Collapse the detector (after U1, U2 and M)
+
+| # | what | state |
+|---|---|---|
+| **K1** | Remove what U2 marks as doing nothing; freeze the occlusion rules (no new ones); name the stages in the code as on the map. Detector = main code: `wip/` branch, walkthrough, the check from M2. | open |
+
+### C. Color, in this order (each is one written-first experiment, judged by place with the rule from M3)
+
+| # | what | state |
+|---|---|---|
+| **C1** | **Relabel the warm and dim bathroom frames with the wider blue slider** (blue reads hue 26–44 there; the old labels stopped at 60), Claude proposes, Tanush reviews. Re-run the hand-threshold ceiling. Shows whether those hues paint the barrels or the floor. | open |
+| **C2** | **Near-miss colors count next to strong evidence** (Tanush's idea). Strict colors start a barrel; a pixel just outside the range counts only where the partner color should be: the stripe band inside a strong body, the body around a strong stripe. Loosening everywhere floods (false boxes 7 → 80); this loosens only beside a barrel. | open |
+| **C3** | **"Blue follows the light", one fresh try** under the rule from M3 (round 1: 22 barrels gained, none lost, rejected for one box). | open |
+| **C4** | **The stripe by contrast, then the barrel's own colors.** A band that is bluer (or oranger) than what is above and below it by a margin, at the size its row predicts; then read that barrel's two colors and grow the body. | open, after C2 |
+| **C6** | **Use more of the photo** (Tanush: keep on the list): how close a pixel came to passing instead of yes or no; the barrel's outline against the table; what is at the unpainted places, table or an object in front. | open |
+| **C7** | **Calibration per place:** at the start of a session one orange and one blue barrel stand at a known spot in front of the robot; the program reads their colors there and sets the ranges for that room. Hand thresholds per condition already do this by hand (218 of 243 against 148). Needs Dave's word, since it adds a setup step. | open, after asking Dave |
+| **C5** | **Adaptive thresholds from room statistics: no further round** until the input is measured on the barrel (C4 gives that) and there are more places. Aiming at any value inside the working range was tried twice (range rule 2026-11-24: 112 found against the fixed 121; relation on ranges 2026-11-25: a different chance winner per threshold). | parked |
+
+### Data and Dave
+
+- **Shooting (Tanush: one or two more places):** most useful is a new surface under warm light, since only two places have it and the light rule (C3) is judged there. A new place counts, a new lamp setting on the same table does not. Three frames at a new place (`core_01`, `clutter_01`, `neg_01`) beat a full nine at an old one. The parked sets (black table, wood, Dave's office) count as places for analysis. No generated images for color work.
+- **Ask Dave:** can the camera's exposure and white balance be locked; is a calibration per place allowed (show the robot one barrel at the start of a session); does learning a barrel's colors from a barrel already found count as image correction.
+- **From the final report, still open:** merge of `wip/final` (waits on D4 and "understood"); protecting the new conditions (now M1 and M2); the orange conflict (now C2 and C4); the light rule (now C3).
+
+---
+
+# The plan of the week of 2026-11-18 (the record)
 
 ## The goal
 
