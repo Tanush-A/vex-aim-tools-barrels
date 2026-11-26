@@ -52,6 +52,8 @@ Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
   2026-11-23 (A9, experiments/2026-11-23_closeup_shape)  the stripeless close-up piece: one cut by the frame's side as well
                        as its bottom must be seen down to where its top row puts the stripe (``closeup_side``); a piece whose
                        predicted stripe runs past the frame bottom is a close-up too (``closeup_stripe``).
+  2026-11-24 (experiments/2026-11-24_occl_strict)  a verify step on every rule's box: a barrel cannot be seen through a
+                       nearer barrel (``verify_front``); a box needs a second reading besides the stripe's row (``verify_readings``).
 
 Everything here is a pure function of the mask and the camera: nothing is fit per image.
 """
@@ -200,6 +202,15 @@ class DetConfig:
     closeup_stripe: bool = True  # ON since 2026-11-23 on wip/closeup-shape (passed every clause of PREREG.md). A stripeless piece whose predicted stripe (from its top row) runs past the frame bottom is a close-up as
                                  # well: no stripe can be seen there with body below it, as when the piece reaches the frame bottom. False =
                                  # only a piece whose box reaches the frame bottom (a barrel whose stripe straddles the frame bottom was missed)
+
+    # the verify step (2026-11-24, experiments/2026-11-24_occl_strict, PREREG.md): one physical fact checked on every rule's box
+    verify_front: bool = True    # ON since 2026-11-24 on wip/occl-strict (passed every clause of PREREG.md). F5, a barrel cannot be seen
+                                 # through a nearer barrel: a box whose evidence (stripe, cap, band, slices, piece) has fewer than
+                                 # min_area_px pixels of its own, the rest being inside a kept nearer barrel's outline (where it is seen) and
+                                 # of the color that barrel's own layout puts there, is dropped (see verify_front). False = no such check
+    verify_readings: bool = True  # ON since 2026-11-24 on wip/occl-strict. F2, a box needs a second reading: a partly seen stripe placed W
+                                 # wide from a side (its seen span under stripe_full x W), with neither its top nor its bottom seen, rests on
+                                 # the stripe's row alone: dropped (see verify_readings). False = no such check
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -1239,6 +1250,8 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     no stripe barrel already covers them AND a stripe could not have been seen: the piece reaches the frame
     bottom (the stripe is below the frame) or the expected stripe is too thin to resolve at that distance.
     With cfg.require_stripe=False this is step 1 alone (the detector before 2026-11-05; ``detect_image.py --step1``)."""
+    if cfg.require_stripe and (cfg.verify_front or cfg.verify_readings) and log is None:
+        log = []                                             # 2026-11-24: the verify step reads each box's evidence off the reason log
     h, w = mask.shape
     seen = _step1_pieces(mask, cfg, cam, log)
     pieces = [b for b, _ in seen]
@@ -1316,6 +1329,16 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
             out.append(p)                                    # stripe below the frame, or too far to resolve one
         else:
             _note(log, "piece", "stripeless", p.bbox, body=p.color, expected_stripe_h=hs)
+    if cfg.verify_front:
+        # 2026-11-24 (occl_strict): the verify step, first on the boxes of the stripe step and the stripeless pieces, so that the
+        # rules after them (caps, pairs, half stripes) lean only on boxes that passed it and may still read a barrel whose wrong
+        # box was dropped (a cap above a front barrel whose upper body was read as a stripe)
+        kept = verify_front(mask, out, log, cam, cfg, log)
+        gone = [b for b in out if not any(b is k for k in kept)]
+        if gone:
+            out = kept
+            used = [u for u in used if not any(ms is u and any(mb is g for g in gone) for ms, mb in made)]
+            made = [(ms, mb) for ms, mb in made if not any(mb is g for g in gone)]
     if cfg.cap_behind:
         out += caps_behind(mask, out, used, cam, cfg, log)
     # 2026-11-20: what is left over, after everything above (so nothing above changes, and no cap leans on these boxes)
@@ -1330,6 +1353,10 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     if cfg.half_stripe:
         new, replaced = half_stripes(mask, out, made, cam, cfg, log)
         out = [b for b in out if not any(b is r for r in replaced)] + new
+    if cfg.verify_front:
+        out = verify_front(mask, out, log, cam, cfg, log)       # 2026-11-24: and once more on every box, whatever rule drew it
+    if cfg.verify_readings:
+        out = verify_readings(mask, out, log, cam, cfg, log)
     return sorted(out, key=lambda b: b.bbox[0])
 
 
@@ -1719,6 +1746,141 @@ def half_stripes(mask: np.ndarray, found: list[Barrel], made: list, cam: geo.Cam
                   expected_h=H, expected_stripe_h=Hs, core_h=core_h, predicted_top=rows.top, predicted_bottom=rows.bottom, tol=tol,
                   seen_far_edge=bottom_s if top_hidden else top_s, body_span=(sx0, sx1))
     return out, replaced
+
+
+# ---------------------------------------------------------------- 2026-11-24: the verify step (experiments/2026-11-24_occl_strict)
+
+VERIFY_STAGES = ("barrel", "cap", "pair", "slice", "half")   # the reason log's stages that draw a box ("kept" notes)
+
+
+def _evidence(log: list, b: Barrel) -> tuple[int, int, int, int]:
+    """The box of what ``b`` was read from: its stripe (stripe step, slices), its cap piece (caps), its band (half stripes), its
+    two slices together (post pairs); a stripeless piece is its own evidence. Read from the "kept" notes of the reason log."""
+    for e in reversed(log):
+        if e.get("why") == "kept" and e.get("stage") in VERIFY_STAGES and e.get("box") is not None and tuple(e["box"]) == tuple(b.bbox):
+            ev = tuple(int(v) for v in e["bbox"])
+            if e.get("other") is not None:
+                o = e["other"]
+                ev = (min(ev[0], o[0]), min(ev[1], o[1]), max(ev[2], o[2]), max(ev[3], o[3]))
+            return ev
+    return tuple(b.bbox)
+
+
+def outline_layout(F: Barrel, cam: geo.CameraModel, shape) -> np.ndarray:
+    """What a barrel whose box is F.bbox shows at each pixel, by its own layout: F's body color in its body rows, the other
+    color in its stripe rows, 0 outside its outline, -1 within half a stripe height of a seam (either color).
+
+    The outline is the box with the rounded corners of ``Outline`` (the top line runs down and the bottom line up toward the
+    sides), at the distance the box's width gives, scaled to the box's height; the stripe's rows are the camera model's
+    stripe rows for that distance, scaled the same way. Nothing is fit: the camera model and the barrel's sizes."""
+    h, w = shape
+    out = np.zeros(shape, np.int8)
+    x0, y0, x1, y1 = F.bbox
+    Wf = x1 - x0
+    if Wf < 2 or y1 - y0 < 2:
+        return out
+    d = cam.f * geo.BARREL_BULGE_DIAMETER_MM / Wf
+    try:
+        ol = Outline.at(cam, d)
+        r = cam.barrel_rows(d)
+    except ValueError:
+        return out
+    scale = (y1 - y0) / max(1e-6, ol.bot_apex - ol.top_apex)
+    H = r.bottom - r.top
+    s0 = y0 + (y1 - y0) * (r.stripe_top - r.top) / H
+    s1 = y0 + (y1 - y0) * (r.stripe_bottom - r.top) / H
+    m = (s1 - s0) / 2
+    other = BLUE if F.color == ORANGE else ORANGE
+    rows = np.arange(h) + 0.5
+    lay = np.where((rows >= s0) & (rows < s1), other, F.color).astype(np.int8)
+    lay[(np.abs(rows - s0) <= m) | (np.abs(rows - s1) <= m)] = -1
+    cx = (x0 + x1) / 2
+    for x in range(max(0, x0), min(w, x1)):
+        u = (x + 0.5 - cx) / Wf
+        t = y0 + scale * (float(ol.top(u)) - ol.top_apex)
+        bt = y1 - scale * (ol.bot_apex - float(ol.bottom(u)))
+        r0, r1 = max(0, int(math.ceil(t))), min(h, int(math.floor(bt)))
+        out[r0:r1, x] = lay[r0:r1]
+    return out
+
+
+def verify_front(mask: np.ndarray, found: list[Barrel], log: list, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                 note: list | None = None) -> list[Barrel]:
+    """``verify_front`` (2026-11-24): a barrel cannot be seen through a nearer barrel.
+
+    Inside the outline of a barrel standing nearer (its bottom edge lower in the picture), every pixel is that barrel's own
+    picture: its body color in its body rows, its stripe color in its stripe rows (``outline_layout``; within half a stripe
+    height of a seam, either color). A nearer barrel explains only where it is SEEN: between the top and the bottom of its
+    body as seen from its evidence (the stripe step's body walk), not where its box was inferred.
+
+    Every box's evidence (``_evidence``: the stripe, cap, band, slices or piece it was read from) is split into the
+    barrel-colored pixels a kept nearer barrel explains and the rest, its OWN evidence. A box whose own evidence is fewer
+    than ``min_area_px`` pixels (the detector's speck floor: less than any piece it would read anything from) was read
+    from the nearer barrel's picture: it is dropped. A real barrel behind another always shows its visible part outside
+    the nearer one's outline; that part is its own evidence. The boxes are checked nearest first, so only kept boxes
+    explain a farther one. Applied to every rule's box. ``note`` = the caller's reason log (dropped boxes are noted there
+    as stage "verify", with the explained share and the own pixel count)."""
+    if len(found) < 2:
+        return found
+    barrel = np.isin(mask, (ORANGE, BLUE))
+    h, w = mask.shape
+    kept: list[Barrel] = []
+    seen_rows: dict[int, tuple[int, int]] = {}
+    for b in sorted(found, key=lambda b: -b.bbox[3]):              # nearest first (lowest bottom edge)
+        ex0, ey0, ex1, ey1 = _evidence(log, b)
+        ex0, ey0, ex1, ey1 = max(0, ex0), max(0, ey0), min(w, ex1), min(h, ey1)
+        ev = barrel[ey0:ey1, ex0:ex1]
+        n = int(ev.sum())
+        nearer = [F for F in kept if F.bbox[3] > b.bbox[3]]       # bottoms equal: neither is nearer
+        own, share = n, 0.0
+        if n and nearer:
+            ok = np.zeros((ey1 - ey0, ex1 - ex0), bool)
+            for F in nearer:
+                lay = outline_layout(F, cam, mask.shape)
+                t, bt = seen_rows[id(F)]
+                lay[:t] = 0; lay[bt:] = 0                          # F explains only where it is seen
+                lay = lay[ey0:ey1, ex0:ex1]
+                ok |= (lay == -1) | ((lay > 0) & (lay == mask[ey0:ey1, ex0:ex1]))
+            own = int((ev & ~ok).sum())
+            share = 1.0 - own / n
+        if nearer and own < cfg.min_area_px:
+            _note(note, "verify", "front", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), explained=round(share, 3), own_px=own)
+            continue
+        if ex1 > ex0 and ey1 > ey0:
+            t, bt = _body_extent(mask, b.color, ex0, ex1, ey0, ey1)
+            seen_rows[id(b)] = (max(b.bbox[1], t), min(b.bbox[3], bt))
+        else:
+            seen_rows[id(b)] = (b.bbox[1], b.bbox[3])
+        kept.append(b)
+    return sorted(kept, key=lambda b: b.bbox[0])
+
+
+def verify_readings(mask: np.ndarray, found: list[Barrel], log: list, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                    note: list | None = None) -> list[Barrel]:
+    """``verify_readings`` (2026-11-24): every box needs a second reading that agrees with its distance.
+
+    The stripe step reads the distance off the stripe's row. A second reading is a seen edge where that distance puts it:
+    the top, the bottom, or both sides (the body joined to the stripe seen stripe_full to body_width x W wide, as in
+    ``_partly_seen`` step 2). A partly seen stripe (flag ``occluded``) whose box is placed W wide from one side, with its
+    top AND its bottom inferred, has none: only the stripe's row and its (partly seen) height. It is dropped. Every other
+    rule's box has a seen edge by construction (caps: the top; half stripes: the far edge; pairs and thin pieces: top and
+    bottom). ``note`` = the caller's reason log."""
+    h, w = mask.shape
+    out = []
+    for b in found:
+        if b.source == "det2" and "occluded" in b.flags and {"top_inferred", "bottom_inferred"} <= b.flags:
+            ex0, ey0, ex1, ey1 = _evidence(log, b)
+            g = _stripe_geometry(cam, (ey0 + ey1) / 2)
+            if g is not None:
+                W = g[1].width_px
+                span = _body_span(mask, b.color, ex0, ex1, b.bbox[1], b.bbox[3], ey0, ey1) if b.bbox[3] - b.bbox[1] >= 2 else None
+                trusted = span is not None and max(span[1], ex1) - min(span[0], ex0) <= cfg.body_width * W
+                seen = (max(span[1], ex1) - min(span[0], ex0)) if trusted else (ex1 - ex0)
+                if seen < cfg.stripe_full * W:
+                    _note(note, "verify", "readings", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), seen_w=seen, expected_w=W)
+                    continue
+        out.append(b)
+    return out
 
 
 def box_iou(a: tuple, b: tuple) -> float:

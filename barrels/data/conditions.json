@@ -21,6 +21,15 @@
   "lampmid3_ottoman":     {"place": "home_ottoman",  "light": "lamp",     "note": "very dark"},
   "overheaddim_palewood": {"place": "uc_palewood",   "light": "overhead", "note": "campus, University Center 3rd floor, pale wood table, weak ceiling light"},
   "both_abpgray":         {"place": "abp_gray",      "light": "mixed",    "note": "campus ABP, glossy gray table, window daylight + a weak yellow ceiling light"},
-  "window_abpwhite":      {"place": "abp_white",     "light": "window",   "note": "campus ABP, white table, window daylight (the occlusion set R1; the same room as abp_gray, another table)"}
+  "window_abpwhite":      {"place": "abp_white",     "light": "window",   "note": "campus ABP, white table, window daylight (the occlusion set R1; the same room as abp_gray, another table)"},
+  "lampwarm6_glass":      {"place": "home_glass",    "light": "mixed",    "note": "home, white back-painted glossy glass table by a window, blinds closed, lamp aimed down, some window light leaks in; mirror reflections of every barrel (added 2026-11-25 by the color session)"},
+  "lampmid6_glass":       {"place": "home_glass",    "light": "mixed",    "note": ""},
+  "lampcool6_glass":      {"place": "home_glass",    "light": "mixed",    "note": ""},
+  "lampmid3_glass":       {"place": "home_glass",    "light": "mixed",    "note": "not dark (auto exposure)"},
+  "window_glass":         {"place": "home_glass",    "light": "window",   "note": "the same glass table, lamp off, blinds open"},
+  "lampwarm6_bathtile":   {"place": "home_bathtile", "light": "lamp",     "note": "home, beige stone-look bathroom floor tile, the lamp the only light, aimed down"},
+  "lampmid6_bathtile":    {"place": "home_bathtile", "light": "lamp",     "note": ""},
+  "lampcool6_bathtile":   {"place": "home_bathtile", "light": "lamp",     "note": ""},
+  "lampmid3_bathtile":    {"place": "home_bathtile", "light": "lamp",     "note": "not dark (auto exposure)"}
  }
 }

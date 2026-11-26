@@ -10,8 +10,8 @@ BASE = dataclasses.replace(det.DetConfig(), stripe_join=False, cap_behind=False,
                            half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False,   # ... and of 2026-11-20 (occl_vertical)
                            pin_outline=False, pin_thin=False,
                            **{k: False for k in ("stripe_bridge", "thin_frame", "own_close", "thin_span") if k in {f.name for f in dataclasses.fields(det.DetConfig)}})   # ... and of 2026-11-20 (occl_sliver)                                                          # ... and of 2026-11-20 (occl_pin)
-BASE = dataclasses.replace(BASE, **{k: False for k in ("closeup_side", "closeup_stripe")
-                                    if k in {f.name for f in dataclasses.fields(det.DetConfig)}})   # ... and of 2026-11-23 (closeup_shape)
+BASE = dataclasses.replace(BASE, **{k: False for k in ("closeup_side", "closeup_stripe", "verify_front", "verify_readings")
+                                    if k in {f.name for f in dataclasses.fields(det.DetConfig)}})   # ... and of 2026-11-23 (closeup_shape) and 2026-11-24 (occl_strict)
 SIDE = {"stripe_w_min": 0.25, "occl_body_side": True}
 
 ARMS = {

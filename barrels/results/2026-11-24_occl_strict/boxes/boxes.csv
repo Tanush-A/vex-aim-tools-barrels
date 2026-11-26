@@ -1,0 +1,262 @@
+set,extreme,stem,negative,color,x0,y0,x1,y1,kind,stage,source,flags,knockout
+HOME,0,4A8B_window_light_close_01,0,orange,308,144,388,235,hit,stripe,det2,,
+HOME,0,4A8B_window_light_close_02,0,blue,311,142,390,233,hit,stripe,det2,,
+HOME,0,4A8B_window_light_cluster_01,0,orange,315,118,366,162,hit,cap,det3,bottom_inferred occluded,cap_behind cap_seen_bottom
+HOME,0,4A8B_window_light_cluster_01,0,blue,326,120,383,173,hit,stripe,det2,,
+HOME,0,4A8B_window_light_cluster_01,0,blue,391,116,437,170,hit,stripe,det2,top_inferred,
+HOME,0,4A8B_window_light_cluster_02,0,orange,308,120,350,168,hit,stripe,det2,,
+HOME,0,4A8B_window_light_cluster_02,0,blue,350,112,396,168,hit,stripe,det2,,
+HOME,0,4A8B_window_light_cluster_02,0,orange,394,117,430,161,hit,stripe,det2,occluded,side_hidden
+HOME,0,4A8B_window_light_cluster_02,0,blue,439,120,500,179,hit,stripe,det2,,
+HOME,0,4A8B_window_light_core_01,0,blue,240,120,294,179,hit,stripe,det2,,
+HOME,0,4A8B_window_light_core_01,0,orange,293,122,340,174,hit,stripe,det2,,
+HOME,0,4A8B_window_light_core_02,0,orange,370,121,417,171,hit,stripe,det2,,
+HOME,0,4A8B_window_light_core_02,0,blue,420,118,475,176,hit,stripe,det2,top_inferred,
+HOME,0,4A8B_window_light_core_03,0,orange,318,107,344,136,hit,stripe,det2,,
+HOME,0,4A8B_window_light_edge_01,0,blue,0,132,32,197,hit,stripe,det2,occluded truncated,side_hidden
+HOME,0,4A8B_window_light_far_02,0,blue,216,104,249,144,hit,stripe,det2,,
+HOME,0,4A8B_window_light_far_02,0,orange,240,106,271,135,hit,stripe,det2,occluded,side_hidden
+HOME,0,4A8B_window_light_far_02,0,orange,332,107,363,135,hit,stripe,det2,occluded,
+HOME,0,4A8B_window_light_far_02,0,blue,434,107,467,140,hit,stripe,det2,,
+HOME,0,4A8B_window_light_occl_01,0,orange,344,134,429,228,hit,stripe,det2,,
+HOME,0,4A8B_window_light_occl_01,0,blue,387,112,432,158,hit,cap,det3,bottom_inferred occluded,cap_behind
+HOME,0,4A8B_window_light_occl_02,0,blue,396,134,476,230,hit,stripe,det2,,
+HOME,0,4A8B_window_light_occl_02,0,orange,399,117,439,161,hit,cap,det3,bottom_inferred occluded,cap_behind
+HOME,0,4A8B_window_light_top_01,0,orange,164,260,449,480,hit,piece,det1,truncated,
+HOME,0,4A8B_window_light_topstripe_01,0,orange,176,242,423,480,hit,piece,det1,bottom_inferred truncated,
+HOME,0,4A8B_window_light_touch_02,0,orange,149,123,191,174,hit,stripe,det2,occluded,side_hidden
+HOME,0,4A8B_window_light_touch_02,0,blue,190,122,238,179,hit,stripe,det2,,
+HOME,0,4A8B_window_light_touch_02,0,orange,241,122,287,174,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_close_01,0,orange,255,185,395,358,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_cluster_02,0,orange,237,117,277,165,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_cluster_02,0,orange,287,132,345,200,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_cluster_02,0,blue,338,119,386,173,hit,stripe,det2,occluded,stripe_wide
+CAMPUS,0,4A8B_campus_light_cluster_02,0,blue,370,117,416,166,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_clutter_02,0,orange,200,124,261,184,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_clutter_02,0,blue,440,122,494,179,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_clutter_02,0,blue,470,122,521,171,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_core_01,0,blue,95,163,202,285,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_core_01,0,orange,247,110,279,144,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_core_01,0,blue,336,132,393,198,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_core_01,0,orange,397,133,461,200,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_edge_01,0,orange,605,144,640,227,hit,stripe,det2,occluded truncated,side_hidden
+CAMPUS,0,4A8B_campus_light_far_01,0,orange,198,116,235,160,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_far_01,0,blue,240,110,271,146,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_far_01,0,blue,314,111,355,153,hit,stripe,det2,occluded top_inferred,side_hidden
+CAMPUS,0,4A8B_campus_light_far_01,0,orange,379,112,414,149,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_hand_02,0,blue,127,124,186,186,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_hand_02,0,orange,387,119,455,184,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_held_01,0,blue,98,334,505,480,hit,piece,det1,truncated,
+CAMPUS,0,4A8B_campus_light_occl_02,0,blue,277,127,331,178,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_plain_01,0,blue,65,150,162,253,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_plain_01,0,orange,501,147,600,241,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_plain_02,0,blue,80,131,151,200,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_plain_02,0,orange,421,130,484,198,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_room_01,0,blue,65,125,122,178,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_room_01,0,orange,341,122,387,173,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_room_03,0,blue,180,112,214,152,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_room_03,0,orange,217,112,250,150,hit,stripe,det2,occluded,side_hidden
+CAMPUS,0,4A8B_campus_light_top_01,0,orange,167,281,479,480,hit,piece,det1,truncated,
+CAMPUS,0,4A8B_campus_light_topstripe_01,0,orange,230,241,463,480,hit,piece,det1,bottom_inferred truncated,
+CAMPUS,0,4A8B_campus_light_touch_02,0,blue,224,120,275,177,hit,stripe,det2,top_inferred,
+CAMPUS,0,4A8B_campus_light_touch_02,0,blue,273,120,321,176,hit,stripe,det2,top_inferred,
+CAMPUS,0,4A8B_campus_light_window_01,0,blue,160,133,221,202,hit,stripe,det2,,
+CAMPUS,0,4A8B_campus_light_window_01,0,orange,374,133,434,201,hit,stripe,det2,,
+4A8B_both_abpgray,0,4A8B_both_abpgray_close_01,0,orange,188,250,466,480,hit,piece,det1,truncated,
+4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,0,blue,35,128,109,200,hit,stripe,det2,top_inferred,
+4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,0,orange,207,117,244,152,loose,stripe,det2,,
+4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,0,blue,365,118,422,180,hit,stripe,det2,,
+4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,0,orange,505,128,576,195,hit,stripe,det2,,
+4A8B_both_abpgray,0,4A8B_both_abpgray_clutter_01,0,blue,512,113,556,168,wrongcolor,stripe,det2,occluded top_inferred,
+4A8B_both_abpgray,0,4A8B_both_abpgray_core_01,0,orange,135,132,188,185,hit,stripe,det2,bottom_inferred occluded,side_hidden
+4A8B_both_abpgray,0,4A8B_both_abpgray_core_01,0,blue,374,110,407,146,hit,stripe,det2,,stripe_join seam_height
+4A8B_both_abpgray,0,4A8B_both_abpgray_edge_01,0,blue,589,151,640,251,hit,stripe,det2,occluded truncated,side_hidden
+4A8B_both_abpgray,0,4A8B_both_abpgray_held_01,0,blue,95,331,518,480,hit,piece,det1,truncated,
+4A8B_both_abpgray,0,4A8B_both_abpgray_occl_02,0,blue,368,124,421,179,hit,stripe,det2,occluded,stripe_join side_hidden
+4A8B_both_abpgray,0,4A8B_both_abpgray_touch_01,0,blue,294,124,351,178,hit,stripe,det2,,stripe_join
+4A8B_lampcool3_wood,1,4A8B_lampcool3_wood_close_01,0,blue,118,240,355,480,hit,piece,det1,bottom_inferred truncated,
+4A8B_lampcool3_wood,1,4A8B_lampcool3_wood_occl_04,0,orange,186,126,239,185,hit,stripe,det2,top_inferred,
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_close_01,0,orange,126,244,390,480,hit,piece,det1,truncated,
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_clutter_01,0,blue,74,132,148,208,hit,stripe,det2,,stripe_join
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_clutter_01,0,blue,296,110,343,150,hit,stripe,det2,occluded top_inferred,side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_clutter_01,0,orange,496,122,554,191,hit,stripe,det2,occluded,side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,0,orange,224,115,267,166,hit,stripe,det2,occluded,side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,0,orange,327,104,358,138,hit,stripe,det2,occluded,stripe_join stripe_bridge side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,0,blue,381,140,454,223,hit,stripe,det2,occluded,side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_core_01,0,blue,481,112,511,148,hit,stripe,det2,bottom_inferred occluded,side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_edge_01,0,blue,0,131,28,192,hit,stripe,det2,occluded truncated,side_hidden
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_edge_01,0,orange,280,122,330,180,hit,stripe,det2,,stripe_join
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_touch_01,0,orange,285,123,336,179,hit,stripe,det2,,stripe_join
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_touch_01,0,blue,340,124,395,179,hit,stripe,det2,,
+4A8B_lampcool6_bathtile,0,4A8B_lampcool6_bathtile_touch_01,0,blue,384,125,442,182,hit,stripe,det2,bottom_inferred occluded,side_hidden
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_close_01,0,orange,174,251,434,480,hit,piece,det1,truncated,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,0,blue,154,140,243,235,hit,stripe,det2,top_inferred,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,0,blue,259,112,304,166,hit,stripe,det2,occluded,side_hidden
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,0,orange,357,104,387,134,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_clutter_01,0,orange,522,112,578,171,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,0,orange,143,112,184,154,hit,stripe,det2,bottom_inferred,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,0,blue,180,120,232,186,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,0,orange,300,133,367,210,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_core_01,0,blue,373,109,413,152,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_edge_01,0,blue,0,145,39,239,hit,stripe,det2,occluded truncated,side_hidden
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_edge_01,0,orange,407,124,462,183,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_occl_02,0,blue,256,116,301,166,hit,stripe,det2,occluded,side_hidden
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_touch_01,0,blue,224,120,278,186,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_touch_01,0,orange,282,123,336,184,hit,stripe,det2,,
+4A8B_lampcool6_glass,0,4A8B_lampcool6_glass_touch_01,0,orange,333,123,389,182,hit,stripe,det2,,
+4A8B_lampcool6_ottoman,0,4A8B_lampcool6_ottoman_core_01,0,blue,277,114,315,158,hit,stripe,det2,occluded,stripe_join stripe_bridge side_hidden
+4A8B_lampcool6_ottoman,0,4A8B_lampcool6_ottoman_touch_01,0,blue,243,131,324,197,hit,stripe,det2,top_inferred,stripe_join seam_height
+4A8B_lampcool6_ottoman,0,4A8B_lampcool6_ottoman_touch_01,0,orange,328,128,389,198,hit,stripe,det2,occluded top_inferred,side_hidden
+4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_close_01,0,blue,114,270,355,480,hit,piece,det1,bottom_inferred truncated,
+4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_cluster_01,0,orange,220,115,268,163,wrongcolor,half_stripe,det2,occluded top_inferred,half_stripe
+4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_occl_02,0,orange,179,112,225,164,hit,stripe,det2,bottom_inferred occluded,stripe_join side_hidden
+4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_occl_02,0,orange,186,131,261,215,part,stripe,det2,occluded top_inferred,side_hidden
+4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_occl_04,0,orange,186,141,266,214,part,stripe,det2,occluded,side_hidden
+4A8B_lampcool6_wood,1,4A8B_lampcool6_wood_touch_02,0,orange,194,126,269,196,part,stripe,det2,top_inferred,stripe_join stripe_bridge
+4A8B_lampmid3_bathtile,0,4A8B_lampmid3_bathtile_close_01,0,orange,127,294,386,480,hit,piece,det1,truncated,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_close_01,0,orange,170,251,435,480,hit,piece,det1,truncated,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,0,blue,155,140,243,234,hit,stripe,det2,top_inferred,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,0,blue,255,115,300,165,hit,stripe,det2,occluded,side_hidden
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,0,orange,358,98,390,134,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_clutter_01,0,orange,523,117,582,171,hit,stripe,det2,top_inferred,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,0,orange,143,112,185,154,hit,stripe,det2,bottom_inferred,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,0,blue,180,123,233,186,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,0,orange,299,133,368,210,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_core_01,0,blue,374,109,412,151,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_edge_01,0,blue,0,146,39,238,hit,stripe,det2,occluded truncated,side_hidden
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_edge_01,0,orange,407,123,462,182,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_neg_02,1,orange,556,118,606,172,false,stripe,det2,bottom_inferred occluded top_inferred,side_hidden
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_occl_02,0,blue,255,116,300,165,hit,stripe,det2,occluded,side_hidden
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_occl_02,0,orange,577,117,636,167,false,stripe,det2,top_inferred,stripe_join stripe_bridge side_hidden
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_touch_01,0,blue,224,123,278,185,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_touch_01,0,orange,281,123,337,184,hit,stripe,det2,,
+4A8B_lampmid3_glass,0,4A8B_lampmid3_glass_touch_01,0,orange,333,123,389,182,hit,stripe,det2,,
+4A8B_lampmid3_ottoman,0,4A8B_lampmid3_ottoman_close_01,0,orange,229,272,428,480,hit,piece,det1,bottom_inferred truncated,
+4A8B_lampmid3_ottoman,0,4A8B_lampmid3_ottoman_clutter_01,0,blue,95,150,175,229,loose,half_stripe,det2,bottom_inferred occluded,half_stripe
+4A8B_lampmid3_wood,1,4A8B_lampmid3_wood_close_01,0,blue,121,243,347,480,hit,piece,det1,bottom_inferred truncated,
+4A8B_lampmid3_wood,1,4A8B_lampmid3_wood_close_01,0,orange,214,231,458,469,wrongcolor,cap,det3,bottom_inferred occluded,cap_behind
+4A8B_lampmid6_bathtile,0,4A8B_lampmid6_bathtile_close_01,0,orange,124,246,390,480,hit,piece,det1,truncated,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_close_01,0,orange,169,251,435,480,hit,piece,det1,truncated,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,0,blue,155,140,243,234,hit,stripe,det2,top_inferred,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,0,blue,255,116,300,165,hit,stripe,det2,occluded,side_hidden
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,0,orange,358,104,390,134,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,0,orange,521,110,560,171,hit,stripe,det2,occluded,side_hidden
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_clutter_01,0,orange,554,117,604,171,part,stripe,det2,occluded top_inferred,stripe_wide side_hidden
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,0,orange,143,110,184,154,hit,stripe,det2,bottom_inferred,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,0,blue,181,124,232,185,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,0,orange,299,133,368,211,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_core_01,0,blue,374,110,411,151,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_edge_01,0,blue,0,147,38,237,hit,stripe,det2,occluded truncated,side_hidden
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_edge_01,0,orange,406,123,463,184,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_occl_02,0,blue,255,116,300,165,hit,stripe,det2,occluded,side_hidden
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_occl_02,0,orange,559,119,610,174,false,stripe,det2,bottom_inferred occluded top_inferred,stripe_join stripe_bridge
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_touch_01,0,blue,225,123,278,184,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_touch_01,0,orange,281,123,336,184,hit,stripe,det2,,
+4A8B_lampmid6_glass,0,4A8B_lampmid6_glass_touch_01,0,orange,333,122,389,182,hit,stripe,det2,,
+4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_clutter_01,0,orange,314,142,401,233,hit,stripe,det2,bottom_inferred occluded top_inferred,side_hidden
+4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_core_01,0,orange,154,164,281,310,hit,stripe,det2,,stripe_join
+4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_core_01,0,orange,416,125,474,190,hit,stripe,det2,bottom_inferred occluded top_inferred,side_hidden
+4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_edge_01,0,orange,269,140,350,230,hit,stripe,det2,occluded top_inferred,side_hidden
+4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_touch_01,0,blue,242,131,320,195,hit,stripe,det2,top_inferred,stripe_join seam_height
+4A8B_lampmid6_ottoman,0,4A8B_lampmid6_ottoman_touch_01,0,orange,323,128,389,198,hit,stripe,det2,occluded top_inferred,side_hidden
+4A8B_lampmid6_wood,1,4A8B_lampmid6_wood_close_01,0,blue,120,242,352,480,hit,piece,det1,bottom_inferred truncated,
+4A8B_lampwarm3_wood,1,4A8B_lampwarm3_wood_close_01,0,blue,124,248,338,480,hit,piece,det1,bottom_inferred truncated,
+4A8B_lampwarm6_bathtile,0,4A8B_lampwarm6_bathtile_close_01,0,orange,124,246,390,480,hit,piece,det1,truncated,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_close_01,0,orange,167,251,436,480,hit,piece,det1,truncated,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,0,blue,155,140,242,233,hit,stripe,det2,top_inferred,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,0,blue,254,117,299,164,hit,stripe,det2,occluded,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,0,orange,357,101,392,134,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,0,orange,518,112,566,172,hit,stripe,det2,occluded,side_hidden
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_clutter_01,0,orange,555,117,605,172,part,stripe,det2,occluded,stripe_wide side_hidden
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,0,orange,142,109,189,154,hit,stripe,det2,bottom_inferred,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,0,blue,182,124,232,184,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,0,orange,299,133,368,211,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_core_01,0,blue,375,110,411,150,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_edge_01,0,blue,0,147,37,237,hit,stripe,det2,occluded truncated,side_hidden
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_edge_01,0,orange,406,123,463,184,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_occl_02,0,blue,254,117,299,164,hit,stripe,det2,occluded,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_touch_01,0,blue,226,123,277,184,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_touch_01,0,orange,280,123,335,184,hit,stripe,det2,,
+4A8B_lampwarm6_glass,0,4A8B_lampwarm6_glass_touch_01,0,orange,335,122,389,183,hit,stripe,det2,,
+4A8B_lampwarm6_ottoman,0,4A8B_lampwarm6_ottoman_core_01,0,orange,166,248,282,480,part,piece,det1,bottom_inferred truncated,
+4A8B_lampwarm6_wood,1,4A8B_lampwarm6_wood_close_01,0,orange,102,265,512,480,wrongcolor,piece,det1,truncated,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_close_01,0,orange,292,241,568,477,hit,piece,det1,,closeup_stripe
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,0,orange,139,143,239,235,hit,stripe,det2,bottom_inferred top_inferred,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,0,blue,139,120,183,168,hit,cap,det3,bottom_inferred occluded,cap_behind
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,0,blue,425,117,472,168,hit,stripe,det2,top_inferred,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_clutter_01,0,orange,557,136,640,211,hit,stripe,det2,bottom_inferred truncated,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,0,orange,127,140,204,218,hit,stripe,det2,bottom_inferred,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,0,orange,235,273,564,480,false,piece,det1,bottom_inferred truncated,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,0,blue,249,112,280,146,hit,stripe,det2,,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,0,orange,362,105,400,138,hit,stripe,det2,bottom_inferred,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_core_01,0,blue,431,118,476,168,hit,stripe,det2,,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_edge_01,0,orange,314,126,380,188,hit,stripe,det2,bottom_inferred,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_touch_01,0,blue,256,121,298,170,hit,stripe,det2,,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_touch_01,0,orange,300,120,352,172,hit,stripe,det2,bottom_inferred,
+4A8B_overheaddim_palewood,0,4A8B_overheaddim_palewood_touch_01,0,orange,348,120,406,172,hit,stripe,det2,bottom_inferred,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_01,0,orange,103,122,152,173,hit,stripe,det2,occluded,side_hidden pin_outline
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_01,0,blue,310,123,359,177,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_02,0,blue,310,123,358,177,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_03,0,blue,319,132,389,211,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_04,0,orange,101,121,151,172,hit,stripe,det2,occluded,side_hidden
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_04,0,blue,320,134,388,212,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_05,0,orange,50,121,99,170,hit,stripe,det2,occluded,side_hidden
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_05,0,blue,318,130,388,211,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_06,0,blue,320,135,388,211,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_07,0,orange,111,118,156,165,hit,half_stripe,det2,bottom_inferred occluded,half_stripe half_thin
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_07,0,blue,321,135,388,211,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_08,0,orange,113,115,157,166,hit,half_stripe,det2,occluded top_inferred,half_stripe
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_08,0,blue,321,135,388,212,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_09,0,blue,107,117,153,168,hit,stripe,det2,occluded,stripe_wide side_hidden
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_09,0,blue,127,118,174,168,hit,stripe,det2,occluded,stripe_wide side_hidden
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_10,0,orange,100,118,171,197,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_11,0,blue,87,136,170,230,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_11,0,orange,101,118,145,166,hit,cap,det3,bottom_inferred occluded,cap_behind
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_13,0,orange,104,118,151,165,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_13,0,blue,314,132,390,211,hit,stripe,det2,top_inferred,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_14,0,blue,192,123,242,178,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_17,0,blue,0,128,16,185,hit,stripe,det2,occluded truncated,side_hidden pin_outline pin_thin thin_frame
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_17,0,blue,144,117,185,160,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_17,0,orange,161,105,196,143,false,stripe,det2,occluded top_inferred,side_hidden
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_18,0,orange,104,119,151,166,hit,stripe,det2,,
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_18,0,blue,315,134,382,213,hit,stripe,det2,occluded,side_hidden
+4A8B_window_abpwhite,0,4A8B_window_abpwhite_occlx_19,0,blue,25,135,107,211,hit,stripe,det2,,
+4A8B_window_black,1,4A8B_window_black_close_02,0,orange,159,258,366,480,hit,piece,det1,truncated,
+4A8B_window_black,1,4A8B_window_black_clutter_02,0,blue,480,123,540,192,hit,stripe,det2,occluded top_inferred,stripe_join side_hidden
+4A8B_window_black,1,4A8B_window_black_clutter_02,0,orange,539,143,640,235,loose,stripe,det2,bottom_inferred top_inferred truncated,stripe_join
+4A8B_window_black,1,4A8B_window_black_held_01,0,orange,102,335,416,480,hit,piece,det1,truncated,
+4A8B_window_black,1,4A8B_window_black_occl_04,0,blue,271,159,377,272,hit,stripe,det2,occluded,side_hidden
+4A8B_window_black,1,4A8B_window_black_touch_02,0,orange,241,133,323,209,hit,stripe,det2,bottom_inferred,stripe_join
+4A8B_window_glass,0,4A8B_window_glass_close_01,0,orange,174,251,434,480,hit,piece,det1,truncated,
+4A8B_window_glass,0,4A8B_window_glass_clutter_01,0,blue,154,140,243,236,hit,stripe,det2,top_inferred,
+4A8B_window_glass,0,4A8B_window_glass_clutter_01,0,blue,256,112,301,167,hit,stripe,det2,occluded,side_hidden
+4A8B_window_glass,0,4A8B_window_glass_clutter_01,0,orange,358,99,386,134,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_clutter_01,0,orange,527,117,586,171,hit,stripe,det2,top_inferred,
+4A8B_window_glass,0,4A8B_window_glass_core_01,0,orange,144,112,179,152,hit,stripe,det2,occluded,side_hidden
+4A8B_window_glass,0,4A8B_window_glass_core_01,0,blue,176,122,233,186,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_core_01,0,orange,301,134,367,210,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_core_01,0,blue,373,109,414,152,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_edge_01,0,blue,0,145,39,228,hit,stripe,det2,bottom_inferred occluded truncated,side_hidden
+4A8B_window_glass,0,4A8B_window_glass_edge_01,0,orange,408,124,462,183,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_occl_02,0,blue,268,115,307,168,loose,stripe,det2,occluded,side_hidden
+4A8B_window_glass,0,4A8B_window_glass_occlx_16,1,blue,395,107,431,146,false,stripe,det2,bottom_inferred occluded top_inferred,stripe_join side_hidden
+4A8B_window_glass,0,4A8B_window_glass_touch_01,0,blue,224,123,279,187,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_touch_01,0,orange,282,123,334,184,hit,stripe,det2,,
+4A8B_window_glass,0,4A8B_window_glass_touch_01,0,orange,338,123,388,182,hit,stripe,det2,,
+DAVE*,0,DAVE_office_speckle_snap_01,0,blue,170,165,304,293,hit,stripe,det2,occluded top_inferred,stripe_join stripe_bridge side_hidden
+DAVE*,0,DAVE_office_speckle_snap_01,0,orange,392,160,503,272,loose,cap,det3,bottom_inferred occluded,stripe_join cap_behind cap_same
+DAVE*,0,DAVE_office_speckle_snap_01,0,orange,446,168,573,290,hit,stripe,det2,,stripe_join
+DAVE*,0,DAVE_office_speckle_snap_02,0,orange,396,168,520,258,part,cap,det3,bottom_inferred occluded,side_hidden cap_behind cap_same cap_low cap_seen_bottom
+DAVE*,0,DAVE_office_speckle_snap_02,0,orange,450,166,563,290,hit,stripe,det2,occluded,stripe_join side_hidden
+DAVE*,0,DAVE_office_speckle_snap_03,0,blue,192,246,357,480,part,piece,det1,bottom_inferred truncated,
+DAVE*,0,DAVE_office_speckle_snap_04,0,orange,400,240,561,480,part,piece,det1,bottom_inferred truncated,
+DAVE*,0,DAVE_office_speckle_snap_06,0,orange,146,349,542,480,hit,piece,det1,truncated,
+DAVE*,0,DAVE_office_speckle_snap_06,0,orange,384,126,433,189,hit,stripe,det2,occluded top_inferred,side_hidden
+DAVE*,0,DAVE_office_speckle_snap_07,0,orange,136,346,544,480,hit,piece,det1,truncated,
+DAVE*,0,DAVE_office_speckle_snap_08,0,orange,61,273,341,480,hit,piece,det1,truncated,
+DAVE*,0,DAVE_office_speckle_snap_08,0,blue,385,292,640,480,hit,piece,det1,truncated,
+DAVE*,0,DAVE_office_speckle_snap_09,0,orange,15,279,315,480,hit,piece,det1,truncated,
+DAVE*,0,DAVE_office_speckle_snap_09,0,blue,350,253,597,480,hit,piece,det1,bottom_inferred truncated,
+DAVE*,0,DAVE_office_speckle_snap_10,0,blue,270,338,640,480,hit,piece,det1,truncated,
+DAVE*,0,DAVE_office_speckle_snap_10,0,orange,384,176,516,306,hit,stripe,det2,occluded,side_hidden
+DAVE*,0,DAVE_office_speckle_snap_11,0,blue,0,339,382,480,hit,piece,det1,truncated,

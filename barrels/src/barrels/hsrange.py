@@ -208,11 +208,12 @@ class Range:
         return [int(self.lo), int(self.hi)]
 
 
-def _walk(fe: FrameEval, anchor: dict, t: str, d: int, ref: Outcome, kind: str, step: int, coarse: int) -> tuple[int, str]:
+def _walk(fe: FrameEval, anchor: dict, t: str, d: int, ref: Outcome, kind: str, step: int, coarse: int,
+          limits: dict | None = None) -> tuple[int, str]:
     """From the anchor, step in direction d until a value fails; (last working value, why it stopped). With
     ``coarse`` > 1: jump by coarse * step until a failure, then go on from the last good value by step (faster;
     may skip a lone failing value between jumps)."""
-    lim_lo, lim_hi = LIMITS[t]
+    lim_lo, lim_hi = (limits or LIMITS)[t]
     detect = kind == DET
     v = anchor[t]
     for st in ((coarse * step, step) if coarse > 1 else (step,)):
@@ -242,15 +243,17 @@ def _walk(fe: FrameEval, anchor: dict, t: str, d: int, ref: Outcome, kind: str, 
     return v, OPEN      # not reached
 
 
-def sweep(fe: FrameEval, anchor: dict, kind: str = DET, thresholds=THRESHOLDS, coarse: int = 1, steps: dict | None = None) -> dict[str, Range]:
-    """The range of each threshold, one at a time, the others at the anchor (PREREG part 1)."""
+def sweep(fe: FrameEval, anchor: dict, kind: str = DET, thresholds=THRESHOLDS, coarse: int = 1, steps: dict | None = None,
+          limits: dict | None = None) -> dict[str, Range]:
+    """The range of each threshold, one at a time, the others at the anchor (PREREG part 1). ``limits``: the span
+    each threshold may take (default ``LIMITS``, the slider's span before 2026-11-25; the slider tool passes its own)."""
     anchor = flat(anchor)
     ref = fe.evaluate(anchor, kind == DET)
     steps = steps or STEPS
     out = {}
     for t in thresholds:
-        lo, lw = _walk(fe, anchor, t, -1, ref, kind, steps[t], coarse)
-        hi, hw = _walk(fe, anchor, t, +1, ref, kind, steps[t], coarse)
+        lo, lw = _walk(fe, anchor, t, -1, ref, kind, steps[t], coarse, limits)
+        hi, hw = _walk(fe, anchor, t, +1, ref, kind, steps[t], coarse, limits)
         out[t] = Range(lo, hi, lw, hw, anchor[t])
     return out
 

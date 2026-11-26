@@ -51,6 +51,20 @@ Per class: the S floor = the `hs_s_pct` percentile of the labeled pixels' S; the
 
 **How it is judged.** `python barrels/experiments/2026-11-24_adaptive/run.py`: leave one *place* out (fit without the place, detect on its frames), the never-regress gate with the rule on, and a copy of the rule frozen on 2026-11-23 scored on places that are new since. Exit 0 only if every clause of the PREREG holds (at least 5 hand-labelled places, ≥ 3 more barrels found, ≤ 2 more false boxes, no new box on an empty frame, no condition losing > 0.02, no new gate failure, the frozen rule holding on new places). **2026-11-23: FAIL** (3 hand-labelled places; ABP gray 10 → 16 of 16 but one new box on an empty frame; the ottoman gets worse, 9 → 4 of 45, because its orange peak sits below home's and the fitted slope narrows the range where the hand labels widen it). Off; nothing changes unless Tanush adopts it after a walkthrough.
 
+### The blue box follows the light — built 2026-11-25 on `wip/color`, OFF by default (`Config.hs_light`; not adopted)
+
+**Why.** Under a yellow lamp the blue paint loses its saturation. On the bathroom floor at the lamp's middle setting a blue body reads hue 98, S 78 (RGB 43, 56, 61) against the adopted floor of 113, so it is never painted and the orange barrels lose their stripe: the fixed model finds 1 of 15 barrels there, the vendor 8-9. Under the warm setting the blue paint reads gray-olive (hue 26-44, S 44): no blue box can reach it without the floor (`results/2026-11-25_color/gates.md`). Under daylight the opposite holds: white tables and gray walls read slightly blue, which is why the floor is 113.
+
+**The idea, in one line** (Tanush's picture: "if the whole image is more yellow, shift the thresholds that way"): read how yellow the *light* is from the frame itself, and lower the blue saturation floor and the low end of the blue hue range the more yellow it is. Pixels are never changed; only the blue box moves, per frame.
+
+**How** (`src/barrels/lightcolor.py`). The light's warmth = the median of (R − B) / (R + G + B + 1) over the brightest pixels (the "white patch": white and pale things take the light's color). Share t = clip((warmth − w0) / (w1 − w0), 0, 1); blue S floor = 113 − t · (113 − s_warm), blue hue low = 103 − t · (103 − h_warm); only ever lowered, orange untouched. `Config.hs_light = (w0, w1, s_warm, h_warm)` reads the brightest 5 % of the whole frame; the six-number form `(…, rows, top)` reads the brightest `top` % of the rows above `rows` only. Empty = off, and then the config hash is unchanged (`eb863d84`).
+
+**Worked example.** Bathroom, lamp middle setting, `core_01`: the brightest 5 % of the frame have median RGB (222, 186, 96), warmth (222 − 96) / 505 = 0.25. With (w0, w1) = (0.08, 0.20) the share is 1: the blue floor drops from 113 to 40 and the hue low end from 103 to 92, so the blue body (hue 98, S 78) is painted. Home white table: the brightest pixels are (175, 180, 184), warmth −0.02, share 0: the adopted model, unchanged.
+
+**How it was judged** (`experiments/2026-11-25_color/PREREG.md`, `test.py`; leave one *place* out over 8 places, 154 ordinary train frames). Round 1 (whole-frame reading): +22 barrels found (bathroom middle and dim 2 → 18, ottoman warm 0 → 5), but +6 false boxes, one new box on an empty glass frame and the glass mid lamp −0.023: **fails** the written acceptance. The cause: where an orange barrel or yellow clutter is among the brightest things (close-ups, the black ottoman) the "light" reads warm under white light. Round 2 read the light above the horizon gate only (rows 0–49, where no barrel can be): steadier, but it puts the bathroom's floor around 55–65, where the blue body is painted in pieces and the detector loses more than with no change (bathroom middle 4 of 15, 5 false): **fails**. Not adopted. The re-centred constant (orange 2..16, S ≥ 160) and the two together failed as well: the ottoman's orange shift (hue 15) is not predictable from the other places. `results/2026-11-25_color/test/summary.md`.
+
+**What can go wrong.** The warmth reads the brightest things in view; if those are orange barrels or a yellow notepad under white light, it lowers the blue floor where it should not. A floor halfway down paints a washed-out blue body in pieces, and the detector is not monotone in that (`results/2026-11-25_color/sweep.md`).
+
 ### v1 — the `rgb_box` model, the front end until 2026-11-09 (config `afd85483`; kept for the record, selectable with `--model results/2026-10-20_v1_test_adaptive/config.json`)
 
 **The idea.** A pixel has to survive a chain of cheap tests to be called barrel. Each test throws out pixels that *cannot* be barrel; the last test decides which color the survivors are.
@@ -317,6 +331,51 @@ All 3888 scenes: found 2153 → 2737; a box in the right place 2318 → 2854; **
 
 *The stencil as a verifier (not adopted).* Checking every box against a barrel stencil at its place and dropping those under a limit (0.16, set on HOME only) removes 37 of the 45 scorecard boxes where no barrel is and the 11 wrong boxes on the campus clips, and loses 2 right CAMPUS barrels and every barrel seen a third or less: a partly hidden barrel and a wrong box both have little painted.
 
+### The verify step: two facts checked on every rule's box (2026-11-24, branch `wip/occl-strict`, on there; awaiting the walkthrough)
+
+What was asked (Tanush): the occlusion rules may be too lenient; strengthen them everywhere against random boxes without
+breaking real cases, by logic. `experiments/2026-11-24_occl_strict/PREREG.md` lists, for every rule that can create a box,
+what it accepts and which facts of a real barrel it never checks; `results/2026-11-24_occl_strict/verdict.md` has the
+numbers. The facts: the layout (body, stripe, body), one distance for every seen size, every edge explained, no body past
+the barrel's end, **a barrel is not seen through a nearer barrel**, the barrel stands on the table. Two of them separate the
+random boxes from the real ones on every test bed; the others remove real barrels (a dark ottoman barrel shows neither
+its top nor its bottom; clutter behind a barrel touches it) and are not used. The two run at the end of `detect`, on every
+box, whatever rule drew it; each is a switch.
+
+- **`verify_front`: a barrel cannot be seen through a nearer barrel (`verify_front`, `outline_layout`, `_evidence`).**
+  Inside the outline of a barrel standing nearer (its bottom edge lower in the picture), every pixel is that barrel's own
+  picture: its body color in its body rows, its stripe color in its stripe rows. The boxes are taken nearest first. For
+  each, its *evidence* is what it was read from (the stripe, the cap piece, the band, the two slices, the stripeless piece;
+  taken from the reason log). Evidence pixels that lie inside a kept nearer barrel's outline (between its seen top and
+  bottom; the outline's rounded corners from `Outline`) and have the color that barrel's layout puts there (within half a
+  stripe height of a seam, either color) are the nearer barrel's; the rest are the box's own. **Fewer than `min_area_px`
+  (20) own pixels: the box was read from the nearer barrel's picture, dropped.** A real barrel behind another always has
+  its visible part outside the nearer one's outline. It runs twice: after the stripe step and the stripeless pieces (so
+  the caps, pairs and half stripes lean only on boxes that passed, and a cap can still find a barrel whose wrong stripe
+  box was dropped), and at the end on every box. *ABP white `occlx_17`:* the far blue barrel (144, 117, 185, 160) has
+  orange clutter right above its top; its blue upper body between that clutter and its own orange stripe was read as the
+  blue stripe of a smaller orange barrel (161, 105, 196, 143). That "stripe" (166, 117, 183, 134) lies wholly inside the
+  blue barrel, at its upper-body rows, blue: fewer than 20 pixels of its own → dropped. Same on gray `clutter_01` and on 9
+  frames of the recordings (orange boxes on a hand above a blue barrel).
+- **`verify_readings`: a box needs a second reading (`verify_readings`).** The stripe step reads the distance off the
+  stripe's row; the second reading is a seen edge where that distance puts it: the top, the bottom, or the whole width (the
+  body joined to the stripe seen at least `stripe_full` W wide). A partly seen stripe (flag `occluded`) placed W wide
+  from a guessed side, with its top AND bottom both inferred, has only the stripe's row: dropped. Every other rule's box
+  has a seen edge by construction (a cap its top, a half stripe its far edge, pairs and thin pieces top and bottom).
+  *Glass `lampmid3_glass_neg_02`:* a tin with an orange lid and a blue label; a piece of the label (560, 144, 580, 155),
+  0.4 W wide, made a box W wide from its left end, top and bottom both inferred → dropped. The dark ottoman barrels
+  (`lampmid6_ottoman` core_01, clutter_01) also have both edges inferred, but their orange body shows the whole width:
+  kept.
+
+*Numbers* (`results/2026-11-24_occl_strict/verdict.md`): real train frames of every set, 261 boxes → 256: the 5 removed
+are 4 boxes on no barrel (the two glass empty frames, `lampmid6_glass_occl_02`, ABP `occlx_17`) and 1 wrong-color box (gray
+`clutter_01`); **no real barrel lost**; the never-regress check now passes on the new glass sets (it failed on two empty
+frames). Scorecard: boxes where no barrel is 48 → 23, found 2876 → 2869 (the 7 lost scenes were "found" by a box read
+from the front barrel's picture). Damage levels: false boxes 4 → 3 at medium and at worst seen, none elsewhere; found
+−3 at medium, −2 at worst seen, unchanged at the judged levels. Recordings: 0 boxes appear, 9 wrong boxes disappear.
+*Not caught:* the wood grain at the bottom of palewood `core_01` (a stripeless close-up; no fact of the list is broken:
+it is speckle, not a solid face) and misplaced boxes on real barrels (ottoman `lampwarm6` core_01, Dave's close-ups).
+
 ### The code, in call order
 
 | function | one line |
@@ -360,6 +419,8 @@ All 3888 scenes: found 2153 → 2737; a box in the right place 2318 → 2854; **
 | `_body_crosses(mask, s, sx0, sx1)` | `thin_span` (on, A8): does body color cross the stripe's rows in a column of the seen span (a body-colored thing in front)? |
 | `_join_pieces` → `_join_bridged` / `_join_shaped` | `stripe_bridge` (on, A8): the join with the bridge (same rows, body over every gap column, gap at most half the span) / the join as before |
 | `_end_closure`, `_closed_end`, `CLOSE_ZONE`, `CLOSE_CUT` | `own_close` (off, A8): how far top and bottom have closed at each end; W wide from the closed end when the other stands and the closed one is not against barrel color |
+| `verify_front(mask, found, log, cam, cfg)`, `outline_layout`, `_evidence` | 2026-11-24 (`verify_front`, on): nearest first, a box with fewer than `min_area_px` evidence pixels outside what kept nearer barrels' own layout explains is dropped; called after the stripe step and at the end of `detect` |
+| `verify_readings(mask, found, log, cam, cfg)` | 2026-11-24 (`verify_readings`, on): a partly seen stripe box with both edges inferred and a seen span under `stripe_full` W is dropped |
 | `draw(image, barrels)` | the output image (yellow = orange barrel, green = blue barrel, 1 px) |
 
 `detect` itself is about twenty lines; read it with the table above beside it.
@@ -415,6 +476,8 @@ All 3888 scenes: found 2153 → 2737; a box in the right place 2318 → 2854; **
 | `height_min` / `height_max` | 0.5 / 1.5 | a stripeless piece's height as a fraction of the expected barrel height at its bottom row | hardening (d): the width check alone took a jacket; 0.5–1.5 matches the width band |
 | `closeup_side` | True (on `wip/closeup-shape`) | a close-up piece also cut by the frame's side must be seen down to min(frame bottom, the stripe top its top row predicts), within `bottom_tol` of that height | 2026-11-23 (A9): the printed fruit on the empty trap `occlx_15`. No new number |
 | `closeup_stripe` | True (on `wip/closeup-shape`) | a stripeless piece whose predicted stripe bottom is past the frame bottom is a close-up | 2026-11-23 (A9): palewood `close_01`, the barrel whose stripe straddles the frame bottom. No new number |
+| `verify_front` | True (on `wip/occl-strict`) | a box whose evidence has fewer than `min_area_px` pixels of its own (the rest inside a kept nearer barrel's outline and of that barrel's layout color) is dropped | 2026-11-24: the random boxes read from a nearer barrel's upper body (ABP `occlx_17`, gray `clutter_01`, the hand boxes of the recordings). No new number |
+| `verify_readings` | True (on `wip/occl-strict`) | a partly seen stripe placed from a guessed side, with top and bottom both inferred and its seen span under `stripe_full` W, is dropped | 2026-11-24: the tin and sticky-note boxes on the glass sets (two on empty frames). No new number |
 
 ### How to run and how to score
 
