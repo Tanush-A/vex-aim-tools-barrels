@@ -1,0 +1,5 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_lampcool6_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampcool6_glass,1
+4A8B_lampmid3_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampmid3_glass,1
+4A8B_window_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,window_glass,1
+4A8B_window_black_occl_04,2,blue,269 156 377 273,found,off,lost,home_black,window_black,0

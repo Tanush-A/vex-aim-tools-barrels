@@ -6,7 +6,7 @@ JUDGE: predicted [dil1] against today [dil1]
 baseline  = the fixed model's mask with one pixel added around each color (3 x 3 dilation); DetConfig defaults
 candidate = the fixed model's mask with one pixel added around each color (3 x 3 dilation); DetConfig bottom_rule=predicted
 Frames: 154 ordinary train frames, 17 conditions at 8 places: 172 placements (physical barrels) in 91 arrangements, 307 barrels when every light is
-    counted. Test frames never opened. git d86fd73, 2026-11-26; 0 s in the detectors.
+    counted. Test frames never opened. git 1ccdbaf, 2026-11-26; 0 s in the detectors.
 
 BY PLACE (the verdict is computed on these)
                                             |                   TODAY [DIL1]                   |                 PREDICTED [DIL1]

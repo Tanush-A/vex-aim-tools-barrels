@@ -1,0 +1,6 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_both_abpgray_touch_01,1,orange,193 124 247 181,off,found,gained,abp_gray,both_abpgray,1
+4A8B_window_glass_occl_02,1,blue,254 114 300 163,off,found,gained,home_glass,window_glass,1
+4A8B_lampcool6_wood_clutter_01,1,orange,35 154 144 259,found,off,lost,home_wooddesk,lampcool6_wood,0
+4A8B_window_black_cluster_01,2,orange,256 119 305 173,off,found,gained,home_black,window_black,0
+4A8B_window_black_clutter_02,3,blue,476 126 547 188,found,missed,lost,home_black,window_black,0

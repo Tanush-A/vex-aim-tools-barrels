@@ -6,7 +6,7 @@ JUDGE: low [hue3] against today [hue3]
 baseline  = both hue ranges widened by 3 at each end (orange 0-16, blue 100-122); DetConfig defaults
 candidate = both hue ranges widened by 3 at each end (orange 0-16, blue 100-122); DetConfig bottom_rule=low
 Frames: 154 ordinary train frames, 17 conditions at 8 places: 172 placements (physical barrels) in 91 arrangements, 307 barrels when every light is
-    counted. Test frames never opened. git d86fd73, 2026-11-26; 0 s in the detectors.
+    counted. Test frames never opened. git 1ccdbaf, 2026-11-26; 0 s in the detectors.
 
 BY PLACE (the verdict is computed on these)
                                             |                   TODAY [HUE3]                   |                    LOW [HUE3]

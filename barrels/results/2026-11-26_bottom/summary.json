@@ -1,5 +1,5 @@
 {
- "git": "d86fd73",
+ "git": "1ccdbaf",
  "frames": {
   "ordinary": 154,
   "report_only": 77
@@ -10,7 +10,8 @@
   "both": "bottom_rule=both",
   "predicted": "bottom_rule=predicted",
   "rows": "bottom_rows=0.5",
-  "rows+low": "bottom_rows=0.5,bottom_rule=low"
+  "rows+low": "bottom_rows=0.5,bottom_rule=low",
+  "low_uncut": "bottom_rule=low_uncut"
  },
  "steps": {
   "fixed": {
@@ -846,6 +847,154 @@
         "med": 0.030952380952380953,
         "p90": 0.05498069498069499,
         "signed": -0.013157894736842105
+       },
+       "outside": 0.0
+      }
+     }
+    }
+   },
+   "low_uncut": {
+    "found_w": 133.66666666666666,
+    "found": 211,
+    "off": 2,
+    "off_w": 1.3333333333333333,
+    "missed": 94,
+    "extra": 5,
+    "extra_w": 1.9333333333333333,
+    "empty": 0,
+    "clean_empty": 0,
+    "placements": 172,
+    "barrels": 307,
+    "yard": {
+     "low": 0,
+     "high": 2,
+     "bottom": 2,
+     "other": 0
+    },
+    "own_err": {
+     "near": {
+      "px": {
+       "n": 176,
+       "med": 1.0,
+       "p90": 3.0,
+       "signed": -1.0
+      },
+      "frac": {
+       "n": 176,
+       "med": 0.0196078431372549,
+       "p90": 0.05418297455968689,
+       "signed": -0.012211466865227102
+      },
+      "outside": 0.011363636363636364
+     },
+     "far": {
+      "px": {
+       "n": 18,
+       "med": 1.0,
+       "p90": 1.3000000000000007,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 18,
+       "med": 0.029437229437229435,
+       "p90": 0.04035414725069899,
+       "signed": 0.0
+      },
+      "outside": 0.0
+     }
+    },
+    "report_only": {
+     "found_w": 7.166666666666667,
+     "found": 13,
+     "barrels": 167,
+     "placements": 62,
+     "off": 4,
+     "extra": 4,
+     "yard": {
+      "low": 1,
+      "high": 2,
+      "bottom": 3,
+      "other": 1
+     }
+    },
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "clauses": [
+     "[within the noise] found, the ordinary conditions together: 133.8 -> 133.7 of 172 placements (-0.1; counted per frame 211 -> 211 of 307). Better above +4.0, worse below -10.9.",
+     "[within the noise] found, place by place: home_glass +0.2 of 15 (margin 1.0); home_ottoman -0.3 of 15 (margin 2.3).",
+     "[within the noise] boxes that are not on their barrel: 1.9 -> 1.9 counted once per arrangement (+0.0; per frame: on nothing 5 -> 5, second box 0 -> 0, wrong color 0 -> 0). Worse above +1.9, better below -1.0.",
+     "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 0.0 per arrangement (margin 1.0)."
+    ],
+    "gained": [
+     "4A8B_window_glass_occl_02 #1 blue at [254, 114, 300, 163]: off -> found"
+    ],
+    "lost": [
+     "4A8B_lampmid6_ottoman_core_01 #2 orange at [155, 166, 280, 311]: found -> off"
+    ],
+    "other": [],
+    "common": {
+     "n": 194,
+     "bottoms_moved": 4,
+     "today": {
+      "near": {
+       "px": {
+        "n": 176,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 176,
+        "med": 0.019419306184012067,
+        "p90": 0.05418297455968689,
+        "signed": -0.009434782608695652
+       },
+       "outside": 0.011363636363636364
+      },
+      "far": {
+       "px": {
+        "n": 18,
+        "med": 1.0,
+        "p90": 1.3000000000000007,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 18,
+        "med": 0.029437229437229435,
+        "p90": 0.04035414725069899,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     },
+     "cand": {
+      "near": {
+       "px": {
+        "n": 176,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 176,
+        "med": 0.0196078431372549,
+        "p90": 0.05418297455968689,
+        "signed": -0.012211466865227102
+       },
+       "outside": 0.011363636363636364
+      },
+      "far": {
+       "px": {
+        "n": 18,
+        "med": 1.0,
+        "p90": 1.3000000000000007,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 18,
+        "med": 0.029437229437229435,
+        "p90": 0.04035414725069899,
+        "signed": 0.0
        },
        "outside": 0.0
       }
@@ -1696,6 +1845,154 @@
         "n": 19,
         "med": 0.03333333333333333,
         "p90": 0.05291607396870555,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     }
+    }
+   },
+   "low_uncut": {
+    "found_w": 134.1833333333333,
+    "found": 212,
+    "off": 5,
+    "off_w": 2.7333333333333334,
+    "missed": 90,
+    "extra": 16,
+    "extra_w": 7.333333333333334,
+    "empty": 3,
+    "clean_empty": 0,
+    "placements": 172,
+    "barrels": 307,
+    "yard": {
+     "low": 1,
+     "high": 3,
+     "bottom": 4,
+     "other": 1
+    },
+    "own_err": {
+     "near": {
+      "px": {
+       "n": 178,
+       "med": 1.0,
+       "p90": 3.0,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 178,
+       "med": 0.020833333333333332,
+       "p90": 0.058823529411764705,
+       "signed": 0.0
+      },
+      "outside": 0.02247191011235955
+     },
+     "far": {
+      "px": {
+       "n": 19,
+       "med": 1.0,
+       "p90": 2.0,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 19,
+       "med": 0.03333333333333333,
+       "p90": 0.061388074291300096,
+       "signed": 0.0
+      },
+      "outside": 0.0
+     }
+    },
+    "report_only": {
+     "found_w": 11.666666666666668,
+     "found": 20,
+     "barrels": 167,
+     "placements": 62,
+     "off": 8,
+     "extra": 6,
+     "yard": {
+      "low": 5,
+      "high": 3,
+      "bottom": 8,
+      "other": 0
+     }
+    },
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "clauses": [
+     "[within the noise] found, the ordinary conditions together: 133.6 -> 134.2 of 172 placements (+0.6; counted per frame 209 -> 212 of 307). Better above +4.0, worse below -10.9.",
+     "[within the noise] found, place by place: home_glass +0.6 of 15 (margin 1.0).",
+     "[within the noise] boxes that are not on their barrel: 7.3 -> 7.3 counted once per arrangement (+0.0; per frame: on nothing 11 -> 11, second box 0 -> 0, wrong color 5 -> 5). Worse above +1.9, better below -1.0.",
+     "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 1.4 -> 1.4 per arrangement (margin 1.0)."
+    ],
+    "gained": [
+     "4A8B_lampcool6_glass_clutter_01 #2 blue at [254, 114, 300, 163]: off -> found",
+     "4A8B_lampmid3_glass_clutter_01 #2 blue at [254, 114, 300, 163]: off -> found",
+     "4A8B_window_glass_clutter_01 #2 blue at [254, 114, 300, 163]: off -> found"
+    ],
+    "lost": [],
+    "other": [],
+    "common": {
+     "n": 197,
+     "bottoms_moved": 10,
+     "today": {
+      "near": {
+       "px": {
+        "n": 178,
+        "med": 1.0,
+        "p90": 4.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 178,
+        "med": 0.02105496453900709,
+        "p90": 0.061224489795918366,
+        "signed": 0.0
+       },
+       "outside": 0.03932584269662921
+      },
+      "far": {
+       "px": {
+        "n": 19,
+        "med": 1.0,
+        "p90": 2.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 19,
+        "med": 0.03333333333333333,
+        "p90": 0.061388074291300096,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     },
+     "cand": {
+      "near": {
+       "px": {
+        "n": 178,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 178,
+        "med": 0.020833333333333332,
+        "p90": 0.058823529411764705,
+        "signed": 0.0
+       },
+       "outside": 0.02247191011235955
+      },
+      "far": {
+       "px": {
+        "n": 19,
+        "med": 1.0,
+        "p90": 2.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 19,
+        "med": 0.03333333333333333,
+        "p90": 0.061388074291300096,
         "signed": 0.0
        },
        "outside": 0.0
@@ -2583,6 +2880,160 @@
       }
      }
     }
+   },
+   "low_uncut": {
+    "found_w": 128.8166666666667,
+    "found": 210,
+    "off": 8,
+    "off_w": 3.566666666666667,
+    "missed": 89,
+    "extra": 27,
+    "extra_w": 12.75,
+    "empty": 7,
+    "clean_empty": 0,
+    "placements": 172,
+    "barrels": 307,
+    "yard": {
+     "low": 1,
+     "high": 6,
+     "bottom": 7,
+     "other": 1
+    },
+    "own_err": {
+     "near": {
+      "px": {
+       "n": 183,
+       "med": 1.0,
+       "p90": 5.0,
+       "signed": -1.0
+      },
+      "frac": {
+       "n": 183,
+       "med": 0.025,
+       "p90": 0.07062600321027292,
+       "signed": -0.010526315789473684
+      },
+      "outside": 0.03825136612021858
+     },
+     "far": {
+      "px": {
+       "n": 18,
+       "med": 1.0,
+       "p90": 2.3000000000000007,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 18,
+       "med": 0.030952380952380953,
+       "p90": 0.07196007259528131,
+       "signed": 0.0
+      },
+      "outside": 0.0
+     }
+    },
+    "report_only": {
+     "found_w": 13.0,
+     "found": 23,
+     "barrels": 167,
+     "placements": 62,
+     "off": 10,
+     "extra": 6,
+     "yard": {
+      "low": 5,
+      "high": 5,
+      "bottom": 10,
+      "other": 0
+     }
+    },
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "clauses": [
+     "[within the noise] found, the ordinary conditions together: 125.4 -> 128.8 of 172 placements (+3.5; counted per frame 204 -> 210 of 307). Better above +4.0, worse below -10.9.",
+     "[within the noise] found, place by place: home_white +2.0 of 29 (margin 1.0); home_glass +0.8 of 15 (margin 1.0); home_ottoman -0.3 of 15 (margin 2.3); abp_white +1.0 of 32 (margin 1.0).",
+     "[within the noise] boxes that are not on their barrel: 12.8 -> 12.8 counted once per arrangement (+0.0; per frame: on nothing 19 -> 19, second box 0 -> 0, wrong color 8 -> 8). Worse above +1.9, better below -1.0.",
+     "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 3.8 -> 3.8 per arrangement (margin 1.0)."
+    ],
+    "gained": [
+     "4A8B_window_light_far_02 #2 orange at [244, 105, 273, 135]: off -> found",
+     "4A8B_window_light_far_02 #4 blue at [433, 106, 468, 139]: off -> found",
+     "4A8B_lampcool6_glass_core_01 #2 blue at [176, 123, 233, 185]: off -> found",
+     "4A8B_lampmid3_glass_core_01 #4 blue at [371, 111, 412, 151]: off -> found",
+     "4A8B_lampmid6_glass_clutter_01 #2 blue at [254, 114, 300, 163]: off -> found",
+     "4A8B_lampmid6_glass_occl_02 #1 blue at [254, 114, 300, 163]: off -> found",
+     "4A8B_window_abpwhite_occlx_09 #1 blue at [106, 114, 152, 164]: off -> found"
+    ],
+    "lost": [
+     "4A8B_lampwarm6_ottoman_core_01 #2 orange at [155, 166, 280, 311]: found -> off"
+    ],
+    "other": [],
+    "common": {
+     "n": 201,
+     "bottoms_moved": 22,
+     "today": {
+      "near": {
+       "px": {
+        "n": 183,
+        "med": 2.0,
+        "p90": 5.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 183,
+        "med": 0.025,
+        "p90": 0.07743961352657007,
+        "signed": 0.0
+       },
+       "outside": 0.060109289617486336
+      },
+      "far": {
+       "px": {
+        "n": 18,
+        "med": 1.0,
+        "p90": 3.6000000000000014,
+        "signed": 0.5
+       },
+       "frac": {
+        "n": 18,
+        "med": 0.034482758620689655,
+        "p90": 0.11786833855799377,
+        "signed": 0.013513513513513514
+       },
+       "outside": 0.1111111111111111
+      }
+     },
+     "cand": {
+      "near": {
+       "px": {
+        "n": 183,
+        "med": 1.0,
+        "p90": 5.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 183,
+        "med": 0.025,
+        "p90": 0.07062600321027292,
+        "signed": -0.010526315789473684
+       },
+       "outside": 0.03825136612021858
+      },
+      "far": {
+       "px": {
+        "n": 18,
+        "med": 1.0,
+        "p90": 2.3000000000000007,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 18,
+        "med": 0.030952380952380953,
+        "p90": 0.07196007259528131,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     }
+    }
    }
   },
   "hue3": {
@@ -3424,6 +3875,153 @@
         "med": 0.0339080459770115,
         "p90": 0.06884550084889644,
         "signed": -0.027443609022556388
+       },
+       "outside": 0.0
+      }
+     }
+    }
+   },
+   "low_uncut": {
+    "found_w": 143.33333333333337,
+    "found": 232,
+    "off": 2,
+    "off_w": 0.6666666666666666,
+    "missed": 73,
+    "extra": 12,
+    "extra_w": 4.45,
+    "empty": 3,
+    "clean_empty": 0,
+    "placements": 172,
+    "barrels": 307,
+    "yard": {
+     "low": 0,
+     "high": 2,
+     "bottom": 2,
+     "other": 0
+    },
+    "own_err": {
+     "near": {
+      "px": {
+       "n": 195,
+       "med": 1.0,
+       "p90": 3.0,
+       "signed": -1.0
+      },
+      "frac": {
+       "n": 195,
+       "med": 0.01818181818181818,
+       "p90": 0.05357142857142857,
+       "signed": -0.010526315789473684
+      },
+      "outside": 0.0
+     },
+     "far": {
+      "px": {
+       "n": 18,
+       "med": 1.0,
+       "p90": 1.0,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 18,
+       "med": 0.030776515151515152,
+       "p90": 0.034482758620689655,
+       "signed": 0.0
+      },
+      "outside": 0.0
+     }
+    },
+    "report_only": {
+     "found_w": 13.833333333333334,
+     "found": 23,
+     "barrels": 167,
+     "placements": 62,
+     "off": 6,
+     "extra": 5,
+     "yard": {
+      "low": 1,
+      "high": 3,
+      "bottom": 4,
+      "other": 2
+     }
+    },
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "clauses": [
+     "[within the noise] found, the ordinary conditions together: 142.1 -> 143.3 of 172 placements (+1.2; counted per frame 230 -> 232 of 307). Better above +4.0, worse below -10.9.",
+     "[within the noise] found, place by place: abp_gray +1.0 of 16 (margin 6.0); home_glass +0.2 of 15 (margin 1.0).",
+     "[within the noise] boxes that are not on their barrel: 4.1 -> 4.5 counted once per arrangement (+0.3; per frame: on nothing 9 -> 9, second box 1 -> 2, wrong color 1 -> 1). Worse above +1.9, better below -1.0.",
+     "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.6 -> 0.6 per arrangement (margin 1.0)."
+    ],
+    "gained": [
+     "4A8B_both_abpgray_touch_01 #1 orange at [193, 124, 247, 181]: off -> found",
+     "4A8B_window_glass_occl_02 #1 blue at [254, 114, 300, 163]: off -> found"
+    ],
+    "lost": [],
+    "other": [],
+    "common": {
+     "n": 213,
+     "bottoms_moved": 4,
+     "today": {
+      "near": {
+       "px": {
+        "n": 195,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 195,
+        "med": 0.018867924528301886,
+        "p90": 0.055519480519480496,
+        "signed": -0.010526315789473684
+       },
+       "outside": 0.010256410256410256
+      },
+      "far": {
+       "px": {
+        "n": 18,
+        "med": 1.0,
+        "p90": 1.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 18,
+        "med": 0.030776515151515152,
+        "p90": 0.034482758620689655,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     },
+     "cand": {
+      "near": {
+       "px": {
+        "n": 195,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 195,
+        "med": 0.01818181818181818,
+        "p90": 0.05357142857142857,
+        "signed": -0.010526315789473684
+       },
+       "outside": 0.0
+      },
+      "far": {
+       "px": {
+        "n": 18,
+        "med": 1.0,
+        "p90": 1.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 18,
+        "med": 0.030776515151515152,
+        "p90": 0.034482758620689655,
+        "signed": 0.0
        },
        "outside": 0.0
       }
@@ -4276,6 +4874,154 @@
       }
      }
     }
+   },
+   "low_uncut": {
+    "found_w": 136.43333333333334,
+    "found": 217,
+    "off": 8,
+    "off_w": 4.3999999999999995,
+    "missed": 82,
+    "extra": 15,
+    "extra_w": 6.333333333333334,
+    "empty": 3,
+    "clean_empty": 0,
+    "placements": 172,
+    "barrels": 307,
+    "yard": {
+     "low": 1,
+     "high": 6,
+     "bottom": 7,
+     "other": 1
+    },
+    "own_err": {
+     "near": {
+      "px": {
+       "n": 184,
+       "med": 1.0,
+       "p90": 4.0,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 184,
+       "med": 0.019230769230769232,
+       "p90": 0.061224489795918366,
+       "signed": 0.0
+      },
+      "outside": 0.03804347826086957
+     },
+     "far": {
+      "px": {
+       "n": 20,
+       "med": 1.0,
+       "p90": 2.0,
+       "signed": 1.0
+      },
+      "frac": {
+       "n": 20,
+       "med": 0.030776515151515152,
+       "p90": 0.06896551724137931,
+       "signed": 0.028665028665028666
+      },
+      "outside": 0.0
+     }
+    },
+    "report_only": {
+     "found_w": 11.333333333333332,
+     "found": 18,
+     "barrels": 167,
+     "placements": 62,
+     "off": 6,
+     "extra": 2,
+     "yard": {
+      "low": 2,
+      "high": 2,
+      "bottom": 4,
+      "other": 2
+     }
+    },
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "clauses": [
+     "[within the noise] found, the ordinary conditions together: 136.6 -> 136.4 of 172 placements (-0.1; counted per frame 217 -> 217 of 307). Better above +4.0, worse below -10.9.",
+     "[within the noise] found, place by place: home_glass +0.2 of 15 (margin 1.0); home_ottoman -0.3 of 15 (margin 2.3).",
+     "[within the noise] boxes that are not on their barrel: 7.3 -> 6.3 counted once per arrangement (-1.0; per frame: on nothing 15 -> 14, second box 1 -> 1, wrong color 0 -> 0). Worse above +1.9, better below -1.0.",
+     "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 1.4 -> 1.4 per arrangement (margin 1.0)."
+    ],
+    "gained": [
+     "4A8B_window_glass_clutter_01 #2 blue at [254, 114, 300, 163]: off -> found"
+    ],
+    "lost": [
+     "4A8B_lampmid6_ottoman_core_01 #2 orange at [155, 166, 280, 311]: found -> off"
+    ],
+    "other": [],
+    "common": {
+     "n": 204,
+     "bottoms_moved": 5,
+     "today": {
+      "near": {
+       "px": {
+        "n": 184,
+        "med": 1.0,
+        "p90": 3.700000000000017,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 184,
+        "med": 0.019230769230769232,
+        "p90": 0.06114982578397213,
+        "signed": 0.0
+       },
+       "outside": 0.03804347826086957
+      },
+      "far": {
+       "px": {
+        "n": 20,
+        "med": 1.0,
+        "p90": 2.0,
+        "signed": 1.0
+       },
+       "frac": {
+        "n": 20,
+        "med": 0.030776515151515152,
+        "p90": 0.06896551724137931,
+        "signed": 0.028665028665028666
+       },
+       "outside": 0.0
+      }
+     },
+     "cand": {
+      "near": {
+       "px": {
+        "n": 184,
+        "med": 1.0,
+        "p90": 4.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 184,
+        "med": 0.019230769230769232,
+        "p90": 0.061224489795918366,
+        "signed": 0.0
+       },
+       "outside": 0.03804347826086957
+      },
+      "far": {
+       "px": {
+        "n": 20,
+        "med": 1.0,
+        "p90": 2.0,
+        "signed": 1.0
+       },
+       "frac": {
+        "n": 20,
+        "med": 0.030776515151515152,
+        "p90": 0.06896551724137931,
+        "signed": 0.028665028665028666
+       },
+       "outside": 0.0
+      }
+     }
+    }
    }
   },
   "hand": {
@@ -5120,6 +5866,154 @@
       }
      }
     }
+   },
+   "low_uncut": {
+    "found_w": 157.58333333333334,
+    "found": 281,
+    "off": 4,
+    "off_w": 1.1666666666666665,
+    "missed": 22,
+    "extra": 3,
+    "extra_w": 1.5,
+    "empty": 2,
+    "clean_empty": 0,
+    "placements": 172,
+    "barrels": 307,
+    "yard": {
+     "low": 0,
+     "high": 4,
+     "bottom": 4,
+     "other": 0
+    },
+    "own_err": {
+     "near": {
+      "px": {
+       "n": 235,
+       "med": 1.0,
+       "p90": 3.0,
+       "signed": -1.0
+      },
+      "frac": {
+       "n": 235,
+       "med": 0.02,
+       "p90": 0.05600871731008716,
+       "signed": -0.015384615384615385
+      },
+      "outside": 0.01276595744680851
+     },
+     "far": {
+      "px": {
+       "n": 28,
+       "med": 1.0,
+       "p90": 2.0,
+       "signed": 0.0
+      },
+      "frac": {
+       "n": 28,
+       "med": 0.030303030303030304,
+       "p90": 0.05719267654751527,
+       "signed": 0.0
+      },
+      "outside": 0.0
+     }
+    },
+    "report_only": {
+     "found_w": 6.166666666666667,
+     "found": 12,
+     "barrels": 167,
+     "placements": 62,
+     "off": 4,
+     "extra": 4,
+     "yard": {
+      "low": 1,
+      "high": 2,
+      "bottom": 3,
+      "other": 1
+     }
+    },
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "clauses": [
+     "[within the noise] found, the ordinary conditions together: 156.8 -> 157.6 of 172 placements (+0.8; counted per frame 281 -> 281 of 307). Better above +4.0, worse below -10.9.",
+     "[within the noise] found, place by place: abp_gray +1.0 of 16 (margin 6.0); home_bathtile -0.2 of 15 (margin 1.2).",
+     "[within the noise] boxes that are not on their barrel: 1.5 -> 1.5 counted once per arrangement (+0.0; per frame: on nothing 2 -> 2, second box 0 -> 0, wrong color 1 -> 1). Worse above +1.9, better below -1.0.",
+     "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.5 -> 0.5 per arrangement (margin 1.0)."
+    ],
+    "gained": [
+     "4A8B_both_abpgray_touch_01 #1 orange at [193, 124, 247, 181]: off -> found"
+    ],
+    "lost": [
+     "4A8B_lampwarm6_bathtile_clutter_01 #4 orange at [495, 128, 565, 191]: found -> off"
+    ],
+    "other": [],
+    "common": {
+     "n": 263,
+     "bottoms_moved": 6,
+     "today": {
+      "near": {
+       "px": {
+        "n": 235,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 235,
+        "med": 0.0196078431372549,
+        "p90": 0.05430528375733854,
+        "signed": -0.014084507042253521
+       },
+       "outside": 0.01276595744680851
+      },
+      "far": {
+       "px": {
+        "n": 28,
+        "med": 1.0,
+        "p90": 2.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 28,
+        "med": 0.030303030303030304,
+        "p90": 0.05719267654751527,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     },
+     "cand": {
+      "near": {
+       "px": {
+        "n": 235,
+        "med": 1.0,
+        "p90": 3.0,
+        "signed": -1.0
+       },
+       "frac": {
+        "n": 235,
+        "med": 0.02,
+        "p90": 0.05600871731008716,
+        "signed": -0.015384615384615385
+       },
+       "outside": 0.01276595744680851
+      },
+      "far": {
+       "px": {
+        "n": 28,
+        "med": 1.0,
+        "p90": 2.0,
+        "signed": 0.0
+       },
+       "frac": {
+        "n": 28,
+        "med": 0.030303030303030304,
+        "p90": 0.05719267654751527,
+        "signed": 0.0
+       },
+       "outside": 0.0
+      }
+     }
+    }
    }
   }
  },
@@ -5283,11 +6177,44 @@
     "dil1": "NO CLEAR DIFFERENCE",
     "hand": "NO CLEAR DIFFERENCE"
    }
+  },
+  "low_uncut": {
+   "met": {
+    "a": true,
+    "b": true,
+    "c": true,
+    "d": true,
+    "e": true
+   },
+   "works": true,
+   "yard_sum": 24,
+   "yard_sum_today": 35,
+   "found_sum": 700.35,
+   "found_sum_today": 694.4666666666667,
+   "fixed_median_px": {
+    "near": [
+     1.0,
+     1.0
+    ],
+    "far": [
+     1.0,
+     1.0
+    ]
+   },
+   "verdicts": {
+    "fixed": "NO CLEAR DIFFERENCE",
+    "s20": "NO CLEAR DIFFERENCE",
+    "s40": "NO CLEAR DIFFERENCE",
+    "hue3": "NO CLEAR DIFFERENCE",
+    "dil1": "NO CLEAR DIFFERENCE",
+    "hand": "NO CLEAR DIFFERENCE"
+   }
   }
  },
  "works": [
   "low",
-  "both"
+  "both",
+  "low_uncut"
  ],
- "recommended": "both"
+ "recommended": "low_uncut"
 }

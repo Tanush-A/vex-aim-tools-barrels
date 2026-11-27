@@ -6,7 +6,7 @@ JUDGE: predicted [fixed] against today [fixed]
 baseline  = the fixed color model (what runs today); DetConfig defaults
 candidate = the fixed color model (what runs today); DetConfig bottom_rule=predicted
 Frames: 154 ordinary train frames, 17 conditions at 8 places: 172 placements (physical barrels) in 91 arrangements, 307 barrels when every light is
-    counted. Test frames never opened. git d86fd73, 2026-11-26; 0 s in the detectors.
+    counted. Test frames never opened. git 1ccdbaf, 2026-11-26; 0 s in the detectors.
 
 BY PLACE (the verdict is computed on these)
                                             |                  TODAY [FIXED]                   |                PREDICTED [FIXED]

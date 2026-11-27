@@ -6,7 +6,7 @@ JUDGE: low [s20] against today [s20]
 baseline  = both saturation floors lowered by 20 (orange 140 -> 120, blue 113 -> 93); DetConfig defaults
 candidate = both saturation floors lowered by 20 (orange 140 -> 120, blue 113 -> 93); DetConfig bottom_rule=low
 Frames: 154 ordinary train frames, 17 conditions at 8 places: 172 placements (physical barrels) in 91 arrangements, 307 barrels when every light is
-    counted. Test frames never opened. git d86fd73, 2026-11-26; 0 s in the detectors.
+    counted. Test frames never opened. git 1ccdbaf, 2026-11-26; 0 s in the detectors.
 
 BY PLACE (the verdict is computed on these)
                                             |                   TODAY [S20]                    |                    LOW [S20]
