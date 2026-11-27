@@ -355,7 +355,7 @@ def dave(way: str) -> list[str]:
     return ["## Dave's office frames (the set the eval table calls DAVE; INDICATIVE only)", "",
             f"{len(stems)} frames, in no split (so not test frames), read directly. His boxes group touching barrels, so 'found' under the strict rule "
             f"undercounts, and a box on one barrel of a group can count as a second box. Settings: the ones picked on all ordinary frames "
-            f"(near-miss `{spec}`; self-calibration {json.dumps(cand.settings_json('(no such place)'))}).", ""] + \
+            f"(near-miss `{spec}`; self-calibration {json.dumps(cand.settings_json("(no such place)")["sc"])}).", ""] + \
         table(["detector", "frames", "label boxes", "found (strict)", "box off", "missed", "boxes: on nothing / second / wrong color", "on empty frames (clean)"], rows)
 
 
@@ -384,7 +384,7 @@ def vendor(way: str) -> str:
         return [f"### {title}", ""] + table(head, [[p, f"{ts[0].placements} ({ts[0].barrels})"] + [f(t) for t in ts] for p, ts in tal.items()])
     out += tab("Found (strict), placements (per frame)", lambda t: f"{t.found_w:.1f} ({t.found})")
     out += tab("Found with the box off (a same-color box is on the barrel and fails the strict rule)", lambda t: f"{t.off_w:.1f} ({t.off})")
-    out += tab("Missed (no box of its color on it)", lambda t: f"{t.missed_w:.1f} ({t.missed})")
+    out += tab("Missed (no box of its color on it)", lambda t: f"{t.missed_w + 0.0:.1f} ({t.missed})".replace("-0.0", "0.0"))
     out += tab("Boxes on nothing, per frame (of them on empty frames)", lambda t: f"{t.nothing} ({t.empty})")
     out += tab("Boxes not on their barrel, once per arrangement (on nothing + second box + wrong color; per frame in brackets)",
                lambda t: f"{t.extra_w:.2f} ({t.nothing}+{t.second}+{t.wrong})")

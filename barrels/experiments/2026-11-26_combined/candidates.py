@@ -143,6 +143,7 @@ def settings_for(place: str) -> tuple[str, sc.SelfCalConfig | None]:
 
 
 # ---------------------------------------------------------------- the candidate the experiment ends on
-# (set after the judged runs; PREREG.md says how it is picked)
-fit = None
-detect_frame = None
+# Set after the judged runs by PREREG.md's rule (run.py, pick): mask_union. The held-out result is `fit`'s
+# (results/2026-11-26_combined/mask_union/judge.md). `detect_frame` has the two fixed settings the winners offered: judged, it is IN-SAMPLE.
+fit = fit_mask_union
+detect_frame = detect_mask_union

@@ -1,0 +1,80 @@
+{
+ "_what": "Written by hand after looking at results/2026-11-26_combined/sheets/ (2026-11-27). Read by analysis.py. Nothing here is used by any detector, and no rule was tuned or run on these frames.",
+ "objects": {
+  "lampcool6_glass_neg_02 orange [555, 124, 604, 171]": {
+   "object": "the red jar with a blue label and a gold lid (empty frame). The near-miss body direction paints the jar's red-brown side and the glass reflection under it orange around the strict blue label",
+   "check": "a second reading: self-calibration's photo check does not keep it (box_agree drops it); or shape: the 'stripe' (label) is taller than a stripe and the orange is on one side only"
+  },
+  "lampcool6_glass_occl_02 orange [560, 123, 610, 170]": {
+   "object": "the same jar, same place (the barrels are elsewhere in the frame)",
+   "check": "as above"
+  },
+  "lampmid3_glass_neg_02 orange [560, 123, 609, 171]": {
+   "object": "the same jar (empty frame)",
+   "check": "as above"
+  },
+  "lampmid3_glass_occl_02 orange [577, 117, 636, 167]": {
+   "object": "the same jar; today's detector boxes it too in this frame",
+   "check": "today's box: fixed colors paint red side and blue label at full strength. A body test on both sides of the band (orange above AND below at full height) or the jar's gold lid above the 'top'"
+  },
+  "lampmid6_glass_clutter_01 blue [490, 98, 516, 125]": {
+   "object": "a small gray-blue clutter object behind the barrels with an orange strip across it; the near-miss body direction paints its gray-blue part as blue body under the strip",
+   "check": "a second reading (self-calibration does not draw it; its log(R/B) test would refuse a gray body); size: the box is 26 px wide, at the small end for its row"
+  },
+  "lampmid6_glass_clutter_01 orange [554, 117, 604, 171]": {
+   "object": "the jar again; today's detector draws the same box (and in three other lights of this arrangement)",
+   "check": "already today's: not caused by the combination"
+  },
+  "lampwarm6_glass_clutter_01 orange [555, 117, 605, 172]": {
+   "object": "the jar again; today's detector draws the same box",
+   "check": "already today's"
+  },
+  "lampmid3_bathtile_core_01 orange [218, 104, 256, 145]": {
+   "object": "a second orange box on the upper half of a near orange barrel that already has its full box (top to the stripe); both winners draw it alone too",
+   "check": "one box per barrel: a box whose columns lie inside a surer same-color box and whose bottom sits on that box's stripe is the same barrel (a duplicate rule with 'inside' instead of IoU > 0.5)"
+  },
+  "lampmid6_ottoman_core_01 blue [120, 139, 186, 203]": {
+   "object": "a second blue box shifted right of a blue barrel, reaching onto the lid of the near orange barrel; the near-miss step painted that lid's dark edge blue",
+   "check": "one box per barrel (overlaps the barrel's own box over most of its rows), or size for the row: 66 px wide where a barrel is about 48"
+  },
+  "lampwarm6_ottoman_core_01 orange [166, 248, 282, 480]": {
+   "object": "a close-up box on orange glints of the woven ottoman under the warm lamp; today's detector draws it too",
+   "check": "already today's. Shape: the piece is a sparse speckle, under a quarter of its box painted"
+  },
+  "overheaddim_palewood_core_01 orange [235, 273, 564, 480]": {
+   "object": "a close-up box 329 px wide on the pale wood grain that the fixed orange range paints; today's detector draws it too",
+   "check": "already today's. Size for the row: a close-up barrel cut by the frame bottom at row 273 is about 150 px wide, not 329; or shape (speckled grain)"
+  },
+  "lampcool3_wood_clutter_01 blue [232, 121, 287, 173]": {
+   "object": "an orange barrel with a blue stripe boxed blue: both steps paint its washed-out orange body as blue (cyan) under the cool lamp on the wood",
+   "check": "a second reading of the color (log R/B of the body against the stripe would say orange body)"
+  },
+  "lampcool6_wood_cluster_01 orange [220, 115, 268, 163]": {
+   "object": "an orange box on a blue barrel among three; today's detector draws it too",
+   "check": "already today's"
+  },
+  "lampcool6_wood_occl_02 orange [186, 131, 261, 215]": {
+   "object": "an orange box on a blue barrel (the wood around it paints orange); today too",
+   "check": "already today's"
+  },
+  "lampmid3_wood_close_01 orange [214, 231, 458, 469]": {
+   "object": "a close-up box on orange wood grain beside a close blue barrel; today too",
+   "check": "already today's; size for the row"
+  },
+  "lampmid6_wood_touch_02 orange [191, 107, 225, 144]": {
+   "object": "orange paper on the wall behind two touching barrels, painted by the near-miss body direction above an orange band",
+   "check": "the top: it sits above the horizon gate's band of the barrels behind; a second reading (self-calibration does not draw it)"
+  },
+  "lampwarm6_wood_close_01 orange [102, 265, 512, 480]": {
+   "object": "a close-up box on the orange wood under the warm lamp; today too",
+   "check": "already today's; size for the row"
+  }
+ },
+ "overlap": [
+  "Both winners do the same thing: they complete a barrel that has one color at full strength. 25 barrels per frame are gained by both, 13 by the near-miss step only, 12 by self-calibration only, none lost by either.",
+  "Near-miss only (13): orange ottoman barrels whose body hue sits just past the top of the orange range (painted light yellow on the sheets) around a strict blue stripe (3, one cut by the frame); blue ottoman barrels whose orange stripe it completes (3, one cut by the frame); thin blue stripes of orange bathroom barrels (hue 90-101; 4), where self-calibration's seed was refused (body_like_surround) or its paint stayed too thin for a box; a frame-cut blue bathroom barrel (1); two partly hidden barrels of the ABP occlusion set (2). Self-calibration refuses these on its photo check, or has no seed (a cut or hidden barrel gives no stripe-sized band).",
+  "Self-calibration only (12): the red-orange bodies on the gray table (3; the near-miss step paints only part of the lower body, edge mode 'strict' was picked there), blue bodies under the bathroom mid and warm lamps (5) and orange barrels under the warm lamp whose blue stripe is gray-olive (3): the near-miss levels end at hue +-25 of the range, the read range of a kept seed does not. One blue barrel touching another on the ottoman.",
+  "So neither is enough alone, and the reasons are different: the near-miss step is blind outside its ladder (warm lamp), self-calibration needs a seed its guard keeps (cut, hidden or noisy surroundings)."
+ ],
+ "causes": {}
+}
