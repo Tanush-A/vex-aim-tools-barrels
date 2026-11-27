@@ -1,7 +1,7 @@
-"""2026-11-20 (A8), the mechanics of the four switches of ``experiments/2026-11-20_occl_sliver`` on synthetic barrels (their
+"""2026-11-20 (A8), the mechanics of three switches of ``experiments/2026-11-20_occl_sliver`` on synthetic barrels (their
 quality is judged there): ``stripe_bridge`` (two stripe pieces with body over the whole gap are one stripe), ``thin_frame``
-(a thin full slice cut by the frame is W wide from its other end), ``own_close`` (the end where the body closes on the stripe
-is the barrel's own side) and ``thin_span`` (a thin full slice whose body shows the whole width gets that width)."""
+(a thin full slice cut by the frame is W wide from its other end) and ``thin_span`` (a thin full slice whose body shows the
+whole width gets that width). The fourth, ``own_close``, stayed off and was deleted on 2026-11-26, and its tests with it."""
 import dataclasses
 
 import numpy as np
@@ -10,8 +10,8 @@ from barrels import detector as det, io
 from test_detector import CAM, CFG2
 from test_detector_pin import _round_cut, paint_round_barrel
 
-FOUR = dict(stripe_bridge=False, thin_frame=False, own_close=False, thin_span=False)
-OFF = dataclasses.replace(CFG2, **FOUR)                       # the defaults before this experiment, spelled out
+THREE = dict(stripe_bridge=False, thin_frame=False, thin_span=False)
+OFF = dataclasses.replace(CFG2, **THREE)                       # the defaults before this experiment, spelled out
 D = 150
 
 
@@ -108,42 +108,6 @@ def test_thin_frame_changes_nothing_away_from_the_frame():
     assert det.detect(mask, dataclasses.replace(OFF, thin_frame=True), CAM) == det.detect(mask, OFF, CAM)
 
 
-# ---------------------------------------------------------------- own_close
-
-def test_closure_is_large_at_the_own_end_and_small_at_a_straight_cut():
-    mask, truth = _round_cut(0.6, 1.0)                              # hidden from the left by a straight edge
-    s = [s for s in det.find_stripes(mask, CAM, OFF)][0]
-    cols = np.flatnonzero((mask > 0).any(axis=0))
-    sx0, sx1 = int(cols[0]), int(cols[-1]) + 1                       # what is seen of the barrel (stripe and body)
-    c = det._end_closure(s, mask, CAM, OFF, sx0, sx1)
-    assert c[0] <= det.CLOSE_CUT and c[1] >= OFF.bottom_tol
-    assert det._closed_end(s, mask, CAM, OFF, sx0, sx1)[1] == sx1
-    other = mask.copy()                                              # a barrel standing right beside the own end: no longer a seen edge
-    other[s.bbox[1]:s.bbox[3], sx1:sx1 + 6] = io.ORANGE
-    assert det._closed_end(s, other, CAM, OFF, sx0, sx1) is None
-
-
-def test_closure_says_nothing_when_both_sides_are_cut():
-    mask, truth = _round_cut(0.35, 0.65)
-    s = det.find_stripes(mask, CAM, OFF)[0]
-    assert det._closed_end(s, mask, CAM, OFF, s.bbox[0], s.bbox[2]) is None
-    assert det.detect(mask, dataclasses.replace(OFF, own_close=True), CAM) == det.detect(mask, OFF, CAM)
-
-
-def test_own_close_places_a_slice_that_the_outline_leaves():
-    """A straight cut whose own side has its corners rounded more than the outline allows: only the closure places it."""
-    for keep in ((0.7, 1.0), (0.0, 0.3)):
-        mask, truth = _round_cut(*keep)
-        x0, x1 = truth[0] + int(round(keep[0] * (truth[2] - truth[0]))), truth[0] + int(round(keep[1] * (truth[2] - truth[0])))
-        own = x1 - 2 if keep[0] > 0 else x0 + 1                      # round the own corner a little more: one column of body less
-        r = CAM.barrel_rows(D)
-        mask[:int(round(r.stripe_top)) - 1, own] = 0
-        mask[int(round(r.stripe_bottom)) + 1:, own] = 0
-        on = det.detect(mask, dataclasses.replace(OFF, own_close=True), CAM)
-        off = det.detect(mask, OFF, CAM)
-        assert len(on) == 1 and det.box_iou(on[0].bbox, truth) > 0.75, (keep, on, off, truth)
-
-
 # ---------------------------------------------------------------- thin_span
 
 def test_thin_span_takes_the_whole_width_the_body_shows():
@@ -167,7 +131,7 @@ def test_thin_span_refuses_a_span_whose_body_crosses_the_stripe_rows():
 
 
 def test_defaults_after_the_verdict():
-    """results/2026-11-20_occl_sliver/verdict.md: thin_span on, own_close off; stripe_bridge and thin_frame
+    """results/2026-11-20_occl_sliver/verdict.md: thin_span on; stripe_bridge and thin_frame
     switched on by Tanush on 2026-11-23 (DECISIONS.md)."""
     d = det.DetConfig()
-    assert d.thin_span and d.stripe_bridge and d.thin_frame and not d.own_close
+    assert d.thin_span and d.stripe_bridge and d.thin_frame

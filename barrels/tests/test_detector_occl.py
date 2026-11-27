@@ -1,30 +1,20 @@
 """2026-11-19, the mechanics of the occlusion switches on synthetic barrels (their quality is judged by the occlusion
-scorecard, ``experiments/2026-11-19_det_occl``): ``slice_box`` and ``cover_unpinned`` (a narrow slice of a barrel is a
-barrel; where nothing pins the box it covers every place the barrel can be), ``stripe_two`` (a stripe wider than a
-barrel is two barrels), ``edge_check`` (an edge is seen only against something that is not a barrel) and ``cap_same``
-(a top above a found barrel of its own color)."""
+scorecard, ``experiments/2026-11-19_det_occl``): ``edge_check`` (an edge is seen only against something that is not a
+barrel) and ``cap_same`` (a top above a found barrel of its own color). The three switches of that round that stayed off
+(``slice_box``, ``cover_unpinned``, ``stripe_two``) were deleted on 2026-11-26, and their tests with them."""
 import dataclasses
 
 import numpy as np
 
 from barrels import detector as det, io
 from test_detector import CAM, CFG2, paint_barrel
-from test_detector_side import _cut_straight
 
-BASE = dataclasses.replace(CFG2, slice_box=False, cover_unpinned=False, stripe_two=False, edge_check=False, cap_same=False,   # the detector before this round
-                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False,   # ... and without the switches of 2026-11-20 (tests/test_detector_vertical.py)
-                           pin_thin=False,   # ... and without pin_thin, on by default since 2026-11-20 (tests/test_detector_pin.py; it shares slice_box's lower floor)
+BASE = dataclasses.replace(CFG2, edge_check=False, cap_same=False,   # the detector before this round
+                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, cap_low=False,   # ... and without the switches of 2026-11-20 (tests/test_detector_vertical.py)
+                           pin_thin=False,   # ... and without pin_thin, on by default since 2026-11-20 (tests/test_detector_pin.py)
                            verify_front=False, verify_readings=False)   # ... and without the verify step of 2026-11-24 (tests/test_detector_verify.py)
-SLICE =dataclasses.replace(BASE, slice_box=True)
-COVER = dataclasses.replace(BASE, slice_box=True, cover_unpinned=True)
-TWO = dataclasses.replace(BASE, stripe_two=True)
 EDGE = dataclasses.replace(BASE, edge_check=True)
 CAP = dataclasses.replace(BASE, cap_same=True)
-
-
-def _holds(box, truth, px=2):
-    """The box holds the whole true box (to ``px``)."""
-    return box[0] <= truth[0] + px and box[2] >= truth[2] - px and box[1] <= truth[1] + px and box[3] >= truth[3] - px
 
 
 def _close(box, truth, px=3):
@@ -39,145 +29,6 @@ def _d_with_top(row):
 def _one_barrel():
     mask = np.zeros((480, 640), np.uint8)
     return mask, paint_barrel(mask, 150, 320, body=io.BLUE)
-
-
-# ---------------------------------------------------------------- slice_box, cover_unpinned
-
-def test_three_quarters_hidden_by_a_straight_edge_gets_the_cover_box():
-    """A quarter of the width shows; body and stripe end together on both sides, so no side has a reason. Before: no box.
-    Now the slice is seen from top to bottom, so it is a barrel, and the box runs from (seen right end - W) to (seen left
-    end + W): it holds the barrel wherever it is, and overlaps the true box by 1 / (2 - 0.25) = 0.57."""
-    mask, truth = _cut_straight(0.25)
-    W = truth[2] - truth[0]
-    seen_right = truth[0] + int(round(0.25 * W))
-    assert det.detect(mask, BASE, CAM) == []
-    out = det.detect(mask, SLICE, CAM)
-    assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
-    assert abs(out[0].bbox[0] - (seen_right - W)) <= 2 and abs(out[0].bbox[2] - (truth[0] + W)) <= 2
-    assert _holds(out[0].bbox, truth) and det.box_iou(out[0].bbox, truth) >= 0.5
-    mirrored = det.detect(mask[:, ::-1].copy(), SLICE, CAM)
-    assert len(mirrored) == 1 and _holds(mirrored[0].bbox, (640 - truth[2], truth[1], 640 - truth[0], truth[3]))
-
-
-def test_narrow_piece_not_seen_from_top_to_bottom_gives_no_box():
-    """The same quarter, but the lower body ends a quarter of the height early (no reason on a side, and no full slice)."""
-    mask, truth = _cut_straight(0.25)
-    mask[truth[3] - (truth[3] - truth[1]) // 4:] = 0
-    log = []
-    assert det.detect(mask, SLICE, CAM, log=log) == []
-    assert {"side_unexplained", "slice_not_full"} & {e["why"] for e in log}
-
-
-def test_small_piece_with_a_reason_for_its_side_still_needs_the_full_slice():
-    """Round 2: 0.15 of the width at the frame edge (a reason for the left side), but the lower body ends a quarter of
-    the height early. A reason says where a barrel would be, not that there is one: no box."""
-    full, truth = _one_barrel()
-    W, H = truth[2] - truth[0], truth[3] - truth[1]
-    shift = truth[0] + int(round(0.85 * W))
-    mask = np.zeros_like(full)
-    mask[:, :640 - shift] = full[:, shift:]
-    assert len(det.detect(mask, SLICE, CAM)) == 1
-    mask[truth[3] - H // 4:] = 0
-    log = []
-    assert det.detect(mask, SLICE, CAM, log=log) == []
-    assert "slice_not_full" in [e["why"] for e in log]
-
-
-def test_both_sides_cut_gets_the_cover_box_around_what_is_seen():
-    mask, truth = _one_barrel()
-    W = truth[2] - truth[0]
-    mask[:, :truth[0] + int(round(0.375 * W))] = 0
-    mask[:, truth[0] + int(round(0.625 * W)):] = 0                      # the middle quarter shows
-    assert det.detect(mask, BASE, CAM) == []
-    out = det.detect(mask, SLICE, CAM)
-    assert len(out) == 1 and _holds(out[0].bbox, truth)
-    assert abs((out[0].bbox[0] + out[0].bbox[2]) / 2 - (truth[0] + truth[2]) / 2) <= 2
-    assert abs((out[0].bbox[2] - out[0].bbox[0]) - 1.75 * W) <= 3
-
-
-def test_piece_at_the_frame_edge_is_placed_by_its_seen_edge():
-    """0.15 of the width shows at the left frame edge: narrower than a stripe is tall, so the finder refused it. The
-    frame edge is a reason: W from the seen right edge, cut at the frame."""
-    full, truth = _one_barrel()
-    W = truth[2] - truth[0]
-    shift = truth[0] + int(round(0.85 * W))
-    mask = np.zeros_like(full)
-    mask[:, :640 - shift] = full[:, shift:]
-    assert det.detect(mask, BASE, CAM) == []
-    out = det.detect(mask, SLICE, CAM)
-    assert len(out) == 1 and out[0].color == io.BLUE and {"occluded", "truncated"} <= out[0].flags
-    assert out[0].bbox[0] == 0 and abs(out[0].bbox[2] - (truth[2] - shift)) <= 2
-
-
-def test_cover_unpinned_widens_a_half_seen_barrel_that_was_centred():
-    """Half the width shows behind a straight edge: no reason on either side, stripe 0.5 wide. ``slice_box`` alone
-    leaves the box as before (W wide, centred on what is seen: a quarter barrel off). With ``cover_unpinned`` it is
-    the cover box, 1.5 W wide, and holds the barrel."""
-    mask, truth = _cut_straight(0.5)
-    W = truth[2] - truth[0]
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1 and abs(old[0].bbox[0] - (truth[0] - 0.25 * W)) <= 2 and not _holds(old[0].bbox, truth)
-    assert det.detect(mask, SLICE, CAM) == old
-    out = det.detect(mask, COVER, CAM)
-    assert len(out) == 1 and _holds(out[0].bbox, truth) and abs((out[0].bbox[2] - out[0].bbox[0]) - 1.5 * W) <= 3
-    assert det.box_iou(out[0].bbox, truth) > det.box_iou(old[0].bbox, truth)
-
-
-def test_two_pieces_of_one_stripe_left_and_right_of_a_post_are_one_barrel():
-    """A post hides the middle 0.6: two pieces 0.2 wide, each a full slice. The first gives the cover box; the second
-    shares its rows and lies inside that box, so it is a piece of the same stripe, not another barrel."""
-    mask, truth = _one_barrel()
-    W = truth[2] - truth[0]
-    mask[:, truth[0] + int(round(0.2 * W)):truth[0] + int(round(0.8 * W))] = 0
-    assert det.detect(mask, BASE, CAM) == []
-    log = []
-    out = det.detect(mask, SLICE, CAM, log=log)
-    assert len(out) == 1 and _holds(out[0].bbox, truth)
-    assert "stripe_piece" in [e["why"] for e in log]
-
-
-def test_slice_box_changes_nothing_for_barrels_seen_whole():
-    mask = np.zeros((480, 640), np.uint8)
-    paint_barrel(mask, 150, 200); paint_barrel(mask, 300, 400, body=io.BLUE); paint_barrel(mask, 100, 560)
-    assert det.detect(mask, COVER, CAM) == det.detect(mask, BASE, CAM)
-
-
-# ---------------------------------------------------------------- stripe_two
-
-def test_joined_stripe_of_two_overlapping_same_colored_barrels_is_two_barrels():
-    """Two orange barrels at the same distance, 0.3 of a width apart: body and stripe are one region 1.3 barrels wide.
-    Before: one box (a stripe is cut in two only from 1.5 widths). Now two, each a barrel wide from its own outer edge;
-    they overlap by more than half and are still not each other's duplicate."""
-    mask = np.zeros((480, 640), np.uint8)
-    a = paint_barrel(mask, 150, 300)
-    b = paint_barrel(mask, 150, 300 + int(round(0.3 * (a[2] - a[0]))))
-    assert len(det.detect(mask, BASE, CAM)) == 1
-    out = det.detect(mask, TWO, CAM)
-    assert len(out) == 2 and all(o.color == io.ORANGE and "occluded" in o.flags for o in out)
-    assert _close(out[0].bbox, a) and _close(out[1].bbox, b)
-    assert det.box_iou(out[0].bbox, out[1].bbox) > 0.5
-
-
-def test_one_barrel_larger_than_its_row_predicts_is_not_cut_in_two():
-    """Round 2: a single barrel 1.3 x the size its row predicts (near barrels run large). Its stripe is over 1.2 x the
-    predicted width, but the barrel is as much taller: against a barrel as tall as the body seen, the stripe is 1.0."""
-    mask = np.zeros((480, 640), np.uint8)
-    r = CAM.barrel_rows(150)
-    mid, W, H = (r.stripe_top + r.stripe_bottom) / 2, 1.3 * r.width_px, 1.3 * (r.bottom - r.top)
-    up, down = 1.3 * (mid - r.top), 1.3 * (r.bottom - mid)
-    x0, x1 = int(round(320 - W / 2)), int(round(320 + W / 2))
-    mask[int(round(mid - up)):int(round(mid + down)), x0:x1] = io.ORANGE
-    mask[int(round(mid - 1.3 * (mid - r.stripe_top))):int(round(mid + 1.3 * (r.stripe_bottom - mid))), x0:x1] = io.BLUE
-    assert len(det.detect(mask, BASE, CAM)) == 1
-    assert det.detect(mask, TWO, CAM) == det.detect(mask, BASE, CAM)
-
-
-def test_stripe_two_leaves_one_barrel_and_a_touching_pair_alone():
-    one = np.zeros((480, 640), np.uint8); paint_barrel(one, 150, 320)
-    assert det.detect(one, TWO, CAM) == det.detect(one, BASE, CAM)
-    pair = np.zeros((480, 640), np.uint8)
-    a = paint_barrel(pair, 150, 300); paint_barrel(pair, 150, 300 + (a[2] - a[0]))
-    assert len(det.detect(pair, TWO, CAM)) == 2 and det.detect(pair, TWO, CAM) == det.detect(pair, BASE, CAM)
 
 
 # ---------------------------------------------------------------- edge_check

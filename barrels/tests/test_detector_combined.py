@@ -12,8 +12,8 @@ from test_detector_vertical import ALL, BASE, NEW, S_BOTTOM, S_TOP, _behind_a_po
 
 COMB = dataclasses.replace(BASE, pin_outline=True, **{k: True for k in NEW})           # the six + pin_outline
 COMB_THIN = dataclasses.replace(COMB, pin_thin=True)
-BEHIND = dataclasses.replace(BASE, slice_behind=True)
-BEHIND_THIN = dataclasses.replace(BEHIND, pin_outline=True, pin_thin=True)
+POST = dataclasses.replace(BASE, post_pair=True)
+POST_THIN = dataclasses.replace(POST, pin_outline=True, pin_thin=True)
 
 
 def test_the_test_arms_are_what_they_say():
@@ -22,42 +22,30 @@ def test_the_test_arms_are_what_they_say():
     assert all(getattr(ALL, k) for k in NEW) and ALL.pin_outline is False
 
 
-def test_pin_thin_does_not_take_a_narrow_slice_away_from_slice_behind():
-    """The interaction of round 1: with ``pin_thin`` the finder's floor is lower, so the narrow slice beside a found
-    nearer barrel was no longer "refused for its width", became a thin stripe that the outline cannot place (square
-    corners), and never reached ``slices_behind``: the barrel behind was lost. The finder now hands the piece over
-    either way."""
-    mask, back, front = _slice_beside_a_nearer_barrel()
-    alone = det.detect(mask, BEHIND, CAM)
-    assert len(alone) == 2 and any(o.color == io.BLUE for o in alone)
-    assert det.detect(mask, BEHIND_THIN, CAM) == alone
-    assert det.detect(mask, COMB_THIN, CAM) == det.detect(mask, COMB, CAM) == det.detect(mask, ALL, CAM)
-
-
 def test_the_finder_hands_over_the_same_pieces_with_or_without_the_lower_floor():
     """``narrow`` = the pieces under the finder's old width floor, whether the stripe step also sees them as thin
-    stripes (``pin_thin``, ``slice_box``) or not; a thin stripe left without a box is not handed over a second time."""
+    stripes (``pin_thin``) or not; a thin stripe left without a box is not handed over a second time. (Round 1 of the
+    combined experiment: with the lower floor a narrow slice was no longer "refused for its width" and never reached the
+    left-over rules.)"""
     for mask in (_slice_beside_a_nearer_barrel()[0], _behind_a_post()[0]):
-        n0, n1, n2 = [], [], []
-        s0 = det.find_stripes(mask, CAM, BEHIND, narrow=n0)
-        s1 = det.find_stripes(mask, CAM, BEHIND_THIN, narrow=n1)
-        det.find_stripes(mask, CAM, dataclasses.replace(BEHIND, slice_box=True), narrow=n2)
-        assert n0 and [s.bbox for s in n0] == [s.bbox for s in n1] == [s.bbox for s in n2] and all(s.narrow for s in n1)
+        n0, n1 = [], []
+        s0 = det.find_stripes(mask, CAM, POST, narrow=n0)
+        s1 = det.find_stripes(mask, CAM, POST_THIN, narrow=n1)
+        assert n0 and [s.bbox for s in n0] == [s.bbox for s in n1] and all(s.narrow for s in n1)
         assert not any(s.small for s in s0) and sorted(s.bbox for s in s1 if s.small) == sorted(s.bbox for s in n1)
-        assert det.find_stripes(mask, CAM, BEHIND_THIN) == s1                 # the stripes returned do not depend on the list
+        assert det.find_stripes(mask, CAM, POST_THIN) == s1                   # the stripes returned do not depend on the list
         unplaced = []
         for s in s1:
             if s.small:
-                det.barrel_from_stripe(s, mask, CAM, BEHIND_THIN, unplaced=unplaced)
+                det.barrel_from_stripe(s, mask, CAM, POST_THIN, unplaced=unplaced)
         assert unplaced == []
 
 
 def test_two_slices_behind_a_post_are_one_barrel_with_pin_thin_too():
     mask, truth = _behind_a_post()
-    post = dataclasses.replace(BASE, post_pair=True)
-    alone = det.detect(mask, post, CAM)
+    alone = det.detect(mask, POST, CAM)
     assert len(alone) == 1
-    assert det.detect(mask, dataclasses.replace(post, pin_outline=True, pin_thin=True), CAM) == alone
+    assert det.detect(mask, POST_THIN, CAM) == alone
     assert det.detect(mask, COMB_THIN, CAM) == det.detect(mask, COMB, CAM) == alone
 
 
@@ -72,7 +60,7 @@ def test_a_thin_slice_the_outline_places_gets_one_box_with_everything_on():
 
 
 def test_each_branchs_own_cases_come_out_the_same_in_the_combination():
-    """Hidden from above, from below, a post, a slice beside a nearer barrel (occl-vertical); half hidden by a straight
+    """Hidden from above, from below, a post, a barrel in front (occl-vertical); half hidden by a straight
     edge, with a barrel's rounded outline (occl-pin). The other branch's switches change none of them."""
     above, _ = _one_barrel(); above[:S_TOP + 2] = 0
     below, _ = _one_barrel(); below[S_BOTTOM - 2:] = 0

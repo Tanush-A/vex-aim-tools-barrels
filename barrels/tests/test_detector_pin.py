@@ -10,7 +10,7 @@ from barrels import detector as det, geometry as geo, io
 from test_detector import CAM, CFG2, paint_barrel
 
 BASE = dataclasses.replace(CFG2, pin_outline=False, pin_thin=False,          # the detector before these switches, spelled out
-                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False)   # ... and without those of the parallel branch (tests/test_detector_vertical.py; together: test_detector_combined.py)
+                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, cap_low=False)   # ... and without those of the parallel branch (tests/test_detector_vertical.py; together: test_detector_combined.py)
 PIN = dataclasses.replace(BASE, pin_outline=True)
 THIN = dataclasses.replace(BASE, pin_outline=True, pin_thin=True)
 
@@ -215,7 +215,7 @@ def test_thin_slice_that_is_not_full_gives_no_box():
 
 def test_thin_slice_from_the_middle_gives_no_box():
     """A thin slice from the middle of a barrel is a full slice, but flat: the outline fits in many places. No box (the
-    2026-11-19 slice_box drew a box 1.8 barrels wide here)."""
+    slice_box of 2026-11-19, since deleted, drew a box 1.8 barrels wide here)."""
     v = _thin_share()
     mask, truth = _round_cut(0.5 - v / 2, 0.5 + v / 2)
     assert any(s.small for s in det.find_stripes(mask, CAM, THIN))
@@ -262,10 +262,9 @@ def test_end_costs_tell_a_barrels_own_side_from_a_cut():
 
 def test_pin_outline_and_pin_thin_are_on_by_default_and_pin_thin_needs_pin_outline():
     """2026-11-20: pin_outline passed its pre-registered rule on wip/occl-pin; pin_thin passed the rule of the combined
-    experiment (experiments/2026-11-20_occl_combined) and is on since then; slice_behind failed it and is off."""
+    experiment (experiments/2026-11-20_occl_combined) and is on since then."""
     cfg = det.DetConfig()
-    assert cfg.pin_outline is True and cfg.pin_thin is True and cfg.pin_good == 0.05 and cfg.slice_behind is False
-    assert cfg.slice_box is False and cfg.cover_unpinned is False and cfg.stripe_two is False
+    assert cfg.pin_outline is True and cfg.pin_thin is True and cfg.pin_good == 0.05
     assert all(getattr(cfg, k) for k in ("half_stripe", "half_thin", "post_pair", "stripe_wide", "cap_low", "edge_check", "cap_same"))
     mask, truth = _round_cut(0.0, _thin_share())
     assert det.detect(mask, dataclasses.replace(BASE, pin_thin=True), CAM) == []      # pin_thin without pin_outline changes nothing

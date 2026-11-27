@@ -1,8 +1,9 @@
 """2026-11-20, the mechanics of the switches of ``experiments/2026-11-20_occl_vertical`` on synthetic barrels (their
 quality is judged by the occlusion scorecard): ``half_stripe`` / ``half_thin`` (a stripe with body color on one side
 only, seen in its whole width: a barrel hidden from above or from below), ``post_pair`` (two slices of one barrel left
-and right of a post), ``stripe_wide`` (``stripe_two`` with a guard), ``slice_behind`` (a narrow full slice beside a found
-nearer barrel) and ``cap_low`` (the cap rule's height floor)."""
+and right of a post), ``stripe_wide`` (a stripe wider than a barrel with body right above and below it is two barrels) and
+``cap_low`` (the cap rule's height floor). ``slice_behind`` (a narrow full slice beside a found nearer barrel) stayed off
+and was deleted on 2026-11-26, and its tests with it."""
 import dataclasses
 
 import numpy as np
@@ -12,14 +13,13 @@ from barrels.detect_types import Barrel
 from test_detector import CAM, CFG2, paint_barrel
 from test_detector_occl import _close, _front_of_other_color, _one_barrel
 
-NEW = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low")
-BASE = dataclasses.replace(CFG2, slice_box=False, cover_unpinned=False, stripe_two=False, **{k: False for k in NEW},   # the detector before this round
+NEW = ("half_stripe", "half_thin", "post_pair", "stripe_wide", "cap_low")
+BASE = dataclasses.replace(CFG2, **{k: False for k in NEW},   # the detector before this round
                            pin_outline=False, pin_thin=False)   # ... and without the switches of the parallel branch (tests/test_detector_pin.py; together: test_detector_combined.py)
 HALF = dataclasses.replace(BASE, half_stripe=True)
 THIN = dataclasses.replace(BASE, half_stripe=True, half_thin=True)
 POST = dataclasses.replace(BASE, post_pair=True)
 WIDE = dataclasses.replace(BASE, stripe_wide=True)
-BEHIND = dataclasses.replace(BASE, slice_behind=True)
 CAPLOW = dataclasses.replace(BASE, cap_low=True)
 ALL = dataclasses.replace(BASE, **{k: True for k in NEW})
 R = CAM.barrel_rows(150)                                    # the barrel of _one_barrel: blue, 150 mm away, centred on column 320
@@ -201,25 +201,39 @@ def _two_overlapping():
 
 def test_stripe_wide_cuts_a_joined_stripe_with_body_right_above_and_below():
     """Two orange barrels 0.3 of a width apart: one stripe region 1.3 barrels wide, body right above and below it. Two
-    boxes, each a barrel wide from its own outer edge (what ``stripe_two`` does)."""
+    boxes, each a barrel wide from its own outer edge; they overlap by more than half and are still not each other's
+    duplicate."""
     mask, a, b = _two_overlapping()
     assert len(det.detect(mask, BASE, CAM)) == 1
     out = det.detect(mask, WIDE, CAM)
     assert len(out) == 2 and all(o.color == io.ORANGE and "occluded" in o.flags for o in out)
     assert _close(out[0].bbox, a) and _close(out[1].bbox, b)
-    assert out == det.detect(mask, dataclasses.replace(BASE, stripe_two=True), CAM)
+    assert det.box_iou(out[0].bbox, out[1].bbox) > 0.5
 
 
 def test_stripe_wide_leaves_a_wide_stripe_alone_when_no_body_is_seen_right_beside_it():
     """The same region, but with 5 empty rows between the stripe and the body on both sides (the unlabeled seam of a
-    large near barrel): nothing but the row says how big the barrel is, so the stripe is not cut. ``stripe_two`` cuts it."""
+    large near barrel): nothing but the row says how big the barrel is, so the stripe is not cut."""
     mask, a, b = _two_overlapping()
     r = CAM.barrel_rows(150)
     mask[int(round(r.stripe_top)) - 5:int(round(r.stripe_top))] = 0
     mask[int(round(r.stripe_bottom)):int(round(r.stripe_bottom)) + 5] = 0
     old = det.detect(mask, BASE, CAM)
     assert det.detect(mask, WIDE, CAM) == old
-    assert det.detect(mask, dataclasses.replace(BASE, stripe_two=True), CAM) != old
+
+
+def test_one_barrel_larger_than_its_row_predicts_is_not_cut_in_two():
+    """A single barrel 1.3 x the size its row predicts (near barrels run large). Its stripe is over 1.2 x the predicted
+    width, but the barrel is as much taller: against a barrel as tall as the body seen, the stripe is 1.0."""
+    mask = np.zeros((480, 640), np.uint8)
+    r = CAM.barrel_rows(150)
+    mid, W = (r.stripe_top + r.stripe_bottom) / 2, 1.3 * r.width_px
+    up, down = 1.3 * (mid - r.top), 1.3 * (r.bottom - mid)
+    x0, x1 = int(round(320 - W / 2)), int(round(320 + W / 2))
+    mask[int(round(mid - up)):int(round(mid + down)), x0:x1] = io.ORANGE
+    mask[int(round(mid - 1.3 * (mid - r.stripe_top))):int(round(mid + 1.3 * (r.stripe_bottom - mid))), x0:x1] = io.BLUE
+    assert len(det.detect(mask, BASE, CAM)) == 1
+    assert det.detect(mask, WIDE, CAM) == det.detect(mask, BASE, CAM)
 
 
 def test_stripe_wide_leaves_one_barrel_and_a_touching_pair_alone():
@@ -230,7 +244,7 @@ def test_stripe_wide_leaves_one_barrel_and_a_touching_pair_alone():
     assert len(det.detect(pair, WIDE, CAM)) == 2 and det.detect(pair, WIDE, CAM) == det.detect(pair, BASE, CAM)
 
 
-# ---------------------------------------------------------------- slice_behind
+# ---------------------------------------------------------------- a slice beside a nearer barrel (a scene other tests use)
 
 def _slice_beside_a_nearer_barrel(front_color=io.ORANGE):
     """A blue barrel 22 cm away of which only the right 0.15 shows, from top to bottom: an orange barrel 15 cm away hides
@@ -243,47 +257,6 @@ def _slice_beside_a_nearer_barrel(front_color=io.ORANGE):
     mask[:, :edge] = 0
     front = paint_barrel(mask, 150, edge - Wf / 2, body=front_color)
     return mask, back, front
-
-
-def test_narrow_slice_beside_a_found_nearer_barrel_is_a_barrel():
-    """What shows of the back barrel's stripe is 0.15 of its width: narrower than a stripe is tall, refused by the finder.
-    It is seen from top to bottom, and its left side is next to a found barrel standing nearer: a barrel wide from its
-    right edge."""
-    mask, back, front = _slice_beside_a_nearer_barrel()
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1 and old[0].color == io.ORANGE
-    out = det.detect(mask, BEHIND, CAM)
-    assert len(out) == 2
-    blue = next(o for o in out if o.color == io.BLUE)
-    assert "occluded" in blue.flags and _close(blue.bbox, back, 2)
-
-
-def test_narrow_slice_with_no_found_barrel_beside_it_gets_no_box():
-    """The same slice, but what hides the rest is not a barrel (nothing in the mask): no reason for a side, no box."""
-    mask, back, front = _slice_beside_a_nearer_barrel()
-    mask[front[1]:front[3], front[0]:front[2]] = 0
-    log = []
-    assert [o for o in det.detect(mask, BEHIND, CAM, log=log) if o.color == io.BLUE] == []
-    assert "no_reason" in _whys(log, "slice")
-
-
-def test_slice_behind_needs_the_full_slice():
-    """The slice's lower body ends a third of the height early: a reason says where a barrel would be, not that there is one."""
-    mask, back, front = _slice_beside_a_nearer_barrel()
-    mask[back[3] - (back[3] - back[1]) // 3:back[3], front[2]:] = 0
-    assert det.detect(mask, BEHIND, CAM) == det.detect(mask, BASE, CAM)
-
-
-def test_slice_at_the_frame_edge_is_placed_by_its_seen_edge():
-    """0.15 of the width shows at the left frame edge, seen from top to bottom: W from the seen right edge, cut at the frame."""
-    full, truth = _one_barrel()
-    shift = truth[0] + int(round(0.85 * (truth[2] - truth[0])))
-    mask = np.zeros_like(full)
-    mask[:, :640 - shift] = full[:, shift:]
-    assert det.detect(mask, BASE, CAM) == []
-    out = det.detect(mask, BEHIND, CAM)
-    assert len(out) == 1 and out[0].color == io.BLUE and {"occluded", "truncated"} <= out[0].flags
-    assert out[0].bbox[0] == 0 and abs(out[0].bbox[2] - (truth[2] - shift)) <= 2
 
 
 # ---------------------------------------------------------------- cap_low
@@ -327,29 +300,24 @@ def test_the_stripe_is_the_thinner_band():
 
 
 def test_a_slice_that_ends_against_the_other_barrel_color_is_not_a_full_slice():
-    """The narrow slice beside a found nearer barrel, but its bottom lies on something orange: not a seen edge."""
-    mask, back, front = _slice_beside_a_nearer_barrel()
-    assert len(det.detect(mask, BEHIND, CAM)) == 2
-    mask[back[3]:back[3] + 6, front[2]:back[2]] = io.ORANGE
-    assert [o for o in det.detect(mask, BEHIND, CAM) if o.color == io.BLUE] == []
+    """One of the two slices behind a post has its bottom lying on something orange: not a seen edge, so no pair."""
+    mask, truth = _behind_a_post()
+    assert len(det.detect(mask, POST, CAM)) == 1
+    mask[truth[3]:truth[3] + 6, truth[0]:truth[0] + int(round(0.2 * (truth[2] - truth[0])))] = io.ORANGE
+    assert [o for o in det.detect(mask, POST, CAM) if o.color == io.BLUE] == []
 
 
-def test_a_piece_of_a_found_barrels_own_stripe_is_not_a_slice_behind_it():
-    """A narrow piece at the frame edge is a barrel (see above); the same piece, when a found barrel of its color has its
-    stripe at those rows and the piece inside its box, is a fragment of that barrel's stripe."""
-    full, truth = _one_barrel()
-    shift = truth[0] + int(round(0.85 * (truth[2] - truth[0])))
-    mask = np.zeros_like(full)
-    mask[:, :640 - shift] = full[:, shift:]
+def test_a_piece_of_a_found_barrels_own_stripe_is_not_half_of_a_pair():
+    """Two slices behind a post are a pair; the same two, when a found barrel of their color has the left one as its
+    stripe (same rows, the piece inside its box), are not: the left one is that barrel's."""
+    mask, truth = _behind_a_post()
     narrow = []
-    det.find_stripes(mask, CAM, BEHIND, narrow=narrow)
-    assert len(narrow) == 1 and narrow[0].narrow
-    assert len(det.slices_behind(narrow, mask, [], CAM, BEHIND)) == 1
-    owner = Barrel(color=io.BLUE, bbox=(0, 300, 14, 360), source="det2")
-    log = []
-    assert det.slices_behind(narrow, mask, [owner], CAM, BEHIND, log, made=((narrow[0], owner),)) == []
-    assert "stripe_piece" in _whys(log, "slice")
-    assert det.post_pairs(narrow, mask, [owner], CAM, POST, made=((narrow[0], owner),)) == ([], [])
+    det.find_stripes(mask, CAM, POST, narrow=narrow)
+    assert len(narrow) == 2 and all(s.narrow for s in narrow)
+    assert len(det.post_pairs(narrow, mask, [], CAM, POST)[0]) == 1
+    left = narrow[0]
+    owner = Barrel(color=io.BLUE, bbox=(left.bbox[0] - 5, truth[1], left.bbox[2] + 5, truth[3]), source="det2")
+    assert det.post_pairs(narrow, mask, [owner], CAM, POST, made=((left, owner),)) == ([], [])
 
 
 def test_every_new_switch_is_off_by_default_or_named_in_the_tests():

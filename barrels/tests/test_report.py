@@ -72,11 +72,11 @@ def test_run_arm_refuses_test_frames_before_opening_anything(tmp_path):
 
 
 def test_parse_det_overrides():
-    assert rp.parse_det_overrides(["body_width=0", "cover_rows=false,stripe_mode=bands", "min_area_px=30"]) == {
-        "body_width": 0.0, "cover_rows": False, "stripe_mode": "bands", "min_area_px": 30}
+    assert rp.parse_det_overrides(["body_width=0", "cover_rows=false,stripe_merge=1.5", "min_area_px=30"]) == {
+        "body_width": 0.0, "cover_rows": False, "stripe_merge": 1.5, "min_area_px": 30}
     assert rp.parse_det_overrides(None) == {}
-    arm = rp.Arm("a", "m.json", rp.parse_det_overrides(["dark_stripe=on"]))
-    assert arm.det_config().dark_stripe is True and arm.det_config().body_width == 1.2
+    arm = rp.Arm("a", "m.json", rp.parse_det_overrides(["cover_rows=off"]))
+    assert arm.det_config().cover_rows is False and arm.det_config().body_width == 1.2
     for bad in (["no_such_field=1"], ["body_width"], ["cover_rows=maybe"], ["min_area_px=x"]):
         with pytest.raises(ValueError):
             rp.parse_det_overrides(bad)

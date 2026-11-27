@@ -9,7 +9,7 @@ CAM = geo.NOMINAL
 CFG1 = dataclasses.replace(det.DetConfig(), require_stripe=False)    # step 1 alone (the detector before 2026-11-05)
 CFG2 = dataclasses.replace(det.DetConfig(), require_stripe=True)     # the stripe step — also the default
 PRE19 = dataclasses.replace(CFG2, side_hidden=False, seam_height=False, cap_seen_bottom=False,   # the detector before 2026-11-19 (tests/test_detector_side.py and test_detector_bottom.py have the three switches)
-                            half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False)   # ... and without those of 2026-11-20 (tests/test_detector_vertical.py)
+                            half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, cap_low=False)   # ... and without those of 2026-11-20 (tests/test_detector_vertical.py)
 
 
 def paint_barrel(mask, d_axis_mm, x_center, body=io.ORANGE, cam=CAM, cut_bottom_frac=0.0):
@@ -94,16 +94,12 @@ def test_stripe_found_and_barrel_rebuilt_from_it():
     assert all(abs(a - b) <= 2 for a, b in zip(out[0].bbox, truth))
 
 
-def test_dark_gap_alone_is_not_a_stripe_unless_asked():
+def test_dark_gap_alone_is_not_a_stripe():
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_barrel(mask, 150, 320, body=io.BLUE)
     r = CAM.barrel_rows(150)
     mask[int(round(r.stripe_top)):int(round(r.stripe_bottom)), :] = 0       # the orange stripe went dark
     assert det.detect(mask, CFG2, CAM) == []                                 # hardening (a): a gap with no stripe pixel is not a stripe
-    out = det.detect(mask, dataclasses.replace(CFG2, dark_stripe=True), CAM)  # the 2026-11-03 behaviour, on request
-    assert len(out) == 1 and out[0].color == io.BLUE and out[0].confidence < 1.0
-    out = det.detect(mask, dataclasses.replace(CFG2, stripe_mode="bands"), CAM)   # and the old finder still does it
-    assert len(out) == 1 and out[0].color == io.BLUE
 
 
 def test_shadow_glued_to_the_stripe_does_not_veto_it():
@@ -114,7 +110,6 @@ def test_shadow_glued_to_the_stripe_does_not_veto_it():
     st, sb, top, bottom = int(round(r.stripe_top)), int(round(r.stripe_bottom)), truth[1], truth[3]
     mask[top + 4:st, truth[0]:truth[2]] = 0                                  # both faces dark: only 4 body rows at the top ...
     mask[sb:bottom - 4, truth[0]:truth[2]] = 0                               # ... and 4 at the base survive around the stripe
-    assert det.detect(mask, dataclasses.replace(CFG2, stripe_mode="bands"), CAM) == []   # the old finder: band (stripe + shadow) too tall
     out = det.detect(mask, CFG2, CAM)
     assert len(out) == 1 and out[0].color == io.ORANGE and out[0].source == "det2"
     assert abs(out[0].bbox[3] - truth[3]) <= 3
@@ -271,20 +266,6 @@ def test_log_names_the_refusing_test_and_never_changes_the_answer():
     log = []
     assert det.detect(mask2, CFG2, CAM, log=log) == det.detect(mask2, CFG2, CAM)
     assert [e["why"] for e in log if e["stage"] == "barrel"] == ["kept"]
-
-
-def test_barrel_hidden_at_the_side_narrow_stripe_and_hidden_side_from_the_body():
-    mask, truth = _barrel_behind_a_slanted_edge()
-    narrow = dataclasses.replace(PRE19, stripe_w_min=0.25)          # the 2026-11-11 switches, on the detector they were made for
-    out = det.detect(mask, narrow, CAM)                              # the stripe is accepted; the box is centred on it
-    assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
-    centred = det.box_iou(out[0].bbox, truth)
-    out_h = det.detect(mask, dataclasses.replace(narrow, occl_body_side=True), CAM)
-    assert len(out_h) == 1 and "occluded" in out_h[0].flags          # (h): the body below the stripe shows the real extent
-    assert det.box_iou(out_h[0].bbox, truth) > max(0.8, centred)
-    # (h) changes nothing for a barrel that is not hidden
-    full = np.zeros((480, 640), np.uint8); paint_barrel(full, 150, 320)
-    assert det.detect(full, dataclasses.replace(CFG2, occl_body_side=True), CAM) == det.detect(full, CFG2, CAM)
 
 
 # ---------------------------------------------------------------- 2026-11-18: a stripe in pieces; a barrel behind a barrel of the other color

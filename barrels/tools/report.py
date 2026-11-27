@@ -4,7 +4,7 @@ width ratio / bottom error for a candidate and a baseline side by side, and the 
 
     python barrels/tools/report.py                                   # what runs today vs the v1 front end
     python barrels/tools/report.py --base-model default --base-det body_width=0      # today vs today without hardening (f)
-    python barrels/tools/report.py --cand-det dark_stripe=true --base-model default  # a detector switch vs today
+    python barrels/tools/report.py --cand-det stripe_merge=1.68 --base-model default # a detector number vs today
     python barrels/tools/report.py --cand-model results/<x>/config.json --base-model default   # a new color model vs today
     python barrels/tools/report.py --sets CAMPUS,DAVE --out          # fewer sets; also write results/<date>_eval_report/
 
