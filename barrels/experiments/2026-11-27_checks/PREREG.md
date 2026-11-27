@@ -163,3 +163,39 @@ bluer_geom experiments' code unchanged (an export of `wip/exp-bluer-geom`: `expe
   / figure / other from the contact sheet.
 - Nothing is chosen here. If the stage misses the tin and the figure, a fix is written in addendum 3 before it is
   measured (harness: no real barrel lost; and these boxes), and it is not adopted.
+
+## Addendum 3 (2026-11-27, after addendum 2's results, before this runs): a setting that keeps the harness AND catches the traps?
+
+Asked by the coordinator. The fusion experiment (`wip/exp-fusion`, `src/barrels/fusion.py`) put the checks on the
+contrast path at "mild": `Checks(0.35, 1.5, 0.6)` on `stages.measure`, i.e. the round-1 readings (whole box, no
+closing) at M; its F1a took contrast's boxes not on their barrel 2.83 → 0.83 (9 → 3) with nothing lost on the
+ordinary frames. Round 1 at M lost 54 real barrels on the harness (this experiment). Addendum 2: the adopted stage
+removes 2 of B4's 24 trap boxes.
+
+What was looked at before this was written (honesty): round 1 and round 2 harness rows (every removed box with its
+readings), addendum 2's 37 trap boxes with both readings. From them: the tin and the figure read 0.17-0.24 without
+the closing; the only harness barrel under 0.25 without it is a 16-px sliver at the frame edge (scene 00309, 0.18);
+the losses of the label check are barrels whose neighbour is a nearer barrel. The two new ideas below (V2-V5) were
+shaped by those rows, so a pass here is in-sample for the harness and the traps; it cannot be adopted on this alone.
+
+Candidates, fixed now (`variants.py`; a post-filter on the ten stages; nothing else is tried):
+
+| name | solid paint | label, not a stripe |
+|---|---|---|
+| V0_adopted | closed, < 0.40 | column median, body in the stripe's columns; > 1.5 and < 0.6 |
+| V1_fusion_mild | raw (no closing), < 0.35 | rows of the stripe's box, body over the box; > 1.5 and < 0.6 (fusion's exactly) |
+| V2_row_label_excl | closed, < 0.40 | as V1's label, but pixels inside a nearer box (bottom lower, any color) left out of both readings |
+| V3_col_label_125_excl | closed, < 0.40 | as V0's label at 1.25, nearer boxes left out |
+| V4_raw_speckle_025 | closed < 0.40, and raw < 0.25 except a box touching the frame edge | as V0 |
+| V5_V2_plus_V4 | as V4 | as V2 |
+
+Measured for each (`traps_all.py`, `results/2026-11-27_checks/variants/`): real barrels lost on the 5435 harness masks
+(against no stage 11); on the train frames, four color steps against themselves without the variant (fixed colors;
+the contrast winner C1 as judged, each place under its own fold's setting, the variant inside every detect call;
+B4 and delta 0.20 under addendum 2's fold picks): verdict, found, lost, boxes not on their barrel; and every box not
+on its barrel that none of the checks touch, with which variant removes it (contrast's 9, B4's 24, delta 0.20's 13).
+
+The answer rule: a variant "keeps the harness" when it loses 0 real barrels on the harness and 0 on the ordinary
+frames of all four color steps. Among those, the recommendation for the contrast path is the one that removes the
+most of contrast's 9 boxes; a tie goes to the one that removes the most trap boxes of B4. If none keeps the
+harness, the answer is "no setting tried does both", with the cost of the best one, barrel by barrel.
