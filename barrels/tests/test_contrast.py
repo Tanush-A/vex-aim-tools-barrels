@@ -64,7 +64,8 @@ def test_row_bands_follow_the_camera_model():
     ys = np.nonzero(rb.ok)[0]
     assert len(ys) > 250
     for y in (ys[0], 150, 250, ys[-1]):
-        d, rows = det._stripe_geometry(CAM, y + 0.5)                   # the detector's own reading of that row
+        at = det.BarrelAt.from_stripe_row(CAM, y + 0.5)                # the detector's own reading of that row (ported 2026-11-27: was det._stripe_geometry)
+        d, rows = at.d, at.rows
         assert rb.width[y] == pytest.approx(rows.width_px) and rb.top[y] == pytest.approx(rows.top) and rb.bottom[y] == pytest.approx(rows.bottom)
         assert rb.u0[y] < rb.u1[y] <= rb.s0[y] < rb.s1[y] <= rb.l0[y] < rb.l1[y]
         assert rows.stripe_top - 1 <= rb.s0[y] and rb.s1[y] <= rows.stripe_bottom + 1     # the stripe band is inside the stripe
@@ -75,7 +76,7 @@ def test_row_bands_follow_the_camera_model():
 
 def test_barrel_at_is_none_above_the_horizon():
     assert cn.barrel_at(CAM, CAM.horizon_row() - 5) is None
-    assert cn.barrel_at(CAM, 150.0).width_px == pytest.approx(det._stripe_geometry(CAM, 150.0)[1].width_px)
+    assert cn.barrel_at(CAM, 150.0).width_px == pytest.approx(det.BarrelAt.from_stripe_row(CAM, 150.0).W)
 
 
 # ---------------------------------------------------------------- band means and the sandwich

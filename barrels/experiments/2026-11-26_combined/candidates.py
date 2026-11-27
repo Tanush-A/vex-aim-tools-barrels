@@ -142,6 +142,64 @@ def settings_for(place: str) -> tuple[str, sc.SelfCalConfig | None]:
     return c["nm"], (None if c["sc"] is None else dataclasses.replace(cb.sc_cand.BASE["AB"], **c["sc"]))
 
 
+# ---------------------------------------------------------------- the third winner (PREREG addendum, 2026-11-27)
+# Contrast's own fold rule runs in a process of its own (cn_picks.py: its folder has a common.py too, and its rule builds
+# its table in a process pool). It writes the setting its rule picks for each held-out place, on the other places,
+# alone: results/2026-11-26_combined/cn_chosen.json. Nothing is chosen here.
+
+from barrels import contrast as cn  # noqa: E402
+
+CN_FIXED = cn.Params(strength_min=1.15, orange_min=0.8, extent_top=0.15, extent_bottom=0.15)    # contrast's candidate.BEST
+ANY_PLACE = "(any place that is not an ordinary one)"
+_CN: dict | None = None
+
+
+def cn_params(held_place: str):
+    """The contrast setting contrast's own rule picked without ``held_place`` (cn_chosen.json); None = its rule kept
+    today's detector. A place that is not an ordinary one gets the pick on all ordinary places."""
+    global _CN
+    if _CN is None:
+        import json
+        _CN = json.loads((cb.RESULTS / "cn_chosen.json").read_text())
+    c = _CN.get(held_place, _CN[ANY_PLACE])
+    return None if c is None else cn.Params(**c["params"])
+
+
+def _detector3(way: str, nm_spec: str, sc_cfg, cn_p, note: str):
+    fn, nm_cfg = cmb.WAYS3[way], nm_config(nm_spec)
+
+    def detect_frame(stem: str, frame) -> list:
+        t0 = time.perf_counter()
+        boxes = fn(frame, MODEL, nm_cfg, sc_cfg, CAM, None, cn_p).boxes
+        t = SECONDS.setdefault(way, [0.0, 0])
+        t[0] += time.perf_counter() - t0
+        t[1] += 1
+        return boxes
+    detect_frame.describe = f"combined {way}: near-miss {nm_spec}; self-calibration {'off' if sc_cfg is None else _sc_words(sc_cfg)}; contrast {cn_p}; {note}"
+    return detect_frame
+
+
+def make_fit3(way: str):
+    def fit(train_stems, held_place: str):
+        spec, cfg = fold_settings(train_stems, held_place)
+        return _detector3(way, spec, cfg, cn_params(held_place), f"each picked by its own rule without {held_place}")
+    fit.describe = (f"combined {way} (barrels.combined.WAYS3): near-miss, self-calibration and contrast settings each picked by that winner's "
+                    f"own rule on the other places; nothing is chosen for the combination")
+    fit.__name__ = f"fit_{way}"
+    fit.way = way
+    return fit
+
+
+FITS3 = {w: make_fit3(w) for w in cmb.WAYS3}
+FIXED3 = {w: _detector3(w, NM_FIXED, SC_FIXED, CN_FIXED, "fixed numbers: in-sample when judged") for w in cmb.WAYS3}
+
+
+def settings3_for(place: str):
+    """(near-miss spec, self-calibration config, contrast params) the judged run used at a place."""
+    spec, cfg = settings_for(place)
+    return spec, cfg, cn_params(place)
+
+
 # ---------------------------------------------------------------- the candidate the experiment ends on
 # Set after the judged runs by PREREG.md's rule (run.py, pick): mask_union. The held-out result is `fit`'s
 # (results/2026-11-26_combined/mask_union/judge.md). `detect_frame` has the two fixed settings the winners offered: judged, it is IN-SAMPLE.

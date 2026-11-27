@@ -170,3 +170,45 @@ def test_seed_rule_drops_a_box_of_the_other_color_on_a_kept_seed():
     seed = sc.Seed("body", ORANGE, (100, 100, 150, 160), ok=True)
     boxes = [Barrel(BLUE, (102, 104, 148, 158)), Barrel(ORANGE, (102, 104, 148, 158)), Barrel(BLUE, (300, 100, 350, 160))]
     assert [b.color for b in cmb.seed_rule(boxes, [seed])] == [ORANGE, BLUE]
+
+
+# ---------------------------------------------------------------- the third winner (addendum 2026-11-27)
+
+from barrels import contrast as cn  # noqa: E402
+
+CN = cn.Params(strength_min=1.15, orange_min=0.8, extent_top=0.15, extent_bottom=0.15)
+
+
+def test_with_contrast_off_each_three_way_is_its_base(scene):
+    frame, _ = scene
+    strict, first = cmb.fixed_pass(frame, MODEL)
+    assert same(cmb.cn_alone(frame, MODEL, NM, SC, CAM, None, None).boxes, first)
+    assert same(cmb.cn_on_nm(frame, MODEL, NM, SC, CAM, None, None).boxes, cmb.nm_then_sc(frame, MODEL, NM, None).boxes)
+    assert same(cmb.cn_on_sc(frame, MODEL, NM, SC, CAM, None, None).boxes, sc.SelfCal(MODEL, SC, CAM).run(frame).boxes)
+    assert same(cmb.cn_on_all(frame, MODEL, NM, SC, CAM, None, None).boxes, cmb.mask_union(frame, MODEL, NM, SC).boxes)
+    for w in ("cn_box_nm", "cn_box_sc", "cn_box_all"):
+        assert same(cmb.WAYS3[w](frame, MODEL, None, None, CAM, None, None).boxes, first), w
+
+
+def test_contrast_alone_finds_the_pale_striped_barrel_and_keeps_todays_box(scene):
+    frame, truth = scene
+    strict, first = cmb.fixed_pass(frame, MODEL)
+    c = cmb.cn_alone(frame, MODEL, None, None, CAM, None, CN)
+    assert len(c.boxes) == 2 and on(c.boxes[1], truth[1]) and any(tuple(b.bbox) == tuple(first[0].bbox) for b in c.boxes)
+    painted = strict != OTHER
+    assert (c.mask[painted] == strict[painted]).all()
+
+
+def test_contrast_on_leaves_a_found_barrel_alone():
+    frame, _ = picture([(250.0, 150, ORANGE_RGB, BLUE_RGB)])
+    strict, first = cmb.fixed_pass(frame, MODEL)
+    mask, boxes, cands = cmb.contrast_on(frame, strict, first, CN, CAM)
+    assert mask is strict and boxes is first
+    assert all(c.info.get("painted", 0) == 0 for c in cands)
+
+
+@pytest.mark.parametrize("way", ["cn_on_nm", "cn_on_sc", "cn_on_all", "cn_box_nm", "cn_box_sc", "cn_box_all"])
+def test_every_three_way_finds_both_barrels(scene, way):
+    frame, truth = scene
+    c = cmb.WAYS3[way](frame, MODEL, NM, SC, CAM, None, CN)
+    assert len(c.boxes) == 2 and on(c.boxes[0], truth[0]) and on(c.boxes[1], truth[1])

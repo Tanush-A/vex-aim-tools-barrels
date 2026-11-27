@@ -14,6 +14,10 @@ and ``detector.detect`` is called with the default ``DetConfig``.
     box_union     each alone, from start to end; the boxes are merged
     box_agree     each alone; a box the fixed colors did not draw stays only when BOTH drew it
 
+Added 2026-11-27 (PREREG addendum): the third winner, the stripe by color difference (``contrast``), in its own
+"add" mode (``contrast_on``), alone (``cn_alone``), added on top of each winner and of ``mask_union`` (``cn_on_*``), and
+as a box-level merge with them (``cn_box_*``). ``WAYS3`` holds those; ``ALL_WAYS`` all twelve.
+
 ``nm_cfg`` None = the near-miss step is off. ``sc_cfg`` None = the self-calibration step is off. With both off every
 way gives today's boxes. No way has a number of its own: every number belongs to one of the two steps.
 
@@ -131,7 +135,7 @@ def _kept(seeds: list) -> list:
 # ---------------------------------------------------------------- the five ways
 
 def nm_then_sc(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None, sc_cfg: sc.SelfCalConfig | None,
-               cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None) -> Combined:
+               cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None, cn_p=None) -> Combined:
     """Near-miss paint first, then self-calibration on that mask. The near-miss mask and its boxes are
     self-calibration's first pass: its seeds are looked for there, the near-miss boxes stay as they are, and a
     second-pass box is added where no near-miss box is."""
@@ -145,7 +149,7 @@ def nm_then_sc(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | Non
 
 
 def sc_then_nm(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None, sc_cfg: sc.SelfCalConfig | None,
-               cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None) -> Combined:
+               cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None, cn_p=None) -> Combined:
     """Self-calibration first, then near-miss paint on its second-pass mask (that mask is what the near-miss step
     takes as "strict": a color a seed painted can be the partner). Self-calibration's rule for the boxes is kept:
     today's boxes stay as they are, and a box of the last pass is added where none of today's is."""
@@ -164,7 +168,7 @@ def sc_then_nm(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | Non
 
 
 def mask_union(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None, sc_cfg: sc.SelfCalConfig | None,
-               cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None) -> Combined:
+               cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None, cn_p=None) -> Combined:
     """Each step alone on the fixed mask; then the two masks laid over each other and one detector pass. Where the
     two paint a pixel differently, self-calibration's color stays (its seed passed the photo check). Today's boxes
     stay as they are; a box of the union's pass is added where none of today's is."""
@@ -198,7 +202,7 @@ def merge_boxes(base: list, more: list) -> list:
 
 
 def box_union(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None, sc_cfg: sc.SelfCalConfig | None,
-              cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None) -> Combined:
+              cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None, cn_p=None) -> Combined:
     """Each winner alone from start to end, then the boxes merged: every box of self-calibration (which holds every
     box of today's detector) stays as it is; a near-miss box is added where none of those is."""
     det_cfg = det_cfg or det.DetConfig()
@@ -207,7 +211,7 @@ def box_union(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None
 
 
 def box_agree(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None, sc_cfg: sc.SelfCalConfig | None,
-              cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None) -> Combined:
+              cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT, det_cfg: det.DetConfig | None = None, cn_p=None) -> Combined:
     """Each winner alone; a second reading decides. Today's boxes stay as they are. A box that self-calibration adds
     stays only when the near-miss step, on its own, drew a box of the same color on it."""
     det_cfg = det_cfg or det.DetConfig()
@@ -221,3 +225,89 @@ def box_agree(frame: pl.Frame, model: pl.Model, nm_cfg: nm.NearMissConfig | None
 
 
 WAYS = {"nm_then_sc": nm_then_sc, "sc_then_nm": sc_then_nm, "mask_union": mask_union, "box_union": box_union, "box_agree": box_agree}
+
+
+# ---------------------------------------------------------------- the third winner: the stripe by color difference (addendum 2026-11-27)
+
+def contrast_on(frame: pl.Frame, base_mask: np.ndarray, base_boxes: list, cn_p, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
+                det_cfg: det.DetConfig | None = None) -> tuple[np.ndarray, list, list]:
+    """The contrast path in its own judged "add" mode (``experiments/2026-11-26_contrast/candidate.py``,
+    ``FrameWork.detect``), on any base: ``base_boxes`` stay as they are; a candidate whose stripe point lies in one of
+    them is left alone; the rest paint their own colors into a copy of ``base_mask`` (only where it is OTHER); the
+    detector runs once more and a box of that run is added when it is on none of ``base_boxes``. With the fixed mask
+    and today's boxes as the base this is the contrast winner alone. ``cn_p``: a ``contrast.Params``, None = off.
+    Returns (the mask, the boxes, the candidates)."""
+    if cn_p is None:
+        return base_mask, base_boxes, []
+    from . import contrast as cn
+    from .counting import is_on
+    mask, cands = cn.contrast_mask(frame.rgb, base_mask, cam, cn_p, skip_boxes=tuple(b.bbox for b in base_boxes))
+    if not any(c.info.get("painted") for c in cands):
+        return base_mask, base_boxes, cands
+    new = det.detect(mask, det_cfg or det.DetConfig(), cam)
+    out = list(base_boxes) + [b for b in new if not any(is_on(b, o) for o in base_boxes)]
+    return mask, sorted(out, key=lambda b: b.bbox[0]), cands
+
+
+def _on_top(base: Combined, frame, cn_p, cam, det_cfg) -> Combined:
+    mask, boxes, cands = contrast_on(frame, base.mask, base.boxes, cn_p, cam, det_cfg)
+    return Combined(boxes, base.first, base.strict, mask, nm_mask=base.nm_mask, sc_mask=base.sc_mask, seeds=base.seeds,
+                    info={**base.info, "contrast_candidates": len(cands), "contrast_painted": sum(1 for c in cands if c.info.get("painted"))})
+
+
+def _alone(frame, model, nm_cfg, sc_cfg, cam, det_cfg, which: str) -> Combined:
+    """One winner alone, as judged, as a ``Combined`` (``which``: "fixed", "nearmiss", "selfcal", "nm_sc" = mask_union)."""
+    det_cfg = det_cfg or det.DetConfig()
+    if which == "nm_sc":
+        return mask_union(frame, model, nm_cfg, sc_cfg, cam, det_cfg)
+    strict, first, nm_mask, nm_boxes, sc_mask, sc_boxes, seeds, info = _both_alone(frame, model, nm_cfg if which == "nearmiss" else None,
+                                                                                  sc_cfg if which == "selfcal" else None, cam, det_cfg)
+    mask, boxes = {"fixed": (strict, first), "nearmiss": (nm_mask, nm_boxes), "selfcal": (sc_mask, sc_boxes)}[which]
+    return Combined(boxes, first, strict, mask, nm_mask=nm_mask, sc_mask=sc_mask, seeds=seeds, info=info)
+
+
+def cn_alone(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """The contrast winner alone: added on top of today's detector (``nm_cfg`` and ``sc_cfg`` are not used)."""
+    return _on_top(_alone(frame, model, None, None, cam, det_cfg, "fixed"), frame, cn_p, cam, det_cfg)
+
+
+def cn_on_nm(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """The near-miss winner alone, then the contrast path added on top of its mask and boxes."""
+    return _on_top(_alone(frame, model, nm_cfg, None, cam, det_cfg, "nearmiss"), frame, cn_p, cam, det_cfg)
+
+
+def cn_on_sc(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """The self-calibration winner alone, then the contrast path added on top of its second-pass mask and boxes."""
+    return _on_top(_alone(frame, model, None, sc_cfg, cam, det_cfg, "selfcal"), frame, cn_p, cam, det_cfg)
+
+
+def cn_on_all(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """All three: the two-way ``mask_union``, then the contrast path added on top of its mask and boxes."""
+    return _on_top(_alone(frame, model, nm_cfg, sc_cfg, cam, det_cfg, "nm_sc"), frame, cn_p, cam, det_cfg)
+
+
+def _box_merge(frame, model, nm_cfg, sc_cfg, cam, det_cfg, cn_p, which: str) -> Combined:
+    base = _alone(frame, model, nm_cfg, sc_cfg, cam, det_cfg, which)
+    c = cn_alone(frame, model, None, None, cam, det_cfg, cn_p)
+    return Combined(merge_boxes(base.boxes, c.boxes), base.first, base.strict, overlay(base.mask, c.mask), nm_mask=base.nm_mask,
+                    sc_mask=base.sc_mask, seeds=base.seeds, info=base.info)
+
+
+def cn_box_nm(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """Near-miss alone and contrast alone, each from start to end; the boxes merged (near-miss first)."""
+    return _box_merge(frame, model, nm_cfg, sc_cfg, cam, det_cfg, cn_p, "nearmiss")
+
+
+def cn_box_sc(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """Self-calibration alone and contrast alone; the boxes merged (self-calibration first)."""
+    return _box_merge(frame, model, nm_cfg, sc_cfg, cam, det_cfg, cn_p, "selfcal")
+
+
+def cn_box_all(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:
+    """``mask_union`` and contrast alone; the boxes merged (``mask_union`` first)."""
+    return _box_merge(frame, model, nm_cfg, sc_cfg, cam, det_cfg, cn_p, "nm_sc")
+
+
+WAYS3 = {"cn_alone": cn_alone, "cn_on_nm": cn_on_nm, "cn_on_sc": cn_on_sc, "cn_on_all": cn_on_all,
+         "cn_box_nm": cn_box_nm, "cn_box_sc": cn_box_sc, "cn_box_all": cn_box_all}
+ALL_WAYS = {**WAYS, **WAYS3}

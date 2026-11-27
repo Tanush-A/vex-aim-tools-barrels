@@ -218,3 +218,74 @@ experiment-log entry. A second round, if any, gets a dated addendum here, commit
 What each fold picked is identical too: near-miss `pc:5,5,pred` in every fold but the gray table's (`pc:5,5,strict`)
 and the ottoman's (`pc:5,4,pred`); self-calibration `rel_margin` 1.0, `hue_move_max` 6, `flood_max` 0.03 in every
 fold but the ottoman's (`flood_max` 0.01). So the combinations below run with these settings, place by place.
+
+---
+
+## Addendum, 2026-11-27: the third winner (the stripe by color difference). Written and committed before any run of it on this branch
+
+**Why.** A third color-step idea finished after the two-way runs above: `wip/exp-contrast` (`src/barrels/contrast.py`,
+`experiments/2026-11-26_contrast/`). A band that is bluer (or redder) than what is right above AND right below it, at
+the size its row predicts, is a stripe; that barrel's own two colors are read there and painted; the new boxes are
+ADDED to today's boxes. Its held-out judged result, as committed on its branch: PASS, 133.8 → 155.3 of 172
+placements (+21.5), 275 per frame, 64 gained, 0 lost, boxes not on their barrel 1.93 → 2.83, no box on an empty
+frame. That is more than my best two-way combination (`mask_union`, 152.8), so the question of this experiment
+changes: **which single method does most of the work, and does anything add to it above the noise?**
+
+**What I know before this addendum (honesty).** All the two-way results above, judged, including C to G for
+`mask_union` and its contact sheets. Contrast's `ENTRY.md` (its judged numbers by place, its five candidates, its
+caveats: its four guard thresholds and three floors were read off an in-sample table of all eight places; painting
+into the fixed mask in one run FAILS on boxes while adding to today's boxes passes), its `PREREG.md`, and its code.
+I have not run contrast on any frame. The two-way results stay as they are.
+
+**What was ported.** Two of contrast's unit tests called `detector._stripe_geometry`, now
+`detector.BarrelAt.from_stripe_row` (same reading). `contrast.py` itself uses no private name of the detector.
+
+**Step A again (`cn_picks.py`, in a process of its own).** Contrast's own `table.py:fit` (family C1) through the
+judge on this branch, compared with its committed pages (`results/2026-11-26_contrast/judge_C1_add_guards/`) and
+its committed fold picks. Then the setting its rule picks for each held-out place, on the other places, alone, is
+written to `results/2026-11-26_combined/cn_chosen.json`. If contrast does not reproduce exactly, nothing below is
+run and that is reported.
+
+**The new candidates** (`barrels.combined.WAYS3`; no new number; contrast always in its own judged "add" mode,
+`combined.contrast_on`: the base's boxes stay, a candidate whose stripe point is in one of them is left alone, the
+rest paint their own colors where the base mask is empty, the detector runs once more, a new box is added where no
+base box is):
+
+| name | what |
+|---|---|
+| `cn_alone` | contrast alone, on today's mask and boxes, built from `barrels.combined` (must equal contrast's own judged pages) |
+| `cn_on_nm` | near-miss alone, then contrast added on top of its mask and boxes |
+| `cn_on_sc` | self-calibration alone, then contrast added on top of its second-pass mask and boxes |
+| `cn_on_all` | all three: `mask_union`, then contrast added on top of its mask and boxes |
+| `cn_box_nm` | near-miss alone and contrast alone, each from start to end; boxes merged, near-miss first |
+| `cn_box_sc` | self-calibration alone and contrast alone; boxes merged, self-calibration first |
+| `cn_box_all` | `mask_union` and contrast alone; boxes merged, `mask_union` first |
+
+**How every number is chosen.** As above: in each fold each component gets the setting its own rule picks on the
+other places, for that component alone. Contrast's rule is its `table.choose` over its 48 settings of family C1
+(allowed = not FAIL against today on the training places; the highest found minus boxes not on their barrel; ties
+to the most cautious). The report-only places get the picks made on all ordinary places. Nothing is chosen for a
+combination.
+
+**The comparisons** (`run3.py`, one pass, `judge.run_many` and `judge.compare`):
+
+1. every new candidate against today's detector (the verdict);
+2. every combination against **contrast alone** as the baseline, same clauses and margins;
+3. `nearmiss`, `selfcal` and `mask_union` against contrast alone (from the boxes of the first judged run), for C.
+
+**The rule for the answer, written now.** The owner wants the simplest thing that works. **Contrast alone is the
+answer**, unless a combination is PASS against today's detector AND PASS against contrast alone (more than +4.0
+placements over contrast alone, and nothing worse by more than the margins). Among such combinations: the most
+found; within 1.0 placement, the fewest boxes not on their barrel; within 0.25 box, the simpler, in this order:
+`cn_box_sc`, `cn_box_nm`, `cn_on_sc`, `cn_on_nm`, `cn_box_all`, `cn_on_all` (two components before three; a box merge,
+where no step sees another's paint, before one on top of another). The caution about the margins (measured around
+today's default, not around contrast) holds for comparison 2.
+
+**C, D, E, F, G** are then reported for the answer (and, beside it, today, each winner and `mask_union`): the overlap
+of all three winners (which barrels each finds that the others do not); every box of the answer that is not on its
+barrel; the extreme conditions and Dave's frames; the vendor table; what is left, by the same causes.
+
+**Predictions, written now.** Contrast reaches nearly every barrel the other two reach (it needs no strict color):
+of the 50 barrels per frame the other two gain together, contrast alone finds 45 or more. So every combination
+gains less than +4.0 over contrast alone, and contrast alone is the answer. Boxes: the combinations that hold
+near-miss add its jar boxes on the glass table (about +0.8 per arrangement over contrast alone).
