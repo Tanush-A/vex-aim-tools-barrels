@@ -1,0 +1,1531 @@
+{
+ "counts": {
+  "found by today's detector": 211,
+  "found by neither": 46,
+  "gained by both": 25,
+  "gained by selfcal only": 12,
+  "gained by nearmiss only": 13,
+  "LOST by a winner": 0
+ },
+ "only": {
+  "gained by nearmiss only": [
+   {
+    "stem": "4A8B_lampcool6_bathtile_occl_02",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     346,
+     107,
+     376,
+     137
+    ],
+    "flags": [
+     "occluded"
+    ],
+    "condition": "lampcool6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.6428571428571429,
+     0.3333333333333333
+    ],
+    "paint_nearmiss": [
+     0.6428571428571429,
+     0.4166666666666667
+    ],
+    "paint_selfcal": [
+     0.6428571428571429,
+     0.3333333333333333
+    ],
+    "paint_final": [
+     [
+      0.6428571428571429,
+      0.4166666666666667
+     ],
+     [
+      0.6428571428571429,
+      0.3333333333333333
+     ]
+    ],
+    "well_painted": false,
+    "seed": "refused: stripe:body_like_surround",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 21,
+    "touching": false,
+    "hidden": true,
+    "detector": [
+     "cap: narrow",
+     "cap: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: height"
+    ]
+   },
+   {
+    "stem": "4A8B_lampcool6_ottoman_close_01",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     218,
+     232,
+     470,
+     480
+    ],
+    "flags": [
+     "truncated"
+    ],
+    "condition": "lampcool6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0032258064516129032,
+     0.0
+    ],
+    "paint_nearmiss": [
+     0.9642857142857143,
+     0.0
+    ],
+    "paint_selfcal": [
+     0.0032258064516129032,
+     0.0
+    ],
+    "paint_final": [
+     [
+      0.9642857142857143,
+      0.0
+     ],
+     [
+      0.0032258064516129032,
+      0.0
+     ]
+    ],
+    "well_painted": false,
+    "seed": "refused: stripe:off_frame",
+    "contrast": "-",
+    "nm_added_body_px": 41412,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": true,
+    "detector": [
+     "cap: width",
+     "half: width",
+     "piece: width",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_lampcool6_ottoman_edge_01",
+    "barrel": 1,
+    "color": "blue",
+    "bbox": [
+     0,
+     141,
+     43,
+     229
+    ],
+    "flags": [
+     "truncated"
+    ],
+    "condition": "lampcool6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.5944055944055944,
+     0.0
+    ],
+    "paint_nearmiss": [
+     0.5944055944055944,
+     0.6666666666666666
+    ],
+    "paint_selfcal": [
+     0.5944055944055944,
+     0.0
+    ],
+    "paint_final": [
+     [
+      0.5944055944055944,
+      0.6666666666666666
+     ],
+     [
+      0.5944055944055944,
+      0.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: stripe:not_two_colors",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 633,
+    "touching": false,
+    "hidden": true,
+    "detector": [
+     "cap: width",
+     "half: width",
+     "piece: covered",
+     "piece: width",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampcool6_ottoman_edge_01",
+    "barrel": 2,
+    "color": "orange",
+    "bbox": [
+     267,
+     139,
+     351,
+     231
+    ],
+    "flags": [],
+    "condition": "lampcool6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.3442028985507246,
+     0.8888888888888888
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.8888888888888888
+    ],
+    "paint_selfcal": [
+     0.3442028985507246,
+     0.8888888888888888
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.8888888888888888
+     ],
+     [
+      0.3442028985507246,
+      0.8888888888888888
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: stripe:stripe_not_painted",
+    "contrast": "-",
+    "nm_added_body_px": 4046,
+    "nm_added_stripe_px": 16,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: width",
+     "half: far_edge",
+     "half: height",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "piece: width",
+     "stripe: area",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid3_bathtile_core_01",
+    "barrel": 2,
+    "color": "orange",
+    "bbox": [
+     328,
+     106,
+     358,
+     138
+    ],
+    "flags": [],
+    "condition": "lampmid3_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     1.0,
+     0.0
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.25
+    ],
+    "paint_selfcal": [
+     1.0,
+     0.5
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.25
+     ],
+     [
+      1.0,
+      0.5
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: body",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 46,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: height",
+     "cap: narrow",
+     "cap: not_hidden",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: height"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid6_bathtile_core_01",
+    "barrel": 2,
+    "color": "orange",
+    "bbox": [
+     328,
+     106,
+     358,
+     138
+    ],
+    "flags": [],
+    "condition": "lampmid6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     1.0,
+     0.0
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.75
+    ],
+    "paint_selfcal": [
+     1.0,
+     0.71875
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.75
+     ],
+     [
+      1.0,
+      0.71875
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: body",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 85,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: height",
+     "cap: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: height"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid6_bathtile_edge_01",
+    "barrel": 1,
+    "color": "blue",
+    "bbox": [
+     0,
+     127,
+     31,
+     196
+    ],
+    "flags": [
+     "truncated"
+    ],
+    "condition": "lampmid6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.8954248366013072,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.0,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.8954248366013072,
+      1.0
+     ],
+     [
+      0.0,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "no seed candidate",
+    "contrast": "-",
+    "nm_added_body_px": 938,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": true,
+    "detector": [
+     "cap: width",
+     "half: width",
+     "piece: covered",
+     "piece: width",
+     "stripe: height"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid6_bathtile_edge_01",
+    "barrel": 2,
+    "color": "orange",
+    "bbox": [
+     279,
+     122,
+     331,
+     178
+    ],
+    "flags": [],
+    "condition": "lampmid6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     1.0,
+     0.0
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.9285714285714286
+    ],
+    "paint_selfcal": [
+     1.0,
+     0.0
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.9285714285714286
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: stripe:body_like_surround",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 389,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: narrow",
+     "cap: not_hidden",
+     "half: height",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid6_ottoman_clutter_01",
+    "barrel": 1,
+    "color": "blue",
+    "bbox": [
+     79,
+     146,
+     177,
+     241
+    ],
+    "flags": [],
+    "condition": "lampmid6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.7685714285714286,
+     0.0
+    ],
+    "paint_nearmiss": [
+     0.8542857142857143,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.78,
+     0.0
+    ],
+    "paint_final": [
+     [
+      0.8542857142857143,
+      1.0
+     ],
+     [
+      0.78,
+      0.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: stripe:body_like_surround+stripe:stripe_not_painted",
+    "contrast": "-",
+    "nm_added_body_px": 1790,
+    "nm_added_stripe_px": 1192,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: not_hidden",
+     "cap: width",
+     "half: height",
+     "half: thicker_than_body",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "piece: width",
+     "stripe: area",
+     "stripe: height",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid6_ottoman_core_01",
+    "barrel": 3,
+    "color": "blue",
+    "bbox": [
+     273,
+     113,
+     316,
+     160
+    ],
+    "flags": [],
+    "condition": "lampmid6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.5256410256410257,
+     0.09230769230769231
+    ],
+    "paint_nearmiss": [
+     0.717948717948718,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.5256410256410257,
+     0.09230769230769231
+    ],
+    "paint_final": [
+     [
+      0.717948717948718,
+      1.0
+     ],
+     [
+      0.5256410256410257,
+      0.09230769230769231
+     ]
+    ],
+    "well_painted": true,
+    "seed": "no seed candidate",
+    "contrast": "-",
+    "nm_added_body_px": 535,
+    "nm_added_stripe_px": 331,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: height",
+     "cap: width",
+     "half: height",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "piece: width",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampwarm6_ottoman_clutter_01",
+    "barrel": 3,
+    "color": "orange",
+    "bbox": [
+     313,
+     141,
+     401,
+     236
+    ],
+    "flags": [],
+    "condition": "lampwarm6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.640625,
+     0.0
+    ],
+    "paint_nearmiss": [
+     0.640625,
+     0.0125
+    ],
+    "paint_selfcal": [
+     0.640625,
+     0.0
+    ],
+    "paint_final": [
+     [
+      0.640625,
+      0.0125
+     ],
+     [
+      0.640625,
+      0.0
+     ]
+    ],
+    "well_painted": false,
+    "seed": "refused: stripe:body_like_surround+stripe:not_two_colors",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 286,
+    "touching": true,
+    "hidden": false,
+    "detector": [
+     "cap: height",
+     "cap: narrow",
+     "cap: width",
+     "half: far_edge",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "piece: width",
+     "stripe: area",
+     "stripe: height"
+    ]
+   },
+   {
+    "stem": "4A8B_window_abpwhite_occlx_06",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     133,
+     115,
+     181,
+     160
+    ],
+    "flags": [
+     "bottom_estimated",
+     "occluded"
+    ],
+    "condition": "window_abpwhite",
+    "place": "abp_white",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.4166666666666667,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.9345238095238095,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.4166666666666667,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.9345238095238095,
+      1.0
+     ],
+     [
+      0.4166666666666667,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: stripe:body_like_surround+stripe:not_two_colors",
+    "contrast": "-",
+    "nm_added_body_px": 562,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": true,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: not_hidden",
+     "cap: width",
+     "half: thicker_than_body",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless"
+    ]
+   },
+   {
+    "stem": "4A8B_window_abpwhite_occlx_14",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     0,
+     120,
+     45,
+     179
+    ],
+    "flags": [
+     "occluded",
+     "truncated"
+    ],
+    "condition": "window_abpwhite",
+    "place": "abp_white",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "found",
+     "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.6,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.6,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.6,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.6,
+      1.0
+     ],
+     [
+      0.6,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: stripe:body_like_surround",
+    "contrast": "-",
+    "nm_added_body_px": 153,
+    "nm_added_stripe_px": 14,
+    "touching": false,
+    "hidden": true,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: not_hidden",
+     "cap: width",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless"
+    ]
+   }
+  ],
+  "gained by selfcal only": [
+   {
+    "stem": "4A8B_both_abpgray_core_01",
+    "barrel": 4,
+    "color": "orange",
+    "bbox": [
+     408,
+     125,
+     472,
+     192
+    ],
+    "flags": [],
+    "condition": "both_abpgray",
+    "place": "abp_gray",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "off",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.31699346405228757,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.6470588235294118,
+     1.0
+    ],
+    "paint_selfcal": [
+     1.0,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.6470588235294118,
+      1.0
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 1265,
+    "nm_added_stripe_px": 0,
+    "touching": true,
+    "hidden": false,
+    "detector": [
+     "cap: width",
+     "half: far_edge",
+     "half: height",
+     "half: thicker_than_body",
+     "piece: covered"
+    ]
+   },
+   {
+    "stem": "4A8B_both_abpgray_edge_01",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     291,
+     127,
+     356,
+     197
+    ],
+    "flags": [],
+    "condition": "both_abpgray",
+    "place": "abp_gray",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0,
+     0.9774436090225563
+    ],
+    "paint_nearmiss": [
+     0.4117647058823529,
+     0.9774436090225563
+    ],
+    "paint_selfcal": [
+     1.0,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.4117647058823529,
+      0.9774436090225563
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 1619,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: width",
+     "half: height",
+     "half: thicker_than_body",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_both_abpgray_touch_01",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     193,
+     124,
+     247,
+     181
+    ],
+    "flags": [],
+    "condition": "both_abpgray",
+    "place": "abp_gray",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.25892857142857145,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.42857142857142855,
+     1.0
+    ],
+    "paint_selfcal": [
+     1.0,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.42857142857142855,
+      1.0
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 796,
+    "nm_added_stripe_px": 39,
+    "touching": true,
+    "hidden": false,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: not_hidden",
+     "cap: width",
+     "half: thicker_than_body",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampcool6_ottoman_touch_01",
+    "barrel": 1,
+    "color": "blue",
+    "bbox": [
+     198,
+     129,
+     262,
+     198
+    ],
+    "flags": [],
+    "condition": "lampcool6_ottoman",
+    "place": "home_ottoman",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "missed",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.8431372549019608,
+     0.007936507936507936
+    ],
+    "paint_nearmiss": [
+     0.8627450980392157,
+     0.007936507936507936
+    ],
+    "paint_selfcal": [
+     0.9673202614379085,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.8627450980392157,
+      0.007936507936507936
+     ],
+     [
+      0.9673202614379085,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "refused: body:not_two_colors+stripe:stripe_not_painted",
+    "contrast": "-",
+    "nm_added_body_px": 437,
+    "nm_added_stripe_px": 0,
+    "touching": true,
+    "hidden": false,
+    "detector": [
+     "barrel: stripe_piece",
+     "cap: not_hidden",
+     "cap: width",
+     "half: width",
+     "piece: covered",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid3_bathtile_core_01",
+    "barrel": 3,
+    "color": "blue",
+    "bbox": [
+     374,
+     140,
+     457,
+     226
+    ],
+    "flags": [],
+    "condition": "lampmid3_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.3675889328063241,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.9486166007905138,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.3675889328063241,
+      1.0
+     ],
+     [
+      0.9486166007905138,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 2306,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: not_hidden",
+     "cap: width",
+     "half: height",
+     "half: thicker_than_body",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: area",
+     "stripe: height",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid3_bathtile_core_01",
+    "barrel": 4,
+    "color": "blue",
+    "bbox": [
+     475,
+     110,
+     513,
+     147
+    ],
+    "flags": [],
+    "condition": "lampmid3_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.03333333333333333,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.8888888888888888,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.03333333333333333,
+      1.0
+     ],
+     [
+      0.8888888888888888,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 15,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: narrow",
+     "half: far_edge_against_barrel",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampmid6_bathtile_touch_01",
+    "barrel": 3,
+    "color": "blue",
+    "bbox": [
+     390,
+     124,
+     446,
+     183
+    ],
+    "flags": [],
+    "condition": "lampmid6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.05,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.05,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.5125,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.05,
+      1.0
+     ],
+     [
+      0.5125,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "no seed candidate",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 0,
+    "touching": true,
+    "hidden": false,
+    "detector": [
+     "barrel: slice_not_full",
+     "cap: height",
+     "cap: width",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "piece: width",
+     "stripe: area",
+     "stripe: height",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_lampwarm6_bathtile_clutter_01",
+    "barrel": 4,
+    "color": "orange",
+    "bbox": [
+     495,
+     128,
+     565,
+     191
+    ],
+    "flags": [],
+    "condition": "lampwarm6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     1.0,
+     0.0
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.0
+    ],
+    "paint_selfcal": [
+     1.0,
+     1.0
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: body",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 13,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: narrow",
+     "cap: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampwarm6_bathtile_core_01",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     223,
+     115,
+     270,
+     165
+    ],
+    "flags": [],
+    "condition": "lampwarm6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     1.0,
+     0.0
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.0
+    ],
+    "paint_selfcal": [
+     1.0,
+     1.0
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: body",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 14,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: narrow",
+     "piece: above_horizon",
+     "stripe: area"
+    ]
+   },
+   {
+    "stem": "4A8B_lampwarm6_bathtile_core_01",
+    "barrel": 3,
+    "color": "blue",
+    "bbox": [
+     374,
+     140,
+     457,
+     226
+    ],
+    "flags": [],
+    "condition": "lampwarm6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.0,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.9644268774703557,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.9644268774703557,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 1,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: narrow",
+     "cap: width",
+     "piece: covered",
+     "piece: stripeless",
+     "piece: width",
+     "stripe: area",
+     "stripe: height",
+     "stripe: width",
+     "verify: readings"
+    ]
+   },
+   {
+    "stem": "4A8B_lampwarm6_bathtile_core_01",
+    "barrel": 4,
+    "color": "blue",
+    "bbox": [
+     475,
+     110,
+     513,
+     147
+    ],
+    "flags": [],
+    "condition": "lampwarm6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     0.0,
+     1.0
+    ],
+    "paint_nearmiss": [
+     0.0,
+     1.0
+    ],
+    "paint_selfcal": [
+     0.8888888888888888,
+     1.0
+    ],
+    "paint_final": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.8888888888888888,
+      1.0
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: stripe",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 0,
+    "touching": false,
+    "hidden": false,
+    "detector": [
+     "cap: narrow",
+     "cap: width",
+     "half: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: width"
+    ]
+   },
+   {
+    "stem": "4A8B_lampwarm6_bathtile_touch_01",
+    "barrel": 1,
+    "color": "orange",
+    "bbox": [
+     285,
+     121,
+     337,
+     177
+    ],
+    "flags": [],
+    "condition": "lampwarm6_bathtile",
+    "place": "home_bathtile",
+    "states": {
+     "fixed": "missed",
+     "nearmiss": "missed",
+     "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
+     "box_union": "found"
+    },
+    "paint_fixed": [
+     1.0,
+     0.0
+    ],
+    "paint_nearmiss": [
+     1.0,
+     0.18571428571428572
+    ],
+    "paint_selfcal": [
+     1.0,
+     0.9857142857142858
+    ],
+    "paint_final": [
+     [
+      1.0,
+      0.18571428571428572
+     ],
+     [
+      1.0,
+      0.9857142857142858
+     ]
+    ],
+    "well_painted": true,
+    "seed": "kept: body",
+    "contrast": "-",
+    "nm_added_body_px": 0,
+    "nm_added_stripe_px": 34,
+    "touching": true,
+    "hidden": false,
+    "detector": [
+     "cap: width",
+     "piece: covered",
+     "piece: stripeless",
+     "stripe: height"
+    ]
+   }
+  ]
+ }
+}

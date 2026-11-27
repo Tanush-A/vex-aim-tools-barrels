@@ -1,0 +1,372 @@
+{
+ "today": {
+  "DAVE_office_speckle_snap_00": {
+   "stem": "DAVE_office_speckle_snap_00",
+   "gt": "MM",
+   "boxes": "",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_01": {
+   "stem": "DAVE_office_speckle_snap_01",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_02": {
+   "stem": "DAVE_office_speckle_snap_02",
+   "gt": "MF",
+   "boxes": "SF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_03": {
+   "stem": "DAVE_office_speckle_snap_03",
+   "gt": "MM",
+   "boxes": "N",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_04": {
+   "stem": "DAVE_office_speckle_snap_04",
+   "gt": "MM",
+   "boxes": "N",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_05": {
+   "stem": "DAVE_office_speckle_snap_05",
+   "gt": "MM",
+   "boxes": "",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_06": {
+   "stem": "DAVE_office_speckle_snap_06",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_07": {
+   "stem": "DAVE_office_speckle_snap_07",
+   "gt": "FMMM",
+   "boxes": "F",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_08": {
+   "stem": "DAVE_office_speckle_snap_08",
+   "gt": "FMFM",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_09": {
+   "stem": "DAVE_office_speckle_snap_09",
+   "gt": "FMFM",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_10": {
+   "stem": "DAVE_office_speckle_snap_10",
+   "gt": "MFF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_11": {
+   "stem": "DAVE_office_speckle_snap_11",
+   "gt": "FMM",
+   "boxes": "F",
+   "clean": false
+  }
+ },
+ "`nearmiss`": {
+  "DAVE_office_speckle_snap_00": {
+   "stem": "DAVE_office_speckle_snap_00",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_01": {
+   "stem": "DAVE_office_speckle_snap_01",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_02": {
+   "stem": "DAVE_office_speckle_snap_02",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_03": {
+   "stem": "DAVE_office_speckle_snap_03",
+   "gt": "FM",
+   "boxes": "F",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_04": {
+   "stem": "DAVE_office_speckle_snap_04",
+   "gt": "FF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_05": {
+   "stem": "DAVE_office_speckle_snap_05",
+   "gt": "FF",
+   "boxes": "FSFS",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_06": {
+   "stem": "DAVE_office_speckle_snap_06",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_07": {
+   "stem": "DAVE_office_speckle_snap_07",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_08": {
+   "stem": "DAVE_office_speckle_snap_08",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_09": {
+   "stem": "DAVE_office_speckle_snap_09",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_10": {
+   "stem": "DAVE_office_speckle_snap_10",
+   "gt": "MFF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_11": {
+   "stem": "DAVE_office_speckle_snap_11",
+   "gt": "FFF",
+   "boxes": "FFFW",
+   "clean": false
+  }
+ },
+ "`selfcal`": {
+  "DAVE_office_speckle_snap_00": {
+   "stem": "DAVE_office_speckle_snap_00",
+   "gt": "FF",
+   "boxes": "WFSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_01": {
+   "stem": "DAVE_office_speckle_snap_01",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_02": {
+   "stem": "DAVE_office_speckle_snap_02",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_03": {
+   "stem": "DAVE_office_speckle_snap_03",
+   "gt": "MM",
+   "boxes": "N",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_04": {
+   "stem": "DAVE_office_speckle_snap_04",
+   "gt": "MM",
+   "boxes": "N",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_05": {
+   "stem": "DAVE_office_speckle_snap_05",
+   "gt": "MM",
+   "boxes": "",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_06": {
+   "stem": "DAVE_office_speckle_snap_06",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_07": {
+   "stem": "DAVE_office_speckle_snap_07",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_08": {
+   "stem": "DAVE_office_speckle_snap_08",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_09": {
+   "stem": "DAVE_office_speckle_snap_09",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_10": {
+   "stem": "DAVE_office_speckle_snap_10",
+   "gt": "MFF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_11": {
+   "stem": "DAVE_office_speckle_snap_11",
+   "gt": "FMO",
+   "boxes": "FOW",
+   "clean": false
+  }
+ },
+ "`cn_alone`": {
+  "DAVE_office_speckle_snap_00": {
+   "stem": "DAVE_office_speckle_snap_00",
+   "gt": "FO",
+   "boxes": "FSO",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_01": {
+   "stem": "DAVE_office_speckle_snap_01",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_02": {
+   "stem": "DAVE_office_speckle_snap_02",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_03": {
+   "stem": "DAVE_office_speckle_snap_03",
+   "gt": "MM",
+   "boxes": "N",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_04": {
+   "stem": "DAVE_office_speckle_snap_04",
+   "gt": "FO",
+   "boxes": "FSNO",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_05": {
+   "stem": "DAVE_office_speckle_snap_05",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_06": {
+   "stem": "DAVE_office_speckle_snap_06",
+   "gt": "FMMF",
+   "boxes": "FWF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_07": {
+   "stem": "DAVE_office_speckle_snap_07",
+   "gt": "FFMF",
+   "boxes": "FFWF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_08": {
+   "stem": "DAVE_office_speckle_snap_08",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_09": {
+   "stem": "DAVE_office_speckle_snap_09",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_10": {
+   "stem": "DAVE_office_speckle_snap_10",
+   "gt": "MFF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_11": {
+   "stem": "DAVE_office_speckle_snap_11",
+   "gt": "FMF",
+   "boxes": "FFW",
+   "clean": false
+  }
+ },
+ "`mask_union`": {
+  "DAVE_office_speckle_snap_00": {
+   "stem": "DAVE_office_speckle_snap_00",
+   "gt": "FF",
+   "boxes": "WFSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_01": {
+   "stem": "DAVE_office_speckle_snap_01",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_02": {
+   "stem": "DAVE_office_speckle_snap_02",
+   "gt": "FF",
+   "boxes": "FSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_03": {
+   "stem": "DAVE_office_speckle_snap_03",
+   "gt": "FM",
+   "boxes": "NF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_04": {
+   "stem": "DAVE_office_speckle_snap_04",
+   "gt": "FF",
+   "boxes": "FNF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_05": {
+   "stem": "DAVE_office_speckle_snap_05",
+   "gt": "FF",
+   "boxes": "FSFS",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_06": {
+   "stem": "DAVE_office_speckle_snap_06",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_07": {
+   "stem": "DAVE_office_speckle_snap_07",
+   "gt": "FMMF",
+   "boxes": "FF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_08": {
+   "stem": "DAVE_office_speckle_snap_08",
+   "gt": "FFFF",
+   "boxes": "FFFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_09": {
+   "stem": "DAVE_office_speckle_snap_09",
+   "gt": "FMFF",
+   "boxes": "FFF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_10": {
+   "stem": "DAVE_office_speckle_snap_10",
+   "gt": "FFF",
+   "boxes": "FFSF",
+   "clean": false
+  },
+  "DAVE_office_speckle_snap_11": {
+   "stem": "DAVE_office_speckle_snap_11",
+   "gt": "FFF",
+   "boxes": "FFFW",
+   "clean": false
+  }
+ }
+}

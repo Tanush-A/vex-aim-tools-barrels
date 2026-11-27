@@ -1,0 +1,2536 @@
+[
+ {
+  "stem": "4A8B_window_light_cluster_01",
+  "barrel": 3,
+  "color": "orange",
+  "bbox": [
+   361,
+   117,
+   400,
+   163
+  ],
+  "flags": [
+   "bottom_estimated",
+   "occluded"
+  ],
+  "condition": "window_light",
+  "place": "home_white",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.045454545454545456,
+   0.10909090909090909
+  ],
+  "paint_nearmiss": [
+   0.045454545454545456,
+   0.10909090909090909
+  ],
+  "paint_selfcal": [
+   0.045454545454545456,
+   0.10909090909090909
+  ],
+  "paint_final": [
+   [
+    0.045454545454545456,
+    0.10909090909090909
+   ]
+  ],
+  "well_painted": false,
+  "seed": "kept: found",
+  "nm_added_body_px": 80,
+  "nm_added_stripe_px": 113,
+  "touching": true,
+  "hidden": true,
+  "detector": [
+   "cap: both_sides",
+   "half: body_width",
+   "piece: covered",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_both_abpgray_clutter_01",
+  "barrel": 2,
+  "color": "orange",
+  "bbox": [
+   205,
+   114,
+   246,
+   158
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "both_abpgray",
+  "place": "abp_gray",
+  "states": {
+   "fixed": "off",
+   "nearmiss": "off",
+   "selfcal": "off",
+   "mask_union": "off"
+  },
+  "paint_fixed": [
+   0.49586776859504134,
+   0.9818181818181818
+  ],
+  "paint_nearmiss": [
+   0.8181818181818182,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.7107438016528925,
+   0.9818181818181818
+  ],
+  "paint_final": [
+   [
+    0.8264462809917356,
+    1.0
+   ]
+  ],
+  "well_painted": true,
+  "seed": "kept: found",
+  "nm_added_body_px": 583,
+  "nm_added_stripe_px": 62,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "half: width",
+   "piece: covered"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_lampcool6_ottoman_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   225,
+   125,
+   286,
+   192
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampcool6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.3044982698961938,
+   0.7226890756302521
+  ],
+  "paint_nearmiss": [
+   0.3044982698961938,
+   0.7226890756302521
+  ],
+  "paint_selfcal": [
+   0.3044982698961938,
+   0.7226890756302521
+  ],
+  "paint_final": [
+   [
+    0.3044982698961938,
+    0.7226890756302521
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "barrel: outline_unknown",
+   "cap: width",
+   "half: width",
+   "piece: stripeless",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampmid3_bathtile_edge_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   0,
+   127,
+   31,
+   196
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "lampmid3_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.006535947712418301,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.35294117647058826,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.006535947712418301,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.35294117647058826,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 530,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "half: height",
+   "piece: stripeless",
+   "stripe: height",
+   "stripe: width"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid3_bathtile_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   346,
+   107,
+   376,
+   137
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampmid3_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.7678571428571429,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.7678571428571429,
+   0.08333333333333333
+  ],
+  "paint_selfcal": [
+   0.7678571428571429,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.7678571428571429,
+    0.08333333333333333
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 34,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: narrow",
+   "cap: width",
+   "piece: stripeless",
+   "stripe: height"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid3_bathtile_touch_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   337,
+   123,
+   390,
+   180
+  ],
+  "flags": [],
+  "condition": "lampmid3_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: width",
+   "piece: stripeless",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid3_bathtile_touch_01",
+  "barrel": 3,
+  "color": "blue",
+  "bbox": [
+   390,
+   124,
+   446,
+   183
+  ],
+  "flags": [],
+  "condition": "lampmid3_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: width",
+   "piece: stripeless",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid6_bathtile_clutter_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   292,
+   111,
+   330,
+   152
+  ],
+  "flags": [],
+  "condition": "lampmid6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.02,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.32,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.96,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.96,
+    1.0
+   ]
+  ],
+  "well_painted": true,
+  "seed": "kept: stripe",
+  "nm_added_body_px": 136,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "piece: above_horizon",
+   "stripe: area",
+   "stripe: height",
+   "verify: front"
+  ],
+  "cause_by_rule": "the detector refused a well-painted barrel",
+  "cause": "the detector refused a well-painted barrel",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid6_bathtile_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   346,
+   107,
+   376,
+   137
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampmid6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.8214285714285714,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.8214285714285714,
+   0.25
+  ],
+  "paint_selfcal": [
+   0.8214285714285714,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.8214285714285714,
+    0.25
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 43,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "barrel: side_unexplained",
+   "cap: narrow",
+   "cap: width",
+   "piece: stripeless"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid6_bathtile_touch_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   337,
+   123,
+   390,
+   180
+  ],
+  "flags": [],
+  "condition": "lampmid6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "off",
+   "mask_union": "off"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.37142857142857144,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.37142857142857144,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "barrel: slice_not_full",
+   "cap: width",
+   "half: width",
+   "piece: covered",
+   "piece: width",
+   "stripe: height",
+   "stripe: width"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampmid6_ottoman_close_01",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   218,
+   232,
+   470,
+   480
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.014746543778801843,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.014746543778801843,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.014746543778801843,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.014746543778801843,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "piece: width"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampmid6_ottoman_clutter_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   288,
+   116,
+   333,
+   163
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.48717948717948717,
+   0.06153846153846154
+  ],
+  "paint_nearmiss": [
+   0.48717948717948717,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.48717948717948717,
+   0.06153846153846154
+  ],
+  "paint_final": [
+   [
+    0.48717948717948717,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 2,
+  "nm_added_stripe_px": 419,
+  "touching": true,
+  "hidden": true,
+  "detector": [
+   "barrel: outline_unknown",
+   "cap: narrow",
+   "cap: width",
+   "half: far_edge",
+   "half: width",
+   "piece: covered",
+   "piece: width",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampmid6_ottoman_clutter_01",
+  "barrel": 4,
+  "color": "orange",
+  "bbox": [
+   541,
+   129,
+   613,
+   202
+  ],
+  "flags": [
+   "bottom_estimated",
+   "occluded"
+  ],
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.2861111111111111,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.2861111111111111,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.2861111111111111,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.2861111111111111,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 14,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: height",
+   "cap: width",
+   "piece: stripeless",
+   "piece: width",
+   "stripe: area",
+   "stripe: width"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampmid6_ottoman_core_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   77,
+   133,
+   155,
+   208
+  ],
+  "flags": [],
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "off",
+   "selfcal": "missed",
+   "mask_union": "off"
+  },
+  "paint_fixed": [
+   0.5126262626262627,
+   0.03977272727272727
+  ],
+  "paint_nearmiss": [
+   0.5126262626262627,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.5126262626262627,
+   0.03977272727272727
+  ],
+  "paint_final": [
+   [
+    0.5126262626262627,
+    1.0
+   ]
+  ],
+  "well_painted": true,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 989,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: width",
+   "half: width",
+   "piece: covered",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampmid6_ottoman_edge_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   0,
+   141,
+   43,
+   229
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.2062937062937063,
+   0.008547008547008548
+  ],
+  "paint_nearmiss": [
+   0.2062937062937063,
+   0.008547008547008548
+  ],
+  "paint_selfcal": [
+   0.4230769230769231,
+   0.008547008547008548
+  ],
+  "paint_final": [
+   [
+    0.4230769230769231,
+    0.008547008547008548
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "half: width",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampmid6_ottoman_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   225,
+   125,
+   286,
+   192
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.4117647058823529,
+   0.6050420168067226
+  ],
+  "paint_nearmiss": [
+   0.4117647058823529,
+   0.6050420168067226
+  ],
+  "paint_selfcal": [
+   0.4117647058823529,
+   0.6050420168067226
+  ],
+  "paint_final": [
+   [
+    0.4117647058823529,
+    0.6050420168067226
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 3,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "half: width",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_clutter_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   73,
+   133,
+   152,
+   209
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: not_hidden",
+   "cap: width"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_clutter_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   292,
+   111,
+   330,
+   152
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "piece: above_horizon",
+   "piece: width"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_clutter_01",
+  "barrel": 3,
+  "color": "orange",
+  "bbox": [
+   410,
+   108,
+   442,
+   141
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   1.0,
+   0.0
+  ],
+  "paint_nearmiss": [
+   1.0,
+   0.0
+  ],
+  "paint_selfcal": [
+   1.0,
+   0.0
+  ],
+  "paint_final": [
+   [
+    1.0,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 11,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: narrow",
+   "stripe: area"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_core_01",
+  "barrel": 2,
+  "color": "orange",
+  "bbox": [
+   328,
+   106,
+   358,
+   138
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   1.0,
+   0.0
+  ],
+  "paint_nearmiss": [
+   1.0,
+   0.0
+  ],
+  "paint_selfcal": [
+   1.0,
+   0.46875
+  ],
+  "paint_final": [
+   [
+    1.0,
+    0.46875
+   ]
+  ],
+  "well_painted": false,
+  "seed": "kept: body",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 5,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "piece: above_horizon",
+   "verify: readings"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_edge_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   0,
+   127,
+   31,
+   196
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.032679738562091505,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.032679738562091505,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 19,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_edge_01",
+  "barrel": 2,
+  "color": "orange",
+  "bbox": [
+   279,
+   122,
+   331,
+   178
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   1.0,
+   0.0
+  ],
+  "paint_nearmiss": [
+   1.0,
+   0.05714285714285714
+  ],
+  "paint_selfcal": [
+   1.0,
+   0.0
+  ],
+  "paint_final": [
+   [
+    1.0,
+    0.05714285714285714
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 39,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "barrel: outline_unknown",
+   "cap: narrow",
+   "cap: not_hidden",
+   "cap: width",
+   "piece: stripeless",
+   "stripe: area"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   346,
+   107,
+   376,
+   137
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.8928571428571429,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.8928571428571429,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.8928571428571429,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.8928571428571429,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: body:not_two_colors",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 5,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "piece: above_horizon",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_touch_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   337,
+   123,
+   390,
+   180
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: width",
+   "piece: stripeless",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_touch_01",
+  "barrel": 3,
+  "color": "blue",
+  "bbox": [
+   390,
+   124,
+   446,
+   183
+  ],
+  "flags": [],
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   1.0
+  ],
+  "paint_nearmiss": [
+   0.0,
+   1.0
+  ],
+  "paint_selfcal": [
+   0.0,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: not_hidden",
+   "cap: width",
+   "piece: stripeless"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.25
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_close_01",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   218,
+   232,
+   470,
+   480
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.04032258064516129,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.04032258064516129,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.04032258064516129,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.04032258064516129,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "piece: width"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_clutter_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   79,
+   146,
+   177,
+   241
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.03571428571428571
+  ],
+  "paint_nearmiss": [
+   0.0,
+   0.03571428571428571
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.03571428571428571
+  ],
+  "paint_final": [
+   [
+    0.0,
+    0.03571428571428571
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:body_like_surround",
+  "nm_added_body_px": 134,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "neither color painted",
+  "cause": "neither color painted",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_clutter_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   288,
+   116,
+   333,
+   163
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.3076923076923077
+  ],
+  "paint_nearmiss": [
+   0.0,
+   0.3076923076923077
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.3076923076923077
+  ],
+  "paint_final": [
+   [
+    0.0,
+    0.3076923076923077
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:body_like_surround",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": true,
+  "detector": [
+   "cap: height",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_clutter_01",
+  "barrel": 4,
+  "color": "orange",
+  "bbox": [
+   541,
+   129,
+   613,
+   202
+  ],
+  "flags": [
+   "bottom_estimated",
+   "occluded"
+  ],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.23333333333333334,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.23333333333333334,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.23333333333333334,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.23333333333333334,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:stripe_not_painted",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 21,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: narrow",
+   "piece: stripeless",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_core_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   79,
+   133,
+   155,
+   209
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.03896103896103896
+  ],
+  "paint_nearmiss": [
+   0.3005050505050505,
+   0.03896103896103896
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.03896103896103896
+  ],
+  "paint_final": [
+   [
+    0.3005050505050505,
+    0.03896103896103896
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 1311,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: not_hidden",
+   "cap: width",
+   "half: thicker_than_body",
+   "half: width",
+   "piece: stripeless",
+   "stripe: area"
+  ],
+  "cause_by_rule": "neither color painted",
+  "cause": "neither color painted",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_core_01",
+  "barrel": 2,
+  "color": "orange",
+  "bbox": [
+   155,
+   166,
+   280,
+   311
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.5190476190476191,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.5190476190476191,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.5190476190476191,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.5190476190476191,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:body_like_surround",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 91,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "cap: width",
+   "half: width",
+   "piece: covered",
+   "piece: width",
+   "stripe: area",
+   "stripe: height",
+   "stripe: width"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_core_01",
+  "barrel": 3,
+  "color": "blue",
+  "bbox": [
+   273,
+   113,
+   316,
+   160
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.3384615384615385
+  ],
+  "paint_nearmiss": [
+   0.0,
+   0.3384615384615385
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.3384615384615385
+  ],
+  "paint_final": [
+   [
+    0.0,
+    0.3384615384615385
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:stripe_not_painted",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: height"
+  ],
+  "cause_by_rule": "neither color painted",
+  "cause": "neither color painted",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_core_01",
+  "barrel": 4,
+  "color": "orange",
+  "bbox": [
+   415,
+   126,
+   479,
+   191
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.6518518518518519,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.6518518518518519,
+   0.023809523809523808
+  ],
+  "paint_selfcal": [
+   0.6518518518518519,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.6518518518518519,
+    0.023809523809523808
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:body_like_surround",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 51,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "cap: not_hidden",
+   "cap: width",
+   "piece: stripeless",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_edge_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   0,
+   141,
+   43,
+   229
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.15384615384615385
+  ],
+  "paint_nearmiss": [
+   0.0,
+   0.15384615384615385
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.15384615384615385
+  ],
+  "paint_final": [
+   [
+    0.0,
+    0.15384615384615385
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_edge_01",
+  "barrel": 2,
+  "color": "orange",
+  "bbox": [
+   267,
+   139,
+   351,
+   231
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.6123188405797102,
+   0.046296296296296294
+  ],
+  "paint_nearmiss": [
+   0.6123188405797102,
+   0.046296296296296294
+  ],
+  "paint_selfcal": [
+   0.6123188405797102,
+   0.046296296296296294
+  ],
+  "paint_final": [
+   [
+    0.6123188405797102,
+    0.046296296296296294
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: body:stripe_like_surround+stripe:body_like_surround+stripe:stripe_not_painted",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 34,
+  "touching": false,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "cap: narrow",
+   "cap: width",
+   "half: width",
+   "piece: stripeless",
+   "piece: width",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "a guard refused it",
+  "cause": "a guard refused it",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   225,
+   125,
+   286,
+   192
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.41522491349480967,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.41522491349480967,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.41522491349480967,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.41522491349480967,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 11,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "piece: width",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_touch_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   198,
+   129,
+   262,
+   198
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.09523809523809523
+  ],
+  "paint_nearmiss": [
+   0.0,
+   0.09523809523809523
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.09523809523809523
+  ],
+  "paint_final": [
+   [
+    0.0,
+    0.09523809523809523
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:stripe_not_painted",
+  "nm_added_body_px": 11,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "stripe: area"
+  ],
+  "cause_by_rule": "neither color painted",
+  "cause": "neither color painted",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_touch_01",
+  "barrel": 2,
+  "color": "blue",
+  "bbox": [
+   262,
+   129,
+   325,
+   198
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.0,
+   0.15966386554621848
+  ],
+  "paint_nearmiss": [
+   0.0,
+   0.15966386554621848
+  ],
+  "paint_selfcal": [
+   0.0,
+   0.15966386554621848
+  ],
+  "paint_final": [
+   [
+    0.0,
+    0.15966386554621848
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:body_like_surround",
+  "nm_added_body_px": 18,
+  "nm_added_stripe_px": 0,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "cap: width"
+  ],
+  "cause_by_rule": "neither color painted",
+  "cause": "neither color painted",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_lampwarm6_ottoman_touch_01",
+  "barrel": 3,
+  "color": "orange",
+  "bbox": [
+   324,
+   128,
+   389,
+   199
+  ],
+  "flags": [],
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.543859649122807,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.543859649122807,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.543859649122807,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.543859649122807,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "refused: stripe:body_like_surround",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 34,
+  "touching": true,
+  "hidden": false,
+  "detector": [
+   "cap: height",
+   "cap: narrow",
+   "cap: width",
+   "piece: stripeless",
+   "piece: width",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "touching another barrel",
+  "cause": "touching another barrel",
+  "note": "",
+  "weight": 0.3333333333333333
+ },
+ {
+  "stem": "4A8B_overheaddim_palewood_edge_01",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   0,
+   131,
+   35,
+   199
+  ],
+  "flags": [
+   "truncated"
+  ],
+  "condition": "overheaddim_palewood",
+  "place": "uc_palewood",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.2222222222222222,
+   0.7962962962962963
+  ],
+  "paint_nearmiss": [
+   0.2222222222222222,
+   0.9074074074074074
+  ],
+  "paint_selfcal": [
+   0.2222222222222222,
+   1.0
+  ],
+  "paint_final": [
+   [
+    0.2222222222222222,
+    1.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 306,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "barrel: slice_not_full",
+   "cap: not_hidden",
+   "cap: width",
+   "piece: stripeless",
+   "stripe: area",
+   "stripe: height"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_overheaddim_palewood_occl_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   344,
+   115,
+   388,
+   162
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "overheaddim_palewood",
+  "place": "uc_palewood",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.2708333333333333,
+   0.4
+  ],
+  "paint_nearmiss": [
+   0.2708333333333333,
+   0.4
+  ],
+  "paint_selfcal": [
+   0.2708333333333333,
+   0.4
+  ],
+  "paint_final": [
+   [
+    0.2708333333333333,
+    0.4
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 15,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "barrel: side_unexplained",
+   "cap: width",
+   "half: width",
+   "piece: stripeless"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_window_abpwhite_occlx_02",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   92,
+   119,
+   143,
+   170
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "window_abpwhite",
+  "place": "abp_white",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.035897435897435895,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.035897435897435895,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.035897435897435895,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.035897435897435895,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 7,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "barrel: outline_unknown",
+   "cap: width",
+   "half: width",
+   "piece: width"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_window_abpwhite_occlx_03",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   99,
+   120,
+   152,
+   172
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "window_abpwhite",
+  "place": "abp_white",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.15897435897435896,
+   0.06666666666666667
+  ],
+  "paint_nearmiss": [
+   0.15897435897435896,
+   0.06666666666666667
+  ],
+  "paint_selfcal": [
+   0.15897435897435896,
+   0.08
+  ],
+  "paint_final": [
+   [
+    0.15897435897435896,
+    0.08
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 16,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "barrel: side_unexplained",
+   "cap: width",
+   "half: width",
+   "piece: stripeless"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_window_abpwhite_occlx_10",
+  "barrel": 1,
+  "color": "orange",
+  "bbox": [
+   99,
+   118,
+   148,
+   168
+  ],
+  "flags": [
+   "bottom_estimated",
+   "occluded"
+  ],
+  "condition": "window_abpwhite",
+  "place": "abp_white",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.7371794871794872,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.75,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.7371794871794872,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.7435897435897436,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "kept: found",
+  "nm_added_body_px": 37,
+  "nm_added_stripe_px": 31,
+  "touching": true,
+  "hidden": true,
+  "detector": [
+   "half: height",
+   "piece: covered",
+   "stripe: area"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_window_abpwhite_occlx_19",
+  "barrel": 2,
+  "color": "orange",
+  "bbox": [
+   232,
+   121,
+   288,
+   181
+  ],
+  "flags": [
+   "bottom_estimated",
+   "occluded"
+  ],
+  "condition": "window_abpwhite",
+  "place": "abp_white",
+  "states": {
+   "fixed": "missed",
+   "nearmiss": "missed",
+   "selfcal": "missed",
+   "mask_union": "missed"
+  },
+  "paint_fixed": [
+   0.3333333333333333,
+   0.0
+  ],
+  "paint_nearmiss": [
+   0.3333333333333333,
+   0.0
+  ],
+  "paint_selfcal": [
+   0.3333333333333333,
+   0.0
+  ],
+  "paint_final": [
+   [
+    0.3333333333333333,
+    0.0
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 0,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "cap: width",
+   "half: width",
+   "piece: stripeless"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 1.0
+ },
+ {
+  "stem": "4A8B_window_glass_occl_02",
+  "barrel": 1,
+  "color": "blue",
+  "bbox": [
+   254,
+   114,
+   300,
+   163
+  ],
+  "flags": [
+   "occluded"
+  ],
+  "condition": "window_glass",
+  "place": "home_glass",
+  "states": {
+   "fixed": "off",
+   "nearmiss": "off",
+   "selfcal": "off",
+   "mask_union": "off"
+  },
+  "paint_fixed": [
+   0.6944444444444444,
+   0.38333333333333336
+  ],
+  "paint_nearmiss": [
+   0.6944444444444444,
+   0.38333333333333336
+  ],
+  "paint_selfcal": [
+   0.6944444444444444,
+   0.38333333333333336
+  ],
+  "paint_final": [
+   [
+    0.6944444444444444,
+    0.38333333333333336
+   ]
+  ],
+  "well_painted": false,
+  "seed": "no seed candidate",
+  "nm_added_body_px": 0,
+  "nm_added_stripe_px": 35,
+  "touching": false,
+  "hidden": true,
+  "detector": [
+   "piece: covered"
+  ],
+  "cause_by_rule": "hidden or cut by the frame",
+  "cause": "hidden or cut by the frame",
+  "note": "",
+  "weight": 0.2
+ }
+]

@@ -1,0 +1,60 @@
+{
+ "spec": "pc:5,5,pred",
+ "describe": "partner-conditioned: stripe direction level 5 (hue +-25, S -100, V >= 15), body direction level 5 (hue +-25, S -100, V >= 15), edges 'pred'",
+ "J": 146.333,
+ "found_w": 152.8,
+ "extra_w": 3.23,
+ "settings": 66,
+ "eligible": 66,
+ "note": "chosen on all eight ordinary places at once: these numbers are in-sample; the held-out result is B_partner_fit's",
+ "top8": [
+  {
+   "spec": "pc:5,5,pred",
+   "J": 146.333,
+   "found_w": 152.8,
+   "extra_w": 3.23
+  },
+  {
+   "spec": "pc:5,4,pred",
+   "J": 145.883,
+   "found_w": 151.72,
+   "extra_w": 2.92
+  },
+  {
+   "spec": "pc:4,5,pred",
+   "J": 145.25,
+   "found_w": 151.72,
+   "extra_w": 3.23
+  },
+  {
+   "spec": "pc:4,4,pred",
+   "J": 145.133,
+   "found_w": 150.97,
+   "extra_w": 2.92
+  },
+  {
+   "spec": "pc:5,3,pred",
+   "J": 144.35,
+   "found_w": 149.38,
+   "extra_w": 2.52
+  },
+  {
+   "spec": "pc:3,5,pred",
+   "J": 144.083,
+   "found_w": 151.22,
+   "extra_w": 3.57
+  },
+  {
+   "spec": "pc:3,4,pred",
+   "J": 143.967,
+   "found_w": 150.47,
+   "extra_w": 3.25
+  },
+  {
+   "spec": "pc:4,3,pred",
+   "J": 143.6,
+   "found_w": 148.63,
+   "extra_w": 2.52
+  }
+ ]
+}
