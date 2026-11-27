@@ -216,7 +216,11 @@ REMOVED_DET_SWITCHES = ("require_stripe", "stripe_mode", "dark_stripe", "cover_r
                         "cap_same", "half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low", "pin_outline",
                         "pin_thin", "stripe_bridge", "thin_frame", "own_close", "thin_span", "closeup_side", "closeup_stripe",
                         "verify_front", "verify_readings")
-ZERO_MEANT_OFF = ("body_min", "body_width", "height_max")      # numbers whose value 0 switched their check off until then
+ZERO_MEANT_OFF = ("body_min", "body_width")                    # numbers whose value 0 switched their check off until then
+# numbers that left DetConfig after the collapse because the check they limited can never say no (docs/DETECTOR-MAP.md, section 5)
+REMOVED_DET_NUMBERS = {
+    "height_max": "no piece that gets to the height check is too tall for its bottom row, so the upper limit refused nothing",
+}
 COLLAPSE_TAG = "pre-collapse-2026-11-26"
 
 
@@ -224,7 +228,8 @@ def parse_det_overrides(items: list[str] | None) -> dict:
     """``["body_width=1.1", "stripe_merge=1.5,min_area_px=30"]`` -> ``{"body_width": 1.1, "stripe_merge": 1.5, "min_area_px": 30}``.
     Each value is converted to the type of that DetConfig field's default; an unknown field or a bad value raises ValueError.
     DetConfig holds numbers only. A switch that was removed in the collapse, or a 0 that used to mean "this check off", raises
-    ValueError with a message that names the tag where the old detector is."""
+    ValueError with a message that names the tag where the old detector is. So does a number that left DetConfig after the
+    collapse because its check can never say no (REMOVED_DET_NUMBERS); the message says why."""
     from . import detector as det
     defaults = det.DetConfig().to_dict()
     out = {}
@@ -239,6 +244,9 @@ def parse_det_overrides(items: list[str] | None) -> dict:
                 raise ValueError(f"{k} was an on/off switch of the detector and no longer exists: since the collapse of 2026-11-26 every "
                                  f"rule always runs, and only the numbers can be overridden ({', '.join(defaults)}). The detector with "
                                  f"its switches is at the git tag {COLLAPSE_TAG}.")
+            if k in REMOVED_DET_NUMBERS:
+                raise ValueError(f"{k} is no longer a number of the detector: {REMOVED_DET_NUMBERS[k]} (docs/DETECTOR-MAP.md, section 5). "
+                                 f"The numbers that are left: {', '.join(defaults)}.")
             if k not in defaults:
                 raise ValueError(f"DetConfig has no field {k!r} (fields: {', '.join(defaults)})")
             d = defaults[k]

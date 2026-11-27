@@ -55,8 +55,7 @@ class DetConfig:
     stripe_merge: float = 1.4    # a stripe region wider than this x W is the joined stripes of touching same-colored barrels
     stripe_full: float = 0.8     # "the whole width shows": a stripe (a seen span, a cap, a band) at least this x W wide
     min_stripe_px: float = 4.0   # where the expected stripe is thinner than this it cannot be resolved (a stripeless piece is then allowed)
-    height_min: float = 0.5      # a stripeless piece is between these multiples of H tall ...
-    height_max: float = 1.5      # ... for its bottom row
+    height_min: float = 0.5      # a piece shorter than this x H for its bottom row is far too short to be a barrel
     body_min: float = 0.1        # in the stripe's columns, outside its rows, the box holds at least this share of body color (and more body than stripe color)
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe.
                                  # Never under 1: a barrel is one barrel wide
@@ -431,16 +430,18 @@ def find_pieces(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConf
     1. on the table: the width W one barrel has at its bottom row is at least min_width_px;                   else "too_far"
     2. its top is below the horizon (``above_horizon``): the top of a barrel on the table always is;     else "above_horizon"
     3. barrel-wide: width_min to width_max x W;                                                              else "width"
-    4. barrel-tall, when its box ends inside the frame and does not touch the frame top: height_min to height_max x
+    4. not far too short, when its box ends inside the frame and does not touch the frame top: at least height_min x
        the height a barrel has at its bottom row.                                                           else "height"
     Its color is the majority of its pixels (a tie is orange).
 
-    What 4 can still refuse, once 2 has been asked. Where the top row gives a distance, the bottom was either seen
-    where that distance predicts it or drawn there (``resolve_bottom``), so the height already fits its bottom row. So 4
-    decides only where the top row predicts no bottom: a top in the lowest rows of the frame (the base would be at or
-    behind the camera) on a piece that still ends inside the frame. Such a piece is too short. (A piece with its top
-    at or above the horizon is always more than height_max x too tall for its bottom row; 2 refuses it first, by the
-    fact itself.)"""
+    The case 4 is for: a top in the lowest rows of the frame (row 427 or lower with this camera), where the top row
+    predicts no bottom because the base would be at or behind the camera, on a piece that still ends inside the frame.
+    A barrel that near runs out of the frame bottom; a piece that ends inside the frame there is not one.
+
+    Everywhere else the bottom was either seen where the top row predicts it or drawn there (``resolve_bottom``), so the
+    height already fits its bottom row. Such a piece is never too short, and no piece at all is too tall: at most 1.1 x
+    the height for its bottom row (tests/test_detector.py tries every top row and every bottom row). So no upper limit
+    is asked. A piece with its top at or above the horizon would be too tall; 2 refuses it, by the fact itself."""
     h, w = mask.shape
     out = []
     for blob in find_blobs(mask, cfg):
@@ -459,9 +460,9 @@ def find_pieces(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConf
                 continue                                   # 3. a sliver, or too wide to be one barrel
             if y1 < h and y0 > 0:
                 H = cam.expected_barrel_height_px(bottom_row=y1)
-                if math.isfinite(H) and not (cfg.height_min * H <= (y1 - y0) <= cfg.height_max * H):
+                if math.isfinite(H) and (y1 - y0) < cfg.height_min * H:
                     _note(log, "piece", "height", (x0, y0, x1, y1), expected_h=H)
-                    continue                               # 4. barrel-wide but not barrel-tall for its bottom row
+                    continue                               # 4. barrel-wide but far too short for its bottom row
             if x0 == 0 or x1 == w or y0 == 0:
                 flags.add("truncated")
             n_o, n_b = piece.n_orange, piece.n_blue

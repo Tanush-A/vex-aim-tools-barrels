@@ -2,12 +2,15 @@
 
 The detector has no on/off switches (the collapse of 2026-11-26): every test states what the detector does with its
 default numbers. A test of one stage calls that stage's function, or reads the reason log to see which check decided."""
+import math
+
 import numpy as np
 
 from barrels import detector as det, geometry as geo, io
 
 CAM = geo.NOMINAL
 CFG = det.DetConfig()
+PRESETS = (geo.AIM_4A8B6118_BOXFIT, geo.NOMINAL, geo.AIM_4A8B6118, geo.WORLDMAP_CURRENT)      # every camera the repo names
 
 
 def paint_barrel(mask, d_axis_mm, x_center, body=io.ORANGE, cam=CAM, cut_bottom_frac=0.0):
@@ -244,6 +247,48 @@ def test_stripeless_piece_must_be_barrel_tall():
     mask[120 - int(round(H)):120, 309:333] = io.BLUE                         # the same blob at a barrel's height passes the shape checks ...
     assert len(pieces(mask, cam)) == 1
     assert det.detect(mask, cam=cam) == []                                   # ... but a stripe (5.8 px here) could have been seen, so no box
+
+
+_STAGE_1 = {}
+
+
+def _pieces_stage_1_lets_through(cam):
+    """Every (top row, bottom row as drawn) a piece can have after checks 1 and 2 of ``find_pieces`` (on the table by its
+    bottom row, top below the horizon): every top row with every seen bottom row, through the same lines as ``find_pieces``.
+    The width is not asked, so this is every piece and more."""
+    if repr(cam) not in _STAGE_1:
+        h, out = cam.height, set()
+        for y0 in range(h):
+            if det.above_horizon(cam, y0):
+                continue
+            for seen in range(y0 + 1, h + 1):
+                y1, _ = det.resolve_bottom((0, y0, 10, seen), cam, h, CFG)
+                W = cam.expected_barrel_width_px(bottom_row=y1) if y1 < h else det.expected_width_px((0, y0, 10, h), cam, h)
+                if math.isfinite(W) and W >= CFG.min_width_px:
+                    out.add((y0, y1))
+        _STAGE_1[repr(cam)] = sorted(out)
+    return _STAGE_1[repr(cam)]
+
+
+def test_no_piece_is_too_tall_and_only_a_piece_with_no_predicted_bottom_is_too_short():
+    """The height check of ``find_pieces`` (its check 4) asks only "far too short?". For every camera preset, every top row and
+    every seen bottom row, of the pieces that get to it (on the table, top below the horizon, the box ends inside the
+    frame): (1) none is taller than 1.5 x the height for its bottom row, the upper limit the check had until 2026-11-26
+    (the tallest is 1.1 x), so that limit refused nothing; (2) a piece is shorter than height_min x that height exactly
+    when its top row predicts no bottom (the base would be at or behind the camera): the one case the check is for.
+    If (1) fails after a change of the camera, of the edge tolerance or of ``resolve_bottom``, the upper limit must come
+    back."""
+    for cam in PRESETS:
+        short = 0
+        for y0, y1 in _pieces_stage_1_lets_through(cam):
+            if not (y1 < cam.height and y0 > 0):
+                continue
+            H = cam.expected_barrel_height_px(bottom_row=y1)
+            assert math.isfinite(H) and (y1 - y0) <= 1.5 * H and (y1 - y0) <= 1.1 * H, (cam, y0, y1)
+            too_short = (y1 - y0) < CFG.height_min * H
+            assert too_short == math.isinf(det.predicted_bottom(cam, y0)), (cam, y0, y1)
+            short += too_short
+        assert short > 0
 
 
 def test_box_is_as_wide_as_the_body_not_the_stripe():
