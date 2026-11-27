@@ -252,7 +252,7 @@ def contrast_on(frame: pl.Frame, base_mask: np.ndarray, base_boxes: list, cn_p, 
 def _on_top(base: Combined, frame, cn_p, cam, det_cfg) -> Combined:
     mask, boxes, cands = contrast_on(frame, base.mask, base.boxes, cn_p, cam, det_cfg)
     return Combined(boxes, base.first, base.strict, mask, nm_mask=base.nm_mask, sc_mask=base.sc_mask, seeds=base.seeds,
-                    info={**base.info, "contrast_candidates": len(cands), "contrast_painted": sum(1 for c in cands if c.info.get("painted"))})
+                    info={**base.info, "contrast_candidates": len(cands), "contrast_painted": sum(1 for c in cands if c.info.get("painted")), "contrast": cands})
 
 
 def _alone(frame, model, nm_cfg, sc_cfg, cam, det_cfg, which: str) -> Combined:
@@ -290,7 +290,7 @@ def _box_merge(frame, model, nm_cfg, sc_cfg, cam, det_cfg, cn_p, which: str) -> 
     base = _alone(frame, model, nm_cfg, sc_cfg, cam, det_cfg, which)
     c = cn_alone(frame, model, None, None, cam, det_cfg, cn_p)
     return Combined(merge_boxes(base.boxes, c.boxes), base.first, base.strict, overlay(base.mask, c.mask), nm_mask=base.nm_mask,
-                    sc_mask=base.sc_mask, seeds=base.seeds, info=base.info)
+                    sc_mask=base.sc_mask, seeds=base.seeds, info={**base.info, "contrast": c.info.get("contrast", [])})
 
 
 def cn_box_nm(frame, model, nm_cfg, sc_cfg, cam=geo.AIM_4A8B6118_BOXFIT, det_cfg=None, cn_p=None) -> Combined:

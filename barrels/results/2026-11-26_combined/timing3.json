@@ -1,0 +1,27 @@
+{
+ "fixed": {
+  "ms_per_frame": 45.9
+ },
+ "cn_alone": {
+  "ms_per_frame": 89.8
+ },
+ "cn_on_nm": {
+  "ms_per_frame": 154.7
+ },
+ "cn_on_sc": {
+  "ms_per_frame": 130.9
+ },
+ "cn_on_all": {
+  "ms_per_frame": 179.8
+ },
+ "cn_box_nm": {
+  "ms_per_frame": 205.3
+ },
+ "cn_box_sc": {
+  "ms_per_frame": 177.0
+ },
+ "cn_box_all": {
+  "ms_per_frame": 228.9
+ },
+ "_note": "154 ordinary train frames, fixed numbers, one process, nothing cached"
+}

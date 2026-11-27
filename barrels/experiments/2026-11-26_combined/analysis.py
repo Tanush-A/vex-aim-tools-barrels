@@ -66,6 +66,12 @@ def data():
     return frames, truth, counts, preds
 
 
+def arms_of(way: str) -> list[str]:
+    """The detectors shown beside ``way``: today, each winner alone, mask_union, ``way``."""
+    _, _, counts, _ = data()
+    return list(dict.fromkeys(n for n in ("fixed", "nearmiss", "selfcal", "cn_alone", "mask_union", way) if n in counts))
+
+
 def best_way() -> str:
     return json.loads((OUT / "summary.json").read_text())["picked"]["best_combination"]
 
@@ -87,10 +93,10 @@ def table(head: list[str], rows: list[list]) -> list[str]:
 def parts(stem: str, way: str):
     """(the frame, both winners alone on it, the way on it), with the settings the judged run used at its place."""
     frame = jg.load_frame(stem)
-    spec, cfg = cand.settings_for(ct.place_of(stem))
+    spec, cfg, cnp = cand.settings3_for(ct.place_of(stem))
     nm_cfg = cand.nm_config(spec)
     both = cmb.box_union(frame, cand.MODEL, nm_cfg, cfg, cand.CAM)
-    c = both if way in BOX_WAYS else cmb.WAYS[way](frame, cand.MODEL, nm_cfg, cfg, cand.CAM)
+    c = both if way in BOX_WAYS else cmb.ALL_WAYS[way](frame, cand.MODEL, nm_cfg, cfg, cand.CAM, None, cnp)
     return frame, both, c
 
 
@@ -139,6 +145,12 @@ def diagnose(stem: str, i: int, way: str) -> dict:
     kept = [x for x in on if x.ok]
     seed = ("kept: " + "+".join(sorted({x.kind for x in kept})) if kept else
             "refused: " + "+".join(sorted({f"{x.kind}:{x.why}" for x in on})) if on else "no seed candidate")
+    cn_on = [x for x in c.info.get("contrast", []) if x0 <= x.x < x1 and y0 <= x.row < y1]
+    if way in cmb.WAYS3:
+        contrast = ("no contrast candidate" if not cn_on else "painted" if any(x.info.get("painted") for x in cn_on) else
+                    "refused: " + "+".join(sorted({r for x in cn_on for r in (x.info.get("reasons") or ["not painted"])})))
+    else:
+        contrast = "-"
     box_nm, box_st = both.nm_mask[y0:y1, x0:x1], both.strict[y0:y1, x0:x1]
     added = box_nm != box_st
     reasons = set()
@@ -149,9 +161,9 @@ def diagnose(stem: str, i: int, way: str) -> dict:
     final = [paint(m, g) for m in seen.values()]
     return {"stem": stem, "barrel": i + 1, "color": COLOR_NAMES[g.color], "bbox": list(g.bbox), "flags": sorted(g.flags),
             "condition": ct.condition_of(stem), "place": ct.place_of(stem),
-            "states": {n: counts[n][stem].gt[i] for n in ("fixed", "nearmiss", "selfcal", way)},
+            "states": {n: counts[n][stem].gt[i] for n in arms_of(way)},
             "paint_fixed": paint(both.strict, g), "paint_nearmiss": paint(both.nm_mask, g), "paint_selfcal": paint(both.sc_mask, g),
-            "paint_final": final, "well_painted": any(well(p) for p in final), "seed": seed,
+            "paint_final": final, "well_painted": any(well(p) for p in final), "seed": seed, "contrast": contrast,
             "nm_added_body_px": int((added & (box_nm == g.color)).sum()), "nm_added_stripe_px": int((added & (box_nm == sc.OTHER_OF[g.color])).sum()),
             "touching": touching(g, truth.gts[stem]), "hidden": bool(set(g.flags) & HIDDEN), "detector": sorted(reasons)}
 
@@ -255,18 +267,19 @@ def boxes(way: str) -> str:
                 o = obj.get(key, {})
                 rows.append([short(s), COLOR_NAMES[p.color], list(p.bbox), st.replace("_", " "), f"{w[s]:.2f}", kind or "-", "yes" if here else "no",
                              ", ".join(other) or "no", "yes" if on("nearmiss", s) else "no", "yes" if on("selfcal", s) else "no",
-                             o.get("object", ""), o.get("check", "")])
+                             ("yes" if on("cn_alone", s) else "no") if "cn_alone" in preds else "-", o.get("object", ""), o.get("check", "")])
                 tot["boxes"] += 1
                 tot["weight"] += w[s]
                 tot["today here"] += here
                 tot["today here w"] += w[s] * here
                 js.append({"class": klass, "stem": s, "color": COLOR_NAMES[p.color], "bbox": list(p.bbox), "state": st, "weight": w[s], "frame": kind,
-                           "today_this_frame": here, "today_other_lights": other, "nearmiss": on("nearmiss", s), "selfcal": on("selfcal", s), **o})
+                           "today_this_frame": here, "today_other_lights": other, "nearmiss": on("nearmiss", s), "selfcal": on("selfcal", s),
+                           "contrast": on("cn_alone", s) if "cn_alone" in preds else None, **o})
         out += [f"## {title}: {tot['boxes']} boxes, {tot['weight']:.2f} counted once per arrangement; {tot['today here']} of them "
                 f"({tot['today here w']:.2f}) are also drawn by today's detector in the same frame", ""]
-        out += table(["frame", "color", "box", "state", "weight", "frame kind", "today, this frame", "today, another light", "nearmiss", "selfcal",
+        out += table(["frame", "color", "box", "state", "weight", "frame kind", "today, this frame", "today, another light", "nearmiss", "selfcal", "contrast",
                       "object (from the picture)", "what kind of check would remove it"], rows)
-    arms = ["fixed", "nearmiss", "selfcal"] + [x for x in cmb.WAYS if x in counts]
+    arms = ["fixed", "nearmiss", "selfcal"] + [x for x in cmb.ALL_WAYS if x in counts]
     w = weights(frames[cnd.ORDINARY])
     rows = []
     for n in arms:
@@ -292,7 +305,7 @@ def _cells(t: ct.Tally) -> list:
 def extreme(way: str) -> str:
     frames, truth, counts, _ = data()
     stems = frames[cnd.EXTREME] + frames[cnd.UNLISTED]
-    arms = {"today": "fixed", "`nearmiss`": "nearmiss", "`selfcal`": "selfcal", f"`{way}`": way}
+    arms = {("today" if n == "fixed" else f"`{n}`"): n for n in arms_of(way)}
     sub = ["found per frame (placements)", "box off", "missed", "boxes: on nothing / second / wrong color (once per arrangement)", "boxes on empty frames (on clean ones)"]
     out = [f"# E. The extreme conditions (report only, never judged): `{way}` beside today's detector and each winner", "",
            "77 train frames: the orange wood desk under the lamp at six settings (10 frames each, one place, the same 21 placements under every setting), "
@@ -332,12 +345,14 @@ def dave(way: str) -> list[str]:
     rp.refuse_test_frames(stems, splits)
     if not stems:
         return ["## Dave's office frames", "", "None with a box label.", ""]
-    spec, cfg = cand.settings_for("(no such place)")
+    spec, cfg, cnp = cand.settings3_for("(no such place)")
     nm_cfg = cand.nm_config(spec)
     fixed = jg.fixed_detector()
     dets = {"today": lambda s, f: fixed(s, f), "`nearmiss`": lambda s, f: cmb.nm_then_sc(f, cand.MODEL, nm_cfg, None, cand.CAM).boxes,
             "`selfcal`": lambda s, f: cmb.box_union(f, cand.MODEL, None, cfg, cand.CAM).boxes,
-            f"`{way}`": lambda s, f: cmb.WAYS[way](f, cand.MODEL, nm_cfg, cfg, cand.CAM).boxes}
+            "`cn_alone`": lambda s, f: cmb.cn_alone(f, cand.MODEL, None, None, cand.CAM, None, cnp).boxes,
+            "`mask_union`": lambda s, f: cmb.mask_union(f, cand.MODEL, nm_cfg, cfg, cand.CAM).boxes}
+    dets[f"`{way}`"] = lambda s, f: cmb.ALL_WAYS[way](f, cand.MODEL, nm_cfg, cfg, cand.CAM, None, cnp).boxes
     gts, clean = ct.load_gts(stems)
     placements = ct.build_placements(gts)
     counts = {n: {} for n in dets}
@@ -355,7 +370,7 @@ def dave(way: str) -> list[str]:
     return ["## Dave's office frames (the set the eval table calls DAVE; INDICATIVE only)", "",
             f"{len(stems)} frames, in no split (so not test frames), read directly. His boxes group touching barrels, so 'found' under the strict rule "
             f"undercounts, and a box on one barrel of a group can count as a second box. Settings: the ones picked on all ordinary frames "
-            f"(near-miss `{spec}`; self-calibration {json.dumps(cand.settings_json("(no such place)")["sc"])}).", ""] + \
+            f"(near-miss `{spec}`; self-calibration {json.dumps(cand.settings_json("(no such place)")["sc"])}; contrast: the pick of its rule on all ordinary places).", ""] + \
         table(["detector", "frames", "label boxes", "found (strict)", "box off", "missed", "boxes: on nothing / second / wrong color", "on empty frames (clean)"], rows)
 
 
@@ -368,7 +383,7 @@ def vendor(way: str) -> str:
     cov = rp.vendor_coverage(sel, splits)
     stems = [s for s in frames[cnd.ORDINARY] if s in cov.barrels]
     vc = {s: ct.classify_frame(s, cov.barrels[s], truth.gts[s], truth.clean[s]) for s in stems}
-    arms = {"today": counts["fixed"], "`nearmiss`": counts["nearmiss"], "`selfcal`": counts["selfcal"], f"`{way}`": counts[way], "vendor": vc}
+    arms = {**{("today" if n == "fixed" else f"`{n}`"): counts[n] for n in arms_of(way)}, "vendor": vc}
     groups = list(ct.group_stems(stems, "place").items()) + [("**six places**", stems)]
     tal = {p: [ct.tally(a, ss, truth.placements) for a in arms.values()] for p, ss in groups}
     tot = tal["**six places**"]
@@ -389,14 +404,15 @@ def vendor(way: str) -> str:
     out += tab("Boxes not on their barrel, once per arrangement (on nothing + second box + wrong color; per frame in brackets)",
                lambda t: f"{t.extra_w:.2f} ({t.nothing}+{t.second}+{t.wrong})")
     names = list(arms)
-    v, b = tot[-1], tot[-2]
-    lose = [f"{p} ({ts[-2].found_w:.1f} against {ts[-1].found_w:.1f})" for p, ts in tal.items() if p != "**six places**" and ts[-2].found_w < ts[-1].found_w - 1e-9]
-    win = [f"{p} ({ts[-2].found_w:.1f} against {ts[-1].found_w:.1f})" for p, ts in tal.items() if p != "**six places**" and ts[-2].found_w > ts[-1].found_w + 1e-9]
+    wi = names.index(f"`{way}`")
+    v, b = tot[-1], tot[wi]
+    lose = [f"{p} ({ts[wi].found_w:.1f} against {ts[-1].found_w:.1f})" for p, ts in tal.items() if p != "**six places**" and ts[wi].found_w < ts[-1].found_w - 1e-9]
+    win = [f"{p} ({ts[wi].found_w:.1f} against {ts[-1].found_w:.1f})" for p, ts in tal.items() if p != "**six places**" and ts[wi].found_w > ts[-1].found_w + 1e-9]
     out += ["### In one line each", "",
             f"- Total found: " + ", ".join(f"{n} {t.found_w:.1f} ({t.found})" for n, t in zip(names, tot)) + f" of {v.placements} ({v.barrels}).",
-            f"- {names[-2]} against the vendor: {b.found_w - v.found_w:+.1f} placements ({b.found - v.found:+d} per frame). "
+            f"- {names[wi]} against the vendor: {b.found_w - v.found_w:+.1f} placements ({b.found - v.found:+d} per frame). "
             f"On a barrel at all (found + box off): {b.found_w + b.off_w:.1f} against {v.found_w + v.off_w:.1f}.",
-            f"- Places where {names[-2]} finds fewer than the vendor: {'; '.join(lose) or 'none'}.",
+            f"- Places where {names[wi]} finds fewer than the vendor: {'; '.join(lose) or 'none'}.",
             f"- Places where it finds more: {'; '.join(win) or 'none'}.",
             "- The two white tables without vendor files (home, campus; 64 placements) are not in this table. There the vendor is ASSUMED to find "
             "every barrel (Tanush, 2026-11-26); every candidate here finds what today's detector finds there (63.0 of 64).", ""]
@@ -439,23 +455,83 @@ def left(way: str) -> str:
         if not sel:
             continue
         out += [f"## {k} ({len(sel)})", ""]
-        out += table(["frame", "#", "color", "flags", "today / nearmiss / selfcal / " + way, "fixed colors paint", "final mask paints", "selfcal seed",
-                      "near-miss added (body / stripe px)", "touching", "detector's reasons", "note"],
+        out += table(["frame", "#", "color", "flags", " / ".join(n if n != "fixed" else "today" for n in arms_of(way)), "fixed colors paint", "final mask paints",
+                      "selfcal seed", "contrast candidate", "near-miss added (body / stripe px)", "touching", "detector's reasons", "note"],
                      [[short(d["stem"]), d["barrel"], d["color"], ",".join(d["flags"]) or "-",
-                       " / ".join(CODE[d["states"][n]] for n in ("fixed", "nearmiss", "selfcal", way)), words(d["paint_fixed"]),
-                       "; ".join(words(p) for p in d["paint_final"]), d["seed"], f"{d['nm_added_body_px']} / {d['nm_added_stripe_px']}",
+                       " / ".join(CODE[d["states"][n]] for n in arms_of(way)), words(d["paint_fixed"]),
+                       "; ".join(words(p) for p in d["paint_final"]), d["seed"], d["contrast"], f"{d['nm_added_body_px']} / {d['nm_added_stripe_px']}",
                        "yes" if d["touching"] else "", "; ".join(d["detector"]) or "-",
                        d["note"] + (f" (by rule: {d['cause_by_rule']})" if d["cause"] != d["cause_by_rule"] else "")] for d in sel])
     (OUT / "left.json").write_text(json.dumps(rows, indent=1) + "\n")
     return "\n".join(out) + "\n"
 
 
+# ---------------------------------------------------------------- C with the third winner (addendum 2026-11-27)
+
+def overlap3() -> str:
+    """Which of the three winners finds each barrel today's detector misses; and every barrel near-miss or
+    self-calibration finds that contrast does not, with why (contrast's candidate on it, from ``cn_alone``)."""
+    frames, truth, counts, _ = data()
+    stems = frames[cnd.ORDINARY]
+    w = weights(stems)
+    names = ("nearmiss", "selfcal", "cn_alone")
+    groups = collections.defaultdict(list)
+    for s in stems:
+        for i, _ in enumerate(truth.gts[s]):
+            if counts["fixed"][s].gt[i] == ct.FOUND:
+                lost = [n for n in names if counts[n][s].gt[i] != ct.FOUND]
+                groups["found by today's detector" + (f" (LOST by {', '.join(lost)})" if lost else "")].append((s, i))
+                continue
+            by = tuple(n for n in names if counts[n][s].gt[i] == ct.FOUND)
+            groups[" + ".join(by) if by else "found by none of the three"].append((s, i))
+    order = sorted(groups, key=lambda k: (-len(groups[k]), k))
+    out = ["# C (addendum). The overlap of the three winners", "",
+           "Held-out boxes of the judged runs, ordinary conditions, 307 barrels counted per frame (172 placements). A row = the set of winners that "
+           "find the barrel (strict rule) among the barrels today's detector misses. Made by `analysis.py overlap3`.", ""]
+    out += table(["found by", "per frame", "placements"], [[k, len(groups[k]), f"{sum(w[s] for s, _ in groups[k]):.2f}"] for k in order])
+    sets = {n: {(s, i) for k, v in groups.items() for (s, i) in v if n in k.split(" + ")} for n in names}
+    other = sets["nearmiss"] | sets["selfcal"]
+    out += [f"- Gained by contrast: {len(sets['cn_alone'])} per frame. Gained by near-miss or self-calibration: {len(other)}; "
+            f"of them contrast finds {len(other & sets['cn_alone'])}, and {len(other - sets['cn_alone'])} it does not. "
+            f"Gained by contrast and by neither of the other two: {len(sets['cn_alone'] - other)}.", ""]
+    rows, js = [], []
+    for s, i in sorted(other - sets["cn_alone"]):
+        d = diagnose(s, i, "cn_alone")
+        js.append(d)
+        rows.append([short(s), i + 1, d["color"], ",".join(d["flags"]) or "-", " / ".join(CODE[d["states"][n]] for n in ("nearmiss", "selfcal", "cn_alone")),
+                     words(d["paint_fixed"]), d["contrast"], "; ".join(words(p) for p in d["paint_final"]), "yes" if d["touching"] else "",
+                     "; ".join(d["detector"]) or "-"])
+    out += [f"## Found by near-miss or self-calibration, not by contrast ({len(rows)})", "",
+            "contrast candidate = what contrast's own path did on the barrel: no candidate (no stripe-like band at the size its row predicts), "
+            "refused by a guard (the reasons), or painted (the detector then drew no strict box). final mask = contrast's mask.", ""]
+    out += table(["frame", "#", "color", "flags", "nearmiss / selfcal / contrast", "fixed colors paint", "contrast candidate", "contrast mask paints",
+                  "touching", "detector's reasons (contrast mask)"], rows)
+    rows = []
+    for s, i in sorted(sets["cn_alone"] - other):
+        g = truth.gts[s][i]
+        rows.append([short(s), i + 1, COLOR_NAMES[g.color], ",".join(sorted(g.flags)) or "-", ct.condition_of(s)])
+    out += [f"## Found by contrast and by neither of the other two ({len(rows)})", ""] + table(["frame", "#", "color", "flags", "condition"], rows)
+    by = collections.defaultdict(collections.Counter)
+    for k in order:
+        if k.startswith("found by today"):
+            continue
+        for s, _ in groups[k]:
+            by[ct.condition_of(s)][k] += 1
+    cols = [k for k in order if not k.startswith("found by today")]
+    out += ["## By condition (per frame)", ""] + table(["condition"] + cols, [[c] + [v[k] for k in cols] for c, v in sorted(by.items())])
+    n = notes().get("overlap3")
+    if n:
+        out += ["## What the pictures show", ""] + [f"- {x}" for x in n] + [""]
+    (OUT / "overlap3.json").write_text(json.dumps({"groups": {k: len(v) for k, v in groups.items()}, "not_by_contrast": js}, indent=1, default=str) + "\n")
+    return "\n".join(out) + "\n"
+
+
 def main(argv) -> int:
     what = argv[0] if argv else "all"
     way = argv[1] if len(argv) > 1 else best_way()
-    if way not in cmb.WAYS:
-        raise SystemExit(f"unknown way {way!r}: one of {', '.join(cmb.WAYS)}")
-    jobs = {"overlap": ("overlap.md", overlap), "boxes": ("false_boxes.md", lambda: boxes(way)), "extreme": ("extreme.md", lambda: extreme(way)),
+    if way not in cmb.ALL_WAYS:
+        raise SystemExit(f"unknown way {way!r}: one of {', '.join(cmb.ALL_WAYS)}")
+    jobs = {"overlap": ("overlap.md", overlap), "overlap3": ("overlap3.md", overlap3), "boxes": ("false_boxes.md", lambda: boxes(way)), "extreme": ("extreme.md", lambda: extreme(way)),
             "vendor": ("vendor.md", lambda: vendor(way)), "left": ("left.md", lambda: left(way))}
     if what != "all" and what not in jobs:
         raise SystemExit(f"unknown part {what!r}: one of {', '.join(jobs)}, all")
