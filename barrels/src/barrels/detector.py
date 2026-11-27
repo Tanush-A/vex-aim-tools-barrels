@@ -1215,7 +1215,10 @@ def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraM
     4. Is it the same barrel as a found box (same color, IoU over 0.5, and not another part cut from the same wide
        stripe)? The surer box stays: the one whose stripe's box holds the larger share of labeled pixels.  "duplicate"
        (A thin stripe never gets here with such a box: 3 has refused it, and 3 asks about every found box.)
-       The stripe of the box that goes is "lost": still a stripe, so stage 6 does not read it as a cap."""
+       The stripe of the box that goes is "lost": still a stripe, so stage 6 does not read it as a cap.
+
+    The log: "kept" is written when a box goes into the list, "duplicate" for the box that goes (with its own stripe). A
+    box that was kept and later loses to a surer one has both notes, in that order."""
     def partly(s: Stripe) -> bool:
         at = _at(s, cam)
         return at is not None and (s.bbox[2] - s.bbox[0]) < cfg.stripe_full * at.W
@@ -1240,18 +1243,18 @@ def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraM
             if why == "side_unexplained":
                 unplaced.append(s)
             continue
-        _note(log, "barrel", "kept", s.bbox, body=s.body, box=f.barrel.bbox, rule=f.rule)
         dup = next((o for o in found if is_same_barrel(f.barrel.bbox, f.barrel.color, o.barrel)
                     and not (s.cut_from is not None and o.stripe.cut_from == s.cut_from)), None)
-        if dup is None:
-            found.append(f)
-            continue
-        _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=f.barrel.bbox)         # 4.
-        if f.barrel.confidence > dup.barrel.confidence:
-            found = [o for o in found if o is not dup] + [f]
-            lost.append(dup.stripe)
-        else:
+        if dup is not None and f.barrel.confidence <= dup.barrel.confidence:               # 4. the box that is there stays
+            _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=f.barrel.bbox)
             lost.append(s)
+            continue
+        if dup is not None:                                                                # 4. this box is surer: the other goes
+            _note(log, "barrel", "duplicate", dup.stripe.bbox, body=dup.stripe.body, box=dup.barrel.bbox)
+            found = [o for o in found if o is not dup]
+            lost.append(dup.stripe)
+        _note(log, "barrel", "kept", s.bbox, body=s.body, box=f.barrel.bbox, rule=f.rule)
+        found.append(f)
     return found, unplaced, lost
 
 
