@@ -308,6 +308,27 @@ def test_no_piece_is_too_far_away_to_show_a_stripe():
         assert n > 0
 
 
+def test_a_stripes_row_always_gives_a_distance():
+    """The fact that let the "no_geometry" check of the stripe finder go. For every camera preset: (1) the rows where a
+    barrel can have its stripe are one unbroken range, from just below the horizon to the frame bottom, and that holds
+    for every half row too (a median of whole rows is a whole or a half row); (2) the sandwich holds no pixel outside that
+    range, even when body color and stripe color fill the frame from the top."""
+    for cam in PRESETS:
+        h = cam.height
+        ok = [det.BarrelAt.from_stripe_row(cam, k / 2) is not None for k in range(2 * h + 1)]
+        first = ok.index(True)
+        assert all(ok[first:]) and abs(first / 2 - cam.horizon_row()) <= 0.5
+        reach = det._reach_by_row(cam, h, CFG)
+        assert [r >= 0 for r in reach] == [ok[2 * r + 1] for r in range(h)]          # row r is asked at r + 0.5
+        mask = np.full((h, 160), io.BLUE, np.uint8)
+        mask[(np.arange(h) // 4) % 2 == 0] = io.ORANGE                           # bands 4 rows tall, the two colors in turn, from the top
+        for sw in det.sandwiches(mask, cam, CFG).values():
+            rows = np.where((sw.stripe & sw.above & sw.below).any(axis=1))[0]
+            assert len(rows) and all(ok[2 * r + 1] for r in rows)
+        log: list = []
+        det.find_stripes(mask, cam, CFG, log)                                    # and the finder's own assertion holds on it
+
+
 def test_box_is_as_wide_as_the_body_not_the_stripe():
     """A stripe whose outer columns went dark must not make the box thinner than the barrel."""
     mask = np.zeros((480, 640), np.uint8)
