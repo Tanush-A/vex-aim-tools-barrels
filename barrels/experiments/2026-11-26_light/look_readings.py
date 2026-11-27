@@ -27,6 +27,8 @@ SHEETS = {
                 "4A8B_overheaddim_palewood_core_01", "4A8B_window_light_core_01"],
     "other": ["4A8B_lampcool6_ottoman_clutter_01", "4A8B_window_abpwhite_occlx_18", "4A8B_lampwarm6_glass_clutter_01", "4A8B_campus_light_hand_02",
               "4A8B_both_abpgray_core_01", "4A8B_lampmid3_bathtile_neg_02"],
+    "parked": ["4A8B_lampcool3_wood_core_01", "4A8B_lampcool6_wood_core_01", "4A8B_lampwarm6_wood_core_01", "4A8B_lampmid3_ottoman_core_01",
+               "4A8B_window_black_close_02", "4A8B_lampcool6_bathtile_core_01"],
 }
 W, H = 256, 192
 
