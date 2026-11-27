@@ -1,0 +1,1795 @@
+{
+ "made": "2026-11-26",
+ "git": "66a747d",
+ "folds": {
+  "C1_add_guards": {
+   "home_white": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "campus_study": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "abp_gray": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 17.667,
+    "found_w": 18.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 17.35
+   },
+   "home_bathtile": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 24,
+    "of": 48,
+    "gain": 13.667,
+    "found_w": 13.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 13.6
+   },
+   "home_glass": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 27,
+    "of": 48,
+    "gain": 22.75,
+    "found_w": 23.75,
+    "extra_w": 1.0,
+    "runner_up_gain": 22.667
+   },
+   "home_ottoman": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 15.0,
+    "found_w": 15.5,
+    "extra_w": 0.5,
+    "runner_up_gain": 15.0
+   },
+   "uc_palewood": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 35,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "abp_white": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, orange part reddish >= 0.8, body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,d_min=1.1,orange_min=0.8,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 21.75,
+    "found_w": 22.75,
+    "extra_w": 1.0,
+    "runner_up_gain": 21.75
+   },
+   "home_wooddesk": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "home_black": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   }
+  },
+  "C2_merge_guards": {
+   "home_white": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   },
+   "campus_study": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   },
+   "abp_gray": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   },
+   "home_bathtile": {
+    "setting": "contrast path painted into the fixed mask: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=merge,strength_min=1.15,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 15,
+    "of": 48,
+    "gain": 12.333,
+    "found_w": 14.0,
+    "extra_w": 1.667,
+    "runner_up_gain": 12.333
+   },
+   "home_glass": {
+    "setting": "contrast path painted into the fixed mask: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=merge,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 17,
+    "of": 48,
+    "gain": 23.083,
+    "found_w": 24.75,
+    "extra_w": 1.667,
+    "runner_up_gain": 22.333
+   },
+   "home_ottoman": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   },
+   "uc_palewood": {
+    "setting": "contrast path painted into the fixed mask: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=merge,strength_min=1.15,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 24,
+    "of": 48,
+    "gain": 23.333,
+    "found_w": 24.5,
+    "extra_w": 1.167,
+    "runner_up_gain": 23.083
+   },
+   "abp_white": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   },
+   "home_wooddesk": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   },
+   "home_black": {
+    "setting": "today's detector, unchanged (no setting allowed with a gain)",
+    "spec": "",
+    "allowed": 0,
+    "of": 48,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": null
+   }
+  },
+  "C3_add_no_guards": {
+   "home_white": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 17.0,
+    "found_w": 18.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "campus_study": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 17.0,
+    "found_w": 18.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "abp_gray": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 12.0,
+    "found_w": 13.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "home_bathtile": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 9.0,
+    "found_w": 10.0,
+    "extra_w": 1.0,
+    "runner_up_gain": null
+   },
+   "home_glass": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 17.0,
+    "found_w": 18.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "home_ottoman": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 13.0,
+    "found_w": 14.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "uc_palewood": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.3, guards: none",
+    "spec": "mode=add,strength_min=1.3",
+    "allowed": 2,
+    "of": 4,
+    "gain": 19.75,
+    "found_w": 21.25,
+    "extra_w": 1.5,
+    "runner_up_gain": 18.0
+   },
+   "abp_white": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 16.0,
+    "found_w": 17.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "home_wooddesk": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 17.0,
+    "found_w": 18.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   },
+   "home_black": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+    "spec": "mode=add,strength_min=1.5",
+    "allowed": 1,
+    "of": 4,
+    "gain": 17.0,
+    "found_w": 18.25,
+    "extra_w": 1.25,
+    "runner_up_gain": null
+   }
+  },
+  "C4_add_no_abs": {
+   "home_white": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 20.667,
+    "found_w": 22.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 20.0
+   },
+   "campus_study": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 20.667,
+    "found_w": 22.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 20.0
+   },
+   "abp_gray": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 15.667,
+    "found_w": 17.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 15.0
+   },
+   "home_bathtile": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,d_min=1.1,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 5,
+    "of": 24,
+    "gain": 12.0,
+    "found_w": 13.0,
+    "extra_w": 1.0,
+    "runner_up_gain": 11.667
+   },
+   "home_glass": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 8,
+    "of": 24,
+    "gain": 21.667,
+    "found_w": 23.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 21.0
+   },
+   "home_ottoman": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: own colors apart >= 1.1, body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,d_min=1.1,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 13.0,
+    "found_w": 14.5,
+    "extra_w": 1.5,
+    "runner_up_gain": 13.0
+   },
+   "uc_palewood": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,d_min=1.1,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 16,
+    "of": 24,
+    "gain": 21.75,
+    "found_w": 22.75,
+    "extra_w": 1.0,
+    "runner_up_gain": 21.667
+   },
+   "abp_white": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 20.667,
+    "found_w": 22.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 20.0
+   },
+   "home_wooddesk": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 20.667,
+    "found_w": 22.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 20.0
+   },
+   "home_black": {
+    "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 4,
+    "of": 24,
+    "gain": 20.667,
+    "found_w": 22.167,
+    "extra_w": 1.5,
+    "runner_up_gain": 20.0
+   }
+  },
+  "C5_alone": {
+   "home_white": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "campus_study": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "abp_gray": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 17.667,
+    "found_w": 18.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 17.35
+   },
+   "home_bathtile": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 24,
+    "of": 48,
+    "gain": 13.667,
+    "found_w": 13.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 13.6
+   },
+   "home_glass": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 27,
+    "of": 48,
+    "gain": 22.75,
+    "found_w": 23.75,
+    "extra_w": 1.0,
+    "runner_up_gain": 22.667
+   },
+   "home_ottoman": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: own colors apart >= 1.1, orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 15.0,
+    "found_w": 15.5,
+    "extra_w": 0.5,
+    "runner_up_gain": 15.0
+   },
+   "uc_palewood": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 35,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "abp_white": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1, guards: own colors apart >= 1.1, orange part reddish >= 0.8, body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,d_min=1.1,orange_min=0.8,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 21.75,
+    "found_w": 22.75,
+    "extra_w": 1.0,
+    "runner_up_gain": 21.75
+   },
+   "home_wooddesk": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   },
+   "home_black": {
+    "setting": "contrast path alone, fixed colors off: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+    "spec": "mode=alone,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+    "allowed": 23,
+    "of": 48,
+    "gain": 22.667,
+    "found_w": 23.167,
+    "extra_w": 0.5,
+    "runner_up_gain": 22.35
+   }
+  }
+ },
+ "in_sample_all_places": {
+  "C1_add_guards": {
+   "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: orange part reddish >= 0.8, top edge seen >= 0.15, bottom edge seen >= 0.15",
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "allowed": 23,
+   "of": 48,
+   "gain": 22.667,
+   "found_w": 23.167,
+   "extra_w": 0.5,
+   "runner_up_gain": 22.35
+  },
+  "C2_merge_guards": {
+   "setting": "today's detector, unchanged (no setting allowed with a gain)",
+   "spec": "",
+   "allowed": 0,
+   "of": 48,
+   "gain": 0.0,
+   "found_w": 0.0,
+   "extra_w": 0.0,
+   "runner_up_gain": null
+  },
+  "C3_add_no_guards": {
+   "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.5, guards: none",
+   "spec": "mode=add,strength_min=1.5",
+   "allowed": 1,
+   "of": 4,
+   "gain": 17.0,
+   "found_w": 18.25,
+   "extra_w": 1.25,
+   "runner_up_gain": null
+  },
+  "C4_add_no_abs": {
+   "setting": "contrast path added to today's boxes: margin 0.5, share of the width 0.5, mean difference >= 1.15, guards: body bands one color <= 0.42, top edge seen >= 0.15, bottom edge seen >= 0.15",
+   "spec": "mode=add,strength_min=1.15,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+   "allowed": 4,
+   "of": 24,
+   "gain": 20.667,
+   "found_w": 22.167,
+   "extra_w": 1.5,
+   "runner_up_gain": 20.0
+  }
+ },
+ "seconds_per_frame": {
+  "today": 0.137,
+  "C1_add_guards": 0.273,
+  "C2_merge_guards": 0.183,
+  "C3_add_no_guards": 0.257,
+  "C4_add_no_abs": 0.276,
+  "C5_alone": 0.187
+ },
+ "verdicts": {
+  "C1_add_guards": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    155.3
+   ],
+   "found": [
+    211,
+    275
+   ],
+   "extra_w": [
+    1.93,
+    2.83
+   ],
+   "extra": [
+    5,
+    9
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     13.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     10.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     15,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     12,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     10,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     8,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     15,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     11,
+     21,
+     2,
+     2
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15,
+     0,
+     0
+    ],
+    "lampmid3_wood": [
+     1,
+     12,
+     21,
+     1,
+     1
+    ],
+    "lampmid6_wood": [
+     1,
+     16,
+     21,
+     0,
+     1
+    ],
+    "lampwarm3_wood": [
+     1,
+     12,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     13,
+     21,
+     1,
+     2
+    ],
+    "window_black": [
+     5,
+     5,
+     26,
+     0,
+     0
+    ]
+   },
+   "traps": {
+    "lampmid3_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    }
+   },
+   "frames_with_new_boxes": [
+    "lampmid3_bathtile_core_01",
+    "lampwarm6_bathtile_core_01",
+    "lampwarm6_glass_occl_02"
+   ],
+   "gained": 64,
+   "lost": 0
+  },
+  "C2_merge_guards": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    142.3
+   ],
+   "found": [
+    211,
+    248
+   ],
+   "extra_w": [
+    1.93,
+    4.83
+   ],
+   "extra": [
+    5,
+    15
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     13.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     3.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     12.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     12,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     2,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     2,
+     21,
+     2,
+     2
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15,
+     0,
+     0
+    ],
+    "lampmid3_wood": [
+     1,
+     1,
+     21,
+     1,
+     1
+    ],
+    "lampmid6_wood": [
+     1,
+     1,
+     21,
+     0,
+     0
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     0,
+     21,
+     1,
+     1
+    ],
+    "window_black": [
+     5,
+     5,
+     26,
+     0,
+     0
+    ]
+   },
+   "traps": {
+    "lampmid3_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    }
+   },
+   "frames_with_new_boxes": [
+    "lampcool6_glass_clutter_01",
+    "lampmid3_bathtile_core_01",
+    "lampmid3_glass_clutter_01",
+    "lampmid6_glass_clutter_01",
+    "lampwarm6_bathtile_core_01",
+    "lampwarm6_glass_occl_02",
+    "overheaddim_palewood_clutter_01",
+    "window_glass_clutter_01"
+   ],
+   "gained": 38,
+   "lost": 1
+  },
+  "C3_add_no_guards": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    152.05
+   ],
+   "found": [
+    211,
+    262
+   ],
+   "extra_w": [
+    1.93,
+    5.18
+   ],
+   "extra": [
+    5,
+    9
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    2.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     12.25,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     7.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     27.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     15,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     14,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     10,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     9,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     9,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     2,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     27,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     5,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     11,
+     21,
+     2,
+     3
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15,
+     0,
+     0
+    ],
+    "lampmid3_wood": [
+     1,
+     1,
+     21,
+     1,
+     1
+    ],
+    "lampmid6_wood": [
+     1,
+     12,
+     21,
+     0,
+     0
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     4,
+     21,
+     1,
+     1
+    ],
+    "window_black": [
+     5,
+     6,
+     26,
+     0,
+     0
+    ]
+   },
+   "traps": {
+    "lampmid3_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    }
+   },
+   "frames_with_new_boxes": [
+    "lampmid3_bathtile_core_01",
+    "overheaddim_palewood_neg_02",
+    "overheaddim_palewood_occl_02"
+   ],
+   "gained": 51,
+   "lost": 0
+  },
+  "C4_add_no_abs": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    155.55
+   ],
+   "found": [
+    211,
+    276
+   ],
+   "extra_w": [
+    1.93,
+    4.93
+   ],
+   "extra": [
+    5,
+    11
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    1.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     13.75,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     10.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     15,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     12,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     14,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     10,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     13,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     8,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     15,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     11,
+     21,
+     2,
+     2
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15,
+     0,
+     0
+    ],
+    "lampmid3_wood": [
+     1,
+     12,
+     21,
+     1,
+     1
+    ],
+    "lampmid6_wood": [
+     1,
+     16,
+     21,
+     0,
+     1
+    ],
+    "lampwarm3_wood": [
+     1,
+     12,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     13,
+     21,
+     1,
+     2
+    ],
+    "window_black": [
+     5,
+     7,
+     26,
+     0,
+     0
+    ]
+   },
+   "traps": {
+    "lampmid3_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    }
+   },
+   "frames_with_new_boxes": [
+    "lampmid3_bathtile_clutter_01",
+    "lampmid3_bathtile_core_01",
+    "lampmid6_bathtile_occl_02",
+    "lampwarm6_bathtile_core_01",
+    "overheaddim_palewood_occl_02",
+    "window_glass_occlx_16"
+   ],
+   "gained": 65,
+   "lost": 0
+  },
+  "C5_alone": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    138.17
+   ],
+   "found": [
+    211,
+    253
+   ],
+   "extra_w": [
+    1.93,
+    4.2
+   ],
+   "extra": [
+    5,
+    9
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     24.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     31.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     14.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     12.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     10.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     11.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     21.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     24,
+     29
+    ],
+    "campus_light": [
+     35,
+     31,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     14,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     14,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     12,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     12,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     12,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     11,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     12,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     9,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     11,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     21,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     14,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     15,
+     21,
+     2,
+     0
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15,
+     0,
+     0
+    ],
+    "lampmid3_wood": [
+     1,
+     11,
+     21,
+     1,
+     0
+    ],
+    "lampmid6_wood": [
+     1,
+     15,
+     21,
+     0,
+     0
+    ],
+    "lampwarm3_wood": [
+     1,
+     12,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     14,
+     21,
+     1,
+     0
+    ],
+    "window_black": [
+     5,
+     3,
+     26,
+     0,
+     0
+    ]
+   },
+   "traps": {
+    "lampmid3_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_bathtile_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampwarm6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    },
+    "lampmid6_glass_neg_02": {
+     "today": "none",
+     "candidate": "none"
+    }
+   },
+   "frames_with_new_boxes": [
+    "window_light_occl_02",
+    "both_abpgray_clutter_01",
+    "lampcool6_glass_clutter_01",
+    "lampmid3_glass_clutter_01",
+    "lampwarm6_glass_occl_02",
+    "overheaddim_palewood_clutter_01",
+    "window_glass_clutter_01"
+   ],
+   "gained": 68,
+   "lost": 26
+  }
+ }
+}

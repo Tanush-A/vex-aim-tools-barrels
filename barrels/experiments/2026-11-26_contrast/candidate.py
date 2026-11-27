@@ -179,7 +179,7 @@ def detect(frame, st: Setting | None) -> list:
 # The setting on all eight places that the fold rule of PREREG.md picks in-sample for the primary family (C1). It is
 # NOT what was judged: the judged candidate is ``table.fit_family("C1_add_guards")``, which picks a setting per
 # held-out place. See ENTRY.md.
-BEST = Setting()
+BEST = Setting(mode="add", strength_min=1.15, orange_min=0.8, extent_top=0.15, extent_bottom=0.15)
 
 
 def detect_frame(stem: str, frame) -> list:

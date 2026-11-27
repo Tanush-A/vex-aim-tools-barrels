@@ -140,6 +140,18 @@ Nothing below is a verdict. All of it shaped the method, so the judged run is no
    added; the body bands were kept inside the barrel (they left it for close barrels); the candidate point is moved
    to the middle of its stripe (it sat about 3 rows high). A smoke test of `table.py` on three white-table frames.
 
+## Addendum, 2026-11-26, after the judged round (written before the run it describes)
+
+The judged round was run once (`run.py`, git 66a747d). No second round and no new candidate. After it I ran, and
+none of these is a verdict: `timing.py`; `insample.py` (the cached table, all eight places); `sheets.py` on the
+changes of C1 and on the named traps.
+
+One more run through the judge, for a mechanical reason only: `candidate.py:detect_frame` is the callable another
+session can import. It holds ONE setting, the one the fold rule picks on all eight places (strength floor 1.15, the
+absolute check, the extent guard). I run it once through `tools/judge.py --cand-callable` to check that the callable
+gives what `insample.md` says for that setting (found +23.17 placements, 278 per frame, boxes +0.50). That number is
+in-sample. The result of this experiment stays C1 as judged leave one place out.
+
 ## What this cannot show
 
 - 8 places, 2 with warm light. A guard set that holds on seven places and fails on the eighth is the likely way to
