@@ -243,3 +243,16 @@ def detect_P1_with(setting: dict):
         return run_cand("P1", setting, stem, frame)
     detect_frame.describe = f"P1 with {setting}"
     return detect_frame
+
+
+P2_SETTING = {"cap": 4, "n_min": 50, "pad": 0, "s_follow": True, "mode": "union"}   # what P2's folds picked in 9 of 10
+
+
+def detect_P2_frozen(stem: str, frame) -> list:
+    """P2 frozen at the setting its folds picked in 9 of 10: the best candidate as one importable callable. Its judged
+    number is the leave-one-place-out one of ``fit_P2``; this frozen form was not judged on its own."""
+    th = frame_thresholds(peaks_of(stem, frame)["F5_pair"], P2_SETTING)
+    return boxes_for(stem, frame, th)
+
+
+detect_P2_frozen.describe = f"P2 frozen: F5_pair peaks, {P2_SETTING}"
