@@ -1,0 +1,358 @@
+{
+ "setting": "e0.4|h1|s1.1|b0.8",
+ "new": [
+  {
+   "stem": "4A8B_campus_light_clutter_02",
+   "bbox": [
+    394,
+    115,
+    437,
+    169
+   ],
+   "color": 2,
+   "source": "contrast_beside",
+   "on": [],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampcool6_ottoman_close_01",
+   "bbox": [
+    224,
+    234,
+    474,
+    480
+   ],
+   "color": 1,
+   "source": "contrast_half",
+   "on": [
+    [
+     218,
+     232,
+     470,
+     480
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampcool6_ottoman_touch_01",
+   "bbox": [
+    211,
+    130,
+    283,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_split",
+   "on": [
+    [
+     198,
+     129,
+     262,
+     198
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampcool6_ottoman_touch_01",
+   "bbox": [
+    268,
+    128,
+    337,
+    197
+   ],
+   "color": 2,
+   "source": "contrast_split",
+   "on": [
+    [
+     262,
+     129,
+     325,
+     198
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampmid3_bathtile_edge_01",
+   "bbox": [
+    0,
+    128,
+    31,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_edge",
+   "on": [
+    [
+     0,
+     127,
+     31,
+     196
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_close_01",
+   "bbox": [
+    193,
+    233,
+    510,
+    480
+   ],
+   "color": 1,
+   "source": "contrast_half",
+   "on": [
+    [
+     218,
+     232,
+     470,
+     480
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampmid6_bathtile_edge_01",
+   "bbox": [
+    0,
+    127,
+    29,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_edge",
+   "on": [
+    [
+     0,
+     127,
+     31,
+     196
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_touch_01",
+   "bbox": [
+    221,
+    130,
+    294,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_split",
+   "on": [
+    [
+     198,
+     129,
+     262,
+     198
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_touch_01",
+   "bbox": [
+    270,
+    129,
+    338,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_split",
+   "on": [
+    [
+     262,
+     129,
+     325,
+     198
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampwarm6_bathtile_edge_01",
+   "bbox": [
+    0,
+    126,
+    31,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_edge",
+   "on": [
+    [
+     0,
+     127,
+     31,
+     196
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampwarm6_ottoman_close_01",
+   "bbox": [
+    194,
+    232,
+    511,
+    480
+   ],
+   "color": 1,
+   "source": "contrast_half",
+   "on": [
+    [
+     218,
+     232,
+     470,
+     480
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampwarm6_ottoman_touch_01",
+   "bbox": [
+    202,
+    128,
+    264,
+    195
+   ],
+   "color": 2,
+   "source": "contrast_beside",
+   "on": [
+    [
+     198,
+     129,
+     262,
+     198
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampwarm6_ottoman_touch_01",
+   "bbox": [
+    258,
+    128,
+    330,
+    196
+   ],
+   "color": 2,
+   "source": "contrast_beside",
+   "on": [
+    [
+     262,
+     129,
+     325,
+     198
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampcool3_wood_core_01",
+   "bbox": [
+    0,
+    174,
+    79,
+    301
+   ],
+   "color": 1,
+   "source": "contrast_edge",
+   "on": [
+    [
+     0,
+     168,
+     78,
+     309
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampmid3_wood_core_01",
+   "bbox": [
+    0,
+    172,
+    73,
+    305
+   ],
+   "color": 1,
+   "source": "contrast_edge",
+   "on": [
+    [
+     0,
+     168,
+     78,
+     309
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  },
+  {
+   "stem": "4A8B_lampwarm3_wood_core_01",
+   "bbox": [
+    0,
+    158,
+    70,
+    306
+   ],
+   "color": 1,
+   "source": "contrast_edge",
+   "on": [
+    [
+     0,
+     168,
+     78,
+     309
+    ]
+   ],
+   "clean": true,
+   "empty": false
+  }
+ ],
+ "removed": [
+  {
+   "stem": "4A8B_lampcool6_ottoman_touch_01",
+   "lost": [
+    [
+     243,
+     128,
+     324,
+     197
+    ]
+   ]
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_touch_01",
+   "lost": [
+    [
+     242,
+     129,
+     320,
+     195
+    ]
+   ]
+  }
+ ]
+}

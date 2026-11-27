@@ -1,0 +1,341 @@
+[
+ {
+  "stem": "4A8B_lampwarm6_bathtile_core_01",
+  "share": 0.4,
+  "box": [
+   465,
+   104,
+   495,
+   134
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     476,
+     111,
+     513,
+     146
+    ],
+    2,
+    "contrast",
+    0.49
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "4A8B_lampwarm6_bathtile_core_01",
+  "share": 0.3,
+  "box": [
+   465,
+   104,
+   495,
+   134
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     476,
+     111,
+     513,
+     146
+    ],
+    2,
+    "contrast",
+    0.49
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "4A8B_lampmid6_wood_occl_04",
+  "share": 0.5,
+  "box": [
+   181,
+   139,
+   261,
+   232
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     182,
+     148,
+     264,
+     243
+    ],
+    2,
+    "contrast",
+    0.89
+   ]
+  ],
+  "on_own_color_barrel": [
+   [
+    178,
+    128,
+    238,
+    186
+   ]
+  ],
+  "real_barrel_lost": [
+   [
+    178,
+    128,
+    238,
+    186
+   ]
+  ]
+ },
+ {
+  "stem": "4A8B_lampmid6_wood_occl_04",
+  "share": 0.4,
+  "box": [
+   181,
+   139,
+   261,
+   232
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     182,
+     148,
+     264,
+     243
+    ],
+    2,
+    "contrast",
+    0.89
+   ]
+  ],
+  "on_own_color_barrel": [
+   [
+    178,
+    128,
+    238,
+    186
+   ]
+  ],
+  "real_barrel_lost": [
+   [
+    178,
+    128,
+    238,
+    186
+   ]
+  ]
+ },
+ {
+  "stem": "4A8B_lampmid6_wood_occl_04",
+  "share": 0.3,
+  "box": [
+   181,
+   139,
+   261,
+   232
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     182,
+     148,
+     264,
+     243
+    ],
+    2,
+    "contrast",
+    0.89
+   ]
+  ],
+  "on_own_color_barrel": [
+   [
+    178,
+    128,
+    238,
+    186
+   ]
+  ],
+  "real_barrel_lost": [
+   [
+    178,
+    128,
+    238,
+    186
+   ]
+  ]
+ },
+ {
+  "stem": "4A8B_lampwarm6_wood_cluster_01",
+  "share": 0.5,
+  "box": [
+   209,
+   129,
+   269,
+   193
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     221,
+     125,
+     268,
+     182
+    ],
+    2,
+    "contrast",
+    0.93
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "4A8B_lampwarm6_wood_cluster_01",
+  "share": 0.4,
+  "box": [
+   209,
+   129,
+   269,
+   193
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     221,
+     125,
+     268,
+     182
+    ],
+    2,
+    "contrast",
+    0.93
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "4A8B_lampwarm6_wood_cluster_01",
+  "share": 0.3,
+  "box": [
+   209,
+   129,
+   269,
+   193
+  ],
+  "color": 1,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     221,
+     125,
+     268,
+     182
+    ],
+    2,
+    "contrast",
+    0.93
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "DAVE_office_speckle_snap_07",
+  "share": 0.5,
+  "box": [
+   195,
+   107,
+   242,
+   159
+  ],
+  "color": 2,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     192,
+     119,
+     244,
+     174
+    ],
+    1,
+    "contrast",
+    0.77
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "DAVE_office_speckle_snap_07",
+  "share": 0.4,
+  "box": [
+   195,
+   107,
+   242,
+   159
+  ],
+  "color": 2,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     192,
+     119,
+     244,
+     174
+    ],
+    1,
+    "contrast",
+    0.77
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ },
+ {
+  "stem": "DAVE_office_speckle_snap_07",
+  "share": 0.3,
+  "box": [
+   195,
+   107,
+   242,
+   159
+  ],
+  "color": 2,
+  "source": "contrast",
+  "partner": [
+   [
+    [
+     192,
+     119,
+     244,
+     174
+    ],
+    1,
+    "contrast",
+    0.77
+   ]
+  ],
+  "on_own_color_barrel": [],
+  "real_barrel_lost": []
+ }
+]
