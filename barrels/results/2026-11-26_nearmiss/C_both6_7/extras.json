@@ -1,0 +1,55 @@
+{
+ "name": "C_both6_7",
+ "group": "C",
+ "kind": "fixed",
+ "spec": "pc:6,7,pred",
+ "traps": {
+  "4A8B_lampmid3_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampmid6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": [
+    [
+     2,
+     426,
+     112,
+     469,
+     158
+    ]
+   ]
+  },
+  "4A8B_lampwarm6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  }
+ },
+ "describe": "pc:6,7,pred: partner-conditioned: stripe direction level 6 (anything), body direction level 7 (anything), edges 'pred'; then detector.detect with DetConfig defaults",
+ "folds": null,
+ "flood": {
+  "px_out_fixed": 634216,
+  "px_out": 751842,
+  "px_out_ratio": 1.185,
+  "px_in_fixed": 1481635,
+  "px_in": 1768088,
+  "px_in_ratio": 1.193,
+  "px_added_on_empty_frames": 46560,
+  "empty_frames": 22
+ },
+ "bottoms": {
+  "base_found": 211,
+  "kept": 203,
+  "lost_box_off": 0,
+  "lost_missed": 8,
+  "bottom_moved": 19,
+  "bottom_down": 17,
+  "bottom_up": 2,
+  "cand_bottom_err_mean": -0.32,
+  "cand_bottom_err_abs_mean": 1.48,
+  "base_bottom_err_mean": -0.37,
+  "base_bottom_err_abs_mean": 1.45,
+  "moved_px_abs_mean": 1.89
+ },
+ "seconds": 88.0
+}

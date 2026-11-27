@@ -1,0 +1,1910 @@
+{
+ "A_hyst1": {
+  "name": "A_hyst1",
+  "group": "A",
+  "what": "hyst:1",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   143.65
+  ],
+  "found": [
+   211,
+   234
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 30,
+  "lost": 7,
+  "extra_w": [
+   1.9333,
+   6.7
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   1.6
+  ],
+  "places_moved": [
+   "home_white -2.0",
+   "abp_gray +5.0",
+   "home_bathtile +0.2",
+   "home_glass -0.4",
+   "home_ottoman +7.0",
+   "uc_palewood -1.0",
+   "abp_white +1.0"
+  ],
+  "px_out_ratio": 2.577,
+  "px_in_ratio": 1.146,
+  "bottom_moved": 99,
+  "base_found": 211,
+  "lost_box_off": 4,
+  "lost_missed": 3,
+  "extreme_found": [
+   13,
+   29
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   5.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "A_hyst2": {
+  "name": "A_hyst2",
+  "group": "A",
+  "what": "hyst:2",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   138.1
+  ],
+  "found": [
+   211,
+   219
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 30,
+  "lost": 22,
+  "extra_w": [
+   1.9333,
+   14.5167
+  ],
+  "clean_empty": [
+   0,
+   1
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   3.6
+  ],
+  "places_moved": [
+   "home_white -2.0",
+   "campus_study -1.0",
+   "abp_gray +6.0",
+   "home_bathtile -0.5",
+   "home_glass -2.2",
+   "home_ottoman +7.0",
+   "uc_palewood -2.0",
+   "abp_white -1.0"
+  ],
+  "px_out_ratio": 6.029,
+  "px_in_ratio": 1.282,
+  "bottom_moved": 151,
+  "base_found": 211,
+  "lost_box_off": 9,
+  "lost_missed": 13,
+  "extreme_found": [
+   13,
+   33
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   5.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "A_hyst3": {
+  "name": "A_hyst3",
+  "group": "A",
+  "what": "hyst:3",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   133.2
+  ],
+  "found": [
+   211,
+   210
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 32,
+  "lost": 33,
+  "extra_w": [
+   1.9333,
+   23.4333
+  ],
+  "clean_empty": [
+   0,
+   1
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   7.6
+  ],
+  "places_moved": [
+   "home_white -6.0",
+   "campus_study -1.0",
+   "abp_gray +6.0",
+   "home_glass -3.6",
+   "home_ottoman +7.0",
+   "uc_palewood -1.0",
+   "abp_white -2.0"
+  ],
+  "px_out_ratio": 15.274,
+  "px_in_ratio": 1.397,
+  "bottom_moved": 159,
+  "base_found": 211,
+  "lost_box_off": 14,
+  "lost_missed": 19,
+  "extreme_found": [
+   13,
+   32
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   10.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "A_hyst_fit": {
+  "name": "A_hyst_fit",
+  "group": "A",
+  "what": "chosen in each fold",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   131.8
+  ],
+  "found": [
+   211,
+   209
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 0,
+  "lost": 2,
+  "extra_w": [
+   1.9333,
+   4.9333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "home_white -2.0"
+  ],
+  "px_out_ratio": 1.206,
+  "px_in_ratio": 1.005,
+  "bottom_moved": 15,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 2,
+  "extreme_found": [
+   13,
+   13
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {
+   "home_white": "hyst:1",
+   "campus_study": "fixed",
+   "abp_gray": "fixed",
+   "home_bathtile": "fixed",
+   "home_glass": "fixed",
+   "home_ottoman": "fixed",
+   "uc_palewood": "fixed",
+   "abp_white": "fixed",
+   "home_wooddesk": "fixed",
+   "home_black": "fixed"
+  }
+ },
+ "A_hyst_guard_fit": {
+  "name": "A_hyst_guard_fit",
+  "group": "A",
+  "what": "chosen in each fold",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   131.8
+  ],
+  "found": [
+   211,
+   209
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 0,
+  "lost": 2,
+  "extra_w": [
+   1.9333,
+   5.9333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "home_white -2.0"
+  ],
+  "px_out_ratio": 1.194,
+  "px_in_ratio": 1.005,
+  "bottom_moved": 0,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 2,
+  "extreme_found": [
+   13,
+   13
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {
+   "home_white": "hystg:1",
+   "campus_study": "fixed",
+   "abp_gray": "fixed",
+   "home_bathtile": "fixed",
+   "home_glass": "fixed",
+   "home_ottoman": "fixed",
+   "uc_palewood": "fixed",
+   "abp_white": "fixed",
+   "home_wooddesk": "fixed",
+   "home_black": "fixed"
+  }
+ },
+ "B_partner_fit": {
+  "name": "B_partner_fit",
+  "group": "B",
+  "what": "chosen in each fold",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   147.4667
+  ],
+  "found": [
+   211,
+   249
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 38,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   3.5667
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.4
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +5.0",
+   "home_ottoman +4.7",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.045,
+  "px_in_ratio": 1.149,
+  "bottom_moved": 19,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   58
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {
+   "home_white": "pc:5,5,pred",
+   "campus_study": "pc:5,5,pred",
+   "abp_gray": "pc:5,5,strict",
+   "home_bathtile": "pc:5,5,pred",
+   "home_glass": "pc:5,5,pred",
+   "home_ottoman": "pc:5,4,pred",
+   "uc_palewood": "pc:5,5,pred",
+   "abp_white": "pc:5,5,pred",
+   "home_wooddesk": "pc:5,5,pred",
+   "home_black": "pc:5,5,pred"
+  }
+ },
+ "D_partner_free_fit": {
+  "name": "D_partner_free_fit",
+  "group": "D",
+  "what": "chosen in each fold",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   132.2333
+  ],
+  "found": [
+   211,
+   214
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 13,
+  "lost": 10,
+  "extra_w": [
+   1.9333,
+   2.6667
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.2
+  ],
+  "places_moved": [
+   "home_white -1.0",
+   "campus_study -4.0",
+   "abp_gray +2.0",
+   "home_bathtile +0.5",
+   "home_glass -0.4",
+   "home_ottoman +2.3",
+   "abp_white -1.0"
+  ],
+  "px_out_ratio": 1.059,
+  "px_in_ratio": 1.08,
+  "bottom_moved": 99,
+  "base_found": 211,
+  "lost_box_off": 8,
+  "lost_missed": 2,
+  "extreme_found": [
+   13,
+   47
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {
+   "home_white": "pc:5,4,free",
+   "campus_study": "pc:2,5,free",
+   "abp_gray": "pc:5,0,strict",
+   "home_bathtile": "pc:1,1,free",
+   "home_glass": "pc:5,4,free",
+   "home_ottoman": "pc:5,1,free",
+   "uc_palewood": "pc:5,4,free",
+   "abp_white": "pc:5,4,free",
+   "home_wooddesk": "pc:5,4,free",
+   "home_black": "pc:5,4,free"
+  }
+ },
+ "C_wide_fit": {
+  "name": "C_wide_fit",
+  "group": "C",
+  "what": "chosen in each fold",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   147.4667
+  ],
+  "found": [
+   211,
+   249
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 38,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   3.5667
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.4
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +5.0",
+   "home_ottoman +4.7",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.045,
+  "px_in_ratio": 1.149,
+  "bottom_moved": 19,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   58
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {
+   "home_white": "pc:5,5,pred",
+   "campus_study": "pc:5,5,pred",
+   "abp_gray": "pc:5,5,strict",
+   "home_bathtile": "pc:5,5,pred",
+   "home_glass": "pc:5,5,pred",
+   "home_ottoman": "pc:5,4,pred",
+   "uc_palewood": "pc:5,5,pred",
+   "abp_white": "pc:5,5,pred",
+   "home_wooddesk": "pc:5,5,pred",
+   "home_black": "pc:5,5,pred"
+  }
+ },
+ "C_stripe1": {
+  "name": "C_stripe1",
+  "group": "C",
+  "what": "pc:1,0,strict",
+  "verdict": "NO CLEAR DIFFERENCE",
+  "found_w": [
+   133.8,
+   137.3
+  ],
+  "found": [
+   211,
+   218
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 7,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   1.9333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +0.5",
+   "home_ottoman +1.0"
+  ],
+  "px_out_ratio": 1.0,
+  "px_in_ratio": 1.005,
+  "bottom_moved": 2,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   15
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_stripe2": {
+  "name": "C_stripe2",
+  "group": "C",
+  "what": "pc:2,0,strict",
+  "verdict": "PASS (WEAK)",
+  "found_w": [
+   133.8,
+   138.9667
+  ],
+  "found": [
+   211,
+   224
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 13,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.1833
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +1.5",
+   "home_ottoman +1.7"
+  ],
+  "px_out_ratio": 1.0,
+  "px_in_ratio": 1.008,
+  "bottom_moved": 2,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   18
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_stripe3": {
+  "name": "C_stripe3",
+  "group": "C",
+  "what": "pc:3,0,strict",
+  "verdict": "PASS (WEAK)",
+  "found_w": [
+   133.8,
+   139.7167
+  ],
+  "found": [
+   211,
+   227
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 16,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.1833
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +2.2",
+   "home_ottoman +1.7"
+  ],
+  "px_out_ratio": 1.0,
+  "px_in_ratio": 1.01,
+  "bottom_moved": 1,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   20
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   5.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_stripe4": {
+  "name": "C_stripe4",
+  "group": "C",
+  "what": "pc:4,0,strict",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   140.2167
+  ],
+  "found": [
+   211,
+   229
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 18,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.1833
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +2.8",
+   "home_ottoman +1.7"
+  ],
+  "px_out_ratio": 1.0,
+  "px_in_ratio": 1.012,
+  "bottom_moved": 2,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   26
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   5.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_stripe5": {
+  "name": "C_stripe5",
+  "group": "C",
+  "what": "pc:5,0,strict",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   140.9667
+  ],
+  "found": [
+   211,
+   232
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 21,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.1833
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +3.5",
+   "home_ottoman +1.7"
+  ],
+  "px_out_ratio": 1.0,
+  "px_in_ratio": 1.014,
+  "bottom_moved": 3,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   30
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   5.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_stripe6": {
+  "name": "C_stripe6",
+  "group": "C",
+  "what": "pc:6,0,strict",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   144.1
+  ],
+  "found": [
+   211,
+   243
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 33,
+  "lost": 1,
+  "extra_w": [
+   1.9333,
+   5.1333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.25
+  ],
+  "places_moved": [
+   "abp_gray +2.0",
+   "home_bathtile +5.5",
+   "home_glass -0.2",
+   "home_ottoman +3.0"
+  ],
+  "px_out_ratio": 1.003,
+  "px_in_ratio": 1.025,
+  "bottom_moved": 3,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 1,
+  "extreme_found": [
+   13,
+   41
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   7.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body1": {
+  "name": "C_body1",
+  "group": "C",
+  "what": "pc:0,1,pred",
+  "verdict": "PASS (WEAK)",
+  "found_w": [
+   133.8,
+   138.4667
+  ],
+  "found": [
+   211,
+   219
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 10,
+  "lost": 2,
+  "extra_w": [
+   1.9333,
+   1.9333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +3.0",
+   "home_ottoman +1.7"
+  ],
+  "px_out_ratio": 1.002,
+  "px_in_ratio": 1.026,
+  "bottom_moved": 6,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 2,
+  "extreme_found": [
+   13,
+   15
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   2.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body2": {
+  "name": "C_body2",
+  "group": "C",
+  "what": "pc:0,2,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   140.9667
+  ],
+  "found": [
+   211,
+   227
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 16,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.1833
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +3.0",
+   "home_bathtile +0.5",
+   "home_ottoman +3.7"
+  ],
+  "px_out_ratio": 1.007,
+  "px_in_ratio": 1.086,
+  "bottom_moved": 13,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   19
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   2.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body3": {
+  "name": "C_body3",
+  "group": "C",
+  "what": "pc:0,3,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   143.8833
+  ],
+  "found": [
+   211,
+   232
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 21,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   1.9333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +4.0",
+   "home_bathtile +0.8",
+   "home_ottoman +4.3",
+   "abp_white +1.0"
+  ],
+  "px_out_ratio": 1.022,
+  "px_in_ratio": 1.107,
+  "bottom_moved": 16,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   24
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   2.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body4": {
+  "name": "C_body4",
+  "group": "C",
+  "what": "pc:0,4,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   146.2167
+  ],
+  "found": [
+   211,
+   238
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 27,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.3333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.2
+  ],
+  "places_moved": [
+   "abp_gray +4.0",
+   "home_bathtile +1.8",
+   "home_ottoman +4.7",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.034,
+  "px_in_ratio": 1.124,
+  "bottom_moved": 16,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   32
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   3.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body5": {
+  "name": "C_body5",
+  "group": "C",
+  "what": "pc:0,5,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   147.3
+  ],
+  "found": [
+   211,
+   239
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 28,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   3.3167
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.4
+  ],
+  "places_moved": [
+   "abp_gray +5.0",
+   "home_bathtile +1.5",
+   "home_ottoman +5.0",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.047,
+  "px_in_ratio": 1.147,
+  "bottom_moved": 17,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   45
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   3.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body6": {
+  "name": "C_body6",
+  "group": "C",
+  "what": "pc:0,6,pred",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   148.7167
+  ],
+  "found": [
+   211,
+   245
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 34,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   5.6333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   1.6
+  ],
+  "places_moved": [
+   "abp_gray +5.0",
+   "home_bathtile +3.2",
+   "home_ottoman +4.7",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.088,
+  "px_in_ratio": 1.154,
+  "bottom_moved": 20,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   70
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_body7": {
+  "name": "C_body7",
+  "group": "C",
+  "what": "pc:0,7,pred",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   142.3
+  ],
+  "found": [
+   211,
+   242
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 38,
+  "lost": 7,
+  "extra_w": [
+   1.9333,
+   45.9
+  ],
+  "clean_empty": [
+   0,
+   3
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   14.2833
+  ],
+  "places_moved": [
+   "home_white -2.0",
+   "campus_study -1.0",
+   "abp_gray +4.0",
+   "home_bathtile +3.5",
+   "home_ottoman +6.0",
+   "uc_palewood -1.0",
+   "abp_white -1.0"
+  ],
+  "px_out_ratio": 1.183,
+  "px_in_ratio": 1.177,
+  "bottom_moved": 17,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 7,
+  "extreme_found": [
+   13,
+   72
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   33.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    1
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both1_1": {
+  "name": "C_both1_1",
+  "group": "C",
+  "what": "pc:1,1,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   141.9667
+  ],
+  "found": [
+   211,
+   226
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 16,
+  "lost": 1,
+  "extra_w": [
+   1.9333,
+   1.9333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +5.0",
+   "home_bathtile +0.5",
+   "home_ottoman +2.7"
+  ],
+  "px_out_ratio": 1.002,
+  "px_in_ratio": 1.031,
+  "bottom_moved": 8,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 1,
+  "extreme_found": [
+   13,
+   17
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   2.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both2_2": {
+  "name": "C_both2_2",
+  "group": "C",
+  "what": "pc:2,2,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   144.8
+  ],
+  "found": [
+   211,
+   236
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 25,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.5167
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +5.0",
+   "home_bathtile +2.0",
+   "home_ottoman +4.0"
+  ],
+  "px_out_ratio": 1.007,
+  "px_in_ratio": 1.093,
+  "bottom_moved": 14,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   23
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   2.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both3_3": {
+  "name": "C_both3_3",
+  "group": "C",
+  "what": "pc:3,3,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   148.1333
+  ],
+  "found": [
+   211,
+   243
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 32,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.85
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.0
+  ],
+  "places_moved": [
+   "abp_gray +6.0",
+   "home_bathtile +3.0",
+   "home_ottoman +4.3",
+   "abp_white +1.0"
+  ],
+  "px_out_ratio": 1.022,
+  "px_in_ratio": 1.116,
+  "bottom_moved": 17,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   30
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   3.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both4_4": {
+  "name": "C_both4_4",
+  "group": "C",
+  "what": "pc:4,4,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   150.9667
+  ],
+  "found": [
+   211,
+   251
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 40,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   2.9167
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.2
+  ],
+  "places_moved": [
+   "abp_gray +6.0",
+   "home_bathtile +4.5",
+   "home_ottoman +4.7",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.034,
+  "px_in_ratio": 1.136,
+  "bottom_moved": 17,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   42
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both5_5": {
+  "name": "C_both5_5",
+  "group": "C",
+  "what": "pc:5,5,pred",
+  "verdict": "PASS",
+  "found_w": [
+   133.8,
+   152.8
+  ],
+  "found": [
+   211,
+   257
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 46,
+  "lost": 0,
+  "extra_w": [
+   1.9333,
+   3.2333
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   0.4
+  ],
+  "places_moved": [
+   "abp_gray +6.0",
+   "home_bathtile +5.0",
+   "home_ottoman +6.0",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.047,
+  "px_in_ratio": 1.161,
+  "bottom_moved": 19,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "extreme_found": [
+   13,
+   58
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   4.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both6_6": {
+  "name": "C_both6_6",
+  "group": "C",
+  "what": "pc:6,6,pred",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   156.4333
+  ],
+  "found": [
+   211,
+   271
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 61,
+  "lost": 1,
+  "extra_w": [
+   1.9333,
+   8.5
+  ],
+  "clean_empty": [
+   0,
+   0
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   1.85
+  ],
+  "places_moved": [
+   "abp_gray +6.0",
+   "home_bathtile +8.5",
+   "home_glass -0.2",
+   "home_ottoman +6.3",
+   "abp_white +2.0"
+  ],
+  "px_out_ratio": 1.091,
+  "px_in_ratio": 1.173,
+  "bottom_moved": 20,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 1,
+  "extreme_found": [
+   13,
+   86
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   7.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ },
+ "C_both6_7": {
+  "name": "C_both6_7",
+  "group": "C",
+  "what": "pc:6,7,pred",
+  "verdict": "FAIL",
+  "found_w": [
+   133.8,
+   151.0167
+  ],
+  "found": [
+   211,
+   269
+  ],
+  "barrels": 307,
+  "placements": 172,
+  "gained": 66,
+  "lost": 8,
+  "extra_w": [
+   1.9333,
+   50.0167
+  ],
+  "clean_empty": [
+   0,
+   3
+  ],
+  "cluttered_empty_w": [
+   0.0,
+   14.7833
+  ],
+  "places_moved": [
+   "home_white -2.0",
+   "campus_study -1.0",
+   "abp_gray +6.0",
+   "home_bathtile +8.8",
+   "home_glass -0.2",
+   "home_ottoman +7.7",
+   "uc_palewood -1.0",
+   "abp_white -1.0"
+  ],
+  "px_out_ratio": 1.185,
+  "px_in_ratio": 1.193,
+  "bottom_moved": 19,
+  "base_found": 211,
+  "lost_box_off": 0,
+  "lost_missed": 8,
+  "extreme_found": [
+   13,
+   88
+  ],
+  "extreme_barrels": 167,
+  "extreme_extra_w": [
+   4.0,
+   36.0
+  ],
+  "traps": {
+   "lampmid3_bathtile_neg_02": [
+    0,
+    0
+   ],
+   "lampmid6_bathtile_neg_02": [
+    0,
+    1
+   ],
+   "lampwarm6_bathtile_neg_02": [
+    0,
+    0
+   ]
+  },
+  "folds": {}
+ }
+}

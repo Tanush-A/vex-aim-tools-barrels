@@ -1,0 +1,438 @@
+{
+ "name": "D_partner_free_fit",
+ "group": "D",
+ "kind": "fit",
+ "spec": null,
+ "traps": {
+  "4A8B_lampmid3_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampmid6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampwarm6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  }
+ },
+ "describe": "D_partner_free_fit: partner-conditioned, stripe and body level 0..5, edges free (unprotected); the setting is chosen in each fold on the other places (rule: PREREG.md)",
+ "folds": {
+  "home_white": {
+   "spec": "pc:5,4,free",
+   "J": 111.483,
+   "J_fixed": 101.933,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,4,free",
+     "J": 111.483,
+     "found_w": 119.32,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 110.733,
+     "found_w": 118.57,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:2,4,free",
+     "J": 109.817,
+     "found_w": 118.32,
+     "extra_w": 4.25
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 109.6,
+     "found_w": 114.63,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:3,4,free",
+     "J": 109.567,
+     "found_w": 118.07,
+     "extra_w": 4.25
+    }
+   ]
+  },
+  "campus_study": {
+   "spec": "pc:2,5,free",
+   "J": 104.6,
+   "J_fixed": 94.933,
+   "settings": 36,
+   "eligible": 24,
+   "top5": [
+    {
+     "spec": "pc:2,5,free",
+     "J": 104.6,
+     "found_w": 111.47,
+     "extra_w": 3.43
+    },
+    {
+     "spec": "pc:5,4,free",
+     "J": 104.483,
+     "found_w": 112.32,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:1,5,free",
+     "J": 103.767,
+     "found_w": 110.13,
+     "extra_w": 3.18
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 103.733,
+     "found_w": 111.57,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:2,4,free",
+     "J": 102.817,
+     "found_w": 111.32,
+     "extra_w": 4.25
+    }
+   ]
+  },
+  "abp_gray": {
+   "spec": "pc:5,0,strict",
+   "J": 124.6,
+   "J_fixed": 119.933,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,0,strict",
+     "J": 124.6,
+     "found_w": 128.97,
+     "extra_w": 2.18
+    },
+    {
+     "spec": "pc:5,4,free",
+     "J": 124.483,
+     "found_w": 130.32,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:4,0,strict",
+     "J": 123.85,
+     "found_w": 128.22,
+     "extra_w": 2.18
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 123.733,
+     "found_w": 129.57,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 123.6,
+     "found_w": 128.63,
+     "extra_w": 2.52
+    }
+   ]
+  },
+  "home_bathtile": {
+   "spec": "pc:1,1,free",
+   "J": 130.933,
+   "J_fixed": 125.933,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:2,1,free",
+     "J": 130.933,
+     "found_w": 135.47,
+     "extra_w": 2.27
+    },
+    {
+     "spec": "pc:1,1,free",
+     "J": 130.933,
+     "found_w": 135.47,
+     "extra_w": 2.27
+    },
+    {
+     "spec": "pc:3,1,free",
+     "J": 130.933,
+     "found_w": 134.8,
+     "extra_w": 1.93
+    },
+    {
+     "spec": "pc:4,1,free",
+     "J": 130.6,
+     "found_w": 135.13,
+     "extra_w": 2.27
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 130.6,
+     "found_w": 135.13,
+     "extra_w": 2.27
+    }
+   ]
+  },
+  "home_glass": {
+   "spec": "pc:5,4,free",
+   "J": 126.083,
+   "J_fixed": 116.333,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,4,free",
+     "J": 126.083,
+     "found_w": 131.92,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 125.333,
+     "found_w": 131.17,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:2,4,free",
+     "J": 124.417,
+     "found_w": 130.92,
+     "extra_w": 3.25
+    },
+    {
+     "spec": "pc:3,4,free",
+     "J": 124.167,
+     "found_w": 130.67,
+     "extra_w": 3.25
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 124.0,
+     "found_w": 127.83,
+     "extra_w": 1.92
+    }
+   ]
+  },
+  "home_ottoman": {
+   "spec": "pc:5,1,free",
+   "J": 133.6,
+   "J_fixed": 127.6,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,1,free",
+     "J": 133.6,
+     "found_w": 137.3,
+     "extra_w": 1.85
+    },
+    {
+     "spec": "pc:4,1,free",
+     "J": 132.85,
+     "found_w": 136.55,
+     "extra_w": 1.85
+    },
+    {
+     "spec": "pc:5,0,strict",
+     "J": 132.6,
+     "found_w": 136.3,
+     "extra_w": 1.85
+    },
+    {
+     "spec": "pc:3,1,free",
+     "J": 132.35,
+     "found_w": 136.05,
+     "extra_w": 1.85
+    },
+    {
+     "spec": "pc:5,4,free",
+     "J": 132.15,
+     "found_w": 138.65,
+     "extra_w": 3.25
+    }
+   ]
+  },
+  "uc_palewood": {
+   "spec": "pc:5,4,free",
+   "J": 127.483,
+   "J_fixed": 118.933,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,4,free",
+     "J": 127.483,
+     "found_w": 133.32,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:2,2,free",
+     "J": 126.967,
+     "found_w": 130.0,
+     "extra_w": 1.52
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 126.733,
+     "found_w": 132.57,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 126.6,
+     "found_w": 129.63,
+     "extra_w": 1.52
+    },
+    {
+     "spec": "pc:1,2,free",
+     "J": 126.133,
+     "found_w": 128.67,
+     "extra_w": 1.27
+    }
+   ]
+  },
+  "abp_white": {
+   "spec": "pc:5,4,free",
+   "J": 113.483,
+   "J_fixed": 103.933,
+   "settings": 36,
+   "eligible": 24,
+   "top5": [
+    {
+     "spec": "pc:5,4,free",
+     "J": 113.483,
+     "found_w": 121.32,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:5,2,free",
+     "J": 112.967,
+     "found_w": 120.0,
+     "extra_w": 3.52
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 112.733,
+     "found_w": 120.57,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 112.6,
+     "found_w": 117.63,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:4,2,free",
+     "J": 112.217,
+     "found_w": 119.25,
+     "extra_w": 3.52
+    }
+   ]
+  },
+  "home_wooddesk": {
+   "spec": "pc:5,4,free",
+   "J": 138.483,
+   "J_fixed": 129.933,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,4,free",
+     "J": 138.483,
+     "found_w": 146.32,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 137.733,
+     "found_w": 145.57,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 137.6,
+     "found_w": 142.63,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:4,1,free",
+     "J": 136.85,
+     "found_w": 141.88,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:2,4,free",
+     "J": 136.817,
+     "found_w": 145.32,
+     "extra_w": 4.25
+    }
+   ]
+  },
+  "home_black": {
+   "spec": "pc:5,4,free",
+   "J": 138.483,
+   "J_fixed": 129.933,
+   "settings": 36,
+   "eligible": 21,
+   "top5": [
+    {
+     "spec": "pc:5,4,free",
+     "J": 138.483,
+     "found_w": 146.32,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:4,4,free",
+     "J": 137.733,
+     "found_w": 145.57,
+     "extra_w": 3.92
+    },
+    {
+     "spec": "pc:5,1,free",
+     "J": 137.6,
+     "found_w": 142.63,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:4,1,free",
+     "J": 136.85,
+     "found_w": 141.88,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:2,4,free",
+     "J": 136.817,
+     "found_w": 145.32,
+     "extra_w": 4.25
+    }
+   ]
+  }
+ },
+ "flood": {
+  "px_out_fixed": 634216,
+  "px_out": 671492,
+  "px_out_ratio": 1.059,
+  "px_in_fixed": 1481635,
+  "px_in": 1599980,
+  "px_in_ratio": 1.08,
+  "px_added_on_empty_frames": 4578,
+  "empty_frames": 22
+ },
+ "bottoms": {
+  "base_found": 211,
+  "kept": 201,
+  "lost_box_off": 8,
+  "lost_missed": 2,
+  "bottom_moved": 99,
+  "bottom_down": 48,
+  "bottom_up": 51,
+  "cand_bottom_err_mean": -0.69,
+  "cand_bottom_err_abs_mean": 2.16,
+  "base_bottom_err_mean": -0.37,
+  "base_bottom_err_abs_mean": 1.45,
+  "moved_px_abs_mean": 3.69
+ },
+ "seconds": 93.1
+}

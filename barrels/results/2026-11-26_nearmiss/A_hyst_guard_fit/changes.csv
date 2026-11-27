@@ -1,0 +1,3 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_window_light_occl_01,2,blue,386 115 430 161,found,missed,lost,home_white,window_light,1
+4A8B_window_light_occl_02,2,orange,395 114 441 158,found,missed,lost,home_white,window_light,1

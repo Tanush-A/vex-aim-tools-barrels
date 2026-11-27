@@ -1,0 +1,47 @@
+{
+ "name": "A_hyst3",
+ "group": "A",
+ "kind": "fixed",
+ "spec": "hyst:3",
+ "traps": {
+  "4A8B_lampmid3_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampmid6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampwarm6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  }
+ },
+ "describe": "hyst:3: two-level thresholds: loose = hue +-10, S -60, V >= 25, kept when connected to strict; then detector.detect with DetConfig defaults",
+ "folds": null,
+ "flood": {
+  "px_out_fixed": 634216,
+  "px_out": 9686932,
+  "px_out_ratio": 15.274,
+  "px_in_fixed": 1481635,
+  "px_in": 2069519,
+  "px_in_ratio": 1.397,
+  "px_added_on_empty_frames": 1487575,
+  "empty_frames": 22
+ },
+ "bottoms": {
+  "base_found": 211,
+  "kept": 178,
+  "lost_box_off": 14,
+  "lost_missed": 19,
+  "bottom_moved": 159,
+  "bottom_down": 122,
+  "bottom_up": 37,
+  "cand_bottom_err_mean": -0.06,
+  "cand_bottom_err_abs_mean": 1.83,
+  "base_bottom_err_mean": -0.37,
+  "base_bottom_err_abs_mean": 1.45,
+  "moved_px_abs_mean": 3.0
+ },
+ "seconds": 62.0
+}
