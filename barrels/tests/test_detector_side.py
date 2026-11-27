@@ -168,12 +168,19 @@ def test_stripe_eaten_at_both_seams_is_read_at_the_seams():
     assert len(out) == 1 and det.box_iou(out[0].bbox, truth) > 0.9
 
 
-def test_seam_height_is_not_asked_of_a_short_piece():
-    """Thin because the seams were eaten, or short because partly hidden, not both. A thin piece under 0.8 of a barrel
-    long is not read a second time (in a campus clip: a blue sliver between two fingers, skin above and below)."""
+def test_seam_height_is_asked_of_a_short_piece_only_when_the_rest_of_the_barrel_agrees():
+    """Thin because the seams were eaten, or short because partly hidden: a thin piece under 0.8 of a barrel long is read
+    a second time only when the rest of the barrel says it is seen whole (``rest_of_barrel_agrees``, adopted from
+    experiments/2026-11-26_slack, rule D): its top and bottom where its row puts them, and one side where the body ends
+    with the stripe. Before the adoption such a piece was never read again (this test said so)."""
     mask, truth, _ = _far_barrel_with_eaten_edges(2)
-    mask[:, truth[0] + int(round(0.6 * (truth[2] - truth[0]))):] = 0             # ... and only its left 0.6 shows
-    log = []
+    cut = truth[0] + int(round(0.6 * (truth[2] - truth[0])))
+    mask[:, cut:] = 0                                                              # ... and only its left 0.6 shows
+    out = det.detect(mask, cam=CAM)
+    assert len(out) == 1 and "occluded" in out[0].flags and det.box_iou(out[0].bbox, truth) > 0.5
+    rows = mask[:, truth[0] + 3] == io.ORANGE
+    mask[rows, truth[0] - 15:cut + 15] = io.ORANGE                                 # the body runs on past both ends of the stripe:
+    log = []                                                                       # no side is a barrel's own (a sliver between two fingers)
     assert det.detect(mask, cam=CAM, log=log) == []
     assert any(e["stage"] == "stripe" and e["why"] == "height" and "seam_h" not in e for e in log)
 
