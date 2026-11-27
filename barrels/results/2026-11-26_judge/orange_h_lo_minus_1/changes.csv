@@ -1,0 +1,5 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_both_abpgray_core_01,4,orange,408 125 472 192,missed,found,gained,abp_gray,both_abpgray,1
+4A8B_both_abpgray_edge_01,1,orange,291 127 356 197,missed,found,gained,abp_gray,both_abpgray,1
+4A8B_both_abpgray_touch_01,1,orange,193 124 247 181,missed,found,gained,abp_gray,both_abpgray,1
+4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,found,gained,abp_gray,both_abpgray,1

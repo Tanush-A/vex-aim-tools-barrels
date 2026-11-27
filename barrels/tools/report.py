@@ -9,6 +9,7 @@ width ratio / bottom error for a candidate and a baseline side by side, and the 
     python barrels/tools/report.py --sets CAMPUS,DAVE --out          # fewer sets; also write results/<date>_eval_report/
 
     python barrels/tools/report.py --vendor                          # today vs the robot's built-in (vendor) detector
+    python barrels/tools/report.py --places --base-model default     # also: the run per placement and by place (a misplaced box once)
     python barrels/tools/report.py --gate                            # the never-regress check on today's defaults
     python barrels/tools/report.py --gate --cand-det stripe_merge=1.68  # ... on a candidate, before it becomes the default
     python barrels/tools/report.py --save-baseline                   # store today's numbers as the baseline the check compares with
@@ -26,12 +27,25 @@ against the same labels. Both arms are then scored only on the frames that have 
 how many of each set do. Under the table it prints two looser counts (found by overlap alone, found by position),
 because the vendor may not draw its boxes the way our labels are drawn. ``--loose`` prints them for any two arms.
 
-The never-regress check (``--gate``) runs the candidate, compares it row by row with the stored baseline
-(results/baseline/baseline.json) and exits 1 when a scenario row of a protected set (results/baseline/protected.json:
-HOME, CAMPUS) lost a found barrel or gained a false box, or when any set gained a box on an empty frame. Other sets
-are listed for information; rows that are not in the baseline are "new" and never fail. Exit 0 = pass, 2 = no
-baseline. ``--save-baseline`` stores the candidate's numbers (normally today's defaults, right after a merge); it
-refuses to replace a baseline with a worse one unless ``--force`` is given. Code: src/barrels/gate.py.
+By place (``--places``; always on with a vendor arm): under the table, the same run counted per placement. One barrel
+in one arrangement is one placement, however many lamp settings it was shot under; it counts the share of its lights
+in which it is found. Rows are places (table and room, data/conditions.json), with the placements each number rests
+on. Next to the strict count: found with the box off (a same-color box is on the barrel but fails the strict rule),
+missed, and the boxes that are not on their barrel (wrong color, a second box, on nothing). In a vendor comparison the
+white tables without vendor files get a row marked ASSUMED: the vendor counts as finding every barrel there (Tanush,
+2026-11-26), which is an assumption and never part of a measured total. Code: src/barrels/counting.py.
+
+The never-regress check (``--gate``; with a margin since 2026-11-26) runs the candidate and compares it with the
+stored baseline (results/baseline/baseline.json, one line per frame). It exits 1 when a protected set
+(results/baseline/protected.json: HOME, CAMPUS, the glass table, pale wood, the ABP white occlusion set, the bathroom
+under the cool lamp) is worse than the baseline BY MORE THAN ITS MARGIN: found (strict rule, every placement once)
+lower, or boxes that are not on their barrel higher. The margins are the largest change that a change which means
+nothing produced in that set (results/baseline/margins.json, measured by experiments/2026-11-26_noise_floor/run.py).
+A new box on a clean empty frame fails in any set. Every barrel and box that changed is listed, pass or fail. Other
+sets are listed for information; a set that is not in the baseline is "new" and cannot fail. Exit 0 = pass, 2 = no
+usable baseline. ``--save-baseline`` stores the candidate's run (normally today's defaults, right after a merge); it
+refuses to replace a baseline with a run that is lower anywhere, even inside a margin, unless ``--force`` is given.
+Code: src/barrels/gate.py.
 
 Data sets are found by themselves: every ``{robot}_{light}_{surface}`` group that has box labels
 (data/labels/*_boxes.json) is a block of rows — HOME (4A8B_window_light), CAMPUS (4A8B_campus_light), DAVE*
@@ -82,30 +96,41 @@ def run_gate(args, cand: rp.Arm) -> int:
                          "protocol and a detector arm: drop --sets / --split / --home-protocol / the vendor arm")
     path = Path(args.baseline) if args.baseline else gt.BASELINE_PATH
     protected = gt.load_protected(path.parent / gt.PROTECTED_PATH.name)
-    old = gt.load_baseline(path) if path.exists() else None
+    margins = gt.load_margins(path.parent / gt.MARGINS_PATH.name)
+    old = None
+    if path.exists():
+        try:
+            old = gt.load_baseline(path)
+        except ValueError as e:                 # a baseline of the first version (row counts): nothing to compare per barrel
+            if args.gate:
+                print(f"the stored baseline at {path} cannot be used: {e}")
+                return 2
+            print(f"note: the stored baseline cannot be compared with ({e}); it is replaced.\n")
     if args.gate and old is None:
         print(f"no stored baseline at {path}: save one first with  python barrels/tools/report.py --save-baseline")
         return 2
     rep = rp.make_report(cand, cand)            # the same arm twice = it runs once
     if not rep.rows:
         print("no labeled frames to check"); return 2
-    now = gt.snapshot(rep, made=dt.date.today().isoformat())
+    try:
+        now = gt.snapshot(rep, made=dt.date.today().isoformat())
+    except ValueError as e:
+        print(f"cannot check: {e}"); return 2
     if args.gate:
-        res = gt.compare(old, now, protected)
+        res = gt.compare(old, now, protected, margins)
         print(gt.format_gate(res))
         return 0 if res.passed else 1
     if old is not None:
-        res = gt.compare(old, now, protected)
+        res = gt.compare(old, now, protected, margins)
         print(gt.format_gate(res, title="NEW BASELINE against the one it replaces"))
-        if not res.passed and not args.force:
-            print(f"\nNOT SAVED: the new numbers are worse than the stored baseline. {path} is unchanged. "
-                  "If this is intended (frames or labels changed, and the table was checked by eye), repeat with --force.")
+        if (not res.passed or res.lower) and not args.force:
+            print(f"\nNOT SAVED: the new run is lower than the stored baseline in: {', '.join(res.lower) or 'see RESULT'}. {path} is unchanged. "
+                  "A run that is lower inside its margin passes the check, but storing it would move the reference down. "
+                  "If this is intended (frames or labels changed, or the loss is accepted, and the lists above were read), repeat with --force.")
             return 1
         print()
     gt.save_baseline(now, path)
-    home = next((r for r in now["rows"] if r["label"] == "HOME" and not r["scene"]), None)
-    print(f"baseline saved to {path} (git {now['git']}, {now['made']}; {len(now['rows'])} rows"
-          + (f"; HOME found {home['found']} of {home['barrels']}" if home else "") + "). Commit it.")
+    print(f"baseline saved to {path} (git {now['git']}, {now['made']}; {len(now['frames'])} frames). Commit it.")
     return 0
 
 
@@ -117,6 +142,10 @@ def main(argv=None) -> int:
     ap.add_argument("--base-det", action="append", default=[], metavar="FIELD=VALUE", help="DetConfig override(s) for the baseline")
     ap.add_argument("--vendor", action="store_true",
                     help="compare the candidate with the robot's built-in detector: the same as --base-model vendor (frames with a vendor file only)")
+    ap.add_argument("--places", action="store_true",
+                    help="also print the run counted per placement and by place (each physical barrel once; a box on a barrel that fails the "
+                         "strict rule counted once, not as a miss plus a false box); always on with a vendor arm, where the white tables "
+                         "without vendor files get an ASSUMED row")
     ap.add_argument("--loose", action="store_true",
                     help="also print the two looser counts (found by overlap alone; found by position) for any two arms; always on with a vendor arm")
     ap.add_argument("--sets", default="", help="only these data sets, comma-separated (HOME, CAMPUS, DAVE or a {robot}_{light}_{surface} key)")
@@ -126,9 +155,9 @@ def main(argv=None) -> int:
     ap.add_argument("--out", nargs="?", const="eval_report", default=None, metavar="NAME",
                     help="also write report.md / .csv / .json to results/<today>_<NAME>/ (NAME defaults to eval_report; an absolute path is used as it is)")
     ap.add_argument("--gate", action="store_true",
-                    help="the never-regress check: run the candidate and compare it with the stored baseline, row by row; exit 1 when a protected row got worse")
-    ap.add_argument("--save-baseline", action="store_true", help="store the candidate's numbers (normally today's defaults) as the baseline --gate compares with")
-    ap.add_argument("--force", action="store_true", help="with --save-baseline: replace the stored baseline even when the new numbers are worse")
+                    help="the never-regress check: run the candidate and compare it with the stored baseline; exit 1 when a protected set is worse by more than its margin")
+    ap.add_argument("--save-baseline", action="store_true", help="store the candidate's run (normally today's defaults) as the baseline --gate compares with")
+    ap.add_argument("--force", action="store_true", help="with --save-baseline: replace the stored baseline even when the new run is lower somewhere")
     ap.add_argument("--baseline", default=None, metavar="PATH", help=f"the baseline file for --gate / --save-baseline (default: {gt.BASELINE_PATH})")
     args = ap.parse_args(argv)
     try:
@@ -149,9 +178,13 @@ def main(argv=None) -> int:
             print("no labeled frames to report on")
         return 1
     print(rp.format_text(rep))
+    places = args.places or rep.vendor is not None
+    if places:
+        print()
+        print(rp.format_places(rep))
     if args.out is not None:
         out = Path(args.out) if Path(args.out).is_absolute() else cv.fresh_dir(io.PKG_ROOT / "results" / f"{dt.date.today().isoformat()}_{args.out}")
-        rp.write_all(rep, out, title=f"Eval report: {cand.describe()}  vs  {base.describe()}")
+        rp.write_all(rep, out, title=f"Eval report: {cand.describe()}  vs  {base.describe()}", places=places and rep.placements is not None)
         print("written to", out)
     return 0
 

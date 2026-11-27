@@ -190,6 +190,72 @@ def test_reports_without_the_vendor_are_written_exactly_as_before():
     assert "loose" not in rp.Cell().to_dict()
 
 
+# ---------------------------------------------------------------- by place; the vendor ASSUMED where it was not measured
+
+GRAY, HOME_SET = "4A8B_both_abpgray", "4A8B_window_light"      # an ordinary condition with vendor files; home: none, marked vendor_assumed
+
+
+@pytest.fixture
+def two_places(tmp_path):
+    """(labels_dir, vendor_dir, splits): the gray table with vendor files (the vendor finds the orange barrel, draws
+    the blue one's box 20 px short, and boxes something on the clutter-only frame), and two home frames without."""
+    labels, vendor = tmp_path / "labels", tmp_path / "vendor"
+    labels.mkdir(); vendor.mkdir()
+    frames = {f"{GRAY}_core_01": ([("orange", ORANGE_BOX), ("blue", BLUE_BOX)], record_for(ORANGE_ITEM, aiobj("BlueBarrel", 3, 10, 20, 30, 30)), True),
+              f"{GRAY}_neg_02": ([], record_for(ORANGE_ITEM), False),
+              f"{HOME_SET}_core_01": ([("orange", ORANGE_BOX), ("blue", BLUE_BOX)], None, True),
+              f"{HOME_SET}_neg_01": ([], None, True)}
+    for s, (barrels, rec, clean) in frames.items():
+        io.boxes_path(s, labels).write_text(json.dumps({"version": 1, "stem": s, "negative": not barrels, "clean": clean,
+                                                        "barrels": [{"id": i + 1, "color": c, "bbox": bb} for i, (c, bb) in enumerate(barrels)]}))
+        if rec is not None:
+            io.vendor_path(s, vendor).write_text(json.dumps(rec))
+    return labels, vendor, {"train": list(frames), "dev": [], "test": [], "measured": []}
+
+
+def test_by_place_with_the_vendor_assumed_on_the_white_table(two_places, tmp_path):
+    from barrels import counting as ct
+    labels, vendor, splits = two_places
+    rep = rp.make_report(rp.vendor_arm("candidate"), rp.vendor_arm("baseline"), labels_dir=labels, splits=splits, vendor_dir=vendor)
+    home = [f"{HOME_SET}_core_01", f"{HOME_SET}_neg_01"]
+    assert rep.assumed == home and list(rep.selection.sets) == [GRAY]                     # the one table still holds measured frames only
+    assert rep.subtotal(GRAY).base.found == 1 and rep.subtotal(GRAY).base.false == 2      # strict: the short box is a miss plus a false box
+    core = rep.base_counts[f"{GRAY}_core_01"]
+    assert sorted(core.gt) == [ct.FOUND, ct.OFF] and core.extra == 0                      # second accounting: found, box off; no false box
+    assert rep.base_counts[home[0]].assumed and rep.base_counts[home[0]].gt == (ct.FOUND, ct.FOUND)
+    t = rp.place_tables(rep)
+    assert [r.name for r in t["places"]] == ["abp_gray", "measured, all places", "home_white (vendor ASSUMED)", "measured + ASSUMED"]
+    measured, with_assumed = t["places"][1].arms[1], t["places"][3].arms[1]
+    assert (measured.placements, measured.found_w, measured.off_w, measured.nothing, measured.empty, measured.assumed_frames) == (2, 1.0, 1.0, 1, 1, 0)
+    assert (with_assumed.placements, with_assumed.found_w, with_assumed.assumed_frames) == (4, 3.0, 2)     # never mixed in silently: counted and starred
+    assert t["places"][2].arms[1].assumed and [r.name for r in t["conditions"]] == ["abp_gray / both_abpgray", "home_white / window_light (vendor ASSUMED)"]
+    text = rp.format_places(rep)
+    assert "ASSUMED, NOT MEASURED: the vendor has no file on 2 frames (window_light)" in text and "BASELINE = VENDOR" in text
+    row = next(x for x in text.split("\n") if x.startswith("home_white (vendor ASSUMED)"))
+    assert row.split("|")[2].split() == ["2.0*", "2*"] + ["-"] * 6                        # an assumed number is starred; nothing is said about its boxes
+    total = next(x for x in text.split("\n") if x.startswith("measured + ASSUMED"))
+    assert total.split("|")[2].split()[:2] == ["3.0*", "3*"]
+    out = rp.write_all(rep, tmp_path / "r", title="t", places=True)
+    d = json.loads((out / "places.json").read_text())
+    assert d["assumed_frames"] == home and d["places"][1]["arms"][1]["found_w"] == 1.0 and "ASSUMED" in (out / "places.md").read_text()
+
+
+def test_a_condition_with_one_vendor_file_is_measured_not_assumed(two_places):
+    labels, vendor, splits = two_places
+    io.vendor_path(f"{HOME_SET}_core_01", vendor).write_text(json.dumps(record_for(ORANGE_ITEM)))
+    rep = rp.make_report(rp.vendor_arm("candidate"), rp.vendor_arm("baseline"), labels_dir=labels, splits=splits, vendor_dir=vendor)
+    assert rep.assumed == [] and list(rep.selection.sets) == [HOME_SET, GRAY]
+    t = rp.place_tables(rep)
+    assert [r.name for r in t["places"]] == ["home_white", "abp_gray", "measured, all places"] and t["places"][0].arms[1].found == 1
+    text = rp.format_places(rep)
+    assert "(vendor ASSUMED)" not in text and "ASSUMED, NOT MEASURED" not in text and "*" not in text.split("found = strict hits")[0]
+
+
+def test_a_report_without_counts_says_so_instead_of_a_by_place_table():
+    from test_report import make_rep
+    assert rp.format_places(make_rep()).startswith("BY PLACE: this report carries no per-frame counts")
+
+
 # ---------------------------------------------------------------- the command
 
 def test_command_vendor_options(monkeypatch, capsys):

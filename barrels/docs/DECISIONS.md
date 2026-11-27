@@ -21,6 +21,47 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-26 — How results are counted and judged (merged 2026-11-26 while Tanush is away, on his word to do the measurement step without a go; the walkthrough is still owed)
+
+- **Proposed** (each follows a decision Tanush took on 2026-11-26; the numbers and definitions are the new part):
+  1. **Counting.** Results are reported per placement and by place, with the placements each number rests on. The
+     count per frame stays beside it. The strict v2 rule is unchanged.
+  2. **A misplaced box counts once.** A box is on a barrel when at least half of the smaller of the two boxes lies
+     inside the other. Strict hits first; then found with the box off; boxes left are wrong color, second box or on
+     nothing. The same for ours and for the vendor.
+  3. **The vendor on white tables** is shown as an ASSUMED row (home, campus), never inside a measured total.
+  4. **Margins are measured, not chosen:** the largest change, per direction, that a change which means nothing (one
+     step of one color number, or several at once) produced at that level; never less than one whole unit. Stored in
+     `results/baseline/margins.json`; re-measured when the default changes.
+  5. **Never-regress with a margin.** Protected sets judged on totals; a set fails only beyond its margin (1 placement
+     and 1 box; the cool-lamp bathroom 5 placements); every changed barrel listed; a new box on a clean empty frame
+     still fails outright. Protected from now on: HOME, CAMPUS, the glass table, pale wood, the ABP white occlusion
+     set, the bathroom under the cool lamp. The stored baseline is not replaced by a lower run without `--force`.
+  6. **One pass rule for experiments** (`tools/judge.py`): PASS / FAIL / NO CLEAR DIFFERENCE from the four clauses of
+     `EVAL.md`; fitted candidates leave one place out.
+- **Why.** The review: sample sizes 3 to 5 times smaller than they looked; a comparison with the vendor that depended
+  on a double charge; a gate and pass rules tighter than one hue unit.
+- **Alternatives, and what was not taken.**
+  - *"On a barrel" by IoU ≥ 0.5:* keeps the double charge for a box around the visible half of a hidden barrel.
+    *By center distance:* depends on the true width and is not nested with the strict rule. On today's frames the
+    chosen test and the center test agree on every box.
+  - *One margin for both directions* (as first registered: 10.92 placements). Not taken, because no change that means
+    nothing gained more than 4.00. **This choice changes one verdict** (the light rule C2: PASS instead of NO CLEAR
+    DIFFERENCE). If you prefer the cautious version: one line in `margins.json` (`found_gain`), or use the block
+    `as_first_registered`.
+  - *The 90th percentile instead of the maximum:* a rule with four clauses would then call one or two changes that
+    mean nothing in every clause.
+  - *Not extending the protected list* (the review's advice: these sets were picked where we beat the vendor under a
+    contested rule, and a list that only grows makes every change harder). Extended anyway, as the final report of
+    2026-11-25 proposed and as this task asked; the two objections are answered by the form: a set under five lights
+    counts 15 placements, not 75 barrels, and a set fails only beyond a margin. To drop a set, delete its line in
+    `protected.json`.
+- **Known weak points.** 172 placements at 8 places: a gain under 4 placements is invisible. The ABP gray table has a
+  margin of 6 of 16. The rule called 2 of 12 unseen changes that mean nothing. The neighbours of the fixed model are
+  small real changes, not random noise.
+- **Who.** Proposed by Claude (measurement session, 2026-11-26) on the lines Tanush set that day. Awaiting the
+  walkthrough.
+
 ## 2026-11-26 — After the review: the order of work, labels, never-regress, the vendor on white, calibration
 
 - **Decision:**

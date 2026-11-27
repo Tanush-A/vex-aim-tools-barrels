@@ -153,7 +153,8 @@ def parse_gate(out: str) -> dict:
         if s.startswith("RESULT:"):
             res["result_line"] = s
             res["verdict"] = "PASS" if s.startswith("RESULT: PASS") else "FAIL"
-            res["failing"] = [x.strip() for grp in re.findall(r"row\(s\)[^()]*\(([^()]*)\)", s) for x in grp.split(",") if x.strip()]
+            # the first gate named scenario rows; since 2026-11-26 it names protected sets and clean empty frames
+            res["failing"] = [x.strip() for grp in re.findall(r"(?:row|set|frame)\(s\)[^()]*\(([^()]*)\)", s) for x in grp.split(",") if x.strip()]
         elif s.endswith("[protected]"):
             res["protected"].append(re.sub(r"\s+", " ", s.replace("[protected]", "").strip()))
     for row in res["failing"]:
