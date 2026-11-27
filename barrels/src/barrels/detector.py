@@ -59,6 +59,13 @@ class DetConfig:
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe.
                                  # Never under 1: a barrel is one barrel wide
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
+    # The paint checks (stage 11, ``drop_unlike_paint``; 2026-11-27, experiments/2026-11-27_checks). Off by default while
+    # they are measured: each switch turns on one check; the numbers are those of experiments/2026-11-27_bluer_geom.
+    check_solid: bool = False    # EXPERIMENT SWITCH: drop a box whose barrel color is speckle (solidity under solid_min)
+    check_label: bool = False    # EXPERIMENT SWITCH: drop a box whose "stripe" is a label (taller than label_stripe x a stripe height, body under label_body)
+    solid_min: float = 0.40      # of the barrel-colored pixels in the box, at least this share have all 8 neighbours barrel-colored too
+    label_stripe: float = 1.25   # a stripe taller than this x a stripe height ...
+    label_body: float = 0.6      # ... in a box whose rows outside the stripe hold less than this share of body color is a label
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -326,6 +333,7 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     found = half_stripes(found, mask, cam, cfg, log, layers)                   # 8  a stripe with body on one side only (adds; may replace)
     found = drop_seen_through(found, mask, cam, cfg, log)                      # 9  verify again, on every box
     found = drop_single_reading(found, mask, cam, cfg, log)                    #    verify: a guessed side needs a seen edge
+    found = drop_unlike_paint(found, mask, cam, cfg, log)                      # 11 verify: solid paint, a stripe not a label (off by default)
     return sorted((f.barrel for f in found), key=lambda b: b.bbox[0])
 
 
@@ -1455,6 +1463,74 @@ def drop_single_reading(found: list[Found], mask: np.ndarray, cam: geo.CameraMod
                 if seen < cfg.stripe_full * W:
                     _note(log, "verify", "readings", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), seen_w=seen, expected_w=W)
                     continue
+        out.append(f)
+    return out
+
+
+def paint_readings(f: Found, mask: np.ndarray, cam: geo.CameraModel) -> tuple[float, float, float] | None:
+    """What the paint checks read of one box: (solidity, stripe height over a stripe height, body share outside the
+    stripe), each nan when it cannot be read; None when the box's row gives no barrel (then nothing is asked).
+
+    - solidity: of the barrel-colored pixels (either color) inside the box, the share whose 3 x 3 neighbourhood inside
+      the box is all barrel-colored (the box's own edge counts as more of the same). Painted metal is one solid shape;
+      a printed tin or a figure is speckle. Pixels that are not barrel-colored (the table beside a hidden barrel) do not
+      count either way.
+    - the stripe's height: for a box read from a stripe, from the 10th to the 90th percentile of the stripe's rows that
+      hold stripe color (as ``find_stripes``), over the stripe height its row predicts. nan for a box with no stripe.
+    - the body share: the share of the box's pixels outside the stripe's rows (a box with no stripe: outside the rows
+      the geometry predicts for its stripe) that are its body color.
+
+    The barrel the row predicts: its stripe's centre row; a box with no stripe, its top row (as the caps)."""
+    b = f.barrel
+    at = _at(f.stripe, cam) if f.stripe is not None else BarrelAt.from_top_row(cam, b.bbox[1])
+    if at is None:
+        return None
+    x0, y0, x1, y1 = b.bbox
+    box = mask[y0:y1, x0:x1]
+    colored = (box == ORANGE) | (box == BLUE)
+    solid = math.nan
+    if box.size and colored.any():
+        er = cv2.erode(colored.astype(np.uint8), np.ones((3, 3), np.uint8), borderType=cv2.BORDER_REPLICATE)
+        solid = float(er.sum()) / float(colored.sum())
+    stripe_h = math.nan
+    if f.stripe is not None:
+        sx0, s_top, sx1, s_bot = f.stripe.bbox
+        rows = np.flatnonzero((mask[s_top:s_bot, sx0:sx1] == _other(b.color)).any(axis=1))
+        if rows.size:
+            stripe_h = float(np.percentile(rows, 90) - np.percentile(rows, 10) + 1) / at.Hs
+    else:
+        s_top, s_bot = int(round(at.rows.stripe_top)), int(round(at.rows.stripe_bottom))
+    keep = np.ones(y1 - y0, bool)
+    keep[max(0, s_top - y0):max(0, min(y1, s_bot) - y0)] = False
+    body = float((box[keep] == b.color).mean()) if keep.any() and box.size else math.nan
+    return solid, stripe_h, body
+
+
+def drop_unlike_paint(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                      log: list | None = None) -> list[Found]:
+    """Stage 11, the paint checks (2026-11-27; each off unless its switch is on). In: the boxes. Out: the boxes that pass,
+    in the same order. Every box is asked, whichever rule drew it; ``paint_readings`` says what is read.
+
+    1. ``check_solid``: the barrel color in the box is solid paint: solidity at least solid_min;      else "speckle"
+    2. ``check_label``: the stripe is not a label: NOT (taller than label_stripe x a stripe height AND the body share
+       outside it under label_body). A box with no stripe is not asked;                                else "label"
+
+    Why: a jar with an orange lid and a blue label, a blue tin, a small figure (the near-barrel traps of the bathroom
+    frames). The tin and the figure are printed in speckle; the jar's label is taller than a barrel's stripe and the jar
+    around it holds little body color. A reading that cannot be made (nan) never drops a box."""
+    if not (cfg.check_solid or cfg.check_label):
+        return found
+    out = []
+    for f in found:
+        r = paint_readings(f, mask, cam)
+        if r is not None:
+            solid, stripe_h, body = r
+            if cfg.check_solid and solid < cfg.solid_min:
+                _note(log, "verify", "speckle", f.barrel.bbox, body=f.barrel.color, rule=f.rule, solid=solid, stripe_h=stripe_h, body_share=body)
+                continue
+            if cfg.check_label and stripe_h > cfg.label_stripe and body < cfg.label_body:
+                _note(log, "verify", "label", f.barrel.bbox, body=f.barrel.color, rule=f.rule, solid=solid, stripe_h=stripe_h, body_share=body)
+                continue
         out.append(f)
     return out
 

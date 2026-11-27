@@ -82,11 +82,16 @@ def test_parse_det_overrides():
             rp.parse_det_overrides(bad)
 
 
+EXPERIMENT_SWITCHES = ("check_solid", "check_label")   # off by default while experiments/2026-11-27_checks measures them
+
+
 def test_a_removed_detector_switch_gives_a_clear_error():
     """DetConfig holds numbers only since the collapse of 2026-11-26. An old command line that names a switch, or sets to 0 a
     number whose 0 meant "check off", is told so, with the tag where the old detector is."""
     from barrels import detector as det
-    assert not any(isinstance(v, (bool, str)) for v in det.DetConfig().to_dict().values()) and len(det.DetConfig().to_dict()) == 18
+    numbers = {k: v for k, v in det.DetConfig().to_dict().items() if k not in EXPERIMENT_SWITCHES}
+    assert not any(isinstance(v, (bool, str)) for v in numbers.values()) and len(numbers) == 21
+    assert all(det.DetConfig().to_dict()[k] is False for k in EXPERIMENT_SWITCHES)
     assert not set(rp.REMOVED_DET_SWITCHES) & set(det.DetConfig().to_dict()) and len(rp.REMOVED_DET_SWITCHES) == 31
     for gone in ("cap_behind=false", "side_hidden=true", "dark_stripe=on", "stripe_mode=bands", "require_stripe=false", "cover_rows=false"):
         with pytest.raises(ValueError, match="no longer exists.*pre-collapse-2026-11-26"):
