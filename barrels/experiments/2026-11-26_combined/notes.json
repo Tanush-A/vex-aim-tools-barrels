@@ -68,6 +68,26 @@
   "lampwarm6_wood_close_01 orange [102, 265, 512, 480]": {
    "object": "a close-up box on the orange wood under the warm lamp; today too",
    "check": "already today's; size for the row"
+  },
+  "lampwarm6_bathtile_core_01 orange [465, 104, 495, 134]": {
+   "object": "an orange box on the upper left of a blue barrel that also gets its own (right) blue box: under the warm lamp the orange floor behind and the barrel's orange stripe read as an orange barrel's body",
+   "check": "self-calibration's seed rule (a box of the other color on a found barrel is dropped), or one box per barrel"
+  },
+  "lampwarm6_glass_occl_02 orange [566, 101, 595, 133]": {
+   "object": "the red jar with the blue label and gold lid under the warm lamp: contrast reads the label as a stripe between the red jar and the gold lid and paints it; two small boxes stacked on it",
+   "check": "one thing, two boxes stacked in the same columns (no two barrels stand one above the other at those rows); or a second reading (neither other winner draws it)"
+  },
+  "lampwarm6_glass_occl_02 orange [572, 94, 594, 118]": {
+   "object": "the same jar, the upper of the two stacked boxes",
+   "check": "as above"
+  },
+  "lampmid6_wood_cluster_01 orange [190, 112, 233, 159]": {
+   "object": "orange wood between barrels in the cluster on the wood desk",
+   "check": "a second reading"
+  },
+  "lampwarm6_wood_cluster_01 orange [209, 129, 269, 193]": {
+   "object": "an orange box on a blue barrel in the cluster under the warm lamp on the orange wood",
+   "check": "the other color on a found barrel"
   }
  },
  "overlap": [
@@ -76,5 +96,15 @@
   "Self-calibration only (12): the red-orange bodies on the gray table (3; the near-miss step paints only part of the lower body, edge mode 'strict' was picked there), blue bodies under the bathroom mid and warm lamps (5) and orange barrels under the warm lamp whose blue stripe is gray-olive (3): the near-miss levels end at hue +-25 of the range, the read range of a kept seed does not. One blue barrel touching another on the ottoman.",
   "So neither is enough alone, and the reasons are different: the near-miss step is blind outside its ladder (warm lamp), self-calibration needs a seed its guard keeps (cut, hidden or noisy surroundings)."
  ],
- "causes": {}
+ "causes": {
+  "lampwarm6_ottoman_core_01 #2": {
+   "cause": "touching another barrel",
+   "note": "from the picture: contrast's candidate on it is 'found_already' because today's close-up box on the ottoman's glints below it ([166, 248, 282, 480], a box on nothing) holds its stripe point; the touching is real but is not what stops it"
+  }
+ },
+ "overlap3": [
+  "Contrast does most of the work. Of the 50 barrels per frame near-miss or self-calibration gain, contrast finds 44; it adds 20 that neither finds (bathroom, ottoman, gray table). Nothing it finds is lost by it.",
+  "The 6 it misses that another winner finds (sheets/cn_alone/found_by_a_winner_not_by_it_*.png): a close-up cut by the frame (no stripe in the frame, so no candidate) and a frame-cut blue barrel (the same); two blue barrels touching another blue barrel on the ottoman (contrast paints both, but their stripes join into one band two barrels wide and the detector draws one box on the pair); two partly hidden barrels of the ABP occlusion set, refused by contrast's guard 'one body' (the lower body is hidden by the black object, so the two body bands differ).",
+  "So what the other two add on top of contrast is 2 to 6 barrels per frame (1 to 3 placements), mostly frame-cut and hidden ones, and each brings boxes on clutter (near-miss: the jar on the glass table). The judge calls every such sum inside the noise against contrast alone."
+ ]
 }

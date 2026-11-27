@@ -28,6 +28,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -54,6 +56,7 @@
     ],
     "well_painted": false,
     "seed": "refused: stripe:body_like_surround",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 21,
     "touching": false,
@@ -85,6 +88,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -111,6 +116,7 @@
     ],
     "well_painted": false,
     "seed": "refused: stripe:off_frame",
+    "contrast": "-",
     "nm_added_body_px": 41412,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -141,6 +147,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -167,6 +175,7 @@
     ],
     "well_painted": true,
     "seed": "refused: stripe:not_two_colors",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 633,
     "touching": false,
@@ -196,6 +205,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -222,6 +233,7 @@
     ],
     "well_painted": true,
     "seed": "refused: stripe:stripe_not_painted",
+    "contrast": "-",
     "nm_added_body_px": 4046,
     "nm_added_stripe_px": 16,
     "touching": false,
@@ -257,6 +269,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -283,6 +297,7 @@
     ],
     "well_painted": true,
     "seed": "kept: body",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 46,
     "touching": false,
@@ -314,6 +329,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -340,6 +357,7 @@
     ],
     "well_painted": true,
     "seed": "kept: body",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 85,
     "touching": false,
@@ -371,6 +389,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -397,6 +417,7 @@
     ],
     "well_painted": true,
     "seed": "no seed candidate",
+    "contrast": "-",
     "nm_added_body_px": 938,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -426,6 +447,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -452,6 +475,7 @@
     ],
     "well_painted": true,
     "seed": "refused: stripe:body_like_surround",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 389,
     "touching": false,
@@ -482,6 +506,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -508,6 +534,7 @@
     ],
     "well_painted": true,
     "seed": "refused: stripe:body_like_surround+stripe:stripe_not_painted",
+    "contrast": "-",
     "nm_added_body_px": 1790,
     "nm_added_stripe_px": 1192,
     "touching": false,
@@ -543,6 +570,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -569,6 +598,7 @@
     ],
     "well_painted": true,
     "seed": "no seed candidate",
+    "contrast": "-",
     "nm_added_body_px": 535,
     "nm_added_stripe_px": 331,
     "touching": false,
@@ -601,6 +631,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -627,6 +659,7 @@
     ],
     "well_painted": false,
     "seed": "refused: stripe:body_like_surround+stripe:not_two_colors",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 286,
     "touching": true,
@@ -664,6 +697,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -690,6 +725,7 @@
     ],
     "well_painted": true,
     "seed": "refused: stripe:body_like_surround+stripe:not_two_colors",
+    "contrast": "-",
     "nm_added_body_px": 562,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -725,6 +761,8 @@
      "fixed": "missed",
      "nearmiss": "found",
      "selfcal": "missed",
+     "cn_alone": "missed",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -751,6 +789,7 @@
     ],
     "well_painted": true,
     "seed": "refused: stripe:body_like_surround",
+    "contrast": "-",
     "nm_added_body_px": 153,
     "nm_added_stripe_px": 14,
     "touching": false,
@@ -784,6 +823,8 @@
      "fixed": "missed",
      "nearmiss": "off",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -810,6 +851,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 1265,
     "nm_added_stripe_px": 0,
     "touching": true,
@@ -839,6 +881,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -865,6 +909,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 1619,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -898,6 +943,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -924,6 +971,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 796,
     "nm_added_stripe_px": 39,
     "touching": true,
@@ -957,6 +1005,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "missed",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -983,6 +1033,7 @@
     ],
     "well_painted": true,
     "seed": "refused: body:not_two_colors+stripe:stripe_not_painted",
+    "contrast": "-",
     "nm_added_body_px": 437,
     "nm_added_stripe_px": 0,
     "touching": true,
@@ -1013,6 +1064,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1039,6 +1092,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 2306,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -1075,6 +1129,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1101,6 +1157,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 15,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -1131,6 +1188,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1157,6 +1216,7 @@
     ],
     "well_painted": true,
     "seed": "no seed candidate",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 0,
     "touching": true,
@@ -1191,6 +1251,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1217,6 +1279,7 @@
     ],
     "well_painted": true,
     "seed": "kept: body",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 13,
     "touching": false,
@@ -1246,6 +1309,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1272,6 +1337,7 @@
     ],
     "well_painted": true,
     "seed": "kept: body",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 14,
     "touching": false,
@@ -1299,6 +1365,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1325,6 +1393,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 1,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -1358,6 +1427,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1384,6 +1455,7 @@
     ],
     "well_painted": true,
     "seed": "kept: stripe",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 0,
     "touching": false,
@@ -1414,6 +1486,8 @@
      "fixed": "missed",
      "nearmiss": "missed",
      "selfcal": "found",
+     "cn_alone": "found",
+     "mask_union": "found",
      "box_union": "found"
     },
     "paint_fixed": [
@@ -1440,6 +1514,7 @@
     ],
     "well_painted": true,
     "seed": "kept: body",
+    "contrast": "-",
     "nm_added_body_px": 0,
     "nm_added_stripe_px": 34,
     "touching": true,

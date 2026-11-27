@@ -1,0 +1,337 @@
+{
+ "groups": {
+  "found by today's detector": 211,
+  "found by none of the three": 26,
+  "nearmiss + selfcal + cn_alone": 24,
+  "selfcal + cn_alone": 11,
+  "nearmiss + cn_alone": 9,
+  "nearmiss": 4,
+  "selfcal": 1,
+  "cn_alone": 20,
+  "nearmiss + selfcal": 1
+ },
+ "not_by_contrast": [
+  {
+   "stem": "4A8B_lampcool6_ottoman_close_01",
+   "barrel": 1,
+   "color": "orange",
+   "bbox": [
+    218,
+    232,
+    470,
+    480
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "condition": "lampcool6_ottoman",
+   "place": "home_ottoman",
+   "states": {
+    "fixed": "missed",
+    "nearmiss": "found",
+    "selfcal": "missed",
+    "cn_alone": "missed",
+    "mask_union": "found"
+   },
+   "paint_fixed": [
+    0.0032258064516129032,
+    0.0
+   ],
+   "paint_nearmiss": [
+    0.9642857142857143,
+    0.0
+   ],
+   "paint_selfcal": [
+    0.0032258064516129032,
+    0.0
+   ],
+   "paint_final": [
+    [
+     0.0032258064516129032,
+     0.0
+    ]
+   ],
+   "well_painted": false,
+   "seed": "no seed candidate",
+   "contrast": "no contrast candidate",
+   "nm_added_body_px": 41412,
+   "nm_added_stripe_px": 0,
+   "touching": false,
+   "hidden": true,
+   "detector": [
+    "cap: width",
+    "half: width",
+    "piece: width"
+   ]
+  },
+  {
+   "stem": "4A8B_lampcool6_ottoman_touch_01",
+   "barrel": 1,
+   "color": "blue",
+   "bbox": [
+    198,
+    129,
+    262,
+    198
+   ],
+   "flags": [],
+   "condition": "lampcool6_ottoman",
+   "place": "home_ottoman",
+   "states": {
+    "fixed": "missed",
+    "nearmiss": "missed",
+    "selfcal": "found",
+    "cn_alone": "missed",
+    "mask_union": "found"
+   },
+   "paint_fixed": [
+    0.8431372549019608,
+    0.007936507936507936
+   ],
+   "paint_nearmiss": [
+    0.8627450980392157,
+    0.007936507936507936
+   ],
+   "paint_selfcal": [
+    0.9673202614379085,
+    1.0
+   ],
+   "paint_final": [
+    [
+     0.9705882352941176,
+     1.0
+    ]
+   ],
+   "well_painted": true,
+   "seed": "no seed candidate",
+   "contrast": "painted",
+   "nm_added_body_px": 437,
+   "nm_added_stripe_px": 0,
+   "touching": true,
+   "hidden": false,
+   "detector": [
+    "cap: width",
+    "half: width",
+    "piece: covered"
+   ]
+  },
+  {
+   "stem": "4A8B_lampmid6_bathtile_edge_01",
+   "barrel": 1,
+   "color": "blue",
+   "bbox": [
+    0,
+    127,
+    31,
+    196
+   ],
+   "flags": [
+    "truncated"
+   ],
+   "condition": "lampmid6_bathtile",
+   "place": "home_bathtile",
+   "states": {
+    "fixed": "missed",
+    "nearmiss": "found",
+    "selfcal": "missed",
+    "cn_alone": "missed",
+    "mask_union": "found"
+   },
+   "paint_fixed": [
+    0.0,
+    1.0
+   ],
+   "paint_nearmiss": [
+    0.8954248366013072,
+    1.0
+   ],
+   "paint_selfcal": [
+    0.0,
+    1.0
+   ],
+   "paint_final": [
+    [
+     0.0,
+     1.0
+    ]
+   ],
+   "well_painted": false,
+   "seed": "no seed candidate",
+   "contrast": "no contrast candidate",
+   "nm_added_body_px": 938,
+   "nm_added_stripe_px": 0,
+   "touching": false,
+   "hidden": true,
+   "detector": [
+    "cap: width",
+    "piece: width"
+   ]
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_touch_01",
+   "barrel": 1,
+   "color": "blue",
+   "bbox": [
+    198,
+    129,
+    262,
+    198
+   ],
+   "flags": [],
+   "condition": "lampmid6_ottoman",
+   "place": "home_ottoman",
+   "states": {
+    "fixed": "missed",
+    "nearmiss": "found",
+    "selfcal": "found",
+    "cn_alone": "missed",
+    "mask_union": "found"
+   },
+   "paint_fixed": [
+    0.5261437908496732,
+    0.09523809523809523
+   ],
+   "paint_nearmiss": [
+    0.6699346405228758,
+    1.0
+   ],
+   "paint_selfcal": [
+    0.5261437908496732,
+    0.8809523809523809
+   ],
+   "paint_final": [
+    [
+     0.7908496732026143,
+     1.0
+    ]
+   ],
+   "well_painted": true,
+   "seed": "no seed candidate",
+   "contrast": "painted",
+   "nm_added_body_px": 1031,
+   "nm_added_stripe_px": 488,
+   "touching": true,
+   "hidden": false,
+   "detector": [
+    "cap: width",
+    "half: height",
+    "half: width",
+    "piece: covered"
+   ]
+  },
+  {
+   "stem": "4A8B_window_abpwhite_occlx_06",
+   "barrel": 1,
+   "color": "orange",
+   "bbox": [
+    133,
+    115,
+    181,
+    160
+   ],
+   "flags": [
+    "bottom_estimated",
+    "occluded"
+   ],
+   "condition": "window_abpwhite",
+   "place": "abp_white",
+   "states": {
+    "fixed": "missed",
+    "nearmiss": "found",
+    "selfcal": "missed",
+    "cn_alone": "missed",
+    "mask_union": "found"
+   },
+   "paint_fixed": [
+    0.4166666666666667,
+    1.0
+   ],
+   "paint_nearmiss": [
+    0.9345238095238095,
+    1.0
+   ],
+   "paint_selfcal": [
+    0.4166666666666667,
+    1.0
+   ],
+   "paint_final": [
+    [
+     0.4166666666666667,
+     1.0
+    ]
+   ],
+   "well_painted": false,
+   "seed": "no seed candidate",
+   "contrast": "refused: alike_feat",
+   "nm_added_body_px": 562,
+   "nm_added_stripe_px": 0,
+   "touching": false,
+   "hidden": true,
+   "detector": [
+    "barrel: slice_not_full",
+    "cap: height",
+    "cap: not_hidden",
+    "cap: width",
+    "half: thicker_than_body",
+    "half: width",
+    "piece: stripeless"
+   ]
+  },
+  {
+   "stem": "4A8B_window_abpwhite_occlx_14",
+   "barrel": 1,
+   "color": "orange",
+   "bbox": [
+    0,
+    120,
+    45,
+    179
+   ],
+   "flags": [
+    "occluded",
+    "truncated"
+   ],
+   "condition": "window_abpwhite",
+   "place": "abp_white",
+   "states": {
+    "fixed": "missed",
+    "nearmiss": "found",
+    "selfcal": "missed",
+    "cn_alone": "missed",
+    "mask_union": "found"
+   },
+   "paint_fixed": [
+    0.6,
+    1.0
+   ],
+   "paint_nearmiss": [
+    0.6,
+    1.0
+   ],
+   "paint_selfcal": [
+    0.6,
+    1.0
+   ],
+   "paint_final": [
+    [
+     0.6,
+     1.0
+    ]
+   ],
+   "well_painted": true,
+   "seed": "no seed candidate",
+   "contrast": "refused: alike_feat",
+   "nm_added_body_px": 153,
+   "nm_added_stripe_px": 14,
+   "touching": false,
+   "hidden": true,
+   "detector": [
+    "barrel: slice_not_full",
+    "cap: height",
+    "cap: not_hidden",
+    "half: width",
+    "piece: stripeless"
+   ]
+  }
+ ]
+}

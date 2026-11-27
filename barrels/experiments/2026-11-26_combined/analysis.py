@@ -13,7 +13,7 @@ judged"). Nothing here is a verdict and nothing here chooses a number.
 results/2026-11-26_combined/boxes.json (the held-out boxes of the judged run) and chosen.json (what each fold
 picked); where a mask or a seed is needed the frame is run again with exactly those settings. Train frames only
 (``judge.load_frame``), plus Dave's 12 office frames, which are in no split (``extreme``; indicative).
-Writes overlap.md, false_boxes.md, extreme.md, vendor.md, left.md (and .json) next to the summary.
+Writes overlap.md, overlap3.md, and false_boxes_<WAY>.md, extreme_<WAY>.md, vendor_<WAY>.md, left_<WAY>.md (and .json) next to the summary.
 """
 from __future__ import annotations
 
@@ -292,7 +292,7 @@ def boxes(way: str) -> str:
         rows.append([f"`{n}`" if n != "fixed" else "today", c[ct.NOTHING], c[ct.SECOND], c[ct.WRONG], f"{c['w']:.2f}"])
     out += ["## Every candidate, ordinary conditions: boxes not on their barrel, per frame", ""]
     out += table(["candidate", "on nothing", "second box", "wrong color", "counted once per arrangement"], rows)
-    (OUT / "false_boxes.json").write_text(json.dumps(js, indent=1) + "\n")
+    (OUT / f"false_boxes_{way}.json").write_text(json.dumps(js, indent=1) + "\n")
     return "\n".join(out) + "\n"
 
 
@@ -366,7 +366,7 @@ def dave(way: str) -> list[str]:
     for n in dets:
         t = ct.tally(counts[n], stems, placements)
         rows.append([n, t.frames, t.barrels, t.found, t.off, t.missed, f"{t.nothing} / {t.second} / {t.wrong}", f"{t.empty} ({t.clean_empty})"])
-    (OUT / "dave.json").write_text(json.dumps({n: {s: c.to_dict() for s, c in v.items()} for n, v in counts.items()}, indent=1) + "\n")
+    (OUT / f"dave_{way}.json").write_text(json.dumps({n: {s: c.to_dict() for s, c in v.items()} for n, v in counts.items()}, indent=1) + "\n")
     return ["## Dave's office frames (the set the eval table calls DAVE; INDICATIVE only)", "",
             f"{len(stems)} frames, in no split (so not test frames), read directly. His boxes group touching barrels, so 'found' under the strict rule "
             f"undercounts, and a box on one barrel of a group can count as a second box. Settings: the ones picked on all ordinary frames "
@@ -416,7 +416,7 @@ def vendor(way: str) -> str:
             f"- Places where it finds more: {'; '.join(win) or 'none'}.",
             "- The two white tables without vendor files (home, campus; 64 placements) are not in this table. There the vendor is ASSUMED to find "
             "every barrel (Tanush, 2026-11-26); every candidate here finds what today's detector finds there (63.0 of 64).", ""]
-    (OUT / "vendor.json").write_text(json.dumps({p.strip("*"): {n.strip("`"): t.to_dict() for n, t in zip(names, ts)} for p, ts in tal.items()}, indent=1) + "\n")
+    (OUT / f"vendor_{way}.json").write_text(json.dumps({p.strip("*"): {n.strip("`"): t.to_dict() for n, t in zip(names, ts)} for p, ts in tal.items()}, indent=1) + "\n")
     return "\n".join(out) + "\n"
 
 
@@ -462,7 +462,7 @@ def left(way: str) -> str:
                        "; ".join(words(p) for p in d["paint_final"]), d["seed"], d["contrast"], f"{d['nm_added_body_px']} / {d['nm_added_stripe_px']}",
                        "yes" if d["touching"] else "", "; ".join(d["detector"]) or "-",
                        d["note"] + (f" (by rule: {d['cause_by_rule']})" if d["cause"] != d["cause_by_rule"] else "")] for d in sel])
-    (OUT / "left.json").write_text(json.dumps(rows, indent=1) + "\n")
+    (OUT / f"left_{way}.json").write_text(json.dumps(rows, indent=1) + "\n")
     return "\n".join(out) + "\n"
 
 
@@ -531,8 +531,8 @@ def main(argv) -> int:
     way = argv[1] if len(argv) > 1 else best_way()
     if way not in cmb.ALL_WAYS:
         raise SystemExit(f"unknown way {way!r}: one of {', '.join(cmb.ALL_WAYS)}")
-    jobs = {"overlap": ("overlap.md", overlap), "overlap3": ("overlap3.md", overlap3), "boxes": ("false_boxes.md", lambda: boxes(way)), "extreme": ("extreme.md", lambda: extreme(way)),
-            "vendor": ("vendor.md", lambda: vendor(way)), "left": ("left.md", lambda: left(way))}
+    jobs = {"overlap": ("overlap.md", overlap), "overlap3": ("overlap3.md", overlap3), "boxes": (f"false_boxes_{way}.md", lambda: boxes(way)),
+            "extreme": (f"extreme_{way}.md", lambda: extreme(way)), "vendor": (f"vendor_{way}.md", lambda: vendor(way)), "left": (f"left_{way}.md", lambda: left(way))}
     if what != "all" and what not in jobs:
         raise SystemExit(f"unknown part {what!r}: one of {', '.join(jobs)}, all")
     for k in (jobs if what == "all" else [what]):

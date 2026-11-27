@@ -201,7 +201,10 @@ def settings3_for(place: str):
 
 
 # ---------------------------------------------------------------- the candidate the experiment ends on
-# Set after the judged runs by PREREG.md's rule (run.py, pick): mask_union. The held-out result is `fit`'s
-# (results/2026-11-26_combined/mask_union/judge.md). `detect_frame` has the two fixed settings the winners offered: judged, it is IN-SAMPLE.
-fit = fit_mask_union
-detect_frame = detect_mask_union
+# Set after the judged runs. The two-way rule (run.py, pick) gave mask_union (152.8). The addendum's rule (run3.py, pick)
+# then gave CONTRAST ALONE (155.3): no combination is PASS against it. So the answer is contrast alone. Its own code is
+# the reference: experiments/2026-11-26_contrast/table.py:fit (held out) and candidate.py:detect_frame (fixed numbers);
+# `fit` / `detect_frame` here are the same thing built from barrels.combined (identical judge pages: run3_checks.json).
+best_two_way_fit, best_two_way_detect_frame = fit_mask_union, detect_mask_union
+fit = FITS3["cn_alone"]
+detect_frame = FIXED3["cn_alone"]
