@@ -143,3 +143,23 @@ changes.md, hard_cases.md; contact sheets looked at). Neither check passes the r
 Everything else as in the plan: the harness (without `--ref`: the readings are no longer the experiment's), J1-J3,
 the extreme conditions, the same recommendation rule, every lost barrel named. Round 1's code is commit 2bb405b.
 No third round: if round 2 fails the rule, the recommendation is "neither", with what was learned.
+
+## Addendum 2 (2026-11-27, after adoption at f4de264, before this runs): does the adopted stage still catch the traps?
+
+Asked by the coordinator. The checks were made for the boxes "bluer than the light" (B4, `wip/exp-bluer-geom`) draws on
+the near-barrel traps; round 2 was never run there. `b4_traps.py`, on the plain code (f4de264) with the light and
+bluer_geom experiments' code unchanged (an export of `wip/exp-bluer-geom`: `experiments/2026-11-26_light`,
+`experiments/2026-11-27_bluer_geom`, `src/barrels/lightread.py`, `contrast.py`, added to a copy of this branch's
+`src/`).
+
+- Families: `B4_no_checks` (B4's 270 color steps) and `D0.20_no_checks` (its 54 with delta 0.20), picked per fold
+  by bluer_geom's own rule (`fitgeo.choose`), leave one place out, judged with the standard rule against today's
+  default (the fixed colors without stage 11; with it, the same boxes on every train frame, checked at f4de264).
+- Two ways, both reported: (i) the folds pick on the detector before stage 11 (the experiment exactly), and the
+  picked color step is then run with stage 11 off and on: the stage's own effect; (ii) the folds pick on the detector
+  with stage 11 (the table built with it), and that is run with stage 11: the experiment re-done with today's code.
+- Every box not on its barrel that (i) draws without stage 11 on the ordinary frames, with its round-1 readings
+  (`ref/stages.measure`) and round-2 readings (`paint_readings`), and whether stage 11 removes it. Named as jar / tin
+  / figure / other from the contact sheet.
+- Nothing is chosen here. If the stage misses the tin and the figure, a fix is written in addendum 3 before it is
+  measured (harness: no real barrel lost; and these boxes), and it is not adopted.
