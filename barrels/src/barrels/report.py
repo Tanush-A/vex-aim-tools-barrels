@@ -29,6 +29,16 @@ no vendor file, or with ``available: false``, is left out and counted in the foo
 saw nothing". Two looser counts (``loose_counts``: found by overlap alone, found by position) are reported next to
 the strict ones, because the vendor may not draw its boxes the way our labels are drawn; they never enter the
 score. The never-regress check that reads this table is ``gate.py``.
+
+By place (2026-11-26, step 6 below). The table above counts a barrel once per frame, so one arrangement shot under
+five lamp settings counts five times, and a box on a real barrel that fails the strict rule is a miss plus a false
+box. ``place_tables`` / ``format_places`` show the same run counted the other way: every physical placement once (the
+share of its lights in which it is found), by place (table and room), with the placements each number rests on; and
+every barrel as found / found with the box off / missed, every box as on its barrel / wrong color / second box / on
+nothing. The counting itself is ``counting.py``; the strict rule and the table above are unchanged. In a vendor
+comparison the conditions marked ``vendor_assumed`` in ``data/conditions.json`` (white table, window or overhead
+light, no vendor file) get an ASSUMED row: the vendor counts as finding every barrel there. Assumed rows are starred
+and never enter a measured total.
 """
 from __future__ import annotations
 
@@ -43,6 +53,8 @@ from pathlib import Path
 
 import numpy as np
 
+from . import conditions as cnd
+from . import counting as ct
 from . import eval_det as ed
 from . import splits as splits_mod
 from .io import LABELS_DIR, PKG_ROOT, parse_name
@@ -280,22 +292,27 @@ def loose_counts(preds: list, gts: list) -> dict[str, int]:
             "found_center": len(by_center), "false_center": len(preds) - len(by_center)}
 
 
-def score_boxes(stem: str, preds: list, cam, loose: dict | None = None, labels_dir: Path | str | None = None) -> ed.DetImageResult:
+def score_boxes(stem: str, preds: list, cam, loose: dict | None = None, labels_dir: Path | str | None = None,
+                boxes: dict | None = None) -> ed.DetImageResult:
     """Boxes (ours or the vendor's) scored against the frame's box label under the v2 rule. With ``loose`` (a
-    dict), the frame's ``loose_counts`` are also put into it under the stem."""
+    dict), the frame's ``loose_counts`` are also put into it under the stem; with ``boxes`` (a dict), the boxes
+    themselves, for the by-place view (``counting.classify_frame`` is run on them in ``make_report``)."""
     from . import detect_types as dtp, io
     label = io.load_boxes(stem, labels_dir)
     gts = [b.with_ground(cam) for b in dtp.barrels_from_boxes(label)]
     if loose is not None:
         loose[stem] = loose_counts(preds, gts)
+    if boxes is not None:
+        boxes[stem] = list(preds)
     return ed.evaluate_frame(stem, preds, gts, cam, rule="v2", clean=label.get("clean", True))
 
 
-def score_frame(stem: str, mask, det_cfg, cam, loose: dict | None = None, labels_dir: Path | str | None = None) -> ed.DetImageResult:
+def score_frame(stem: str, mask, det_cfg, cam, loose: dict | None = None, labels_dir: Path | str | None = None,
+                boxes: dict | None = None) -> ed.DetImageResult:
     """Class mask -> boxes -> scored against the box label under the v2 rule (the same three lines every
     experiment script uses)."""
     from . import detector as det
-    return score_boxes(stem, det.detect(mask, det_cfg, cam), cam, loose, labels_dir)
+    return score_boxes(stem, det.detect(mask, det_cfg, cam), cam, loose, labels_dir, boxes)
 
 
 @dataclass
@@ -350,7 +367,7 @@ def vendor_coverage(selection: Selection, splits: dict[str, list[str]], vendor_d
 def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=None, home_protocol: str = "loso",
             cache: FrameCache | None = None, only: set[str] | None = None, loose: dict | None = None,
             vendor: VendorCoverage | None = None, labels_dir: Path | str | None = None,
-            vendor_dir: Path | str | None = None) -> dict[str, ed.DetImageResult]:
+            vendor_dir: Path | str | None = None, boxes: dict | None = None) -> dict[str, ed.DetImageResult]:
     """stem -> scored frame for one arm.
 
     ``home_protocol="loso"`` (default): the frames of ``FIT_SET`` (home) are the ones the color model was fit
@@ -360,8 +377,9 @@ def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=No
 
     ``only``: score just these stems (the vendor comparison: the frames that have a vendor file). The home re-fit
     still learns from every other home scene in ``selection``, so a frame's score does not depend on ``only``.
-    ``loose``: a dict that receives stem -> ``loose_counts``. A vendor arm opens no image: it scores the boxes
-    in ``vendor`` (``vendor_coverage``, computed here when not given)."""
+    ``loose``: a dict that receives stem -> ``loose_counts``. ``boxes``: a dict that receives stem -> the arm's
+    boxes on that frame. A vendor arm opens no image: it scores the boxes in ``vendor`` (``vendor_coverage``,
+    computed here when not given)."""
     from . import geometry as geo
     if home_protocol not in ("loso", "fixed"):
         raise ValueError(f"home_protocol must be 'loso' or 'fixed', got {home_protocol!r}")
@@ -372,7 +390,7 @@ def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=No
         vendor = vendor or vendor_coverage(selection, splits, vendor_dir)
         for s in selection.stems:
             if s in vendor.barrels and (only is None or s in only):
-                out[s] = score_boxes(s, vendor.barrels[s], cam, loose, labels_dir)
+                out[s] = score_boxes(s, vendor.barrels[s], cam, loose, labels_dir, boxes)
         return out
     from . import cv as bcv, pipeline as pl, worldmap_bridge as wb
     cache = cache or FrameCache()
@@ -387,11 +405,11 @@ def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=No
                     continue
                 m = pl.fit([cache.frame(s) for s in fold.train], [cache.mask(s) for s in fold.train], model.cfg)
                 for s in held:
-                    out[s] = score_frame(s, pl.segment(cache.frame(s), m)[0], dcfg, cam, loose, labels_dir)
+                    out[s] = score_frame(s, pl.segment(cache.frame(s), m)[0], dcfg, cam, loose, labels_dir, boxes)
         else:
             for s in stems:
                 if only is None or s in only:
-                    out[s] = score_frame(s, pl.segment(cache.frame(s), model)[0], dcfg, cam, loose, labels_dir)
+                    out[s] = score_frame(s, pl.segment(cache.frame(s), model)[0], dcfg, cam, loose, labels_dir, boxes)
     return out
 
 
@@ -513,6 +531,15 @@ class Report:
     seconds: float = math.nan
     vendor: VendorCoverage | None = None    # set when an arm is the vendor: the rows hold only the frames it was measured on
     loose: bool = False                     # the looser counts are in the cells and are printed
+    # 2026-11-26, the by-place view (``place_tables``); none of it enters the rows above
+    cand_counts: dict | None = None         # stem -> counting.FrameCount, the candidate arm
+    base_counts: dict | None = None         # ... the baseline arm
+    placements: ct.Placements | None = None  # which label box is which physical barrel
+    assumed: list = field(default_factory=list)     # frames on which the vendor arm is ASSUMED to find every barrel (not measured)
+    placement_error: str = ""               # why there are no placements (two lights of one arrangement with other barrels)
+    cand_boxes: dict | None = None          # stem -> the candidate arm's boxes (what the counts above were made from)
+    base_boxes: dict | None = None
+    gts: dict | None = None                 # stem -> the true barrels
 
     def subtotal(self, label_or_key: str) -> Row:
         for r in self.rows:
@@ -538,20 +565,36 @@ def make_report(candidate: Arm | None = None, baseline: Arm | None = None, split
     splits = splits if splits is not None else splits_mod.load_splits()
     sel = select_frames(labeled_stems(labels_dir), splits, split=split, only_sets=only_sets)
     vendor = vendor_coverage(sel, splits, vendor_dir) if (candidate.is_vendor or baseline.is_vendor) else None
-    only = None if vendor is None else vendor.stems
+    assumed = assumed_vendor_stems(sel, vendor) if vendor is not None else []
+    only = None if vendor is None else vendor.stems | set(assumed)     # a detector arm also runs where the vendor is assumed
     loose = bool(loose or vendor is not None)
     cache = FrameCache()
 
-    def run(arm: Arm) -> tuple[dict, dict | None]:
-        counts: dict | None = {} if loose else None
-        return run_arm(arm, sel, splits, cam=cam, home_protocol=home_protocol, cache=cache, only=only, loose=counts,
-                       vendor=vendor, labels_dir=labels_dir), counts
+    def run(arm: Arm) -> tuple[dict, dict | None, dict]:
+        lc: dict | None = {} if loose else None
+        bx: dict = {}
+        return run_arm(arm, sel, splits, cam=cam, home_protocol=home_protocol, cache=cache, only=only, loose=lc,
+                       vendor=vendor, labels_dir=labels_dir, boxes=bx), lc, bx
 
-    cres, cloose = run(candidate)
-    bres, bloose = (cres, cloose) if baseline is candidate else run(baseline)
+    cres, cloose, cboxes = run(candidate)
+    bres, bloose, bboxes = (cres, cloose, cboxes) if baseline is candidate else run(baseline)
     shown = sel if vendor is None else Selection({k: v for k, v in vendor.measured.items() if v}, sel.skipped, sel.split)
+    gts, clean = ct.load_gts(sorted(set(cboxes) | set(bboxes) | set(assumed)), labels_dir)
+
+    def count(arm: Arm, boxes: dict) -> dict:
+        fc = {s: ct.classify_frame(s, p, gts[s], clean[s]) for s, p in boxes.items()}
+        if arm.is_vendor:                   # nothing was measured there: the assumption, marked as one
+            fc.update({s: ct.assumed_perfect(s, len(gts[s]), clean[s]) for s in assumed})
+        return fc
+    ccounts = count(candidate, cboxes)
+    bcounts = ccounts if baseline is candidate else count(baseline, bboxes)
+    placements, why = None, ""
+    try:
+        placements = ct.build_placements(gts)
+    except ct.ArrangementMismatch as e:     # the table above does not lean on placements; the by-place view says why it is missing
+        why = str(e)
     return Report(build_rows(shown.sets, cres, bres, cloose, bloose), candidate, baseline, shown, home_protocol,
-                  bcv.git_hash(), time.time() - t0, vendor, loose)
+                  bcv.git_hash(), time.time() - t0, vendor, loose, ccounts, bcounts, placements, assumed, why, cboxes, bboxes, gts)
 
 
 # ---------------------------------------------------------------- 5. the same rows, four ways
@@ -772,11 +815,113 @@ def to_json(rep: Report) -> dict:
     return out
 
 
-def write_all(rep: Report, out_dir: Path | str, title: str = "Eval report") -> Path:
-    """report.md (the table as printed, then the same as a markdown table), report.csv, report.json in ``out_dir``."""
+def write_all(rep: Report, out_dir: Path | str, title: str = "Eval report", places: bool = False) -> Path:
+    """report.md (the table as printed, then the same as a markdown table), report.csv, report.json in ``out_dir``.
+    ``places=True`` also writes the by-place view: places.md and places.json."""
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     md = format_markdown(rep, title).split("\n")
     (out_dir / "report.md").write_text("\n".join(md[:2] + ["```", format_text(rep), "```", ""] + md[2:]))
     write_csv(rep, out_dir / "report.csv")
     (out_dir / "report.json").write_text(json.dumps(to_json(rep), indent=1) + "\n")
+    if places:
+        (out_dir / "places.md").write_text(f"# {title}: by place\n\n" + format_places(rep, markdown=True) + "\n")
+        (out_dir / "places.json").write_text(json.dumps(places_json(rep), indent=1) + "\n")
     return out_dir
+
+
+# ---------------------------------------------------------------- 6. by place: every placement once, a misplaced box once
+
+def assumed_vendor_stems(selection: Selection, vendor: VendorCoverage) -> list[str]:
+    """The selected frames on which the vendor is ASSUMED to find every barrel: frames of a condition marked
+    ``vendor_assumed`` in ``data/conditions.json`` whose data set has no measured vendor frame at all. As soon as a
+    set has one vendor file, the vendor is measured there and the mark is ignored."""
+    out = []
+    for key, stems in selection.sets.items():
+        if vendor.measured.get(key) or is_indicative(key):
+            continue
+        out += [s for s in stems if cnd.info(ct.condition_of(s)).vendor_assumed]
+    return out
+
+
+def _arm_title(arm: Arm) -> str:
+    return f"{arm.name} = vendor" if arm.is_vendor else arm.name
+
+
+def place_tables(rep: Report) -> dict:
+    """The run counted per placement (``counting.py``): ``{"arms": [names], "places": [TableRow], "conditions":
+    [TableRow], "rest": {...}, "notes": [str]}``.
+
+    * ``places``: one row per place over the ORDINARY conditions that were measured, and their total. In a vendor
+      comparison, then one row per place where the vendor is assumed, and a second total that says "ASSUMED" in its
+      name. A measured total never holds an assumed frame.
+    * ``conditions``: one row per condition, every class (extreme, excluded, not listed and indicative ones are
+      named as such; they are in no total)."""
+    if rep.cand_counts is None or rep.base_counts is None:
+        raise ValueError("this report carries no per-frame counts (it was not made by make_report)")
+    if rep.placements is None:
+        raise ValueError("no by-place view: " + (rep.placement_error or "the placements were not built"))
+    keys = list(rep.selection.sets)
+    assumed = sorted(rep.assumed)
+    is_assumed = set(assumed)
+    measured = [s for k in keys for s in rep.selection.sets[k] if s not in is_assumed]
+
+    def klass(s: str) -> str:
+        return "indicative" if is_indicative(set_key(s)) else cnd.info(ct.condition_of(s)).klass
+
+    def arms(stems: list[str]) -> list:
+        return [ct.tally(c, [s for s in stems if s in c], rep.placements) for c in (rep.cand_counts, rep.base_counts)]
+
+    ordinary = [s for s in measured if klass(s) == cnd.ORDINARY]
+    places = [ct.TableRow(p, arms(ss)) for p, ss in ct.group_stems(ordinary, "place").items()]
+    places.append(ct.TableRow("measured, all places" if rep.vendor is not None else "all ordinary places", arms(ordinary), "total"))
+    if assumed:
+        places += [ct.TableRow(f"{p} (vendor ASSUMED)", arms(ss)) for p, ss in ct.group_stems(assumed, "place").items()]
+        places.append(ct.TableRow("measured + ASSUMED", arms(ordinary + assumed), "total"))
+    conditions = []
+    for c, ss in ct.group_stems(measured + assumed, "condition").items():
+        tag = klass(ss[0])
+        name = f"{ct.place_of(ss[0])} / {c}" + ("" if tag == cnd.ORDINARY else f" [{tag}]") + (" (vendor ASSUMED)" if ss[0] in is_assumed else "")
+        conditions.append(ct.TableRow(name, arms(ss)))
+    n_pl, n_arr = rep.placements.count(ordinary)
+    notes = [f"The measured ordinary conditions rest on {n_pl} placements (physical barrels) in {n_arr} arrangements at "
+             f"{len({ct.place_of(s) for s in ordinary})} places, shot under {len({ct.condition_of(s) for s in ordinary})} lights in all: "
+             f"{sum(len(rep.cand_counts[s].gt) for s in ordinary if s in rep.cand_counts)} barrels when every light is counted."]
+    if assumed:
+        notes.append(f"ASSUMED, NOT MEASURED: the vendor has no file on {len(assumed)} frames ("
+                     + ", ".join(sorted({ct.condition_of(s) for s in assumed})) + "). On a white table under window or overhead light it "
+                     "counts as finding every barrel (Tanush, 2026-11-26). That is an assumption: it says nothing about the vendor's boxes "
+                     "there, its rows are starred, and no measured total holds it.")
+    other = sorted({klass(s) for s in measured} - {cnd.ORDINARY})
+    if other:
+        notes.append("Not in any total (report only): the conditions marked " + ", ".join(f"[{x}]" for x in other) + " in the by-condition table.")
+    guessed = sorted({ct.condition_of(s) for s in measured if not is_indicative(set_key(s)) and cnd.info(ct.condition_of(s)).guessed})
+    if guessed:
+        notes.append("Not in data/conditions.json (place guessed from the tags, class not listed): " + ", ".join(guessed) + ". Add them.")
+    return {"arms": [_arm_title(rep.candidate), _arm_title(rep.baseline)], "places": places, "conditions": conditions, "notes": notes}
+
+
+def format_places(rep: Report, markdown: bool = False) -> str:
+    """The by-place view as text (or markdown): the by-place table, the by-condition table, the legend and the notes.
+    When the placements could not be built, the reason instead."""
+    try:
+        t = place_tables(rep)
+    except ValueError as e:
+        return f"BY PLACE: {e}"
+    wrap = (lambda s: [s]) if markdown else (lambda s: textwrap.wrap(s, width=150, subsequent_indent="    "))
+    out = [] if markdown else ["BY PLACE (each placement once; strict = the v2 rule, unchanged; a misplaced box counted once)"]
+    out.append(ct.format_table(t["places"], t["arms"], markdown, "By place, ordinary conditions" if markdown else ""))
+    out += ["", "" if markdown else "BY CONDITION (one light each, so found = raw; every class)"]
+    out.append(ct.format_table(t["conditions"], t["arms"], markdown, "By condition" if markdown else ""))
+    out.append("")
+    for line in [ct.LEGEND] + t["notes"]:
+        out += [("- " if markdown else "") + x for x in wrap(line)]
+    return "\n".join(x for x in out if x is not None)
+
+
+def places_json(rep: Report) -> dict:
+    t = place_tables(rep)
+
+    def rows(rr):
+        return [{"name": r.name, "kind": r.kind, "arms": [None if a is None else a.to_dict() for a in r.arms]} for r in rr]
+    return {"arms": t["arms"], "places": rows(t["places"]), "conditions": rows(t["conditions"]), "notes": t["notes"], "assumed_frames": sorted(rep.assumed),
+            "on_a_barrel": f"at least {ct.ON_SHARE} of the smaller of the two boxes lies inside the other"}

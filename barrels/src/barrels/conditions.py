@@ -9,6 +9,16 @@ Two attributes per condition, both used by the adaptive-threshold analysis (``ex
 - ``light``: the kind of source, ``window`` / ``overhead`` / ``lamp`` / ``mixed`` (two kinds at once, e.g. a
   lamp with some window light).
 
+Two more attributes since 2026-11-26, both optional in the file:
+
+- ``class``: ``ordinary`` (the default), ``extreme`` (parked: the orange wood table under a lamp, the black table,
+  the very dark ottoman; reported, never judged) or ``excluded`` (lamp brightness 1). The standard pass rule
+  (``judge.py``) is computed on the ordinary conditions only. A condition that is not in the file is ``unlisted``:
+  it is reported like an extreme one until somebody says what it is.
+- ``vendor_assumed``: true for a white table under window or overhead light that has no vendor file. The vendor
+  then counts as finding every barrel there (Tanush, 2026-11-26). An assumption, not a measurement: every table
+  that uses it marks the row.
+
 A condition that is not in the file is guessed from its tags (place = the surface tag; light from the light tag's
 prefix: window / overhead / lamp, ``both`` or ``mix*`` = mixed, anything else ``unknown``) and marked
 ``guessed``; every summary that uses the table names the guessed ones, so the data session adds them.
@@ -25,6 +35,8 @@ from .io import PKG_ROOT
 TABLE_PATH = PKG_ROOT / "data" / "conditions.json"
 LIGHT_KINDS = ("window", "overhead", "lamp", "mixed")
 UNKNOWN = "unknown"
+ORDINARY, EXTREME, EXCLUDED, UNLISTED = "ordinary", "extreme", "excluded", "unlisted"
+CLASSES = (ORDINARY, EXTREME, EXCLUDED)             # what the file may say; UNLISTED = not in the file
 
 
 @dataclass(frozen=True)
@@ -34,6 +46,8 @@ class ConditionInfo:
     light: str          # one of LIGHT_KINDS, or "unknown" when guessed and the tag says nothing
     guessed: bool       # True: not in the table, read off the tags
     note: str = ""
+    klass: str = ORDINARY           # ordinary | extreme | excluded, or "unlisted" when guessed
+    vendor_assumed: bool = False    # no vendor file here; the vendor is ASSUMED to find every barrel (never a measurement)
 
 
 def guess_light(light_tag: str) -> str:
@@ -60,6 +74,10 @@ def load_table(path: Path | str = TABLE_PATH) -> dict[str, dict]:
             raise ValueError(f"{path}: condition key {k!r} is not {{light}}_{{surface}}")
         if not isinstance(v, dict) or not v.get("place") or v.get("light") not in LIGHT_KINDS:
             raise ValueError(f"{path}: entry {k!r} needs a place and a light in {LIGHT_KINDS}, got {v!r}")
+        if v.get("class", ORDINARY) not in CLASSES:
+            raise ValueError(f"{path}: entry {k!r}: class must be one of {CLASSES}, got {v.get('class')!r}")
+        if not isinstance(v.get("vendor_assumed", False), bool):
+            raise ValueError(f"{path}: entry {k!r}: vendor_assumed must be true or false, got {v.get('vendor_assumed')!r}")
     return d["conditions"]
 
 
@@ -74,6 +92,6 @@ def info(key: str, table: dict | None = None) -> ConditionInfo:
     table = _cached(str(TABLE_PATH)) if table is None else table
     if key in table:
         e = table[key]
-        return ConditionInfo(key, e["place"], e["light"], False, e.get("note", ""))
+        return ConditionInfo(key, e["place"], e["light"], False, e.get("note", ""), e.get("class", ORDINARY), bool(e.get("vendor_assumed", False)))
     light, _, surface = key.partition("_")
-    return ConditionInfo(key, surface or key, guess_light(light), True, "not in data/conditions.json: guessed from the tags")
+    return ConditionInfo(key, surface or key, guess_light(light), True, "not in data/conditions.json: guessed from the tags", UNLISTED)
