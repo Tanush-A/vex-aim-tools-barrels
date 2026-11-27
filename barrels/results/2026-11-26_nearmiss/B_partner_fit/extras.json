@@ -1,0 +1,438 @@
+{
+ "name": "B_partner_fit",
+ "group": "B",
+ "kind": "fit",
+ "spec": null,
+ "traps": {
+  "4A8B_lampmid3_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampmid6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampwarm6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  }
+ },
+ "describe": "B_partner_fit: partner-conditioned, stripe and body level 0..5, edges strict or pred; the setting is chosen in each fold on the other places (rule: PREREG.md)",
+ "folds": {
+  "home_white": {
+   "spec": "pc:5,5,pred",
+   "J": 118.333,
+   "J_fixed": 101.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 118.333,
+     "found_w": 124.8,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 117.883,
+     "found_w": 123.72,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 117.25,
+     "found_w": 123.72,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 117.133,
+     "found_w": 122.97,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 116.35,
+     "found_w": 121.38,
+     "extra_w": 2.52
+    }
+   ]
+  },
+  "campus_study": {
+   "spec": "pc:5,5,pred",
+   "J": 111.333,
+   "J_fixed": 94.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 111.333,
+     "found_w": 117.8,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 110.883,
+     "found_w": 116.72,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 110.25,
+     "found_w": 116.72,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 110.133,
+     "found_w": 115.97,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 109.35,
+     "found_w": 114.38,
+     "extra_w": 2.52
+    }
+   ]
+  },
+  "abp_gray": {
+   "spec": "pc:5,5,strict",
+   "J": 130.533,
+   "J_fixed": 119.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,strict",
+     "J": 130.533,
+     "found_w": 135.8,
+     "extra_w": 2.63
+    },
+    {
+     "spec": "pc:5,5,pred",
+     "J": 130.333,
+     "found_w": 136.8,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 129.883,
+     "found_w": 135.72,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,4,strict",
+     "J": 129.283,
+     "found_w": 134.72,
+     "extra_w": 2.72
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 129.25,
+     "found_w": 135.72,
+     "extra_w": 3.23
+    }
+   ]
+  },
+  "home_bathtile": {
+   "spec": "pc:5,5,pred",
+   "J": 138.333,
+   "J_fixed": 125.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 138.333,
+     "found_w": 143.8,
+     "extra_w": 2.73
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 138.0,
+     "found_w": 143.47,
+     "extra_w": 2.73
+    },
+    {
+     "spec": "pc:2,5,pred",
+     "J": 137.333,
+     "found_w": 143.47,
+     "extra_w": 3.07
+    },
+    {
+     "spec": "pc:3,5,pred",
+     "J": 137.333,
+     "found_w": 143.47,
+     "extra_w": 3.07
+    },
+    {
+     "spec": "pc:1,4,pred",
+     "J": 137.133,
+     "found_w": 142.47,
+     "extra_w": 2.67
+    }
+   ]
+  },
+  "home_glass": {
+   "spec": "pc:5,5,pred",
+   "J": 134.333,
+   "J_fixed": 116.333,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 134.333,
+     "found_w": 138.0,
+     "extra_w": 1.83
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 133.25,
+     "found_w": 136.92,
+     "extra_w": 1.83
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 133.083,
+     "found_w": 136.92,
+     "extra_w": 1.92
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 132.333,
+     "found_w": 136.17,
+     "extra_w": 1.92
+    },
+    {
+     "spec": "pc:3,5,pred",
+     "J": 132.083,
+     "found_w": 136.42,
+     "extra_w": 2.17
+    }
+   ]
+  },
+  "home_ottoman": {
+   "spec": "pc:5,4,pred",
+   "J": 139.55,
+   "J_fixed": 127.6,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,4,pred",
+     "J": 139.55,
+     "found_w": 144.05,
+     "extra_w": 2.25
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 138.8,
+     "found_w": 143.3,
+     "extra_w": 2.25
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 138.35,
+     "found_w": 142.05,
+     "extra_w": 1.85
+    },
+    {
+     "spec": "pc:3,4,pred",
+     "J": 138.3,
+     "found_w": 142.8,
+     "extra_w": 2.25
+    },
+    {
+     "spec": "pc:5,5,pred",
+     "J": 138.0,
+     "found_w": 143.8,
+     "extra_w": 2.9
+    }
+   ]
+  },
+  "uc_palewood": {
+   "spec": "pc:5,5,pred",
+   "J": 135.333,
+   "J_fixed": 118.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 135.333,
+     "found_w": 139.8,
+     "extra_w": 2.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 134.883,
+     "found_w": 138.72,
+     "extra_w": 1.92
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 134.25,
+     "found_w": 138.72,
+     "extra_w": 2.23
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 134.133,
+     "found_w": 137.97,
+     "extra_w": 1.92
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 133.35,
+     "found_w": 136.38,
+     "extra_w": 1.52
+    }
+   ]
+  },
+  "abp_white": {
+   "spec": "pc:5,5,pred",
+   "J": 118.333,
+   "J_fixed": 103.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 118.333,
+     "found_w": 124.8,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 117.883,
+     "found_w": 123.72,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 117.35,
+     "found_w": 122.38,
+     "extra_w": 2.52
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 117.25,
+     "found_w": 123.72,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 117.133,
+     "found_w": 122.97,
+     "extra_w": 2.92
+    }
+   ]
+  },
+  "home_wooddesk": {
+   "spec": "pc:5,5,pred",
+   "J": 146.333,
+   "J_fixed": 129.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 146.333,
+     "found_w": 152.8,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 145.883,
+     "found_w": 151.72,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 145.25,
+     "found_w": 151.72,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 145.133,
+     "found_w": 150.97,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 144.35,
+     "found_w": 149.38,
+     "extra_w": 2.52
+    }
+   ]
+  },
+  "home_black": {
+   "spec": "pc:5,5,pred",
+   "J": 146.333,
+   "J_fixed": 129.933,
+   "settings": 66,
+   "eligible": 66,
+   "top5": [
+    {
+     "spec": "pc:5,5,pred",
+     "J": 146.333,
+     "found_w": 152.8,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:5,4,pred",
+     "J": 145.883,
+     "found_w": 151.72,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:4,5,pred",
+     "J": 145.25,
+     "found_w": 151.72,
+     "extra_w": 3.23
+    },
+    {
+     "spec": "pc:4,4,pred",
+     "J": 145.133,
+     "found_w": 150.97,
+     "extra_w": 2.92
+    },
+    {
+     "spec": "pc:5,3,pred",
+     "J": 144.35,
+     "found_w": 149.38,
+     "extra_w": 2.52
+    }
+   ]
+  }
+ },
+ "flood": {
+  "px_out_fixed": 634216,
+  "px_out": 662463,
+  "px_out_ratio": 1.045,
+  "px_in_fixed": 1481635,
+  "px_in": 1701757,
+  "px_in_ratio": 1.149,
+  "px_added_on_empty_frames": 4336,
+  "empty_frames": 22
+ },
+ "bottoms": {
+  "base_found": 211,
+  "kept": 211,
+  "lost_box_off": 0,
+  "lost_missed": 0,
+  "bottom_moved": 19,
+  "bottom_down": 16,
+  "bottom_up": 3,
+  "cand_bottom_err_mean": -0.36,
+  "cand_bottom_err_abs_mean": 1.45,
+  "base_bottom_err_mean": -0.37,
+  "base_bottom_err_abs_mean": 1.45,
+  "moved_px_abs_mean": 1.89
+ },
+ "seconds": 156.6
+}

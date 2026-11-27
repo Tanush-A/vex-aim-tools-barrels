@@ -85,3 +85,17 @@ fit_wide = _fit("C_wide_fit", GRID_C, "partner-conditioned, stripe level 0..6 an
 def fixed(spec: str):
     """A candidate with nothing chosen, as a ``detect_frame``."""
     return cm.detector_of(spec)
+
+
+# The setting offered for the next experiment: what the selection rule gives on all eight ordinary places at once
+# (written here after the judged runs; ``run.py --final`` checks it against the rule). Both directions at level 5
+# (hue +-25, S -100, V >= 15), loose body paint never past the top and bottom the stripe's row predicts. Its own
+# judged number (C_both5_5: 133.8 -> 152.8) is in-sample; the held-out number is B_partner_fit's (133.8 -> 147.5).
+FINAL_SPEC = "pc:5,5,pred"
+detect_frame = cm.detector_of(FINAL_SPEC)
+
+
+def final_mask(frame):
+    """The class mask of the offered setting on a ``pipeline.Frame`` (0 other, 1 orange, 2 blue), for a caller that
+    wants the mask and not the boxes."""
+    return cm.mask_of(FINAL_SPEC, frame)

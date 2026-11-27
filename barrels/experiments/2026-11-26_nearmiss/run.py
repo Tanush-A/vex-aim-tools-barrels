@@ -6,6 +6,7 @@
     python barrels/experiments/2026-11-26_nearmiss/run.py --only NAME [NAME ...]      # judge these candidates
     python barrels/experiments/2026-11-26_nearmiss/run.py --all                       # judge every candidate
     python barrels/experiments/2026-11-26_nearmiss/run.py --summary                   # summary.md from the runs that exist
+    python barrels/experiments/2026-11-26_nearmiss/run.py --final                     # the selection rule on all eight places at once
 
 Every candidate goes through the standard pass rule (``barrels.judge.judge``) against today's default. Candidates
 with a chosen number are judged leave one place out. Train frames only: the judge refuses anything else before an
@@ -240,6 +241,7 @@ def main(argv=None) -> int:
     ap.add_argument("--only", nargs="*", default=[])
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--summary", action="store_true")
+    ap.add_argument("--final", action="store_true", help="the setting the selection rule gives on all ordinary places; checked against candidates.FINAL_SPEC")
     ap.add_argument("--jobs", type=int, default=8)
     a = ap.parse_args(argv)
     reg = registry()
@@ -258,6 +260,18 @@ def main(argv=None) -> int:
         raise SystemExit(f"unknown candidate(s) {bad}; --list shows them")
     for n in names:
         run_one(n, reg[n])
+    if a.final:
+        spec, rows = cm.choose(cand.GRID_B, cm.ordinary(), jobs=a.jobs)
+        row = next(r for r in rows if r["spec"] == spec)
+        top = sorted((r for r in rows if r["eligible"]), key=lambda r: -r["J"])[:8]
+        out = {"spec": spec, "describe": cm.describe(spec), "J": round(row["J"], 3), "found_w": round(row["found_w"], 2), "extra_w": round(row["extra_w"], 2),
+               "settings": len(rows), "eligible": sum(1 for r in rows if r["eligible"]),
+               "note": "chosen on all eight ordinary places at once: these numbers are in-sample; the held-out result is B_partner_fit's",
+               "top8": [{"spec": r["spec"], "J": round(r["J"], 3), "found_w": round(r["found_w"], 2), "extra_w": round(r["extra_w"], 2)} for r in top]}
+        (cm.RESULTS / "final_setting.json").write_text(json.dumps(out, indent=1) + "\n")
+        print(json.dumps(out, indent=1))
+        if spec != cand.FINAL_SPEC:
+            raise SystemExit(f"candidates.FINAL_SPEC is {cand.FINAL_SPEC!r} but the rule gives {spec!r}")
     if a.summary:
         text = summary()
         (cm.RESULTS / "summary.md").write_text(text)

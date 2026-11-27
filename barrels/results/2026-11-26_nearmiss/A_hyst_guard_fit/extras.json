@@ -1,0 +1,204 @@
+{
+ "name": "A_hyst_guard_fit",
+ "group": "A",
+ "kind": "fit",
+ "spec": null,
+ "traps": {
+  "4A8B_lampmid3_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampmid6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  },
+  "4A8B_lampwarm6_bathtile_neg_02": {
+   "baseline": 0,
+   "candidate": []
+  }
+ },
+ "describe": "A_hyst_guard_fit: two-level thresholds with the bottom guard, loose level 1..5; the setting is chosen in each fold on the other places (rule: PREREG.md)",
+ "folds": {
+  "home_white": {
+   "spec": "hystg:1",
+   "J": 107.783,
+   "J_fixed": 101.933,
+   "settings": 6,
+   "eligible": 2,
+   "top5": [
+    {
+     "spec": "hystg:1",
+     "J": 107.783,
+     "found_w": 117.85,
+     "extra_w": 5.03
+    },
+    {
+     "spec": "fixed",
+     "J": 101.933,
+     "found_w": 105.8,
+     "extra_w": 1.93
+    }
+   ]
+  },
+  "campus_study": {
+   "spec": "fixed",
+   "J": 94.933,
+   "J_fixed": 94.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 94.933,
+     "found_w": 98.8,
+     "extra_w": 1.93
+    }
+   ]
+  },
+  "abp_gray": {
+   "spec": "fixed",
+   "J": 119.933,
+   "J_fixed": 119.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 119.933,
+     "found_w": 123.8,
+     "extra_w": 1.93
+    }
+   ]
+  },
+  "home_bathtile": {
+   "spec": "fixed",
+   "J": 125.933,
+   "J_fixed": 125.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 125.933,
+     "found_w": 129.8,
+     "extra_w": 1.93
+    }
+   ]
+  },
+  "home_glass": {
+   "spec": "fixed",
+   "J": 116.333,
+   "J_fixed": 116.333,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 116.333,
+     "found_w": 119.0,
+     "extra_w": 1.33
+    }
+   ]
+  },
+  "home_ottoman": {
+   "spec": "fixed",
+   "J": 127.6,
+   "J_fixed": 127.6,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 127.6,
+     "found_w": 130.8,
+     "extra_w": 1.6
+    }
+   ]
+  },
+  "uc_palewood": {
+   "spec": "fixed",
+   "J": 118.933,
+   "J_fixed": 118.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 118.933,
+     "found_w": 120.8,
+     "extra_w": 0.93
+    }
+   ]
+  },
+  "abp_white": {
+   "spec": "fixed",
+   "J": 103.933,
+   "J_fixed": 103.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 103.933,
+     "found_w": 107.8,
+     "extra_w": 1.93
+    }
+   ]
+  },
+  "home_wooddesk": {
+   "spec": "fixed",
+   "J": 129.933,
+   "J_fixed": 129.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 129.933,
+     "found_w": 133.8,
+     "extra_w": 1.93
+    }
+   ]
+  },
+  "home_black": {
+   "spec": "fixed",
+   "J": 129.933,
+   "J_fixed": 129.933,
+   "settings": 6,
+   "eligible": 1,
+   "top5": [
+    {
+     "spec": "fixed",
+     "J": 129.933,
+     "found_w": 133.8,
+     "extra_w": 1.93
+    }
+   ]
+  }
+ },
+ "flood": {
+  "px_out_fixed": 634216,
+  "px_out": 757537,
+  "px_out_ratio": 1.194,
+  "px_in_fixed": 1481635,
+  "px_in": 1489169,
+  "px_in_ratio": 1.005,
+  "px_added_on_empty_frames": 0,
+  "empty_frames": 22
+ },
+ "bottoms": {
+  "base_found": 211,
+  "kept": 209,
+  "lost_box_off": 0,
+  "lost_missed": 2,
+  "bottom_moved": 0,
+  "bottom_down": 0,
+  "bottom_up": 0,
+  "cand_bottom_err_mean": -0.37,
+  "cand_bottom_err_abs_mean": 1.43,
+  "base_bottom_err_mean": -0.37,
+  "base_bottom_err_abs_mean": 1.45,
+  "moved_px_abs_mean": null
+ },
+ "seconds": 30.7
+}
