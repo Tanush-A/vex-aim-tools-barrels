@@ -1,0 +1,343 @@
+{
+ "none_equals_before": true,
+ "bad": [],
+ "groups": {
+  "none": {
+   "damage": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real_dilate": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real_erode": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "scene": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   }
+  },
+  "V0_adopted": {
+   "damage": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real_dilate": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real_erode": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "scene": {
+    "removed": 3,
+    "lost": 1,
+    "extra_removed": 2
+   }
+  },
+  "V1_fusion_mild": {
+   "damage": {
+    "removed": 20,
+    "lost": 20,
+    "extra_removed": 0
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 8,
+    "lost": 3,
+    "extra_removed": 5
+   },
+   "real_dilate": {
+    "removed": 6,
+    "lost": 1,
+    "extra_removed": 5
+   },
+   "real_erode": {
+    "removed": 1,
+    "lost": 0,
+    "extra_removed": 1
+   },
+   "scene": {
+    "removed": 37,
+    "lost": 30,
+    "extra_removed": 7
+   }
+  },
+  "V2_row_label_excl": {
+   "damage": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 6,
+    "lost": 2,
+    "extra_removed": 4
+   },
+   "real_dilate": {
+    "removed": 6,
+    "lost": 1,
+    "extra_removed": 5
+   },
+   "real_erode": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "scene": {
+    "removed": 2,
+    "lost": 2,
+    "extra_removed": 0
+   }
+  },
+  "V3_col_label_125_excl": {
+   "damage": {
+    "removed": 7,
+    "lost": 0,
+    "extra_removed": 7
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 2,
+    "lost": 0,
+    "extra_removed": 2
+   },
+   "real_dilate": {
+    "removed": 2,
+    "lost": 0,
+    "extra_removed": 2
+   },
+   "real_erode": {
+    "removed": 1,
+    "lost": 0,
+    "extra_removed": 1
+   },
+   "scene": {
+    "removed": 1,
+    "lost": 0,
+    "extra_removed": 1
+   }
+  },
+  "V4_raw_speckle_025": {
+   "damage": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real_dilate": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real_erode": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "scene": {
+    "removed": 3,
+    "lost": 1,
+    "extra_removed": 2
+   }
+  },
+  "V5_V2_plus_V4": {
+   "damage": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "hand": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "pool": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "real": {
+    "removed": 6,
+    "lost": 2,
+    "extra_removed": 4
+   },
+   "real_dilate": {
+    "removed": 6,
+    "lost": 1,
+    "extra_removed": 5
+   },
+   "real_erode": {
+    "removed": 0,
+    "lost": 0,
+    "extra_removed": 0
+   },
+   "scene": {
+    "removed": 2,
+    "lost": 2,
+    "extra_removed": 0
+   }
+  }
+ },
+ "lost": {
+  "V1_fusion_mild": [
+   "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01 #1",
+   "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01 #4",
+   "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02 #1",
+   "damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01 #1",
+   "damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01 #1",
+   "damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01 #1",
+   "damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01 #1",
+   "damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01 #1",
+   "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01 #1",
+   "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01 #3",
+   "damage/light/1/HOME hand masks/4A8B_window_light_cluster_01 #1",
+   "damage/light/2/HOME hand masks/4A8B_window_light_cluster_01 #3",
+   "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02 #3",
+   "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01 #1",
+   "damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02 #1",
+   "damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01 #3",
+   "damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01 #1",
+   "damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01 #3",
+   "damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01 #3",
+   "damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01 #3",
+   "real/4A8B_lampcool3_wood_occl_04 #1",
+   "real/4A8B_lampcool6_wood_occl_02 #1",
+   "real/4A8B_lampcool6_wood_occl_04 #1",
+   "real_dilate/4A8B_lampcool3_wood_occl_04 #1",
+   "scene/CAMPUS color model/00309/frame/0.5/R #1",
+   "scene/CAMPUS color model/00313/edge/0.25/R #1",
+   "scene/CAMPUS color model/00320/slant/0.25/R+ #1",
+   "scene/CAMPUS color model/00321/slant/0.25/R- #1",
+   "scene/CAMPUS color model/00343/barrel_side/other/0.25/R #1",
+   "scene/CAMPUS color model/00351/barrel_low/other/0.5/R #1",
+   "scene/CAMPUS color model/00352/barrel_low/other/0.75/L #1",
+   "scene/CAMPUS color model/00353/barrel_low/other/0.75/R #1",
+   "scene/CAMPUS color model/00422/barrel_side/other/0.5/L #1",
+   "scene/CAMPUS color model/00501/barrel_side/other/0.5/R #1",
+   "scene/CAMPUS color model/00502/barrel_side/other/0.75/L #1",
+   "scene/CAMPUS color model/00503/barrel_side/other/0.75/R #1",
+   "scene/CAMPUS color model/00657/barrel_side/other/0.5/R #1",
+   "scene/CAMPUS color model/00975/barrel_low/other/0.5/R #1",
+   "scene/CAMPUS color model/01438/barrel_side/other/0.75/L #1",
+   "scene/CAMPUS color model/01480/frame/0.75/L #1",
+   "scene/CAMPUS color model/01514/barrel_side/other/0.5/L #1",
+   "scene/CAMPUS color model/01515/barrel_side/other/0.5/R #1",
+   "scene/CAMPUS color model/01593/barrel_side/other/0.5/R #1",
+   "scene/CAMPUS color model/01595/barrel_side/other/0.75/R #1",
+   "scene/CAMPUS color model/01598/barrel_low/other/0.5/L #1",
+   "scene/CAMPUS color model/01751/barrel_low/other/0.75/R #1",
+   "scene/HOME color model/00275/barrel_side/other/0.75/R #1",
+   "scene/HOME color model/00287/barrel_side/same/0.5/L #1",
+   "scene/HOME color model/00289/barrel_side/same/0.75/L #2",
+   "scene/HOME color model/00585/barrel_side/other/0.5/R #1",
+   "scene/HOME color model/00587/barrel_side/other/0.75/R #1",
+   "scene/HOME color model/00683/barrel_low/same/0.5/L #1",
+   "scene/HOME color model/00899/barrel_side/other/0.75/R #1",
+   "scene/HOME hand masks/00819/barrel_side/other/0.5/R #1"
+  ],
+  "V2_row_label_excl": [
+   "real/4A8B_lampcool3_wood_occl_04 #1",
+   "real/4A8B_lampcool6_wood_occl_04 #1",
+   "real_dilate/4A8B_lampcool3_wood_occl_04 #1",
+   "scene/HOME color model/00287/barrel_side/same/0.5/L #1",
+   "scene/HOME color model/00289/barrel_side/same/0.75/L #2"
+  ],
+  "V5_V2_plus_V4": [
+   "real/4A8B_lampcool3_wood_occl_04 #1",
+   "real/4A8B_lampcool6_wood_occl_04 #1",
+   "real_dilate/4A8B_lampcool3_wood_occl_04 #1",
+   "scene/HOME color model/00287/barrel_side/same/0.5/L #1",
+   "scene/HOME color model/00289/barrel_side/same/0.75/L #2"
+  ],
+  "V0_adopted": [
+   "scene/CAMPUS color model/01438/barrel_side/other/0.75/L #1"
+  ],
+  "V4_raw_speckle_025": [
+   "scene/CAMPUS color model/01438/barrel_side/other/0.75/L #1"
+  ]
+ }
+}

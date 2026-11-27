@@ -83,7 +83,10 @@ def f_init(cspecs, picks):
     cv2.setNumThreads(1)
     _S["model"] = hl.adopted_model()
     sys.path.insert(0, str(EXPORT / "experiments" / "2026-11-26_contrast"))
+    light_common = sys.modules.pop("common", None)          # the light experiment's common.py; the contrast one has the same name
     import candidate as cand
+    if light_common is not None:
+        sys.modules["common"] = light_common
     _S["cand"] = cand
     _S["cspecs"] = {p: cand.setting_from(s) for p, s in cspecs.items()}
     members = {fg.key(m): m for m in fg.fam(fg.B4, [fg.ck.OFF])}

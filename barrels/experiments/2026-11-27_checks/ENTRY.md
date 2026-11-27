@@ -130,3 +130,34 @@ Round 1 at P would have removed 20 of 24 (all but #3, #8, #11, #23). Delta 0.20:
 Why: the closing heals the tin's and the figure's speckle as it heals damaged paint. Solidity without the closing
 0.17-0.24, with it 0.59-0.95. The column median lowers the glass jars' label (1.65 → 1.27, 1.53 → 0.71). The safe
 readings and the trap readings are the same readings: what made the stage safe is what stopped it catching traps.
+
+#### Addendum 3: a setting that keeps the harness and catches the traps? (fusion's "mild" among the candidates)
+
+Fusion (`wip/exp-fusion`, `fusion.MILD`) used the round-1 readings (`stages.measure`: whole box, no closing) at
+0.35 / 1.5 / 0.6. `traps_all.py`, `results/2026-11-27_checks/variants/`. The ten stages, then each variant as a
+post-filter; "lost" = a barrel found or with its box off that ends with no box, or found → box off.
+
+| variant | harness: real lost | ordinary lost (4 color steps) | extreme lost | contrast C1: boxes not on barrel (per frame) | B4: per frame | B4 traps removed: jar / tin / figure / other |
+|---|---|---|---|---|---|---|
+| V0 adopted | 1 (a box-off barrel, 75 % hidden) | 0 | 0 | 2.83 → 2.63 (9 → 8) | 24 → 22 | 2 / 0 / 0 / 0 |
+| V1 fusion mild | **54** | 0 | 2 | 2.83 → 1.43 (9 → 6) | 24 → 11 | 9 / 3 / 2 / 1 |
+| V2 row label, nearer boxes left out | 5 | 0 | 1 | 9 → 8 | 24 → 18 | 5 / 1 / 0 / 0 |
+| **V3 column label at 1.25, nearer boxes left out** | **0** | 0 | 0 | 2.83 → 2.43 (9 → 7) | 24 → 20 | 4 / 0 / 0 / 0 |
+| V4 V0 + raw speckle < 0.25 (not at the frame edge) | 1 (as V0) | 0 | 0 | 9 → 8 | 24 → 17 | 2 / 3 / 2 / 0 |
+| V5 V2 + V4 | 5 | 0 | 1 | 9 → 8 | 24 → 14 | 5 / 4 / 2 / 0 |
+
+- Contrast's 9 per frame: V3 removes 2 (the glass jar on `lampmid3_glass_occl_02`, a small box on
+  `lampwarm6_glass_occl_02`). The glass clutter jar (`lampmid6_` and `lampwarm6_glass_clutter_01`) and the pale-wood
+  close-up are removed only by V1 and V2 (the whole-box readings), which lose real barrels. Through this code fusion's
+  setting gives 9 → 6, not fusion's 9 → 3: there the checks act on fused proposals, here inside every detect call
+  of the contrast path, where a removed base box lets the contrast step paint again.
+- V3's label (column median, nearer boxes left out, 1.25) and V4's raw speckle decide box by box on the same input,
+  so V3 + V4 is their union, not measured as one arm: 0 harness barrels lost, the same 2 of contrast's 9, and on B4 4
+  jars, 3 of 4 tin boxes and both figure boxes (9 of 24).
+- Honest limit: V2-V5 were written after looking at the harness rows and the trap readings. That makes them in-sample
+  for those, and the 0.25 sits just above the one harness barrel it would have cost (a 16-px sliver at the frame edge,
+  excused by the edge rule). They need frames they were not shaped on before adoption.
+- Recommendation for the contrast path: **V3** (solid paint closed < 0.40; label, column median with nearer boxes left
+  out, > 1.25 and body < 0.6). It is the only candidate that loses nothing anywhere, and it removes 2 of contrast's 9.
+  Add V4's raw speckle (< 0.25, not at the frame edge) if the tin and figure matter. Nothing tried keeps the harness
+  and also removes the glass clutter jar and the pale-wood close-up. Not adopted here; the plain code is unchanged.
