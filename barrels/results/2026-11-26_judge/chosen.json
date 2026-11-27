@@ -1,0 +1,570 @@
+{
+ "hand_thresholds": {
+  "both_abpgray": [
+   -2,
+   6,
+   167,
+   102,
+   121,
+   113
+  ],
+  "lampcool6_bathtile": [
+   7,
+   15,
+   155,
+   88,
+   115,
+   57
+  ],
+  "lampcool6_glass": [
+   3,
+   12,
+   140,
+   103,
+   113,
+   182
+  ],
+  "lampcool6_ottoman": [
+   4,
+   23,
+   105,
+   97,
+   112,
+   98
+  ],
+  "lampmid3_bathtile": [
+   7,
+   16,
+   185,
+   60,
+   126,
+   9
+  ],
+  "lampmid3_glass": [
+   2,
+   13,
+   140,
+   105,
+   113,
+   186
+  ],
+  "lampmid3_ottoman": [
+   4,
+   23,
+   146,
+   95,
+   110,
+   98
+  ],
+  "lampmid6_bathtile": [
+   8,
+   13,
+   191,
+   60,
+   110,
+   10
+  ],
+  "lampmid6_glass": [
+   3,
+   12,
+   158,
+   103,
+   112,
+   179
+  ],
+  "lampmid6_ottoman": [
+   4,
+   23,
+   171,
+   95,
+   115,
+   48
+  ],
+  "lampwarm6_bathtile": [
+   4,
+   10,
+   185,
+   60,
+   131,
+   7
+  ],
+  "lampwarm6_glass": [
+   3,
+   12,
+   164,
+   105,
+   114,
+   147
+  ],
+  "lampwarm6_ottoman": [
+   5,
+   25,
+   166,
+   80,
+   135,
+   10
+  ],
+  "overheaddim_palewood": [
+   -3,
+   14,
+   166,
+   104,
+   132,
+   131
+  ],
+  "window_glass": [
+   -11,
+   12,
+   153,
+   104,
+   113,
+   207
+  ]
+ },
+ "folds": {
+  "C2": {
+   "home_white": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 4.659166666666667
+   },
+   "campus_study": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 4.624683908045977
+   },
+   "abp_gray": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 5.124683908045977
+   },
+   "home_bathtile": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.06, w1 0.2, blue S -> 30, hue low -> 98",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.06,
+      0.2,
+      30,
+      98
+     ]
+    },
+    "eligible": 63,
+    "J": 5.202461685823755
+   },
+   "home_glass": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.06, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.06,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 60,
+    "J": 4.744683908045977
+   },
+   "home_ottoman": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 5.358017241379311
+   },
+   "uc_palewood": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 4.891350574712644
+   },
+   "abp_white": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 4.812183908045977
+   },
+   "home_wooddesk": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 5.624683908045977
+   },
+   "home_black": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.08, w1 0.2, blue S -> 40, hue low -> 92",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.08,
+      0.2,
+      40,
+      92
+     ]
+    },
+    "eligible": 54,
+    "J": 5.624683908045977
+   }
+  },
+  "C2b": {
+   "home_white": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 4.6258333333333335
+   },
+   "campus_study": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 4.591350574712644
+   },
+   "abp_gray": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 5.091350574712644
+   },
+   "home_bathtile": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.06, w1 0.3, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.06,
+      0.3,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 48,
+    "J": 5.202461685823755
+   },
+   "home_glass": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.06, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.06,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 60,
+    "J": 4.728017241379311
+   },
+   "home_ottoman": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 5.324683908045977
+   },
+   "uc_palewood": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 4.858017241379311
+   },
+   "abp_white": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 4.778850574712644
+   },
+   "home_wooddesk": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 5.591350574712644
+   },
+   "home_black": {
+    "setting": "orange 3..13 S>=140, blue 103..119 S>=113; light rule w0 0.1, w1 0.2, blue S -> 40, hue low -> 92 (light read from rows < 50, brightest 20 %)",
+    "numbers": {
+     "six": [
+      3,
+      13,
+      140,
+      103,
+      119,
+      113
+     ],
+     "light": [
+      0.1,
+      0.2,
+      40,
+      92,
+      50,
+      20
+     ]
+    },
+    "eligible": 42,
+    "J": 5.591350574712644
+   }
+  }
+ }
+}

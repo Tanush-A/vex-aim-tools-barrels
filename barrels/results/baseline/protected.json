@@ -1,4 +1,12 @@
 {
- "protected": ["HOME", "CAMPUS"],
- "note": "The data sets the never-regress check protects (python barrels/tools/report.py --gate): a scenario row of one of these may not lose a found barrel or gain a false box. Names as the eval table prints them (HOME, CAMPUS) or a full {robot}_{light}_{surface} key. To protect a new ordinary condition: add its name here, run python barrels/tools/report.py --save-baseline, commit both files. Extreme sets (black table, orange wood) and Dave's stay off this list: they are shown for information only."
+ "version": 2,
+ "protected": [
+  {"name": "HOME", "sets": ["4A8B_window_light"]},
+  {"name": "CAMPUS", "sets": ["4A8B_campus_light"]},
+  {"name": "GLASS", "sets": ["4A8B_lampwarm6_glass", "4A8B_lampmid6_glass", "4A8B_lampcool6_glass", "4A8B_lampmid3_glass", "4A8B_window_glass"]},
+  {"name": "PALEWOOD", "sets": ["4A8B_overheaddim_palewood"]},
+  {"name": "ABPWHITE", "sets": ["4A8B_window_abpwhite"]},
+  {"name": "BATH-COOL", "sets": ["4A8B_lampcool6_bathtile"]}
+ ],
+ "note": "The sets the never-regress check protects (python barrels/tools/report.py --gate). Each is a name and the data sets ({robot}_{light}_{surface}) it is made of: one table under several lights is ONE protected set, and its barrels count once per placement. A protected set fails the check when its found is lower than the stored baseline's by more than its margin, or its boxes that are not on their barrel are higher by more than its margin; the margins are measured and live in margins.json (experiments/2026-11-26_noise_floor/run.py writes it). HOME and CAMPUS since 2026-11-18; the glass table, pale wood, the ABP white occlusion set and the bathroom under the cool lamp since 2026-11-26 (the conditions we already handle). To protect another: add an entry, run the noise-floor script so it gets a margin, run python barrels/tools/report.py --save-baseline, commit the three files. Extreme sets (black table, orange wood) and Dave's stay off this list: they are shown for information only."
 }

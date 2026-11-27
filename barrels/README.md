@@ -25,7 +25,9 @@ python barrels/tools/box_look.py <stem> --out /tmp/look.png [--zoom x0,y0,x1,y1]
 python barrels/tools/hs_slider.py --filter window_light                     # 6b. set the color thresholds by hand on a frame (six sliders, live segmentation + boxes) → data/labels/<stem>_hs.json
 python barrels/tools/report.py                                              # 7. ONE TABLE: data set × scenario, candidate vs baseline + delta (train frames; ≈ 10 s; --help for the arms)
 python barrels/tools/report.py --vendor                                     # 7b. the same table against the robot's built-in (vendor) detector, on the frames that have a vendor file
-python barrels/tools/report.py --gate                                       # 7c. the never-regress check: PASS / FAIL against results/baseline/baseline.json (run before every merge; --save-baseline after one)
+python barrels/tools/report.py --places                                     # 7b'. the same run counted per placement and by place (each physical barrel once; a misplaced box once); always printed with --vendor
+python barrels/tools/report.py --gate                                       # 7c. the never-regress check, with a margin: PASS / FAIL against results/baseline/baseline.json (run before every merge; --save-baseline after one)
+python barrels/tools/judge.py --cand-det stripe_bridge=false                # 7c'. THE STANDARD PASS RULE: a candidate (DetConfig fields, a model file, --cand-callable file.py:fn, or --cand-fit file.py:fn for leave one place out) against today -> PASS / FAIL / NO CLEAR DIFFERENCE (≈ 25 s)
 python barrels/experiments/2026-11-24_vendor/run.py                        # 7d. ours vs the vendor per condition on the real vendor files, with a check of the files; summary.md in results/<today>_vendor/
 python barrels/experiments/run_all.py                                       # 7e. the nightly run: tests, gate, eval table, vendor, adaptive rule (if present) -> ONE page results/<today>_run_all/summary.md
 ```

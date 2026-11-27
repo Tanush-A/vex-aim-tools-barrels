@@ -116,6 +116,18 @@ def test_parse_gate_new_failure_and_pass(ra):
     assert ra.parse_gate("Traceback ...")["verdict"] == ""
 
 
+def test_parse_gate_reads_the_check_with_a_margin(ra):
+    """Since 2026-11-26 the check names protected sets and clean empty frames, not scenario rows."""
+    out = ("  HOME  found 28.0 -> 26.0 of 29 placements (-2.0) [per frame 28 -> 26 of 29]; boxes not on their barrel 0.0 -> 0.0; margins 1.0 / 1.0: WORSE  [protected]\n"
+           "  GLASS  found 14.8 -> 14.8 of 15 placements [per frame 74 -> 74 of 75]; boxes not on their barrel 0.6 -> 0.6; margins 1.0 / 1.0: same  [protected]\n"
+           "RESULT: FAIL. 1 protected set(s) worse by more than the margin (HOME); a new box on a clean empty frame in 1 frame(s) "
+           "(4A8B_window_light_neg_01). This change must not become the default as it is.")
+    g = ra.parse_gate(out)
+    assert g["verdict"] == "FAIL" and g["failing"] == ["HOME", "4A8B_window_light_neg_01"] and g["unknown"] == g["failing"]
+    assert len(g["protected"]) == 2 and g["protected"][0].startswith("HOME found 28.0 -> 26.0 of 29 placements")
+    assert ra.parse_gate("RESULT: PASS. No protected set is worse than the baseline by more than its margin, ...")["verdict"] == "PASS"
+
+
 def test_written_dir_and_summary_path(ra, tmp_path):
     (tmp_path / "summary.md").write_text("x")
     assert ra.written_dir(f"...\nwritten to {tmp_path}\n") == tmp_path

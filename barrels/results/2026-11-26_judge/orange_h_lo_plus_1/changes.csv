@@ -1,0 +1,8 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_both_abpgray_clutter_01,3,blue,365 123 422 182,found,off,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_core_01,1,orange,134 125 194 186,found,missed,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_core_01,3,blue,372 109 408 147,found,missed,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_edge_01,2,blue,588 150 640 260,found,off,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_occl_02,1,blue,366 123 422 181,found,missed,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_touch_01,3,blue,299 122 352 179,found,missed,lost,abp_gray,both_abpgray,1
+4A8B_window_glass_edge_01,1,blue,0 145 40 237,found,off,lost,home_glass,window_glass,1
