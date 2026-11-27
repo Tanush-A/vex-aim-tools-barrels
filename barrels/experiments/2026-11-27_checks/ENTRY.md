@@ -139,12 +139,12 @@ post-filter; "lost" = a barrel found or with its box off that ends with no box, 
 
 | variant | harness: real lost | ordinary lost (4 color steps) | extreme lost | contrast C1: boxes not on barrel (per frame) | B4: per frame | B4 traps removed: jar / tin / figure / other |
 |---|---|---|---|---|---|---|
-| V0 adopted | 1 (a box-off barrel, 75 % hidden) | 0 | 0 | 2.83 → 2.63 (9 → 8) | 24 → 22 | 2 / 0 / 0 / 0 |
-| V1 fusion mild | **54** | 0 | 2 | 2.83 → 1.43 (9 → 6) | 24 → 11 | 9 / 3 / 2 / 1 |
+| V0 adopted | 1 (a box-off barrel, 68 % hidden) | 0 | 0 | 2.83 → 2.63 (9 → 8) | 24 → 22 | 2 / 0 / 0 / 0 |
+| V1 fusion mild | **54** | 0 | 2 | 2.83 → 1.43 (9 → 6) | 24 → 11 | 7 / 3 / 2 / 1 |
 | V2 row label, nearer boxes left out | 5 | 0 | 1 | 9 → 8 | 24 → 18 | 5 / 1 / 0 / 0 |
 | **V3 column label at 1.25, nearer boxes left out** | **0** | 0 | 0 | 2.83 → 2.43 (9 → 7) | 24 → 20 | 4 / 0 / 0 / 0 |
 | V4 V0 + raw speckle < 0.25 (not at the frame edge) | 1 (as V0) | 0 | 0 | 9 → 8 | 24 → 17 | 2 / 3 / 2 / 0 |
-| V5 V2 + V4 | 5 | 0 | 1 | 9 → 8 | 24 → 14 | 5 / 4 / 2 / 0 |
+| V5 V2 + V4 | 5 | 0 | 1 | 9 → 8 | 24 → 14 | 5 / 3 / 2 / 0 |
 
 - Contrast's 9 per frame: V3 removes 2 (the glass jar on `lampmid3_glass_occl_02`, a small box on
   `lampwarm6_glass_occl_02`). The glass clutter jar (`lampmid6_` and `lampwarm6_glass_clutter_01`) and the pale-wood
