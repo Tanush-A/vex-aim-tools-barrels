@@ -58,7 +58,8 @@ class DetConfig:
     height_min: float = 0.5      # a stripeless piece is between these multiples of H tall ...
     height_max: float = 1.5      # ... for its bottom row
     body_min: float = 0.1        # in the stripe's columns, outside its rows, the box holds at least this share of body color (and more body than stripe color)
-    body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe
+    body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe.
+                                 # Never under 1: a barrel is one barrel wide
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
 
     def to_dict(self) -> dict:
@@ -161,13 +162,6 @@ def edge_tol(cfg: DetConfig, size: float) -> float:
     ``resolve_bottom``, the distance from the top row to the stripe in ``_seen_to_stripe``, H elsewhere) and the barrel's
     WIDTH at one (``seen_span``: how far apart the body's end and the stripe's end may be, sideways)."""
     return max(cfg.bottom_tol_min_px, cfg.bottom_tol * size)
-
-
-def widest_barrel(cfg: DetConfig) -> float:
-    """"One barrel at most", in barrel widths: body_width, and never under 1. Used for a joined stripe, a wide stripe
-    region, a cap, a pair and a half stripe. Three other sites use body_width as it is (the box's width in ``place_sides``,
-    the trusted body in ``seen_span`` and in ``drop_single_reading``): the same number unless body_width is set under 1."""
-    return max(cfg.body_width, 1.0)
 
 
 def same_rows(a0: int, a1: int, b0: int, b1: int) -> bool:
@@ -550,7 +544,7 @@ def _join_pieces(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.n
         hs = at.Hs
         shaped = bh <= bw and bh <= cfg.stripe_h_max * hs
         core_ok = core(i) <= cfg.stripe_h_max * hs
-        span = widest_barrel(cfg) * at.W
+        span = cfg.body_width * at.W
         for grp in reversed(groups):
             ids, gx0, gx1, gy0, gy1, gsh, gco = grp
             if not same_rows(y, y + bh, gy0, gy1) or max(gx1, x + bw) - min(gx0, x) > span:
@@ -584,7 +578,7 @@ def _one_stripe_per_barrel(sel: np.ndarray, mask: np.ndarray, other: int, body: 
     Each part remembers the region it was cut from (``Stripe.cut_from``)."""
     k = int(round(bw / W)) if bw > cfg.stripe_merge * W else 1
     Wt = W_two or W
-    if W_two is not None and bw > widest_barrel(cfg) * Wt:
+    if W_two is not None and bw > cfg.body_width * Wt:
         k = max(2, int(round(bw / Wt)))
     edges = [x + round(j * bw / k) for j in range(k + 1)]
     whole = None
@@ -1509,7 +1503,7 @@ def _cap_box(piece: tuple, c: int, mask: np.ndarray, boxes: list[Barrel], caps: 
     if not on_the_table(at, cfg):
         return None                                          # beyond the table's far end
     tol = edge_tol(cfg, H)
-    if not (cfg.width_min * W <= bw <= widest_barrel(cfg) * W):
+    if not (cfg.width_min * W <= bw <= cfg.body_width * W):
         _note(log, "cap", "width", cb, body=c, expected_w=W)
         return None                                          # 2. not barrel-wide for its row
     if not (cfg.width_min * upper <= bh <= upper + tol):
@@ -1664,7 +1658,7 @@ def post_pairs(pieces: list[Stripe], found: list[Found], mask: np.ndarray, cam: 
             if not same_rows(l.bbox[1], l.bbox[3], r.bbox[1], r.bbox[3]):
                 continue                                                                   # 1.
             W = (Wl + Wr) / 2
-            if not (cfg.stripe_full * W <= rx1 - lx0 <= widest_barrel(cfg) * W):
+            if not (cfg.stripe_full * W <= rx1 - lx0 <= cfg.body_width * W):
                 continue                                                                   # 2.
             box = (max(0, lx0), max(0, min(tl, tr)), min(w, rx1), min(h, max(bl, br)))
             if same_barrel(box, l.body, boxes + [f.barrel for f in out]):
@@ -1757,7 +1751,7 @@ def half_stripes(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg
             if core_h > cfg.stripe_h_max * Hs:
                 _note(log, "half", "height", sb, body=body, core_h=core_h, expected_stripe_h=Hs)
                 continue                                                                   # 3.
-            if not (cfg.stripe_full * W <= bw <= widest_barrel(cfg) * W):
+            if not (cfg.stripe_full * W <= bw <= cfg.body_width * W):
                 _note(log, "half", "width", sb, body=body, expected_w=W)
                 continue                                                                   # 4.
             tol = edge_tol(cfg, H)
@@ -1774,7 +1768,7 @@ def half_stripes(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg
                 continue                                                                   # 6.
             span = _body_span(mask, body, x, x + bw, r0, r1, y, y + bh) if r1 - r0 >= 2 else None
             sx0, sx1 = (min(span[0], x), max(span[1], x + bw)) if span else (x, x + bw)
-            if span is None or not (cfg.stripe_full * W <= sx1 - sx0 <= widest_barrel(cfg) * W):
+            if span is None or not (cfg.stripe_full * W <= sx1 - sx0 <= cfg.body_width * W):
                 _note(log, "half", "body_width", sb, body=body, expected_w=W)
                 continue                                                                   # 7.
             beyond = [(max(0, f - 4), f) for f in first] if top_hidden else [(l + 1, min(h, l + 5)) for l in last]
