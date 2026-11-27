@@ -398,7 +398,7 @@ The reason logs are the same too, except in one step, A7. On 224 of the 5435 mas
 - "Is it a full slice?" inside `thin_slice`. A thin stripe with a predicted edge is refused one step earlier (`box_from_stripe`, step 1), so the answer was always yes.
 - "A thin stripe never replaces a found box" in step 4 of `boxes_from_stripes`. Its step 3 has already refused every thin stripe whose box sits on a found box.
 
-**Tests.** 930 before, 907 after (30 removed, 7 added). The tests of deleted off paths went with them. The others were rewritten to state what the detector does, without the switch. The table of removed tests is in `experiments/2026-11-26_collapse/ENTRY.md`.
+**Tests.** 930 before, 907 after (30 removed, 7 added). With the measurement work of `barrels` merged in afterwards (975 tests there): 952. The tests of deleted off paths went with them. The others were rewritten to state what the detector does, without the switch. The table of removed tests is in `experiments/2026-11-26_collapse/ENTRY.md`.
 
 **Old experiments** that name switches run at the git tag `pre-collapse-2026-11-26` (`experiments/README.md`).
 

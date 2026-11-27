@@ -33,6 +33,8 @@ No test frame is in it: `build_inputs.py` checks every stem against the "test" l
   differs while the boxes are the same; `--log` says which reasons changed into which.
 - `pack_boxes.py` wrote `results/2026-11-26_collapse/before_boxes.json.gz`: the 6152 boxes the detector at the tag
   draws on the 5435 masks, without the logs. `diff.py` reads it in place of `before.json`.
+- `rule_counts.py <barrels/src> <inputs.pkl> [out.md]` counts the final boxes by the rule that drew them, and every reason
+  in the logs, per group of masks. It wrote `results/2026-11-26_collapse/rule_counts.md` (the numbers `docs/DETECTOR-MAP.md` quotes).
 - `ENTRY.md`: the text for `EXPERIMENTS.md`.
 
 ## To repeat it
