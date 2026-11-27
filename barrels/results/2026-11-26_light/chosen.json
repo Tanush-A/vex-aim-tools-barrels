@@ -1,0 +1,2025 @@
+{
+ "made": "2026-11-26",
+ "git": "a9a24cf",
+ "folds": {
+  "B1_ramp_without_loose": {
+   "home_white": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "campus_study": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "abp_gray": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "home_bathtile": {
+    "setting": "blue follows `without_loose`: from warmth 0.11 to 0.3 the S floor goes 113 -> 45, the hue low end 103 -> 88",
+    "key": "without_loose|0.11|0.3|45|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 2.0,
+    "found_w": 1.667,
+    "extra_w": -0.333,
+    "runner_up_gain": 2.0
+   },
+   "home_glass": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "home_ottoman": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 5.0,
+    "found_w": 5.75,
+    "extra_w": 0.75,
+    "runner_up_gain": 5.0
+   },
+   "uc_palewood": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "abp_white": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "home_wooddesk": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "home_black": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   }
+  },
+  "B2_ramp_above_gate": {
+   "home_white": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   },
+   "campus_study": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   },
+   "abp_gray": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   },
+   "home_bathtile": {
+    "setting": "blue follows `above_gate20`: from warmth 0.11 to 0.3 the S floor goes 113 -> 45, the hue low end 103 -> 96",
+    "key": "above_gate20|0.11|0.3|45|96|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 2.0,
+    "found_w": 1.667,
+    "extra_w": -0.333,
+    "runner_up_gain": 2.0
+   },
+   "home_glass": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "home_ottoman": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 4.8,
+    "found_w": 5.75,
+    "extra_w": 0.95,
+    "runner_up_gain": 4.55
+   },
+   "uc_palewood": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   },
+   "abp_white": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   },
+   "home_wooddesk": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   },
+   "home_black": {
+    "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.467,
+    "found_w": 7.417,
+    "extra_w": 0.95,
+    "runner_up_gain": 6.217
+   }
+  },
+  "B3_ramp_whole_frame": {
+   "home_white": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "campus_study": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "abp_gray": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "home_bathtile": {
+    "setting": "blue follows `whole_frame`: from warmth 0.11 to 0.3 the S floor goes 113 -> 45, the hue low end 103 -> 96",
+    "key": "whole_frame|0.11|0.3|45|96|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 2.0,
+    "found_w": 1.667,
+    "extra_w": -0.333,
+    "runner_up_gain": 2.0
+   },
+   "home_glass": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.667
+   },
+   "home_ottoman": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 5.0,
+    "found_w": 5.75,
+    "extra_w": 0.75,
+    "runner_up_gain": 4.75
+   },
+   "uc_palewood": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "abp_white": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "home_wooddesk": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   },
+   "home_black": {
+    "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+    "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+    "allowed": 54,
+    "of": 54,
+    "gain": 6.667,
+    "found_w": 7.417,
+    "extra_w": 0.75,
+    "runner_up_gain": 6.417
+   }
+  },
+  "B4_ramp_rel_without_loose": {
+   "home_white": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "campus_study": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "abp_gray": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "home_bathtile": {
+    "setting": "blue follows `without_loose`: from warmth 0.11 to 0.3 the S floor goes 113 -> 60, the hue low end 103 -> 96; and bluer than the light by 0.15",
+    "key": "without_loose|0.11|0.3|60|96|0.15||0|1|13|0",
+    "allowed": 270,
+    "of": 270,
+    "gain": 3.0,
+    "found_w": 3.0,
+    "extra_w": 0.0,
+    "runner_up_gain": 3.0
+   },
+   "home_glass": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "home_ottoman": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 8.75,
+    "found_w": 9.75,
+    "extra_w": 1.0,
+    "runner_up_gain": 8.75
+   },
+   "uc_palewood": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "abp_white": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "home_wooddesk": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   },
+   "home_black": {
+    "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+    "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+    "allowed": 162,
+    "of": 270,
+    "gain": 10.417,
+    "found_w": 11.417,
+    "extra_w": 1.0,
+    "runner_up_gain": 10.417
+   }
+  },
+  "O1_orange_follows_light": {
+   "home_white": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "campus_study": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "abp_gray": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "home_bathtile": {
+    "setting": "orange hue high end 13 -> 22 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|22|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 3.0,
+    "found_w": 3.0,
+    "extra_w": 0.0,
+    "runner_up_gain": 2.0
+   },
+   "home_glass": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "home_ottoman": {
+    "setting": "the fixed model",
+    "key": "|0|1|113|103|0||0|1|13|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": -0.25
+   },
+   "uc_palewood": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "abp_white": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "home_wooddesk": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   },
+   "home_black": {
+    "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+    "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+    "allowed": 3,
+    "of": 9,
+    "gain": 1.083,
+    "found_w": 1.333,
+    "extra_w": 0.25,
+    "runner_up_gain": 0.75
+   }
+  },
+  "O2_orange_follows_dark": {
+   "home_white": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "campus_study": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "abp_gray": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "home_bathtile": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "home_glass": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "home_ottoman": {
+    "setting": "the fixed model",
+    "key": "|0|1|113|103|0||0|1|13|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": 0.0
+   },
+   "uc_palewood": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "abp_white": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "home_wooddesk": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   },
+   "home_black": {
+    "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+    "key": "|0|1|113|103|0|dark|120|60|16|0",
+    "allowed": 9,
+    "of": 9,
+    "gain": 4.667,
+    "found_w": 4.667,
+    "extra_w": 0.0,
+    "runner_up_gain": 4.333
+   }
+  },
+  "O3_orange_wide_with_guard": {
+   "home_white": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 8,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   },
+   "campus_study": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 8,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   },
+   "abp_gray": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 8,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   },
+   "home_bathtile": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 9,
+    "of": 12,
+    "gain": 3.667,
+    "found_w": 4.667,
+    "extra_w": 1.0,
+    "runner_up_gain": 3.667
+   },
+   "home_glass": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 11,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   },
+   "home_ottoman": {
+    "setting": "the fixed model",
+    "key": "|0|1|113|103|0||0|1|13|0",
+    "allowed": 8,
+    "of": 12,
+    "gain": 0.0,
+    "found_w": 0.0,
+    "extra_w": 0.0,
+    "runner_up_gain": -0.45
+   },
+   "uc_palewood": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 12,
+    "of": 12,
+    "gain": 4.167,
+    "found_w": 4.667,
+    "extra_w": 0.5,
+    "runner_up_gain": 4.167
+   },
+   "abp_white": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 8,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   },
+   "home_wooddesk": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 8,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   },
+   "home_black": {
+    "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+    "key": "|0|1|113|103|0|always|0|1|16|0.1",
+    "allowed": 8,
+    "of": 12,
+    "gain": 3.167,
+    "found_w": 4.667,
+    "extra_w": 1.5,
+    "runner_up_gain": 3.167
+   }
+  }
+ },
+ "in_sample_all_places": {
+  "B1_ramp_without_loose": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+   "key": "without_loose|0.08|0.18|30|88|0||0|1|13|0",
+   "allowed": 54,
+   "of": 54,
+   "gain": 6.667,
+   "found_w": 7.417,
+   "extra_w": 0.75,
+   "runner_up_gain": 6.667
+  },
+  "B2_ramp_above_gate": {
+   "setting": "blue follows `above_gate20`: from warmth 0.05 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+   "key": "above_gate20|0.05|0.18|30|88|0||0|1|13|0",
+   "allowed": 54,
+   "of": 54,
+   "gain": 6.467,
+   "found_w": 7.417,
+   "extra_w": 0.95,
+   "runner_up_gain": 6.217
+  },
+  "B3_ramp_whole_frame": {
+   "setting": "blue follows `whole_frame`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 88",
+   "key": "whole_frame|0.08|0.18|30|88|0||0|1|13|0",
+   "allowed": 54,
+   "of": 54,
+   "gain": 6.667,
+   "found_w": 7.417,
+   "extra_w": 0.75,
+   "runner_up_gain": 6.417
+  },
+  "B4_ramp_rel_without_loose": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "O1_orange_follows_light": {
+   "setting": "orange hue high end 13 -> 16 as `without_loose` goes 0 -> 0.15",
+   "key": "|0|1|113|103|0|without_loose|0|0.15|16|0",
+   "allowed": 3,
+   "of": 9,
+   "gain": 1.083,
+   "found_w": 1.333,
+   "extra_w": 0.25,
+   "runner_up_gain": 0.75
+  },
+  "O2_orange_follows_dark": {
+   "setting": "orange hue high end 13 -> 16 as `dark` goes 120 -> 60",
+   "key": "|0|1|113|103|0|dark|120|60|16|0",
+   "allowed": 9,
+   "of": 9,
+   "gain": 4.667,
+   "found_w": 4.667,
+   "extra_w": 0.0,
+   "runner_up_gain": 4.333
+  },
+  "O3_orange_wide_with_guard": {
+   "setting": "orange hue high end 13 -> 16 as `always` goes 0 -> 1, only where the added band is at most 10 % of the frame",
+   "key": "|0|1|113|103|0|always|0|1|16|0.1",
+   "allowed": 8,
+   "of": 12,
+   "gain": 3.167,
+   "found_w": 4.667,
+   "extra_w": 1.5,
+   "runner_up_gain": 3.167
+  }
+ },
+ "verdicts": {
+  "B1_ramp_without_loose": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    137.72
+   ],
+   "found": [
+    211,
+    225
+   ],
+   "extra_w": [
+    1.93,
+    2.68
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     0.0
+    ],
+    "empty_frames_with_new_boxes": [],
+    "frames_with_new_boxes": [
+     "4A8B_lampmid3_bathtile_clutter_01",
+     "4A8B_lampmid3_bathtile_core_01",
+     "4A8B_lampwarm6_bathtile_touch_01",
+     "4A8B_lampwarm6_ottoman_touch_01"
+    ],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.6
+     ],
+     "new_box_frames": []
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     6.25,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     4.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     3,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     8,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     5,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 14,
+   "lost": 0
+  },
+  "B2_ramp_above_gate": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    136.22
+   ],
+   "found": [
+    211,
+    219
+   ],
+   "extra_w": [
+    1.93,
+    2.63
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     0.2
+    ],
+    "empty_frames_with_new_boxes": [
+     "4A8B_lampwarm6_glass_neg_02"
+    ],
+    "frames_with_new_boxes": [
+     "4A8B_lampmid3_bathtile_clutter_01",
+     "4A8B_lampmid3_bathtile_core_01",
+     "4A8B_lampwarm6_glass_neg_02",
+     "4A8B_lampwarm6_ottoman_touch_01"
+    ],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.8
+     ],
+     "new_box_frames": [
+      "4A8B_lampwarm6_glass_neg_02"
+     ]
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     4.75,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     4.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     2,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     3,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     5,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 8,
+   "lost": 0
+  },
+  "B3_ramp_whole_frame": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    136.97
+   ],
+   "found": [
+    211,
+    222
+   ],
+   "extra_w": [
+    1.93,
+    2.18
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     0.0
+    ],
+    "empty_frames_with_new_boxes": [],
+    "frames_with_new_boxes": [
+     "4A8B_lampmid3_bathtile_core_01",
+     "4A8B_lampwarm6_ottoman_touch_01"
+    ],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.6
+     ],
+     "new_box_frames": []
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     5.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     4.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     3,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     5,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     5,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 11,
+   "lost": 0
+  },
+  "B4_ramp_rel_without_loose": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    145.72
+   ],
+   "found": [
+    211,
+    257
+   ],
+   "extra_w": [
+    1.93,
+    6.68
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     1.25
+    ],
+    "empty_frames_with_new_boxes": [
+     "4A8B_lampmid3_bathtile_neg_02",
+     "4A8B_lampmid6_bathtile_neg_02",
+     "4A8B_lampwarm6_bathtile_neg_02"
+    ],
+    "frames_with_new_boxes": [
+     "4A8B_lampmid3_bathtile_clutter_01",
+     "4A8B_lampmid3_bathtile_core_01",
+     "4A8B_lampmid3_bathtile_neg_02",
+     "4A8B_lampmid3_bathtile_occl_02",
+     "4A8B_lampmid6_bathtile_neg_02",
+     "4A8B_lampmid6_bathtile_occl_02",
+     "4A8B_lampwarm6_bathtile_clutter_01",
+     "4A8B_lampwarm6_bathtile_core_01",
+     "4A8B_lampwarm6_bathtile_neg_02",
+     "4A8B_lampwarm6_bathtile_occl_02",
+     "4A8B_lampwarm6_ottoman_touch_01"
+    ],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.6
+     ],
+     "new_box_frames": []
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     14.25,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     4.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     14,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     5,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 46,
+   "lost": 0
+  },
+  "O1_orange_follows_light": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    133.3
+   ],
+   "found": [
+    211,
+    209
+   ],
+   "extra_w": [
+    1.93,
+    3.93
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     0.25
+    ],
+    "empty_frames_with_new_boxes": [
+     "4A8B_lampmid3_bathtile_neg_02"
+    ],
+    "frames_with_new_boxes": [
+     "4A8B_lampcool6_bathtile_clutter_01",
+     "4A8B_lampmid3_bathtile_clutter_01",
+     "4A8B_lampmid3_bathtile_core_01",
+     "4A8B_lampmid3_bathtile_edge_01",
+     "4A8B_lampmid3_bathtile_neg_02",
+     "4A8B_lampmid3_bathtile_occl_02",
+     "4A8B_lampmid6_bathtile_core_01",
+     "4A8B_lampmid6_bathtile_touch_01"
+    ],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.6
+     ],
+     "new_box_frames": []
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     3.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     3.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     0,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     0,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 0,
+   "lost": 2
+  },
+  "O2_orange_follows_dark": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    133.8
+   ],
+   "found": [
+    211,
+    211
+   ],
+   "extra_w": [
+    1.93,
+    1.93
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     0.0
+    ],
+    "empty_frames_with_new_boxes": [],
+    "frames_with_new_boxes": [],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.6
+     ],
+     "new_box_frames": []
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     4.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     3.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 0,
+   "lost": 0
+  },
+  "O3_orange_wide_with_guard": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    133.8
+   ],
+   "found": [
+    211,
+    211
+   ],
+   "extra_w": [
+    1.93,
+    3.43
+   ],
+   "traps": {
+    "clean_empty": [
+     0,
+     0
+    ],
+    "cluttered_empty_w": [
+     0.0,
+     0.0
+    ],
+    "empty_frames_with_new_boxes": [],
+    "frames_with_new_boxes": [
+     "4A8B_lampcool6_bathtile_clutter_01",
+     "4A8B_lampmid6_bathtile_touch_01",
+     "4A8B_overheaddim_palewood_clutter_01"
+    ],
+    "glass": {
+     "found_w": [
+      14.8,
+      14.8
+     ],
+     "extra_w": [
+      0.6,
+      0.6
+     ],
+     "new_box_frames": []
+    }
+   },
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     4.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     3.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "gained": 0,
+   "lost": 0
+  }
+ }
+}

@@ -1,0 +1,9 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_lampcool3_wood_occl_02,1,orange,175 117 218 162,missed,found,gained,home_wooddesk,lampcool3_wood,0
+4A8B_lampcool6_wood_clutter_01,1,orange,35 154 144 259,missed,found,gained,home_wooddesk,lampcool6_wood,0
+4A8B_window_black_cluster_01,3,orange,350 128 418 199,missed,found,gained,home_black,window_black,0
+4A8B_window_black_clutter_02,1,blue,0 135 73 212,missed,found,gained,home_black,window_black,0
+4A8B_window_black_far_01,2,orange,279 112 323 157,missed,off,other,home_black,window_black,0
+4A8B_window_black_far_01,3,orange,366 114 412 158,missed,off,other,home_black,window_black,0
+4A8B_window_black_far_01,4,blue,508 116 565 166,missed,found,gained,home_black,window_black,0
+4A8B_window_black_touch_02,2,orange,304 136 384 219,missed,off,other,home_black,window_black,0

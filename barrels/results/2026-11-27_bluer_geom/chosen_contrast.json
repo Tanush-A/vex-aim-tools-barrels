@@ -1,0 +1,311 @@
+{
+ "made": "2026-11-26",
+ "git": "3094b20",
+ "verdicts": {
+  "C1_repro": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    155.3
+   ],
+   "found": [
+    211,
+    275
+   ],
+   "extra_w": [
+    1.93,
+    2.83
+   ],
+   "extra": [
+    5,
+    9
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "gained": 64,
+   "lost": 0,
+   "places": {
+    "abp_gray": [
+     10.0,
+     15.0
+    ],
+    "home_bathtile": [
+     4.0,
+     13.5
+    ],
+    "home_ottoman": [
+     3.0,
+     10.0
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     15,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     11,
+     21,
+     2,
+     2
+    ],
+    "lampmid3_wood": [
+     1,
+     12,
+     21,
+     1,
+     1
+    ],
+    "lampmid6_wood": [
+     1,
+     16,
+     21,
+     0,
+     1
+    ],
+    "lampwarm3_wood": [
+     1,
+     12,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     13,
+     21,
+     1,
+     2
+    ]
+   }
+  },
+  "G3_contrast_checks": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    155.3
+   ],
+   "found": [
+    211,
+    275
+   ],
+   "extra_w": [
+    1.93,
+    2.23
+   ],
+   "extra": [
+    5,
+    6
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "gained": 64,
+   "lost": 0,
+   "places": {
+    "abp_gray": [
+     10.0,
+     15.0
+    ],
+    "home_bathtile": [
+     4.0,
+     13.5
+    ],
+    "home_ottoman": [
+     3.0,
+     10.0
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     14,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     2,
+     10,
+     21,
+     2,
+     1
+    ],
+    "lampmid3_wood": [
+     1,
+     12,
+     21,
+     1,
+     1
+    ],
+    "lampmid6_wood": [
+     1,
+     16,
+     21,
+     0,
+     1
+    ],
+    "lampwarm3_wood": [
+     1,
+     12,
+     21,
+     0,
+     0
+    ],
+    "lampwarm6_wood": [
+     0,
+     13,
+     21,
+     1,
+     2
+    ]
+   }
+  }
+ },
+ "folds": {
+  "home_white": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 24.517
+  },
+  "campus_study": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 24.517
+  },
+  "abp_gray": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 19.517
+  },
+  "home_bathtile": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.5 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.5/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 15.267
+  },
+  "home_glass": {
+   "spec": "mode=add,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.45",
+   "key": "s0.35|l1.35/0.45",
+   "allowed": 28,
+   "of": 28,
+   "gain": 24.0
+  },
+  "home_ottoman": {
+   "spec": "mode=add,strength_min=1.15,d_min=1.1,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 16.85
+  },
+  "uc_palewood": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s-|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 23.517
+  },
+  "abp_white": {
+   "spec": "mode=add,d_min=1.1,orange_min=0.8,alike_feat=0.42,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 23.6
+  },
+  "home_wooddesk": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 24.517
+  },
+  "home_black": {
+   "spec": "mode=add,strength_min=1.15,orange_min=0.8,extent_top=0.15,extent_bottom=0.15",
+   "checks": "K1 speckle: solid < 0.35; K2 label: stripe > 1.35 x the row's stripe and body fill < 0.6",
+   "key": "s0.35|l1.35/0.6",
+   "allowed": 28,
+   "of": 28,
+   "gain": 24.517
+  }
+ },
+ "vs_own": {
+  "G3_contrast_checks": {
+   "against": "C1_repro",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    155.3,
+    155.3
+   ],
+   "found": [
+    275,
+    275
+   ],
+   "extra_w": [
+    2.83,
+    2.23
+   ],
+   "extra": [
+    9,
+    6
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "places": {},
+   "report_only": {
+    "lampcool3_wood": [
+     15,
+     14,
+     21,
+     0,
+     0
+    ],
+    "lampcool6_wood": [
+     11,
+     10,
+     21,
+     2,
+     1
+    ]
+   }
+  }
+ }
+}
