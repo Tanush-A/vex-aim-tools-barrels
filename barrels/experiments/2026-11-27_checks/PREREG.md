@@ -108,3 +108,38 @@ One round. A second round, or any fix, needs a dated addendum here, committed be
 
 `results/2026-11-27_checks/`: `harness.md`, `harness.json`, `harness_removed.csv`; `judge_<candidate>_vs_<baseline>/`;
 `judges_*.md`; `boxes_*.json` (not committed if large); `sheets/` (images, not committed). `ENTRY.md` in this folder.
+
+## Addendum 1 (2026-11-27, written after round 1, before round 2 runs)
+
+**What round 1 showed** (moved to `results/2026-11-27_checks/round1/`: harness.md, judges_fixed_hand_contrast.md,
+changes.md, hard_cases.md; contact sheets looked at). Neither check passes the rule above, at P or at M:
+
+- *Solid paint* loses real barrels on the damaged masks and on partly hidden barrels in the simulated scenes. P: 43
+  lost in the harness (damage 32, scenes 10, real 1: the blue barrel under the cool bathroom lamp, 0.399, also lost in
+  J1). M: 16 lost (damage 11, scenes 5). The damage (holes and ragged edges, `degrade.py`) and a small, partly hidden
+  barrel (a sliver at the frame edge, behind an edge or a slant) both put many of a real barrel's pixels next to a
+  non-barrel pixel, which is what the check calls speckle.
+- *A label, not a stripe* loses real barrels that stand beside or behind a barrel of the other color. P: 54 lost (scenes
+  41, damage 10, real 2, real_dilate 1); M: 37. In the scenes `barrel_side/other` and `barrel_low/other`: the
+  neighbour's body has the stripe's color, so the stripe's box holds rows of it (stripe 1.5-2.0 x) and the neighbour
+  fills part of the box (body share 0.3-0.6). On the parked wood desk the same: an orange barrel behind a blue one.
+- Both remove what they were made for: the jar on the glass table, the pale-wood close-up, the tin and the jar on the
+  cluttered empty bathroom frames (hand thresholds), and on the contrast path 2.43 -> 1.18 boxes not on their barrel.
+
+**Round 2: one fix per check, structural, the numbers unchanged (P and M as above, the same six arms).**
+`paint_readings` changes as follows; the switches, the numbers and the yardsticks stay the same.
+
+- **Solid paint, read after the detector's own closing.** The barrel-colored pixels of the box are closed first with
+  `_closed` (3 x 3, `close_px`: the closing the detector applies to blobs and the sandwich), then the share whose
+  3 x 3 neighbourhood is all barrel color is taken of the closed pixels. Why: pinholes and one-pixel ragged edges
+  close; the speckle of a printed tin is coarser. Risk: the traps' speckle may close too (then the check removes less).
+- **The stripe's height, read column by column.** For each column of the stripe's box that holds stripe color, the
+  10th-90th percentile span of its stripe-colored rows; the stripe's height = the median of those spans. A neighbour
+  whose body has the stripe's color fills a few whole columns of the box; the median is taken over the stripe's own.
+- **The body share, in the stripe's columns only** (as `holds_body` reads it): the box's rows outside the stripe's
+  rows, in the stripe box's columns. A neighbour beside the barrel is then outside what is read. A box with no
+  stripe keeps the whole box's width (the label question is not asked of it anyway).
+
+Everything else as in the plan: the harness (without `--ref`: the readings are no longer the experiment's), J1-J3,
+the extreme conditions, the same recommendation rule, every lost barrel named. Round 1's code is commit 2bb405b.
+No third round: if round 2 fails the rule, the recommendation is "neither", with what was learned.

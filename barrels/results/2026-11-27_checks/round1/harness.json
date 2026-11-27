@@ -1,0 +1,4981 @@
+{
+ "arms": {
+  "S": {
+   "damage": {
+    "inputs": 666,
+    "changed": 28,
+    "removed": 32,
+    "removed_found": 29,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 774,
+    "off0": 6,
+    "off1": 3,
+    "lost": 32,
+    "found_to_off": 0,
+    "extra0": 7,
+    "extra1": 7,
+    "removed_off": 3
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "off0": 2,
+    "off1": 2,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 1,
+    "extra1": 1
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "off0": 0,
+    "off1": 0,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 0,
+    "extra1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 4,
+    "removed": 4,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 222,
+    "off0": 6,
+    "off1": 7,
+    "lost": 1,
+    "found_to_off": 1,
+    "extra0": 9,
+    "extra1": 6,
+    "removed_found": 2,
+    "removed_nothing": 2
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 234,
+    "off0": 15,
+    "off1": 15,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 18,
+    "extra1": 18
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "off0": 1,
+    "off1": 1,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 2,
+    "extra1": 2
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 10,
+    "removed": 10,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4168,
+    "off0": 239,
+    "off1": 238,
+    "lost": 10,
+    "found_to_off": 0,
+    "extra0": 21,
+    "extra1": 21,
+    "removed_found": 9,
+    "removed_off": 1
+   }
+  },
+  "L": {
+   "damage": {
+    "inputs": 666,
+    "changed": 16,
+    "removed": 17,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 793,
+    "off0": 6,
+    "off1": 6,
+    "lost": 10,
+    "found_to_off": 0,
+    "extra0": 7,
+    "extra1": 0,
+    "removed_found": 10,
+    "removed_wrong_color": 7
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "off0": 2,
+    "off1": 2,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 1,
+    "extra1": 1
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "off0": 0,
+    "off1": 0,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 0,
+    "extra1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 6,
+    "removed": 6,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 223,
+    "off0": 6,
+    "off1": 5,
+    "lost": 2,
+    "found_to_off": 0,
+    "extra0": 9,
+    "extra1": 5,
+    "removed_found": 1,
+    "removed_wrong_color": 1,
+    "removed_off": 1,
+    "removed_nothing": 3
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 6,
+    "removed": 6,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 233,
+    "off0": 15,
+    "off1": 15,
+    "lost": 1,
+    "found_to_off": 0,
+    "extra0": 18,
+    "extra1": 13,
+    "removed_found": 1,
+    "removed_nothing": 5
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 2,
+    "removed": 2,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "off0": 1,
+    "off1": 1,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 2,
+    "extra1": 0,
+    "removed_wrong_color": 2
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 48,
+    "removed": 48,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4142,
+    "off0": 239,
+    "off1": 233,
+    "lost": 41,
+    "found_to_off": 0,
+    "extra0": 21,
+    "extra1": 14,
+    "removed_found": 35,
+    "removed_wrong_color": 6,
+    "removed_off": 6,
+    "removed_second": 1
+   }
+  },
+  "SL": {
+   "damage": {
+    "inputs": 666,
+    "changed": 44,
+    "removed": 49,
+    "removed_found": 39,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 764,
+    "off0": 6,
+    "off1": 3,
+    "lost": 42,
+    "found_to_off": 0,
+    "extra0": 7,
+    "extra1": 0,
+    "removed_off": 3,
+    "removed_wrong_color": 7
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "off0": 2,
+    "off1": 2,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 1,
+    "extra1": 1
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "off0": 0,
+    "off1": 0,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 0,
+    "extra1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 8,
+    "removed": 9,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 221,
+    "off0": 6,
+    "off1": 5,
+    "lost": 4,
+    "found_to_off": 0,
+    "extra0": 9,
+    "extra1": 4,
+    "removed_found": 3,
+    "removed_wrong_color": 1,
+    "removed_off": 1,
+    "removed_nothing": 4
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 6,
+    "removed": 6,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 233,
+    "off0": 15,
+    "off1": 15,
+    "lost": 1,
+    "found_to_off": 0,
+    "extra0": 18,
+    "extra1": 13,
+    "removed_found": 1,
+    "removed_nothing": 5
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 2,
+    "removed": 2,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "off0": 1,
+    "off1": 1,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 2,
+    "extra1": 0,
+    "removed_wrong_color": 2
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 58,
+    "removed": 58,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4133,
+    "off0": 239,
+    "off1": 232,
+    "lost": 51,
+    "found_to_off": 0,
+    "extra0": 21,
+    "extra1": 14,
+    "removed_found": 44,
+    "removed_wrong_color": 6,
+    "removed_off": 7,
+    "removed_second": 1
+   }
+  },
+  "Sm": {
+   "damage": {
+    "inputs": 666,
+    "changed": 10,
+    "removed": 11,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 793,
+    "off0": 6,
+    "off1": 5,
+    "lost": 11,
+    "found_to_off": 0,
+    "extra0": 7,
+    "extra1": 7,
+    "removed_found": 10,
+    "removed_off": 1
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "off0": 2,
+    "off1": 2,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 1,
+    "extra1": 1
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "off0": 0,
+    "off1": 0,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 0,
+    "extra1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 2,
+    "removed": 2,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 223,
+    "off0": 6,
+    "off1": 7,
+    "lost": 0,
+    "found_to_off": 1,
+    "extra0": 9,
+    "extra1": 7,
+    "removed_found": 1,
+    "removed_nothing": 1
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 234,
+    "off0": 15,
+    "off1": 15,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 18,
+    "extra1": 18
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "off0": 1,
+    "off1": 1,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 2,
+    "extra1": 2
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 5,
+    "removed": 5,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4172,
+    "off0": 239,
+    "off1": 239,
+    "lost": 5,
+    "found_to_off": 0,
+    "extra0": 21,
+    "extra1": 21,
+    "removed_found": 5
+   }
+  },
+  "Lm": {
+   "damage": {
+    "inputs": 666,
+    "changed": 8,
+    "removed": 9,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 794,
+    "off0": 6,
+    "off1": 6,
+    "lost": 9,
+    "found_to_off": 0,
+    "extra0": 7,
+    "extra1": 7,
+    "removed_found": 9
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "off0": 2,
+    "off1": 2,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 1,
+    "extra1": 1
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "off0": 0,
+    "off1": 0,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 0,
+    "extra1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 6,
+    "removed": 6,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 223,
+    "off0": 6,
+    "off1": 5,
+    "lost": 2,
+    "found_to_off": 0,
+    "extra0": 9,
+    "extra1": 5,
+    "removed_found": 1,
+    "removed_wrong_color": 1,
+    "removed_off": 1,
+    "removed_nothing": 3
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 6,
+    "removed": 6,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 233,
+    "off0": 15,
+    "off1": 15,
+    "lost": 1,
+    "found_to_off": 0,
+    "extra0": 18,
+    "extra1": 13,
+    "removed_found": 1,
+    "removed_nothing": 5
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 1,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "off0": 1,
+    "off1": 1,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 2,
+    "extra1": 1,
+    "removed_wrong_color": 1
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 32,
+    "removed": 32,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4155,
+    "off0": 239,
+    "off1": 236,
+    "lost": 25,
+    "found_to_off": 0,
+    "extra0": 21,
+    "extra1": 14,
+    "removed_wrong_color": 6,
+    "removed_found": 22,
+    "removed_off": 3,
+    "removed_second": 1
+   }
+  },
+  "SLm": {
+   "damage": {
+    "inputs": 666,
+    "changed": 18,
+    "removed": 20,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 784,
+    "off0": 6,
+    "off1": 5,
+    "lost": 20,
+    "found_to_off": 0,
+    "extra0": 7,
+    "extra1": 7,
+    "removed_found": 19,
+    "removed_off": 1
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "off0": 2,
+    "off1": 2,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 1,
+    "extra1": 1
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "off0": 0,
+    "off1": 0,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 0,
+    "extra1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 7,
+    "removed": 8,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 222,
+    "off0": 6,
+    "off1": 5,
+    "lost": 3,
+    "found_to_off": 0,
+    "extra0": 9,
+    "extra1": 4,
+    "removed_found": 2,
+    "removed_wrong_color": 1,
+    "removed_off": 1,
+    "removed_nothing": 4
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 6,
+    "removed": 6,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 233,
+    "off0": 15,
+    "off1": 15,
+    "lost": 1,
+    "found_to_off": 0,
+    "extra0": 18,
+    "extra1": 13,
+    "removed_found": 1,
+    "removed_nothing": 5
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 1,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "off0": 1,
+    "off1": 1,
+    "lost": 0,
+    "found_to_off": 0,
+    "extra0": 2,
+    "extra1": 1,
+    "removed_wrong_color": 1
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 37,
+    "removed": 37,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4150,
+    "off0": 239,
+    "off1": 236,
+    "lost": 30,
+    "found_to_off": 0,
+    "extra0": 21,
+    "extra1": 14,
+    "removed_wrong_color": 6,
+    "removed_found": 27,
+    "removed_off": 3,
+    "removed_second": 1
+   }
+  }
+ },
+ "lost": {
+  "S": [
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_topstripe_01",
+    "gt": [
+     1,
+     [
+      221,
+      238,
+      468,
+      477
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_close_01",
+    "gt": [
+     1,
+     [
+      302,
+      143,
+      390,
+      235
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_close_02",
+    "gt": [
+     2,
+     [
+      308,
+      141,
+      392,
+      231
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02",
+    "gt": [
+     2,
+     [
+      393,
+      141,
+      478,
+      230
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     2,
+     [
+      62,
+      149,
+      166,
+      255
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     1,
+     [
+      498,
+      145,
+      603,
+      243
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_close_01",
+    "gt": [
+     1,
+     [
+      302,
+      143,
+      390,
+      235
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_close_02",
+    "gt": [
+     2,
+     [
+      308,
+      141,
+      392,
+      231
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     2,
+     [
+      62,
+      149,
+      166,
+      255
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_topstripe_01",
+    "gt": [
+     1,
+     [
+      221,
+      238,
+      468,
+      477
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/0/CAMPUS color model/4A8B_campus_light_touch_02",
+    "gt": [
+     2,
+     [
+      273,
+      122,
+      324,
+      178
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/0/HOME hand masks/4A8B_window_light_cluster_02",
+    "gt": [
+     1,
+     [
+      390,
+      116,
+      432,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/0/HOME hand masks/4A8B_window_light_far_02",
+    "gt": [
+     1,
+     [
+      333,
+      106,
+      363,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_cluster_02",
+    "gt": [
+     2,
+     [
+      342,
+      120,
+      391,
+      171
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      438,
+      124,
+      495,
+      180
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      475,
+      122,
+      522,
+      174
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01",
+    "gt": [
+     2,
+     [
+      64,
+      123,
+      125,
+      181
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01",
+    "gt": [
+     1,
+     [
+      339,
+      120,
+      389,
+      176
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/HOME hand masks/4A8B_window_light_far_02",
+    "gt": [
+     2,
+     [
+      218,
+      106,
+      250,
+      144
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/2/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      438,
+      124,
+      495,
+      180
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/2/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      333,
+      131,
+      397,
+      200
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_bathtile_clutter_01",
+    "gt": [
+     2,
+     [
+      292,
+      111,
+      330,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_02",
+    "gt": [
+     1,
+     [
+      175,
+      117,
+      218,
+      162
+     ]
+    ],
+    "was": "found",
+    "now": "off"
+   },
+   {
+    "key": "scene/CAMPUS color model/00307/frame/0.25/R",
+    "gt": [
+     1,
+     [
+      616,
+      110,
+      640,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00309/frame/0.5/R",
+    "gt": [
+     1,
+     [
+      624,
+      110,
+      640,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00313/edge/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00320/slant/0.25/R+",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00321/slant/0.25/R-",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00331/both/0.5/",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00334/top/0.5/",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01480/frame/0.75/L",
+    "gt": [
+     2,
+     [
+      0,
+      112,
+      9,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01510/post/0.5/",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00425/post/0.75/",
+    "gt": [
+     1,
+     [
+      292,
+      121,
+      342,
+      176
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   }
+  ],
+  "SL": [
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_topstripe_01",
+    "gt": [
+     1,
+     [
+      221,
+      238,
+      468,
+      477
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_close_01",
+    "gt": [
+     1,
+     [
+      302,
+      143,
+      390,
+      235
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_close_02",
+    "gt": [
+     2,
+     [
+      308,
+      141,
+      392,
+      231
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02",
+    "gt": [
+     2,
+     [
+      393,
+      141,
+      478,
+      230
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     2,
+     [
+      62,
+      149,
+      166,
+      255
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     1,
+     [
+      498,
+      145,
+      603,
+      243
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_close_01",
+    "gt": [
+     1,
+     [
+      302,
+      143,
+      390,
+      235
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_close_02",
+    "gt": [
+     2,
+     [
+      308,
+      141,
+      392,
+      231
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     2,
+     [
+      62,
+      149,
+      166,
+      255
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_topstripe_01",
+    "gt": [
+     1,
+     [
+      221,
+      238,
+      468,
+      477
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/0/CAMPUS color model/4A8B_campus_light_touch_02",
+    "gt": [
+     2,
+     [
+      273,
+      122,
+      324,
+      178
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/0/HOME hand masks/4A8B_window_light_cluster_02",
+    "gt": [
+     1,
+     [
+      390,
+      116,
+      432,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/0/HOME hand masks/4A8B_window_light_far_02",
+    "gt": [
+     1,
+     [
+      333,
+      106,
+      363,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_cluster_02",
+    "gt": [
+     2,
+     [
+      342,
+      120,
+      391,
+      171
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      438,
+      124,
+      495,
+      180
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      475,
+      122,
+      522,
+      174
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01",
+    "gt": [
+     2,
+     [
+      64,
+      123,
+      125,
+      181
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01",
+    "gt": [
+     1,
+     [
+      339,
+      120,
+      389,
+      176
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/HOME hand masks/4A8B_window_light_far_02",
+    "gt": [
+     2,
+     [
+      218,
+      106,
+      250,
+      144
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/2/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      438,
+      124,
+      495,
+      180
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/2/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      333,
+      131,
+      397,
+      200
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, worst seen/1/HOME hand masks/4A8B_window_light_cluster_02",
+    "gt": [
+     1,
+     [
+      390,
+      116,
+      432,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_bathtile_clutter_01",
+    "gt": [
+     2,
+     [
+      292,
+      111,
+      330,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_02",
+    "gt": [
+     1,
+     [
+      175,
+      117,
+      218,
+      162
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_04",
+    "gt": [
+     1,
+     [
+      182,
+      130,
+      241,
+      186
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "real_dilate/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00043/barrel_low/other/0.25/R",
+    "gt": [
+     2,
+     [
+      363,
+      248,
+      555,
+      427
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00307/frame/0.25/R",
+    "gt": [
+     1,
+     [
+      616,
+      110,
+      640,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00309/frame/0.5/R",
+    "gt": [
+     1,
+     [
+      624,
+      110,
+      640,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00313/edge/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00320/slant/0.25/R+",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00321/slant/0.25/R-",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00331/both/0.5/",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00334/top/0.5/",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00343/barrel_side/other/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00348/barrel_low/other/0.25/L",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00349/barrel_low/other/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00351/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00352/barrel_low/other/0.75/L",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00353/barrel_low/other/0.75/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00422/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      333,
+      131,
+      397,
+      200
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00501/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00502/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00503/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00657/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      240,
+      112,
+      273,
+      147
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00743/barrel_low/other/0.75/R",
+    "gt": [
+     2,
+     [
+      318,
+      114,
+      357,
+      154
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00975/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      393,
+      124,
+      451,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01358/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      64,
+      123,
+      125,
+      181
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01438/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      339,
+      120,
+      389,
+      176
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01480/frame/0.75/L",
+    "gt": [
+     2,
+     [
+      0,
+      112,
+      9,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01510/post/0.5/",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01513/barrel_side/other/0.25/R",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01514/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01515/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01593/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01595/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01598/barrel_low/other/0.5/L",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01743/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01745/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01751/barrel_low/other/0.75/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00275/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00287/barrel_side/same/0.5/L",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00289/barrel_side/same/0.75/L",
+    "gt": [
+     2,
+     [
+      426,
+      128,
+      486,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00425/post/0.75/",
+    "gt": [
+     1,
+     [
+      292,
+      121,
+      342,
+      176
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00584/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00585/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00586/barrel_side/other/0.75/L",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00587/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00663/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00665/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00670/barrel_low/other/0.75/L",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00683/barrel_low/same/0.5/L",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00749/barrel_low/other/0.75/R",
+    "gt": [
+     1,
+     [
+      333,
+      106,
+      363,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00898/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      240,
+      122,
+      289,
+      174
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00899/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      240,
+      122,
+      289,
+      174
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME hand masks/00818/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      433,
+      106,
+      468,
+      139
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME hand masks/00819/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      433,
+      106,
+      468,
+      139
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   }
+  ],
+  "Sm": [
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02",
+    "gt": [
+     2,
+     [
+      393,
+      141,
+      478,
+      230
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     2,
+     [
+      62,
+      149,
+      166,
+      255
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      475,
+      122,
+      522,
+      174
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01",
+    "gt": [
+     2,
+     [
+      64,
+      123,
+      125,
+      181
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_02",
+    "gt": [
+     1,
+     [
+      175,
+      117,
+      218,
+      162
+     ]
+    ],
+    "was": "found",
+    "now": "off"
+   },
+   {
+    "key": "scene/CAMPUS color model/00309/frame/0.5/R",
+    "gt": [
+     1,
+     [
+      624,
+      110,
+      640,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00313/edge/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00320/slant/0.25/R+",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00321/slant/0.25/R-",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01480/frame/0.75/L",
+    "gt": [
+     2,
+     [
+      0,
+      112,
+      9,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   }
+  ],
+  "SLm": [
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02",
+    "gt": [
+     2,
+     [
+      393,
+      141,
+      478,
+      230
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01",
+    "gt": [
+     1,
+     [
+      340,
+      139,
+      423,
+      229
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01",
+    "gt": [
+     1,
+     [
+      252,
+      182,
+      400,
+      357
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01",
+    "gt": [
+     2,
+     [
+      90,
+      161,
+      208,
+      286
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01",
+    "gt": [
+     2,
+     [
+      62,
+      149,
+      166,
+      255
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02",
+    "gt": [
+     2,
+     [
+      475,
+      122,
+      522,
+      174
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01",
+    "gt": [
+     2,
+     [
+      64,
+      123,
+      125,
+      181
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_02",
+    "gt": [
+     1,
+     [
+      175,
+      117,
+      218,
+      162
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_04",
+    "gt": [
+     1,
+     [
+      182,
+      130,
+      241,
+      186
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "real_dilate/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00309/frame/0.5/R",
+    "gt": [
+     1,
+     [
+      624,
+      110,
+      640,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00313/edge/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00320/slant/0.25/R+",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00321/slant/0.25/R-",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00343/barrel_side/other/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00351/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00352/barrel_low/other/0.75/L",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00353/barrel_low/other/0.75/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00422/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      333,
+      131,
+      397,
+      200
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00501/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00502/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00503/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00657/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      240,
+      112,
+      273,
+      147
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00975/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      393,
+      124,
+      451,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01438/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      339,
+      120,
+      389,
+      176
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01480/frame/0.75/L",
+    "gt": [
+     2,
+     [
+      0,
+      112,
+      9,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01514/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01515/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01593/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01595/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01598/barrel_low/other/0.5/L",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01751/barrel_low/other/0.75/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00275/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00287/barrel_side/same/0.5/L",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00289/barrel_side/same/0.75/L",
+    "gt": [
+     2,
+     [
+      426,
+      128,
+      486,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00585/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00587/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00683/barrel_low/same/0.5/L",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00899/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      240,
+      122,
+      289,
+      174
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME hand masks/00819/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      433,
+      106,
+      468,
+      139
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   }
+  ],
+  "L": [
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, worst seen/1/HOME hand masks/4A8B_window_light_cluster_02",
+    "gt": [
+     1,
+     [
+      390,
+      116,
+      432,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_04",
+    "gt": [
+     1,
+     [
+      182,
+      130,
+      241,
+      186
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "real_dilate/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00043/barrel_low/other/0.25/R",
+    "gt": [
+     2,
+     [
+      363,
+      248,
+      555,
+      427
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00343/barrel_side/other/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00348/barrel_low/other/0.25/L",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00349/barrel_low/other/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00351/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00352/barrel_low/other/0.75/L",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00353/barrel_low/other/0.75/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00422/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      333,
+      131,
+      397,
+      200
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00501/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00502/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00503/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00657/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      240,
+      112,
+      273,
+      147
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00743/barrel_low/other/0.75/R",
+    "gt": [
+     2,
+     [
+      318,
+      114,
+      357,
+      154
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00975/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      393,
+      124,
+      451,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01358/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      64,
+      123,
+      125,
+      181
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01438/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      339,
+      120,
+      389,
+      176
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01513/barrel_side/other/0.25/R",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01514/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01515/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01593/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01595/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01598/barrel_low/other/0.5/L",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01743/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01745/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01751/barrel_low/other/0.75/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00275/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00287/barrel_side/same/0.5/L",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00289/barrel_side/same/0.75/L",
+    "gt": [
+     2,
+     [
+      426,
+      128,
+      486,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00584/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00585/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00586/barrel_side/other/0.75/L",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00587/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00663/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00665/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00670/barrel_low/other/0.75/L",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00683/barrel_low/same/0.5/L",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00749/barrel_low/other/0.75/R",
+    "gt": [
+     1,
+     [
+      333,
+      106,
+      363,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00898/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      240,
+      122,
+      289,
+      174
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00899/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      240,
+      122,
+      289,
+      174
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME hand masks/00818/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      433,
+      106,
+      468,
+      139
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME hand masks/00819/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      433,
+      106,
+      468,
+      139
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   }
+  ],
+  "Lm": [
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/light/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      313,
+      115,
+      356,
+      164
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",
+    "gt": [
+     1,
+     [
+      361,
+      117,
+      400,
+      163
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "real/4A8B_lampcool6_wood_occl_04",
+    "gt": [
+     1,
+     [
+      182,
+      130,
+      241,
+      186
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "real_dilate/4A8B_lampcool3_wood_occl_04",
+    "gt": [
+     1,
+     [
+      181,
+      128,
+      238,
+      186
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00343/barrel_side/other/0.25/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00351/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00352/barrel_low/other/0.75/L",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00353/barrel_low/other/0.75/R",
+    "gt": [
+     1,
+     [
+      247,
+      110,
+      279,
+      145
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00422/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      333,
+      131,
+      397,
+      200
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00501/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00502/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00503/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      396,
+      131,
+      462,
+      202
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00657/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      240,
+      112,
+      273,
+      147
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/00975/barrel_low/other/0.5/R",
+    "gt": [
+     1,
+     [
+      393,
+      124,
+      451,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01438/barrel_side/other/0.75/L",
+    "gt": [
+     1,
+     [
+      339,
+      120,
+      389,
+      176
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01514/barrel_side/other/0.5/L",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01515/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      179,
+      112,
+      216,
+      153
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01593/barrel_side/other/0.5/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01595/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01598/barrel_low/other/0.5/L",
+    "gt": [
+     1,
+     [
+      215,
+      112,
+      252,
+      152
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/CAMPUS color model/01751/barrel_low/other/0.75/R",
+    "gt": [
+     2,
+     [
+      223,
+      123,
+      274,
+      178
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00275/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00287/barrel_side/same/0.5/L",
+    "gt": [
+     2,
+     [
+      443,
+      122,
+      500,
+      179
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00289/barrel_side/same/0.75/L",
+    "gt": [
+     2,
+     [
+      426,
+      128,
+      486,
+      185
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00585/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00587/barrel_side/other/0.75/R",
+    "gt": [
+     2,
+     [
+      419,
+      120,
+      471,
+      175
+     ]
+    ],
+    "was": "off",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00683/barrel_low/same/0.5/L",
+    "gt": [
+     1,
+     [
+      317,
+      108,
+      346,
+      137
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME color model/00899/barrel_side/other/0.75/R",
+    "gt": [
+     1,
+     [
+      240,
+      122,
+      289,
+      174
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   },
+   {
+    "key": "scene/HOME hand masks/00819/barrel_side/other/0.5/R",
+    "gt": [
+     2,
+     [
+      433,
+      106,
+      468,
+      139
+     ]
+    ],
+    "was": "found",
+    "now": "missed"
+   }
+  ]
+ },
+ "ref_checked": true,
+ "ref_mismatch": {}
+}

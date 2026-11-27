@@ -1,0 +1,394 @@
+arm,group,key,why,rule,color,bbox,before,solid,stripe_h,body_share,kind,amount,hidden
+S,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,262 184 392 356,found,0.3639,0.7693,0.3004,,,
+SL,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,262 184 392 356,found,0.3639,0.7693,0.3004,,,
+S,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 159 200 281,found,0.3068,0.8436,0.2244,,,
+S,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,orange,402 128 467 195,found,0.2744,0.5518,0.1464,,,
+SL,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 159 200 281,found,0.3068,0.8436,0.2244,,,
+SL,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,orange,402 128 467 195,found,0.2744,0.5518,0.1464,,,
+Sm,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 159 200 281,found,0.3068,0.8436,0.2244,,,
+Sm,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,orange,402 128 467 195,found,0.2744,0.5518,0.1464,,,
+SLm,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 159 200 281,found,0.3068,0.8436,0.2244,,,
+SLm,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,orange,402 128 467 195,found,0.2744,0.5518,0.1464,,,
+S,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_topstripe_01,speckle,closeup,orange,240 249 461 480,found,0.3943,nan,0.3673,,,
+SL,damage,damage/heavy/0/CAMPUS color model/4A8B_campus_light_topstripe_01,speckle,closeup,orange,240 249 461 480,found,0.3943,nan,0.3673,,,
+S,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_close_01,speckle,body_span,orange,311 142 387 233,found,0.3515,0.7513,0.2922,,,
+SL,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_close_01,speckle,body_span,orange,311 142 387 233,found,0.3515,0.7513,0.2922,,,
+S,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_close_02,speckle,body_span,blue,315 140 389 231,found,0.3645,0.6486,0.2964,,,
+SL,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_close_02,speckle,body_span,blue,315 140 389 231,found,0.3645,0.6486,0.2964,,,
+S,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,345 139 421 227,found,0.3769,0.7801,0.2881,,,
+SL,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,345 139 421 227,found,0.3769,0.7801,0.2881,,,
+S,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02,speckle,body_span,blue,401 140 476 228,found,0.2946,0.6535,0.2806,,,
+SL,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02,speckle,body_span,blue,401 140 476 228,found,0.2946,0.6535,0.2806,,,
+Sm,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02,speckle,body_span,blue,401 140 476 228,found,0.2946,0.6535,0.2806,,,
+SLm,damage,damage/heavy/0/HOME hand masks/4A8B_window_light_occl_02,speckle,body_span,blue,401 140 476 228,found,0.2946,0.6535,0.2806,,,
+S,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,262 185 391 356,found,0.3601,0.7377,0.2795,,,
+SL,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,262 185 391 356,found,0.3601,0.7377,0.2795,,,
+S,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 160 200 278,found,0.3114,0.7085,0.2059,,,
+SL,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 160 200 278,found,0.3114,0.7085,0.2059,,,
+Sm,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 160 200 278,found,0.3114,0.7085,0.2059,,,
+SLm,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,98 160 200 278,found,0.3114,0.7085,0.2059,,,
+S,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01,speckle,body_span,blue,80 148 160 248,found,0.3533,0.6114,0.2125,,,
+S,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01,speckle,thin_span,orange,502 151 585 231,off,0.3702,0.6885,0.3125,,,
+SL,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01,speckle,body_span,blue,80 148 160 248,found,0.3533,0.6114,0.2125,,,
+SL,damage,damage/heavy/1/CAMPUS color model/4A8B_campus_light_plain_01,speckle,thin_span,orange,502 151 585 231,off,0.3702,0.6885,0.3125,,,
+S,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_close_01,speckle,body_span,orange,311 142 387 231,found,0.3745,0.7123,0.2615,,,
+SL,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_close_01,speckle,body_span,orange,311 142 387 231,found,0.3745,0.7123,0.2615,,,
+S,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_close_02,speckle,body_span,blue,315 141 388 231,found,0.3656,0.6833,0.289,,,
+SL,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_close_02,speckle,body_span,blue,315 141 388 231,found,0.3656,0.6833,0.289,,,
+S,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,346 139 421 227,found,0.346,0.6991,0.2672,,,
+SL,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,346 139 421 227,found,0.346,0.6991,0.2672,,,
+Sm,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,346 139 421 227,found,0.346,0.6991,0.2672,,,
+SLm,damage,damage/heavy/1/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,346 139 421 227,found,0.346,0.6991,0.2672,,,
+S,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,258 189 392 355,found,0.346,0.7666,0.301,,,
+SL,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,258 189 392 355,found,0.346,0.7666,0.301,,,
+Sm,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,258 189 392 355,found,0.346,0.7666,0.301,,,
+SLm,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_close_01,speckle,body_span,orange,258 189 392 355,found,0.346,0.7666,0.301,,,
+S,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,blue,90 165 200 281,found,0.3234,0.8392,0.215,,,
+SL,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,blue,90 165 200 281,found,0.3234,0.8392,0.215,,,
+Sm,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,blue,90 165 200 281,found,0.3234,0.8392,0.215,,,
+SLm,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_core_01,speckle,hidden_side,blue,90 165 200 281,found,0.3234,0.8392,0.215,,,
+S,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01,speckle,body_span,blue,67 148 160 247,found,0.2795,0.651,0.206,,,
+SL,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01,speckle,body_span,blue,67 148 160 247,found,0.2795,0.651,0.206,,,
+Sm,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01,speckle,body_span,blue,67 148 160 247,found,0.2795,0.651,0.206,,,
+SLm,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_plain_01,speckle,body_span,blue,67 148 160 247,found,0.2795,0.651,0.206,,,
+S,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_topstripe_01,speckle,closeup,orange,232 252 461 480,found,0.397,nan,0.3334,,,
+SL,damage,damage/heavy/2/CAMPUS color model/4A8B_campus_light_topstripe_01,speckle,closeup,orange,232 252 461 480,found,0.397,nan,0.3334,,,
+S,damage,damage/heavy/2/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,344 136 421 227,found,0.3691,0.7832,0.2909,,,
+SL,damage,damage/heavy/2/HOME hand masks/4A8B_window_light_occl_01,speckle,body_span,orange,344 136 421 227,found,0.3691,0.7832,0.2909,,,
+L,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6125,1.8464,0.4821,,,
+L,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,358 118 401 162,found,0.5863,1.8308,0.4468,,,
+SL,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6125,1.8464,0.4821,,,
+SL,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,358 118 401 162,found,0.5863,1.8308,0.4468,,,
+Lm,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6125,1.8464,0.4821,,,
+Lm,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,358 118 401 162,found,0.5863,1.8308,0.4468,,,
+SLm,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6125,1.8464,0.4821,,,
+SLm,damage,damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,358 118 401 162,found,0.5863,1.8308,0.4468,,,
+L,damage,damage/light/1/CAMPUS color model/4A8B_campus_light_room_03,label,whole_stripe,blue,219 102 248 136,wrong_color,0.4085,1.4565,0.3741,,,
+SL,damage,damage/light/1/CAMPUS color model/4A8B_campus_light_room_03,label,whole_stripe,blue,219 102 248 136,wrong_color,0.4085,1.4565,0.3741,,,
+L,damage,damage/light/1/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6059,1.8464,0.4797,,,
+SL,damage,damage/light/1/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6059,1.8464,0.4797,,,
+Lm,damage,damage/light/1/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6059,1.8464,0.4797,,,
+SLm,damage,damage/light/1/HOME hand masks/4A8B_window_light_cluster_01,label,hidden_side,orange,315 118 359 163,found,0.6059,1.8464,0.4797,,,
+L,damage,damage/light/2/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,357 111 399 162,found,0.5668,1.8892,0.3278,,,
+SL,damage,damage/light/2/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,357 111 399 162,found,0.5668,1.8892,0.3278,,,
+Lm,damage,damage/light/2/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,357 111 399 162,found,0.5668,1.8892,0.3278,,,
+SLm,damage,damage/light/2/HOME hand masks/4A8B_window_light_cluster_01,label,centred,orange,357 111 399 162,found,0.5668,1.8892,0.3278,,,
+S,damage,damage/medium/0/CAMPUS color model/4A8B_campus_light_touch_02,speckle,whole_stripe,blue,244 125 307 176,off,0.3608,0.6052,0.3279,,,
+SL,damage,damage/medium/0/CAMPUS color model/4A8B_campus_light_touch_02,speckle,whole_stripe,blue,244 125 307 176,off,0.3608,0.6052,0.3279,,,
+S,damage,damage/medium/0/HOME hand masks/4A8B_window_light_cluster_02,speckle,body_span,orange,393 117 430 160,found,0.3921,1.2134,0.5083,,,
+SL,damage,damage/medium/0/HOME hand masks/4A8B_window_light_cluster_02,speckle,body_span,orange,393 117 430 160,found,0.3921,1.2134,0.5083,,,
+S,damage,damage/medium/0/HOME hand masks/4A8B_window_light_far_02,speckle,hidden_side,orange,335 107 367 136,found,0.3858,0.68,0.3466,,,
+SL,damage,damage/medium/0/HOME hand masks/4A8B_window_light_far_02,speckle,hidden_side,orange,335 107 367 136,found,0.3858,0.68,0.3466,,,
+S,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_cluster_02,speckle,body_span,blue,345 121 397 167,found,0.3657,0.5293,0.3345,,,
+SL,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_cluster_02,speckle,body_span,blue,345 121 397 167,found,0.3657,0.5293,0.3345,,,
+S,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,whole_stripe,blue,442 123 494 178,found,0.3903,0.7146,0.3596,,,
+S,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,cap,blue,460 124 519 168,off,0.2765,nan,0.1292,,,
+SL,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,whole_stripe,blue,442 123 494 178,found,0.3903,0.7146,0.3596,,,
+SL,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,cap,blue,460 124 519 168,off,0.2765,nan,0.1292,,,
+Sm,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,cap,blue,460 124 519 168,off,0.2765,nan,0.1292,,,
+SLm,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,cap,blue,460 124 519 168,off,0.2765,nan,0.1292,,,
+S,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01,speckle,body_span,blue,66 121 121 181,found,0.3227,0.47,0.2248,,,
+S,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01,speckle,body_span,orange,343 123 386 174,found,0.3728,0.5598,0.3848,,,
+SL,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01,speckle,body_span,blue,66 121 121 181,found,0.3227,0.47,0.2248,,,
+SL,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01,speckle,body_span,orange,343 123 386 174,found,0.3728,0.5598,0.3848,,,
+Sm,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01,speckle,body_span,blue,66 121 121 181,found,0.3227,0.47,0.2248,,,
+SLm,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_room_01,speckle,body_span,blue,66 121 121 181,found,0.3227,0.47,0.2248,,,
+S,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02,speckle,body_span,blue,226 125 271 176,found,0.3417,0.6052,0.3978,,,
+SL,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02,speckle,body_span,blue,226 125 271 176,found,0.3417,0.6052,0.3978,,,
+Sm,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02,speckle,body_span,blue,226 125 271 176,found,0.3417,0.6052,0.3978,,,
+SLm,damage,damage/medium/1/CAMPUS color model/4A8B_campus_light_touch_02,speckle,body_span,blue,226 125 271 176,found,0.3417,0.6052,0.3978,,,
+S,damage,damage/medium/1/HOME hand masks/4A8B_window_light_far_02,speckle,thin_span,blue,221 112 251 142,found,0.3795,0.6227,0.4406,,,
+SL,damage,damage/medium/1/HOME hand masks/4A8B_window_light_far_02,speckle,thin_span,blue,221 112 251 142,found,0.3795,0.6227,0.4406,,,
+S,damage,damage/medium/2/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,body_span,blue,442 124 505 178,found,0.397,0.7233,0.3379,,,
+SL,damage,damage/medium/2/CAMPUS color model/4A8B_campus_light_clutter_02,speckle,body_span,blue,442 124 505 178,found,0.397,0.7233,0.3379,,,
+S,damage,damage/medium/2/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,337 133 392 197,found,0.3916,0.6989,0.3738,,,
+SL,damage,damage/medium/2/CAMPUS color model/4A8B_campus_light_core_01,speckle,body_span,blue,337 133 392 197,found,0.3916,0.6989,0.3738,,,
+L,damage,"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,220 101 248 136,wrong_color,0.5044,1.4731,0.3912,,,
+SL,damage,"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,220 101 248 136,wrong_color,0.5044,1.4731,0.3912,,,
+L,damage,"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.6785,1.8892,0.326,,,
+SL,damage,"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.6785,1.8892,0.326,,,
+Lm,damage,"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.6785,1.8892,0.326,,,
+SLm,damage,"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.6785,1.8892,0.326,,,
+L,damage,"damage/white tables, bad day/1/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 101 247 136,wrong_color,0.5077,1.4731,0.3946,,,
+SL,damage,"damage/white tables, bad day/1/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 101 247 136,wrong_color,0.5077,1.4731,0.3946,,,
+L,damage,"damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",label,hidden_side,orange,315 118 358 163,found,0.6757,1.8744,0.4933,,,
+SL,damage,"damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",label,hidden_side,orange,315 118 358 163,found,0.6757,1.8744,0.4933,,,
+Lm,damage,"damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",label,hidden_side,orange,315 118 358 163,found,0.6757,1.8744,0.4933,,,
+SLm,damage,"damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_cluster_01",label,hidden_side,orange,315 118 358 163,found,0.6757,1.8744,0.4933,,,
+L,damage,"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,222 101 248 136,wrong_color,0.4966,1.4731,0.4066,,,
+SL,damage,"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,222 101 248 136,wrong_color,0.4966,1.4731,0.4066,,,
+L,damage,"damage/white tables, typical/0/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+SL,damage,"damage/white tables, typical/0/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+L,damage,"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+SL,damage,"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+Lm,damage,"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+SLm,damage,"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+L,damage,"damage/white tables, typical/1/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+SL,damage,"damage/white tables, typical/1/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+L,damage,"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+SL,damage,"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+Lm,damage,"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+SLm,damage,"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+L,damage,"damage/white tables, typical/2/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+SL,damage,"damage/white tables, typical/2/CAMPUS color model/4A8B_campus_light_room_03",label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+L,damage,"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+SL,damage,"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+Lm,damage,"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+SLm,damage,"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",label,centred,orange,357 111 399 162,found,0.7313,1.8892,0.3425,,,
+L,damage,"damage/white tables, worst seen/1/HOME hand masks/4A8B_window_light_cluster_02",label,thin_span,orange,393 117 430 160,found,0.5698,1.2507,0.5333,,,
+SL,damage,"damage/white tables, worst seen/1/HOME hand masks/4A8B_window_light_cluster_02",label,thin_span,orange,393 117 430 160,found,0.5698,1.2507,0.5333,,,
+L,real,real/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 126 239 185,found,0.4836,1.5218,0.1849,,,
+SL,real,real/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 126 239 185,found,0.4836,1.5218,0.1849,,,
+Lm,real,real/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 126 239 185,found,0.4836,1.5218,0.1849,,,
+SLm,real,real/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 126 239 185,found,0.4836,1.5218,0.1849,,,
+S,real,real/4A8B_lampcool6_bathtile_clutter_01,speckle,body_span,blue,296 110 343 150,found,0.3992,0.7923,0.3355,,,
+SL,real,real/4A8B_lampcool6_bathtile_clutter_01,speckle,body_span,blue,296 110 343 150,found,0.3992,0.7923,0.3355,,,
+S,real,real/4A8B_lampcool6_wood_occl_02,speckle,hidden_side,orange,179 112 225 164,found,0.266,0.4882,0.1652,,,
+L,real,real/4A8B_lampcool6_wood_occl_02,label,body_span,orange,186 131 261 215,wrong_color,0.7168,1.6337,0.422,,,
+SL,real,real/4A8B_lampcool6_wood_occl_02,speckle,hidden_side,orange,179 112 225 164,found,0.266,0.4882,0.1652,,,
+SL,real,real/4A8B_lampcool6_wood_occl_02,label,body_span,orange,186 131 261 215,wrong_color,0.7168,1.6337,0.422,,,
+Sm,real,real/4A8B_lampcool6_wood_occl_02,speckle,hidden_side,orange,179 112 225 164,found,0.266,0.4882,0.1652,,,
+Lm,real,real/4A8B_lampcool6_wood_occl_02,label,body_span,orange,186 131 261 215,wrong_color,0.7168,1.6337,0.422,,,
+SLm,real,real/4A8B_lampcool6_wood_occl_02,speckle,hidden_side,orange,179 112 225 164,found,0.266,0.4882,0.1652,,,
+SLm,real,real/4A8B_lampcool6_wood_occl_02,label,body_span,orange,186 131 261 215,wrong_color,0.7168,1.6337,0.422,,,
+L,real,real/4A8B_lampcool6_wood_occl_04,label,body_span,orange,186 141 266 214,off,0.6686,1.789,0.5811,,,
+SL,real,real/4A8B_lampcool6_wood_occl_04,label,body_span,orange,186 141 266 214,off,0.6686,1.789,0.5811,,,
+Lm,real,real/4A8B_lampcool6_wood_occl_04,label,body_span,orange,186 141 266 214,off,0.6686,1.789,0.5811,,,
+SLm,real,real/4A8B_lampcool6_wood_occl_04,label,body_span,orange,186 141 266 214,off,0.6686,1.789,0.5811,,,
+S,real,real/4A8B_lampmid3_glass_occl_02,speckle,whole_stripe,orange,577 117 636 167,nothing,0.3918,1.651,0.1893,,,
+L,real,real/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,577 117 636 167,nothing,0.3918,1.651,0.1893,,,
+SL,real,real/4A8B_lampmid3_glass_occl_02,speckle,whole_stripe,orange,577 117 636 167,nothing,0.3918,1.651,0.1893,,,
+Lm,real,real/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,577 117 636 167,nothing,0.3918,1.651,0.1893,,,
+SLm,real,real/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,577 117 636 167,nothing,0.3918,1.651,0.1893,,,
+L,real,real/4A8B_lampmid6_glass_clutter_01,label,centred,orange,554 117 604 171,nothing,0.6853,1.5253,0.5133,,,
+SL,real,real/4A8B_lampmid6_glass_clutter_01,label,centred,orange,554 117 604 171,nothing,0.6853,1.5253,0.5133,,,
+Lm,real,real/4A8B_lampmid6_glass_clutter_01,label,centred,orange,554 117 604 171,nothing,0.6853,1.5253,0.5133,,,
+SLm,real,real/4A8B_lampmid6_glass_clutter_01,label,centred,orange,554 117 604 171,nothing,0.6853,1.5253,0.5133,,,
+L,real,real/4A8B_lampwarm6_glass_clutter_01,label,centred,orange,555 117 605 172,nothing,0.7056,1.5253,0.5277,,,
+SL,real,real/4A8B_lampwarm6_glass_clutter_01,label,centred,orange,555 117 605 172,nothing,0.7056,1.5253,0.5277,,,
+Lm,real,real/4A8B_lampwarm6_glass_clutter_01,label,centred,orange,555 117 605 172,nothing,0.7056,1.5253,0.5277,,,
+SLm,real,real/4A8B_lampwarm6_glass_clutter_01,label,centred,orange,555 117 605 172,nothing,0.7056,1.5253,0.5277,,,
+S,real,real/4A8B_overheaddim_palewood_core_01,speckle,closeup,orange,235 273 564 480,nothing,0.3418,nan,0.2792,,,
+SL,real,real/4A8B_overheaddim_palewood_core_01,speckle,closeup,orange,235 273 564 480,nothing,0.3418,nan,0.2792,,,
+Sm,real,real/4A8B_overheaddim_palewood_core_01,speckle,closeup,orange,235 273 564 480,nothing,0.3418,nan,0.2792,,,
+SLm,real,real/4A8B_overheaddim_palewood_core_01,speckle,closeup,orange,235 273 564 480,nothing,0.3418,nan,0.2792,,,
+L,real_dilate,real_dilate/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 135 240 186,found,0.6904,1.6636,0.4969,,,
+SL,real_dilate,real_dilate/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 135 240 186,found,0.6904,1.6636,0.4969,,,
+Lm,real_dilate,real_dilate/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 135 240 186,found,0.6904,1.6636,0.4969,,,
+SLm,real_dilate,real_dilate/4A8B_lampcool3_wood_occl_04,label,whole_stripe,orange,186 135 240 186,found,0.6904,1.6636,0.4969,,,
+L,real_dilate,real_dilate/4A8B_lampmid3_glass_neg_02,label,whole_stripe,orange,559 122 609 166,nothing,0.6645,1.8397,0.588,,,
+SL,real_dilate,real_dilate/4A8B_lampmid3_glass_neg_02,label,whole_stripe,orange,559 122 609 166,nothing,0.6645,1.8397,0.588,,,
+Lm,real_dilate,real_dilate/4A8B_lampmid3_glass_neg_02,label,whole_stripe,orange,559 122 609 166,nothing,0.6645,1.8397,0.588,,,
+SLm,real_dilate,real_dilate/4A8B_lampmid3_glass_neg_02,label,whole_stripe,orange,559 122 609 166,nothing,0.6645,1.8397,0.588,,,
+L,real_dilate,real_dilate/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,559 122 609 167,nothing,0.6578,1.7139,0.5467,,,
+SL,real_dilate,real_dilate/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,559 122 609 167,nothing,0.6578,1.7139,0.5467,,,
+Lm,real_dilate,real_dilate/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,559 122 609 167,nothing,0.6578,1.7139,0.5467,,,
+SLm,real_dilate,real_dilate/4A8B_lampmid3_glass_occl_02,label,whole_stripe,orange,559 122 609 167,nothing,0.6578,1.7139,0.5467,,,
+L,real_dilate,real_dilate/4A8B_lampmid6_glass_clutter_01,label,whole_stripe,orange,560 117 609 172,nothing,0.8251,1.673,0.5834,,,
+SL,real_dilate,real_dilate/4A8B_lampmid6_glass_clutter_01,label,whole_stripe,orange,560 117 609 172,nothing,0.8251,1.673,0.5834,,,
+Lm,real_dilate,real_dilate/4A8B_lampmid6_glass_clutter_01,label,whole_stripe,orange,560 117 609 172,nothing,0.8251,1.673,0.5834,,,
+SLm,real_dilate,real_dilate/4A8B_lampmid6_glass_clutter_01,label,whole_stripe,orange,560 117 609 172,nothing,0.8251,1.673,0.5834,,,
+L,real_dilate,real_dilate/4A8B_lampmid6_glass_occl_02,label,centred,orange,558 119 611 176,nothing,0.6431,1.569,0.3877,,,
+SL,real_dilate,real_dilate/4A8B_lampmid6_glass_occl_02,label,centred,orange,558 119 611 176,nothing,0.6431,1.569,0.3877,,,
+Lm,real_dilate,real_dilate/4A8B_lampmid6_glass_occl_02,label,centred,orange,558 119 611 176,nothing,0.6431,1.569,0.3877,,,
+SLm,real_dilate,real_dilate/4A8B_lampmid6_glass_occl_02,label,centred,orange,558 119 611 176,nothing,0.6431,1.569,0.3877,,,
+L,real_dilate,real_dilate/4A8B_window_glass_clutter_01,label,body_span,orange,561 118 609 171,nothing,0.7855,1.7139,0.4944,,,
+SL,real_dilate,real_dilate/4A8B_window_glass_clutter_01,label,body_span,orange,561 118 609 171,nothing,0.7855,1.7139,0.4944,,,
+Lm,real_dilate,real_dilate/4A8B_window_glass_clutter_01,label,body_span,orange,561 118 609 171,nothing,0.7855,1.7139,0.4944,,,
+SLm,real_dilate,real_dilate/4A8B_window_glass_clutter_01,label,body_span,orange,561 118 609 171,nothing,0.7855,1.7139,0.4944,,,
+L,real_erode,real_erode/4A8B_campus_light_room_03,label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+SL,real_erode,real_erode/4A8B_campus_light_room_03,label,whole_stripe,blue,219 102 248 136,wrong_color,0.5886,1.4403,0.3793,,,
+L,real_erode,real_erode/4A8B_overheaddim_palewood_core_01,label,whole_stripe,orange,438 107 476 150,wrong_color,0.7777,1.5388,0.3126,,,
+SL,real_erode,real_erode/4A8B_overheaddim_palewood_core_01,label,whole_stripe,orange,438 107 476 150,wrong_color,0.7777,1.5388,0.3126,,,
+Lm,real_erode,real_erode/4A8B_overheaddim_palewood_core_01,label,whole_stripe,orange,438 107 476 150,wrong_color,0.7777,1.5388,0.3126,,,
+SLm,real_erode,real_erode/4A8B_overheaddim_palewood_core_01,label,whole_stripe,orange,438 107 476 150,wrong_color,0.7777,1.5388,0.3126,,,
+L,scene,scene/CAMPUS color model/00043/barrel_low/other/0.25/R,label,whole_stripe,blue,368 204 550 424,found,0.9314,1.2628,0.541,barrel_low/other,0.25,0.044
+SL,scene,scene/CAMPUS color model/00043/barrel_low/other/0.25/R,label,whole_stripe,blue,368 204 550 424,found,0.9314,1.2628,0.541,barrel_low/other,0.25,0.044
+L,scene,scene/CAMPUS color model/00129/barrel_side/same/0.75/L,label,centred,blue,249 108 288 151,wrong_color,0.6012,1.5391,0.2682,barrel_side/same,0.75,0.788
+SL,scene,scene/CAMPUS color model/00129/barrel_side/same/0.75/L,label,centred,blue,249 108 288 151,wrong_color,0.6012,1.5391,0.2682,barrel_side/same,0.75,0.788
+Lm,scene,scene/CAMPUS color model/00129/barrel_side/same/0.75/L,label,centred,blue,249 108 288 151,wrong_color,0.6012,1.5391,0.2682,barrel_side/same,0.75,0.788
+SLm,scene,scene/CAMPUS color model/00129/barrel_side/same/0.75/L,label,centred,blue,249 108 288 151,wrong_color,0.6012,1.5391,0.2682,barrel_side/same,0.75,0.788
+S,scene,scene/CAMPUS color model/00307/frame/0.25/R,speckle,hidden_side,orange,616 110 640 144,found,0.3941,0.527,0.4077,frame,0.25,0.319
+SL,scene,scene/CAMPUS color model/00307/frame/0.25/R,speckle,hidden_side,orange,616 110 640 144,found,0.3941,0.527,0.4077,frame,0.25,0.319
+S,scene,scene/CAMPUS color model/00309/frame/0.5/R,speckle,hidden_side,orange,624 110 640 144,found,0.1802,0.527,0.2522,frame,0.5,0.686
+SL,scene,scene/CAMPUS color model/00309/frame/0.5/R,speckle,hidden_side,orange,624 110 640 144,found,0.1802,0.527,0.2522,frame,0.5,0.686
+Sm,scene,scene/CAMPUS color model/00309/frame/0.5/R,speckle,hidden_side,orange,624 110 640 144,found,0.1802,0.527,0.2522,frame,0.5,0.686
+SLm,scene,scene/CAMPUS color model/00309/frame/0.5/R,speckle,hidden_side,orange,624 110 640 144,found,0.1802,0.527,0.2522,frame,0.5,0.686
+S,scene,scene/CAMPUS color model/00313/edge/0.25/R,speckle,centred,orange,241 110 277 144,found,0.3351,0.527,0.2718,edge,0.25,0.319
+SL,scene,scene/CAMPUS color model/00313/edge/0.25/R,speckle,centred,orange,241 110 277 144,found,0.3351,0.527,0.2718,edge,0.25,0.319
+Sm,scene,scene/CAMPUS color model/00313/edge/0.25/R,speckle,centred,orange,241 110 277 144,found,0.3351,0.527,0.2718,edge,0.25,0.319
+SLm,scene,scene/CAMPUS color model/00313/edge/0.25/R,speckle,centred,orange,241 110 277 144,found,0.3351,0.527,0.2718,edge,0.25,0.319
+S,scene,scene/CAMPUS color model/00320/slant/0.25/R+,speckle,centred,orange,242 110 279 144,found,0.3236,0.527,0.2654,slant,0.25,0.312
+SL,scene,scene/CAMPUS color model/00320/slant/0.25/R+,speckle,centred,orange,242 110 279 144,found,0.3236,0.527,0.2654,slant,0.25,0.312
+Sm,scene,scene/CAMPUS color model/00320/slant/0.25/R+,speckle,centred,orange,242 110 279 144,found,0.3236,0.527,0.2654,slant,0.25,0.312
+SLm,scene,scene/CAMPUS color model/00320/slant/0.25/R+,speckle,centred,orange,242 110 279 144,found,0.3236,0.527,0.2654,slant,0.25,0.312
+S,scene,scene/CAMPUS color model/00321/slant/0.25/R-,speckle,centred,orange,243 110 279 144,found,0.3444,0.527,0.2887,slant,0.25,0.285
+SL,scene,scene/CAMPUS color model/00321/slant/0.25/R-,speckle,centred,orange,243 110 279 144,found,0.3444,0.527,0.2887,slant,0.25,0.285
+Sm,scene,scene/CAMPUS color model/00321/slant/0.25/R-,speckle,centred,orange,243 110 279 144,found,0.3444,0.527,0.2887,slant,0.25,0.285
+SLm,scene,scene/CAMPUS color model/00321/slant/0.25/R-,speckle,centred,orange,243 110 279 144,found,0.3444,0.527,0.2887,slant,0.25,0.285
+S,scene,scene/CAMPUS color model/00331/both/0.5/,speckle,centred,orange,245 110 281 144,found,0.3905,0.4427,0.227,both,0.5,0.425
+SL,scene,scene/CAMPUS color model/00331/both/0.5/,speckle,centred,orange,245 110 281 144,found,0.3905,0.4427,0.227,both,0.5,0.425
+S,scene,scene/CAMPUS color model/00334/top/0.5/,speckle,half_stripe,orange,249 107 278 144,found,0.3887,nan,0.212,top,0.5,0.516
+SL,scene,scene/CAMPUS color model/00334/top/0.5/,speckle,half_stripe,orange,249 107 278 144,found,0.3887,nan,0.212,top,0.5,0.516
+L,scene,scene/CAMPUS color model/00343/barrel_side/other/0.25/R,label,whole_stripe,orange,250 110 278 144,found,0.4241,1.5098,0.4706,barrel_side/other,0.25,0.265
+SL,scene,scene/CAMPUS color model/00343/barrel_side/other/0.25/R,label,whole_stripe,orange,250 110 278 144,found,0.4241,1.5098,0.4706,barrel_side/other,0.25,0.265
+Lm,scene,scene/CAMPUS color model/00343/barrel_side/other/0.25/R,label,whole_stripe,orange,250 110 278 144,found,0.4241,1.5098,0.4706,barrel_side/other,0.25,0.265
+SLm,scene,scene/CAMPUS color model/00343/barrel_side/other/0.25/R,label,whole_stripe,orange,250 110 278 144,found,0.4241,1.5098,0.4706,barrel_side/other,0.25,0.265
+L,scene,scene/CAMPUS color model/00348/barrel_low/other/0.25/L,label,whole_stripe,orange,247 110 279 144,found,0.4849,1.2859,0.5658,barrel_low/other,0.25,0.042
+SL,scene,scene/CAMPUS color model/00348/barrel_low/other/0.25/L,label,whole_stripe,orange,247 110 279 144,found,0.4849,1.2859,0.5658,barrel_low/other,0.25,0.042
+L,scene,scene/CAMPUS color model/00349/barrel_low/other/0.25/R,label,body_span,orange,248 110 279 146,found,0.4933,1.4285,0.4856,barrel_low/other,0.25,0.102
+SL,scene,scene/CAMPUS color model/00349/barrel_low/other/0.25/R,label,body_span,orange,248 110 279 146,found,0.4933,1.4285,0.4856,barrel_low/other,0.25,0.102
+L,scene,scene/CAMPUS color model/00351/barrel_low/other/0.5/R,label,body_span,orange,248 110 279 147,found,0.5337,1.5113,0.4295,barrel_low/other,0.5,0.367
+SL,scene,scene/CAMPUS color model/00351/barrel_low/other/0.5/R,label,body_span,orange,248 110 279 147,found,0.5337,1.5113,0.4295,barrel_low/other,0.5,0.367
+Lm,scene,scene/CAMPUS color model/00351/barrel_low/other/0.5/R,label,body_span,orange,248 110 279 147,found,0.5337,1.5113,0.4295,barrel_low/other,0.5,0.367
+SLm,scene,scene/CAMPUS color model/00351/barrel_low/other/0.5/R,label,body_span,orange,248 110 279 147,found,0.5337,1.5113,0.4295,barrel_low/other,0.5,0.367
+L,scene,scene/CAMPUS color model/00352/barrel_low/other/0.75/L,label,centred,orange,249 110 286 146,found,0.6397,1.5388,0.4565,barrel_low/other,0.75,0.438
+SL,scene,scene/CAMPUS color model/00352/barrel_low/other/0.75/L,label,centred,orange,249 110 286 146,found,0.6397,1.5388,0.4565,barrel_low/other,0.75,0.438
+Lm,scene,scene/CAMPUS color model/00352/barrel_low/other/0.75/L,label,centred,orange,249 110 286 146,found,0.6397,1.5388,0.4565,barrel_low/other,0.75,0.438
+SLm,scene,scene/CAMPUS color model/00352/barrel_low/other/0.75/L,label,centred,orange,249 110 286 146,found,0.6397,1.5388,0.4565,barrel_low/other,0.75,0.438
+L,scene,scene/CAMPUS color model/00353/barrel_low/other/0.75/R,label,body_span,orange,248 110 279 148,found,0.6319,1.5113,0.4452,barrel_low/other,0.75,0.584
+SL,scene,scene/CAMPUS color model/00353/barrel_low/other/0.75/R,label,body_span,orange,248 110 279 148,found,0.6319,1.5113,0.4452,barrel_low/other,0.75,0.584
+Lm,scene,scene/CAMPUS color model/00353/barrel_low/other/0.75/R,label,body_span,orange,248 110 279 148,found,0.6319,1.5113,0.4452,barrel_low/other,0.75,0.584
+SLm,scene,scene/CAMPUS color model/00353/barrel_low/other/0.75/R,label,body_span,orange,248 110 279 148,found,0.6319,1.5113,0.4452,barrel_low/other,0.75,0.584
+L,scene,scene/CAMPUS color model/00422/barrel_side/other/0.5/L,label,hidden_side,blue,329 132 392 198,found,0.8474,2.0341,0.5604,barrel_side/other,0.5,0.428
+SL,scene,scene/CAMPUS color model/00422/barrel_side/other/0.5/L,label,hidden_side,blue,329 132 392 198,found,0.8474,2.0341,0.5604,barrel_side/other,0.5,0.428
+Lm,scene,scene/CAMPUS color model/00422/barrel_side/other/0.5/L,label,hidden_side,blue,329 132 392 198,found,0.8474,2.0341,0.5604,barrel_side/other,0.5,0.428
+SLm,scene,scene/CAMPUS color model/00422/barrel_side/other/0.5/L,label,hidden_side,blue,329 132 392 198,found,0.8474,2.0341,0.5604,barrel_side/other,0.5,0.428
+L,scene,scene/CAMPUS color model/00501/barrel_side/other/0.5/R,label,whole_stripe,orange,397 133 460 200,found,0.7665,1.6465,0.5905,barrel_side/other,0.5,0.378
+SL,scene,scene/CAMPUS color model/00501/barrel_side/other/0.5/R,label,whole_stripe,orange,397 133 460 200,found,0.7665,1.6465,0.5905,barrel_side/other,0.5,0.378
+Lm,scene,scene/CAMPUS color model/00501/barrel_side/other/0.5/R,label,whole_stripe,orange,397 133 460 200,found,0.7665,1.6465,0.5905,barrel_side/other,0.5,0.378
+SLm,scene,scene/CAMPUS color model/00501/barrel_side/other/0.5/R,label,whole_stripe,orange,397 133 460 200,found,0.7665,1.6465,0.5905,barrel_side/other,0.5,0.378
+L,scene,scene/CAMPUS color model/00502/barrel_side/other/0.75/L,label,whole_stripe,orange,400 133 460 200,found,0.8293,1.6811,0.5952,barrel_side/other,0.75,0.572
+SL,scene,scene/CAMPUS color model/00502/barrel_side/other/0.75/L,label,whole_stripe,orange,400 133 460 200,found,0.8293,1.6811,0.5952,barrel_side/other,0.75,0.572
+Lm,scene,scene/CAMPUS color model/00502/barrel_side/other/0.75/L,label,whole_stripe,orange,400 133 460 200,found,0.8293,1.6811,0.5952,barrel_side/other,0.75,0.572
+SLm,scene,scene/CAMPUS color model/00502/barrel_side/other/0.75/L,label,whole_stripe,orange,400 133 460 200,found,0.8293,1.6811,0.5952,barrel_side/other,0.75,0.572
+L,scene,scene/CAMPUS color model/00503/barrel_side/other/0.75/R,label,whole_stripe,orange,397 133 460 199,found,0.8217,1.5936,0.5745,barrel_side/other,0.75,0.59
+SL,scene,scene/CAMPUS color model/00503/barrel_side/other/0.75/R,label,whole_stripe,orange,397 133 460 199,found,0.8217,1.5936,0.5745,barrel_side/other,0.75,0.59
+Lm,scene,scene/CAMPUS color model/00503/barrel_side/other/0.75/R,label,whole_stripe,orange,397 133 460 199,found,0.8217,1.5936,0.5745,barrel_side/other,0.75,0.59
+SLm,scene,scene/CAMPUS color model/00503/barrel_side/other/0.75/R,label,whole_stripe,orange,397 133 460 199,found,0.8217,1.5936,0.5745,barrel_side/other,0.75,0.59
+L,scene,scene/CAMPUS color model/00657/barrel_side/other/0.5/R,label,hidden_side,blue,240 110 276 146,found,0.7292,1.5675,0.5077,barrel_side/other,0.5,0.327
+SL,scene,scene/CAMPUS color model/00657/barrel_side/other/0.5/R,label,hidden_side,blue,240 110 276 146,found,0.7292,1.5675,0.5077,barrel_side/other,0.5,0.327
+Lm,scene,scene/CAMPUS color model/00657/barrel_side/other/0.5/R,label,hidden_side,blue,240 110 276 146,found,0.7292,1.5675,0.5077,barrel_side/other,0.5,0.327
+SLm,scene,scene/CAMPUS color model/00657/barrel_side/other/0.5/R,label,hidden_side,blue,240 110 276 146,found,0.7292,1.5675,0.5077,barrel_side/other,0.5,0.327
+L,scene,scene/CAMPUS color model/00682/barrel_front/same/0.5/,label,centred,orange,233 113 278 163,wrong_color,0.8105,1.5421,0.3825,barrel_front/same,0.5,0.456
+SL,scene,scene/CAMPUS color model/00682/barrel_front/same/0.5/,label,centred,orange,233 113 278 163,wrong_color,0.8105,1.5421,0.3825,barrel_front/same,0.5,0.456
+Lm,scene,scene/CAMPUS color model/00682/barrel_front/same/0.5/,label,centred,orange,233 113 278 163,wrong_color,0.8105,1.5421,0.3825,barrel_front/same,0.5,0.456
+SLm,scene,scene/CAMPUS color model/00682/barrel_front/same/0.5/,label,centred,orange,233 113 278 163,wrong_color,0.8105,1.5421,0.3825,barrel_front/same,0.5,0.456
+L,scene,scene/CAMPUS color model/00743/barrel_low/other/0.75/R,label,hidden_side,blue,315 111 355 153,found,0.7106,1.488,0.5989,barrel_low/other,0.75,0.579
+SL,scene,scene/CAMPUS color model/00743/barrel_low/other/0.75/R,label,hidden_side,blue,315 111 355 153,found,0.7106,1.488,0.5989,barrel_low/other,0.75,0.579
+L,scene,scene/CAMPUS color model/00975/barrel_low/other/0.5/R,label,whole_stripe,orange,395 121 448 184,found,0.8011,1.7062,0.5927,barrel_low/other,0.5,0.494
+SL,scene,scene/CAMPUS color model/00975/barrel_low/other/0.5/R,label,whole_stripe,orange,395 121 448 184,found,0.8011,1.7062,0.5927,barrel_low/other,0.5,0.494
+Lm,scene,scene/CAMPUS color model/00975/barrel_low/other/0.5/R,label,whole_stripe,orange,395 121 448 184,found,0.8011,1.7062,0.5927,barrel_low/other,0.5,0.494
+SLm,scene,scene/CAMPUS color model/00975/barrel_low/other/0.5/R,label,whole_stripe,orange,395 121 448 184,found,0.8011,1.7062,0.5927,barrel_low/other,0.5,0.494
+L,scene,scene/CAMPUS color model/01358/barrel_side/other/0.5/L,label,hidden_side,blue,64 125 119 176,found,0.7624,1.2675,0.3981,barrel_side/other,0.5,0.461
+SL,scene,scene/CAMPUS color model/01358/barrel_side/other/0.5/L,label,hidden_side,blue,64 125 119 176,found,0.7624,1.2675,0.3981,barrel_side/other,0.5,0.461
+L,scene,scene/CAMPUS color model/01438/barrel_side/other/0.75/L,label,body_span,orange,345 113 384 163,off,0.8095,1.7058,0.4892,barrel_side/other,0.75,0.681
+SL,scene,scene/CAMPUS color model/01438/barrel_side/other/0.75/L,label,body_span,orange,345 113 384 163,off,0.8095,1.7058,0.4892,barrel_side/other,0.75,0.681
+Lm,scene,scene/CAMPUS color model/01438/barrel_side/other/0.75/L,label,body_span,orange,345 113 384 163,off,0.8095,1.7058,0.4892,barrel_side/other,0.75,0.681
+SLm,scene,scene/CAMPUS color model/01438/barrel_side/other/0.75/L,label,body_span,orange,345 113 384 163,off,0.8095,1.7058,0.4892,barrel_side/other,0.75,0.681
+S,scene,scene/CAMPUS color model/01480/frame/0.75/L,speckle,thin_frame,blue,0 114 7 151,found,0.3451,0.4058,0.5312,frame,0.75,0.849
+SL,scene,scene/CAMPUS color model/01480/frame/0.75/L,speckle,thin_frame,blue,0 114 7 151,found,0.3451,0.4058,0.5312,frame,0.75,0.849
+Sm,scene,scene/CAMPUS color model/01480/frame/0.75/L,speckle,thin_frame,blue,0 114 7 151,found,0.3451,0.4058,0.5312,frame,0.75,0.849
+SLm,scene,scene/CAMPUS color model/01480/frame/0.75/L,speckle,thin_frame,blue,0 114 7 151,found,0.3451,0.4058,0.5312,frame,0.75,0.849
+S,scene,scene/CAMPUS color model/01510/post/0.5/,speckle,body_span,blue,180 112 214 151,found,0.3973,0.5604,0.273,post,0.5,0.607
+SL,scene,scene/CAMPUS color model/01510/post/0.5/,speckle,body_span,blue,180 112 214 151,found,0.3973,0.5604,0.273,post,0.5,0.607
+L,scene,scene/CAMPUS color model/01513/barrel_side/other/0.25/R,label,hidden_side,blue,181 112 220 152,found,0.667,1.3559,0.592,barrel_side/other,0.25,0.064
+SL,scene,scene/CAMPUS color model/01513/barrel_side/other/0.25/R,label,hidden_side,blue,181 112 220 152,found,0.667,1.3559,0.592,barrel_side/other,0.25,0.064
+L,scene,scene/CAMPUS color model/01514/barrel_side/other/0.5/L,label,whole_stripe,blue,181 112 214 151,found,0.6622,1.6769,0.5662,barrel_side/other,0.5,0.408
+SL,scene,scene/CAMPUS color model/01514/barrel_side/other/0.5/L,label,whole_stripe,blue,181 112 214 151,found,0.6622,1.6769,0.5662,barrel_side/other,0.5,0.408
+Lm,scene,scene/CAMPUS color model/01514/barrel_side/other/0.5/L,label,whole_stripe,blue,181 112 214 151,found,0.6622,1.6769,0.5662,barrel_side/other,0.5,0.408
+SLm,scene,scene/CAMPUS color model/01514/barrel_side/other/0.5/L,label,whole_stripe,blue,181 112 214 151,found,0.6622,1.6769,0.5662,barrel_side/other,0.5,0.408
+L,scene,scene/CAMPUS color model/01515/barrel_side/other/0.5/R,label,whole_stripe,blue,181 112 212 152,found,0.6561,1.5391,0.596,barrel_side/other,0.5,0.292
+SL,scene,scene/CAMPUS color model/01515/barrel_side/other/0.5/R,label,whole_stripe,blue,181 112 212 152,found,0.6561,1.5391,0.596,barrel_side/other,0.5,0.292
+Lm,scene,scene/CAMPUS color model/01515/barrel_side/other/0.5/R,label,whole_stripe,blue,181 112 212 152,found,0.6561,1.5391,0.596,barrel_side/other,0.5,0.292
+SLm,scene,scene/CAMPUS color model/01515/barrel_side/other/0.5/R,label,whole_stripe,blue,181 112 212 152,found,0.6561,1.5391,0.596,barrel_side/other,0.5,0.292
+L,scene,scene/CAMPUS color model/01593/barrel_side/other/0.5/R,label,hidden_side,orange,220 111 258 150,found,0.7,1.6474,0.5332,barrel_side/other,0.5,0.349
+SL,scene,scene/CAMPUS color model/01593/barrel_side/other/0.5/R,label,hidden_side,orange,220 111 258 150,found,0.7,1.6474,0.5332,barrel_side/other,0.5,0.349
+Lm,scene,scene/CAMPUS color model/01593/barrel_side/other/0.5/R,label,hidden_side,orange,220 111 258 150,found,0.7,1.6474,0.5332,barrel_side/other,0.5,0.349
+SLm,scene,scene/CAMPUS color model/01593/barrel_side/other/0.5/R,label,hidden_side,orange,220 111 258 150,found,0.7,1.6474,0.5332,barrel_side/other,0.5,0.349
+L,scene,scene/CAMPUS color model/01595/barrel_side/other/0.75/R,label,centred,orange,211 111 247 150,found,0.6319,1.6534,0.3347,barrel_side/other,0.75,0.697
+SL,scene,scene/CAMPUS color model/01595/barrel_side/other/0.75/R,label,centred,orange,211 111 247 150,found,0.6319,1.6534,0.3347,barrel_side/other,0.75,0.697
+Lm,scene,scene/CAMPUS color model/01595/barrel_side/other/0.75/R,label,centred,orange,211 111 247 150,found,0.6319,1.6534,0.3347,barrel_side/other,0.75,0.697
+SLm,scene,scene/CAMPUS color model/01595/barrel_side/other/0.75/R,label,centred,orange,211 111 247 150,found,0.6319,1.6534,0.3347,barrel_side/other,0.75,0.697
+L,scene,scene/CAMPUS color model/01598/barrel_low/other/0.5/L,label,hidden_side,orange,210 112 249 154,found,0.7696,1.9061,0.5883,barrel_low/other,0.5,0.329
+SL,scene,scene/CAMPUS color model/01598/barrel_low/other/0.5/L,label,hidden_side,orange,210 112 249 154,found,0.7696,1.9061,0.5883,barrel_low/other,0.5,0.329
+Lm,scene,scene/CAMPUS color model/01598/barrel_low/other/0.5/L,label,hidden_side,orange,210 112 249 154,found,0.7696,1.9061,0.5883,barrel_low/other,0.5,0.329
+SLm,scene,scene/CAMPUS color model/01598/barrel_low/other/0.5/L,label,hidden_side,orange,210 112 249 154,found,0.7696,1.9061,0.5883,barrel_low/other,0.5,0.329
+L,scene,scene/CAMPUS color model/01743/barrel_side/other/0.5/R,label,whole_stripe,blue,225 120 277 177,found,0.8102,1.4863,0.5851,barrel_side/other,0.5,0.313
+SL,scene,scene/CAMPUS color model/01743/barrel_side/other/0.5/R,label,whole_stripe,blue,225 120 277 177,found,0.8102,1.4863,0.5851,barrel_side/other,0.5,0.313
+L,scene,scene/CAMPUS color model/01745/barrel_side/other/0.75/R,label,whole_stripe,blue,225 120 277 177,found,0.7879,1.4818,0.509,barrel_side/other,0.75,0.531
+SL,scene,scene/CAMPUS color model/01745/barrel_side/other/0.75/R,label,whole_stripe,blue,225 120 277 177,found,0.7879,1.4818,0.509,barrel_side/other,0.75,0.531
+L,scene,scene/CAMPUS color model/01751/barrel_low/other/0.75/R,label,whole_stripe,blue,226 120 269 177,found,0.7928,1.6297,0.5961,barrel_low/other,0.75,0.613
+SL,scene,scene/CAMPUS color model/01751/barrel_low/other/0.75/R,label,whole_stripe,blue,226 120 269 177,found,0.7928,1.6297,0.5961,barrel_low/other,0.75,0.613
+Lm,scene,scene/CAMPUS color model/01751/barrel_low/other/0.75/R,label,whole_stripe,blue,226 120 269 177,found,0.7928,1.6297,0.5961,barrel_low/other,0.75,0.613
+SLm,scene,scene/CAMPUS color model/01751/barrel_low/other/0.75/R,label,whole_stripe,blue,226 120 269 177,found,0.7928,1.6297,0.5961,barrel_low/other,0.75,0.613
+L,scene,scene/HOME color model/00275/barrel_side/other/0.75/R,label,hidden_side,blue,440 119 491 178,found,0.7986,1.517,0.3059,barrel_side/other,0.75,0.752
+SL,scene,scene/HOME color model/00275/barrel_side/other/0.75/R,label,hidden_side,blue,440 119 491 178,found,0.7986,1.517,0.3059,barrel_side/other,0.75,0.752
+Lm,scene,scene/HOME color model/00275/barrel_side/other/0.75/R,label,hidden_side,blue,440 119 491 178,found,0.7986,1.517,0.3059,barrel_side/other,0.75,0.752
+SLm,scene,scene/HOME color model/00275/barrel_side/other/0.75/R,label,hidden_side,blue,440 119 491 178,found,0.7986,1.517,0.3059,barrel_side/other,0.75,0.752
+L,scene,scene/HOME color model/00287/barrel_side/same/0.5/L,label,body_span,blue,455 120 503 185,off,0.7778,1.8589,0.4817,barrel_side/same,0.5,0.547
+SL,scene,scene/HOME color model/00287/barrel_side/same/0.5/L,label,body_span,blue,455 120 503 185,off,0.7778,1.8589,0.4817,barrel_side/same,0.5,0.547
+Lm,scene,scene/HOME color model/00287/barrel_side/same/0.5/L,label,body_span,blue,455 120 503 185,off,0.7778,1.8589,0.4817,barrel_side/same,0.5,0.547
+SLm,scene,scene/HOME color model/00287/barrel_side/same/0.5/L,label,body_span,blue,455 120 503 185,off,0.7778,1.8589,0.4817,barrel_side/same,0.5,0.547
+L,scene,scene/HOME color model/00289/barrel_side/same/0.75/L,label,whole_stripe,blue,430 120 497 187,found,0.788,1.7952,0.5053,barrel_side/same,0.75,0.841
+SL,scene,scene/HOME color model/00289/barrel_side/same/0.75/L,label,whole_stripe,blue,430 120 497 187,found,0.788,1.7952,0.5053,barrel_side/same,0.75,0.841
+Lm,scene,scene/HOME color model/00289/barrel_side/same/0.75/L,label,whole_stripe,blue,430 120 497 187,found,0.788,1.7952,0.5053,barrel_side/same,0.75,0.841
+SLm,scene,scene/HOME color model/00289/barrel_side/same/0.75/L,label,whole_stripe,blue,430 120 497 187,found,0.788,1.7952,0.5053,barrel_side/same,0.75,0.841
+S,scene,scene/HOME color model/00425/post/0.75/,speckle,pair,orange,293 125 340 170,off,0.3525,nan,0.073,post,0.75,0.875
+SL,scene,scene/HOME color model/00425/post/0.75/,speckle,pair,orange,293 125 340 170,off,0.3525,nan,0.073,post,0.75,0.875
+L,scene,scene/HOME color model/00507/barrel_side/other/0.5/R,label,centred,orange,384 111 425 157,second,0.815,1.5899,0.3639,barrel_side/other,0.5,0.411
+SL,scene,scene/HOME color model/00507/barrel_side/other/0.5/R,label,centred,orange,384 111 425 157,second,0.815,1.5899,0.3639,barrel_side/other,0.5,0.411
+Lm,scene,scene/HOME color model/00507/barrel_side/other/0.5/R,label,centred,orange,384 111 425 157,second,0.815,1.5899,0.3639,barrel_side/other,0.5,0.411
+SLm,scene,scene/HOME color model/00507/barrel_side/other/0.5/R,label,centred,orange,384 111 425 157,second,0.815,1.5899,0.3639,barrel_side/other,0.5,0.411
+L,scene,scene/HOME color model/00584/barrel_side/other/0.5/L,label,hidden_side,blue,404 117 449 163,off,0.7977,1.3832,0.5026,barrel_side/other,0.5,0.457
+SL,scene,scene/HOME color model/00584/barrel_side/other/0.5/L,label,hidden_side,blue,404 117 449 163,off,0.7977,1.3832,0.5026,barrel_side/other,0.5,0.457
+L,scene,scene/HOME color model/00585/barrel_side/other/0.5/R,label,whole_stripe,blue,420 117 474 175,found,0.7753,1.631,0.5847,barrel_side/other,0.5,0.433
+SL,scene,scene/HOME color model/00585/barrel_side/other/0.5/R,label,whole_stripe,blue,420 117 474 175,found,0.7753,1.631,0.5847,barrel_side/other,0.5,0.433
+Lm,scene,scene/HOME color model/00585/barrel_side/other/0.5/R,label,whole_stripe,blue,420 117 474 175,found,0.7753,1.631,0.5847,barrel_side/other,0.5,0.433
+SLm,scene,scene/HOME color model/00585/barrel_side/other/0.5/R,label,whole_stripe,blue,420 117 474 175,found,0.7753,1.631,0.5847,barrel_side/other,0.5,0.433
+L,scene,scene/HOME color model/00586/barrel_side/other/0.75/L,label,body_span,blue,423 117 474 163,off,0.7685,1.3832,0.5845,barrel_side/other,0.75,0.71
+SL,scene,scene/HOME color model/00586/barrel_side/other/0.75/L,label,body_span,blue,423 117 474 163,off,0.7685,1.3832,0.5845,barrel_side/other,0.75,0.71
+L,scene,scene/HOME color model/00587/barrel_side/other/0.75/R,label,whole_stripe,blue,421 117 476 164,off,0.7422,1.7003,0.5554,barrel_side/other,0.75,0.68
+SL,scene,scene/HOME color model/00587/barrel_side/other/0.75/R,label,whole_stripe,blue,421 117 476 164,off,0.7422,1.7003,0.5554,barrel_side/other,0.75,0.68
+Lm,scene,scene/HOME color model/00587/barrel_side/other/0.75/R,label,whole_stripe,blue,421 117 476 164,off,0.7422,1.7003,0.5554,barrel_side/other,0.75,0.68
+SLm,scene,scene/HOME color model/00587/barrel_side/other/0.75/R,label,whole_stripe,blue,421 117 476 164,off,0.7422,1.7003,0.5554,barrel_side/other,0.75,0.68
+L,scene,scene/HOME color model/00663/barrel_side/other/0.5/R,label,hidden_side,orange,318 107 349 136,found,0.6541,1.2822,0.5585,barrel_side/other,0.5,0.434
+SL,scene,scene/HOME color model/00663/barrel_side/other/0.5/R,label,hidden_side,orange,318 107 349 136,found,0.6541,1.2822,0.5585,barrel_side/other,0.5,0.434
+L,scene,scene/HOME color model/00665/barrel_side/other/0.75/R,label,whole_stripe,orange,318 102 342 136,found,0.5842,1.4403,0.3396,barrel_side/other,0.75,0.733
+SL,scene,scene/HOME color model/00665/barrel_side/other/0.75/R,label,whole_stripe,orange,318 102 342 136,found,0.5842,1.4403,0.3396,barrel_side/other,0.75,0.733
+L,scene,scene/HOME color model/00670/barrel_low/other/0.75/L,label,whole_stripe,orange,319 107 344 136,found,0.6087,1.3101,0.58,barrel_low/other,0.75,0.807
+SL,scene,scene/HOME color model/00670/barrel_low/other/0.75/L,label,whole_stripe,orange,319 107 344 136,found,0.6087,1.3101,0.58,barrel_low/other,0.75,0.807
+L,scene,scene/HOME color model/00683/barrel_low/same/0.5/L,label,hidden_side,orange,312 107 344 136,found,0.733,1.9189,0.559,barrel_low/same,0.5,0.463
+SL,scene,scene/HOME color model/00683/barrel_low/same/0.5/L,label,hidden_side,orange,312 107 344 136,found,0.733,1.9189,0.559,barrel_low/same,0.5,0.463
+Lm,scene,scene/HOME color model/00683/barrel_low/same/0.5/L,label,hidden_side,orange,312 107 344 136,found,0.733,1.9189,0.559,barrel_low/same,0.5,0.463
+SLm,scene,scene/HOME color model/00683/barrel_low/same/0.5/L,label,hidden_side,orange,312 107 344 136,found,0.733,1.9189,0.559,barrel_low/same,0.5,0.463
+L,scene,scene/HOME color model/00687/barrel_front/same/0.25/,label,whole_stripe,blue,314 112 349 159,wrong_color,0.7682,1.5888,0.4754,barrel_front/same,0.25,0.258
+SL,scene,scene/HOME color model/00687/barrel_front/same/0.25/,label,whole_stripe,blue,314 112 349 159,wrong_color,0.7682,1.5888,0.4754,barrel_front/same,0.25,0.258
+Lm,scene,scene/HOME color model/00687/barrel_front/same/0.25/,label,whole_stripe,blue,314 112 349 159,wrong_color,0.7682,1.5888,0.4754,barrel_front/same,0.25,0.258
+SLm,scene,scene/HOME color model/00687/barrel_front/same/0.25/,label,whole_stripe,blue,314 112 349 159,wrong_color,0.7682,1.5888,0.4754,barrel_front/same,0.25,0.258
+L,scene,scene/HOME color model/00749/barrel_low/other/0.75/R,label,whole_stripe,orange,335 102 360 135,found,0.6062,1.4403,0.5011,barrel_low/other,0.75,0.733
+SL,scene,scene/HOME color model/00749/barrel_low/other/0.75/R,label,whole_stripe,orange,335 102 360 135,found,0.6062,1.4403,0.5011,barrel_low/other,0.75,0.733
+L,scene,scene/HOME color model/00843/barrel_front/same/0.25/,label,whole_stripe,orange,419 117 471 170,wrong_color,0.839,1.673,0.5662,barrel_front/same,0.25,0.348
+SL,scene,scene/HOME color model/00843/barrel_front/same/0.25/,label,whole_stripe,orange,419 117 471 170,wrong_color,0.839,1.673,0.5662,barrel_front/same,0.25,0.348
+Lm,scene,scene/HOME color model/00843/barrel_front/same/0.25/,label,whole_stripe,orange,419 117 471 170,wrong_color,0.839,1.673,0.5662,barrel_front/same,0.25,0.348
+SLm,scene,scene/HOME color model/00843/barrel_front/same/0.25/,label,whole_stripe,orange,419 117 471 170,wrong_color,0.839,1.673,0.5662,barrel_front/same,0.25,0.348
+L,scene,scene/HOME color model/00845/barrel_front/same/0.75/,label,hidden_side,orange,444 104 477 141,wrong_color,0.7919,1.5696,0.4152,barrel_front/same,0.75,0.867
+SL,scene,scene/HOME color model/00845/barrel_front/same/0.75/,label,hidden_side,orange,444 104 477 141,wrong_color,0.7919,1.5696,0.4152,barrel_front/same,0.75,0.867
+Lm,scene,scene/HOME color model/00845/barrel_front/same/0.75/,label,hidden_side,orange,444 104 477 141,wrong_color,0.7919,1.5696,0.4152,barrel_front/same,0.75,0.867
+SLm,scene,scene/HOME color model/00845/barrel_front/same/0.75/,label,hidden_side,orange,444 104 477 141,wrong_color,0.7919,1.5696,0.4152,barrel_front/same,0.75,0.867
+L,scene,scene/HOME color model/00898/barrel_side/other/0.75/L,label,whole_stripe,orange,244 114 287 164,off,0.7476,1.4309,0.4138,barrel_side/other,0.75,0.812
+SL,scene,scene/HOME color model/00898/barrel_side/other/0.75/L,label,whole_stripe,orange,244 114 287 164,off,0.7476,1.4309,0.4138,barrel_side/other,0.75,0.812
+L,scene,scene/HOME color model/00899/barrel_side/other/0.75/R,label,whole_stripe,orange,241 122 283 174,found,0.7179,1.588,0.4651,barrel_side/other,0.75,0.709
+SL,scene,scene/HOME color model/00899/barrel_side/other/0.75/R,label,whole_stripe,orange,241 122 283 174,found,0.7179,1.588,0.4651,barrel_side/other,0.75,0.709
+Lm,scene,scene/HOME color model/00899/barrel_side/other/0.75/R,label,whole_stripe,orange,241 122 283 174,found,0.7179,1.588,0.4651,barrel_side/other,0.75,0.709
+SLm,scene,scene/HOME color model/00899/barrel_side/other/0.75/R,label,whole_stripe,orange,241 122 283 174,found,0.7179,1.588,0.4651,barrel_side/other,0.75,0.709
+L,scene,scene/HOME hand masks/00818/barrel_side/other/0.5/L,label,centred,blue,439 108 473 139,found,0.8657,1.4498,0.4078,barrel_side/other,0.5,0.511
+SL,scene,scene/HOME hand masks/00818/barrel_side/other/0.5/L,label,centred,blue,439 108 473 139,found,0.8657,1.4498,0.4078,barrel_side/other,0.5,0.511
+L,scene,scene/HOME hand masks/00819/barrel_side/other/0.5/R,label,centred,blue,428 108 462 139,found,0.866,1.5391,0.479,barrel_side/other,0.5,0.433
+SL,scene,scene/HOME hand masks/00819/barrel_side/other/0.5/R,label,centred,blue,428 108 462 139,found,0.866,1.5391,0.479,barrel_side/other,0.5,0.433
+Lm,scene,scene/HOME hand masks/00819/barrel_side/other/0.5/R,label,centred,blue,428 108 462 139,found,0.866,1.5391,0.479,barrel_side/other,0.5,0.433
+SLm,scene,scene/HOME hand masks/00819/barrel_side/other/0.5/R,label,centred,blue,428 108 462 139,found,0.866,1.5391,0.479,barrel_side/other,0.5,0.433
+L,scene,scene/HOME hand masks/00844/barrel_front/same/0.5/,label,centred,orange,429 112 471 160,wrong_color,0.969,1.5408,0.5741,barrel_front/same,0.5,0.357
+SL,scene,scene/HOME hand masks/00844/barrel_front/same/0.5/,label,centred,orange,429 112 471 160,wrong_color,0.969,1.5408,0.5741,barrel_front/same,0.5,0.357
+Lm,scene,scene/HOME hand masks/00844/barrel_front/same/0.5/,label,centred,orange,429 112 471 160,wrong_color,0.969,1.5408,0.5741,barrel_front/same,0.5,0.357
+SLm,scene,scene/HOME hand masks/00844/barrel_front/same/0.5/,label,centred,orange,429 112 471 160,wrong_color,0.969,1.5408,0.5741,barrel_front/same,0.5,0.357
