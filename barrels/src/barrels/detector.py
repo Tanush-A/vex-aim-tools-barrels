@@ -1,68 +1,26 @@
-"""The v2 detector: class mask -> one Barrel per barrel, with hidden bottoms filled in by the geometry.
-Plain-English guide: docs/HOW-IT-WORKS.md section 3. Built in explained steps:
+"""The v2 detector: class mask -> one Barrel per barrel, with the edges that cannot be seen filled in by the geometry.
 
-  step 1 (2026-11-03)  barrel-colored blobs -> how many barrels, from the width the geometry expects at
-                       that row -> the bottom edge: the seen one if it agrees with the top row, else the
-                       one the top row predicts (shadow, occlusion), clipped to the frame.
-  step 2 (2026-11-03)  the stripe as the barrel anchor: a band that is not the body color, sandwiched between
-                       body color above and below, of the height the geometry expects at that row, proves
-                       "barrel" and gives one barrel per stripe — inside merged blobs too. Stripeless pieces
-                       survive only where a stripe cannot be seen (below the frame, or too far to resolve).
-  hardening (2026-11-08, from the campus attribution)  the stripe is found from its own colored pixels
-                       (``stripe_mode="cores"``), so unlabeled shadow glued to it cannot make it "too tall"; a
-                       dark gap with no stripe-colored pixel is not a stripe unless ``dark_stripe`` is on; and
-                       a box must hold enough body color in the stripe's columns (``body_min``), so a blue
-                       barrel's body between two orange things is not an orange barrel; a stripeless piece must
-                       be barrel-tall; a stripe cut by the frame edge is hidden on that side, so its full box is
-                       drawn into the edge, not into the frame. ``stripe_mode="bands"`` is the 2026-11-03 finder,
-                       kept for comparison.
-  2026-11-18           a stripe in pieces is one stripe (``stripe_join``); a barrel behind a found barrel is found from
-                       its visible top (``cap_behind``).
-  2026-11-19           a partly seen stripe is placed by what is seen of the barrel, and a side counts as hidden only
-                       for a reason: the frame edge, a found nearer barrel, or the body and the stripe ending apart
-                       (``side_hidden``); a far stripe eaten at both seams is read at the seams too (``seam_height``).
-  2026-11-19 (A5)      a narrow cap's bottom is its own color seen ending beside the front barrel, also when that is
-                       further from the top-row estimate than the tolerance (``cap_seen_bottom``).
-  2026-11-19 (occlusion)  one idea: what is seen fixes the distance, the distance the size; the box is the full barrel
-                       placed where the seen part allows, and where nothing pins it, it covers every place the barrel can
-                       be (``slice_box``, ``cover_unpinned``); a stripe wider than a barrel is two barrels (``stripe_two``);
-                       an edge is seen only against something that is not a barrel (``edge_check``); a top above a found
-                       barrel of its own color is a cap too (``cap_same``).
-  2026-11-20 (occlusion, up and down)  a stripe with body color on one side only, seen in its whole width, with the body's
-                       far edge where the seam predicts it, is a barrel hidden from above or from below (``half_stripe``,
-                       ``half_thin``); two slices at the same rows whose outer edges are one barrel apart are one barrel
-                       behind a post (``post_pair``); ``stripe_two`` asked only where the body is seen right above and below the
-                       stripe (``stripe_wide``); a narrow full slice beside a found nearer barrel (``slice_behind``); the cap's
-                       height floor at 0.4 of an upper body (``cap_low``).
-  2026-11-20 (pin)     where a cut barrel is, sideways: the barrel's outline (top line, stripe arc, bottom line) is known
-                       once its distance is known; an end of the seen part whose corners follow it is the barrel's own
-                       side, and a partly seen stripe that no side reason places is a barrel W wide from that end
-                       (``pin_outline``); a thin piece of stripe is a barrel only as a full slice with such an end
-                       (``pin_thin``).
-  2026-11-20 (sliver, experiments/2026-11-20_occl_sliver)  a thin full slice whose body shows the barrel's whole width gets that width
-                       (``thin_span``, on). Built and off (each failed one clause of the pre-registered rule): two stripe pieces with
-                       body over the whole gap are one stripe (``stripe_bridge``); a thin full slice cut by the frame edge is W wide
-                       from its other end (``thin_frame``); the end where the body closes on the stripe is the barrel's own side
-                       (``own_close``).
-  2026-11-20 (combined)  the two branches of 2026-11-20 together (experiments/2026-11-20_occl_combined): on by default
-                       are half_stripe, half_thin, post_pair, stripe_wide, cap_low, pin_outline and pin_thin; slice_behind
-                       is off (false boxes on damaged masks), as are slice_box, cover_unpinned and stripe_two. A piece under
-                       the finder's old width floor is handed to the left-over rules whether or not the lower floor of
-                       pin_thin also lets it into the stripe step.
-  2026-11-23 (A9, experiments/2026-11-23_closeup_shape)  the stripeless close-up piece: one cut by the frame's side as well
-                       as its bottom must be seen down to where its top row puts the stripe (``closeup_side``); a piece whose
-                       predicted stripe runs past the frame bottom is a close-up too (``closeup_stripe``).
-  2026-11-24 (experiments/2026-11-24_occl_strict)  a verify step on every rule's box: a barrel cannot be seen through a
-                       nearer barrel (``verify_front``); a box needs a second reading besides the stripe's row (``verify_readings``).
+One entry point: ``detect(mask, cfg, cam)``. It runs ten stages in a fixed order. Each stage is one function, and its
+docstring says what goes in, what comes out and what it decides, check by check. The file reads in this order:
 
-  2026-11-26 (the collapse, step A1)  the switches that were off are deleted with the code only they used: dark_stripe,
-                       occl_body_side, slice_box, cover_unpinned, stripe_two, slice_behind, own_close and stripe_mode="bands".
-                       The lines above that name them are history; the tag pre-collapse-2026-11-26 has that code.
+    DetConfig                      the numbers (there are no on/off switches: every rule always runs)
+    Piece, Stripe, Found           what the stages hand to each other
+    small helpers                  one idea, one place (the edge tolerance, "the same barrel", "ends against", "nearer", ...)
+    BarrelAt                       the ruler: the barrel the geometry expects from one reading of the picture
+    detect                         the ten stages
+    stage 1   find_pieces          blobs of barrel color, cut to barrel width, bottom edge resolved. No box yet
+    stage 2   find_stripes         a band of one color with the other color right above and right below
+    stage 3   boxes_from_stripes   one box per stripe: read_edges, place_sides, holds_body, then duplicates
+    stage 4   closeup_pieces       a piece with no stripe in view: only as a close-up
+    stages 5 and 9                 drop_seen_through, drop_single_reading: the verify step
+    stage 6   caps_behind          a top showing above a found nearer barrel
+    stage 7   post_pairs           two thin slices, one barrel apart
+    stage 8   half_stripes         a stripe with body on one side only
+    draw                           the output image
 
-  2026-11-26 (the collapse, step A2)  the 23 switches that were on are plain code: every rule named above always runs.
-                       DetConfig keeps the 20 numbers. Step 1 alone (require_stripe off, detect_step1) is gone.
-
-Everything here is a pure function of the mask and the camera: nothing is fit per image.
+Everything is a pure function of the mask and the camera: nothing is fit per image, nothing is remembered between images.
+The guide to every check, with its number and the case it exists for, is docs/DETECTOR-MAP.md. When each rule was added,
+and for which frame, is in docs/archive/DETECTOR-HISTORY.md.
 """
 from __future__ import annotations
 
@@ -79,9 +37,9 @@ from .io import BLUE, ORANGE
 
 @dataclass(frozen=True)
 class DetConfig:
-    """The detector's numbers. There is no on/off switch: every rule in this file always runs (the collapse of 2026-11-26;
-    the detector with its 30 switches is at the tag pre-collapse-2026-11-26). W = the width, H = the height and "a stripe
-    height" = the stripe's height that the geometry expects of a barrel at the row in question."""
+    """The detector's numbers. There is no on/off switch: every rule in this file always runs. In the comments, W = the
+    width, H = the height and "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in
+    question. Where each number is used: docs/DETECTOR-MAP.md, section 4."""
     min_area_px: int = 20        # a blob, a stripe, a cap piece or a half-stripe band under this many pixels is a speck; and a box needs this many evidence pixels of its own (verify)
     close_px: int = 3            # gaps this small are closed (3 x 3) before pieces are found; also: how many pixels beside a seen end are searched for a nearer barrel
     bottom_tol: float = 0.15     # a seen edge agrees with the predicted one within this share of the height ...
@@ -179,8 +137,8 @@ def box_iou(a: tuple, b: tuple) -> float:
 
 
 # ================================================================ small helpers: one idea, one place
-# Each is called with exactly the number its site used before the helpers existed. Where two sites use different numbers for
-# the same idea, the number is an argument and the difference is written at the helper (docs/DETECTOR-MAP.md, section 6).
+# Where two sites use different numbers for the same idea, the number is an argument, and the helper's docstring says which
+# site passes what (docs/DETECTOR-MAP.md, section 4).
 
 def _other(color: int) -> int:
     """The other barrel color."""
