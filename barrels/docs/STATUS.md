@@ -1,5 +1,7 @@
 # STATUS.md — where we are
 
+**2026-11-27 (phone check-in):** the next shoot is one new place, the **gray wood table under a warm lamp**, 9 shots, clutter last with the tin and the jar, vendor files on every frame (`TODO.md`, "Next shoot"). The black table under the window is skipped (glare is parked). Fusion is dropped (+1.8, inside the noise, and 5 times slower). The shape checks are not adopted. The blind test look of 2026-11-25 (ours 14 vs the vendor's 23 of 32) used the fixed colors from before contrast; its losses (ottoman, dim bathroom) are the color problem contrast addresses on train frames. It is not fixed on the test frames themselves (no tuning on test); a second pre-registered look waits for the adopted detector.
+
 **Updated:** 2026-11-25. Final report of the week's push: `REPORT-2026-11-25.md`. Test look done (pre-registered, one configuration): home 9 of 9, campus 22 of 24; new conditions ours 14 of 32 against the vendor's 23 (the gap is the color step on the ottoman and the dim / warm bathroom); we draw fewer false boxes. Waiting for Tanush: "understood" on the verify step (`wip/final`), protecting the new conditions, the orange conflict, a fresh try of the light rule.
 
 ## What runs

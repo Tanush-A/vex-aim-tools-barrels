@@ -2,6 +2,15 @@
 
 **Updated:** 2026-11-26 (reviewer session: the re-plan after the review, "Now" below) · 2026-11-23 (data session: 15 conditions in, boxed and slider-labelled) · 2026-11-21 (data session: the occlusion set shot, 18 of 19, `occlx_16` open) · 2026-11-20, later (data session: condition 6 in, kicker check passed, clutter-last shoot order) · 2026-11-20, later (data session: condition 5 in, close-up check passed) · 2026-11-20 (data session: the state of the shoot under "Tanush" and in "Done this week") · 2026-11-18 (evening). Re-planned with Tanush after the 2026-11-16 meeting with Dave. Rule (`CLAUDE.md`): updated whenever a task starts, finishes or changes priority, together with `STATUS.md`.
 
+## Next shoot (agreed with Tanush 2026-11-27, from his phone)
+
+**One place: the gray wood table (low gloss) under a warm lamp.** The window-light shoot on the black table is skipped: black-table glare is a parked extreme case. Why: it is the first place none of our methods were shaped on, so it is the fair test of "stripe by contrast against the vendor" (`REPORT-2026-11-27.md`, "Are we beating the vendor?").
+
+- The 9-shot list below ("Shot list: 9 shots per condition"), **clutter last**, with **the tin and the jar** among the clutter (the shape-check traps).
+- **Vendor files on every frame**; without them the comparison cannot be made.
+- If this is the same glossy gray table already in the data (ABP, condition 6), say so: the lamp is new but the surface is not, and the reading changes.
+- After the shoot, Claude boxes the frames (Claude proposes, Tanush reviews), makes the train / test split before running anything, and scores today's detector, contrast and the vendor on the train part.
+
 ## Now: the re-plan after the review (2026-11-26)
 
 Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the detector's logic and the final report (`REPORT-2026-11-25.md`). **Order (Tanush, 2026-11-26, later: he is away, no step waits for a go):** merge `wip/final` (done 2026-11-26, tests 930 pass, never-regress check passes, pushed); then U1, the detector map, with recommendations for restructuring; then M, the measurement; then K, the collapse; then C, the experiments: every idea listed is tried, **each on its own branch** so he can see it. Every step has its checks written down. The reviewer session is the only one editing code for now; the main session is paused. At the end: `docs/OVERNIGHT-2026-11-26.md`. The plan of the week of 2026-11-18 is kept below as the record.
