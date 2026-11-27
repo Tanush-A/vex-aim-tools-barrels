@@ -68,6 +68,7 @@ Rule for what goes (Tanush, 2026-11-26): a check that is logically sound stays, 
 
 - **Shooting (Tanush: one or two more places):** most useful is a new surface under warm light, since only two places have it and the light rule (C3) is judged there. A new place counts, a new lamp setting on the same table does not. Three frames at a new place (`core_01`, `clutter_01`, `neg_01`) beat a full nine at an old one. The parked sets (black table, wood, Dave's office) count as places for analysis. No generated images for color work.
 - **Shot request:** the home white table with vendor files (9 shots; three times each also gives a shot-to-shot noise floor), so the ASSUMED vendor rows become measured. The one white table with vendor files (ABP) has the vendor at 24 of 32.
+- **White balance (2026-11-27, `wip/exp-whitebalance`, numbers for Dave only):** gray world at half strength passes (+9.2 placements, 6 ottoman barrels lost, fewer boxes off a barrel), but 34 of its 38 gains are found by stripe by contrast without touching a pixel. The rule against correction costs about 4 barrels here.
 - **Ask Dave:** can the camera's exposure and white balance be locked; is a calibration per place allowed (show the robot one barrel at the start of a session); does learning a barrel's colors from a barrel already found count as image correction.
 - **From the final report, still open:** merge of `wip/final` (waits on D4 and "understood"); protecting the new conditions (now M1 and M2); the orange conflict (now C2 and C4); the light rule (now C3).
 
