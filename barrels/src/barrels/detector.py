@@ -1467,18 +1467,22 @@ def drop_single_reading(found: list[Found], mask: np.ndarray, cam: geo.CameraMod
     return out
 
 
-def paint_readings(f: Found, mask: np.ndarray, cam: geo.CameraModel) -> tuple[float, float, float] | None:
+def paint_readings(f: Found, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig()) -> tuple[float, float, float] | None:
     """What the paint checks read of one box: (solidity, stripe height over a stripe height, body share outside the
     stripe), each nan when it cannot be read; None when the box's row gives no barrel (then nothing is asked).
 
-    - solidity: of the barrel-colored pixels (either color) inside the box, the share whose 3 x 3 neighbourhood inside
-      the box is all barrel-colored (the box's own edge counts as more of the same). Painted metal is one solid shape;
-      a printed tin or a figure is speckle. Pixels that are not barrel-colored (the table beside a hidden barrel) do not
-      count either way.
-    - the stripe's height: for a box read from a stripe, from the 10th to the 90th percentile of the stripe's rows that
-      hold stripe color (as ``find_stripes``), over the stripe height its row predicts. nan for a box with no stripe.
-    - the body share: the share of the box's pixels outside the stripe's rows (a box with no stripe: outside the rows
-      the geometry predicts for its stripe) that are its body color.
+    - solidity: the barrel-colored pixels (either color) inside the box, closed first as the detector closes blobs
+      (``_closed``, 3 x 3), and of those the share whose 3 x 3 neighbourhood inside the box is all barrel-colored (the
+      box's own edge counts as more of the same). Painted metal is one solid shape; a printed tin or a figure is
+      speckle. The closing first fills pinholes and one-pixel ragged edges of a real barrel's mask. Pixels that are not
+      barrel-colored (the table beside a hidden barrel) do not count either way.
+    - the stripe's height: for a box read from a stripe, column by column over the stripe's box: in each column that
+      holds stripe color, the 10th to 90th percentile of its stripe-colored rows; the median of those, over the stripe
+      height its row predicts. A neighbour whose body has the stripe's color fills a few whole columns; the median is
+      the stripe's own. nan for a box with no stripe.
+    - the body share: of the box's rows outside the stripe's rows, in the stripe's columns (as ``holds_body``), the
+      share of pixels that are its body color. A box with no stripe: the whole width, outside the rows the geometry
+      predicts for its stripe.
 
     The barrel the row predicts: its stripe's centre row; a box with no stripe, its top row (as the caps)."""
     b = f.barrel
@@ -1487,22 +1491,28 @@ def paint_readings(f: Found, mask: np.ndarray, cam: geo.CameraModel) -> tuple[fl
         return None
     x0, y0, x1, y1 = b.bbox
     box = mask[y0:y1, x0:x1]
-    colored = (box == ORANGE) | (box == BLUE)
     solid = math.nan
-    if box.size and colored.any():
-        er = cv2.erode(colored.astype(np.uint8), np.ones((3, 3), np.uint8), borderType=cv2.BORDER_REPLICATE)
-        solid = float(er.sum()) / float(colored.sum())
+    if box.size:
+        colored = _closed((box == ORANGE) | (box == BLUE), cfg)
+        if colored.any():
+            er = cv2.erode(colored.astype(np.uint8), np.ones((3, 3), np.uint8), borderType=cv2.BORDER_REPLICATE)
+            solid = float(er.sum()) / float(colored.sum())
     stripe_h = math.nan
+    c0, c1 = 0, x1 - x0
     if f.stripe is not None:
         sx0, s_top, sx1, s_bot = f.stripe.bbox
-        rows = np.flatnonzero((mask[s_top:s_bot, sx0:sx1] == _other(b.color)).any(axis=1))
-        if rows.size:
-            stripe_h = float(np.percentile(rows, 90) - np.percentile(rows, 10) + 1) / at.Hs
+        st = mask[s_top:s_bot, sx0:sx1] == _other(b.color)
+        spans = [np.percentile(r, 90) - np.percentile(r, 10) + 1 for r in (np.flatnonzero(col) for col in st.T) if r.size]
+        if spans:
+            stripe_h = float(np.median(spans)) / at.Hs
+        if min(sx1, x1) > max(sx0, x0):
+            c0, c1 = max(sx0, x0) - x0, min(sx1, x1) - x0
     else:
         s_top, s_bot = int(round(at.rows.stripe_top)), int(round(at.rows.stripe_bottom))
     keep = np.ones(y1 - y0, bool)
     keep[max(0, s_top - y0):max(0, min(y1, s_bot) - y0)] = False
-    body = float((box[keep] == b.color).mean()) if keep.any() and box.size else math.nan
+    part = box[keep][:, c0:c1] if box.size else box
+    body = float((part == b.color).mean()) if part.size else math.nan
     return solid, stripe_h, body
 
 
@@ -1522,7 +1532,7 @@ def drop_unlike_paint(found: list[Found], mask: np.ndarray, cam: geo.CameraModel
         return found
     out = []
     for f in found:
-        r = paint_readings(f, mask, cam)
+        r = paint_readings(f, mask, cam, cfg)
         if r is not None:
             solid, stripe_h, body = r
             if cfg.check_solid and solid < cfg.solid_min:

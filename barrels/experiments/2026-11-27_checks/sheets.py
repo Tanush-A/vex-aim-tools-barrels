@@ -128,7 +128,8 @@ def judge_sheets(boxes_path: str, base: str, cand: str, name: str) -> None:
 
 def harness_sheets(inputs: str, arm: str, states: set, groups: set | None, name: str) -> None:
     enc = pickle.load(open(inputs, "rb"))
-    rows = [r for r in csv.DictReader(open(BARRELS / "results" / "2026-11-27_checks" / "harness_removed.csv"))
+    src = Path(sys.argv[sys.argv.index("--csv") + 1]) if "--csv" in sys.argv else BARRELS / "results" / "2026-11-27_checks" / "harness_removed.csv"
+    rows = [r for r in csv.DictReader(open(src))
             if r["arm"] == arm and r["before"] in states and (not groups or r["group"] in groups)]
     truth_p = Path(sys.argv[sys.argv.index("--truth") + 1]) if "--truth" in sys.argv else None
     scene_truth = json.loads(truth_p.read_text()) if truth_p else {}
@@ -146,7 +147,7 @@ def harness_sheets(inputs: str, arm: str, states: set, groups: set | None, name:
                 truths = [g.bbox for g in dtp.barrels_from_boxes(io.load_boxes(stem, check_image=False))]
         elif k in scene_truth:
             truths = [tuple(b) for _, b in scene_truth[k]["truths"]]
-        kept = [p.bbox for p in det.detect(mask, det.DetConfig(**am.ARMS[arm]))]
+        kept = [p.bbox for p in det.detect(mask, det.DetConfig(**am.ARMS[arm]))] if "--csv" not in sys.argv else []
         cap = [k[:70], f"{r['why']} rule {r['rule']} {r['color']} was {r['before']}",
                f"solid {r['solid']} stripe {r['stripe_h']} body {r['body_share']} {r.get('kind', '')} {r.get('hidden', '')}"]
         tiles.append(tile(photo, mask, bb, truths, kept, cap))
