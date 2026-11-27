@@ -8,6 +8,8 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-26 | **K1: the detector collapsed** (`wip/collapse`, merged; proof harness in `experiments/2026-11-26_collapse`) | 51 settings → 20 numbers, no switch, no mode; `detect` is ten named stages; 7 dead rules and the stage-1-alone mode deleted; each box carries its own evidence. Boxes identical on 5435 masks (6152 boxes: every train frame, each with one pixel shaved off and added, the hand-threshold frames, the damaged masks, all 3888 simulated scenes), checked after each of nine steps and once more independently. Tests 930 → 907 (27 removed with their deleted subject); 952 with the measurement work. The map is rewritten for it (435 lines from 760) |
+| 2026-11-26 | **The barrel as its own color reference** (branch `wip/exp-selfcal`; pre-registered, leave one place out; nothing adopted) | A half-found barrel completes itself (the color that is not painted is read where the geometry says it must be), and found barrels set that frame's ranges: 133.8 → 147.6 of 172 placements (+13.8, PASS, not weak), 211 → 248 per frame, no barrel lost, no box on an empty frame, boxes off a barrel 1.9 → 2.2. Gains: gray table +5.0, bathroom +5.8, ottoman +3.0; the other five places do not move. With the guards off: FAIL (29 boxes off a barrel). Out of reach: the warm ottoman (neither color painted), touching blue barrels under the bathroom lamp. Caution: the method was shaped while looking at all eight places |
 | 2026-11-26 | **What a setting per place can reach, without sliders** (branch `wip/exp-place-ceiling`; pre-registered, two rounds; nothing adopted) | A rectangle pair per condition is enough: the oracle finds 163.2 of 172 placements (fixed 133.8, hand 156.8), 0 boxes off a barrel, and its 13 misses are all hidden or frame-cut barrels, none a color case. On the six measured places: fixed 70.8, one calibration frame 93.8, hand 93.8, vendor 83.3 of 108. The warm bathroom was a slider limit: blue at hue 26–44 paints the barrels, not the floor (14 of 15 found; hand 6, vendor 0); 12 threshold proposals written for review. One frame setting the place, as registered, FAILS: +8.0 placements but campus 35 → 21 (its ranges come out too narrow). Post hoc "keep the fixed colors when they find every barrel on the calibration frame": 156.6, PASS on 4 of 5 frame choices. A setting from another place is worse than fixed (53.5 % against 69.4 %) |
 | 2026-11-26 | **What to read the light from; blue follows the light, a clean try** (branch `wip/exp-light`; pre-registered, one round, leave one place out; nothing adopted) | 13 ways to read the light: the best is the brightest pixels that are not barrel-colored (r −0.96 with the blue paint's saturation; a close orange barrel no longer fools it); pixels with almost no color fail (under a yellow lamp those are the blue barrels). No reading predicts the orange hue. Blue ramp: +3.9 placements, 14 barrels gained, 0 lost, NO CLEAR DIFFERENCE (margin +4.0). With "bluer than the light": +11.9 (bathroom 4.0 → 14.25 of 15) but FAIL, 16 more boxes on clutter that is orange with a blue band; in-sample with the cautious setting +11.4 and 1 box. The setting does not transfer between the only two warm places |
 | 2026-11-26 | **M3: the standard pass rule** (`tools/judge.py`; pre-registered sanity checks) | One rule for every experiment: PASS / FAIL / NO CLEAR DIFFERENCE from four clauses with measured margins; fitted candidates leave one place out. Today's detector against itself: no difference. 26 changes that mean nothing: all no difference; 12 unseen ones: 1 PASS, 1 FAIL. Hand thresholds per condition: PASS (+23.0 placements). "Blue follows the light" leave one place out: PASS, weak (+5.9 against a margin of 4.0) |
@@ -60,6 +62,182 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 | 2026-10-07 | Lab 6: aivision + world-map accuracy | map ≈ 1 cm at 9–14 cm; aivision returns no box for close barrels |
 
 ---
+
+### 2026-11-26 — The barrel as its own color reference (TODO E6, first idea; pre-registered, one round; branch `wip/exp-selfcal`; nothing adopted)
+
+- **Hypothesis:** The fixed colors fail when the light or the table changes. Whole-frame statistics cannot say what the
+  right colors are, because barrels are 4 % of the pixels. A barrel that is found, or half found, can: its place is
+  known, so its two colors can be read from the photo there. Of 63 clean missed barrels, 49 have one color at full
+  strength (review, detector audit 3.3). Per frame, nothing carried between frames, no pixel changed.
+- **Method / params:** `src/barrels/selfcal.py` (new; nothing that runs by default calls it; 27 unit tests).
+  `experiments/2026-11-26_selfcal/`: `PREREG.md` (committed before any judged run), `candidates.py`, `run.py`.
+  - Pass 1 is today's detector. Then seeds: a found box; a strict body color with a stripe-sized gap (`body`); a
+    strict stripe-sized band with no body (`stripe`).
+  - The guard: three bands (upper body, stripe, lower body) are read from the photo. Kept only if both body bands
+    differ from the stripe band in log(R/B) by a margin with the right sign, and a part that was read does not look
+    like what is around the box.
+  - A kept seed paints its own missing color inside its own box (`local`), and its two readings widen the frame's
+    ranges (`frame`), bounded: only wider, a hue end at most 6 or 10, saturation floor never under 60, readings must
+    agree, a flood limit.
+  - Pass 2: the same detector on the new mask. Every first-pass box stays; second-pass boxes fill in.
+  - Three numbers are chosen leave one place out (`rel_margin`, `hue_move_max`, `flood_max`). The rest was fixed
+    before the judged runs, but shaped while looking at all eight places (the list is in `PREREG.md`).
+- **Data / split:** Train frames only. Judged on the 154 ordinary frames (17 conditions, 8 places, 172 placements,
+  307 barrels counted per frame), by the standard pass rule, leave one place out. Extreme conditions report only. No
+  test frame opened.
+- **Results** (`results/2026-11-26_selfcal/summary.md`; every candidate, also the one that lost):
+
+  | candidate | verdict | found, placements | found, per frame | boxes not on their barrel | boxes on empty frames | places that moved |
+  |---|---|---|---|---|---|---|
+  | fixed colors (baseline) | | 133.8 | 211 | 1.9 | 0 | |
+  | `A_found`: found boxes set the frame's ranges | PASS (+7.2) | 141.0 | 223 | 2.1 | 0 | gray +5.0, ottoman +2.0, bathroom +0.2 |
+  | `B_local`: a half-found barrel completes itself | PASS (+12.2) | 146.0 | 243 | 2.2 | 0 | gray +5.0, bathroom +5.5, ottoman +1.7 |
+  | `B_frame`: half-found barrels set the frame's ranges | PASS (+9.3) | 143.1 | 230 | 1.9 | 0 | gray +5.0, ottoman +3.0, bathroom +1.2 |
+  | **`AB`: all of it (the main candidate)** | **PASS (+13.8)** | **147.6** | **248** | 2.2 | 0 | gray +5.0, bathroom +5.8, ottoman +3.0 |
+  | `AB_noguard`: the same with every guard off | FAIL | 152.6 | 261 | 29.2 | 7 (cluttered) | ottoman +7.0, gray +5.0, bathroom +5.8, ABP white +1.0 |
+
+  - No candidate lost a barrel. The gain margin is +4.0; none of the four passes is weak (all above +6.0).
+  - `AB` by condition, per frame of 15: bathroom mid 3: 1 → 10, mid 6: 1 → 9, warm: 1 → 6, cool: 13 → 14. Ottoman
+    cool: 3 → 11, mid 6: 6 → 7, warm: 0 → 0. Gray table: 10 → 15 of 16. Five places do not move.
+  - The one new box of `AB` that is not on its barrel: a second orange box on an orange barrel
+    (`lampmid3_bathtile_core_01`). No kept seed on any empty frame. No kept seed off a hand box.
+  - The folds agree: every fold picked `rel_margin` 1.0 and, for `AB`, `hue_move_max` 6; `flood_max` 0.03 in 9 of 10,
+    0.01 when the ottoman was held out (which cost it 4 barrels there: `A_found` gets 11 on ottoman mid 6, `AB` 7).
+  - A usable seed exists in 87 of the 132 ordinary frames with barrels. A sure found box alone exists in 65, and in
+    none on the bathroom floor under the mid and warm lamp or on the ottoman under the cool and warm lamp. Warm
+    ottoman: no seed of any kind in 6 frames.
+  - Painted pixels outside the hand boxes, ordinary frames: 634 216 → 664 143 (+4.7 %).
+  - Extreme conditions, report only: wood under the lamp 7 → 51 of 126, black table 5 → 8 of 26, dark ottoman 1 → 1.
+  - Report only, colors carried across the frames of one condition: 147.6 → 150.4 placements (248 → 253), boxes not on
+    their barrel 2.2 → 3.8. Black table 8 → 16 of 26.
+  - What it gains (37 barrels, counted per frame): 32 through a kept seed of their own (15 had the body painted and
+    no stripe, 15 the stripe and no body, 2 other); 5 had no kept seed and were found through the frame's ranges.
+  - What it still misses (59 per frame; `results/2026-11-26_selfcal/misses.md`): 31 are hidden or cut. The 28 that
+    are not: warm ottoman 10 (all 15 barrels there stay missed), warm bathroom 7, bathroom mid 6: 4, mid 3: 3,
+    ottoman mid 6: 3, cool: 1. By what happened to their seed: 15 refused by a guard, 9 had no seed candidate, 4 had
+    a kept seed and the detector still drew no good box.
+    - Warm ottoman: neither color is painted at full strength, and the blue body reads like the dark fabric, so
+      the surround guard refuses it. With the guards off these frames get boxes of the wrong color.
+    - Two blue barrels touching under the bathroom lamp (4 of the 9): their orange stripes run into one band two
+      barrels wide. That is not a one-barrel band, so there is no seed.
+- **Takeaway:** It works, per frame, with no new box on an empty frame. Most of the gain is the plainest part: a
+  barrel with one strict color finishes itself (+12.2). Sharing the colors with the rest of the frame adds little on
+  top (+1.6), because under the warm lamp the blue is not a color any more (saturation under 60) and cannot be a
+  range. The guards are what make it usable: off, it finds 5 more placements and draws 27 more boxes on things that
+  are not barrels. Caution: the method was shaped on all eight places and only three numbers are held out, so the
+  verdict is optimistic by an unknown amount. A new place, or the test frames, is the clean check.
+- **Next:** (1) Walk Tanush through it; it touches the color step, so it is main code if adopted. (2) Judge it on a
+  place it has never seen (the next shoot). (3) Cut a band wider than a barrel into barrel widths (the two touching
+  blue barrels). (4) The warm ottoman needs something else: no strict color is there to start from; the relative
+  test without a strict seed (TODO C4) is the candidate. (5) Read the ottoman's size, not only its colors: barrels
+  there are 0.6 to 0.7 of the size their row predicts.
+
+## 2026-11-26 — K1: the detector collapsed, boxes identical (`experiments/2026-11-26_collapse`)
+
+### 2026-11-26 — The collapse of the detector (TODO K1): no switches, ten stages, the same boxes
+
+**Branch** `wip/collapse` (from `barrels` at `d86fc3c`, tagged `pre-collapse-2026-11-26`). **Script** `experiments/2026-11-26_collapse/` (`build_inputs.py`, `run_detect.py`, `diff.py`, `rule_counts.py`, `README.md`). **Results** `results/2026-11-26_collapse/` (`before_boxes.json.gz`, `rule_counts.md`).
+
+**Why.** `detector.py` had 30 on/off switches read at 63 places, 7 of them off with their dead code between the live lines, and the same idea coded several times. Nobody could predict what it would do. The map of 2026-11-26 (`docs/archive/DETECTOR-MAP-before-collapse-2026-11-26.md`, section 8a) listed nine changes that cannot change a box.
+
+**Hypothesis.** All nine can be made, one at a time, with the detector drawing exactly the same boxes after each.
+
+**Method.** The detector is a pure function of the class mask and the camera. So 5435 masks were fixed before the first change, and the boxes the detector at the tag draws on them (6152) were stored. After every step: run the detector on all 5435, compare box for box (color, box, flags, source, confidence, order), and run the test suite. A step that changes a box is taken back.
+
+**Data.** Train frames only; every stem is checked against the "test" list of `splits.json`. 261 train frames as the fixed color model paints them, each with one pixel eroded and dilated (522), the 45 frames with hand-set thresholds, the 53 masks the occlusion scorecard is built from, 666 damaged masks (every level of `degrade.py`, seeds 0 to 2), all 3888 simulated occlusion scenes.
+
+**Results.**
+
+| step | what | boxes that differ (of 6152, on 5435 masks) | inputs whose reason log differs | tests |
+|---|---|---|---|---|
+| tag | the detector before | | | 930 |
+| A1 | the 7 off switches, the "bands" finder and their code deleted | 0 | 0 | 911 |
+| A2 | the 23 on switches are plain code; `DetConfig` keeps the 20 numbers; step 1 alone and `--step1` gone | 0 | 0 | 905 |
+| A3 | `detect` is ten named stages; the partly seen branch is small functions; `Piece`, `Found` | 0 | 0 | 905 |
+| A4 | helpers: `edge_tol`, `same_rows`, `same_barrel`, `ends_against`, `standing_nearer`, `widest_barrel`, `sandwiches` | 0 | 0 | 905 |
+| A5 | `BarrelAt`, built once per stripe | 0 | 0 | 905 |
+| A6 | each box carries its evidence; the verify stages no longer search the reason log | 0 | 0 | 906 |
+| A7 | the horizon fact is a check (`above_horizon`); the far branch says what it leans on | 0 | 224 | 906 |
+| A8 | three clauses that never decide removed | 0 | 224 (as A7) | 907 |
+| A9 | the history out of the comments (`docs/archive/DETECTOR-HISTORY.md`) | 0 | 224 (as A7) | 907 |
+
+- **Identical boxes on every input after every step.** A6 and A7 were the two steps where a difference was possible; neither showed one.
+- **The 224 log differences have one cause** (A7): a piece with its top above the horizon is now refused as `piece:above_horizon`, where the log said `piece:height` (473 notes) or `piece:width` (22 notes). The same pieces, refused one check earlier.
+- `detector.py`: 1904 lines → 1825. About 420 lines of switches and dead code went; the docstrings that say what each check asks came in.
+- `DetConfig`: 51 fields → 20, all numbers: `min_area_px`, `close_px`, `bottom_tol`, `bottom_tol_min_px`, `width_min`, `width_max`, `split_search`, `min_width_px`, `stripe_h_min`, `stripe_h_max`, `band_h_max`, `stripe_w_min`, `stripe_merge`, `stripe_full`, `min_stripe_px`, `height_min`, `height_max`, `body_min`, `body_width`, `pin_good`.
+- The eval table (`tools/report.py`) is the table at the tag, number for number. `report.py --gate`: PASS.
+- Which rule draws the boxes (`results/2026-11-26_collapse/rule_counts.md`): on the 261 real train masks, 239 boxes; 201 from a stripe (137 whole, 27 the body shows the width, 30 one hidden side, 5 centred, 1 outline, 1 thin at the frame), 28 close-ups, 6 caps, 4 half stripes, no pair.
+
+**Found on the way** (in `docs/DETECTOR-MAP.md`, section 6; none changed):
+
+- The "too far for a stripe" half of the close-up rule takes no piece at all: tried for every top row and every seen bottom row, stage 1 lets nothing through that reaches it (B1).
+- With the horizon check in place, `height_max` can refuse nothing, and `height_min` only a short piece with its top in rows 427 to 479. On the 5435 masks `piece:height` no longer occurs (B13).
+- One case differs from the tag in theory: a piece that touches the frame top skipped the height check before and could pass; now the horizon check refuses it. The color step paints nothing above row 50, and no golden mask has such a piece.
+
+**Tests: 930 → 907.** The tests were rewritten to state what the detector does with its defaults, without the switch arms. 30 test names went, 7 came.
+
+| removed test | file | step | why it went |
+|---|---|---|---|
+| `test_barrel_hidden_at_the_side_narrow_stripe_and_hidden_side_from_the_body` | `test_detector.py` | A1 | its subject is `occl_body_side` (off, deleted) on the older side rule |
+| `test_three_quarters_hidden_by_a_straight_edge_gets_the_cover_box` | `test_detector_occl.py` | A1 | `slice_box` (off, deleted): the cover box |
+| `test_narrow_piece_not_seen_from_top_to_bottom_gives_no_box` | `test_detector_occl.py` | A1 | `slice_box`. The live rule (a thin piece must be a full slice) is tested in `test_detector_pin.py` |
+| `test_small_piece_with_a_reason_for_its_side_still_needs_the_full_slice` | `test_detector_occl.py` | A1 | `slice_box`. Its live meaning is kept as the new `test_thin_slice_at_the_frame_that_is_not_full_gives_no_box` |
+| `test_both_sides_cut_gets_the_cover_box_around_what_is_seen` | `test_detector_occl.py` | A1 | `slice_box`: the cover box |
+| `test_piece_at_the_frame_edge_is_placed_by_its_seen_edge` | `test_detector_occl.py` | A1 | `slice_box`. The live rule (a thin slice at the frame) is tested in `test_detector_sliver.py` |
+| `test_cover_unpinned_widens_a_half_seen_barrel_that_was_centred` | `test_detector_occl.py` | A1 | `cover_unpinned` (off, deleted) |
+| `test_two_pieces_of_one_stripe_left_and_right_of_a_post_are_one_barrel` | `test_detector_occl.py` | A1 | `slice_box`. The live rule (pairs) is tested in `test_detector_vertical.py` |
+| `test_slice_box_changes_nothing_for_barrels_seen_whole` | `test_detector_occl.py` | A1 | `slice_box` |
+| `test_joined_stripe_of_two_overlapping_same_colored_barrels_is_two_barrels` | `test_detector_occl.py` | A1 | `stripe_two` (off, deleted). The live rule is `test_stripe_wide_cuts_a_joined_stripe_with_body_right_above_and_below` |
+| `test_stripe_two_leaves_one_barrel_and_a_touching_pair_alone` | `test_detector_occl.py` | A1 | `stripe_two`. The live twin is `test_stripe_wide_leaves_one_barrel_and_a_touching_pair_alone` |
+| `test_one_barrel_larger_than_its_row_predicts_is_not_cut_in_two` | `test_detector_occl.py` | A1 | **kept**: moved to `test_detector_vertical.py` (the guard is live code) |
+| `test_closure_is_large_at_the_own_end_and_small_at_a_straight_cut` | `test_detector_sliver.py` | A1 | `own_close` (off, deleted) |
+| `test_closure_says_nothing_when_both_sides_are_cut` | `test_detector_sliver.py` | A1 | `own_close` |
+| `test_own_close_places_a_slice_that_the_outline_leaves` | `test_detector_sliver.py` | A1 | `own_close` |
+| `test_narrow_slice_beside_a_found_nearer_barrel_is_a_barrel` | `test_detector_vertical.py` | A1 | `slice_behind` (off, deleted) |
+| `test_narrow_slice_with_no_found_barrel_beside_it_gets_no_box` | `test_detector_vertical.py` | A1 | `slice_behind` |
+| `test_slice_behind_needs_the_full_slice` | `test_detector_vertical.py` | A1 | `slice_behind` |
+| `test_slice_at_the_frame_edge_is_placed_by_its_seen_edge` | `test_detector_vertical.py` | A1 | `slice_behind` |
+| `test_a_piece_of_a_found_barrels_own_stripe_is_not_a_slice_behind_it` | `test_detector_vertical.py` | A1 | `slice_behind`. **Kept** for the live rule as `test_a_piece_of_a_found_barrels_own_stripe_is_not_half_of_a_pair` |
+| `test_pin_thin_does_not_take_a_narrow_slice_away_from_slice_behind` | `test_detector_combined.py` | A1 | `slice_behind` |
+| `test_the_test_arms_are_what_they_say` | `test_detector_combined.py` | A2 | it checked the switch arms of the test files; there are no arms |
+| `test_two_slices_behind_a_post_are_one_barrel_with_pin_thin_too` | `test_detector_combined.py` | A2 | with one detector it is `test_two_slices_left_and_right_of_a_post_are_one_barrel` |
+| `test_a_thin_slice_the_outline_places_gets_one_box_with_everything_on` | `test_detector_combined.py` | A2 | with one detector it is `test_thin_slice_with_a_corner_is_a_barrel` |
+| `test_each_branchs_own_cases_come_out_the_same_in_the_combination` | `test_detector_combined.py` | A2 | it compared switch arms with each other; with one detector it compares a result with itself |
+| `test_the_finder_hands_over_the_same_pieces_with_or_without_the_lower_floor` | `test_detector_combined.py` | A2 | **kept**: as `test_a_thin_piece_is_a_stripe_and_a_left_over_piece_and_is_handed_over_once` in `test_detector_pin.py` (the file `test_detector_combined.py` is gone) |
+| `test_pin_outline_and_pin_thin_are_on_by_default_and_pin_thin_needs_pin_outline` | `test_detector_pin.py` | A2 | "this switch is on by default" |
+| `test_defaults_after_the_verdict` | `test_detector_sliver.py` | A2 | "these switches are on by default" |
+| `test_the_verify_step_is_on_by_default` | `test_detector_verify.py` | A2 | "these switches are on by default" |
+| `test_every_new_switch_is_off_by_default_or_named_in_the_tests` | `test_detector_vertical.py` | A2 | bookkeeping of the switch arms |
+
+So 27 tests are gone for good (19 on deleted off paths, 4 on switch defaults or arms, 4 comparisons between arms) and 3 of the 30 names live on under another name or in another file. No test of the step-1-alone mode was deleted: those tests now call stage 1 (`find_pieces`) directly.
+
+| added test | file | step | what it holds |
+|---|---|---|---|
+| `test_one_barrel_larger_than_its_row_predicts_is_not_cut_in_two` | `test_detector_vertical.py` | A1 | moved (see above) |
+| `test_a_piece_of_a_found_barrels_own_stripe_is_not_half_of_a_pair` | `test_detector_vertical.py` | A1 | the live half of a `slice_behind` test |
+| `test_a_thin_piece_is_a_stripe_and_a_left_over_piece_and_is_handed_over_once` | `test_detector_pin.py` | A2 | the finder hand-over test under a true name |
+| `test_thin_slice_at_the_frame_that_is_not_full_gives_no_box` | `test_detector_sliver.py` | A2 | a reason for a side does not make a barrel (kept from a `slice_box` test) |
+| `test_a_removed_detector_switch_gives_a_clear_error` | `test_report.py` | A2 | `--cand-det` with a removed switch, or with 0 for a number whose 0 meant "off", names the tag |
+| `test_a_box_carries_what_it_was_read_from` | `test_detector.py` | A6 | `Found.evidence_box`, `Found.rule` |
+| `test_a_barrel_on_the_table_has_a_stripe_tall_enough_to_resolve` | `test_detector.py` | A8 | the fact behind `on_the_table`, for the three camera presets |
+
+Renamed, same test: `test_dark_gap_alone_is_not_a_stripe_unless_asked` → `test_dark_gap_alone_is_not_a_stripe`; `test_the_switch_off_changes_nothing_and_a_single_barrel_is_untouched` → `test_a_single_barrel_is_untouched`; `test_a_thin_line_of_stripe_counts_only_with_half_thin` → `test_a_thin_line_of_stripe_counts`.
+
+**Everything that uses the detector.** `tools/detect_image.py`: `--step1` stops with a message that names the tag. `report.py --cand-det`: takes the 20 numbers; a removed switch, or 0 for `body_min` / `body_width` / `height_max` (0 meant "check off"), stops with a message. `worldmap_bridge.py`, `hsrange.py`, `tools/hs_slider.py`, `live/`: they call `detect(mask, DetConfig(), cam)` and need no change. Experiments dated before 2026-11-26 that name switches run at the tag (`experiments/README.md`); the scripts `run_all.py` starts do not name any.
+
+**Takeaway.** The detector reads as ten stages now, and it is provably the same detector. What is still not clean would change boxes: list (b) of `docs/DETECTOR-MAP.md`, section 6 (B1 to B15). Each is an experiment of its own.
+
+**Next.** B8 (the detector and the scorer agree on the bottom edge; agreed as K2), then B1 and B13 (rules that take nothing today), then B9 (one rule for a barrel cut at the side).
+
+**After merging `barrels` (the measurement work of 2026-11-26) into `wip/collapse`** (merge commit `b3d674c`). One conflict, in `tests/test_gate.py`: their new test, with a number (`min_width_px=20`) in place of the removed switch. Four examples on their side named a removed switch and were changed to a number (`tools/judge.py`, `README.md`, `tests/test_judge.py`, the judge and gate paragraphs of the two HOW-IT-WORKS files). `judge.py`, `counting.py`, `gate.py` and `report.py` needed no code change. On the merged tree:
+
+| check | result |
+|---|---|
+| the test suite | 952 pass (975 on `barrels`, minus the 30 removed, plus the 7 added) |
+| the proof harness | IDENTICAL BOXES ON EVERY INPUT (the 224 log differences of A7, nothing else) |
+| `report.py --gate` (the check with margins) | PASS: all 6 protected sets "same", the 19 other sets unchanged, no box on an empty frame |
+| `judge.py --cand-det bottom_tol=0.15 --no-save` (a candidate that changes nothing) | NO CLEAR DIFFERENCE: 0 barrels gained, 0 lost, 0 boxes changed (exit code 3) |
+| the eval table at the end of the test run | the HOME, CAMPUS and ALL rows are those of the tag |
 
 ## 2026-11-26 — What a color setting made per place can reach, without sliders (`experiments/2026-11-26_place_ceiling`; C1, C7, E6)
 
