@@ -1,0 +1,6 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_lampcool6_ottoman_occl_02,1,orange,225 125 286 192,missed,off,other,home_ottoman,lampcool6_ottoman,1
+4A8B_overheaddim_palewood_occl_02,1,orange,344 115 388 162,missed,found,gained,uc_palewood,overheaddim_palewood,1
+4A8B_window_abpwhite_occlx_02,1,orange,92 119 143 170,missed,found,gained,abp_white,window_abpwhite,1
+4A8B_window_abpwhite_occlx_03,1,orange,99 120 152 172,missed,found,gained,abp_white,window_abpwhite,1
+4A8B_window_black_occl_03,1,blue,270 157 376 275,missed,found,gained,home_black,window_black,0

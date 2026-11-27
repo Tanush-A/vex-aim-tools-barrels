@@ -1,0 +1,1228 @@
+key,mode,"new boxes (color, box, rule, state)","boxes gone (color, box)"
+damage/light/0/CAMPUS color model/4A8B_campus_light_cluster_02,own_side,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+damage/light/0/CAMPUS color model/4A8B_campus_light_cluster_02,own_side+centred,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+damage/light/0/CAMPUS color model/4A8B_campus_light_far_01,own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+damage/light/0/CAMPUS color model/4A8B_campus_light_far_01,own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+damage/light/0/HOME hand masks/4A8B_window_light_cluster_01,own_side,[],"[[1, (358, 118, 401, 162)]]"
+damage/light/0/HOME hand masks/4A8B_window_light_core_03,own_side,[],"[[1, (315, 103, 348, 135)]]"
+damage/light/0/HOME hand masks/4A8B_window_light_occl_01,own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+damage/light/0/HOME hand masks/4A8B_window_light_occl_01,own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+damage/light/1/CAMPUS color model/4A8B_campus_light_cluster_02,own_side,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+damage/light/1/CAMPUS color model/4A8B_campus_light_cluster_02,own_side+centred,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+damage/light/1/CAMPUS color model/4A8B_campus_light_far_01,own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found']]","[[1, (194, 117, 238, 159)]]"
+damage/light/1/CAMPUS color model/4A8B_campus_light_far_01,own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found']]","[[1, (194, 117, 238, 159)]]"
+damage/light/1/HOME hand masks/4A8B_window_light_cluster_01,own_side,[],"[[1, (358, 118, 401, 162)]]"
+damage/light/1/HOME hand masks/4A8B_window_light_core_03,own_side,[],"[[1, (315, 103, 348, 135)]]"
+damage/light/1/HOME hand masks/4A8B_window_light_occl_01,own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+damage/light/1/HOME hand masks/4A8B_window_light_occl_01,own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+damage/light/2/CAMPUS color model/4A8B_campus_light_far_01,own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+damage/light/2/CAMPUS color model/4A8B_campus_light_far_01,own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+damage/light/2/HOME hand masks/4A8B_window_light_cluster_01,own_side,[],"[[1, (357, 111, 399, 162)]]"
+damage/light/2/HOME hand masks/4A8B_window_light_core_03,own_side,[],"[[1, (315, 103, 348, 135)]]"
+damage/light/2/HOME hand masks/4A8B_window_light_occl_01,own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+damage/light/2/HOME hand masks/4A8B_window_light_occl_01,own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+damage/light/2/HOME hand masks/4A8B_window_light_occl_02,own_side,"[[1, (399, 118, 442, 152), 'thin_own_side', 'off']]","[[1, (399, 117, 439, 161)]]"
+damage/light/2/HOME hand masks/4A8B_window_light_occl_02,own_side+centred,"[[1, (399, 118, 442, 152), 'thin_own_side', 'off']]","[[1, (399, 117, 439, 161)]]"
+damage/medium/0/HOME hand masks/4A8B_window_light_cluster_01,own_side,"[[1, (315, 118, 360, 162), 'thin_own_side', 'found']]",[]
+damage/medium/0/HOME hand masks/4A8B_window_light_cluster_01,own_side+centred,"[[1, (315, 118, 360, 162), 'thin_own_side', 'found']]",[]
+damage/medium/0/HOME hand masks/4A8B_window_light_far_02,own_side,"[[2, (220, 112, 256, 141), 'thin_own_side', 'found']]",[]
+damage/medium/0/HOME hand masks/4A8B_window_light_far_02,own_side+centred,"[[2, (220, 112, 256, 141), 'thin_own_side', 'found']]",[]
+damage/medium/1/CAMPUS color model/4A8B_campus_light_room_03,own_side,"[[2, (182, 115, 222, 151), 'thin_own_side', 'found']]",[]
+damage/medium/1/CAMPUS color model/4A8B_campus_light_room_03,own_side+centred,"[[2, (182, 115, 222, 151), 'thin_own_side', 'found']]",[]
+damage/medium/2/HOME hand masks/4A8B_window_light_cluster_01,own_side,"[[1, (315, 118, 360, 162), 'thin_own_side', 'found']]",[]
+damage/medium/2/HOME hand masks/4A8B_window_light_cluster_01,own_side+centred,"[[1, (315, 118, 360, 162), 'thin_own_side', 'found']]",[]
+damage/medium/2/HOME hand masks/4A8B_window_light_core_03,own_side,[],"[[1, (315, 103, 348, 135)]]"
+damage/medium/2/HOME hand masks/4A8B_window_light_touch_02,own_side,"[[1, (149, 124, 200, 171), 'thin_own_side', 'found']]","[[1, (150, 123, 205, 175)]]"
+damage/medium/2/HOME hand masks/4A8B_window_light_touch_02,own_side+centred,"[[1, (149, 124, 200, 171), 'thin_own_side', 'found']]","[[1, (150, 123, 205, 175)]]"
+"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_cluster_02",own_side,"[[2, (370, 118, 415, 159), 'own_side', 'found']]",[]
+"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_cluster_02",own_side+centred,"[[2, (370, 118, 415, 159), 'own_side', 'found']]",[]
+"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_far_01",own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_far_01",own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_hand_02",own_side,"[[1, (400, 121, 456, 183), 'own_side', 'found']]","[[1, (394, 121, 451, 183)]]"
+"damage/white tables, bad day/0/CAMPUS color model/4A8B_campus_light_hand_02",own_side+centred,"[[1, (400, 121, 456, 183), 'own_side', 'found']]","[[1, (394, 121, 451, 183)]]"
+"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_cluster_01",own_side,[],"[[1, (357, 111, 399, 162)]]"
+"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_core_03",own_side,[],"[[1, (315, 103, 348, 135)]]"
+"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_occl_01",own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (389, 116, 429, 158)]]"
+"damage/white tables, bad day/0/HOME hand masks/4A8B_window_light_occl_01",own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (389, 116, 429, 158)]]"
+"damage/white tables, bad day/1/CAMPUS color model/4A8B_campus_light_far_01",own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (232, 113, 269, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 273, 148)]]"
+"damage/white tables, bad day/1/CAMPUS color model/4A8B_campus_light_far_01",own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (232, 113, 269, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 273, 148)]]"
+"damage/white tables, bad day/1/HOME hand masks/4A8B_window_light_core_03",own_side,[],"[[1, (315, 103, 348, 135)]]"
+"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_cluster_02",own_side,"[[2, (369, 118, 415, 159), 'own_side', 'found']]","[[2, (376, 118, 421, 159)]]"
+"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_cluster_02",own_side+centred,"[[2, (369, 118, 415, 159), 'own_side', 'found']]","[[2, (376, 118, 421, 159)]]"
+"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_far_01",own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found']]","[[1, (194, 117, 238, 159)]]"
+"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_far_01",own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found']]","[[1, (194, 117, 238, 159)]]"
+"damage/white tables, bad day/2/CAMPUS color model/4A8B_campus_light_hand_02",own_side,[],"[[1, (396, 121, 453, 183)]]"
+"damage/white tables, bad day/2/HOME hand masks/4A8B_window_light_core_03",own_side,[],"[[1, (315, 103, 348, 135)]]"
+"damage/white tables, bad day/2/HOME hand masks/4A8B_window_light_far_02",own_side,"[[2, (430, 109, 463, 138), 'own_side', 'found']]","[[2, (433, 109, 467, 138)]]"
+"damage/white tables, bad day/2/HOME hand masks/4A8B_window_light_far_02",own_side+centred,"[[2, (430, 109, 463, 138), 'own_side', 'found']]","[[2, (433, 109, 467, 138)]]"
+"damage/white tables, bad day/2/HOME hand masks/4A8B_window_light_occl_01",own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, bad day/2/HOME hand masks/4A8B_window_light_occl_01",own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, typical/0/CAMPUS color model/4A8B_campus_light_cluster_02",own_side,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+"damage/white tables, typical/0/CAMPUS color model/4A8B_campus_light_cluster_02",own_side+centred,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+"damage/white tables, typical/0/CAMPUS color model/4A8B_campus_light_far_01",own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, typical/0/CAMPUS color model/4A8B_campus_light_far_01",own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_cluster_01",own_side,[],"[[1, (357, 111, 399, 162)]]"
+"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_core_03",own_side,[],"[[1, (315, 103, 348, 135)]]"
+"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_occl_01",own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, typical/0/HOME hand masks/4A8B_window_light_occl_01",own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, typical/1/CAMPUS color model/4A8B_campus_light_cluster_02",own_side,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+"damage/white tables, typical/1/CAMPUS color model/4A8B_campus_light_cluster_02",own_side+centred,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+"damage/white tables, typical/1/CAMPUS color model/4A8B_campus_light_far_01",own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, typical/1/CAMPUS color model/4A8B_campus_light_far_01",own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_cluster_01",own_side,[],"[[1, (357, 111, 399, 162)]]"
+"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_core_03",own_side,[],"[[1, (315, 103, 348, 135)]]"
+"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_occl_01",own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, typical/1/HOME hand masks/4A8B_window_light_occl_01",own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, typical/2/CAMPUS color model/4A8B_campus_light_cluster_02",own_side,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+"damage/white tables, typical/2/CAMPUS color model/4A8B_campus_light_cluster_02",own_side+centred,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+"damage/white tables, typical/2/CAMPUS color model/4A8B_campus_light_far_01",own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, typical/2/CAMPUS color model/4A8B_campus_light_far_01",own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_cluster_01",own_side,[],"[[1, (357, 111, 399, 162)]]"
+"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_core_03",own_side,[],"[[1, (315, 103, 348, 135)]]"
+"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_occl_01",own_side,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, typical/2/HOME hand masks/4A8B_window_light_occl_01",own_side+centred,"[[2, (385, 116, 429, 158), 'thin_own_side', 'found']]","[[2, (388, 116, 429, 158)]]"
+"damage/white tables, worst seen/0/CAMPUS color model/4A8B_campus_light_close_01",own_side,"[[1, (241, 186, 393, 357), 'own_side', 'found']]","[[1, (268, 186, 420, 357)]]"
+"damage/white tables, worst seen/0/CAMPUS color model/4A8B_campus_light_close_01",own_side+centred,"[[1, (241, 186, 393, 357), 'own_side', 'found']]","[[1, (268, 186, 420, 357)]]"
+"damage/white tables, worst seen/1/CAMPUS color model/4A8B_campus_light_room_03",own_side,"[[2, (182, 115, 222, 151), 'thin_own_side', 'found']]",[]
+"damage/white tables, worst seen/1/CAMPUS color model/4A8B_campus_light_room_03",own_side+centred,"[[2, (182, 115, 222, 151), 'thin_own_side', 'found']]",[]
+"damage/white tables, worst seen/1/HOME hand masks/4A8B_window_light_far_02",own_side,"[[2, (430, 109, 463, 138), 'thin_own_side', 'found']]",[]
+"damage/white tables, worst seen/1/HOME hand masks/4A8B_window_light_far_02",own_side+centred,"[[2, (430, 109, 463, 138), 'thin_own_side', 'found']]",[]
+"damage/white tables, worst seen/2/CAMPUS color model/4A8B_campus_light_touch_02",own_side,"[[2, (239, 125, 292, 175), 'own_side', 'off']]","[[2, (246, 125, 298, 175)]]"
+"damage/white tables, worst seen/2/CAMPUS color model/4A8B_campus_light_touch_02",own_side+centred,"[[2, (239, 125, 292, 175), 'own_side', 'off']]","[[2, (246, 125, 298, 175)]]"
+"damage/white tables, worst seen/2/HOME hand masks/4A8B_window_light_core_02",own_side,"[[2, (418, 122, 470, 173), 'thin_own_side', 'found']]","[[2, (421, 122, 470, 172)]]"
+"damage/white tables, worst seen/2/HOME hand masks/4A8B_window_light_core_02",own_side+centred,"[[2, (418, 122, 470, 173), 'thin_own_side', 'found']]","[[2, (421, 122, 470, 172)]]"
+"damage/white tables, worst seen/2/HOME hand masks/4A8B_window_light_occl_02",own_side,"[[1, (367, 118, 410, 152), 'thin_own_side', 'nothing']]",[]
+"damage/white tables, worst seen/2/HOME hand masks/4A8B_window_light_occl_02",own_side+centred,"[[1, (367, 118, 410, 152), 'thin_own_side', 'nothing']]",[]
+"damage/white tables, worst seen/2/HOME hand masks/4A8B_window_light_touch_02",own_side,"[[1, (150, 123, 201, 175), 'own_side', 'found']]",[]
+"damage/white tables, worst seen/2/HOME hand masks/4A8B_window_light_touch_02",own_side+centred,"[[1, (150, 123, 201, 175), 'own_side', 'found']]",[]
+hand/4A8B_lampcool6_bathtile_clutter_01,own_side,"[[1, (406, 109, 440, 142), 'own_side', 'found']]","[[1, (409, 109, 444, 142)]]"
+hand/4A8B_lampcool6_bathtile_clutter_01,own_side+centred,"[[1, (406, 109, 440, 142), 'own_side', 'found']]","[[1, (409, 109, 444, 142)]]"
+hand/4A8B_lampcool6_ottoman_occl_02,own_side,"[[1, (226, 128, 286, 191), 'own_side', 'found']]","[[1, (215, 128, 274, 191)]]"
+hand/4A8B_lampcool6_ottoman_occl_02,own_side+centred,"[[1, (226, 128, 286, 191), 'own_side', 'found']]","[[1, (215, 128, 274, 191)]]"
+hand/4A8B_lampmid6_ottoman_occl_02,own_side,[],"[[1, (215, 127, 275, 192)]]"
+hand/4A8B_overheaddim_palewood_clutter_01,own_side,"[[2, (139, 120, 183, 168), 'cap', 'found']]","[[1, (145, 107, 182, 149)]]"
+pool/HOME color model/4A8B_window_light_far_02,own_side,[],"[[1, (332, 107, 363, 135)]]"
+real/4A8B_lampcool6_ottoman_occl_02,own_side,"[[1, (200, 134, 260, 188), 'thin_own_side', 'off']]",[]
+real/4A8B_lampcool6_ottoman_occl_02,own_side+centred,"[[1, (200, 134, 260, 188), 'thin_own_side', 'off']]",[]
+real/4A8B_lampmid6_glass_clutter_01,own_side,[],"[[1, (554, 117, 604, 171)]]"
+real/4A8B_lampwarm6_glass_clutter_01,own_side,"[[1, (550, 117, 599, 172), 'own_side', 'second']]","[[1, (555, 117, 605, 172)]]"
+real/4A8B_lampwarm6_glass_clutter_01,own_side+centred,"[[1, (550, 117, 599, 172), 'own_side', 'second']]","[[1, (555, 117, 605, 172)]]"
+real/4A8B_lampwarm6_glass_occl_02,own_side,"[[1, (584, 123, 635, 167), 'thin_own_side', 'nothing']]",[]
+real/4A8B_lampwarm6_glass_occl_02,own_side+centred,"[[1, (584, 123, 635, 167), 'thin_own_side', 'nothing']]",[]
+real/4A8B_overheaddim_palewood_occl_02,own_side,"[[1, (340, 115, 384, 160), 'own_side', 'found']]",[]
+real/4A8B_overheaddim_palewood_occl_02,own_side+centred,"[[1, (340, 115, 384, 160), 'own_side', 'found']]",[]
+real/4A8B_window_abpwhite_occlx_02,own_side,"[[1, (91, 122, 140, 171), 'thin_own_side', 'found']]",[]
+real/4A8B_window_abpwhite_occlx_02,own_side+centred,"[[1, (91, 122, 140, 171), 'thin_own_side', 'found']]",[]
+real/4A8B_window_abpwhite_occlx_03,own_side,"[[1, (101, 120, 151, 171), 'own_side', 'found']]",[]
+real/4A8B_window_abpwhite_occlx_03,own_side+centred,"[[1, (101, 120, 151, 171), 'own_side', 'found']]",[]
+real/4A8B_window_black_occl_03,own_side,"[[2, (272, 151, 373, 270), 'thin_own_side', 'found']]",[]
+real/4A8B_window_black_occl_03,own_side+centred,"[[2, (272, 151, 373, 270), 'thin_own_side', 'found']]",[]
+real/4A8B_window_light_far_02,own_side,[],"[[1, (332, 107, 363, 135)]]"
+real_dilate/4A8B_lampcool6_ottoman_occl_02,own_side,"[[1, (202, 133, 262, 190), 'thin_own_side', 'off']]",[]
+real_dilate/4A8B_lampcool6_ottoman_occl_02,own_side+centred,"[[1, (202, 133, 262, 190), 'thin_own_side', 'off']]",[]
+real_dilate/4A8B_lampcool6_ottoman_touch_01,own_side,"[[2, (215, 129, 279, 196), 'own_side', 'found']]","[[2, (203, 129, 268, 196)]]"
+real_dilate/4A8B_lampcool6_ottoman_touch_01,own_side+centred,"[[2, (215, 129, 279, 196), 'own_side', 'found']]","[[2, (203, 129, 268, 196)]]"
+real_dilate/4A8B_lampmid6_glass_occl_02,own_side,[],"[[1, (558, 119, 611, 176)]]"
+real_dilate/4A8B_lampwarm6_glass_clutter_01,own_side,[],"[[1, (556, 117, 605, 173)]]"
+real_dilate/4A8B_lampwarm6_glass_occl_02,own_side,"[[1, (548, 121, 599, 168), 'thin_own_side', 'nothing']]",[]
+real_dilate/4A8B_lampwarm6_glass_occl_02,own_side+centred,"[[1, (548, 121, 599, 168), 'thin_own_side', 'nothing']]",[]
+real_dilate/4A8B_overheaddim_palewood_occl_02,own_side,[],"[[1, (352, 114, 395, 160)]]"
+real_dilate/4A8B_window_abpwhite_occlx_02,own_side,"[[1, (92, 121, 141, 172), 'own_side', 'found']]",[]
+real_dilate/4A8B_window_abpwhite_occlx_02,own_side+centred,"[[1, (92, 121, 141, 172), 'own_side', 'found']]",[]
+real_dilate/4A8B_window_abpwhite_occlx_03,own_side,"[[1, (100, 119, 150, 172), 'own_side', 'found']]",[]
+real_dilate/4A8B_window_abpwhite_occlx_03,own_side+centred,"[[1, (100, 119, 150, 172), 'own_side', 'found']]",[]
+real_dilate/4A8B_window_glass_clutter_01,own_side,[],"[[1, (518, 111, 566, 172)]]"
+real_erode/4A8B_campus_light_cluster_02,own_side,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+real_erode/4A8B_campus_light_cluster_02,own_side+centred,"[[2, (344, 121, 393, 168), 'own_side', 'found']]","[[2, (336, 121, 384, 168)]]"
+real_erode/4A8B_campus_light_far_01,own_side,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+real_erode/4A8B_campus_light_far_01,own_side+centred,"[[1, (199, 117, 243, 159), 'own_side', 'found'], [2, (233, 113, 270, 148), 'hidden_side', 'found']]","[[1, (194, 117, 238, 159)], [2, (237, 113, 274, 148)]]"
+real_erode/4A8B_window_abpwhite_occlx_01,own_side,"[[1, (101, 123, 150, 172), 'own_side', 'found']]",[]
+real_erode/4A8B_window_abpwhite_occlx_01,own_side+centred,"[[1, (101, 123, 150, 172), 'own_side', 'found']]",[]
+real_erode/4A8B_window_abpwhite_occlx_04,own_side,"[[1, (102, 125, 152, 171), 'thin_own_side', 'found']]",[]
+real_erode/4A8B_window_abpwhite_occlx_04,own_side+centred,"[[1, (102, 125, 152, 171), 'thin_own_side', 'found']]",[]
+real_erode/4A8B_window_light_touch_02,own_side,[],"[[1, (144, 124, 195, 173)]]"
+scene/CAMPUS color model/00006/edge/0.25/L,own_side,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (266, 185, 418, 358)]]"
+scene/CAMPUS color model/00006/edge/0.25/L,own_side+centred,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (266, 185, 418, 358)]]"
+scene/CAMPUS color model/00008/edge/0.5/L,own_side,"[[1, (244, 185, 395, 358), 'own_side']]","[[1, (285, 185, 436, 358)]]"
+scene/CAMPUS color model/00008/edge/0.5/L,own_side+centred,"[[1, (244, 185, 395, 358), 'own_side']]","[[1, (285, 185, 436, 358)]]"
+scene/CAMPUS color model/00010/edge/0.75/L,own_side,"[[1, (247, 189, 395, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00010/edge/0.75/L,own_side+centred,"[[1, (247, 189, 395, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00011/edge/0.75/R,own_side,"[[1, (255, 188, 401, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00011/edge/0.75/R,own_side+centred,"[[1, (255, 188, 401, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00013/slant/0.25/L-,own_side,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (260, 185, 411, 358)]]"
+scene/CAMPUS color model/00013/slant/0.25/L-,own_side+centred,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (260, 185, 411, 358)]]"
+scene/CAMPUS color model/00017/slant/0.5/L-,own_side,"[[1, (244, 186, 395, 358), 'own_side']]","[[1, (276, 186, 428, 358)]]"
+scene/CAMPUS color model/00017/slant/0.5/L-,own_side+centred,"[[1, (244, 186, 395, 358), 'own_side']]","[[1, (276, 186, 428, 358)]]"
+scene/CAMPUS color model/00020/slant/0.75/L+,own_side,"[[1, (248, 192, 395, 334), 'thin_own_side']]",[]
+scene/CAMPUS color model/00020/slant/0.75/L+,own_side+centred,"[[1, (248, 192, 395, 334), 'thin_own_side']]",[]
+scene/CAMPUS color model/00021/slant/0.75/L-,own_side,"[[1, (247, 195, 395, 349), 'thin_own_side']]",[]
+scene/CAMPUS color model/00021/slant/0.75/L-,own_side+centred,"[[1, (247, 195, 395, 349), 'thin_own_side']]",[]
+scene/CAMPUS color model/00022/slant/0.75/R+,own_side,"[[1, (255, 194, 402, 349), 'thin_own_side']]",[]
+scene/CAMPUS color model/00022/slant/0.75/R+,own_side+centred,"[[1, (255, 194, 402, 349), 'thin_own_side']]",[]
+scene/CAMPUS color model/00023/slant/0.75/R-,own_side,"[[1, (255, 191, 400, 334), 'thin_own_side']]",[]
+scene/CAMPUS color model/00023/slant/0.75/R-,own_side+centred,"[[1, (255, 191, 400, 334), 'thin_own_side']]",[]
+scene/CAMPUS color model/00024/both/0.25/,own_side,"[[1, (270, 185, 422, 358), 'own_side']]","[[1, (250, 185, 402, 358)]]"
+scene/CAMPUS color model/00024/both/0.25/,own_side+centred,"[[1, (270, 185, 422, 358), 'own_side']]","[[1, (250, 185, 402, 358)]]"
+scene/CAMPUS color model/00025/both/0.5/,own_side,[],"[[1, (249, 185, 403, 358)]]"
+scene/CAMPUS color model/00034/post/0.5/,own_side,"[[1, (247, 189, 395, 348), 'thin_own_side']]","[[1, (255, 188, 395, 348)]]"
+scene/CAMPUS color model/00034/post/0.5/,own_side+centred,"[[1, (247, 189, 395, 348), 'thin_own_side']]","[[1, (255, 188, 395, 348)]]"
+scene/CAMPUS color model/00038/barrel_side/other/0.5/L,own_side,"[[1, (243, 185, 395, 358), 'own_side'], [1, (262, 185, 383, 279), 'own_side']]","[[1, (232, 185, 354, 279)], [1, (282, 185, 433, 358)]]"
+scene/CAMPUS color model/00038/barrel_side/other/0.5/L,own_side+centred,"[[1, (243, 185, 395, 358), 'own_side'], [1, (262, 185, 383, 279), 'own_side']]","[[1, (232, 185, 354, 279)], [1, (282, 185, 433, 358)]]"
+scene/CAMPUS color model/00040/barrel_side/other/0.75/L,own_side,"[[1, (247, 188, 395, 350), 'thin_own_side']]","[[1, (262, 185, 395, 325)]]"
+scene/CAMPUS color model/00040/barrel_side/other/0.75/L,own_side+centred,"[[1, (247, 188, 395, 350), 'thin_own_side']]","[[1, (262, 185, 395, 325)]]"
+scene/CAMPUS color model/00049/barrel_side/same/0.25/L,own_side,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (259, 185, 410, 358)]]"
+scene/CAMPUS color model/00049/barrel_side/same/0.25/L,own_side+centred,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (259, 185, 410, 358)]]"
+scene/CAMPUS color model/00051/barrel_side/same/0.5/L,own_side,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (279, 185, 431, 358)]]"
+scene/CAMPUS color model/00051/barrel_side/same/0.5/L,own_side+centred,"[[1, (243, 185, 395, 358), 'own_side']]","[[1, (279, 185, 431, 358)]]"
+scene/CAMPUS color model/00059/barrel_low/same/0.75/L,own_side,"[[1, (247, 188, 395, 350), 'thin_own_side']]",[]
+scene/CAMPUS color model/00059/barrel_low/same/0.75/L,own_side+centred,"[[1, (247, 188, 395, 350), 'thin_own_side']]",[]
+scene/CAMPUS color model/00066/block/same/0.75/L,own_side,"[[1, (247, 189, 395, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00066/block/same/0.75/L,own_side+centred,"[[1, (247, 189, 395, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00067/block/same/0.75/R,own_side,"[[1, (255, 188, 401, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00067/block/same/0.75/R,own_side+centred,"[[1, (255, 188, 401, 348), 'thin_own_side']]",[]
+scene/CAMPUS color model/00085/edge/0.75/R,own_side,"[[1, (237, 118, 284, 164), 'thin_own_side']]",[]
+scene/CAMPUS color model/00085/edge/0.75/R,own_side+centred,"[[1, (237, 118, 284, 164), 'thin_own_side']]",[]
+scene/CAMPUS color model/00097/slant/0.75/R-,own_side,"[[1, (237, 120, 284, 162), 'thin_own_side']]",[]
+scene/CAMPUS color model/00097/slant/0.75/R-,own_side+centred,"[[1, (237, 120, 284, 162), 'thin_own_side']]",[]
+scene/CAMPUS color model/00098/both/0.25/,own_side,[],"[[1, (234, 117, 281, 165)]]"
+scene/CAMPUS color model/00099/both/0.5/,own_side,[],"[[1, (234, 117, 281, 165)]]"
+scene/CAMPUS color model/00129/barrel_side/same/0.75/L,own_side,[],"[[2, (249, 108, 288, 151)]]"
+scene/CAMPUS color model/00151/block/other/0.75/R,own_side,"[[1, (237, 118, 284, 164), 'thin_own_side']]",[]
+scene/CAMPUS color model/00151/block/other/0.75/R,own_side+centred,"[[1, (237, 118, 284, 164), 'thin_own_side']]",[]
+scene/CAMPUS color model/00159/edge/0.25/R,own_side,"[[1, (200, 124, 257, 184), 'own_side']]","[[1, (192, 124, 250, 184)]]"
+scene/CAMPUS color model/00159/edge/0.25/R,own_side+centred,"[[1, (200, 124, 257, 184), 'own_side']]","[[1, (192, 124, 250, 184)]]"
+scene/CAMPUS color model/00161/edge/0.5/R,own_side,"[[1, (200, 128, 257, 184), 'own_side']]","[[1, (186, 128, 243, 184)]]"
+scene/CAMPUS color model/00161/edge/0.5/R,own_side+centred,"[[1, (200, 128, 257, 184), 'own_side']]","[[1, (186, 128, 243, 184)]]"
+scene/CAMPUS color model/00163/edge/0.75/R,own_side,"[[1, (200, 128, 256, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00163/edge/0.75/R,own_side+centred,"[[1, (200, 128, 256, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00170/slant/0.5/R+,own_side,"[[1, (200, 128, 257, 184), 'own_side']]","[[1, (189, 128, 246, 184)]]"
+scene/CAMPUS color model/00170/slant/0.5/R+,own_side+centred,"[[1, (200, 128, 257, 184), 'own_side']]","[[1, (189, 128, 246, 184)]]"
+scene/CAMPUS color model/00171/slant/0.5/R-,own_side,"[[1, (200, 128, 257, 184), 'own_side']]","[[1, (189, 128, 246, 184)]]"
+scene/CAMPUS color model/00171/slant/0.5/R-,own_side+centred,"[[1, (200, 128, 257, 184), 'own_side']]","[[1, (189, 128, 246, 184)]]"
+scene/CAMPUS color model/00172/slant/0.75/L+,own_side,"[[1, (202, 124, 258, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00172/slant/0.75/L+,own_side+centred,"[[1, (202, 124, 258, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00173/slant/0.75/L-,own_side,"[[1, (202, 125, 258, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00173/slant/0.75/L-,own_side+centred,"[[1, (202, 125, 258, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00174/slant/0.75/R+,own_side,"[[1, (200, 128, 256, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00174/slant/0.75/R+,own_side+centred,"[[1, (200, 128, 256, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00175/slant/0.75/R-,own_side,"[[1, (200, 128, 256, 181), 'thin_own_side']]",[]
+scene/CAMPUS color model/00175/slant/0.75/R-,own_side+centred,"[[1, (200, 128, 256, 181), 'thin_own_side']]",[]
+scene/CAMPUS color model/00176/both/0.25/,own_side,"[[1, (209, 124, 266, 184), 'own_side']]","[[1, (200, 124, 257, 184)]]"
+scene/CAMPUS color model/00176/both/0.25/,own_side+centred,"[[1, (209, 124, 266, 184), 'own_side']]","[[1, (200, 124, 257, 184)]]"
+scene/CAMPUS color model/00177/both/0.5/,own_side,"[[1, (215, 124, 272, 184), 'own_side']]","[[1, (200, 124, 257, 184)]]"
+scene/CAMPUS color model/00177/both/0.5/,own_side+centred,"[[1, (215, 124, 272, 184), 'own_side']]","[[1, (200, 124, 257, 184)]]"
+scene/CAMPUS color model/00189/barrel_side/other/0.25/R,own_side,"[[2, (236, 134, 298, 190), 'own_side']]","[[2, (243, 134, 304, 190)]]"
+scene/CAMPUS color model/00189/barrel_side/other/0.25/R,own_side+centred,"[[2, (236, 134, 298, 190), 'own_side']]","[[2, (243, 134, 304, 190)]]"
+scene/CAMPUS color model/00195/barrel_low/other/0.25/R,own_side,"[[2, (232, 145, 305, 211), 'own_side']]","[[2, (242, 145, 316, 211)]]"
+scene/CAMPUS color model/00195/barrel_low/other/0.25/R,own_side+centred,"[[2, (232, 145, 305, 211), 'own_side']]","[[2, (242, 145, 316, 211)]]"
+scene/CAMPUS color model/00213/barrel_low/same/0.75/L,own_side,"[[1, (178, 128, 252, 208), 'own_side']]","[[1, (169, 128, 243, 208)]]"
+scene/CAMPUS color model/00213/barrel_low/same/0.75/L,own_side+centred,"[[1, (178, 128, 252, 208), 'own_side']]","[[1, (169, 128, 243, 208)]]"
+scene/CAMPUS color model/00223/block/same/0.75/R,own_side,"[[1, (200, 128, 256, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00223/block/same/0.75/R,own_side+centred,"[[1, (200, 128, 256, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00236/edge/0.25/L,own_side,"[[2, (92, 163, 202, 285), 'own_side']]","[[2, (106, 163, 216, 285)]]"
+scene/CAMPUS color model/00236/edge/0.25/L,own_side+centred,"[[2, (92, 163, 202, 285), 'own_side']]","[[2, (106, 163, 216, 285)]]"
+scene/CAMPUS color model/00237/edge/0.25/R,own_side,"[[2, (95, 163, 206, 285), 'own_side']]","[[2, (81, 163, 192, 285)]]"
+scene/CAMPUS color model/00237/edge/0.25/R,own_side+centred,"[[2, (95, 163, 206, 285), 'own_side']]","[[2, (81, 163, 192, 285)]]"
+scene/CAMPUS color model/00238/edge/0.5/L,own_side,"[[2, (93, 163, 202, 284), 'own_side']]","[[2, (121, 163, 230, 284)]]"
+scene/CAMPUS color model/00238/edge/0.5/L,own_side+centred,"[[2, (93, 163, 202, 284), 'own_side']]","[[2, (121, 163, 230, 284)]]"
+scene/CAMPUS color model/00239/edge/0.5/R,own_side,"[[2, (95, 163, 207, 285), 'own_side']]","[[2, (66, 163, 178, 285)]]"
+scene/CAMPUS color model/00239/edge/0.5/R,own_side+centred,"[[2, (95, 163, 207, 285), 'own_side']]","[[2, (66, 163, 178, 285)]]"
+scene/CAMPUS color model/00240/edge/0.75/L,own_side,"[[2, (96, 165, 202, 278), 'thin_own_side']]",[]
+scene/CAMPUS color model/00240/edge/0.75/L,own_side+centred,"[[2, (96, 165, 202, 278), 'thin_own_side']]",[]
+scene/CAMPUS color model/00241/edge/0.75/R,own_side,"[[2, (95, 167, 206, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00241/edge/0.75/R,own_side+centred,"[[2, (95, 167, 206, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00247/slant/0.5/L-,own_side,"[[2, (93, 163, 202, 284), 'own_side']]","[[2, (115, 163, 223, 284)]]"
+scene/CAMPUS color model/00247/slant/0.5/L-,own_side+centred,"[[2, (93, 163, 202, 284), 'own_side']]","[[2, (115, 163, 223, 284)]]"
+scene/CAMPUS color model/00248/slant/0.5/R+,own_side,"[[2, (95, 165, 207, 285), 'own_side']]","[[2, (73, 165, 185, 285)]]"
+scene/CAMPUS color model/00248/slant/0.5/R+,own_side+centred,"[[2, (95, 165, 207, 285), 'own_side']]","[[2, (73, 165, 185, 285)]]"
+scene/CAMPUS color model/00250/slant/0.75/L+,own_side,"[[2, (98, 166, 203, 272), 'thin_own_side']]",[]
+scene/CAMPUS color model/00250/slant/0.75/L+,own_side+centred,"[[2, (98, 166, 203, 272), 'thin_own_side']]",[]
+scene/CAMPUS color model/00251/slant/0.75/L-,own_side,"[[2, (96, 171, 202, 277), 'thin_own_side']]",[]
+scene/CAMPUS color model/00251/slant/0.75/L-,own_side+centred,"[[2, (96, 171, 202, 277), 'thin_own_side']]",[]
+scene/CAMPUS color model/00252/slant/0.75/R+,own_side,"[[2, (95, 171, 206, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00252/slant/0.75/R+,own_side+centred,"[[2, (95, 171, 206, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00253/slant/0.75/R-,own_side,"[[2, (95, 168, 206, 267), 'thin_own_side']]",[]
+scene/CAMPUS color model/00253/slant/0.75/R-,own_side+centred,"[[2, (95, 168, 206, 267), 'thin_own_side']]",[]
+scene/CAMPUS color model/00255/both/0.5/,own_side,[],"[[2, (93, 163, 205, 285)]]"
+scene/CAMPUS color model/00264/post/0.5/,own_side,"[[2, (95, 167, 206, 280), 'thin_own_side']]","[[2, (95, 165, 202, 280)]]"
+scene/CAMPUS color model/00264/post/0.5/,own_side+centred,"[[2, (95, 167, 206, 280), 'thin_own_side']]","[[2, (95, 165, 202, 280)]]"
+scene/CAMPUS color model/00277/barrel_low/other/0.75/R,own_side,"[[2, (95, 166, 206, 282), 'thin_own_side']]","[[2, (95, 163, 192, 282)]]"
+scene/CAMPUS color model/00277/barrel_low/other/0.75/R,own_side+centred,"[[2, (95, 166, 206, 282), 'thin_own_side']]","[[2, (95, 163, 192, 282)]]"
+scene/CAMPUS color model/00290/barrel_low/same/0.75/L,own_side,"[[2, (96, 163, 202, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00290/barrel_low/same/0.75/L,own_side+centred,"[[2, (96, 163, 202, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00298/block/same/0.75/L,own_side,"[[2, (96, 165, 202, 278), 'thin_own_side']]",[]
+scene/CAMPUS color model/00298/block/same/0.75/L,own_side+centred,"[[2, (96, 165, 202, 278), 'thin_own_side']]",[]
+scene/CAMPUS color model/00299/block/same/0.75/R,own_side,"[[2, (95, 167, 206, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00299/block/same/0.75/R,own_side+centred,"[[2, (95, 167, 206, 280), 'thin_own_side']]",[]
+scene/CAMPUS color model/00313/edge/0.25/R,own_side,"[[1, (247, 110, 283, 144), 'own_side']]","[[1, (241, 110, 277, 144)]]"
+scene/CAMPUS color model/00313/edge/0.25/R,own_side+centred,"[[1, (247, 110, 283, 144), 'own_side']]","[[1, (241, 110, 277, 144)]]"
+scene/CAMPUS color model/00315/edge/0.5/R,own_side,"[[1, (247, 110, 283, 144), 'own_side']]",[]
+scene/CAMPUS color model/00315/edge/0.5/R,own_side+centred,"[[1, (247, 110, 283, 144), 'own_side']]",[]
+scene/CAMPUS color model/00320/slant/0.25/R+,own_side,"[[1, (247, 110, 283, 144), 'own_side']]","[[1, (242, 110, 279, 144)]]"
+scene/CAMPUS color model/00320/slant/0.25/R+,own_side+centred,"[[1, (247, 110, 283, 144), 'own_side']]","[[1, (242, 110, 279, 144)]]"
+scene/CAMPUS color model/00321/slant/0.25/R-,own_side,"[[1, (247, 110, 283, 144), 'own_side']]","[[1, (243, 110, 279, 144)]]"
+scene/CAMPUS color model/00321/slant/0.25/R-,own_side+centred,"[[1, (247, 110, 283, 144), 'own_side']]","[[1, (243, 110, 279, 144)]]"
+scene/CAMPUS color model/00324/slant/0.5/R+,own_side,"[[1, (247, 110, 283, 144), 'own_side']]",[]
+scene/CAMPUS color model/00324/slant/0.5/R+,own_side+centred,"[[1, (247, 110, 283, 144), 'own_side']]",[]
+scene/CAMPUS color model/00325/slant/0.5/R-,own_side,"[[1, (247, 110, 283, 144), 'own_side']]",[]
+scene/CAMPUS color model/00325/slant/0.5/R-,own_side+centred,"[[1, (247, 110, 283, 144), 'own_side']]",[]
+scene/CAMPUS color model/00330/both/0.25/,own_side,"[[1, (251, 110, 287, 144), 'own_side']]","[[1, (245, 110, 281, 144)]]"
+scene/CAMPUS color model/00330/both/0.25/,own_side+centred,"[[1, (251, 110, 287, 144), 'own_side']]","[[1, (245, 110, 281, 144)]]"
+scene/CAMPUS color model/00331/both/0.5/,own_side,[],"[[1, (245, 110, 281, 144)]]"
+scene/CAMPUS color model/00350/barrel_low/other/0.5/L,own_side,[],"[[1, (243, 110, 279, 144)]]"
+scene/CAMPUS color model/00350/barrel_low/other/0.5/L,own_side+centred,[],"[[1, (243, 110, 279, 144)]]"
+scene/CAMPUS color model/00352/barrel_low/other/0.75/L,own_side,[],"[[1, (249, 110, 286, 146)]]"
+scene/CAMPUS color model/00354/barrel_front/other/0.25/,own_side,[],"[[1, (245, 110, 282, 146)]]"
+scene/CAMPUS color model/00391/edge/0.25/R,own_side,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (326, 132, 391, 198)]]"
+scene/CAMPUS color model/00391/edge/0.25/R,own_side+centred,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (326, 132, 391, 198)]]"
+scene/CAMPUS color model/00393/edge/0.5/R,own_side,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (318, 132, 383, 198)]]"
+scene/CAMPUS color model/00393/edge/0.5/R,own_side+centred,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (318, 132, 383, 198)]]"
+scene/CAMPUS color model/00394/edge/0.75/L,own_side,"[[2, (329, 133, 393, 197), 'thin_own_side']]",[]
+scene/CAMPUS color model/00394/edge/0.75/L,own_side+centred,"[[2, (329, 133, 393, 197), 'thin_own_side']]",[]
+scene/CAMPUS color model/00395/edge/0.75/R,own_side,"[[2, (336, 133, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00395/edge/0.75/R,own_side+centred,"[[2, (336, 133, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00398/slant/0.25/R+,own_side,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (329, 132, 394, 198)]]"
+scene/CAMPUS color model/00398/slant/0.25/R+,own_side+centred,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (329, 132, 394, 198)]]"
+scene/CAMPUS color model/00401/slant/0.5/L-,own_side,"[[2, (328, 132, 393, 198), 'own_side']]",[]
+scene/CAMPUS color model/00401/slant/0.5/L-,own_side+centred,"[[2, (328, 132, 393, 198), 'own_side']]",[]
+scene/CAMPUS color model/00402/slant/0.5/R+,own_side,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (322, 132, 387, 198)]]"
+scene/CAMPUS color model/00402/slant/0.5/R+,own_side+centred,"[[2, (336, 132, 400, 198), 'own_side']]","[[2, (322, 132, 387, 198)]]"
+scene/CAMPUS color model/00405/slant/0.75/L-,own_side,"[[2, (329, 135, 393, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00405/slant/0.75/L-,own_side+centred,"[[2, (329, 135, 393, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00406/slant/0.75/R+,own_side,"[[2, (336, 134, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00406/slant/0.75/R+,own_side+centred,"[[2, (336, 134, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00407/slant/0.75/R-,own_side,"[[2, (336, 133, 399, 194), 'thin_own_side']]",[]
+scene/CAMPUS color model/00407/slant/0.75/R-,own_side+centred,"[[2, (336, 133, 399, 194), 'thin_own_side']]",[]
+scene/CAMPUS color model/00408/both/0.25/,own_side,[],"[[2, (333, 132, 397, 198)]]"
+scene/CAMPUS color model/00409/both/0.5/,own_side,[],"[[2, (333, 132, 397, 198)]]"
+scene/CAMPUS color model/00418/post/0.5/,own_side,"[[2, (329, 133, 393, 197), 'thin_own_side']]","[[2, (336, 133, 393, 197)]]"
+scene/CAMPUS color model/00418/post/0.5/,own_side+centred,"[[2, (329, 133, 393, 197), 'thin_own_side']]","[[2, (336, 133, 393, 197)]]"
+scene/CAMPUS color model/00445/barrel_low/same/0.75/L,own_side,"[[2, (329, 133, 393, 197), 'thin_own_side']]",[]
+scene/CAMPUS color model/00445/barrel_low/same/0.75/L,own_side+centred,"[[2, (329, 133, 393, 197), 'thin_own_side']]",[]
+scene/CAMPUS color model/00446/barrel_low/same/0.75/R,own_side,"[[2, (336, 133, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00446/barrel_low/same/0.75/R,own_side+centred,"[[2, (336, 133, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00448/barrel_front/same/0.5/,own_side,"[[2, (336, 132, 393, 194), 'cap']]","[[2, (330, 132, 389, 188)]]"
+scene/CAMPUS color model/00455/block/same/0.75/R,own_side,"[[2, (336, 133, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00455/block/same/0.75/R,own_side+centred,"[[2, (336, 133, 399, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00469/edge/0.25/R,own_side,"[[1, (397, 133, 462, 200), 'own_side']]","[[1, (389, 133, 454, 200)]]"
+scene/CAMPUS color model/00469/edge/0.25/R,own_side+centred,"[[1, (397, 133, 462, 200), 'own_side']]","[[1, (389, 133, 454, 200)]]"
+scene/CAMPUS color model/00471/edge/0.5/R,own_side,"[[1, (397, 133, 462, 200), 'own_side']]","[[1, (381, 133, 445, 200)]]"
+scene/CAMPUS color model/00471/edge/0.5/R,own_side+centred,"[[1, (397, 133, 462, 200), 'own_side']]","[[1, (381, 133, 445, 200)]]"
+scene/CAMPUS color model/00472/edge/0.75/L,own_side,"[[1, (396, 134, 461, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/00472/edge/0.75/L,own_side+centred,"[[1, (396, 134, 461, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/00480/slant/0.5/R+,own_side,"[[1, (397, 133, 462, 200), 'own_side']]","[[1, (385, 133, 449, 200)]]"
+scene/CAMPUS color model/00480/slant/0.5/R+,own_side+centred,"[[1, (397, 133, 462, 200), 'own_side']]","[[1, (385, 133, 449, 200)]]"
+scene/CAMPUS color model/00482/slant/0.75/L+,own_side,"[[1, (396, 135, 461, 194), 'thin_own_side']]",[]
+scene/CAMPUS color model/00482/slant/0.75/L+,own_side+centred,"[[1, (396, 135, 461, 194), 'thin_own_side']]",[]
+scene/CAMPUS color model/00483/slant/0.75/L-,own_side,"[[1, (396, 136, 461, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/00483/slant/0.75/L-,own_side+centred,"[[1, (396, 136, 461, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/00484/slant/0.75/R+,own_side,"[[1, (397, 136, 460, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/00484/slant/0.75/R+,own_side+centred,"[[1, (397, 136, 460, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/00485/slant/0.75/R-,own_side,"[[1, (397, 133, 460, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00485/slant/0.75/R-,own_side+centred,"[[1, (397, 133, 460, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/00486/both/0.25/,own_side,[],"[[1, (396, 133, 462, 200)]]"
+scene/CAMPUS color model/00487/both/0.5/,own_side,[],"[[1, (396, 133, 462, 200)]]"
+scene/CAMPUS color model/00496/post/0.5/,own_side,"[[1, (396, 134, 461, 199), 'thin_own_side']]","[[1, (397, 133, 460, 198)]]"
+scene/CAMPUS color model/00496/post/0.5/,own_side+centred,"[[1, (396, 134, 461, 199), 'thin_own_side']]","[[1, (397, 133, 460, 198)]]"
+scene/CAMPUS color model/00517/barrel_side/same/0.75/L,own_side,"[[1, (396, 134, 461, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/00517/barrel_side/same/0.75/L,own_side+centred,"[[1, (396, 134, 461, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/00532/block/same/0.75/L,own_side,"[[1, (396, 134, 461, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/00532/block/same/0.75/L,own_side+centred,"[[1, (396, 134, 461, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/00551/edge/0.75/R,own_side,"[[1, (198, 117, 242, 158), 'thin_own_side']]",[]
+scene/CAMPUS color model/00551/edge/0.75/R,own_side+centred,"[[1, (198, 117, 242, 158), 'thin_own_side']]",[]
+scene/CAMPUS color model/00557/slant/0.5/L-,own_side,"[[1, (191, 117, 235, 160), 'own_side']]",[]
+scene/CAMPUS color model/00557/slant/0.5/L-,own_side+centred,"[[1, (191, 117, 235, 160), 'own_side']]",[]
+scene/CAMPUS color model/00563/slant/0.75/R-,own_side,"[[1, (198, 118, 242, 155), 'thin_own_side']]",[]
+scene/CAMPUS color model/00563/slant/0.75/R-,own_side+centred,"[[1, (198, 118, 242, 155), 'thin_own_side']]",[]
+scene/CAMPUS color model/00564/both/0.25/,own_side,"[[1, (201, 116, 245, 160), 'own_side']]","[[1, (195, 116, 239, 160)]]"
+scene/CAMPUS color model/00564/both/0.25/,own_side+centred,"[[1, (201, 116, 245, 160), 'own_side']]","[[1, (195, 116, 239, 160)]]"
+scene/CAMPUS color model/00565/both/0.5/,own_side,[],"[[1, (195, 116, 239, 160)]]"
+scene/CAMPUS color model/00574/post/0.5/,own_side,"[[1, (198, 117, 242, 158), 'thin_own_side']]","[[1, (198, 117, 235, 159)]]"
+scene/CAMPUS color model/00574/post/0.5/,own_side+centred,"[[1, (198, 117, 242, 158), 'thin_own_side']]","[[1, (198, 117, 235, 159)]]"
+scene/CAMPUS color model/00588/barrel_front/other/0.25/,own_side,[],"[[1, (195, 116, 238, 160)]]"
+scene/CAMPUS color model/00610/block/same/0.75/L,own_side,"[[1, (186, 117, 230, 159), 'thin_own_side']]",[]
+scene/CAMPUS color model/00610/block/same/0.75/L,own_side+centred,"[[1, (186, 117, 230, 159), 'thin_own_side']]",[]
+scene/CAMPUS color model/00617/block/other/0.75/R,own_side,"[[1, (198, 117, 242, 158), 'thin_own_side']]",[]
+scene/CAMPUS color model/00617/block/other/0.75/R,own_side+centred,"[[1, (198, 117, 242, 158), 'thin_own_side']]",[]
+scene/CAMPUS color model/00625/edge/0.25/R,own_side,"[[2, (240, 110, 277, 146), 'own_side']]","[[2, (234, 110, 271, 146)]]"
+scene/CAMPUS color model/00625/edge/0.25/R,own_side+centred,"[[2, (240, 110, 277, 146), 'own_side']]","[[2, (234, 110, 271, 146)]]"
+scene/CAMPUS color model/00627/edge/0.5/R,own_side,[],"[[2, (230, 112, 267, 146)]]"
+scene/CAMPUS color model/00628/edge/0.75/L,own_side,"[[2, (235, 112, 271, 144), 'thin_own_side']]",[]
+scene/CAMPUS color model/00628/edge/0.75/L,own_side+centred,"[[2, (235, 112, 271, 144), 'thin_own_side']]",[]
+scene/CAMPUS color model/00629/edge/0.75/R,own_side,"[[2, (240, 112, 277, 145), 'thin_own_side']]",[]
+scene/CAMPUS color model/00629/edge/0.75/R,own_side+centred,"[[2, (240, 112, 277, 145), 'thin_own_side']]",[]
+scene/CAMPUS color model/00632/slant/0.25/R+,own_side,[],"[[2, (236, 112, 272, 146)]]"
+scene/CAMPUS color model/00634/slant/0.5/L+,own_side,"[[2, (234, 110, 271, 146), 'own_side']]",[]
+scene/CAMPUS color model/00634/slant/0.5/L+,own_side+centred,"[[2, (234, 110, 271, 146), 'own_side']]",[]
+scene/CAMPUS color model/00635/slant/0.5/L-,own_side,"[[2, (234, 110, 271, 146), 'own_side']]",[]
+scene/CAMPUS color model/00635/slant/0.5/L-,own_side+centred,"[[2, (234, 110, 271, 146), 'own_side']]",[]
+scene/CAMPUS color model/00636/slant/0.5/R+,own_side,[],"[[2, (232, 112, 269, 146)]]"
+scene/CAMPUS color model/00637/slant/0.5/R-,own_side,[],"[[2, (232, 112, 269, 146)]]"
+scene/CAMPUS color model/00640/slant/0.75/R+,own_side,"[[2, (240, 112, 277, 145), 'thin_own_side']]",[]
+scene/CAMPUS color model/00640/slant/0.75/R+,own_side+centred,"[[2, (240, 112, 277, 145), 'thin_own_side']]",[]
+scene/CAMPUS color model/00641/slant/0.75/R-,own_side,"[[2, (240, 112, 277, 144), 'thin_own_side']]",[]
+scene/CAMPUS color model/00641/slant/0.75/R-,own_side+centred,"[[2, (240, 112, 277, 144), 'thin_own_side']]",[]
+scene/CAMPUS color model/00642/both/0.25/,own_side,"[[2, (232, 110, 269, 146), 'own_side']]","[[2, (238, 110, 275, 146)]]"
+scene/CAMPUS color model/00642/both/0.25/,own_side+centred,"[[2, (232, 110, 269, 146), 'own_side']]","[[2, (238, 110, 275, 146)]]"
+scene/CAMPUS color model/00643/both/0.5/,own_side,[],"[[2, (238, 110, 275, 146)]]"
+scene/CAMPUS color model/00660/barrel_low/other/0.25/L,own_side,"[[1, (211, 118, 256, 159), 'own_side']]","[[1, (206, 118, 250, 159)]]"
+scene/CAMPUS color model/00660/barrel_low/other/0.25/L,own_side+centred,"[[1, (211, 118, 256, 159), 'own_side']]","[[1, (206, 118, 250, 159)]]"
+scene/CAMPUS color model/00682/barrel_front/same/0.5/,own_side,[],"[[1, (233, 113, 278, 163)]]"
+scene/CAMPUS color model/00695/block/other/0.75/R,own_side,"[[2, (240, 112, 277, 145), 'thin_own_side']]",[]
+scene/CAMPUS color model/00695/block/other/0.75/R,own_side+centred,"[[2, (240, 112, 277, 145), 'thin_own_side']]",[]
+scene/CAMPUS color model/00703/edge/0.25/R,own_side,[],"[[2, (310, 111, 352, 153)]]"
+scene/CAMPUS color model/00705/edge/0.5/R,own_side,[],"[[2, (306, 111, 346, 153)]]"
+scene/CAMPUS color model/00720/both/0.25/,own_side,"[[2, (311, 111, 352, 153), 'own_side']]","[[2, (317, 111, 358, 153)]]"
+scene/CAMPUS color model/00720/both/0.25/,own_side+centred,"[[2, (311, 111, 352, 153), 'own_side']]","[[2, (317, 111, 358, 153)]]"
+scene/CAMPUS color model/00721/both/0.5/,own_side,[],"[[2, (317, 111, 358, 153)]]"
+scene/CAMPUS color model/00739/barrel_low/other/0.25/R,own_side,"[[1, (354, 119, 402, 168), 'own_side']]","[[1, (349, 119, 397, 168)]]"
+scene/CAMPUS color model/00739/barrel_low/other/0.25/R,own_side+centred,"[[1, (354, 119, 402, 168), 'own_side']]","[[1, (349, 119, 397, 168)]]"
+scene/CAMPUS color model/00744/barrel_front/other/0.25/,own_side,[],"[[2, (315, 111, 357, 155)]]"
+scene/CAMPUS color model/00766/block/same/0.75/L,own_side,"[[2, (308, 115, 349, 152), 'thin_own_side']]",[]
+scene/CAMPUS color model/00766/block/same/0.75/L,own_side+centred,"[[2, (308, 115, 349, 152), 'thin_own_side']]",[]
+scene/CAMPUS color model/00785/edge/0.75/R,own_side,"[[1, (379, 112, 417, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00785/edge/0.75/R,own_side+centred,"[[1, (379, 112, 417, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00791/slant/0.5/L-,own_side,"[[1, (375, 112, 414, 149), 'own_side']]",[]
+scene/CAMPUS color model/00791/slant/0.5/L-,own_side+centred,"[[1, (375, 112, 414, 149), 'own_side']]",[]
+scene/CAMPUS color model/00796/slant/0.75/R+,own_side,"[[1, (379, 112, 417, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00796/slant/0.75/R+,own_side+centred,"[[1, (379, 112, 417, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00797/slant/0.75/R-,own_side,"[[1, (379, 112, 417, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00797/slant/0.75/R-,own_side+centred,"[[1, (379, 112, 417, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00798/both/0.25/,own_side,[],"[[1, (377, 112, 416, 149)]]"
+scene/CAMPUS color model/00799/both/0.5/,own_side,[],"[[1, (377, 112, 416, 149)]]"
+scene/CAMPUS color model/00814/barrel_side/other/0.75/L,own_side,"[[1, (405, 112, 444, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00814/barrel_side/other/0.75/L,own_side+centred,"[[1, (405, 112, 444, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00817/barrel_low/other/0.25/R,own_side,"[[2, (397, 123, 446, 166), 'own_side']]","[[2, (405, 123, 454, 166)]]"
+scene/CAMPUS color model/00817/barrel_low/other/0.25/R,own_side+centred,"[[2, (397, 123, 446, 166), 'own_side']]","[[2, (405, 123, 454, 166)]]"
+scene/CAMPUS color model/00844/block/same/0.75/L,own_side,"[[1, (370, 112, 409, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00844/block/same/0.75/L,own_side+centred,"[[1, (370, 112, 409, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00845/block/same/0.75/R,own_side,"[[1, (385, 112, 423, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00845/block/same/0.75/R,own_side+centred,"[[1, (385, 112, 423, 148), 'thin_own_side']]",[]
+scene/CAMPUS color model/00859/edge/0.25/R,own_side,[],"[[2, (121, 124, 179, 186)]]"
+scene/CAMPUS color model/00861/edge/0.5/R,own_side,[],"[[2, (114, 124, 171, 186)]]"
+scene/CAMPUS color model/00862/edge/0.75/L,own_side,"[[2, (130, 125, 186, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00862/edge/0.75/L,own_side+centred,"[[2, (130, 125, 186, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00863/edge/0.75/R,own_side,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00863/edge/0.75/R,own_side+centred,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00870/slant/0.5/R+,own_side,[],"[[2, (117, 124, 175, 186)]]"
+scene/CAMPUS color model/00872/slant/0.75/L+,own_side,"[[2, (130, 126, 186, 181), 'thin_own_side']]",[]
+scene/CAMPUS color model/00872/slant/0.75/L+,own_side+centred,"[[2, (130, 126, 186, 181), 'thin_own_side']]",[]
+scene/CAMPUS color model/00875/slant/0.75/R-,own_side,"[[2, (127, 124, 184, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/00875/slant/0.75/R-,own_side+centred,"[[2, (127, 124, 184, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/00876/both/0.25/,own_side,"[[2, (135, 124, 192, 186), 'own_side']]","[[2, (129, 124, 186, 186)]]"
+scene/CAMPUS color model/00876/both/0.25/,own_side+centred,"[[2, (135, 124, 192, 186), 'own_side']]","[[2, (129, 124, 186, 186)]]"
+scene/CAMPUS color model/00877/both/0.5/,own_side,[],"[[2, (129, 124, 186, 186)]]"
+scene/CAMPUS color model/00886/post/0.5/,own_side,"[[2, (127, 124, 184, 184), 'thin_own_side']]","[[2, (127, 124, 186, 184)]]"
+scene/CAMPUS color model/00886/post/0.5/,own_side+centred,"[[2, (127, 124, 184, 184), 'thin_own_side']]","[[2, (127, 124, 186, 184)]]"
+scene/CAMPUS color model/00893/barrel_side/other/0.75/R,own_side,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00893/barrel_side/other/0.75/R,own_side+centred,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00913/barrel_low/same/0.75/L,own_side,"[[2, (130, 125, 186, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00913/barrel_low/same/0.75/L,own_side+centred,"[[2, (130, 125, 186, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00914/barrel_low/same/0.75/R,own_side,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00914/barrel_low/same/0.75/R,own_side+centred,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00922/block/same/0.75/L,own_side,"[[2, (130, 125, 186, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00922/block/same/0.75/L,own_side+centred,"[[2, (130, 125, 186, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00923/block/same/0.75/R,own_side,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00923/block/same/0.75/R,own_side+centred,"[[2, (127, 124, 184, 184), 'thin_own_side']]",[]
+scene/CAMPUS color model/00938/edge/0.5/L,own_side,"[[1, (398, 121, 454, 184), 'own_side']]","[[1, (410, 121, 466, 184)]]"
+scene/CAMPUS color model/00938/edge/0.5/L,own_side+centred,"[[1, (398, 121, 454, 184), 'own_side']]","[[1, (410, 121, 466, 184)]]"
+scene/CAMPUS color model/00940/edge/0.75/L,own_side,"[[1, (398, 121, 454, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00940/edge/0.75/L,own_side+centred,"[[1, (398, 121, 454, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00947/slant/0.5/L-,own_side,"[[1, (398, 121, 454, 184), 'own_side']]","[[1, (407, 121, 463, 184)]]"
+scene/CAMPUS color model/00947/slant/0.5/L-,own_side+centred,"[[1, (398, 121, 454, 184), 'own_side']]","[[1, (407, 121, 463, 184)]]"
+scene/CAMPUS color model/00950/slant/0.75/L+,own_side,"[[1, (398, 121, 454, 182), 'thin_own_side']]",[]
+scene/CAMPUS color model/00950/slant/0.75/L+,own_side+centred,"[[1, (398, 121, 454, 182), 'thin_own_side']]",[]
+scene/CAMPUS color model/00951/slant/0.75/L-,own_side,"[[1, (398, 125, 454, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00951/slant/0.75/L-,own_side+centred,"[[1, (398, 125, 454, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/00952/slant/0.75/R+,own_side,"[[1, (390, 126, 445, 181), 'thin_own_side']]",[]
+scene/CAMPUS color model/00952/slant/0.75/R+,own_side+centred,"[[1, (390, 126, 445, 181), 'thin_own_side']]",[]
+scene/CAMPUS color model/00953/slant/0.75/R-,own_side,"[[1, (390, 125, 445, 180), 'thin_own_side']]",[]
+scene/CAMPUS color model/00953/slant/0.75/R-,own_side+centred,"[[1, (390, 125, 445, 180), 'thin_own_side']]",[]
+scene/CAMPUS color model/00954/both/0.25/,own_side,[],"[[1, (394, 121, 450, 184)]]"
+scene/CAMPUS color model/00955/both/0.5/,own_side,[],"[[1, (394, 121, 450, 184)]]"
+scene/CAMPUS color model/00964/post/0.5/,own_side,"[[1, (398, 121, 454, 183), 'thin_own_side']]","[[1, (390, 124, 445, 181)]]"
+scene/CAMPUS color model/00964/post/0.5/,own_side+centred,"[[1, (398, 121, 454, 183), 'thin_own_side']]","[[1, (390, 124, 445, 181)]]"
+scene/CAMPUS color model/01000/block/same/0.75/L,own_side,"[[1, (398, 121, 454, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/01000/block/same/0.75/L,own_side+centred,"[[1, (398, 121, 454, 183), 'thin_own_side']]",[]
+scene/CAMPUS color model/01016/edge/0.5/L,own_side,"[[2, (72, 150, 162, 252), 'own_side']]","[[2, (93, 150, 183, 252)]]"
+scene/CAMPUS color model/01016/edge/0.5/L,own_side+centred,"[[2, (72, 150, 162, 252), 'own_side']]","[[2, (93, 150, 183, 252)]]"
+scene/CAMPUS color model/01017/edge/0.5/R,own_side,"[[2, (65, 150, 160, 253), 'own_side']]","[[2, (42, 150, 137, 253)]]"
+scene/CAMPUS color model/01017/edge/0.5/R,own_side+centred,"[[2, (65, 150, 160, 253), 'own_side']]","[[2, (42, 150, 137, 253)]]"
+scene/CAMPUS color model/01018/edge/0.75/L,own_side,"[[2, (75, 151, 163, 243), 'thin_own_side']]",[]
+scene/CAMPUS color model/01018/edge/0.75/L,own_side+centred,"[[2, (75, 151, 163, 243), 'thin_own_side']]",[]
+scene/CAMPUS color model/01025/slant/0.5/L-,own_side,"[[2, (72, 150, 162, 252), 'own_side']]","[[2, (87, 150, 178, 252)]]"
+scene/CAMPUS color model/01025/slant/0.5/L-,own_side+centred,"[[2, (72, 150, 162, 252), 'own_side']]","[[2, (87, 150, 178, 252)]]"
+scene/CAMPUS color model/01026/slant/0.5/R+,own_side,"[[2, (65, 151, 160, 253), 'own_side']]","[[2, (48, 151, 143, 253)]]"
+scene/CAMPUS color model/01026/slant/0.5/R+,own_side+centred,"[[2, (65, 151, 160, 253), 'own_side']]","[[2, (48, 151, 143, 253)]]"
+scene/CAMPUS color model/01028/slant/0.75/L+,own_side,"[[2, (75, 152, 163, 229), 'thin_own_side']]",[]
+scene/CAMPUS color model/01028/slant/0.75/L+,own_side+centred,"[[2, (75, 152, 163, 229), 'thin_own_side']]",[]
+scene/CAMPUS color model/01029/slant/0.75/L-,own_side,"[[2, (75, 158, 163, 240), 'thin_own_side']]",[]
+scene/CAMPUS color model/01029/slant/0.75/L-,own_side+centred,"[[2, (75, 158, 163, 240), 'thin_own_side']]",[]
+scene/CAMPUS color model/01033/both/0.5/,own_side,[],"[[2, (67, 150, 161, 253)]]"
+scene/CAMPUS color model/01042/post/0.5/,own_side,"[[2, (75, 151, 163, 243), 'thin_own_side']]",[]
+scene/CAMPUS color model/01042/post/0.5/,own_side+centred,"[[2, (75, 151, 163, 243), 'thin_own_side']]",[]
+scene/CAMPUS color model/01047/barrel_side/other/0.5/R,own_side,"[[2, (65, 150, 160, 253), 'own_side']]","[[2, (46, 150, 141, 253)]]"
+scene/CAMPUS color model/01047/barrel_side/other/0.5/R,own_side+centred,"[[2, (65, 150, 160, 253), 'own_side']]","[[2, (46, 150, 141, 253)]]"
+scene/CAMPUS color model/01078/block/same/0.75/L,own_side,"[[2, (75, 151, 163, 243), 'thin_own_side']]",[]
+scene/CAMPUS color model/01078/block/same/0.75/L,own_side+centred,"[[2, (75, 151, 163, 243), 'thin_own_side']]",[]
+scene/CAMPUS color model/01094/edge/0.5/L,own_side,"[[1, (512, 147, 600, 241), 'own_side']]","[[1, (531, 147, 619, 241)]]"
+scene/CAMPUS color model/01094/edge/0.5/L,own_side+centred,"[[1, (512, 147, 600, 241), 'own_side']]","[[1, (531, 147, 619, 241)]]"
+scene/CAMPUS color model/01095/edge/0.5/R,own_side,"[[1, (501, 147, 584, 240), 'own_side']]","[[1, (484, 147, 568, 240)]]"
+scene/CAMPUS color model/01095/edge/0.5/R,own_side+centred,"[[1, (501, 147, 584, 240), 'own_side']]","[[1, (484, 147, 568, 240)]]"
+scene/CAMPUS color model/01096/edge/0.75/L,own_side,"[[1, (512, 150, 600, 237), 'thin_own_side']]",[]
+scene/CAMPUS color model/01096/edge/0.75/L,own_side+centred,"[[1, (512, 150, 600, 237), 'thin_own_side']]",[]
+scene/CAMPUS color model/01103/slant/0.5/L-,own_side,"[[1, (512, 148, 600, 241), 'own_side']]","[[1, (526, 148, 613, 241)]]"
+scene/CAMPUS color model/01103/slant/0.5/L-,own_side+centred,"[[1, (512, 148, 600, 241), 'own_side']]","[[1, (526, 148, 613, 241)]]"
+scene/CAMPUS color model/01107/slant/0.75/L-,own_side,"[[1, (512, 152, 600, 237), 'thin_own_side']]",[]
+scene/CAMPUS color model/01107/slant/0.75/L-,own_side+centred,"[[1, (512, 152, 600, 237), 'thin_own_side']]",[]
+scene/CAMPUS color model/01108/slant/0.75/R+,own_side,"[[1, (500, 153, 581, 234), 'thin_own_side']]",[]
+scene/CAMPUS color model/01108/slant/0.75/R+,own_side+centred,"[[1, (500, 153, 581, 234), 'thin_own_side']]",[]
+scene/CAMPUS color model/01109/slant/0.75/R-,own_side,"[[1, (500, 148, 581, 232), 'thin_own_side']]",[]
+scene/CAMPUS color model/01109/slant/0.75/R-,own_side+centred,"[[1, (500, 148, 581, 232), 'thin_own_side']]",[]
+scene/CAMPUS color model/01111/both/0.5/,own_side,[],"[[1, (507, 147, 594, 241)]]"
+scene/CAMPUS color model/01120/post/0.5/,own_side,"[[1, (512, 150, 600, 239), 'thin_own_side']]","[[1, (500, 147, 581, 235)]]"
+scene/CAMPUS color model/01120/post/0.5/,own_side+centred,"[[1, (512, 150, 600, 239), 'thin_own_side']]","[[1, (500, 147, 581, 235)]]"
+scene/CAMPUS color model/01123/barrel_side/other/0.25/R,own_side,[],"[[2, (569, 142, 640, 241)]]"
+scene/CAMPUS color model/01126/barrel_side/other/0.75/L,own_side,"[[1, (511, 149, 600, 240), 'own_side']]",[]
+scene/CAMPUS color model/01126/barrel_side/other/0.75/L,own_side+centred,"[[1, (511, 149, 600, 240), 'own_side']]",[]
+scene/CAMPUS color model/01139/barrel_side/same/0.5/L,own_side,"[[1, (512, 148, 600, 241), 'own_side']]","[[1, (527, 148, 615, 241)]]"
+scene/CAMPUS color model/01139/barrel_side/same/0.5/L,own_side+centred,"[[1, (512, 148, 600, 241), 'own_side']]","[[1, (527, 148, 615, 241)]]"
+scene/CAMPUS color model/01141/barrel_side/same/0.75/L,own_side,"[[1, (512, 150, 600, 240), 'thin_own_side']]",[]
+scene/CAMPUS color model/01141/barrel_side/same/0.75/L,own_side+centred,"[[1, (512, 150, 600, 240), 'thin_own_side']]",[]
+scene/CAMPUS color model/01144/barrel_low/same/0.25/R,own_side,[],"[[1, (559, 139, 640, 249)]]"
+scene/CAMPUS color model/01145/barrel_low/same/0.5/L,own_side,"[[1, (512, 147, 600, 241), 'own_side']]","[[1, (528, 147, 616, 241)]]"
+scene/CAMPUS color model/01145/barrel_low/same/0.5/L,own_side+centred,"[[1, (512, 147, 600, 241), 'own_side']]","[[1, (528, 147, 616, 241)]]"
+scene/CAMPUS color model/01147/barrel_low/same/0.75/L,own_side,"[[1, (512, 149, 600, 240), 'thin_own_side']]",[]
+scene/CAMPUS color model/01147/barrel_low/same/0.75/L,own_side+centred,"[[1, (512, 149, 600, 240), 'thin_own_side']]",[]
+scene/CAMPUS color model/01156/block/same/0.75/L,own_side,"[[1, (512, 150, 600, 237), 'thin_own_side']]",[]
+scene/CAMPUS color model/01156/block/same/0.75/L,own_side+centred,"[[1, (512, 150, 600, 237), 'thin_own_side']]",[]
+scene/CAMPUS color model/01167/frame/0.5/R,own_side,"[[2, (603, 132, 640, 200), 'own_side']]",[]
+scene/CAMPUS color model/01167/frame/0.5/R,own_side+centred,"[[2, (603, 132, 640, 200), 'own_side']]",[]
+scene/CAMPUS color model/01170/edge/0.25/L,own_side,"[[2, (86, 131, 151, 200), 'own_side']]","[[2, (93, 131, 158, 200)]]"
+scene/CAMPUS color model/01170/edge/0.25/L,own_side+centred,"[[2, (86, 131, 151, 200), 'own_side']]","[[2, (93, 131, 158, 200)]]"
+scene/CAMPUS color model/01172/edge/0.5/L,own_side,"[[2, (86, 131, 151, 200), 'own_side']]","[[2, (102, 131, 167, 200)]]"
+scene/CAMPUS color model/01172/edge/0.5/L,own_side+centred,"[[2, (86, 131, 151, 200), 'own_side']]","[[2, (102, 131, 167, 200)]]"
+scene/CAMPUS color model/01174/edge/0.75/L,own_side,"[[2, (87, 133, 151, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01174/edge/0.75/L,own_side+centred,"[[2, (87, 133, 151, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01181/slant/0.5/L-,own_side,"[[2, (86, 131, 151, 200), 'own_side']]","[[2, (99, 131, 163, 200)]]"
+scene/CAMPUS color model/01181/slant/0.5/L-,own_side+centred,"[[2, (86, 131, 151, 200), 'own_side']]","[[2, (99, 131, 163, 200)]]"
+scene/CAMPUS color model/01183/slant/0.5/R-,own_side,"[[2, (80, 132, 146, 200), 'own_side']]",[]
+scene/CAMPUS color model/01183/slant/0.5/R-,own_side+centred,"[[2, (80, 132, 146, 200), 'own_side']]",[]
+scene/CAMPUS color model/01185/slant/0.75/L-,own_side,"[[2, (87, 135, 151, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/01185/slant/0.75/L-,own_side+centred,"[[2, (87, 135, 151, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/01189/both/0.5/,own_side,[],"[[2, (85, 131, 150, 200)]]"
+scene/CAMPUS color model/01198/post/0.5/,own_side,"[[2, (87, 133, 151, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/01198/post/0.5/,own_side+centred,"[[2, (87, 133, 151, 198), 'thin_own_side']]",[]
+scene/CAMPUS color model/01213/barrel_front/other/0.5/,own_side,"[[2, (80, 131, 150, 206), 'cap']]","[[2, (92, 131, 158, 200)]]"
+scene/CAMPUS color model/01224/barrel_low/same/0.5/R,own_side,"[[2, (80, 132, 146, 200), 'own_side']]","[[2, (70, 132, 137, 200)]]"
+scene/CAMPUS color model/01224/barrel_low/same/0.5/R,own_side+centred,"[[2, (80, 132, 146, 200), 'own_side']]","[[2, (70, 132, 137, 200)]]"
+scene/CAMPUS color model/01231/block/same/0.25/R,own_side,"[[2, (93, 131, 158, 200), 'own_side']]","[[2, (81, 131, 147, 200)]]"
+scene/CAMPUS color model/01231/block/same/0.25/R,own_side+centred,"[[2, (93, 131, 158, 200), 'own_side']]","[[2, (81, 131, 147, 200)]]"
+scene/CAMPUS color model/01233/block/same/0.5/R,own_side,"[[2, (93, 132, 159, 200), 'own_side']]",[]
+scene/CAMPUS color model/01233/block/same/0.5/R,own_side+centred,"[[2, (93, 132, 159, 200), 'own_side']]",[]
+scene/CAMPUS color model/01234/block/same/0.75/L,own_side,"[[2, (87, 133, 151, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01234/block/same/0.75/L,own_side+centred,"[[2, (87, 133, 151, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01248/edge/0.25/L,own_side,"[[1, (420, 130, 484, 198), 'own_side']]","[[1, (428, 130, 492, 198)]]"
+scene/CAMPUS color model/01248/edge/0.25/L,own_side+centred,"[[1, (420, 130, 484, 198), 'own_side']]","[[1, (428, 130, 492, 198)]]"
+scene/CAMPUS color model/01264/slant/0.75/R+,own_side,"[[1, (421, 133, 483, 195), 'thin_own_side']]",[]
+scene/CAMPUS color model/01264/slant/0.75/R+,own_side+centred,"[[1, (421, 133, 483, 195), 'thin_own_side']]",[]
+scene/CAMPUS color model/01265/slant/0.75/R-,own_side,"[[1, (421, 131, 483, 192), 'thin_own_side']]",[]
+scene/CAMPUS color model/01265/slant/0.75/R-,own_side+centred,"[[1, (421, 131, 483, 192), 'thin_own_side']]",[]
+scene/CAMPUS color model/01266/both/0.25/,own_side,[],"[[1, (420, 130, 485, 198)]]"
+scene/CAMPUS color model/01267/both/0.5/,own_side,[],"[[1, (420, 130, 485, 198)]]"
+scene/CAMPUS color model/01326/edge/0.25/L,own_side,"[[2, (68, 125, 122, 178), 'own_side']]","[[2, (73, 125, 128, 178)]]"
+scene/CAMPUS color model/01326/edge/0.25/L,own_side+centred,"[[2, (68, 125, 122, 178), 'own_side']]","[[2, (73, 125, 128, 178)]]"
+scene/CAMPUS color model/01328/edge/0.5/L,own_side,[],"[[2, (81, 125, 135, 176)]]"
+scene/CAMPUS color model/01329/edge/0.5/R,own_side,"[[2, (65, 125, 120, 178), 'own_side']]","[[2, (53, 125, 107, 178)]]"
+scene/CAMPUS color model/01329/edge/0.5/R,own_side+centred,"[[2, (65, 125, 120, 178), 'own_side']]","[[2, (53, 125, 107, 178)]]"
+scene/CAMPUS color model/01331/edge/0.75/R,own_side,"[[2, (65, 126, 120, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01331/edge/0.75/R,own_side+centred,"[[2, (65, 126, 120, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01345/both/0.5/,own_side,"[[2, (56, 125, 110, 178), 'own_side']]","[[2, (67, 125, 122, 178)]]"
+scene/CAMPUS color model/01345/both/0.5/,own_side+centred,"[[2, (56, 125, 110, 178), 'own_side']]","[[2, (67, 125, 122, 178)]]"
+scene/CAMPUS color model/01346/both/0.75/,own_side,"[[2, (48, 125, 102, 176), 'own_side']]",[]
+scene/CAMPUS color model/01346/both/0.75/,own_side+centred,"[[2, (48, 125, 102, 176), 'own_side']]",[]
+scene/CAMPUS color model/01354/post/0.5/,own_side,"[[2, (65, 126, 120, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01354/post/0.5/,own_side+centred,"[[2, (65, 126, 120, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01382/barrel_low/same/0.75/R,own_side,"[[2, (65, 126, 120, 178), 'thin_own_side']]","[[2, (65, 125, 125, 176)]]"
+scene/CAMPUS color model/01382/barrel_low/same/0.75/R,own_side+centred,"[[2, (65, 126, 120, 178), 'thin_own_side']]","[[2, (65, 125, 125, 176)]]"
+scene/CAMPUS color model/01391/block/same/0.75/R,own_side,"[[2, (65, 126, 120, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01391/block/same/0.75/R,own_side+centred,"[[2, (65, 126, 120, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01421/slant/0.75/R-,own_side,"[[1, (341, 123, 391, 171), 'thin_own_side']]",[]
+scene/CAMPUS color model/01421/slant/0.75/R-,own_side+centred,"[[1, (341, 123, 391, 171), 'thin_own_side']]",[]
+scene/CAMPUS color model/01422/both/0.25/,own_side,[],"[[1, (338, 122, 390, 173)]]"
+scene/CAMPUS color model/01423/both/0.5/,own_side,[],"[[1, (338, 122, 390, 173)]]"
+scene/CAMPUS color model/01441/barrel_low/other/0.25/R,own_side,[],"[[2, (378, 130, 444, 196)]]"
+scene/CAMPUS color model/01442/barrel_low/other/0.5/L,own_side,[],"[[1, (336, 122, 387, 173)]]"
+scene/CAMPUS color model/01442/barrel_low/other/0.5/L,own_side+centred,[],"[[1, (336, 122, 387, 173)]]"
+scene/CAMPUS color model/01468/block/same/0.75/L,own_side,"[[1, (327, 123, 378, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01468/block/same/0.75/L,own_side+centred,"[[1, (327, 123, 378, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01482/edge/0.25/L,own_side,"[[2, (174, 112, 214, 152), 'own_side']]","[[2, (181, 112, 221, 152)]]"
+scene/CAMPUS color model/01482/edge/0.25/L,own_side+centred,"[[2, (174, 112, 214, 152), 'own_side']]","[[2, (181, 112, 221, 152)]]"
+scene/CAMPUS color model/01483/edge/0.25/R,own_side,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (174, 112, 213, 152)]]"
+scene/CAMPUS color model/01483/edge/0.25/R,own_side+centred,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (174, 112, 213, 152)]]"
+scene/CAMPUS color model/01484/edge/0.5/L,own_side,"[[2, (174, 112, 214, 151), 'own_side']]",[]
+scene/CAMPUS color model/01484/edge/0.5/L,own_side+centred,"[[2, (174, 112, 214, 151), 'own_side']]",[]
+scene/CAMPUS color model/01485/edge/0.5/R,own_side,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (169, 112, 209, 152)]]"
+scene/CAMPUS color model/01485/edge/0.5/R,own_side+centred,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (169, 112, 209, 152)]]"
+scene/CAMPUS color model/01486/edge/0.75/L,own_side,"[[2, (174, 114, 214, 151), 'thin_own_side']]",[]
+scene/CAMPUS color model/01486/edge/0.75/L,own_side+centred,"[[2, (174, 114, 214, 151), 'thin_own_side']]",[]
+scene/CAMPUS color model/01487/edge/0.75/R,own_side,"[[2, (180, 114, 220, 151), 'thin_own_side']]",[]
+scene/CAMPUS color model/01487/edge/0.75/R,own_side+centred,"[[2, (180, 114, 220, 151), 'thin_own_side']]",[]
+scene/CAMPUS color model/01488/slant/0.25/L+,own_side,"[[2, (174, 112, 214, 151), 'own_side']]","[[2, (180, 112, 219, 151)]]"
+scene/CAMPUS color model/01488/slant/0.25/L+,own_side+centred,"[[2, (174, 112, 214, 151), 'own_side']]","[[2, (180, 112, 219, 151)]]"
+scene/CAMPUS color model/01489/slant/0.25/L-,own_side,"[[2, (174, 112, 214, 152), 'own_side']]","[[2, (180, 112, 219, 152)]]"
+scene/CAMPUS color model/01489/slant/0.25/L-,own_side+centred,"[[2, (174, 112, 214, 152), 'own_side']]","[[2, (180, 112, 219, 152)]]"
+scene/CAMPUS color model/01490/slant/0.25/R+,own_side,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (176, 112, 215, 152)]]"
+scene/CAMPUS color model/01490/slant/0.25/R+,own_side+centred,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (176, 112, 215, 152)]]"
+scene/CAMPUS color model/01491/slant/0.25/R-,own_side,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (176, 112, 215, 152)]]"
+scene/CAMPUS color model/01491/slant/0.25/R-,own_side+centred,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (176, 112, 215, 152)]]"
+scene/CAMPUS color model/01492/slant/0.5/L+,own_side,"[[2, (174, 112, 214, 151), 'own_side']]",[]
+scene/CAMPUS color model/01492/slant/0.5/L+,own_side+centred,"[[2, (174, 112, 214, 151), 'own_side']]",[]
+scene/CAMPUS color model/01493/slant/0.5/L-,own_side,"[[2, (174, 112, 214, 151), 'own_side']]",[]
+scene/CAMPUS color model/01493/slant/0.5/L-,own_side+centred,"[[2, (174, 112, 214, 151), 'own_side']]",[]
+scene/CAMPUS color model/01494/slant/0.5/R+,own_side,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (171, 112, 211, 152)]]"
+scene/CAMPUS color model/01494/slant/0.5/R+,own_side+centred,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (171, 112, 211, 152)]]"
+scene/CAMPUS color model/01495/slant/0.5/R-,own_side,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (171, 112, 211, 152)]]"
+scene/CAMPUS color model/01495/slant/0.5/R-,own_side+centred,"[[2, (180, 112, 220, 152), 'own_side']]","[[2, (171, 112, 211, 152)]]"
+scene/CAMPUS color model/01498/slant/0.75/R+,own_side,"[[2, (180, 114, 220, 150), 'thin_own_side']]",[]
+scene/CAMPUS color model/01498/slant/0.75/R+,own_side+centred,"[[2, (180, 114, 220, 150), 'thin_own_side']]",[]
+scene/CAMPUS color model/01499/slant/0.75/R-,own_side,"[[2, (180, 114, 220, 147), 'thin_own_side']]",[]
+scene/CAMPUS color model/01499/slant/0.75/R-,own_side+centred,"[[2, (180, 114, 220, 147), 'thin_own_side']]",[]
+scene/CAMPUS color model/01500/both/0.25/,own_side,[],"[[2, (178, 112, 217, 152)]]"
+scene/CAMPUS color model/01501/both/0.5/,own_side,[],"[[2, (178, 112, 217, 152)]]"
+scene/CAMPUS color model/01519/barrel_low/other/0.25/R,own_side,"[[1, (213, 121, 262, 167), 'own_side']]","[[1, (207, 121, 256, 167)]]"
+scene/CAMPUS color model/01519/barrel_low/other/0.25/R,own_side+centred,"[[1, (213, 121, 262, 167), 'own_side']]","[[1, (207, 121, 256, 167)]]"
+scene/CAMPUS color model/01525/barrel_front/other/0.5/,own_side,[],"[[2, (177, 112, 216, 153)]]"
+scene/CAMPUS color model/01546/block/same/0.75/L,own_side,"[[2, (170, 114, 210, 151), 'thin_own_side']]",[]
+scene/CAMPUS color model/01546/block/same/0.75/L,own_side+centred,"[[2, (170, 114, 210, 151), 'thin_own_side']]",[]
+scene/CAMPUS color model/01561/edge/0.25/R,own_side,"[[1, (217, 112, 257, 150), 'own_side']]","[[1, (210, 112, 250, 150)]]"
+scene/CAMPUS color model/01561/edge/0.25/R,own_side+centred,"[[1, (217, 112, 257, 150), 'own_side']]","[[1, (210, 112, 250, 150)]]"
+scene/CAMPUS color model/01563/edge/0.5/R,own_side,"[[1, (217, 113, 257, 150), 'own_side']]",[]
+scene/CAMPUS color model/01563/edge/0.5/R,own_side+centred,"[[1, (217, 113, 257, 150), 'own_side']]",[]
+scene/CAMPUS color model/01568/slant/0.25/R+,own_side,"[[1, (217, 113, 257, 150), 'own_side']]","[[1, (212, 113, 252, 150)]]"
+scene/CAMPUS color model/01568/slant/0.25/R+,own_side+centred,"[[1, (217, 113, 257, 150), 'own_side']]","[[1, (212, 113, 252, 150)]]"
+scene/CAMPUS color model/01569/slant/0.25/R-,own_side,"[[1, (217, 113, 257, 150), 'own_side']]","[[1, (212, 113, 252, 150)]]"
+scene/CAMPUS color model/01569/slant/0.25/R-,own_side+centred,"[[1, (217, 113, 257, 150), 'own_side']]","[[1, (212, 113, 252, 150)]]"
+scene/CAMPUS color model/01572/slant/0.5/R+,own_side,"[[1, (217, 113, 257, 150), 'own_side']]",[]
+scene/CAMPUS color model/01572/slant/0.5/R+,own_side+centred,"[[1, (217, 113, 257, 150), 'own_side']]",[]
+scene/CAMPUS color model/01578/both/0.25/,own_side,"[[1, (220, 112, 260, 150), 'own_side']]","[[1, (214, 112, 253, 150)]]"
+scene/CAMPUS color model/01578/both/0.25/,own_side+centred,"[[1, (220, 112, 260, 150), 'own_side']]","[[1, (214, 112, 253, 150)]]"
+scene/CAMPUS color model/01579/both/0.5/,own_side,[],"[[1, (214, 112, 253, 150)]]"
+scene/CAMPUS color model/01595/barrel_side/other/0.75/R,own_side,"[[1, (220, 111, 256, 150), 'own_side']]","[[1, (211, 111, 247, 150)]]"
+scene/CAMPUS color model/01595/barrel_side/other/0.75/R,own_side+centred,"[[1, (220, 111, 256, 150), 'own_side']]","[[1, (211, 111, 247, 150)]]"
+scene/CAMPUS color model/01600/barrel_low/other/0.75/L,own_side,"[[1, (207, 112, 250, 155), 'cap']]",[]
+scene/CAMPUS color model/01624/block/same/0.75/L,own_side,"[[1, (206, 112, 245, 149), 'thin_own_side']]",[]
+scene/CAMPUS color model/01624/block/same/0.75/L,own_side+centred,"[[1, (206, 112, 245, 149), 'thin_own_side']]",[]
+scene/CAMPUS color model/01626/block/other/0.25/L,own_side,[],"[[1, (217, 112, 255, 150)]]"
+scene/CAMPUS color model/01627/block/other/0.25/R,own_side,"[[1, (217, 112, 257, 150), 'own_side']]","[[1, (213, 112, 252, 150)]]"
+scene/CAMPUS color model/01627/block/other/0.25/R,own_side+centred,"[[1, (217, 112, 257, 150), 'own_side']]","[[1, (213, 112, 252, 150)]]"
+scene/CAMPUS color model/01715/edge/0.75/R,own_side,"[[2, (224, 125, 277, 177), 'thin_own_side']]",[]
+scene/CAMPUS color model/01715/edge/0.75/R,own_side+centred,"[[2, (224, 125, 277, 177), 'thin_own_side']]",[]
+scene/CAMPUS color model/01724/slant/0.75/L+,own_side,"[[2, (219, 125, 272, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01724/slant/0.75/L+,own_side+centred,"[[2, (219, 125, 272, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01725/slant/0.75/L-,own_side,"[[2, (219, 127, 272, 175), 'thin_own_side']]",[]
+scene/CAMPUS color model/01725/slant/0.75/L-,own_side+centred,"[[2, (219, 127, 272, 175), 'thin_own_side']]",[]
+scene/CAMPUS color model/01726/slant/0.75/R+,own_side,"[[2, (224, 126, 277, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01726/slant/0.75/R+,own_side+centred,"[[2, (224, 126, 277, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01727/slant/0.75/R-,own_side,"[[2, (224, 126, 277, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01727/slant/0.75/R-,own_side+centred,"[[2, (224, 126, 277, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01728/both/0.25/,own_side,"[[2, (229, 120, 282, 177), 'own_side']]","[[2, (222, 120, 275, 177)]]"
+scene/CAMPUS color model/01728/both/0.25/,own_side+centred,"[[2, (229, 120, 282, 177), 'own_side']]","[[2, (222, 120, 275, 177)]]"
+scene/CAMPUS color model/01729/both/0.5/,own_side,[],"[[2, (222, 120, 275, 177)]]"
+scene/CAMPUS color model/01738/post/0.5/,own_side,"[[2, (224, 125, 277, 177), 'thin_own_side']]","[[2, (219, 125, 272, 176)]]"
+scene/CAMPUS color model/01738/post/0.5/,own_side+centred,"[[2, (224, 125, 277, 177), 'thin_own_side']]","[[2, (219, 125, 272, 176)]]"
+scene/CAMPUS color model/01752/barrel_front/other/0.25/,own_side,[],"[[2, (217, 120, 271, 178)]]"
+scene/CAMPUS color model/01765/barrel_low/same/0.75/L,own_side,"[[2, (221, 120, 274, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01765/barrel_low/same/0.75/L,own_side+centred,"[[2, (221, 120, 274, 176), 'thin_own_side']]",[]
+scene/CAMPUS color model/01799/slant/0.5/L-,own_side,"[[2, (268, 124, 321, 176), 'own_side']]",[]
+scene/CAMPUS color model/01799/slant/0.5/L-,own_side+centred,"[[2, (268, 124, 321, 176), 'own_side']]",[]
+scene/CAMPUS color model/01803/slant/0.75/L-,own_side,"[[2, (269, 126, 321, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01803/slant/0.75/L-,own_side+centred,"[[2, (269, 126, 321, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01804/slant/0.75/R+,own_side,"[[2, (274, 125, 326, 175), 'thin_own_side']]",[]
+scene/CAMPUS color model/01804/slant/0.75/R+,own_side+centred,"[[2, (274, 125, 326, 175), 'thin_own_side']]",[]
+scene/CAMPUS color model/01805/slant/0.75/R-,own_side,"[[2, (273, 119, 325, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01805/slant/0.75/R-,own_side+centred,"[[2, (273, 119, 325, 173), 'thin_own_side']]",[]
+scene/CAMPUS color model/01807/both/0.5/,own_side,"[[2, (258, 119, 311, 176), 'own_side']]","[[2, (272, 119, 325, 176)]]"
+scene/CAMPUS color model/01807/both/0.5/,own_side+centred,"[[2, (258, 119, 311, 176), 'own_side']]","[[2, (272, 119, 325, 176)]]"
+scene/CAMPUS color model/01867/edge/0.25/R,own_side,"[[2, (160, 133, 226, 202), 'own_side']]","[[2, (150, 133, 217, 202)]]"
+scene/CAMPUS color model/01867/edge/0.25/R,own_side+centred,"[[2, (160, 133, 226, 202), 'own_side']]","[[2, (150, 133, 217, 202)]]"
+scene/CAMPUS color model/01869/edge/0.5/R,own_side,"[[2, (160, 133, 226, 201), 'own_side']]",[]
+scene/CAMPUS color model/01869/edge/0.5/R,own_side+centred,"[[2, (160, 133, 226, 201), 'own_side']]",[]
+scene/CAMPUS color model/01878/slant/0.5/R+,own_side,"[[2, (160, 133, 226, 201), 'own_side']]",[]
+scene/CAMPUS color model/01878/slant/0.5/R+,own_side+centred,"[[2, (160, 133, 226, 201), 'own_side']]",[]
+scene/CAMPUS color model/01880/slant/0.75/L+,own_side,"[[2, (158, 133, 222, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/01880/slant/0.75/L+,own_side+centred,"[[2, (158, 133, 222, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/01881/slant/0.75/L-,own_side,"[[2, (158, 138, 222, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01881/slant/0.75/L-,own_side+centred,"[[2, (158, 138, 222, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01884/both/0.25/,own_side,"[[2, (164, 133, 230, 202), 'own_side']]","[[2, (156, 133, 223, 202)]]"
+scene/CAMPUS color model/01884/both/0.25/,own_side+centred,"[[2, (164, 133, 230, 202), 'own_side']]","[[2, (156, 133, 223, 202)]]"
+scene/CAMPUS color model/01885/both/0.5/,own_side,[],"[[2, (156, 133, 223, 202)]]"
+scene/CAMPUS color model/01906/barrel_low/other/0.75/L,own_side,"[[2, (159, 135, 222, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01906/barrel_low/other/0.75/L,own_side+centred,"[[2, (159, 135, 222, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01921/barrel_low/same/0.75/L,own_side,"[[2, (158, 133, 222, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01921/barrel_low/same/0.75/L,own_side+centred,"[[2, (158, 133, 222, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01922/barrel_low/same/0.75/R,own_side,"[[2, (160, 134, 226, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01922/barrel_low/same/0.75/R,own_side+centred,"[[2, (160, 134, 226, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01945/edge/0.25/R,own_side,[],"[[1, (363, 133, 429, 201)]]"
+scene/CAMPUS color model/01947/edge/0.5/R,own_side,[],"[[1, (355, 133, 420, 201)]]"
+scene/CAMPUS color model/01948/edge/0.75/L,own_side,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01948/edge/0.75/L,own_side+centred,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01952/slant/0.25/R+,own_side,[],"[[1, (367, 133, 432, 201)]]"
+scene/CAMPUS color model/01956/slant/0.5/R+,own_side,[],"[[1, (359, 134, 424, 201)]]"
+scene/CAMPUS color model/01958/slant/0.75/L+,own_side,"[[1, (369, 137, 434, 193), 'thin_own_side']]",[]
+scene/CAMPUS color model/01958/slant/0.75/L+,own_side+centred,"[[1, (369, 137, 434, 193), 'thin_own_side']]",[]
+scene/CAMPUS color model/01959/slant/0.75/L-,own_side,"[[1, (369, 137, 434, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01959/slant/0.75/L-,own_side+centred,"[[1, (369, 137, 434, 199), 'thin_own_side']]",[]
+scene/CAMPUS color model/01962/both/0.25/,own_side,"[[1, (362, 133, 427, 201), 'own_side']]","[[1, (368, 133, 434, 201)]]"
+scene/CAMPUS color model/01962/both/0.25/,own_side+centred,"[[1, (362, 133, 427, 201), 'own_side']]","[[1, (368, 133, 434, 201)]]"
+scene/CAMPUS color model/01963/both/0.5/,own_side,[],"[[1, (368, 133, 434, 201)]]"
+scene/CAMPUS color model/01972/post/0.5/,own_side,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01972/post/0.5/,own_side+centred,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01978/barrel_side/other/0.75/L,own_side,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01978/barrel_side/other/0.75/L,own_side+centred,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01993/barrel_side/same/0.75/L,own_side,"[[1, (369, 137, 434, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/01993/barrel_side/same/0.75/L,own_side+centred,"[[1, (369, 137, 434, 196), 'thin_own_side']]",[]
+scene/CAMPUS color model/01999/barrel_low/same/0.75/L,own_side,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/01999/barrel_low/same/0.75/L,own_side+centred,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/02008/block/same/0.75/L,own_side,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/CAMPUS color model/02008/block/same/0.75/L,own_side+centred,"[[1, (369, 137, 434, 200), 'thin_own_side']]",[]
+scene/HOME color model/00006/edge/0.25/L,own_side,"[[1, (305, 144, 388, 235), 'own_side']]","[[1, (314, 144, 398, 235)]]"
+scene/HOME color model/00006/edge/0.25/L,own_side+centred,"[[1, (305, 144, 388, 235), 'own_side']]","[[1, (314, 144, 398, 235)]]"
+scene/HOME color model/00008/edge/0.5/L,own_side,"[[1, (305, 144, 388, 235), 'own_side']]","[[1, (325, 144, 409, 235)]]"
+scene/HOME color model/00008/edge/0.5/L,own_side+centred,"[[1, (305, 144, 388, 235), 'own_side']]","[[1, (325, 144, 409, 235)]]"
+scene/HOME color model/00010/edge/0.75/L,own_side,"[[1, (306, 146, 388, 233), 'thin_own_side']]",[]
+scene/HOME color model/00010/edge/0.75/L,own_side+centred,"[[1, (306, 146, 388, 233), 'thin_own_side']]",[]
+scene/HOME color model/00011/edge/0.75/R,own_side,"[[1, (308, 146, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00011/edge/0.75/R,own_side+centred,"[[1, (308, 146, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00017/slant/0.5/L-,own_side,"[[1, (305, 144, 388, 235), 'own_side']]","[[1, (321, 144, 403, 235)]]"
+scene/HOME color model/00017/slant/0.5/L-,own_side+centred,"[[1, (305, 144, 388, 235), 'own_side']]","[[1, (321, 144, 403, 235)]]"
+scene/HOME color model/00020/slant/0.75/L+,own_side,"[[1, (306, 146, 388, 228), 'thin_own_side']]",[]
+scene/HOME color model/00020/slant/0.75/L+,own_side+centred,"[[1, (306, 146, 388, 228), 'thin_own_side']]",[]
+scene/HOME color model/00022/slant/0.75/R+,own_side,"[[1, (308, 149, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00022/slant/0.75/R+,own_side+centred,"[[1, (308, 149, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00023/slant/0.75/R-,own_side,"[[1, (307, 146, 388, 227), 'thin_own_side']]",[]
+scene/HOME color model/00023/slant/0.75/R-,own_side+centred,"[[1, (307, 146, 388, 227), 'thin_own_side']]",[]
+scene/HOME color model/00024/both/0.25/,own_side,[],"[[1, (304, 144, 388, 235)]]"
+scene/HOME color model/00025/both/0.5/,own_side,"[[1, (285, 144, 368, 235), 'own_side']]","[[1, (304, 144, 388, 235)]]"
+scene/HOME color model/00025/both/0.5/,own_side+centred,"[[1, (285, 144, 368, 235), 'own_side']]","[[1, (304, 144, 388, 235)]]"
+scene/HOME color model/00034/post/0.5/,own_side,"[[1, (306, 146, 388, 233), 'thin_own_side']]","[[1, (308, 146, 388, 233)]]"
+scene/HOME color model/00034/post/0.5/,own_side+centred,"[[1, (306, 146, 388, 233), 'thin_own_side']]","[[1, (308, 146, 388, 233)]]"
+scene/HOME color model/00041/barrel_side/other/0.75/R,own_side,"[[1, (308, 141, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00041/barrel_side/other/0.75/R,own_side+centred,"[[1, (308, 141, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00070/block/same/0.75/L,own_side,"[[1, (306, 146, 388, 233), 'thin_own_side']]",[]
+scene/HOME color model/00070/block/same/0.75/L,own_side+centred,"[[1, (306, 146, 388, 233), 'thin_own_side']]",[]
+scene/HOME color model/00071/block/same/0.75/R,own_side,"[[1, (308, 146, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00071/block/same/0.75/R,own_side+centred,"[[1, (308, 146, 389, 232), 'thin_own_side']]",[]
+scene/HOME color model/00088/edge/0.75/L,own_side,"[[2, (309, 144, 390, 230), 'thin_own_side']]",[]
+scene/HOME color model/00088/edge/0.75/L,own_side+centred,"[[2, (309, 144, 390, 230), 'thin_own_side']]",[]
+scene/HOME color model/00098/slant/0.75/L+,own_side,"[[2, (310, 144, 390, 224), 'thin_own_side']]",[]
+scene/HOME color model/00098/slant/0.75/L+,own_side+centred,"[[2, (310, 144, 390, 224), 'thin_own_side']]",[]
+scene/HOME color model/00099/slant/0.75/L-,own_side,"[[2, (309, 146, 390, 230), 'thin_own_side']]",[]
+scene/HOME color model/00099/slant/0.75/L-,own_side+centred,"[[2, (309, 146, 390, 230), 'thin_own_side']]",[]
+scene/HOME color model/00100/slant/0.75/R+,own_side,"[[2, (311, 146, 390, 232), 'thin_own_side']]",[]
+scene/HOME color model/00100/slant/0.75/R+,own_side+centred,"[[2, (311, 146, 390, 232), 'thin_own_side']]",[]
+scene/HOME color model/00101/slant/0.75/R-,own_side,"[[2, (311, 144, 390, 227), 'thin_own_side']]",[]
+scene/HOME color model/00101/slant/0.75/R-,own_side+centred,"[[2, (311, 144, 390, 227), 'thin_own_side']]",[]
+scene/HOME color model/00102/both/0.25/,own_side,[],"[[2, (309, 142, 391, 233)]]"
+scene/HOME color model/00103/both/0.5/,own_side,[],"[[2, (309, 142, 391, 233)]]"
+scene/HOME color model/00112/post/0.5/,own_side,"[[2, (309, 144, 390, 230), 'thin_own_side']]","[[2, (311, 144, 390, 232)]]"
+scene/HOME color model/00112/post/0.5/,own_side+centred,"[[2, (309, 144, 390, 230), 'thin_own_side']]","[[2, (311, 144, 390, 232)]]"
+scene/HOME color model/00118/barrel_side/other/0.75/L,own_side,"[[2, (309, 142, 390, 229), 'thin_own_side']]",[]
+scene/HOME color model/00118/barrel_side/other/0.75/L,own_side+centred,"[[2, (309, 142, 390, 229), 'thin_own_side']]",[]
+scene/HOME color model/00119/barrel_side/other/0.75/R,own_side,"[[2, (311, 146, 389, 227), 'thin_own_side']]",[]
+scene/HOME color model/00119/barrel_side/other/0.75/R,own_side+centred,"[[2, (311, 146, 389, 227), 'thin_own_side']]",[]
+scene/HOME color model/00139/barrel_low/same/0.75/L,own_side,"[[2, (309, 144, 390, 230), 'thin_own_side']]","[[2, (319, 142, 390, 219)]]"
+scene/HOME color model/00139/barrel_low/same/0.75/L,own_side+centred,"[[2, (309, 144, 390, 230), 'thin_own_side']]","[[2, (319, 142, 390, 219)]]"
+scene/HOME color model/00140/barrel_low/same/0.75/R,own_side,"[[2, (311, 144, 390, 232), 'thin_own_side']]",[]
+scene/HOME color model/00140/barrel_low/same/0.75/R,own_side+centred,"[[2, (311, 144, 390, 232), 'thin_own_side']]",[]
+scene/HOME color model/00148/block/same/0.75/L,own_side,"[[2, (309, 144, 390, 230), 'thin_own_side']]",[]
+scene/HOME color model/00148/block/same/0.75/L,own_side+centred,"[[2, (309, 144, 390, 230), 'thin_own_side']]",[]
+scene/HOME color model/00166/edge/0.75/L,own_side,"[[1, (302, 120, 350, 167), 'thin_own_side']]",[]
+scene/HOME color model/00166/edge/0.75/L,own_side+centred,"[[1, (302, 120, 350, 167), 'thin_own_side']]",[]
+scene/HOME color model/00167/edge/0.75/R,own_side,"[[1, (308, 120, 355, 168), 'thin_own_side']]",[]
+scene/HOME color model/00167/edge/0.75/R,own_side+centred,"[[1, (308, 120, 355, 168), 'thin_own_side']]",[]
+scene/HOME color model/00176/slant/0.75/L+,own_side,"[[1, (302, 120, 350, 165), 'thin_own_side']]",[]
+scene/HOME color model/00176/slant/0.75/L+,own_side+centred,"[[1, (302, 120, 350, 165), 'thin_own_side']]",[]
+scene/HOME color model/00177/slant/0.75/L-,own_side,"[[1, (302, 121, 350, 166), 'thin_own_side']]",[]
+scene/HOME color model/00177/slant/0.75/L-,own_side+centred,"[[1, (302, 121, 350, 166), 'thin_own_side']]",[]
+scene/HOME color model/00178/slant/0.75/R+,own_side,"[[1, (308, 122, 355, 167), 'thin_own_side']]",[]
+scene/HOME color model/00178/slant/0.75/R+,own_side+centred,"[[1, (308, 122, 355, 167), 'thin_own_side']]",[]
+scene/HOME color model/00179/slant/0.75/R-,own_side,"[[1, (308, 120, 355, 166), 'thin_own_side']]",[]
+scene/HOME color model/00179/slant/0.75/R-,own_side+centred,"[[1, (308, 120, 355, 166), 'thin_own_side']]",[]
+scene/HOME color model/00180/both/0.25/,own_side,[],"[[1, (304, 120, 353, 168)]]"
+scene/HOME color model/00181/both/0.5/,own_side,[],"[[1, (304, 120, 353, 168)]]"
+scene/HOME color model/00236/frame/0.5/L,own_side,"[[2, (0, 120, 32, 179), 'own_side']]","[[2, (0, 120, 42, 179)]]"
+scene/HOME color model/00236/frame/0.5/L,own_side+centred,"[[2, (0, 120, 32, 179), 'own_side']]","[[2, (0, 120, 42, 179)]]"
+scene/HOME color model/00243/edge/0.5/R,own_side,"[[2, (440, 120, 492, 179), 'own_side']]","[[2, (430, 120, 482, 179)]]"
+scene/HOME color model/00243/edge/0.5/R,own_side+centred,"[[2, (440, 120, 492, 179), 'own_side']]","[[2, (430, 120, 482, 179)]]"
+scene/HOME color model/00244/edge/0.75/L,own_side,"[[2, (450, 122, 503, 177), 'thin_own_side']]",[]
+scene/HOME color model/00244/edge/0.75/L,own_side+centred,"[[2, (450, 122, 503, 177), 'thin_own_side']]",[]
+scene/HOME color model/00245/edge/0.75/R,own_side,"[[2, (440, 120, 491, 178), 'own_side']]",[]
+scene/HOME color model/00245/edge/0.75/R,own_side+centred,"[[2, (440, 120, 491, 178), 'own_side']]",[]
+scene/HOME color model/00250/slant/0.5/L+,own_side,"[[2, (450, 120, 503, 179), 'own_side']]",[]
+scene/HOME color model/00250/slant/0.5/L+,own_side+centred,"[[2, (450, 120, 503, 179), 'own_side']]",[]
+scene/HOME color model/00251/slant/0.5/L-,own_side,"[[2, (450, 120, 503, 179), 'own_side']]",[]
+scene/HOME color model/00251/slant/0.5/L-,own_side+centred,"[[2, (450, 120, 503, 179), 'own_side']]",[]
+scene/HOME color model/00256/slant/0.75/R+,own_side,"[[2, (440, 120, 491, 178), 'thin_own_side']]",[]
+scene/HOME color model/00256/slant/0.75/R+,own_side+centred,"[[2, (440, 120, 491, 178), 'thin_own_side']]",[]
+scene/HOME color model/00257/slant/0.75/R-,own_side,"[[2, (440, 120, 491, 177), 'thin_own_side']]",[]
+scene/HOME color model/00257/slant/0.75/R-,own_side+centred,"[[2, (440, 120, 491, 177), 'thin_own_side']]",[]
+scene/HOME color model/00259/both/0.5/,own_side,[],"[[2, (445, 120, 498, 179)]]"
+scene/HOME color model/00268/post/0.5/,own_side,"[[2, (450, 122, 503, 177), 'thin_own_side']]",[]
+scene/HOME color model/00268/post/0.5/,own_side+centred,"[[2, (450, 122, 503, 177), 'thin_own_side']]",[]
+scene/HOME color model/00272/barrel_side/other/0.5/L,own_side,"[[2, (450, 120, 503, 179), 'own_side']]","[[2, (460, 120, 512, 179)]]"
+scene/HOME color model/00272/barrel_side/other/0.5/L,own_side+centred,"[[2, (450, 120, 503, 179), 'own_side']]","[[2, (460, 120, 512, 179)]]"
+scene/HOME color model/00274/barrel_side/other/0.75/L,own_side,"[[2, (450, 122, 503, 178), 'thin_own_side']]",[]
+scene/HOME color model/00274/barrel_side/other/0.75/L,own_side+centred,"[[2, (450, 122, 503, 178), 'thin_own_side']]",[]
+scene/HOME color model/00281/barrel_low/other/0.75/R,own_side,"[[2, (440, 120, 491, 178), 'thin_own_side']]",[]
+scene/HOME color model/00281/barrel_low/other/0.75/R,own_side+centred,"[[2, (440, 120, 491, 178), 'thin_own_side']]",[]
+scene/HOME color model/00288/barrel_side/same/0.5/R,own_side,"[[2, (440, 120, 492, 179), 'own_side']]","[[2, (431, 120, 483, 179)]]"
+scene/HOME color model/00288/barrel_side/same/0.5/R,own_side+centred,"[[2, (440, 120, 492, 179), 'own_side']]","[[2, (431, 120, 483, 179)]]"
+scene/HOME color model/00290/barrel_side/same/0.75/R,own_side,"[[2, (440, 120, 491, 178), 'own_side']]",[]
+scene/HOME color model/00290/barrel_side/same/0.75/R,own_side+centred,"[[2, (440, 120, 491, 178), 'own_side']]",[]
+scene/HOME color model/00293/barrel_low/same/0.5/L,own_side,"[[2, (450, 120, 503, 179), 'own_side']]","[[2, (460, 120, 513, 179)]]"
+scene/HOME color model/00293/barrel_low/same/0.5/L,own_side+centred,"[[2, (450, 120, 503, 179), 'own_side']]","[[2, (460, 120, 513, 179)]]"
+scene/HOME color model/00295/barrel_low/same/0.75/L,own_side,"[[2, (450, 122, 503, 174), 'thin_own_side']]",[]
+scene/HOME color model/00295/barrel_low/same/0.75/L,own_side+centred,"[[2, (450, 122, 503, 174), 'thin_own_side']]",[]
+scene/HOME color model/00300/block/same/0.25/L,own_side,"[[2, (441, 120, 494, 179), 'own_side']]","[[2, (449, 120, 502, 179)]]"
+scene/HOME color model/00300/block/same/0.25/L,own_side+centred,"[[2, (441, 120, 494, 179), 'own_side']]","[[2, (449, 120, 502, 179)]]"
+scene/HOME color model/00302/block/same/0.5/L,own_side,"[[2, (441, 120, 494, 179), 'own_side']]","[[2, (456, 120, 509, 179)]]"
+scene/HOME color model/00302/block/same/0.5/L,own_side+centred,"[[2, (441, 120, 494, 179), 'own_side']]","[[2, (456, 120, 509, 179)]]"
+scene/HOME color model/00304/block/same/0.75/L,own_side,"[[2, (441, 122, 494, 177), 'thin_own_side']]",[]
+scene/HOME color model/00304/block/same/0.75/L,own_side+centred,"[[2, (441, 122, 494, 177), 'thin_own_side']]",[]
+scene/HOME color model/00323/edge/0.75/R,own_side,"[[2, (240, 120, 293, 178), 'thin_own_side']]",[]
+scene/HOME color model/00323/edge/0.75/R,own_side+centred,"[[2, (240, 120, 293, 178), 'thin_own_side']]",[]
+scene/HOME color model/00332/slant/0.75/L+,own_side,"[[2, (238, 122, 290, 176), 'thin_own_side']]",[]
+scene/HOME color model/00332/slant/0.75/L+,own_side+centred,"[[2, (238, 122, 290, 176), 'thin_own_side']]",[]
+scene/HOME color model/00333/slant/0.75/L-,own_side,"[[2, (238, 122, 290, 177), 'thin_own_side']]",[]
+scene/HOME color model/00333/slant/0.75/L-,own_side+centred,"[[2, (238, 122, 290, 177), 'thin_own_side']]",[]
+scene/HOME color model/00334/slant/0.75/R+,own_side,"[[2, (240, 120, 292, 178), 'thin_own_side']]",[]
+scene/HOME color model/00334/slant/0.75/R+,own_side+centred,"[[2, (240, 120, 292, 178), 'thin_own_side']]",[]
+scene/HOME color model/00335/slant/0.75/R-,own_side,"[[2, (240, 120, 292, 176), 'thin_own_side']]",[]
+scene/HOME color model/00335/slant/0.75/R-,own_side+centred,"[[2, (240, 120, 292, 176), 'thin_own_side']]",[]
+scene/HOME color model/00336/both/0.25/,own_side,[],"[[2, (238, 120, 291, 179)]]"
+scene/HOME color model/00337/both/0.5/,own_side,[],"[[2, (238, 120, 291, 179)]]"
+scene/HOME color model/00368/barrel_side/same/0.75/R,own_side,"[[2, (240, 120, 292, 178), 'thin_own_side']]","[[2, (240, 120, 287, 171)]]"
+scene/HOME color model/00368/barrel_side/same/0.75/R,own_side+centred,"[[2, (240, 120, 292, 178), 'thin_own_side']]","[[2, (240, 120, 287, 171)]]"
+scene/HOME color model/00400/edge/0.75/L,own_side,"[[1, (289, 123, 340, 173), 'thin_own_side']]",[]
+scene/HOME color model/00400/edge/0.75/L,own_side+centred,"[[1, (289, 123, 340, 173), 'thin_own_side']]",[]
+scene/HOME color model/00407/slant/0.5/L-,own_side,"[[1, (289, 123, 340, 174), 'own_side']]",[]
+scene/HOME color model/00407/slant/0.5/L-,own_side+centred,"[[1, (289, 123, 340, 174), 'own_side']]",[]
+scene/HOME color model/00410/slant/0.75/L+,own_side,"[[1, (289, 123, 340, 170), 'thin_own_side']]",[]
+scene/HOME color model/00410/slant/0.75/L+,own_side+centred,"[[1, (289, 123, 340, 170), 'thin_own_side']]",[]
+scene/HOME color model/00411/slant/0.75/L-,own_side,"[[1, (289, 125, 340, 172), 'thin_own_side']]",[]
+scene/HOME color model/00411/slant/0.75/L-,own_side+centred,"[[1, (289, 125, 340, 172), 'thin_own_side']]",[]
+scene/HOME color model/00412/slant/0.75/R+,own_side,"[[1, (293, 124, 344, 173), 'thin_own_side']]",[]
+scene/HOME color model/00412/slant/0.75/R+,own_side+centred,"[[1, (293, 124, 344, 173), 'thin_own_side']]",[]
+scene/HOME color model/00413/slant/0.75/R-,own_side,"[[1, (293, 123, 344, 171), 'thin_own_side']]",[]
+scene/HOME color model/00413/slant/0.75/R-,own_side+centred,"[[1, (293, 123, 344, 171), 'thin_own_side']]",[]
+scene/HOME color model/00414/both/0.25/,own_side,[],"[[1, (291, 122, 343, 174)]]"
+scene/HOME color model/00415/both/0.5/,own_side,[],"[[1, (291, 122, 343, 174)]]"
+scene/HOME color model/00451/barrel_low/same/0.75/L,own_side,"[[1, (289, 123, 340, 172), 'thin_own_side']]",[]
+scene/HOME color model/00451/barrel_low/same/0.75/L,own_side+centred,"[[1, (289, 123, 340, 172), 'thin_own_side']]",[]
+scene/HOME color model/00452/barrel_low/same/0.75/R,own_side,"[[1, (293, 123, 344, 173), 'thin_own_side']]",[]
+scene/HOME color model/00452/barrel_low/same/0.75/R,own_side+centred,"[[1, (293, 123, 344, 173), 'thin_own_side']]",[]
+scene/HOME color model/00475/edge/0.25/R,own_side,"[[1, (370, 121, 420, 171), 'own_side']]","[[1, (363, 121, 413, 171)]]"
+scene/HOME color model/00475/edge/0.25/R,own_side+centred,"[[1, (370, 121, 420, 171), 'own_side']]","[[1, (363, 121, 413, 171)]]"
+scene/HOME color model/00477/edge/0.5/R,own_side,"[[1, (370, 121, 419, 171), 'own_side']]","[[1, (357, 121, 406, 171)]]"
+scene/HOME color model/00477/edge/0.5/R,own_side+centred,"[[1, (370, 121, 419, 171), 'own_side']]","[[1, (357, 121, 406, 171)]]"
+scene/HOME color model/00478/edge/0.75/L,own_side,"[[1, (367, 122, 417, 171), 'thin_own_side']]",[]
+scene/HOME color model/00478/edge/0.75/L,own_side+centred,"[[1, (367, 122, 417, 171), 'thin_own_side']]",[]
+scene/HOME color model/00479/edge/0.75/R,own_side,"[[1, (370, 122, 419, 170), 'thin_own_side']]",[]
+scene/HOME color model/00479/edge/0.75/R,own_side+centred,"[[1, (370, 122, 419, 170), 'thin_own_side']]",[]
+scene/HOME color model/00486/slant/0.5/R+,own_side,"[[1, (370, 121, 419, 171), 'own_side']]","[[1, (360, 121, 409, 171)]]"
+scene/HOME color model/00486/slant/0.5/R+,own_side+centred,"[[1, (370, 121, 419, 171), 'own_side']]","[[1, (360, 121, 409, 171)]]"
+scene/HOME color model/00488/slant/0.75/L+,own_side,"[[1, (368, 122, 417, 168), 'thin_own_side']]",[]
+scene/HOME color model/00488/slant/0.75/L+,own_side+centred,"[[1, (368, 122, 417, 168), 'thin_own_side']]",[]
+scene/HOME color model/00489/slant/0.75/L-,own_side,"[[1, (368, 123, 417, 170), 'thin_own_side']]",[]
+scene/HOME color model/00489/slant/0.75/L-,own_side+centred,"[[1, (368, 123, 417, 170), 'thin_own_side']]",[]
+scene/HOME color model/00491/slant/0.75/R-,own_side,"[[1, (370, 122, 419, 168), 'thin_own_side']]",[]
+scene/HOME color model/00491/slant/0.75/R-,own_side+centred,"[[1, (370, 122, 419, 168), 'thin_own_side']]",[]
+scene/HOME color model/00492/both/0.25/,own_side,[],"[[1, (368, 121, 418, 171)]]"
+scene/HOME color model/00493/both/0.5/,own_side,[],"[[1, (368, 121, 418, 171)]]"
+scene/HOME color model/00502/post/0.5/,own_side,"[[1, (367, 122, 417, 171), 'thin_own_side']]","[[1, (370, 122, 417, 171)]]"
+scene/HOME color model/00502/post/0.5/,own_side+centred,"[[1, (367, 122, 417, 171), 'thin_own_side']]","[[1, (370, 122, 417, 171)]]"
+scene/HOME color model/00507/barrel_side/other/0.5/R,own_side,[],"[[1, (384, 111, 425, 157)]]"
+scene/HOME color model/00529/barrel_low/same/0.75/L,own_side,"[[1, (367, 122, 417, 170), 'thin_own_side']]",[]
+scene/HOME color model/00529/barrel_low/same/0.75/L,own_side+centred,"[[1, (367, 122, 417, 170), 'thin_own_side']]",[]
+scene/HOME color model/00538/block/same/0.75/L,own_side,"[[1, (367, 122, 417, 171), 'thin_own_side']]",[]
+scene/HOME color model/00538/block/same/0.75/L,own_side+centred,"[[1, (367, 122, 417, 171), 'thin_own_side']]",[]
+scene/HOME color model/00539/block/same/0.75/R,own_side,"[[1, (370, 122, 419, 170), 'thin_own_side']]",[]
+scene/HOME color model/00539/block/same/0.75/R,own_side+centred,"[[1, (370, 122, 419, 170), 'thin_own_side']]",[]
+scene/HOME color model/00554/edge/0.5/L,own_side,"[[2, (423, 117, 474, 176), 'own_side']]","[[2, (434, 117, 485, 176)]]"
+scene/HOME color model/00554/edge/0.5/L,own_side+centred,"[[2, (423, 117, 474, 176), 'own_side']]","[[2, (434, 117, 485, 176)]]"
+scene/HOME color model/00556/edge/0.75/L,own_side,"[[2, (423, 117, 474, 175), 'thin_own_side']]",[]
+scene/HOME color model/00556/edge/0.75/L,own_side+centred,"[[2, (423, 117, 474, 175), 'thin_own_side']]",[]
+scene/HOME color model/00563/slant/0.5/L-,own_side,"[[2, (423, 117, 474, 176), 'own_side']]","[[2, (432, 117, 482, 176)]]"
+scene/HOME color model/00563/slant/0.5/L-,own_side+centred,"[[2, (423, 117, 474, 176), 'own_side']]","[[2, (432, 117, 482, 176)]]"
+scene/HOME color model/00566/slant/0.75/L+,own_side,"[[2, (423, 117, 474, 169), 'thin_own_side']]",[]
+scene/HOME color model/00566/slant/0.75/L+,own_side+centred,"[[2, (423, 117, 474, 169), 'thin_own_side']]",[]
+scene/HOME color model/00567/slant/0.75/L-,own_side,"[[2, (423, 117, 474, 173), 'thin_own_side']]",[]
+scene/HOME color model/00567/slant/0.75/L-,own_side+centred,"[[2, (423, 117, 474, 173), 'thin_own_side']]",[]
+scene/HOME color model/00570/both/0.25/,own_side,[],"[[2, (420, 117, 470, 176)]]"
+scene/HOME color model/00571/both/0.5/,own_side,[],"[[2, (420, 117, 470, 176)]]"
+scene/HOME color model/00580/post/0.5/,own_side,"[[2, (423, 117, 474, 175), 'thin_own_side']]","[[2, (420, 117, 474, 175)]]"
+scene/HOME color model/00580/post/0.5/,own_side+centred,"[[2, (423, 117, 474, 175), 'thin_own_side']]","[[2, (420, 117, 474, 175)]]"
+scene/HOME color model/00584/barrel_side/other/0.5/L,own_side,"[[2, (423, 117, 474, 176), 'own_side']]","[[2, (404, 117, 449, 163)]]"
+scene/HOME color model/00584/barrel_side/other/0.5/L,own_side+centred,"[[2, (423, 117, 474, 176), 'own_side']]","[[2, (404, 117, 449, 163)]]"
+scene/HOME color model/00586/barrel_side/other/0.75/L,own_side,"[[2, (423, 117, 474, 173), 'thin_own_side']]","[[2, (423, 117, 474, 163)]]"
+scene/HOME color model/00586/barrel_side/other/0.75/L,own_side+centred,"[[2, (423, 117, 474, 173), 'thin_own_side']]","[[2, (423, 117, 474, 163)]]"
+scene/HOME color model/00607/barrel_low/same/0.75/L,own_side,"[[2, (423, 117, 474, 176), 'thin_own_side']]","[[2, (423, 117, 474, 172)]]"
+scene/HOME color model/00607/barrel_low/same/0.75/L,own_side+centred,"[[2, (423, 117, 474, 176), 'thin_own_side']]","[[2, (423, 117, 474, 172)]]"
+scene/HOME color model/00616/block/same/0.75/L,own_side,"[[2, (423, 117, 474, 175), 'thin_own_side']]",[]
+scene/HOME color model/00616/block/same/0.75/L,own_side+centred,"[[2, (423, 117, 474, 175), 'thin_own_side']]",[]
+scene/HOME color model/00630/edge/0.25/L,own_side,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (318, 107, 350, 136)]]"
+scene/HOME color model/00630/edge/0.25/L,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (318, 107, 350, 136)]]"
+scene/HOME color model/00632/edge/0.5/L,own_side,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (321, 107, 354, 136)]]"
+scene/HOME color model/00632/edge/0.5/L,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (321, 107, 354, 136)]]"
+scene/HOME color model/00634/edge/0.75/L,own_side,"[[1, (312, 107, 344, 136), 'thin_own_side']]",[]
+scene/HOME color model/00634/edge/0.75/L,own_side+centred,"[[1, (312, 107, 344, 136), 'thin_own_side']]",[]
+scene/HOME color model/00635/edge/0.75/R,own_side,"[[1, (318, 108, 350, 136), 'thin_own_side']]",[]
+scene/HOME color model/00635/edge/0.75/R,own_side+centred,"[[1, (318, 108, 350, 136), 'thin_own_side']]",[]
+scene/HOME color model/00636/slant/0.25/L+,own_side,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (316, 107, 349, 136)]]"
+scene/HOME color model/00636/slant/0.25/L+,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (316, 107, 349, 136)]]"
+scene/HOME color model/00637/slant/0.25/L-,own_side,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (317, 107, 349, 136)]]"
+scene/HOME color model/00637/slant/0.25/L-,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (317, 107, 349, 136)]]"
+scene/HOME color model/00640/slant/0.5/L+,own_side,"[[1, (312, 107, 344, 136), 'own_side']]",[]
+scene/HOME color model/00640/slant/0.5/L+,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]",[]
+scene/HOME color model/00641/slant/0.5/L-,own_side,"[[1, (312, 107, 344, 136), 'own_side']]",[]
+scene/HOME color model/00641/slant/0.5/L-,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]",[]
+scene/HOME color model/00646/slant/0.75/R+,own_side,"[[1, (318, 108, 350, 136), 'thin_own_side']]",[]
+scene/HOME color model/00646/slant/0.75/R+,own_side+centred,"[[1, (318, 108, 350, 136), 'thin_own_side']]",[]
+scene/HOME color model/00647/slant/0.75/R-,own_side,"[[1, (318, 108, 350, 135), 'thin_own_side']]",[]
+scene/HOME color model/00647/slant/0.75/R-,own_side+centred,"[[1, (318, 108, 350, 135), 'thin_own_side']]",[]
+scene/HOME color model/00648/both/0.25/,own_side,[],"[[1, (315, 107, 348, 136)]]"
+scene/HOME color model/00649/both/0.5/,own_side,[],"[[1, (315, 107, 348, 136)]]"
+scene/HOME color model/00661/barrel_side/other/0.25/R,own_side,[],"[[2, (337, 106, 373, 142)]]"
+scene/HOME color model/00672/barrel_front/other/0.25/,own_side,[],"[[1, (313, 107, 346, 138)]]"
+scene/HOME color model/00696/block/other/0.25/L,own_side,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (316, 107, 348, 136)]]"
+scene/HOME color model/00696/block/other/0.25/L,own_side+centred,"[[1, (312, 107, 344, 136), 'own_side']]","[[1, (316, 107, 348, 136)]]"
+scene/HOME color model/00700/block/other/0.75/L,own_side,"[[1, (312, 107, 344, 136), 'thin_own_side']]",[]
+scene/HOME color model/00700/block/other/0.75/L,own_side+centred,"[[1, (312, 107, 344, 136), 'thin_own_side']]",[]
+scene/HOME color model/00701/block/other/0.75/R,own_side,"[[1, (318, 108, 350, 136), 'thin_own_side']]",[]
+scene/HOME color model/00701/block/other/0.75/R,own_side+centred,"[[1, (318, 108, 350, 136), 'thin_own_side']]",[]
+scene/HOME color model/00708/edge/0.25/L,own_side,[],"[[1, (335, 107, 366, 135)]]"
+scene/HOME color model/00709/edge/0.25/R,own_side,[],"[[1, (329, 107, 361, 135)]]"
+scene/HOME color model/00711/edge/0.5/R,own_side,[],"[[1, (326, 107, 357, 135)]]"
+scene/HOME color model/00713/edge/0.75/R,own_side,"[[1, (335, 107, 366, 135), 'thin_own_side']]",[]
+scene/HOME color model/00713/edge/0.75/R,own_side+centred,"[[1, (335, 107, 366, 135), 'thin_own_side']]",[]
+scene/HOME color model/00715/slant/0.25/L-,own_side,[],"[[1, (334, 107, 365, 135)]]"
+scene/HOME color model/00716/slant/0.25/R+,own_side,[],"[[1, (331, 107, 362, 135)]]"
+scene/HOME color model/00724/slant/0.75/R+,own_side,"[[1, (335, 107, 366, 134), 'thin_own_side']]",[]
+scene/HOME color model/00724/slant/0.75/R+,own_side+centred,"[[1, (335, 107, 366, 134), 'thin_own_side']]",[]
+scene/HOME color model/00725/slant/0.75/R-,own_side,"[[1, (335, 107, 366, 134), 'thin_own_side']]",[]
+scene/HOME color model/00725/slant/0.75/R-,own_side+centred,"[[1, (335, 107, 366, 134), 'thin_own_side']]",[]
+scene/HOME color model/00726/both/0.25/,own_side,[],"[[1, (332, 107, 364, 135)]]"
+scene/HOME color model/00727/both/0.5/,own_side,[],"[[1, (332, 107, 364, 135)]]"
+scene/HOME color model/00729/top/0.25/,own_side,[],"[[1, (332, 103, 363, 135)]]"
+scene/HOME color model/00732/bottom/0.25/,own_side,[],"[[1, (332, 107, 363, 137)]]"
+scene/HOME color model/00735/post/0.25/,own_side,[],"[[1, (332, 107, 363, 135)]]"
+scene/HOME color model/00736/post/0.5/,own_side,[],"[[1, (332, 107, 363, 134)]]"
+scene/HOME color model/00738/barrel_side/other/0.25/L,own_side,"[[2, (312, 109, 345, 138), 'own_side']]","[[2, (308, 109, 342, 138)]]"
+scene/HOME color model/00738/barrel_side/other/0.25/L,own_side+centred,"[[2, (312, 109, 345, 138), 'own_side']]","[[2, (308, 109, 342, 138)]]"
+scene/HOME color model/00739/barrel_side/other/0.25/R,own_side,"[[2, (351, 104, 384, 138), 'own_side']]","[[2, (354, 104, 388, 138)]]"
+scene/HOME color model/00739/barrel_side/other/0.25/R,own_side+centred,"[[2, (351, 104, 384, 138), 'own_side']]","[[2, (354, 104, 388, 138)]]"
+scene/HOME color model/00740/barrel_side/other/0.5/L,own_side,"[[2, (319, 109, 352, 138), 'own_side']]","[[2, (315, 109, 349, 138)]]"
+scene/HOME color model/00740/barrel_side/other/0.5/L,own_side+centred,"[[2, (319, 109, 352, 138), 'own_side']]","[[2, (315, 109, 349, 138)]]"
+scene/HOME color model/00741/barrel_side/other/0.5/R,own_side,"[[2, (344, 104, 377, 138), 'own_side']]","[[2, (347, 104, 381, 138)]]"
+scene/HOME color model/00741/barrel_side/other/0.5/R,own_side+centred,"[[2, (344, 104, 377, 138), 'own_side']]","[[2, (347, 104, 381, 138)]]"
+scene/HOME color model/00742/barrel_side/other/0.75/L,own_side,"[[2, (326, 109, 359, 138), 'own_side']]","[[2, (322, 109, 356, 138)]]"
+scene/HOME color model/00742/barrel_side/other/0.75/L,own_side+centred,"[[2, (326, 109, 359, 138), 'own_side']]","[[2, (322, 109, 356, 138)]]"
+scene/HOME color model/00744/barrel_low/other/0.25/L,own_side,[],"[[1, (329, 107, 360, 135)], [2, (304, 113, 342, 147)]]"
+scene/HOME color model/00745/barrel_low/other/0.25/R,own_side,[],"[[2, (354, 113, 392, 147)]]"
+scene/HOME color model/00765/barrel_front/same/0.25/,own_side,[],"[[1, (332, 107, 363, 137)]]"
+scene/HOME color model/00772/block/same/0.75/L,own_side,"[[1, (325, 107, 356, 134), 'thin_own_side']]",[]
+scene/HOME color model/00772/block/same/0.75/L,own_side+centred,"[[1, (325, 107, 356, 134), 'thin_own_side']]",[]
+scene/HOME color model/00773/block/same/0.75/R,own_side,"[[1, (340, 107, 371, 135), 'thin_own_side']]",[]
+scene/HOME color model/00773/block/same/0.75/R,own_side+centred,"[[1, (340, 107, 371, 135), 'thin_own_side']]",[]
+scene/HOME color model/00790/edge/0.75/L,own_side,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00790/edge/0.75/L,own_side+centred,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00801/slant/0.75/L-,own_side,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00801/slant/0.75/L-,own_side+centred,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00805/both/0.5/,own_side,[],"[[2, (434, 107, 467, 140)]]"
+scene/HOME color model/00814/post/0.5/,own_side,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00814/post/0.5/,own_side+centred,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00820/barrel_side/other/0.75/L,own_side,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00820/barrel_side/other/0.75/L,own_side+centred,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00821/barrel_side/other/0.75/R,own_side,"[[2, (434, 108, 466, 139), 'thin_own_side']]",[]
+scene/HOME color model/00821/barrel_side/other/0.75/R,own_side+centred,"[[2, (434, 108, 466, 139), 'thin_own_side']]",[]
+scene/HOME color model/00827/barrel_low/other/0.75/R,own_side,"[[2, (435, 105, 467, 139), 'thin_own_side']]",[]
+scene/HOME color model/00827/barrel_low/other/0.75/R,own_side+centred,"[[2, (435, 105, 467, 139), 'thin_own_side']]",[]
+scene/HOME color model/00843/barrel_front/same/0.25/,own_side,"[[2, (431, 107, 467, 147), 'cap']]","[[2, (433, 107, 467, 144)]]"
+scene/HOME color model/00843/barrel_front/same/0.25/,own_side+centred,"[[2, (431, 107, 467, 147), 'cap']]","[[2, (433, 107, 467, 144)]]"
+scene/HOME color model/00850/block/same/0.75/L,own_side,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00850/block/same/0.75/L,own_side+centred,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME color model/00865/edge/0.25/R,own_side,"[[1, (241, 122, 292, 174), 'own_side']]","[[1, (233, 122, 285, 174)]]"
+scene/HOME color model/00865/edge/0.25/R,own_side+centred,"[[1, (241, 122, 292, 174), 'own_side']]","[[1, (233, 122, 285, 174)]]"
+scene/HOME color model/00872/slant/0.25/R+,own_side,"[[1, (241, 122, 292, 174), 'own_side']]","[[1, (236, 122, 287, 174)]]"
+scene/HOME color model/00872/slant/0.25/R+,own_side+centred,"[[1, (241, 122, 292, 174), 'own_side']]","[[1, (236, 122, 287, 174)]]"
+scene/HOME color model/00878/slant/0.75/L+,own_side,"[[1, (237, 123, 287, 168), 'thin_own_side']]",[]
+scene/HOME color model/00878/slant/0.75/L+,own_side+centred,"[[1, (237, 123, 287, 168), 'thin_own_side']]",[]
+scene/HOME color model/00882/both/0.25/,own_side,[],"[[1, (239, 122, 290, 174)]]"
+scene/HOME color model/00883/both/0.5/,own_side,[],"[[1, (239, 122, 290, 174)]]"
+scene/HOME hand masks/00020/slant/0.75/L+,own_side,"[[1, (307, 146, 389, 225), 'thin_own_side']]",[]
+scene/HOME hand masks/00020/slant/0.75/L+,own_side+centred,"[[1, (307, 146, 389, 225), 'thin_own_side']]",[]
+scene/HOME hand masks/00021/slant/0.75/L-,own_side,"[[1, (307, 148, 389, 231), 'thin_own_side']]",[]
+scene/HOME hand masks/00021/slant/0.75/L-,own_side+centred,"[[1, (307, 148, 389, 231), 'thin_own_side']]",[]
+scene/HOME hand masks/00022/slant/0.75/R+,own_side,"[[1, (305, 149, 386, 231), 'thin_own_side']]",[]
+scene/HOME hand masks/00022/slant/0.75/R+,own_side+centred,"[[1, (305, 149, 386, 231), 'thin_own_side']]",[]
+scene/HOME hand masks/00023/slant/0.75/R-,own_side,"[[1, (305, 144, 386, 227), 'thin_own_side']]",[]
+scene/HOME hand masks/00023/slant/0.75/R-,own_side+centred,"[[1, (305, 144, 386, 227), 'thin_own_side']]",[]
+scene/HOME hand masks/00024/both/0.25/,own_side,"[[1, (313, 143, 396, 235), 'own_side']]","[[1, (305, 143, 387, 235)]]"
+scene/HOME hand masks/00024/both/0.25/,own_side+centred,"[[1, (313, 143, 396, 235), 'own_side']]","[[1, (305, 143, 387, 235)]]"
+scene/HOME hand masks/00025/both/0.5/,own_side,[],"[[1, (304, 143, 388, 235)]]"
+scene/HOME hand masks/00040/barrel_side/other/0.75/L,own_side,"[[1, (307, 145, 389, 231), 'thin_own_side']]","[[1, (318, 143, 389, 234)]]"
+scene/HOME hand masks/00040/barrel_side/other/0.75/L,own_side+centred,"[[1, (307, 145, 389, 231), 'thin_own_side']]","[[1, (318, 143, 389, 234)]]"
+scene/HOME hand masks/00098/slant/0.75/L+,own_side,"[[2, (311, 144, 392, 223), 'thin_own_side']]",[]
+scene/HOME hand masks/00098/slant/0.75/L+,own_side+centred,"[[2, (311, 144, 392, 223), 'thin_own_side']]",[]
+scene/HOME hand masks/00099/slant/0.75/L-,own_side,"[[2, (311, 146, 392, 231), 'thin_own_side']]",[]
+scene/HOME hand masks/00099/slant/0.75/L-,own_side+centred,"[[2, (311, 146, 392, 231), 'thin_own_side']]",[]
+scene/HOME hand masks/00100/slant/0.75/R+,own_side,"[[2, (309, 146, 388, 229), 'own_side']]",[]
+scene/HOME hand masks/00100/slant/0.75/R+,own_side+centred,"[[2, (309, 146, 388, 229), 'own_side']]",[]
+scene/HOME hand masks/00101/slant/0.75/R-,own_side,"[[2, (309, 144, 388, 225), 'thin_own_side']]",[]
+scene/HOME hand masks/00101/slant/0.75/R-,own_side+centred,"[[2, (309, 144, 388, 225), 'thin_own_side']]",[]
+scene/HOME hand masks/00102/both/0.25/,own_side,[],"[[2, (309, 141, 391, 233)]]"
+scene/HOME hand masks/00103/both/0.5/,own_side,[],"[[2, (309, 141, 391, 233)]]"
+scene/HOME hand masks/00162/edge/0.25/L,own_side,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (309, 119, 359, 170)]]"
+scene/HOME hand masks/00162/edge/0.25/L,own_side+centred,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (309, 119, 359, 170)]]"
+scene/HOME hand masks/00164/edge/0.5/L,own_side,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (315, 119, 364, 170)]]"
+scene/HOME hand masks/00164/edge/0.5/L,own_side+centred,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (315, 119, 364, 170)]]"
+scene/HOME hand masks/00166/edge/0.75/L,own_side,"[[1, (302, 120, 351, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00166/edge/0.75/L,own_side+centred,"[[1, (302, 120, 351, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00168/slant/0.25/L+,own_side,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (307, 119, 356, 170)]]"
+scene/HOME hand masks/00168/slant/0.25/L+,own_side+centred,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (307, 119, 356, 170)]]"
+scene/HOME hand masks/00169/slant/0.25/L-,own_side,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (307, 119, 357, 170)]]"
+scene/HOME hand masks/00169/slant/0.25/L-,own_side+centred,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (307, 119, 357, 170)]]"
+scene/HOME hand masks/00173/slant/0.5/L-,own_side,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (312, 119, 362, 170)]]"
+scene/HOME hand masks/00173/slant/0.5/L-,own_side+centred,"[[1, (302, 119, 351, 170), 'own_side']]","[[1, (312, 119, 362, 170)]]"
+scene/HOME hand masks/00176/slant/0.75/L+,own_side,"[[1, (302, 120, 351, 168), 'thin_own_side']]",[]
+scene/HOME hand masks/00176/slant/0.75/L+,own_side+centred,"[[1, (302, 120, 351, 168), 'thin_own_side']]",[]
+scene/HOME hand masks/00177/slant/0.75/L-,own_side,"[[1, (302, 120, 351, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00177/slant/0.75/L-,own_side+centred,"[[1, (302, 120, 351, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00178/slant/0.75/R+,own_side,"[[1, (306, 120, 355, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00178/slant/0.75/R+,own_side+centred,"[[1, (306, 120, 355, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00179/slant/0.75/R-,own_side,"[[1, (306, 120, 354, 167), 'thin_own_side']]",[]
+scene/HOME hand masks/00179/slant/0.75/R-,own_side+centred,"[[1, (306, 120, 354, 167), 'thin_own_side']]",[]
+scene/HOME hand masks/00180/both/0.25/,own_side,[],"[[1, (304, 119, 353, 170)]]"
+scene/HOME hand masks/00181/both/0.5/,own_side,[],"[[1, (304, 119, 353, 170)]]"
+scene/HOME hand masks/00190/post/0.5/,own_side,"[[1, (302, 120, 351, 169), 'thin_own_side']]","[[1, (306, 120, 355, 169)]]"
+scene/HOME hand masks/00190/post/0.5/,own_side+centred,"[[1, (302, 120, 351, 169), 'thin_own_side']]","[[1, (306, 120, 355, 169)]]"
+scene/HOME hand masks/00240/edge/0.25/L,own_side,"[[2, (445, 122, 499, 180), 'own_side']]","[[2, (451, 122, 505, 180)]]"
+scene/HOME hand masks/00240/edge/0.25/L,own_side+centred,"[[2, (445, 122, 499, 180), 'own_side']]","[[2, (451, 122, 505, 180)]]"
+scene/HOME hand masks/00242/edge/0.5/L,own_side,"[[2, (445, 122, 499, 180), 'own_side']]","[[2, (458, 122, 512, 180)]]"
+scene/HOME hand masks/00242/edge/0.5/L,own_side+centred,"[[2, (445, 122, 499, 180), 'own_side']]","[[2, (458, 122, 512, 180)]]"
+scene/HOME hand masks/00244/edge/0.75/L,own_side,"[[2, (445, 124, 499, 179), 'thin_own_side']]",[]
+scene/HOME hand masks/00244/edge/0.75/L,own_side+centred,"[[2, (445, 124, 499, 179), 'thin_own_side']]",[]
+scene/HOME hand masks/00251/slant/0.5/L-,own_side,"[[2, (445, 122, 499, 180), 'own_side']]","[[2, (455, 122, 509, 180)]]"
+scene/HOME hand masks/00251/slant/0.5/L-,own_side+centred,"[[2, (445, 122, 499, 180), 'own_side']]","[[2, (455, 122, 509, 180)]]"
+scene/HOME hand masks/00254/slant/0.75/L+,own_side,"[[2, (445, 124, 499, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00254/slant/0.75/L+,own_side+centred,"[[2, (445, 124, 499, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00255/slant/0.75/L-,own_side,"[[2, (445, 124, 499, 178), 'thin_own_side']]",[]
+scene/HOME hand masks/00255/slant/0.75/L-,own_side+centred,"[[2, (445, 124, 499, 178), 'thin_own_side']]",[]
+scene/HOME hand masks/00256/slant/0.75/R+,own_side,"[[2, (443, 127, 494, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00256/slant/0.75/R+,own_side+centred,"[[2, (443, 127, 494, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00257/slant/0.75/R-,own_side,"[[2, (443, 123, 494, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00257/slant/0.75/R-,own_side+centred,"[[2, (443, 123, 494, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00259/both/0.5/,own_side,[],"[[2, (445, 122, 498, 180)]]"
+scene/HOME hand masks/00268/post/0.5/,own_side,"[[2, (445, 124, 499, 179), 'thin_own_side']]","[[2, (443, 123, 494, 178)]]"
+scene/HOME hand masks/00268/post/0.5/,own_side+centred,"[[2, (445, 124, 499, 179), 'thin_own_side']]","[[2, (443, 123, 494, 178)]]"
+scene/HOME hand masks/00274/barrel_side/other/0.75/L,own_side,"[[2, (445, 124, 499, 179), 'thin_own_side']]",[]
+scene/HOME hand masks/00274/barrel_side/other/0.75/L,own_side+centred,"[[2, (445, 124, 499, 179), 'thin_own_side']]",[]
+scene/HOME hand masks/00295/barrel_low/same/0.75/L,own_side,"[[2, (445, 124, 499, 178), 'thin_own_side']]",[]
+scene/HOME hand masks/00295/barrel_low/same/0.75/L,own_side+centred,"[[2, (445, 124, 499, 178), 'thin_own_side']]",[]
+scene/HOME hand masks/00304/block/same/0.75/L,own_side,"[[2, (445, 124, 499, 179), 'thin_own_side']]",[]
+scene/HOME hand masks/00304/block/same/0.75/L,own_side+centred,"[[2, (445, 124, 499, 179), 'thin_own_side']]",[]
+scene/HOME hand masks/00318/edge/0.25/L,own_side,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (244, 123, 297, 178)]]"
+scene/HOME hand masks/00318/edge/0.25/L,own_side+centred,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (244, 123, 297, 178)]]"
+scene/HOME hand masks/00320/edge/0.5/L,own_side,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (251, 123, 303, 178)]]"
+scene/HOME hand masks/00320/edge/0.5/L,own_side+centred,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (251, 123, 303, 178)]]"
+scene/HOME hand masks/00322/edge/0.75/L,own_side,"[[2, (237, 124, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00322/edge/0.75/L,own_side+centred,"[[2, (237, 124, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00324/slant/0.25/L+,own_side,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (242, 123, 294, 178)]]"
+scene/HOME hand masks/00324/slant/0.25/L+,own_side+centred,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (242, 123, 294, 178)]]"
+scene/HOME hand masks/00325/slant/0.25/L-,own_side,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (242, 123, 294, 178)]]"
+scene/HOME hand masks/00325/slant/0.25/L-,own_side+centred,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (242, 123, 294, 178)]]"
+scene/HOME hand masks/00329/slant/0.5/L-,own_side,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (248, 123, 301, 178)]]"
+scene/HOME hand masks/00329/slant/0.5/L-,own_side+centred,"[[2, (236, 123, 289, 178), 'own_side']]","[[2, (248, 123, 301, 178)]]"
+scene/HOME hand masks/00332/slant/0.75/L+,own_side,"[[2, (237, 124, 289, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00332/slant/0.75/L+,own_side+centred,"[[2, (237, 124, 289, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00333/slant/0.75/L-,own_side,"[[2, (237, 125, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00333/slant/0.75/L-,own_side+centred,"[[2, (237, 125, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00334/slant/0.75/R+,own_side,"[[2, (240, 125, 293, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00334/slant/0.75/R+,own_side+centred,"[[2, (240, 125, 293, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00335/slant/0.75/R-,own_side,"[[2, (240, 123, 293, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00335/slant/0.75/R-,own_side+centred,"[[2, (240, 123, 293, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00336/both/0.25/,own_side,[],"[[2, (238, 123, 291, 178)]]"
+scene/HOME hand masks/00337/both/0.5/,own_side,[],"[[2, (238, 123, 291, 178)]]"
+scene/HOME hand masks/00373/barrel_low/same/0.75/L,own_side,"[[2, (237, 123, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00373/barrel_low/same/0.75/L,own_side+centred,"[[2, (237, 123, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00382/block/same/0.75/L,own_side,"[[2, (237, 124, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00382/block/same/0.75/L,own_side+centred,"[[2, (237, 124, 289, 177), 'thin_own_side']]",[]
+scene/HOME hand masks/00396/edge/0.25/L,own_side,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (296, 121, 348, 176)]]"
+scene/HOME hand masks/00396/edge/0.25/L,own_side+centred,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (296, 121, 348, 176)]]"
+scene/HOME hand masks/00398/edge/0.5/L,own_side,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (303, 121, 354, 176)]]"
+scene/HOME hand masks/00398/edge/0.5/L,own_side+centred,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (303, 121, 354, 176)]]"
+scene/HOME hand masks/00400/edge/0.75/L,own_side,"[[1, (289, 122, 340, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00400/edge/0.75/L,own_side+centred,"[[1, (289, 122, 340, 175), 'thin_own_side']]",[]
+scene/HOME hand masks/00402/slant/0.25/L+,own_side,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (294, 121, 345, 176)]]"
+scene/HOME hand masks/00402/slant/0.25/L+,own_side+centred,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (294, 121, 345, 176)]]"
+scene/HOME hand masks/00403/slant/0.25/L-,own_side,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (294, 121, 346, 176)]]"
+scene/HOME hand masks/00403/slant/0.25/L-,own_side+centred,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (294, 121, 346, 176)]]"
+scene/HOME hand masks/00407/slant/0.5/L-,own_side,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (300, 121, 352, 176)]]"
+scene/HOME hand masks/00407/slant/0.5/L-,own_side+centred,"[[1, (289, 121, 340, 176), 'own_side']]","[[1, (300, 121, 352, 176)]]"
+scene/HOME hand masks/00410/slant/0.75/L+,own_side,"[[1, (289, 123, 340, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00410/slant/0.75/L+,own_side+centred,"[[1, (289, 123, 340, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00411/slant/0.75/L-,own_side,"[[1, (289, 125, 340, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00411/slant/0.75/L-,own_side+centred,"[[1, (289, 125, 340, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00412/slant/0.75/R+,own_side,"[[1, (292, 123, 343, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00412/slant/0.75/R+,own_side+centred,"[[1, (292, 123, 343, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00413/slant/0.75/R-,own_side,"[[1, (292, 122, 343, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00413/slant/0.75/R-,own_side+centred,"[[1, (292, 122, 343, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00414/both/0.25/,own_side,[],"[[1, (291, 121, 343, 176)]]"
+scene/HOME hand masks/00415/both/0.5/,own_side,[],"[[1, (291, 121, 343, 176)]]"
+scene/HOME hand masks/00488/slant/0.75/L+,own_side,"[[1, (369, 121, 418, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00488/slant/0.75/L+,own_side+centred,"[[1, (369, 121, 418, 169), 'thin_own_side']]",[]
+scene/HOME hand masks/00489/slant/0.75/L-,own_side,"[[1, (369, 122, 418, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00489/slant/0.75/L-,own_side+centred,"[[1, (369, 122, 418, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00490/slant/0.75/R+,own_side,"[[1, (368, 123, 417, 173), 'thin_own_side']]",[]
+scene/HOME hand masks/00490/slant/0.75/R+,own_side+centred,"[[1, (368, 123, 417, 173), 'thin_own_side']]",[]
+scene/HOME hand masks/00491/slant/0.75/R-,own_side,"[[1, (368, 121, 417, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00491/slant/0.75/R-,own_side+centred,"[[1, (368, 121, 417, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00492/both/0.25/,own_side,[],"[[1, (368, 120, 418, 173)]]"
+scene/HOME hand masks/00493/both/0.5/,own_side,[],"[[1, (368, 120, 418, 173)]]"
+scene/HOME hand masks/00529/barrel_low/same/0.75/L,own_side,"[[1, (369, 120, 418, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00529/barrel_low/same/0.75/L,own_side+centred,"[[1, (369, 120, 418, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00552/edge/0.25/L,own_side,"[[2, (420, 120, 471, 175), 'own_side']]","[[2, (426, 120, 477, 175)]]"
+scene/HOME hand masks/00552/edge/0.25/L,own_side+centred,"[[2, (420, 120, 471, 175), 'own_side']]","[[2, (426, 120, 477, 175)]]"
+scene/HOME hand masks/00554/edge/0.5/L,own_side,"[[2, (420, 120, 471, 175), 'own_side']]","[[2, (432, 120, 484, 175)]]"
+scene/HOME hand masks/00554/edge/0.5/L,own_side+centred,"[[2, (420, 120, 471, 175), 'own_side']]","[[2, (432, 120, 484, 175)]]"
+scene/HOME hand masks/00556/edge/0.75/L,own_side,"[[2, (419, 121, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00556/edge/0.75/L,own_side+centred,"[[2, (419, 121, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00563/slant/0.5/L-,own_side,"[[2, (419, 121, 471, 175), 'own_side']]","[[2, (430, 121, 481, 175)]]"
+scene/HOME hand masks/00563/slant/0.5/L-,own_side+centred,"[[2, (419, 121, 471, 175), 'own_side']]","[[2, (430, 121, 481, 175)]]"
+scene/HOME hand masks/00567/slant/0.75/L-,own_side,"[[2, (419, 122, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00567/slant/0.75/L-,own_side+centred,"[[2, (419, 122, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00568/slant/0.75/R+,own_side,"[[2, (419, 123, 469, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00568/slant/0.75/R+,own_side+centred,"[[2, (419, 123, 469, 172), 'thin_own_side']]",[]
+scene/HOME hand masks/00569/slant/0.75/R-,own_side,"[[2, (419, 121, 469, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00569/slant/0.75/R-,own_side+centred,"[[2, (419, 121, 469, 171), 'thin_own_side']]",[]
+scene/HOME hand masks/00570/both/0.25/,own_side,[],"[[2, (419, 120, 471, 175)]]"
+scene/HOME hand masks/00571/both/0.5/,own_side,[],"[[2, (419, 120, 471, 175)]]"
+scene/HOME hand masks/00580/post/0.5/,own_side,"[[2, (419, 121, 471, 174), 'thin_own_side']]","[[2, (419, 121, 469, 172)]]"
+scene/HOME hand masks/00580/post/0.5/,own_side+centred,"[[2, (419, 121, 471, 174), 'thin_own_side']]","[[2, (419, 121, 469, 172)]]"
+scene/HOME hand masks/00607/barrel_low/same/0.75/L,own_side,"[[2, (419, 121, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00607/barrel_low/same/0.75/L,own_side+centred,"[[2, (419, 121, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00616/block/same/0.75/L,own_side,"[[2, (419, 121, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00616/block/same/0.75/L,own_side+centred,"[[2, (419, 121, 471, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00630/edge/0.25/L,own_side,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (318, 108, 351, 137)]]"
+scene/HOME hand masks/00630/edge/0.25/L,own_side+centred,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (318, 108, 351, 137)]]"
+scene/HOME hand masks/00631/edge/0.25/R,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (312, 108, 345, 137)]]"
+scene/HOME hand masks/00631/edge/0.25/R,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (312, 108, 345, 137)]]"
+scene/HOME hand masks/00632/edge/0.5/L,own_side,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (322, 108, 354, 137)]]"
+scene/HOME hand masks/00632/edge/0.5/L,own_side+centred,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (322, 108, 354, 137)]]"
+scene/HOME hand masks/00633/edge/0.5/R,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (309, 108, 341, 137)]]"
+scene/HOME hand masks/00633/edge/0.5/R,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (309, 108, 341, 137)]]"
+scene/HOME hand masks/00634/edge/0.75/L,own_side,"[[1, (313, 108, 345, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00634/edge/0.75/L,own_side+centred,"[[1, (313, 108, 345, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00635/edge/0.75/R,own_side,"[[1, (318, 108, 350, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00635/edge/0.75/R,own_side+centred,"[[1, (318, 108, 350, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00636/slant/0.25/L+,own_side,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (317, 108, 349, 137)]]"
+scene/HOME hand masks/00636/slant/0.25/L+,own_side+centred,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (317, 108, 349, 137)]]"
+scene/HOME hand masks/00638/slant/0.25/R+,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (314, 108, 346, 137)]]"
+scene/HOME hand masks/00638/slant/0.25/R+,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (314, 108, 346, 137)]]"
+scene/HOME hand masks/00639/slant/0.25/R-,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (314, 108, 347, 137)]]"
+scene/HOME hand masks/00639/slant/0.25/R-,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (314, 108, 347, 137)]]"
+scene/HOME hand masks/00640/slant/0.5/L+,own_side,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (320, 108, 353, 137)]]"
+scene/HOME hand masks/00640/slant/0.5/L+,own_side+centred,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (320, 108, 353, 137)]]"
+scene/HOME hand masks/00641/slant/0.5/L-,own_side,"[[1, (313, 108, 345, 137), 'own_side']]",[]
+scene/HOME hand masks/00641/slant/0.5/L-,own_side+centred,"[[1, (313, 108, 345, 137), 'own_side']]",[]
+scene/HOME hand masks/00642/slant/0.5/R+,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (310, 108, 343, 137)]]"
+scene/HOME hand masks/00642/slant/0.5/R+,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (310, 108, 343, 137)]]"
+scene/HOME hand masks/00643/slant/0.5/R-,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (311, 108, 343, 137)]]"
+scene/HOME hand masks/00643/slant/0.5/R-,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (311, 108, 343, 137)]]"
+scene/HOME hand masks/00644/slant/0.75/L+,own_side,"[[1, (313, 108, 345, 135), 'thin_own_side']]",[]
+scene/HOME hand masks/00644/slant/0.75/L+,own_side+centred,"[[1, (313, 108, 345, 135), 'thin_own_side']]",[]
+scene/HOME hand masks/00647/slant/0.75/R-,own_side,"[[1, (318, 108, 350, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00647/slant/0.75/R-,own_side+centred,"[[1, (318, 108, 350, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00648/both/0.25/,own_side,[],"[[1, (315, 108, 348, 137)]]"
+scene/HOME hand masks/00649/both/0.5/,own_side,[],"[[1, (315, 108, 348, 136)]]"
+scene/HOME hand masks/00658/post/0.5/,own_side,"[[1, (318, 108, 350, 137), 'thin_own_side']]","[[1, (318, 108, 345, 137)]]"
+scene/HOME hand masks/00658/post/0.5/,own_side+centred,"[[1, (318, 108, 350, 137), 'thin_own_side']]","[[1, (318, 108, 345, 137)]]"
+scene/HOME hand masks/00682/barrel_low/same/0.25/R,own_side,"[[1, (330, 108, 370, 149), 'own_side']]","[[1, (335, 108, 376, 149)]]"
+scene/HOME hand masks/00682/barrel_low/same/0.25/R,own_side+centred,"[[1, (330, 108, 370, 149), 'own_side']]","[[1, (335, 108, 376, 149)]]"
+scene/HOME hand masks/00684/barrel_low/same/0.5/R,own_side,"[[1, (323, 108, 363, 149), 'own_side']]","[[1, (328, 108, 369, 149)]]"
+scene/HOME hand masks/00684/barrel_low/same/0.5/R,own_side+centred,"[[1, (323, 108, 363, 149), 'own_side']]","[[1, (328, 108, 369, 149)]]"
+scene/HOME hand masks/00685/barrel_low/same/0.75/L,own_side,"[[1, (306, 108, 346, 149), 'own_side']]","[[1, (300, 108, 341, 149)], [1, (313, 108, 345, 139)]]"
+scene/HOME hand masks/00685/barrel_low/same/0.75/L,own_side+centred,"[[1, (306, 108, 346, 149), 'own_side']]","[[1, (300, 108, 341, 149)], [1, (313, 108, 345, 139)]]"
+scene/HOME hand masks/00686/barrel_low/same/0.75/R,own_side,"[[1, (315, 108, 355, 149), 'own_side']]","[[1, (320, 108, 361, 149)]]"
+scene/HOME hand masks/00686/barrel_low/same/0.75/R,own_side+centred,"[[1, (315, 108, 355, 149), 'own_side']]","[[1, (320, 108, 361, 149)]]"
+scene/HOME hand masks/00696/block/other/0.25/L,own_side,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (316, 108, 349, 137)]]"
+scene/HOME hand masks/00696/block/other/0.25/L,own_side+centred,"[[1, (313, 108, 345, 137), 'own_side']]","[[1, (316, 108, 349, 137)]]"
+scene/HOME hand masks/00697/block/other/0.25/R,own_side,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (314, 108, 347, 137)]]"
+scene/HOME hand masks/00697/block/other/0.25/R,own_side+centred,"[[1, (318, 108, 350, 137), 'own_side']]","[[1, (314, 108, 347, 137)]]"
+scene/HOME hand masks/00700/block/other/0.75/L,own_side,"[[1, (313, 108, 345, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00700/block/other/0.75/L,own_side+centred,"[[1, (313, 108, 345, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00701/block/other/0.75/R,own_side,"[[1, (318, 108, 350, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00701/block/other/0.75/R,own_side+centred,"[[1, (318, 108, 350, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00713/edge/0.75/R,own_side,"[[1, (334, 106, 366, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00713/edge/0.75/R,own_side+centred,"[[1, (334, 106, 366, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00722/slant/0.75/L+,own_side,"[[1, (331, 106, 363, 134), 'thin_own_side']]",[]
+scene/HOME hand masks/00722/slant/0.75/L+,own_side+centred,"[[1, (331, 106, 363, 134), 'thin_own_side']]",[]
+scene/HOME hand masks/00723/slant/0.75/L-,own_side,"[[1, (331, 107, 363, 136), 'thin_own_side']]",[]
+scene/HOME hand masks/00723/slant/0.75/L-,own_side+centred,"[[1, (331, 107, 363, 136), 'thin_own_side']]",[]
+scene/HOME hand masks/00724/slant/0.75/R+,own_side,"[[1, (334, 107, 366, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00724/slant/0.75/R+,own_side+centred,"[[1, (334, 107, 366, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00725/slant/0.75/R-,own_side,"[[1, (334, 106, 366, 136), 'thin_own_side']]",[]
+scene/HOME hand masks/00725/slant/0.75/R-,own_side+centred,"[[1, (334, 106, 366, 136), 'thin_own_side']]",[]
+scene/HOME hand masks/00726/both/0.25/,own_side,[],"[[1, (332, 106, 364, 137)]]"
+scene/HOME hand masks/00727/both/0.5/,own_side,[],"[[1, (332, 106, 364, 137)]]"
+scene/HOME hand masks/00736/post/0.5/,own_side,"[[1, (334, 106, 366, 137), 'thin_own_side']]","[[1, (331, 106, 363, 137)]]"
+scene/HOME hand masks/00736/post/0.5/,own_side+centred,"[[1, (334, 106, 366, 137), 'thin_own_side']]","[[1, (331, 106, 363, 137)]]"
+scene/HOME hand masks/00743/barrel_side/other/0.75/R,own_side,"[[1, (334, 106, 366, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00743/barrel_side/other/0.75/R,own_side+centred,"[[1, (334, 106, 366, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00786/edge/0.25/L,own_side,"[[2, (431, 108, 464, 139), 'own_side']]","[[2, (436, 108, 470, 139)]]"
+scene/HOME hand masks/00786/edge/0.25/L,own_side+centred,"[[2, (431, 108, 464, 139), 'own_side']]","[[2, (436, 108, 470, 139)]]"
+scene/HOME hand masks/00788/edge/0.5/L,own_side,"[[2, (431, 108, 464, 139), 'own_side']]",[]
+scene/HOME hand masks/00788/edge/0.5/L,own_side+centred,"[[2, (431, 108, 464, 139), 'own_side']]",[]
+scene/HOME hand masks/00790/edge/0.75/L,own_side,"[[2, (431, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00790/edge/0.75/L,own_side+centred,"[[2, (431, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00792/slant/0.25/L+,own_side,"[[2, (431, 108, 464, 139), 'own_side']]","[[2, (435, 108, 468, 139)]]"
+scene/HOME hand masks/00792/slant/0.25/L+,own_side+centred,"[[2, (431, 108, 464, 139), 'own_side']]","[[2, (435, 108, 468, 139)]]"
+scene/HOME hand masks/00793/slant/0.25/L-,own_side,"[[2, (431, 108, 464, 139), 'own_side']]","[[2, (435, 108, 468, 139)]]"
+scene/HOME hand masks/00793/slant/0.25/L-,own_side+centred,"[[2, (431, 108, 464, 139), 'own_side']]","[[2, (435, 108, 468, 139)]]"
+scene/HOME hand masks/00796/slant/0.5/L+,own_side,"[[2, (431, 108, 464, 139), 'own_side']]",[]
+scene/HOME hand masks/00796/slant/0.5/L+,own_side+centred,"[[2, (431, 108, 464, 139), 'own_side']]",[]
+scene/HOME hand masks/00797/slant/0.5/L-,own_side,"[[2, (431, 108, 464, 139), 'own_side']]",[]
+scene/HOME hand masks/00797/slant/0.5/L-,own_side+centred,"[[2, (431, 108, 464, 139), 'own_side']]",[]
+scene/HOME hand masks/00802/slant/0.75/R+,own_side,"[[2, (435, 110, 468, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00802/slant/0.75/R+,own_side+centred,"[[2, (435, 110, 468, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00803/slant/0.75/R-,own_side,"[[2, (435, 108, 468, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00803/slant/0.75/R-,own_side+centred,"[[2, (435, 108, 468, 137), 'thin_own_side']]",[]
+scene/HOME hand masks/00805/both/0.5/,own_side,[],"[[2, (434, 108, 467, 139)]]"
+scene/HOME hand masks/00818/barrel_side/other/0.5/L,own_side,"[[2, (430, 108, 464, 139), 'own_side']]","[[2, (439, 108, 473, 139)]]"
+scene/HOME hand masks/00818/barrel_side/other/0.5/L,own_side+centred,"[[2, (430, 108, 464, 139), 'own_side']]","[[2, (439, 108, 473, 139)]]"
+scene/HOME hand masks/00819/barrel_side/other/0.5/R,own_side,"[[2, (435, 108, 469, 139), 'own_side']]","[[2, (428, 108, 462, 139)]]"
+scene/HOME hand masks/00819/barrel_side/other/0.5/R,own_side+centred,"[[2, (435, 108, 469, 139), 'own_side']]","[[2, (428, 108, 462, 139)]]"
+scene/HOME hand masks/00820/barrel_side/other/0.75/L,own_side,"[[2, (431, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00820/barrel_side/other/0.75/L,own_side+centred,"[[2, (431, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00826/barrel_low/other/0.75/L,own_side,"[[2, (432, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00826/barrel_low/other/0.75/L,own_side+centred,"[[2, (432, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00827/barrel_low/other/0.75/R,own_side,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00827/barrel_low/other/0.75/R,own_side+centred,"[[2, (435, 108, 467, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00844/barrel_front/same/0.5/,own_side,[],"[[1, (429, 112, 471, 160)]]"
+scene/HOME hand masks/00856/block/other/0.75/L,own_side,"[[2, (431, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00856/block/other/0.75/L,own_side+centred,"[[2, (431, 108, 464, 138), 'thin_own_side']]",[]
+scene/HOME hand masks/00869/edge/0.75/R,own_side,"[[1, (240, 122, 291, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00869/edge/0.75/R,own_side+centred,"[[1, (240, 122, 291, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00878/slant/0.75/L+,own_side,"[[1, (238, 122, 289, 170), 'thin_own_side']]",[]
+scene/HOME hand masks/00878/slant/0.75/L+,own_side+centred,"[[1, (238, 122, 289, 170), 'thin_own_side']]",[]
+scene/HOME hand masks/00879/slant/0.75/L-,own_side,"[[1, (238, 124, 289, 173), 'thin_own_side']]",[]
+scene/HOME hand masks/00879/slant/0.75/L-,own_side+centred,"[[1, (238, 124, 289, 173), 'thin_own_side']]",[]
+scene/HOME hand masks/00880/slant/0.75/R+,own_side,"[[1, (240, 123, 291, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00880/slant/0.75/R+,own_side+centred,"[[1, (240, 123, 291, 174), 'thin_own_side']]",[]
+scene/HOME hand masks/00881/slant/0.75/R-,own_side,"[[1, (240, 123, 291, 173), 'thin_own_side']]",[]
+scene/HOME hand masks/00881/slant/0.75/R-,own_side+centred,"[[1, (240, 123, 291, 173), 'thin_own_side']]",[]
+scene/HOME hand masks/00882/both/0.25/,own_side,[],"[[1, (239, 122, 290, 174)]]"
+scene/HOME hand masks/00883/both/0.5/,own_side,[],"[[1, (239, 122, 290, 174)]]"
+scene/HOME hand masks/00892/post/0.5/,own_side,"[[1, (240, 122, 291, 174), 'thin_own_side']]","[[1, (238, 122, 289, 173)]]"
+scene/HOME hand masks/00892/post/0.5/,own_side+centred,"[[1, (240, 122, 291, 174), 'thin_own_side']]","[[1, (238, 122, 289, 173)]]"

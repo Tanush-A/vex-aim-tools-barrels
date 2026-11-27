@@ -1,0 +1,19 @@
+frame,mode,what,color,box,rule,state,labelled,truth
+4A8B_lampcool6_ottoman_occl_02,own_side,new box,orange,"[200, 134, 260, 188]",thin_own_side,off,1,"[[225, 125, 286, 192]]"
+4A8B_lampcool6_ottoman_occl_02,own_side+centred,new box,orange,"[200, 134, 260, 188]",thin_own_side,off,1,"[[225, 125, 286, 192]]"
+4A8B_lampmid6_glass_clutter_01,own_side,box gone,orange,"[554, 117, 604, 171]",centred,nothing,1,[]
+4A8B_lampwarm6_glass_clutter_01,own_side,new box,orange,"[550, 117, 599, 172]",own_side,second,1,"[[520, 118, 579, 169]]"
+4A8B_lampwarm6_glass_clutter_01,own_side,box gone,orange,"[555, 117, 605, 172]",centred,nothing,1,[]
+4A8B_lampwarm6_glass_clutter_01,own_side+centred,new box,orange,"[550, 117, 599, 172]",own_side,second,1,"[[520, 118, 579, 169]]"
+4A8B_lampwarm6_glass_clutter_01,own_side+centred,box gone,orange,"[555, 117, 605, 172]",centred,nothing,1,[]
+4A8B_lampwarm6_glass_occl_02,own_side,new box,orange,"[584, 123, 635, 167]",thin_own_side,nothing,1,[]
+4A8B_lampwarm6_glass_occl_02,own_side+centred,new box,orange,"[584, 123, 635, 167]",thin_own_side,nothing,1,[]
+4A8B_overheaddim_palewood_occl_02,own_side,new box,orange,"[340, 115, 384, 160]",own_side,found,1,"[[344, 115, 388, 162]]"
+4A8B_overheaddim_palewood_occl_02,own_side+centred,new box,orange,"[340, 115, 384, 160]",own_side,found,1,"[[344, 115, 388, 162]]"
+4A8B_window_abpwhite_occlx_02,own_side,new box,orange,"[91, 122, 140, 171]",thin_own_side,found,1,"[[92, 119, 143, 170]]"
+4A8B_window_abpwhite_occlx_02,own_side+centred,new box,orange,"[91, 122, 140, 171]",thin_own_side,found,1,"[[92, 119, 143, 170]]"
+4A8B_window_abpwhite_occlx_03,own_side,new box,orange,"[101, 120, 151, 171]",own_side,found,1,"[[99, 120, 152, 172]]"
+4A8B_window_abpwhite_occlx_03,own_side+centred,new box,orange,"[101, 120, 151, 171]",own_side,found,1,"[[99, 120, 152, 172]]"
+4A8B_window_black_occl_03,own_side,new box,blue,"[272, 151, 373, 270]",thin_own_side,found,1,"[[270, 157, 376, 275]]"
+4A8B_window_black_occl_03,own_side+centred,new box,blue,"[272, 151, 373, 270]",thin_own_side,found,1,"[[270, 157, 376, 275]]"
+4A8B_window_light_far_02,own_side,box gone,orange,"[332, 107, 363, 135]",centred,found,1,"[[333, 106, 363, 137]]"
