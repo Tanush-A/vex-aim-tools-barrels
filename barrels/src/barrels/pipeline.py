@@ -18,6 +18,9 @@ training pixels. Two color models (``Config.color_model``):
 No image correction anywhere: pixel values are never rescaled; the priors compare pixels to
 band statistics and the boxes are fixed thresholds. Frames with no barrels need no special
 handling because the boxes come from the training fold, never from the frame itself.
+
+The whole path, photo in, boxes out, is ``detect_frame`` at the end of this file (2026-11-27): this color step, then
+``detector.detect``, then ``contrast.add_boxes``. Everything that detects a frame calls it.
 """
 from __future__ import annotations
 
@@ -373,3 +376,44 @@ def segment(frame: Frame, model: Model) -> tuple[np.ndarray, dict]:
 
 def with_overrides(cfg: Config, **kw) -> Config:
     return replace(cfg, **kw)
+
+
+# ---------------------------------------------------------------- the whole path: photo in, boxes out
+
+_DEFAULT_MODEL: Model | None = None
+
+
+def default_model() -> Model:
+    """The adopted color model (``worldmap_bridge.DEFAULT_MODEL``, hs config eb863d84), read once and kept."""
+    global _DEFAULT_MODEL
+    if _DEFAULT_MODEL is None:
+        from . import worldmap_bridge as wb
+        _DEFAULT_MODEL = wb.BarrelDetectorHook.load(wb.DEFAULT_MODEL).model
+    return _DEFAULT_MODEL
+
+
+def detect_frame(frame: Frame, model: Model | None = None, cam=None, det_cfg=None, *, contrast: bool = True,
+                 mask: np.ndarray | None = None, log: list | None = None) -> list:
+    """What runs by default, photo in, boxes out (2026-11-27): the one function every frame goes through (the live
+    hook, ``tools/detect_image.py``, ``report.py`` and so ``--gate``, ``judge.py``).
+
+    1. the color step: ``segment(frame, model)`` -> class mask (``model``: None = the adopted model);
+    2. the detector: ``detector.detect(mask, det_cfg, cam)`` -> one Barrel per barrel (``det_cfg``: None = ``DetConfig()``;
+       ``cam``: None = ``AIM_4A8B6118_BOXFIT``);
+    3. the stripe by contrast: ``contrast.add_boxes`` adds the barrels the fixed colors missed, found from a stripe
+       that is bluer (or redder) than the body above and below it, painted in that barrel's own colors.
+
+    Returns the boxes, left to right. ``mask``: the class mask of step 1 when the caller has it already (the live hook
+    keeps it for the seg view). ``contrast=False`` stops after step 2: the default until 2026-11-27, kept only so that
+    the two can be compared (the planned test look, a judge against the previous default). ``log``: pass a list to get
+    the detector's reason log and one line per contrast candidate; it never changes the answer. No pixel is changed."""
+    from . import contrast as cn, detector as det, geometry as geo
+    model = model if model is not None else default_model()
+    cam = cam if cam is not None else geo.AIM_4A8B6118_BOXFIT
+    det_cfg = det_cfg if det_cfg is not None else det.DetConfig()
+    if mask is None:
+        mask = segment(frame, model)[0]
+    boxes = det.detect(mask, det_cfg, cam, log)
+    if not contrast:
+        return boxes
+    return cn.add_boxes(frame.rgb, mask, boxes, cam, det_cfg, log=log)

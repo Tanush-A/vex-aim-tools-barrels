@@ -2,6 +2,8 @@
 
 **Now (2026-11-27, after the collapse, its second pass, and the seam reading).** This is the map of `barrels/src/barrels/detector.py`. The detector has **no on/off switches**. It has 18 numbers (`DetConfig`) and ten stages, each one function. The collapse drew exactly the boxes the detector drew before it: 6152 boxes on 5435 masks, box for box (section 5). Since then one rule was adopted: **the second reading at the seams** (stage 2, checks 1 and 3; from the experiment `2026-11-26_slack`, rule D). It changes the boxes of 54 of the 5435 masks (section 5, last part). *Branch `wip/adopt-slack`: the walkthrough is owed, awaiting Tanush's "understood".*
 
+**Also 2026-11-27: stage 11, the stripe by contrast** (`src/barrels/contrast.py`, `contrast.add_boxes`; from the experiment `2026-11-26_contrast`). It is not inside `detect(mask)`: it runs after it, on the picture itself, in `pipeline.detect_frame` (the photo-in, boxes-out path every caller uses). It finds a stripe that is bluer (or redder) than the body above **and** below it, paints that barrel in its own colors, runs `detect` again on the painted mask and **adds** the boxes that are on no box of the first run. `detect(mask)` itself is unchanged. Its checks and its 23 numbers: section 3, "Stage 11", and section 4.4. On the ordinary train frames: 135.4 → 156.6 of 172 placements, 63 barrels gained, none lost, no box on an empty frame (section 5, last part).
+
 - Every name in `code font` is a function or a field of that file. There are no line numbers: search for the name.
 - W = the width, H = the height, "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in question.
 - "edge tolerance" = 15 % of the height, at least 4 px (`edge_tol`).
@@ -26,8 +28,9 @@ The color step (`pipeline.py`, not the detector) makes every pixel orange, blue 
 | 8 | Half stripes | `half_stripes` | a stripe with body on one side only is a barrel hidden from above or from below | adds; may **replace** a stage-3 box |
 | 9 | Verify, pass 2 | `drop_seen_through` | the stage-5 check again, on every box | deletes |
 | 10 | Verify, readings | `drop_single_reading` | a box placed from a guessed side must have a seen top, bottom or full width | deletes |
+| 11 | Stripe by contrast (after `detect`, in `pipeline.detect_frame`) | `contrast.add_boxes` | on the picture: a band bluer (or redder) than the body above and below it, at the size its row predicts; that barrel painted in its own colors; `detect` again; its new boxes added | **adds** only; never moves or drops a box of 1–10 |
 
-Then the boxes are sorted left to right and returned. `detect` is these ten lines and nothing else.
+Then the boxes are sorted left to right and returned. `detect` is the ten lines of stages 1–10 and nothing else. Stage 11 is not inside `detect`: `detect(mask)` is the mask-to-boxes stage, and stage 11 needs the picture.
 
 Three things to keep in mind:
 
@@ -320,6 +323,41 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 
 *A book lying in front of a barrel, or something hanging over it.* A half stripe always shows its whole width. No side is guessed.
 
+### Stage 11 — The stripe by contrast (`contrast.add_boxes`, in `pipeline.detect_frame`; 2026-11-27)
+
+In: the picture (RGB), the fixed colors' class mask, and the boxes of stages 1–10. Out: those boxes, plus the ones this stage adds (source "contrast"). It never moves or drops a box. It is for the barrel the fixed colors miss: under a warm or dim lamp one of a barrel's two colors falls outside its fixed range, and stages 1–10, which need both, see nothing. The question it asks does not need the colors: *is this band bluer (or redder) than what is right above it AND right below it, at the size its row predicts?* A change of light shifts all three bands alike, and the difference cancels it.
+
+```
+├─ 0. the channel, per pixel: log((R + 8) / (B + 8)); a pixel darker than 25 or with a channel at 250 or more is left out
+├─ 1. for every row taken as a stripe's middle, the geometry gives that barrel's stripe rows, body rows and width
+│       (rows above row 50, a stripe under 4 px, a barrel under 16 px wide: not searched)
+│     three bands in each column: the middle 0.6 of the stripe rows; above and below, starting 0.25 stripe heights
+│       out and 0.9 stripe heights tall (never past the barrel's own top and bottom); each band needs half its pixels usable
+├─ 2. the sandwich: the smaller of (above − stripe) and (below − stripe) when both have one sign, else 0.
+│       Positive = a band bluer than both: an ORANGE barrel's blue stripe. Negative = redder: a BLUE barrel's orange stripe
+├─ 3. a candidate: in at least half (0.5) of a window 0.8 W wide, the sandwich passes 0.5,
+│       AND its mean over the window (the strength) is at least 1.15                         no → nothing here
+│     strongest first, at most 20 a frame; its middle moved to the middle of its stripe (rows, then columns; touching
+│       barrels of one color share one long stripe: one slot per barrel); a weaker one inside a stronger one's box dropped
+├─ 4. its stripe point lies inside a box of stages 1–10                                   yes → "found_already": left alone
+├─ 5. its own colors: the body = the median of its two body bands, the stripe = its stripe band (middle 60 % of the width),
+│       as (log R/G, log B/G, 0.5 × log brightness); d = how far apart they are               a band unreadable → "unreadable"
+├─ 6. the orange part reads reddish at all: channel ≥ 0.8 (an orange barrel's body, a blue barrel's stripe)  no → "orange_min"
+├─ 7. the barrel ends where its row says: what is right above the top differs from the body by ≥ 0.15 d   no → "extent_top"
+│                                            ... and what is right below the bottom                       no → "extent_bottom"
+├─ 8. paint, inside the predicted box grown 8 %, only where the fixed colors painted nothing: a pixel is body when the body
+│       color is the nearest of (body, stripe, the things around the box that differ from both by ≥ 0.35 d) and nearer than
+│       0.6 d; stripe likewise, and only within 0.75 stripe heights of the stripe rows
+└─ 9. if anything was painted: detect(painted mask) with the same DetConfig; each of its boxes that is on NO box of
+        stages 1–10 (half of the smaller box inside the other, `counting.is_on`) is added. The rest of its boxes are dropped.
+```
+
+*Worked example, `4A8B_lampmid6_bathtile_core_01` (train, bathroom floor, mid lamp): the fixed colors find none of its four barrels.* Four candidates, strengths 2.07, 1.81, 1.75, 1.69 (all above 1.15); the orange part reads 1.66 to 1.81 (above 0.8); above and below the boxes 0.39 to 0.74 d (above 0.15). All four are painted (162 to 4206 pixels), stages 1–10 box all four on the painted mask, and all four are added. Against the hand boxes all four are found.
+
+*Why add and not merge.* Painting into the fixed mask and taking the second run's whole answer failed its judge (experiment C2): second boxes on barrels already found, and boxes on the glass table's jar. *Why the two checks.* Without them the stage draws boxes on clutter: the blue tin's "orange body" is not reddish (6), and a band of color that goes on past the predicted top or bottom is not a barrel's end (7). The strength floor 1.15 is the sharpest number: a red jar with a teal label reads 1.09.
+
+*What it cannot do.* A barrel with no visible stripe (close-ups whose stripe is below the frame, tipped barrels). Very dark scenes (the black ottoman: the pixels are under 25). A thing that really is orange with a blue band at barrel size (the jar on the glass table under the warm lamp). A barrel inside a wrong box of stages 1–10 is left alone (step 4).
+
 ---
 
 ## 4. Every number that is left
@@ -396,6 +434,38 @@ The collapse put each idea in one helper but did **not** make the numbers the sa
 | "the seen edge agrees" | 15 %, at least 4 px (the detector); 10 %, at least 3 px (the scorer, `eval_det.py`) |
 | "the barrel is seen whole" | the stripe 0.8 W wide (`place_sides`; at the seams with the eaten pixels given back); the body's top and bottom where the row puts them and one side ending with the stripe (`rest_of_barrel_agrees`); a full slice (`_full_slice`: top and bottom only) |
 
+### 4.4 `ContrastConfig`: the 23 numbers of stage 11, no switches
+
+The setting the experiment's fold rule picked on all eight places (`experiments/2026-11-26_contrast`, branch `wip/exp-contrast`). In the judged run each held-out place had its own pick from the other seven; five of eight picked exactly this, and the strength floor 1.15, the absolute check and the extent check were picked in every fold that used them (the other three folds added a check that is not in the code). "d" = how far apart this barrel's own body color and stripe color are.
+
+| name | value | what it means | where it is used |
+|---|---|---|---|
+| `offset` | 8 | log((R + 8) / (B + 8)): two nearly black values do not give a wild ratio | `channel` |
+| `v_min` | 25 | a pixel darker than this is left out of every band | `usable` |
+| `clip` | 250 | a pixel with a channel at or above this (glare) is left out | `usable` |
+| `band_valid` | 0.5 | a band counts when half its pixels are usable | `band_means` |
+| `core` | 0.6 | the stripe band = the middle 0.6 of the predicted stripe rows | `row_bands` |
+| `gap` | 0.25 | the body bands start this many stripe heights beyond the stripe ... | `row_bands` |
+| `body` | 0.9 | ... and are this many stripe heights tall | `row_bands` |
+| `margin` | 0.5 | a column passes when both body bands differ from the stripe band by more than this, one sign | `respond` |
+| `width_share` | 0.5 | at least this share of the window passes | `find` |
+| `window` | 0.8 | the window is this × W wide | `row_bands` (`half`) |
+| `strength_min` | 1.15 | the mean difference over the window is at least this | `find` |
+| `min_stripe_px` | 4 | rows whose stripe would be thinner are not searched (the same 4 px as the detector's `THINNEST_STRIPE_PX`, kept apart) | `row_bands` |
+| `min_width_px` | 16 | rows whose barrel would be narrower are not searched (= `DetConfig.min_width_px`) | `row_bands` |
+| `top_row` | 50 | no stripe point above the color step's row gate | `row_bands` |
+| `max_candidates` | 20 | at most this many candidates a frame, strongest first | `find` |
+| `orange_min` | 0.8 | the orange part reads at least this in the channel | `measure` ("orange_min") |
+| `extent` | 0.15 | above the top and below the bottom differ from the body by at least this × d | `measure` ("extent_top", "extent_bottom") |
+| `feat_offset` | 8 | the same offset in the own-color comparison | `features` |
+| `bright` | 0.5 | the weight of brightness against color there | `features` |
+| `box_slack` | 0.08 | the paint box = the predicted box grown by this share | `paint` |
+| `match` | 0.6 | a pixel is a color when nearer than this × d | `paint` |
+| `distinct` | 0.35 | a thing around the box counts as "something else" when this × d from both colors | `paint` |
+| `stripe_zone` | 0.75 | stripe paint only within this many stripe heights of the stripe rows | `paint` |
+
+Fixed in the code, not in `ContrastConfig`: the middle 60 % of the width for the own colors (`measure`), the four cells around the box (`measure`), 0.9 for "a flat top" when a candidate is moved to its stripe's middle (`_recentre_row`, `find`), 1.2 W for "one stripe or the shared stripe of touching barrels" (`_recentre`), the quarter width and tenth height by which a candidate's box swallows weaker ones (`find`). The experiment's other switches (an opponent channel; the checks "own colors apart", "one body", "a side differs") were not picked and are not in the code; they are on branch `wip/exp-contrast`.
+
 ---
 
 ## 5. What the collapse removed, and why it is safe
@@ -464,6 +534,16 @@ Rule D of the experiment `2026-11-26_slack` (`experiments/2026-11-26_slack/PRERE
 **The judge**, the adopted detector against `barrels` before it, fixed colors: NO CLEAR DIFFERENCE. 133.8 → 135.4 of 172 placements (211 → 214 per frame); 3 gained, 0 lost; boxes not on their barrel 1.9 → 1.9; empty frames 0 → 0. Eroded by one pixel the experiment measured 11 of the 40 lost barrels back (`results/2026-11-26_slack/round2/summary.md`).
 
 **Tests.** 955 before, 972 after: `tests/test_detector_seams.py` (17, the experiment's tests rewritten for the plain rule), and one test of `tests/test_detector_side.py` rewritten: a thin piece 0.6 of a barrel long, top and bottom where its row puts them and one side its own, is now read at the seams and boxed; the same piece with the body running on past both ends is not.
+
+### The stripe by contrast (2026-11-27): stage 11, after `detect`
+
+*Branch `wip/adopt-contrast`, Tanush's go 2026-11-27 ("we're go on adopting stripe by contrast").* The experiment `2026-11-26_contrast` (branch `wip/exp-contrast`) is plain code: `src/barrels/contrast.py`, with the numbers its fold rule picked on all eight places as the fixed defaults of `ContrastConfig` (section 4.4) and the experiment's switches gone. `pipeline.detect_frame` (the color step, `detect`, `contrast.add_boxes`) is the one path from a frame to boxes, and every caller uses it. **`detect(mask)` is not changed**: the collapse harness's 5435 masks give the boxes they gave.
+
+**The proof** (`experiments/2026-11-27_adopt_contrast/prove.py`, `results/2026-11-27_adopt_contrast/prove.md`). (A) On all 231 train frames the new default draws the same boxes, box for box, as the judged code (`candidate.py:detect_frame` with the experiment's own `contrast.py`, read from git): 392 boxes, 149 of them added by stage 11. (B) With the detector as it was when the experiment was judged (before the seam reading), the judge gives the experiment's in-sample numbers exactly: 133.80 → 156.97 of 172 placements, 211 → 278 per frame, boxes not on their barrel 1.93 → 2.43; bathroom / ottoman / gray table 13.5 / 10.7 / 15.0. (C) As it runs now, against the previous default: **PASS**, 135.38 → 156.63 (214 → 277 per frame), 63 barrels gained, 0 lost, boxes 1.93 → 2.43, no box on any empty frame. The two adopted rules meet on one frame only: on `lampmid6_ottoman_edge_01` the seam reading's box (on its barrel, off) now holds the stripe point, so stage 11 leaves that barrel alone where it would have found it (−0.33 of a placement). **The gate** (`tools/report.py --gate`, against the baseline of the seam reading): PASS; ABP white +1, bathroom cool +1, the other protected sets the same; outside them (information only) every lamp set gains (bathroom mid 3, mid 6, warm 6: 1 → 13 of 15 each; the parked orange wood 0–2 → 11–16 of 21), 4 sets get one more box that is not on its barrel, and Dave's office frames get 7 (his boxes group touching barrels: `results/2026-11-27_adopt_contrast/gate.md`). Baseline and margins re-measured after it (`experiments/2026-11-26_noise_floor/run.py`): found better above +1.00 placements (was +4.00), worse below −2.79 (was −9.42), boxes worse above +2.10 (was +1.85), every place and protected set at the one-unit floor. The noise floor is made of one-step moves of the color thresholds, and with stage 11 behind the color step those moves change far fewer barrels.
+
+**Time.** One thread, 154 ordinary frames: median 43 → 76 ms, 90th percentile 77 → 156 ms, at most 306 ms (`timing.md`). The second `detect` runs on 30 of the 154 frames.
+
+**Tests.** 972 before, 999 after: `tests/test_contrast.py` (27: the experiment's tests, ported, without the switches that are gone; the add step; `detect_frame`).
 
 ---
 

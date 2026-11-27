@@ -1,0 +1,40 @@
+{
+ "A": true,
+ "B": true,
+ "B_numbers": {
+  "baseline": [
+   133.8,
+   211,
+   1.93
+  ],
+  "candidate": [
+   156.97,
+   278,
+   2.43
+  ],
+  "verdict": "PASS",
+  "gained": 67,
+  "lost": 0,
+  "places": {
+   "home_bathtile": 13.5,
+   "home_ottoman": 10.7,
+   "abp_gray": 15.0
+  }
+ },
+ "C": true,
+ "C_numbers": {
+  "baseline": [
+   135.38,
+   214,
+   1.93
+  ],
+  "candidate": [
+   156.63,
+   277,
+   2.43
+  ],
+  "verdict": "PASS",
+  "gained": 63,
+  "lost": 0
+ }
+}

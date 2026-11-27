@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — how the pieces fit
 
-The code in one picture, then each layer. For *why* each step works, read `HOW-IT-WORKS-SHORT.md` (one page) and `HOW-IT-WORKS.md` (the long form); for the detector check by check, `DETECTOR-MAP.md`. State as of 2026-11-05.
+The code in one picture, then each layer. For *why* each step works, read `HOW-IT-WORKS-SHORT.md` (one page) and `HOW-IT-WORKS.md` (the long form); for the detector check by check, `DETECTOR-MAP.md`. State as of 2026-11-05; the stripe by contrast (stage 11, `contrast.py`) and the one photo-in, boxes-out function `pipeline.detect_frame` added 2026-11-27.
 
 ## 1. What happens to one image
 
@@ -18,7 +18,10 @@ flowchart LR
         S1["pieces: blobs of barrel color,<br/>cut to barrel width, bottom edge resolved"] --> S4["stripes: a band of one color sandwiched in the other.<br/>One box per stripe"] --> S3["close-ups, caps, pairs, half stripes;<br/>verify: drop a box read from a nearer barrel"]
     end
     GEO["2 · camera geometry — geometry.py<br/>row ↔ distance, barrel size per row"] <--> DET
-    DET --> BARRELS["list of Barrel<br/>color, box, flags, confidence"]
+    DET --> CN["3b · the stripe by contrast — contrast.py (2026-11-27)<br/>on the image: a band bluer / redder than above and below;<br/>that barrel painted in its own colors; detect again; new boxes ADDED"]
+    IMG -. the picture itself .-> CN
+    GEO <--> CN
+    CN --> BARRELS["list of Barrel<br/>color, box, flags, confidence"]
     BARRELS --> DRAW["detector.draw<br/>yellow = orange barrel, green = blue"] --> OUT["image with boxes"]
     BARRELS --> EVAL["4 · scoring — eval_det.py<br/>IoU ≥ 0.5 + bottom edge within 10 %"]
     GT["hand-drawn truth<br/>data/labels/*_boxes.json"] --> EVAL
@@ -28,7 +31,9 @@ flowchart LR
 The same thing in plain text:
 
 ```
- image ──► [1] segmentation ──► class mask ──► [3] detector ──► barrels ──► draw ──► image with boxes
+ image ──► [1] segmentation ──► class mask ──► [3] detector ──► [3b] contrast ──► barrels ──► draw ──► image with boxes
+   └──────────────────────── the picture itself ─────────────────────▲   contrast.py: adds the barrels the fixed colors missed
+ (all of 1 → 3b is one call: pipeline.detect_frame(frame))
  640×480    pipeline.py          0 / 1 / 2       detector.py       │                     (yellow / green)
             per-image gates +                        ▲             │
             two learned RGB boxes                    │             └──► [4] eval_det.py ◄── *_boxes.json (truth)
@@ -41,15 +46,15 @@ Numbers worth remembering: horizon row ≈ 76; a barrel at 20 cm is ≈ 51 px wi
 
 ## 2. The two front doors
 
-The chain above is one function call deep (`segment` then `detect`). Two programs call it:
+The chain above is one function call deep: `pipeline.detect_frame(frame)` (`segment`, then `detect`, then `contrast.add_boxes`; since 2026-11-27). Every caller uses it: the two programs below, `report.py` (and so `--gate`) and `judge.py`. Two programs call it:
 
 ```mermaid
 flowchart LR
     subgraph OFFLINE["offline — a photo"]
-        A1["tools/detect_image.py photo.png"] --> A2["io.load_image → BGR array"] --> CHAIN1["segment → detect → draw"] --> A3["results/detect_image/‹stem›_boxes.png<br/>+ one line per barrel"]
+        A1["tools/detect_image.py photo.png"] --> A2["io.load_image → BGR array"] --> CHAIN1["pipeline.detect_frame (segment → detect → contrast) → draw"] --> A3["results/detect_image/‹stem›_boxes.png<br/>+ one line per barrel"]
     end
     subgraph LIVE["live — the robot (built 2026-11-05)"]
-        B1["live/BarrelViewer.fsm<br/>(per frame, 1 s loop)"] --> B2["robot.camera_image<br/>640×480 RGB"] --> B3["worldmap_bridge.BarrelDetectorHook.view<br/>RGB→BGR · segment → detect → draw · BGR→RGB"] --> B4["imshow('barrels', …)<br/>Dave's PyQt window"]
+        B1["live/BarrelViewer.fsm<br/>(per frame, 1 s loop)"] --> B2["robot.camera_image<br/>640×480 RGB"] --> B3["worldmap_bridge.BarrelDetectorHook.view<br/>RGB→BGR · pipeline.detect_frame · draw · BGR→RGB"] --> B4["imshow('barrels', …)<br/>Dave's PyQt window"]
         B6["live/BarrelTracker.fsm<br/>(0.2 s loop)"] --> B2
         B3 -. on_image: this frame's barrels .-> B7["tracker.Tracker.update<br/>shown after 3 of the last 4 frames"] -. render .-> B4
         B5["tm boxes / seg / both · tm save / rec<br/>at the C› prompt"] -.switch view · save raw frames.-> B3
@@ -66,7 +71,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 
 | layer | file | what it is | the names to know |
 |---|---|---|---|
-| front end ★ | `pipeline.py` | the v1 color segmentation: gates + two RGB boxes; `fit` learns the boxes once, `segment` runs them | `Config`, `Frame.from_image`, `Model`, `effective_s_min`, `fit`, `segment` |
+| front end ★ | `pipeline.py` | the color segmentation (the hs model since 2026-11-09; v1 gates + RGB boxes kept): `fit` learns the boxes once, `segment` runs them; and `detect_frame`, the whole default path, photo in, boxes out (color step, detector, stripe by contrast; 2026-11-27) | `Config`, `Frame.from_image`, `Model`, `effective_s_min`, `fit`, `segment`, `detect_frame`, `default_model` |
 | front end | `priors.py` | the robust (median / MAD) color model used for the wall and table | `band_stats`, `reject_like` |
 | front end | `boxfit.py` | percentile RGB boxes and their diagnostics | `Box`, `fit_box`, `in_box`, `fullness`, `pca` |
 | front end | `adaptive.py` | the adaptive color rule (2026-11-23, **off** by default, `Config.hs_adapt`): per frame, a threshold moved along a line through the home point on one number of the frame's own histogram; the slope fit with every place weighted equally (`experiments/2026-11-24_adaptive`) | `Term`, `adapted_boxes`, `frame_thresholds`, `fit_slope`, `place_weights` |
@@ -75,6 +80,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | front end | `cleanup.py` | speck removal / opening / hole filling; **off** (tie, 2026-10-28) | `apply` |
 | geometry ★ | `geometry.py` | pinhole camera: row ↔ distance, the barrel's rows and width at any distance, presets | `CameraModel`, `barrel_rows`, `horizon_row`, `AIM_4A8B6118_BOXFIT` |
 | detector ★ | `detector.py` | ten stages in a fixed order, 18 numbers, no switches (collapsed 2026-11-26; guide: `DETECTOR-MAP.md`): pieces (blobs, count by width, bottom edge), stripes, one box per stripe (a partly seen stripe placed by what is seen, a side hidden only for a reason, else by the barrel's outline), close-ups, verify (a barrel cannot be seen through a nearer one; a guessed side needs a seen edge), caps (a top behind a found barrel), pairs (two slices behind a post), half stripes (body on one side only); `draw` | `DetConfig`, `detect`, `find_pieces`, `find_stripes`, `boxes_from_stripes`, `closeup_pieces`, `drop_seen_through`, `caps_behind`, `post_pairs`, `half_stripes`, `drop_single_reading`, `BarrelAt`, `Found`, `draw` |
+| detector ★ | `contrast.py` | stage 11, the stripe by contrast (adopted 2026-11-27; experiment `2026-11-26_contrast`): on the picture, a band bluer (or redder) than the body above and below it at the size its row predicts; that barrel's own colors painted where the fixed colors painted nothing; `detector.detect` again; its boxes on no found box are ADDED. 23 fixed numbers, no switches (`DETECTOR-MAP.md`, Stage 11 and 4.4) | `ContrastConfig`, `add_boxes`, `contrast_mask`, `respond`, `find`, `measure`, `paint`, `row_bands`, `channel` |
 | detector | `detect_types.py` | one detected barrel and its conversions (incl. the aivision dict the world map reads) | `Barrel`, `barrels_from_boxes` |
 | detector | `detect_cc.py` | the floor: one box per connected blob, never tuned | `detect`, `write_detections` |
 | scoring ★ | `eval_det.py` | box matching and metrics under the v1 and v2 rules; result tables | `evaluate_frame`, `match_best_first`, `aggregate`, `write_results`, `score` |

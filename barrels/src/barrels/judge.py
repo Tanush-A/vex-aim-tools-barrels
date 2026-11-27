@@ -122,10 +122,11 @@ def load_truth(stems, labels_dir=None) -> Truth:
 
 # ---------------------------------------------------------------- 2. detectors
 
-def model_detector(model=None, det_overrides: dict | None = None, cam=None, describe: str = "") -> Detector:
-    """A color model plus the rule detector as a ``detect_frame``. ``model``: None (the adopted model, what runs
-    today), a results ``config.json`` path, or a ``pipeline.Model``. ``det_overrides``: the ``DetConfig`` fields
-    changed from the default."""
+def model_detector(model=None, det_overrides: dict | None = None, cam=None, describe: str = "", contrast: bool = True) -> Detector:
+    """A color model plus what runs after it by default (``pipeline.detect_frame``: the rule detector, then the stripe
+    by contrast) as a ``detect_frame``. ``model``: None (the adopted model, what runs today), a results
+    ``config.json`` path, or a ``pipeline.Model``. ``det_overrides``: the ``DetConfig`` fields changed from the
+    default. ``contrast=False``: without the contrast stage, the default until 2026-11-27 (``previous_detector``)."""
     from . import detector as det, geometry as geo, pipeline as pl, worldmap_bridge as wb
     cam = cam or geo.AIM_4A8B6118_BOXFIT
     path = None
@@ -137,15 +138,22 @@ def model_detector(model=None, det_overrides: dict | None = None, cam=None, desc
     cfg = dataclasses.replace(det.DetConfig(), **(det_overrides or {}))
 
     def detect_frame(stem: str, frame) -> list:
-        return det.detect(pl.segment(frame, model)[0], cfg, cam)
+        return pl.detect_frame(frame, model, cam, cfg, contrast=contrast)
     ov = ", ".join(f"{k}={v}" for k, v in (det_overrides or {}).items()) or "defaults"
-    detect_frame.describe = describe or f"{f'{path.parent.name}/{path.name}' if path else 'a pipeline.Model'}; DetConfig {ov}"
+    detect_frame.describe = describe or (f"{f'{path.parent.name}/{path.name}' if path else 'a pipeline.Model'}; DetConfig {ov}"
+                                         + ("" if contrast else "; no contrast stage"))
     return detect_frame
 
 
 def fixed_detector() -> Detector:
-    """What runs today: the adopted color model and ``DetConfig()``."""
-    return model_detector(describe="today's default (the adopted color model, DetConfig defaults)")
+    """What runs today: ``pipeline.detect_frame`` with the adopted color model and ``DetConfig()`` (the color step, the
+    detector, the stripe by contrast)."""
+    return model_detector(describe="today's default (the adopted color model, DetConfig defaults, the stripe by contrast)")
+
+
+def previous_detector() -> Detector:
+    """The default until 2026-11-27: the adopted color model and ``DetConfig()``, without the contrast stage."""
+    return model_detector(describe="the default until 2026-11-27 (the adopted color model, DetConfig defaults, no contrast stage)", contrast=False)
 
 
 def leave_one_place_out(fit: Callable, train_stems: list[str], describe: str = "") -> Detector:
