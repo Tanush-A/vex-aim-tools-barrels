@@ -1,0 +1,39 @@
+{
+ "checks": {
+  "nearmiss": {
+   "frames": 231,
+   "frames_that_differ": []
+  },
+  "selfcal": {
+   "frames": 231,
+   "frames_that_differ": []
+  }
+ },
+ "in_the_judged_run": {
+  "nm_then_sc": {
+   "seconds": 112.58,
+   "frames": 231,
+   "ms_per_frame": 487.4
+  },
+  "sc_then_nm": {
+   "seconds": 111.39,
+   "frames": 231,
+   "ms_per_frame": 482.2
+  },
+  "mask_union": {
+   "seconds": 95.56,
+   "frames": 231,
+   "ms_per_frame": 413.7
+  },
+  "box_union": {
+   "seconds": 109.91,
+   "frames": 231,
+   "ms_per_frame": 475.8
+  },
+  "box_agree": {
+   "seconds": 109.69,
+   "frames": 231,
+   "ms_per_frame": 474.8
+  }
+ }
+}

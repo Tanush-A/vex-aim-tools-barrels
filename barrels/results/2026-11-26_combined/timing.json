@@ -1,0 +1,27 @@
+{
+ "fixed": {
+  "ms_per_frame": 47.1
+ },
+ "nearmiss": {
+  "ms_per_frame": 82.6
+ },
+ "selfcal": {
+  "ms_per_frame": 87.6
+ },
+ "nm_then_sc": {
+  "ms_per_frame": 162.1
+ },
+ "sc_then_nm": {
+  "ms_per_frame": 160.6
+ },
+ "mask_union": {
+  "ms_per_frame": 138.3
+ },
+ "box_union": {
+  "ms_per_frame": 160.5
+ },
+ "box_agree": {
+  "ms_per_frame": 160.0
+ },
+ "_note": "154 ordinary train frames, fixed numbers, one process, nothing cached"
+}

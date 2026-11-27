@@ -1,0 +1,2135 @@
+{
+ "against_today": {
+  "nearmiss": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    147.4667
+   ],
+   "found": [
+    211,
+    249
+   ],
+   "off_w": [
+    1.2,
+    2.5333
+   ],
+   "missed_w": [
+    37.0,
+    22.0
+   ],
+   "gained": 38,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    3.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     9
+    ],
+    "second": [
+     0,
+     2
+    ],
+    "wrong": [
+     0,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     12.0,
+     16,
+     10,
+     12
+    ],
+    "home_bathtile": [
+     4.0,
+     9.0,
+     15,
+     16,
+     36
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     7.6667,
+     15,
+     9,
+     23
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +2.0 of 16 (margin 6.0); home_bathtile +5.0 of 15 (margin 1.2); home_ottoman +4.7 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "selfcal": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    147.55
+   ],
+   "found": [
+    211,
+    248
+   ],
+   "off_w": [
+    1.2,
+    1.45
+   ],
+   "missed_w": [
+    37.0,
+    23.0
+   ],
+   "gained": 37,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    2.1833
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     5
+    ],
+    "second": [
+     0,
+     1
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16,
+     10,
+     15
+    ],
+    "home_bathtile": [
+     4.0,
+     9.75,
+     15,
+     16,
+     39
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     6.0,
+     15,
+     9,
+     18
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32,
+     26,
+     26
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +5.0 of 16 (margin 6.0); home_bathtile +5.8 of 15 (margin 1.2); home_ottoman +3.0 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "nm_then_sc": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    151.8833
+   ],
+   "found": [
+    211,
+    260
+   ],
+   "off_w": [
+    1.2,
+    2.5333
+   ],
+   "missed_w": [
+    37.0,
+    17.5833
+   ],
+   "gained": 49,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    4.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     10
+    ],
+    "second": [
+     0,
+     2
+    ],
+    "wrong": [
+     0,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     14.0,
+     16,
+     10,
+     14
+    ],
+    "home_bathtile": [
+     4.0,
+     10.75,
+     15,
+     16,
+     43
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     8.3333,
+     15,
+     9,
+     25
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +4.0 of 16 (margin 6.0); home_bathtile +6.8 of 15 (margin 1.2); home_ottoman +5.3 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "WORSE",
+    "empty": "within the noise"
+   }
+  },
+  "sc_then_nm": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    153.1333
+   ],
+   "found": [
+    211,
+    262
+   ],
+   "off_w": [
+    1.2,
+    1.7833
+   ],
+   "missed_w": [
+    37.0,
+    17.0833
+   ],
+   "gained": 51,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    4.3167
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     10
+    ],
+    "second": [
+     0,
+     2
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16,
+     10,
+     15
+    ],
+    "home_bathtile": [
+     4.0,
+     11.0,
+     15,
+     16,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     8.3333,
+     15,
+     9,
+     25
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +5.0 of 16 (margin 6.0); home_bathtile +7.0 of 15 (margin 1.2); home_ottoman +5.3 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "WORSE",
+    "empty": "within the noise"
+   }
+  },
+  "mask_union": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    152.8
+   ],
+   "found": [
+    211,
+    261
+   ],
+   "off_w": [
+    1.2,
+    1.7833
+   ],
+   "missed_w": [
+    37.0,
+    17.4167
+   ],
+   "gained": 50,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    3.3167
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     9
+    ],
+    "second": [
+     0,
+     2
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16,
+     10,
+     15
+    ],
+    "home_bathtile": [
+     4.0,
+     11.0,
+     15,
+     16,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     8.0,
+     15,
+     9,
+     24
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +5.0 of 16 (margin 6.0); home_bathtile +7.0 of 15 (margin 1.2); home_ottoman +5.0 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "box_union": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    152.8
+   ],
+   "found": [
+    211,
+    261
+   ],
+   "off_w": [
+    1.2,
+    1.7833
+   ],
+   "missed_w": [
+    37.0,
+    17.4167
+   ],
+   "gained": 50,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    3.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     9
+    ],
+    "second": [
+     0,
+     2
+    ],
+    "wrong": [
+     0,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     15.0,
+     16,
+     10,
+     15
+    ],
+    "home_bathtile": [
+     4.0,
+     11.0,
+     15,
+     16,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     8.0,
+     15,
+     9,
+     24
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +5.0 of 16 (margin 6.0); home_bathtile +7.0 of 15 (margin 1.2); home_ottoman +5.0 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "box_agree": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    143.2167
+   ],
+   "found": [
+    211,
+    237
+   ],
+   "off_w": [
+    1.2,
+    1.2
+   ],
+   "missed_w": [
+    37.0,
+    27.5833
+   ],
+   "gained": 26,
+   "lost": 0,
+   "extra_w": [
+    1.9333,
+    2.1833
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     5
+    ],
+    "second": [
+     0,
+     1
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     13.0,
+     16,
+     10,
+     13
+    ],
+    "home_bathtile": [
+     4.0,
+     7.75,
+     15,
+     16,
+     31
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     3.0,
+     5.6667,
+     15,
+     9,
+     17
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32,
+     26,
+     26
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +3.0 of 16 (margin 6.0); home_bathtile +3.8 of 15 (margin 1.2); home_ottoman +2.7 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  }
+ },
+ "against_winners": {
+  "nm_then_sc_vs_nearmiss": {
+   "verdict": "PASS",
+   "found_w": [
+    147.4667,
+    151.8833
+   ],
+   "found": [
+    249,
+    260
+   ],
+   "off_w": [
+    2.5333,
+    2.5333
+   ],
+   "missed_w": [
+    22.0,
+    17.5833
+   ],
+   "gained": 11,
+   "lost": 0,
+   "extra_w": [
+    3.5667,
+    4.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     9,
+     10
+    ],
+    "second": [
+     2,
+     2
+    ],
+    "wrong": [
+     1,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.4,
+    0.4
+   ],
+   "empty": [
+    2,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     12.0,
+     14.0,
+     16,
+     12,
+     14
+    ],
+    "home_bathtile": [
+     9.0,
+     10.75,
+     15,
+     36,
+     43
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     7.6667,
+     8.3333,
+     15,
+     23,
+     25
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     28.0,
+     28.0,
+     32,
+     28,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +2.0 of 16 (margin 6.0); home_bathtile +1.8 of 15 (margin 1.2); home_ottoman +0.7 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "nm_then_sc_vs_selfcal": {
+   "verdict": "FAIL",
+   "found_w": [
+    147.55,
+    151.8833
+   ],
+   "found": [
+    248,
+    260
+   ],
+   "off_w": [
+    1.45,
+    2.5333
+   ],
+   "missed_w": [
+    23.0,
+    17.5833
+   ],
+   "gained": 14,
+   "lost": 2,
+   "extra_w": [
+    2.1833,
+    4.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     10
+    ],
+    "second": [
+     1,
+     2
+    ],
+    "wrong": [
+     0,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     15.0,
+     14.0,
+     16,
+     15,
+     14
+    ],
+    "home_bathtile": [
+     9.75,
+     10.75,
+     15,
+     39,
+     43
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     6.0,
+     8.3333,
+     15,
+     18,
+     25
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray -1.0 of 16 (margin 6.0); home_bathtile +1.0 of 15 (margin 1.2); home_ottoman +2.3 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "WORSE",
+    "empty": "within the noise"
+   }
+  },
+  "sc_then_nm_vs_nearmiss": {
+   "verdict": "PASS",
+   "found_w": [
+    147.4667,
+    153.1333
+   ],
+   "found": [
+    249,
+    262
+   ],
+   "off_w": [
+    2.5333,
+    1.7833
+   ],
+   "missed_w": [
+    22.0,
+    17.0833
+   ],
+   "gained": 13,
+   "lost": 0,
+   "extra_w": [
+    3.5667,
+    4.3167
+   ],
+   "per_frame": {
+    "nothing": [
+     9,
+     10
+    ],
+    "second": [
+     2,
+     2
+    ],
+    "wrong": [
+     1,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.4,
+    0.4
+   ],
+   "empty": [
+    2,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     12.0,
+     15.0,
+     16,
+     12,
+     15
+    ],
+    "home_bathtile": [
+     9.0,
+     11.0,
+     15,
+     36,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     7.6667,
+     8.3333,
+     15,
+     23,
+     25
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     28.0,
+     28.0,
+     32,
+     28,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +3.0 of 16 (margin 6.0); home_bathtile +2.0 of 15 (margin 1.2); home_ottoman +0.7 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "sc_then_nm_vs_selfcal": {
+   "verdict": "FAIL",
+   "found_w": [
+    147.55,
+    153.1333
+   ],
+   "found": [
+    248,
+    262
+   ],
+   "off_w": [
+    1.45,
+    1.7833
+   ],
+   "missed_w": [
+    23.0,
+    17.0833
+   ],
+   "gained": 14,
+   "lost": 0,
+   "extra_w": [
+    2.1833,
+    4.3167
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     10
+    ],
+    "second": [
+     1,
+     2
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     15.0,
+     15.0,
+     16,
+     15,
+     15
+    ],
+    "home_bathtile": [
+     9.75,
+     11.0,
+     15,
+     39,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     6.0,
+     8.3333,
+     15,
+     18,
+     25
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: home_bathtile +1.2 of 15 (margin 1.2); home_ottoman +2.3 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "WORSE",
+    "empty": "within the noise"
+   }
+  },
+  "mask_union_vs_nearmiss": {
+   "verdict": "PASS",
+   "found_w": [
+    147.4667,
+    152.8
+   ],
+   "found": [
+    249,
+    261
+   ],
+   "off_w": [
+    2.5333,
+    1.7833
+   ],
+   "missed_w": [
+    22.0,
+    17.4167
+   ],
+   "gained": 12,
+   "lost": 0,
+   "extra_w": [
+    3.5667,
+    3.3167
+   ],
+   "per_frame": {
+    "nothing": [
+     9,
+     9
+    ],
+    "second": [
+     2,
+     2
+    ],
+    "wrong": [
+     1,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.4,
+    0.4
+   ],
+   "empty": [
+    2,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     12.0,
+     15.0,
+     16,
+     12,
+     15
+    ],
+    "home_bathtile": [
+     9.0,
+     11.0,
+     15,
+     36,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     7.6667,
+     8.0,
+     15,
+     23,
+     24
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     28.0,
+     28.0,
+     32,
+     28,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +3.0 of 16 (margin 6.0); home_bathtile +2.0 of 15 (margin 1.2); home_ottoman +0.3 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "mask_union_vs_selfcal": {
+   "verdict": "PASS",
+   "found_w": [
+    147.55,
+    152.8
+   ],
+   "found": [
+    248,
+    261
+   ],
+   "off_w": [
+    1.45,
+    1.7833
+   ],
+   "missed_w": [
+    23.0,
+    17.4167
+   ],
+   "gained": 13,
+   "lost": 0,
+   "extra_w": [
+    2.1833,
+    3.3167
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     9
+    ],
+    "second": [
+     1,
+     2
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     15.0,
+     15.0,
+     16,
+     15,
+     15
+    ],
+    "home_bathtile": [
+     9.75,
+     11.0,
+     15,
+     39,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     6.0,
+     8.0,
+     15,
+     18,
+     24
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: home_bathtile +1.2 of 15 (margin 1.2); home_ottoman +2.0 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "box_union_vs_nearmiss": {
+   "verdict": "PASS",
+   "found_w": [
+    147.4667,
+    152.8
+   ],
+   "found": [
+    249,
+    261
+   ],
+   "off_w": [
+    2.5333,
+    1.7833
+   ],
+   "missed_w": [
+    22.0,
+    17.4167
+   ],
+   "gained": 12,
+   "lost": 0,
+   "extra_w": [
+    3.5667,
+    3.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     9,
+     9
+    ],
+    "second": [
+     2,
+     2
+    ],
+    "wrong": [
+     1,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.4,
+    0.4
+   ],
+   "empty": [
+    2,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     12.0,
+     15.0,
+     16,
+     12,
+     15
+    ],
+    "home_bathtile": [
+     9.0,
+     11.0,
+     15,
+     36,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     7.6667,
+     8.0,
+     15,
+     23,
+     24
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     28.0,
+     28.0,
+     32,
+     28,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +3.0 of 16 (margin 6.0); home_bathtile +2.0 of 15 (margin 1.2); home_ottoman +0.3 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "box_union_vs_selfcal": {
+   "verdict": "PASS",
+   "found_w": [
+    147.55,
+    152.8
+   ],
+   "found": [
+    248,
+    261
+   ],
+   "off_w": [
+    1.45,
+    1.7833
+   ],
+   "missed_w": [
+    23.0,
+    17.4167
+   ],
+   "gained": 13,
+   "lost": 0,
+   "extra_w": [
+    2.1833,
+    3.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     9
+    ],
+    "second": [
+     1,
+     2
+    ],
+    "wrong": [
+     0,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     15.0,
+     15.0,
+     16,
+     15,
+     15
+    ],
+    "home_bathtile": [
+     9.75,
+     11.0,
+     15,
+     39,
+     44
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     6.0,
+     8.0,
+     15,
+     18,
+     24
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: home_bathtile +1.2 of 15 (margin 1.2); home_ottoman +2.0 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "BETTER",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "box_agree_vs_nearmiss": {
+   "verdict": "FAIL",
+   "found_w": [
+    147.4667,
+    143.2167
+   ],
+   "found": [
+    249,
+    237
+   ],
+   "off_w": [
+    2.5333,
+    1.2
+   ],
+   "missed_w": [
+    22.0,
+    27.5833
+   ],
+   "gained": 1,
+   "lost": 13,
+   "extra_w": [
+    3.5667,
+    2.1833
+   ],
+   "per_frame": {
+    "nothing": [
+     9,
+     5
+    ],
+    "second": [
+     2,
+     1
+    ],
+    "wrong": [
+     1,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.4,
+    0.0
+   ],
+   "empty": [
+    2,
+    0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     12.0,
+     13.0,
+     16,
+     12,
+     13
+    ],
+    "home_bathtile": [
+     9.0,
+     7.75,
+     15,
+     36,
+     31
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     7.6667,
+     5.6667,
+     15,
+     23,
+     17
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     28.0,
+     26.0,
+     32,
+     28,
+     26
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray +1.0 of 16 (margin 6.0); home_bathtile -1.2 of 15 (margin 1.2); home_ottoman -2.0 of 15 (margin 2.3); abp_white -2.0 of 32 (margin 1.0, WORSE).",
+   "clauses": {
+    "found": "within the noise",
+    "place": "WORSE",
+    "extra": "BETTER",
+    "empty": "within the noise"
+   }
+  },
+  "box_agree_vs_selfcal": {
+   "verdict": "FAIL",
+   "found_w": [
+    147.55,
+    143.2167
+   ],
+   "found": [
+    248,
+    237
+   ],
+   "off_w": [
+    1.45,
+    1.2
+   ],
+   "missed_w": [
+    23.0,
+    27.5833
+   ],
+   "gained": 0,
+   "lost": 11,
+   "extra_w": [
+    2.1833,
+    2.1833
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     5
+    ],
+    "second": [
+     1,
+     1
+    ],
+    "wrong": [
+     0,
+     0
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     15.0,
+     13.0,
+     16,
+     15,
+     13
+    ],
+    "home_bathtile": [
+     9.75,
+     7.75,
+     15,
+     39,
+     31
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     6.0,
+     5.6667,
+     15,
+     18,
+     17
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32,
+     26,
+     26
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray -2.0 of 16 (margin 6.0); home_bathtile -2.0 of 15 (margin 1.2, WORSE); home_ottoman -0.3 of 15 (margin 2.3).",
+   "clauses": {
+    "found": "within the noise",
+    "place": "WORSE",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  },
+  "nearmiss_vs_selfcal": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    147.55,
+    147.4667
+   ],
+   "found": [
+    248,
+    249
+   ],
+   "off_w": [
+    1.45,
+    2.5333
+   ],
+   "missed_w": [
+    23.0,
+    22.0
+   ],
+   "gained": 13,
+   "lost": 12,
+   "extra_w": [
+    2.1833,
+    3.5667
+   ],
+   "per_frame": {
+    "nothing": [
+     5,
+     9
+    ],
+    "second": [
+     1,
+     2
+    ],
+    "wrong": [
+     0,
+     1
+    ]
+   },
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.4
+   ],
+   "empty": [
+    0,
+    2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29,
+     28,
+     28
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35,
+     35,
+     35
+    ],
+    "abp_gray": [
+     15.0,
+     12.0,
+     16,
+     15,
+     12
+    ],
+    "home_bathtile": [
+     9.75,
+     9.0,
+     15,
+     39,
+     36
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15,
+     74,
+     74
+    ],
+    "home_ottoman": [
+     6.0,
+     7.6667,
+     15,
+     18,
+     23
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15,
+     13,
+     13
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32,
+     26,
+     28
+    ]
+   },
+   "place_clause": "found, place by place: abp_gray -3.0 of 16 (margin 6.0); home_bathtile -0.8 of 15 (margin 1.2); home_ottoman +1.7 of 15 (margin 2.3); abp_white +2.0 of 32 (margin 1.0).",
+   "clauses": {
+    "found": "within the noise",
+    "place": "within the noise",
+    "extra": "within the noise",
+    "empty": "within the noise"
+   }
+  }
+ },
+ "picked": {
+  "best_combination": "mask_union",
+  "passes_against_today": true,
+  "ways_that_pass": [
+   "mask_union",
+   "box_union",
+   "box_agree"
+  ],
+  "worth_having_both": true,
+  "against_each_winner": {
+   "nearmiss": "PASS",
+   "selfcal": "PASS"
+  }
+ },
+ "timing": {
+  "fixed": {
+   "ms_per_frame": 47.1
+  },
+  "nearmiss": {
+   "ms_per_frame": 82.6
+  },
+  "selfcal": {
+   "ms_per_frame": 87.6
+  },
+  "nm_then_sc": {
+   "ms_per_frame": 162.1
+  },
+  "sc_then_nm": {
+   "ms_per_frame": 160.6
+  },
+  "mask_union": {
+   "ms_per_frame": 138.3
+  },
+  "box_union": {
+   "ms_per_frame": 160.5
+  },
+  "box_agree": {
+   "ms_per_frame": 160.0
+  },
+  "_note": "154 ordinary train frames, fixed numbers, one process, nothing cached"
+ }
+}

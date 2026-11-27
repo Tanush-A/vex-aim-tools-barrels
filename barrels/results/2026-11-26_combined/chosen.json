@@ -1,0 +1,101 @@
+{
+ "home_white": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 138
+ },
+ "campus_study": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 133
+ },
+ "abp_gray": {
+  "nm": "pc:5,5,strict",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 146
+ },
+ "home_bathtile": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 126
+ },
+ "home_glass": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 118
+ },
+ "home_ottoman": {
+  "nm": "pc:5,4,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.01
+  },
+  "train_frames": 133
+ },
+ "uc_palewood": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 147
+ },
+ "abp_white": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 137
+ },
+ "home_wooddesk": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 154
+ },
+ "home_black": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 154
+ },
+ "(any place that is not an ordinary one)": {
+  "nm": "pc:5,5,pred",
+  "sc": {
+   "rel_margin": 1.0,
+   "hue_move_max": 6.0,
+   "flood_max": 0.03
+  },
+  "train_frames": 154
+ }
+}
