@@ -199,12 +199,16 @@ def hand_thresholds(stems) -> dict:
     return _median_six(by)
 
 
-def proposal_thresholds(stems) -> dict:
-    """condition -> the median of the proposals written for its frames (``write_proposals.py``)."""
+def proposal_thresholds() -> dict:
+    """condition -> the median of the proposals made for its frames. The numbers are taken from ``write_proposals.py``
+    (the script that wrote the files for Tanush), not read back from the label folder: a static guard in the tests
+    keeps experiment code from opening proposal files, so that a proposal can never be mistaken for a label."""
+    import write_proposals as wp
+    adopted = hl.thresholds_from_model(hl.adopted_model())
     by = defaultdict(list)
-    for s in stems:
-        if io.hs_proposed_path(s).exists():
-            by[ct.condition_of(s)].append(six_of(io.load_hs_proposed(s)))
+    for stem, (setting, _) in wp.PROPOSALS.items():
+        jg.require_train([stem])
+        by[ct.condition_of(stem)].append(six_of(wp.tool.parse_try(setting, adopted)))
     return _median_six(by)
 
 
@@ -279,7 +283,7 @@ def stage_oracle(jobs: int) -> None:
     L, S = layout(), load_settings()
     base = hl.adopted_model()
     fixed = six_of(hl.thresholds_from_model(base))
-    hand, prop = hand_thresholds(L.ordinary), proposal_thresholds(L.ordinary)
+    hand, prop = hand_thresholds(L.ordinary), proposal_thresholds()
     tasks = []
     for c, ss in L.by_cond.items():
         seeds = [("fixed", fixed)]
@@ -380,7 +384,7 @@ def vendor_counts(L: Layout, truth) -> tuple:
 
 def stage_judge(sheets: bool = True) -> None:
     L, S = layout(), load_settings()
-    hand, prop, oracle = hand_thresholds(L.ordinary), proposal_thresholds(L.ordinary), load_oracle()
+    hand, prop, oracle = hand_thresholds(L.ordinary), proposal_thresholds(), load_oracle()
     A = assignments(L, S, hand, prop, oracle)
     frames = {cnd.ORDINARY: L.ordinary, cnd.EXTREME: [], cnd.EXCLUDED: [], cnd.UNLISTED: []}
     truth = jg.load_truth(L.ordinary)

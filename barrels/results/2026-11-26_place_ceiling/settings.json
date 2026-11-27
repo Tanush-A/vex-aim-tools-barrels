@@ -1,0 +1,4186 @@
+{
+ "made": "2026-11-26",
+ "git": "8b81375",
+ "thresholds": [
+  "orange_h_lo",
+  "orange_h_hi",
+  "orange_s_lo",
+  "blue_h_lo",
+  "blue_h_hi",
+  "blue_s_lo"
+ ],
+ "calibration_frame": {
+  "both_abpgray": "4A8B_both_abpgray_core_01",
+  "campus_light": "4A8B_campus_light_core_01",
+  "lampcool6_bathtile": "4A8B_lampcool6_bathtile_core_01",
+  "lampcool6_glass": "4A8B_lampcool6_glass_core_01",
+  "lampcool6_ottoman": "4A8B_lampcool6_ottoman_core_01",
+  "lampmid3_bathtile": "4A8B_lampmid3_bathtile_core_01",
+  "lampmid3_glass": "4A8B_lampmid3_glass_core_01",
+  "lampmid6_bathtile": "4A8B_lampmid6_bathtile_core_01",
+  "lampmid6_glass": "4A8B_lampmid6_glass_core_01",
+  "lampmid6_ottoman": "4A8B_lampmid6_ottoman_core_01",
+  "lampwarm6_bathtile": "4A8B_lampwarm6_bathtile_core_01",
+  "lampwarm6_glass": "4A8B_lampwarm6_glass_core_01",
+  "lampwarm6_ottoman": "4A8B_lampwarm6_ottoman_core_01",
+  "overheaddim_palewood": "4A8B_overheaddim_palewood_core_01",
+  "window_abpwhite": "4A8B_window_abpwhite_occlx_01",
+  "window_glass": "4A8B_window_glass_core_01",
+  "window_light": "4A8B_window_light_core_01"
+ },
+ "backup_frame": {
+  "both_abpgray": "4A8B_both_abpgray_edge_01",
+  "campus_light": "4A8B_campus_light_edge_01",
+  "lampcool6_bathtile": "4A8B_lampcool6_bathtile_edge_01",
+  "lampcool6_glass": "4A8B_lampcool6_glass_edge_01",
+  "lampcool6_ottoman": "4A8B_lampcool6_ottoman_edge_01",
+  "lampmid3_bathtile": "4A8B_lampmid3_bathtile_edge_01",
+  "lampmid3_glass": "4A8B_lampmid3_glass_edge_01",
+  "lampmid6_bathtile": "4A8B_lampmid6_bathtile_edge_01",
+  "lampmid6_glass": "4A8B_lampmid6_glass_edge_01",
+  "lampmid6_ottoman": "4A8B_lampmid6_ottoman_edge_01",
+  "lampwarm6_bathtile": "4A8B_lampwarm6_bathtile_edge_01",
+  "lampwarm6_glass": "4A8B_lampwarm6_glass_edge_01",
+  "lampwarm6_ottoman": "4A8B_lampwarm6_ottoman_edge_01",
+  "overheaddim_palewood": "4A8B_overheaddim_palewood_edge_01",
+  "window_abpwhite": "4A8B_window_abpwhite_occlx_02",
+  "window_glass": "4A8B_window_glass_edge_01",
+  "window_light": "4A8B_window_light_core_02"
+ },
+ "eligible": {
+  "both_abpgray": [
+   "4A8B_both_abpgray_clutter_01",
+   "4A8B_both_abpgray_core_01",
+   "4A8B_both_abpgray_edge_01",
+   "4A8B_both_abpgray_touch_01"
+  ],
+  "campus_light": [
+   "4A8B_campus_light_close_01",
+   "4A8B_campus_light_cluster_02",
+   "4A8B_campus_light_clutter_02",
+   "4A8B_campus_light_core_01",
+   "4A8B_campus_light_edge_01",
+   "4A8B_campus_light_far_01",
+   "4A8B_campus_light_hand_02",
+   "4A8B_campus_light_held_01",
+   "4A8B_campus_light_plain_01",
+   "4A8B_campus_light_plain_02",
+   "4A8B_campus_light_room_01",
+   "4A8B_campus_light_room_03",
+   "4A8B_campus_light_top_01",
+   "4A8B_campus_light_topstripe_01",
+   "4A8B_campus_light_touch_02",
+   "4A8B_campus_light_window_01"
+  ],
+  "lampcool6_bathtile": [
+   "4A8B_lampcool6_bathtile_clutter_01",
+   "4A8B_lampcool6_bathtile_core_01",
+   "4A8B_lampcool6_bathtile_edge_01",
+   "4A8B_lampcool6_bathtile_touch_01"
+  ],
+  "lampcool6_glass": [
+   "4A8B_lampcool6_glass_clutter_01",
+   "4A8B_lampcool6_glass_core_01",
+   "4A8B_lampcool6_glass_edge_01",
+   "4A8B_lampcool6_glass_touch_01"
+  ],
+  "lampcool6_ottoman": [
+   "4A8B_lampcool6_ottoman_clutter_01",
+   "4A8B_lampcool6_ottoman_core_01",
+   "4A8B_lampcool6_ottoman_edge_01",
+   "4A8B_lampcool6_ottoman_touch_01"
+  ],
+  "lampmid3_bathtile": [
+   "4A8B_lampmid3_bathtile_clutter_01",
+   "4A8B_lampmid3_bathtile_core_01",
+   "4A8B_lampmid3_bathtile_edge_01",
+   "4A8B_lampmid3_bathtile_touch_01"
+  ],
+  "lampmid3_glass": [
+   "4A8B_lampmid3_glass_clutter_01",
+   "4A8B_lampmid3_glass_core_01",
+   "4A8B_lampmid3_glass_edge_01",
+   "4A8B_lampmid3_glass_touch_01"
+  ],
+  "lampmid6_bathtile": [
+   "4A8B_lampmid6_bathtile_clutter_01",
+   "4A8B_lampmid6_bathtile_core_01",
+   "4A8B_lampmid6_bathtile_edge_01",
+   "4A8B_lampmid6_bathtile_touch_01"
+  ],
+  "lampmid6_glass": [
+   "4A8B_lampmid6_glass_clutter_01",
+   "4A8B_lampmid6_glass_core_01",
+   "4A8B_lampmid6_glass_edge_01",
+   "4A8B_lampmid6_glass_touch_01"
+  ],
+  "lampmid6_ottoman": [
+   "4A8B_lampmid6_ottoman_clutter_01",
+   "4A8B_lampmid6_ottoman_core_01",
+   "4A8B_lampmid6_ottoman_edge_01",
+   "4A8B_lampmid6_ottoman_touch_01"
+  ],
+  "lampwarm6_bathtile": [
+   "4A8B_lampwarm6_bathtile_clutter_01",
+   "4A8B_lampwarm6_bathtile_core_01",
+   "4A8B_lampwarm6_bathtile_edge_01",
+   "4A8B_lampwarm6_bathtile_touch_01"
+  ],
+  "lampwarm6_glass": [
+   "4A8B_lampwarm6_glass_clutter_01",
+   "4A8B_lampwarm6_glass_core_01",
+   "4A8B_lampwarm6_glass_edge_01",
+   "4A8B_lampwarm6_glass_touch_01"
+  ],
+  "lampwarm6_ottoman": [
+   "4A8B_lampwarm6_ottoman_clutter_01",
+   "4A8B_lampwarm6_ottoman_core_01",
+   "4A8B_lampwarm6_ottoman_edge_01",
+   "4A8B_lampwarm6_ottoman_touch_01"
+  ],
+  "overheaddim_palewood": [
+   "4A8B_overheaddim_palewood_clutter_01",
+   "4A8B_overheaddim_palewood_core_01",
+   "4A8B_overheaddim_palewood_edge_01",
+   "4A8B_overheaddim_palewood_touch_01"
+  ],
+  "window_abpwhite": [
+   "4A8B_window_abpwhite_occlx_01",
+   "4A8B_window_abpwhite_occlx_02",
+   "4A8B_window_abpwhite_occlx_03",
+   "4A8B_window_abpwhite_occlx_04",
+   "4A8B_window_abpwhite_occlx_05",
+   "4A8B_window_abpwhite_occlx_06",
+   "4A8B_window_abpwhite_occlx_07",
+   "4A8B_window_abpwhite_occlx_08",
+   "4A8B_window_abpwhite_occlx_09",
+   "4A8B_window_abpwhite_occlx_10",
+   "4A8B_window_abpwhite_occlx_11",
+   "4A8B_window_abpwhite_occlx_13",
+   "4A8B_window_abpwhite_occlx_14",
+   "4A8B_window_abpwhite_occlx_17",
+   "4A8B_window_abpwhite_occlx_18",
+   "4A8B_window_abpwhite_occlx_19"
+  ],
+  "window_glass": [
+   "4A8B_window_glass_clutter_01",
+   "4A8B_window_glass_core_01",
+   "4A8B_window_glass_edge_01",
+   "4A8B_window_glass_touch_01"
+  ],
+  "window_light": [
+   "4A8B_window_light_close_01",
+   "4A8B_window_light_close_02",
+   "4A8B_window_light_cluster_01",
+   "4A8B_window_light_cluster_02",
+   "4A8B_window_light_core_01",
+   "4A8B_window_light_core_02",
+   "4A8B_window_light_core_03",
+   "4A8B_window_light_far_02",
+   "4A8B_window_light_occl_01",
+   "4A8B_window_light_occl_02",
+   "4A8B_window_light_touch_02"
+  ]
+ },
+ "pooled_net": {
+  "both_abpgray": [
+   -1,
+   12,
+   213,
+   104,
+   111,
+   218
+  ],
+  "campus_light": [
+   4,
+   14,
+   188,
+   101,
+   108,
+   152
+  ],
+  "lampcool6_bathtile": [
+   9,
+   14,
+   207,
+   89,
+   106,
+   120
+  ],
+  "lampcool6_glass": [
+   5,
+   11,
+   177,
+   106,
+   110,
+   207
+  ],
+  "lampcool6_ottoman": [
+   10,
+   24,
+   138,
+   99,
+   109,
+   120
+  ],
+  "lampmid3_bathtile": [
+   9,
+   13,
+   208,
+   66,
+   109,
+   18
+  ],
+  "lampmid3_glass": [
+   5,
+   9,
+   171,
+   106,
+   111,
+   200
+  ],
+  "lampmid6_bathtile": [
+   8,
+   11,
+   213,
+   66,
+   112,
+   17
+  ],
+  "lampmid6_glass": [
+   6,
+   10,
+   185,
+   105,
+   111,
+   192
+  ],
+  "lampmid6_ottoman": [
+   4,
+   25,
+   194,
+   92,
+   113,
+   51
+  ],
+  "lampwarm6_bathtile": [
+   7,
+   9,
+   215,
+   30,
+   103,
+   7
+  ],
+  "lampwarm6_glass": [
+   6,
+   10,
+   190,
+   101,
+   111,
+   172
+  ],
+  "lampwarm6_ottoman": [
+   4,
+   18,
+   206,
+   85,
+   113,
+   20
+  ],
+  "overheaddim_palewood": [
+   2,
+   11,
+   207,
+   106,
+   112,
+   163
+  ],
+  "window_abpwhite": [
+   5,
+   9,
+   192,
+   104,
+   111,
+   218
+  ],
+  "window_glass": [
+   4,
+   10,
+   163,
+   106,
+   111,
+   221
+  ],
+  "window_light": [
+   2,
+   10,
+   196,
+   104,
+   116,
+   164
+  ]
+ },
+ "frames": {
+  "4A8B_both_abpgray_clutter_01": {
+   "net": [
+    1,
+    11,
+    213,
+    105,
+    111,
+    218
+   ],
+   "mid": [
+    2,
+    11,
+    214,
+    105,
+    112,
+    227
+   ],
+   "mid_source": "net setting (outside weight 0.25), middle of the ranges",
+   "tool": [
+    -1,
+    13,
+    206,
+    105,
+    112,
+    217
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 1107,
+    "blue": 984
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 3,
+    "tool": 4
+   }
+  },
+  "4A8B_both_abpgray_core_01": {
+   "net": [
+    -12,
+    14,
+    183,
+    104,
+    121,
+    222
+   ],
+   "mid": [
+    -12,
+    14,
+    200,
+    104,
+    121,
+    225
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -29,
+    8,
+    201,
+    104,
+    120,
+    217
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 2466,
+    "blue": 4032
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_both_abpgray_edge_01": {
+   "net": [
+    -1,
+    18,
+    195,
+    109,
+    112,
+    236
+   ],
+   "mid": [
+    -1,
+    18,
+    204,
+    109,
+    114,
+    220
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -23,
+    9,
+    204,
+    102,
+    124,
+    217
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 957,
+    "blue": 231
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 2
+   }
+  },
+  "4A8B_both_abpgray_touch_01": {
+   "net": [
+    -3,
+    13,
+    197,
+    107,
+    117,
+    219
+   ],
+   "mid": [
+    -3,
+    13,
+    209,
+    107,
+    118,
+    221
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -19,
+    8,
+    210,
+    105,
+    116,
+    221
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 922,
+    "blue": 1398
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_campus_light_close_01": {
+   "net": [
+    -7,
+    10,
+    110,
+    10,
+    12,
+    224
+   ],
+   "mid": [
+    -29,
+    10,
+    108,
+    10,
+    110,
+    154
+   ],
+   "mid_source": "net setting (outside weight 0.25), middle of the ranges",
+   "tool": [
+    -22,
+    11,
+    140,
+    101,
+    110,
+    122
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 5328,
+    "blue": 1258
+   },
+   "found_on_itself": {
+    "net": 0,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_campus_light_cluster_02": {
+   "net": [
+    4,
+    11,
+    171,
+    101,
+    108,
+    156
+   ],
+   "mid": [
+    4,
+    11,
+    141,
+    101,
+    108,
+    104
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    3,
+    13,
+    146,
+    103,
+    119,
+    133
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1513,
+    "blue": 864
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_campus_light_clutter_02": {
+   "net": [
+    5,
+    7,
+    212,
+    102,
+    110,
+    168
+   ],
+   "mid": [
+    4,
+    10,
+    207,
+    60,
+    121,
+    149
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    5,
+    8,
+    165,
+    94,
+    120,
+    157
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 849,
+    "blue": 829
+   },
+   "found_on_itself": {
+    "net": 0,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_campus_light_core_01": {
+   "net": [
+    1,
+    17,
+    124,
+    100,
+    107,
+    90
+   ],
+   "mid": [
+    1,
+    17,
+    117,
+    67,
+    106,
+    92
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -7,
+    18,
+    112,
+    100,
+    108,
+    90
+   ],
+   "tool_source": "net optimum (outside weight 1) (the middle did not work)",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 2204,
+    "blue": 4140
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_campus_light_edge_01": {
+   "net": [
+    8,
+    15,
+    111,
+    104,
+    106,
+    197
+   ],
+   "mid": [
+    8,
+    20,
+    150,
+    104,
+    106,
+    197
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    7,
+    20,
+    150,
+    101,
+    106,
+    130
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 630,
+    "blue": 162
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_campus_light_far_01": {
+   "net": [
+    4,
+    13,
+    164,
+    103,
+    107,
+    146
+   ],
+   "mid": [
+    4,
+    13,
+    136,
+    102,
+    110,
+    101
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    -6,
+    14,
+    105,
+    103,
+    108,
+    93
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 800,
+    "blue": 737
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_campus_light_hand_02": {
+   "net": [
+    4,
+    9,
+    183,
+    103,
+    113,
+    189
+   ],
+   "mid": [
+    4,
+    8,
+    187,
+    65,
+    113,
+    168
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    0,
+    8,
+    189,
+    104,
+    130,
+    166
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 936,
+    "blue": 1016
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_campus_light_held_01": {
+   "net": [
+    3,
+    13,
+    140,
+    102,
+    109,
+    155
+   ],
+   "mid": [
+    3,
+    13,
+    140,
+    102,
+    109,
+    171
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    3,
+    13,
+    140,
+    103,
+    110,
+    171
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 2898,
+    "blue": 12213
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_campus_light_plain_01": {
+   "net": [
+    1,
+    15,
+    112,
+    105,
+    119,
+    150
+   ],
+   "mid": [
+    1,
+    30,
+    136,
+    105,
+    119,
+    182
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    12,
+    134,
+    96,
+    143,
+    165
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 2639,
+    "blue": 2766
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_campus_light_plain_02": {
+   "net": [
+    4,
+    11,
+    149,
+    103,
+    112,
+    105
+   ],
+   "mid": [
+    4,
+    28,
+    106,
+    78,
+    112,
+    142
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    12,
+    106,
+    101,
+    129,
+    141
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 1237,
+    "blue": 1281
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_campus_light_room_01": {
+   "net": [
+    2,
+    9,
+    142,
+    105,
+    110,
+    103
+   ],
+   "mid": [
+    2,
+    9,
+    142,
+    105,
+    110,
+    103
+   ],
+   "mid_source": "net setting (outside weight 1) (the middle did not work)",
+   "tool": [
+    -30,
+    9,
+    101,
+    102,
+    111,
+    97
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 784,
+    "blue": 869
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_campus_light_room_03": {
+   "net": [
+    0,
+    10,
+    154,
+    102,
+    109,
+    176
+   ],
+   "mid": [
+    0,
+    10,
+    129,
+    102,
+    110,
+    149
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -15,
+    11,
+    129,
+    98,
+    110,
+    158
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 399,
+    "blue": 380
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_campus_light_top_01": {
+   "net": [
+    7,
+    11,
+    172,
+    7,
+    7,
+    218
+   ],
+   "mid": [
+    7,
+    11,
+    138,
+    7,
+    7,
+    218
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    2,
+    16,
+    141,
+    103,
+    119,
+    113
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 13360,
+    "blue": 3340
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_campus_light_topstripe_01": {
+   "net": [
+    8,
+    16,
+    110,
+    7,
+    8,
+    223
+   ],
+   "mid": [
+    8,
+    16,
+    151,
+    7,
+    8,
+    223
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    5,
+    19,
+    157,
+    103,
+    119,
+    113
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 12054,
+    "blue": 2829
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_campus_light_touch_02": {
+   "net": [
+    5,
+    10,
+    178,
+    100,
+    108,
+    173
+   ],
+   "mid": [
+    5,
+    10,
+    111,
+    100,
+    108,
+    119
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    10,
+    121,
+    100,
+    150,
+    129
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 275,
+    "blue": 1125
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_campus_light_window_01": {
+   "net": [
+    3,
+    11,
+    155,
+    101,
+    112,
+    127
+   ],
+   "mid": [
+    3,
+    11,
+    118,
+    61,
+    112,
+    137
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -28,
+    11,
+    120,
+    97,
+    115,
+    140
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 1265,
+    "blue": 1287
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampcool6_bathtile_clutter_01": {
+   "net": [
+    10,
+    14,
+    195,
+    94,
+    106,
+    108
+   ],
+   "mid": [
+    10,
+    16,
+    194,
+    70,
+    105,
+    87
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    10,
+    16,
+    200,
+    88,
+    105,
+    77
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1510,
+    "blue": 1765
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampcool6_bathtile_core_01": {
+   "net": [
+    6,
+    15,
+    198,
+    89,
+    110,
+    121
+   ],
+   "mid": [
+    6,
+    14,
+    195,
+    71,
+    110,
+    121
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -28,
+    11,
+    0,
+    68,
+    145,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1106,
+    "blue": 1862
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampcool6_bathtile_edge_01": {
+   "net": [
+    7,
+    11,
+    206,
+    89,
+    107,
+    137
+   ],
+   "mid": [
+    7,
+    11,
+    206,
+    89,
+    107,
+    137
+   ],
+   "mid_source": "net setting (outside weight 1) (the middle did not work)",
+   "tool": [
+    7,
+    13,
+    184,
+    74,
+    124,
+    15
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 598,
+    "blue": 156
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampcool6_bathtile_touch_01": {
+   "net": [
+    6,
+    13,
+    199,
+    89,
+    109,
+    130
+   ],
+   "mid": [
+    6,
+    14,
+    180,
+    70,
+    109,
+    130
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -21,
+    11,
+    15,
+    65,
+    138,
+    8
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 900,
+    "blue": 1477
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampcool6_glass_clutter_01": {
+   "net": [
+    6,
+    11,
+    189,
+    106,
+    110,
+    215
+   ],
+   "mid": [
+    6,
+    11,
+    189,
+    106,
+    110,
+    215
+   ],
+   "mid_source": "net setting (outside weight 1) (the middle did not work)",
+   "tool": [
+    4,
+    12,
+    174,
+    105,
+    110,
+    203
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1146,
+    "blue": 1745
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampcool6_glass_core_01": {
+   "net": [
+    2,
+    11,
+    171,
+    103,
+    112,
+    198
+   ],
+   "mid": [
+    2,
+    11,
+    171,
+    103,
+    112,
+    157
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    14,
+    116,
+    103,
+    148,
+    157
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1378,
+    "blue": 1370
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampcool6_glass_edge_01": {
+   "net": [
+    4,
+    11,
+    159,
+    108,
+    110,
+    223
+   ],
+   "mid": [
+    4,
+    11,
+    159,
+    108,
+    110,
+    143
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -27,
+    13,
+    108,
+    103,
+    122,
+    159
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 725,
+    "blue": 203
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampcool6_glass_touch_01": {
+   "net": [
+    4,
+    12,
+    164,
+    106,
+    112,
+    210
+   ],
+   "mid": [
+    4,
+    12,
+    164,
+    106,
+    112,
+    164
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    12,
+    121,
+    105,
+    148,
+    162
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1600,
+    "blue": 1024
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampcool6_ottoman_clutter_01": {
+   "net": [
+    10,
+    23,
+    133,
+    100,
+    110,
+    133
+   ],
+   "mid": [
+    8,
+    23,
+    114,
+    57,
+    120,
+    113
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    9,
+    24,
+    112,
+    98,
+    110,
+    114
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 2210,
+    "blue": 2396
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampcool6_ottoman_core_01": {
+   "net": [
+    -16,
+    25,
+    95,
+    97,
+    120,
+    22
+   ],
+   "mid": [
+    -16,
+    25,
+    136,
+    92,
+    120,
+    22
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -16,
+    18,
+    128,
+    94,
+    150,
+    13
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 5014,
+    "blue": 2705
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampcool6_ottoman_edge_01": {
+   "net": [
+    1,
+    23,
+    94,
+    100,
+    114,
+    98
+   ],
+   "mid": [
+    1,
+    23,
+    135,
+    100,
+    114,
+    98
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    1,
+    27,
+    144,
+    86,
+    150,
+    14
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 1596,
+    "blue": 378
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampcool6_ottoman_touch_01": {
+   "net": [
+    3,
+    23,
+    102,
+    99,
+    122,
+    85
+   ],
+   "mid": [
+    3,
+    23,
+    137,
+    68,
+    122,
+    85
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -18,
+    20,
+    126,
+    87,
+    150,
+    35
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1398,
+    "blue": 1995
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampmid3_bathtile_clutter_01": {
+   "net": [
+    10,
+    13,
+    205,
+    80,
+    112,
+    14
+   ],
+   "mid": [
+    10,
+    14,
+    206,
+    73,
+    116,
+    14
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    10,
+    14,
+    206,
+    60,
+    117,
+    7
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1510,
+    "blue": 1765
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid3_bathtile_core_01": {
+   "net": [
+    7,
+    14,
+    202,
+    46,
+    140,
+    9
+   ],
+   "mid": [
+    7,
+    14,
+    195,
+    62,
+    140,
+    9
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    6,
+    12,
+    190,
+    60,
+    140,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1106,
+    "blue": 1862
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid3_bathtile_edge_01": {
+   "net": [
+    8,
+    12,
+    208,
+    65,
+    138,
+    17
+   ],
+   "mid": [
+    8,
+    14,
+    190,
+    78,
+    138,
+    17
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    7,
+    12,
+    197,
+    60,
+    150,
+    7
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 598,
+    "blue": 156
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_lampmid3_bathtile_touch_01": {
+   "net": [
+    7,
+    13,
+    206,
+    42,
+    144,
+    11
+   ],
+   "mid": [
+    7,
+    14,
+    195,
+    68,
+    144,
+    11
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    11,
+    187,
+    60,
+    150,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 900,
+    "blue": 1477
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampmid3_glass_clutter_01": {
+   "net": [
+    6,
+    10,
+    186,
+    107,
+    111,
+    209
+   ],
+   "mid": [
+    4,
+    10,
+    169,
+    66,
+    110,
+    179
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    5,
+    10,
+    160,
+    105,
+    110,
+    186
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1146,
+    "blue": 1745
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid3_glass_core_01": {
+   "net": [
+    3,
+    10,
+    169,
+    103,
+    113,
+    183
+   ],
+   "mid": [
+    3,
+    10,
+    123,
+    103,
+    113,
+    152
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    9,
+    133,
+    105,
+    150,
+    152
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1378,
+    "blue": 1370
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid3_glass_edge_01": {
+   "net": [
+    5,
+    10,
+    172,
+    108,
+    110,
+    226
+   ],
+   "mid": [
+    3,
+    13,
+    129,
+    103,
+    119,
+    167
+   ],
+   "mid_source": "adopted, middle of the ranges",
+   "tool": [
+    -30,
+    12,
+    123,
+    103,
+    116,
+    171
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 725,
+    "blue": 203
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampmid3_glass_touch_01": {
+   "net": [
+    1,
+    10,
+    154,
+    106,
+    112,
+    199
+   ],
+   "mid": [
+    1,
+    10,
+    154,
+    106,
+    112,
+    176
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    11,
+    131,
+    104,
+    122,
+    177
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1600,
+    "blue": 1024
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampmid6_bathtile_clutter_01": {
+   "net": [
+    9,
+    13,
+    213,
+    55,
+    108,
+    10
+   ],
+   "mid": [
+    10,
+    13,
+    214,
+    63,
+    108,
+    10
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    10,
+    13,
+    211,
+    60,
+    108,
+    8
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1510,
+    "blue": 1765
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid6_bathtile_core_01": {
+   "net": [
+    7,
+    14,
+    204,
+    66,
+    125,
+    9
+   ],
+   "mid": [
+    7,
+    13,
+    206,
+    64,
+    125,
+    9
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    10,
+    180,
+    60,
+    146,
+    8
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1106,
+    "blue": 1862
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid6_bathtile_edge_01": {
+   "net": [
+    7,
+    11,
+    211,
+    69,
+    125,
+    38
+   ],
+   "mid": [
+    7,
+    12,
+    198,
+    63,
+    125,
+    38
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    6,
+    10,
+    204,
+    60,
+    125,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 598,
+    "blue": 156
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampmid6_bathtile_touch_01": {
+   "net": [
+    7,
+    12,
+    206,
+    73,
+    135,
+    23
+   ],
+   "mid": [
+    7,
+    12,
+    201,
+    64,
+    135,
+    23
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    3,
+    10,
+    186,
+    60,
+    146,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 900,
+    "blue": 1477
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampmid6_glass_clutter_01": {
+   "net": [
+    7,
+    11,
+    202,
+    105,
+    110,
+    208
+   ],
+   "mid": [
+    7,
+    10,
+    183,
+    66,
+    110,
+    180
+   ],
+   "mid_source": "net setting (outside weight 0.25), middle of the ranges",
+   "tool": [
+    7,
+    10,
+    183,
+    103,
+    110,
+    182
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1146,
+    "blue": 1745
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid6_glass_core_01": {
+   "net": [
+    5,
+    11,
+    178,
+    104,
+    111,
+    168
+   ],
+   "mid": [
+    5,
+    11,
+    140,
+    104,
+    111,
+    128
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    12,
+    141,
+    102,
+    150,
+    134
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1378,
+    "blue": 1370
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid6_glass_edge_01": {
+   "net": [
+    5,
+    11,
+    173,
+    105,
+    111,
+    197
+   ],
+   "mid": [
+    5,
+    11,
+    139,
+    105,
+    111,
+    139
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -28,
+    11,
+    139,
+    104,
+    148,
+    142
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 725,
+    "blue": 203
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampmid6_glass_touch_01": {
+   "net": [
+    4,
+    13,
+    172,
+    107,
+    112,
+    190
+   ],
+   "mid": [
+    4,
+    13,
+    141,
+    107,
+    112,
+    134
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    9,
+    141,
+    104,
+    147,
+    150
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1600,
+    "blue": 1024
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampmid6_ottoman_clutter_01": {
+   "net": [
+    4,
+    25,
+    196,
+    95,
+    114,
+    43
+   ],
+   "mid": [
+    4,
+    25,
+    203,
+    92,
+    114,
+    59
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    23,
+    169,
+    94,
+    129,
+    20
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 2210,
+    "blue": 2396
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 3
+   }
+  },
+  "4A8B_lampmid6_ottoman_core_01": {
+   "net": [
+    4,
+    26,
+    180,
+    97,
+    125,
+    20
+   ],
+   "mid": [
+    4,
+    26,
+    186,
+    71,
+    142,
+    20
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    27,
+    183,
+    87,
+    150,
+    13
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 5014,
+    "blue": 2705
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampmid6_ottoman_edge_01": {
+   "net": [
+    6,
+    23,
+    179,
+    98,
+    133,
+    41
+   ],
+   "mid": [
+    6,
+    23,
+    192,
+    68,
+    133,
+    41
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    21,
+    191,
+    84,
+    150,
+    11
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 1596,
+    "blue": 378
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampmid6_ottoman_touch_01": {
+   "net": [
+    5,
+    21,
+    176,
+    79,
+    125,
+    30
+   ],
+   "mid": [
+    5,
+    21,
+    192,
+    72,
+    125,
+    30
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    5,
+    21,
+    192,
+    79,
+    150,
+    7
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1398,
+    "blue": 1995
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampwarm6_bathtile_clutter_01": {
+   "net": [
+    8,
+    10,
+    215,
+    26,
+    101,
+    8
+   ],
+   "mid": [
+    8,
+    10,
+    213,
+    30,
+    102,
+    8
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    7,
+    9,
+    191,
+    60,
+    110,
+    7
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1510,
+    "blue": 1765
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 2
+   }
+  },
+  "4A8B_lampwarm6_bathtile_core_01": {
+   "net": [
+    5,
+    10,
+    213,
+    26,
+    174,
+    8
+   ],
+   "mid": [
+    5,
+    10,
+    198,
+    29,
+    174,
+    8
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    5,
+    9,
+    185,
+    60,
+    150,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1106,
+    "blue": 1862
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 1
+   }
+  },
+  "4A8B_lampwarm6_bathtile_edge_01": {
+   "net": [
+    6,
+    10,
+    213,
+    42,
+    175,
+    11
+   ],
+   "mid": [
+    6,
+    10,
+    195,
+    34,
+    175,
+    11
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    6,
+    10,
+    177,
+    60,
+    126,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 598,
+    "blue": 156
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 1
+   }
+  },
+  "4A8B_lampwarm6_bathtile_touch_01": {
+   "net": [
+    6,
+    10,
+    212,
+    26,
+    173,
+    7
+   ],
+   "mid": [
+    6,
+    10,
+    199,
+    30,
+    173,
+    7
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    9,
+    185,
+    60,
+    145,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 900,
+    "blue": 1477
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 2
+   }
+  },
+  "4A8B_lampwarm6_glass_clutter_01": {
+   "net": [
+    7,
+    10,
+    202,
+    105,
+    111,
+    182
+   ],
+   "mid": [
+    5,
+    11,
+    183,
+    105,
+    112,
+    167
+   ],
+   "mid_source": "net setting (outside weight 0.1) (the middle did not work)",
+   "tool": [
+    -20,
+    10,
+    111,
+    105,
+    113,
+    147
+   ],
+   "tool_source": "net optimum (outside weight 0.25) (the middle did not work)",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1146,
+    "blue": 1745
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampwarm6_glass_core_01": {
+   "net": [
+    5,
+    11,
+    181,
+    101,
+    115,
+    146
+   ],
+   "mid": [
+    5,
+    11,
+    159,
+    101,
+    115,
+    129
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    3,
+    13,
+    164,
+    103,
+    119,
+    129
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1378,
+    "blue": 1370
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampwarm6_glass_edge_01": {
+   "net": [
+    5,
+    13,
+    187,
+    107,
+    109,
+    192
+   ],
+   "mid": [
+    5,
+    13,
+    172,
+    107,
+    109,
+    115
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -5,
+    13,
+    172,
+    102,
+    146,
+    124
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 725,
+    "blue": 203
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_lampwarm6_glass_touch_01": {
+   "net": [
+    4,
+    11,
+    183,
+    107,
+    114,
+    169
+   ],
+   "mid": [
+    4,
+    11,
+    161,
+    107,
+    114,
+    127
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -25,
+    9,
+    157,
+    105,
+    150,
+    133
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1600,
+    "blue": 1024
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampwarm6_ottoman_clutter_01": {
+   "net": [
+    5,
+    18,
+    207,
+    80,
+    120,
+    5
+   ],
+   "mid": [
+    5,
+    24,
+    198,
+    64,
+    123,
+    5
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    4,
+    18,
+    201,
+    60,
+    122,
+    5
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 2210,
+    "blue": 2396
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_lampwarm6_ottoman_core_01": {
+   "net": [
+    7,
+    24,
+    202,
+    80,
+    132,
+    8
+   ],
+   "mid": [
+    7,
+    25,
+    194,
+    70,
+    137,
+    5
+   ],
+   "mid_source": "net setting (outside weight 0.25), middle of the ranges",
+   "tool": [
+    5,
+    25,
+    176,
+    66,
+    150,
+    6
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 5000,
+    "blue": 2725
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_lampwarm6_ottoman_edge_01": {
+   "net": [
+    4,
+    17,
+    202,
+    96,
+    120,
+    13
+   ],
+   "mid": [
+    4,
+    17,
+    207,
+    70,
+    120,
+    13
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    20,
+    214,
+    60,
+    133,
+    9
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 1596,
+    "blue": 378
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_lampwarm6_ottoman_touch_01": {
+   "net": [
+    8,
+    17,
+    200,
+    42,
+    126,
+    8
+   ],
+   "mid": [
+    8,
+    16,
+    200,
+    58,
+    126,
+    8
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    5,
+    16,
+    199,
+    66,
+    150,
+    8
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1398,
+    "blue": 1995
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_overheaddim_palewood_clutter_01": {
+   "net": [
+    3,
+    11,
+    207,
+    107,
+    112,
+    183
+   ],
+   "mid": [
+    4,
+    10,
+    173,
+    106,
+    116,
+    123
+   ],
+   "mid_source": "adopted, middle of the ranges",
+   "tool": [
+    4,
+    10,
+    195,
+    107,
+    114,
+    133
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 1968,
+    "blue": 1064
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_overheaddim_palewood_core_01": {
+   "net": [
+    2,
+    11,
+    210,
+    103,
+    116,
+    127
+   ],
+   "mid": [
+    3,
+    11,
+    213,
+    66,
+    137,
+    118
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    10,
+    210,
+    103,
+    147,
+    135
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 4,
+   "zone_px": {
+    "orange": 1891,
+    "blue": 1237
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_overheaddim_palewood_edge_01": {
+   "net": [
+    2,
+    10,
+    209,
+    105,
+    112,
+    206
+   ],
+   "mid": [
+    5,
+    10,
+    213,
+    64,
+    138,
+    125
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    5,
+    8,
+    214,
+    98,
+    139,
+    142
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 780,
+    "blue": 210
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_overheaddim_palewood_touch_01": {
+   "net": [
+    3,
+    14,
+    193,
+    103,
+    118,
+    133
+   ],
+   "mid": [
+    4,
+    14,
+    189,
+    64,
+    136,
+    114
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    13,
+    202,
+    103,
+    144,
+    129
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1247,
+    "blue": 830
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_window_abpwhite_occlx_01": {
+   "net": [
+    8,
+    9,
+    171,
+    104,
+    111,
+    198
+   ],
+   "mid": [
+    7,
+    10,
+    166,
+    64,
+    111,
+    127
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    1,
+    9,
+    149,
+    102,
+    149,
+    138
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 162,
+    "blue": 621
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_02": {
+   "net": [
+    8,
+    9,
+    193,
+    103,
+    110,
+    195
+   ],
+   "mid": [
+    8,
+    9,
+    172,
+    63,
+    110,
+    137
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    0,
+    9,
+    176,
+    103,
+    147,
+    138
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 130,
+    "blue": 650
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_window_abpwhite_occlx_03": {
+   "net": [
+    6,
+    12,
+    156,
+    102,
+    110,
+    199
+   ],
+   "mid": [
+    6,
+    12,
+    139,
+    102,
+    110,
+    146
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    12,
+    66,
+    96,
+    149,
+    90
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 259,
+    "blue": 1221
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_04": {
+   "net": [
+    5,
+    12,
+    144,
+    103,
+    110,
+    186
+   ],
+   "mid": [
+    5,
+    10,
+    153,
+    67,
+    110,
+    133
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -27,
+    10,
+    153,
+    100,
+    149,
+    139
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 252,
+    "blue": 1188
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_05": {
+   "net": [
+    5,
+    12,
+    157,
+    103,
+    111,
+    189
+   ],
+   "mid": [
+    5,
+    12,
+    138,
+    66,
+    111,
+    158
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    8,
+    139,
+    103,
+    126,
+    173
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 266,
+    "blue": 1254
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_06": {
+   "net": [
+    7,
+    9,
+    174,
+    103,
+    111,
+    184
+   ],
+   "mid": [
+    7,
+    9,
+    173,
+    68,
+    111,
+    135
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -26,
+    9,
+    116,
+    104,
+    150,
+    139
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 252,
+    "blue": 1188
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_07": {
+   "net": [
+    7,
+    10,
+    208,
+    104,
+    113,
+    184
+   ],
+   "mid": [
+    7,
+    10,
+    167,
+    68,
+    113,
+    124
+   ],
+   "mid_source": "net setting (outside weight 0.5), middle of the ranges",
+   "tool": [
+    3,
+    10,
+    168,
+    103,
+    119,
+    127
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 259,
+    "blue": 1221
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_08": {
+   "net": [
+    7,
+    12,
+    155,
+    103,
+    112,
+    184
+   ],
+   "mid": [
+    7,
+    12,
+    173,
+    64,
+    112,
+    128
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -5,
+    10,
+    175,
+    103,
+    149,
+    130
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 296,
+    "blue": 1184
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_09": {
+   "net": [
+    7,
+    9,
+    200,
+    106,
+    112,
+    203
+   ],
+   "mid": [
+    7,
+    10,
+    149,
+    68,
+    112,
+    143
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    4,
+    10,
+    164,
+    106,
+    148,
+    154
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 125,
+    "blue": 525
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_10": {
+   "net": [
+    3,
+    8,
+    162,
+    109,
+    114,
+    211
+   ],
+   "mid": [
+    3,
+    8,
+    148,
+    68,
+    114,
+    140
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -6,
+    8,
+    155,
+    108,
+    150,
+    141
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 918,
+    "blue": 204
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_window_abpwhite_occlx_11": {
+   "net": [
+    5,
+    8,
+    210,
+    105,
+    114,
+    207
+   ],
+   "mid": [
+    3,
+    10,
+    161,
+    73,
+    119,
+    146
+   ],
+   "mid_source": "adopted, middle of the ranges",
+   "tool": [
+    -15,
+    9,
+    124,
+    105,
+    149,
+    144
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 396,
+    "blue": 1584
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_13": {
+   "net": [
+    8,
+    10,
+    175,
+    108,
+    108,
+    226
+   ],
+   "mid": [
+    7,
+    10,
+    190,
+    105,
+    108,
+    226
+   ],
+   "mid_source": "net setting (outside weight 0.5), middle of the ranges",
+   "tool": [
+    6,
+    10,
+    184,
+    106,
+    108,
+    223
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 782,
+    "blue": 1282
+   },
+   "found_on_itself": {
+    "net": 0,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_14": {
+   "net": [
+    6,
+    9,
+    185,
+    105,
+    112,
+    209
+   ],
+   "mid": [
+    6,
+    9,
+    171,
+    67,
+    112,
+    139
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    3,
+    10,
+    157,
+    102,
+    150,
+    75
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 156,
+    "blue": 598
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_17": {
+   "net": [
+    8,
+    9,
+    215,
+    106,
+    113,
+    201
+   ],
+   "mid": [
+    4,
+    9,
+    152,
+    68,
+    113,
+    149
+   ],
+   "mid_source": "net setting (outside weight 0.25), middle of the ranges",
+   "tool": [
+    5,
+    10,
+    168,
+    99,
+    145,
+    149
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 115,
+    "blue": 414
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_18": {
+   "net": [
+    4,
+    9,
+    207,
+    103,
+    119,
+    113
+   ],
+   "mid": [
+    4,
+    9,
+    207,
+    103,
+    119,
+    113
+   ],
+   "mid_source": "net setting (outside weight 1) (the middle did not work)",
+   "tool": [
+    -23,
+    9,
+    154,
+    104,
+    108,
+    187
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 475,
+    "blue": 125
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_abpwhite_occlx_19": {
+   "net": [
+    6,
+    9,
+    204,
+    104,
+    111,
+    184
+   ],
+   "mid": [
+    6,
+    8,
+    195,
+    68,
+    115,
+    191
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -29,
+    8,
+    147,
+    104,
+    114,
+    193
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 328,
+    "blue": 1312
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_window_glass_clutter_01": {
+   "net": [
+    5,
+    10,
+    182,
+    105,
+    111,
+    219
+   ],
+   "mid": [
+    2,
+    10,
+    169,
+    105,
+    110,
+    209
+   ],
+   "mid_source": "net setting (outside weight 0.1), middle of the ranges",
+   "tool": [
+    4,
+    10,
+    165,
+    105,
+    110,
+    208
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1146,
+    "blue": 1745
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_window_glass_core_01": {
+   "net": [
+    1,
+    10,
+    137,
+    104,
+    113,
+    189
+   ],
+   "mid": [
+    1,
+    10,
+    137,
+    104,
+    113,
+    197
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    15,
+    116,
+    103,
+    117,
+    193
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1378,
+    "blue": 1370
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_window_glass_edge_01": {
+   "net": [
+    5,
+    10,
+    167,
+    108,
+    110,
+    230
+   ],
+   "mid": [
+    3,
+    13,
+    176,
+    103,
+    119,
+    170
+   ],
+   "mid_source": "adopted, middle of the ranges",
+   "tool": [
+    -30,
+    14,
+    128,
+    104,
+    113,
+    203
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 725,
+    "blue": 203
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_glass_touch_01": {
+   "net": [
+    2,
+    10,
+    149,
+    106,
+    113,
+    215
+   ],
+   "mid": [
+    2,
+    10,
+    149,
+    106,
+    113,
+    212
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -29,
+    11,
+    123,
+    106,
+    116,
+    212
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 1600,
+    "blue": 1024
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_window_light_close_01": {
+   "net": [
+    2,
+    10,
+    211,
+    108,
+    115,
+    218
+   ],
+   "mid": [
+    2,
+    10,
+    131,
+    108,
+    115,
+    171
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    11,
+    142,
+    108,
+    150,
+    172
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 1672,
+    "blue": 396
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_window_light_close_02": {
+   "net": [
+    2,
+    9,
+    190,
+    107,
+    116,
+    210
+   ],
+   "mid": [
+    2,
+    9,
+    128,
+    107,
+    116,
+    171
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    21,
+    129,
+    108,
+    149,
+    172
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 378,
+    "blue": 1512
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_window_light_cluster_01": {
+   "net": [
+    3,
+    10,
+    202,
+    106,
+    116,
+    196
+   ],
+   "mid": [
+    3,
+    10,
+    179,
+    106,
+    116,
+    170
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    0,
+    13,
+    123,
+    106,
+    119,
+    173
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 250,
+    "blue": 1100
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  },
+  "4A8B_window_light_cluster_02": {
+   "net": [
+    1,
+    10,
+    180,
+    104,
+    116,
+    190
+   ],
+   "mid": [
+    1,
+    10,
+    126,
+    104,
+    116,
+    167
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    20,
+    133,
+    106,
+    149,
+    167
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 772,
+    "blue": 1219
+   },
+   "found_on_itself": {
+    "net": 4,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_window_light_core_01": {
+   "net": [
+    5,
+    11,
+    190,
+    105,
+    111,
+    211
+   ],
+   "mid": [
+    5,
+    11,
+    190,
+    105,
+    111,
+    173
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -29,
+    12,
+    128,
+    106,
+    137,
+    172
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 697,
+    "blue": 680
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_light_core_02": {
+   "net": [
+    5,
+    13,
+    189,
+    107,
+    112,
+    213
+   ],
+   "mid": [
+    5,
+    13,
+    120,
+    107,
+    112,
+    171
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    30,
+    131,
+    106,
+    145,
+    171
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 728,
+    "blue": 728
+   },
+   "found_on_itself": {
+    "net": 2,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_light_core_03": {
+   "net": [
+    9,
+    10,
+    192,
+    106,
+    114,
+    164
+   ],
+   "mid": [
+    9,
+    10,
+    190,
+    66,
+    114,
+    159
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    9,
+    10,
+    190,
+    106,
+    130,
+    160
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 1,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 180,
+    "blue": 45
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 1,
+    "tool": 1
+   }
+  },
+  "4A8B_window_light_far_02": {
+   "net": [
+    8,
+    10,
+    203,
+    106,
+    115,
+    134
+   ],
+   "mid": [
+    6,
+    11,
+    195,
+    106,
+    117,
+    118
+   ],
+   "mid_source": "net setting (outside weight 0.25) (the middle did not work)",
+   "tool": [
+    5,
+    11,
+    182,
+    101,
+    129,
+    155
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 4,
+   "zone_boxes": 3,
+   "zone_px": {
+    "orange": 314,
+    "blue": 520
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 4,
+    "tool": 4
+   }
+  },
+  "4A8B_window_light_occl_01": {
+   "net": [
+    1,
+    10,
+    201,
+    108,
+    114,
+    225
+   ],
+   "mid": [
+    3,
+    13,
+    125,
+    105,
+    119,
+    127
+   ],
+   "mid_source": "adopted, middle of the ranges",
+   "tool": [
+    -30,
+    14,
+    133,
+    106,
+    149,
+    124
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 1476,
+    "blue": 369
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_light_occl_02": {
+   "net": [
+    4,
+    9,
+    209,
+    106,
+    115,
+    205
+   ],
+   "mid": [
+    3,
+    13,
+    108,
+    106,
+    119,
+    172
+   ],
+   "mid_source": "adopted, middle of the ranges",
+   "tool": [
+    -30,
+    10,
+    88,
+    106,
+    141,
+    172
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 2,
+   "zone_boxes": 1,
+   "zone_px": {
+    "orange": 387,
+    "blue": 1548
+   },
+   "found_on_itself": {
+    "net": 1,
+    "mid": 2,
+    "tool": 2
+   }
+  },
+  "4A8B_window_light_touch_02": {
+   "net": [
+    1,
+    11,
+    176,
+    105,
+    115,
+    208
+   ],
+   "mid": [
+    1,
+    11,
+    119,
+    105,
+    115,
+    163
+   ],
+   "mid_source": "net setting (outside weight 1), middle of the ranges",
+   "tool": [
+    -30,
+    14,
+    129,
+    106,
+    147,
+    163
+   ],
+   "tool_source": "middle of the ranges",
+   "boxes": 3,
+   "zone_boxes": 2,
+   "zone_px": {
+    "orange": 712,
+    "blue": 746
+   },
+   "found_on_itself": {
+    "net": 3,
+    "mid": 3,
+    "tool": 3
+   }
+  }
+ }
+}

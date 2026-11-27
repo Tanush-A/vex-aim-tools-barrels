@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Write the threshold PROPOSALS for the slider-labelled bathroom frames (TODO C1): data/labels/<stem>_hs_proposed.json,
-through ``tools/hs_slider.py --save-proposal``. A proposal is not a label: Tanush's ``_hs.json`` files are not touched,
-and nothing scores against a proposal file except this experiment's two "relabelled" ceilings.
+"""Write the threshold PROPOSALS for the slider-labelled bathroom frames (TODO C1): one proposal file per frame in
+data/labels, written by ``tools/hs_slider.py --save-proposal`` (the tool names the file). A proposal is not a label:
+Tanush's ``_hs.json`` files are not touched, and nothing reads a proposal file back. This experiment's two
+"relabelled" ceilings take the numbers from ``PROPOSALS`` below.
 
     PYTHONPATH=barrels/src python barrels/experiments/2026-11-26_place_ceiling/write_proposals.py
 
