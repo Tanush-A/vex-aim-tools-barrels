@@ -14,8 +14,11 @@ from barrels import degrade as dg, detector as det, io
 from test_detector import CAM, paint_barrel, whys
 
 
+# 2026-11-27_fusion: the seams rule is an off-by-default flag on this branch (plain code on wip/adopt-slack)
+SEAMS = det.DetConfig(seams=True)
+
 def detect(mask, log=None):
-    return det.detect(mask, det.DetConfig(), CAM, log=log)
+    return det.detect(mask, SEAMS, CAM, log=log)
 
 
 def _eaten(d_mm: int, px: int, x: int = 320):
@@ -43,7 +46,7 @@ def _sliver_in_a_slit(skin_rows: tuple[int, int] | None):
 
 def test_the_seam_reading_is_plain_code_with_no_switch():
     """Adopted as rule D alone: no ``slack`` setting, and the code of the arms not adopted (A, B, C) is gone."""
-    assert "slack" not in det.DetConfig().to_dict()
+    assert "slack" not in det.DetConfig().to_dict() and det.DetConfig().seams is False
     for gone in ("area_floor", "_fits_well", "_seam_reading", "_rest_supports", "FITS_FILL"):
         assert not hasattr(det, gone)
     assert "marginal" not in {f.name for f in dataclasses.fields(det.Stripe)}
@@ -56,7 +59,7 @@ def test_a_stripe_that_passes_by_its_own_pixels_is_not_read_again(d):
     """Unharmed: the stripe is its own pixels' box (not the band between its bodies), it asks the verify step for
     min_area_px, and the barrel gets its box."""
     mask, truth = _eaten(d, 0)
-    stripes, _ = det.find_stripes(mask, CAM)
+    stripes, _ = det.find_stripes(mask, CAM, SEAMS)
     r = CAM.barrel_rows(d)
     assert len(stripes) == 1 and stripes[0].own_px is None
     ys = np.where(mask[:, truth[0]:truth[2]] == io.BLUE)[0]
@@ -89,8 +92,8 @@ def test_read_at_seams_scales_a_small_stripe_by_what_its_seams_ate():
     """Two pixels eaten off a barrel at 55 cm: 14 stripe pixels, under min_area_px, and the barrel's top and bottom where
     the row predicts them. The seams give the pixels back: the stripe passes, as the band between its two bodies."""
     mask, truth = _eaten(550, 2)
-    stripes, _ = det.find_stripes(mask, CAM)
-    assert len(stripes) == 1 and stripes[0].own_px is not None and stripes[0].own_px < det.DetConfig().min_area_px
+    stripes, _ = det.find_stripes(mask, CAM, SEAMS)
+    assert len(stripes) == 1 and stripes[0].own_px is not None and stripes[0].own_px < SEAMS.min_area_px
     out = detect(mask)
     assert len(out) == 1 and det.box_iou(out[0].bbox, truth) > 0.7
 
@@ -112,11 +115,11 @@ def test_a_thin_stripe_is_read_at_the_seams_when_the_rest_of_the_barrel_agrees()
     just under 0.8 of the barrel (the old second reading was not asked). The body still ends where the stripe's row puts
     the top and the bottom: the rest of the barrel agrees."""
     mask, truth = _eaten(500, 2)
-    stripes, _ = det.find_stripes(mask, CAM)
+    stripes, _ = det.find_stripes(mask, CAM, SEAMS)
     s = stripes[0]
-    assert (s.bbox[2] - s.bbox[0]) < det.DetConfig().stripe_full * CAM.barrel_rows(500).width_px
+    assert (s.bbox[2] - s.bbox[0]) < SEAMS.stripe_full * CAM.barrel_rows(500).width_px
     at = det.BarrelAt._at_distance(CAM, 500)
-    assert det.rest_of_barrel_agrees(io.ORANGE, s.bbox[0], s.bbox[2] - s.bbox[0], s.bbox[1], s.bbox[3], at, 0.0, mask, det.DetConfig())
+    assert det.rest_of_barrel_agrees(io.ORANGE, s.bbox[0], s.bbox[2] - s.bbox[0], s.bbox[1], s.bbox[3], at, 0.0, mask, SEAMS)
     out = detect(mask)
     assert len(out) == 1 and out[0].color == io.ORANGE and det.box_iou(out[0].bbox, truth) > 0.6
     assert not {"top_inferred", "bottom_inferred"} & out[0].flags                 # the body walk starts at the body: both edges are seen
@@ -124,7 +127,7 @@ def test_a_thin_stripe_is_read_at_the_seams_when_the_rest_of_the_barrel_agrees()
 
 def test_read_at_seams_gives_back_the_eaten_pixels():
     mask, _ = _eaten(500, 2)
-    sw = det.sandwiches(mask, CAM, det.DetConfig())[io.ORANGE]
+    sw = det.sandwiches(mask, CAM, SEAMS)[io.ORANGE]
     sel = sw.stripe & sw.above & sw.below
     ys = np.where(sel)[0]
     core = float(np.percentile(ys, 90) - np.percentile(ys, 10) + 1)
@@ -205,8 +208,8 @@ def test_a_thin_stripe_with_enough_pixels_may_be_seen_whole_by_its_width():
     mask[mid + 6:int(round(r.bottom)), x0:x1] = io.ORANGE
     xs0, xs1 = 320 - int(0.37 * W), 320 + int(0.37 * W)
     mask[mid - 1:mid + 2, xs0:xs1] = io.BLUE
-    assert xs1 - xs0 < det.DetConfig().stripe_full * W <= xs1 - xs0 + 5
-    stripes, _ = det.find_stripes(mask, CAM)
+    assert xs1 - xs0 < SEAMS.stripe_full * W <= xs1 - xs0 + 5
+    stripes, _ = det.find_stripes(mask, CAM, SEAMS)
     assert len(stripes) == 1 and stripes[0].bbox[0] == xs0 and stripes[0].bbox[1] == mid - 7 and stripes[0].bbox[3] == mid + 6
     assert stripes[0].own_px is None                                               # enough pixels of its own
 
