@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_clutter_01",
+ "by": "claude",
+ "orange": {
+  "h_lo": 10,
+  "h_hi": 14,
+  "s_lo": 195
+ },
+ "blue": {
+  "h_lo": 94,
+  "h_hi": 106,
+  "s_lo": 108
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "reasoning": "Computed from this frame and its boxes with the full hue range (net setting, outside weight 1: the most barrel pixels painted minus the pixels painted outside the boxes). No detector was used to get the numbers. Paints 57 px of blue and 76 px of orange outside the boxes."
+}

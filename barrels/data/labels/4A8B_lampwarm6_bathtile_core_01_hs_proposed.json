@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_bathtile_core_01",
+ "by": "claude",
+ "orange": {
+  "h_lo": 5,
+  "h_hi": 10,
+  "s_lo": 213
+ },
+ "blue": {
+  "h_lo": 26,
+  "h_hi": 110,
+  "s_lo": 8
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "reasoning": "Computed from this frame and its boxes with the full hue range (net setting, outside weight 1: the most barrel pixels painted minus the pixels painted outside the boxes). No detector was used to get the numbers. Under the warm lamp the blue paint reads gray-olive: hue 25 to 57 for the middle half of its pixels, S about 42. The floor is hue 10 to 29 with S above 100, so blue from hue 26 up paints the barrels and not the floor (63 px outside). The computed blue range ran up to hue 174 because nothing else in this frame has those hues; I cut it to 110 by hand."
+}

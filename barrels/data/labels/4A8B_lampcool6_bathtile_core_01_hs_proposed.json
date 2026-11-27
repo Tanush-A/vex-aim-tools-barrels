@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampcool6_bathtile_core_01",
+ "by": "claude",
+ "orange": {
+  "h_lo": 6,
+  "h_hi": 15,
+  "s_lo": 198
+ },
+ "blue": {
+  "h_lo": 89,
+  "h_hi": 110,
+  "s_lo": 121
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "reasoning": "Computed from this frame and its boxes with the full hue range (net setting, outside weight 1: the most barrel pixels painted minus the pixels painted outside the boxes). No detector was used to get the numbers. Blue sits at hue 98 to 105 here, at or below the fixed range's lower edge of 103."
+}

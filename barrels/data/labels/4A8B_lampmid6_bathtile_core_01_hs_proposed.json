@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampmid6_bathtile_core_01",
+ "by": "claude",
+ "orange": {
+  "h_lo": 7,
+  "h_hi": 14,
+  "s_lo": 204
+ },
+ "blue": {
+  "h_lo": 66,
+  "h_hi": 125,
+  "s_lo": 9
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "reasoning": "Computed from this frame and its boxes with the full hue range (net setting, outside weight 1: the most barrel pixels painted minus the pixels painted outside the boxes). No detector was used to get the numbers. "
+}

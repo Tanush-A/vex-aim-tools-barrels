@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "stem": "4A8B_lampwarm6_bathtile_occl_02",
+ "by": "claude",
+ "orange": {
+  "h_lo": 7,
+  "h_hi": 9,
+  "s_lo": 215
+ },
+ "blue": {
+  "h_lo": 30,
+  "h_hi": 103,
+  "s_lo": 7
+ },
+ "hue_units": "opencv 0-179; h_lo may be negative across the red wrap (-3 = 177)",
+ "reasoning": "The only barrel of this frame is half hidden, so the frame gives no clean barrel pixels. These are the numbers of the condition's six frames with barrels pooled (net setting, outside weight 1). "
+}
