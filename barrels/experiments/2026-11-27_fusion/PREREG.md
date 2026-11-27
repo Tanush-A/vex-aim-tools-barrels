@@ -102,3 +102,21 @@ or the test frames, is the clean check.
 overlap, the lists of false boxes, what is left after contrast); the code of contrast, peaks, bluer-geom checks and
 combined; the stored fold picks of each method (settings only, no per-frame result). No frame, no contact sheet and no
 per-frame count was looked at for this plan. The golden harness was run with the two new flags at their defaults only.
+
+## Addendum 1 (2026-11-27, written after round 1, before round 2 ran)
+
+Round 1 (committed in f92a43f, `results/2026-11-27_fusion/`): every fusion is NO CLEAR DIFFERENCE against F0; the best
+on found is F3 (157.08 against 155.30; boxes not on their barrel 2.17 against 2.83). F1a (contrast + checks) PASSES
+against F0 on boxes (2.83 -> 0.83, found equal). Looking at F3's boxes not on their barrel: the pale-wood close-up box
+(a box of today's detector, on wood grain) is removed by F1's checks and then comes back, because the other methods
+draw the same fixed-color box and their votes carry it; measured in their masks, it passes the checks.
+
+Round 2, one rule and two report-only ablations, nothing else changed:
+
+- **F3r, F5r, F6r** = F3, F5, F6 with one rule: a proposal on (half inside) a box that F1's checks removed is not a
+  proposal. A box the checks call a trap stays a trap, whichever method draws it again. k chosen in the fold exactly
+  as before (the same options, the same rule). This rule was written after seeing round 1's false boxes. Said plainly.
+- Report only, to tell the two detector flags apart: **F1s** = C1 + checks + seams only; **F1u** = C1 + checks +
+  bottom rule only (both at F1's checks pick).
+
+Each judged against today and against F0, as in round 1. Round 1's numbers stand as they are.
