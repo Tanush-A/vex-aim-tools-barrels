@@ -184,8 +184,8 @@ def test_command_save_baseline_then_gate(tmp_path, monkeypatch, capsys):
     assert capsys.readouterr().out.rstrip().splitlines()[-1].startswith("RESULT: PASS")
 
     current["rep"] = swapped(make_rep())                            # a worse candidate
-    assert tool.main(["--gate", "--cand-det", "cap_behind=false"] + args) == 1
-    assert calls[-1][0].det_overrides == {"cap_behind": False}
+    assert tool.main(["--gate", "--cand-det", "min_width_px=20"] + args) == 1
+    assert calls[-1][0].det_overrides == {"min_width_px": 20.0}
     out = capsys.readouterr().out
     assert "CAMPUS core" in out and "HOME neg" in out and out.rstrip().splitlines()[-1].startswith("RESULT: FAIL")
 

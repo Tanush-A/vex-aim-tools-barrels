@@ -44,7 +44,7 @@ def test_hook_runs_on_a_synthetic_scene(tmp_path):
 
 def test_default_hook_is_the_detector_as_it_stands():
     hook = wb.BarrelDetectorHook.default()
-    assert hook.detector is det.detect and isinstance(hook.det_cfg, det.DetConfig) and hook.det_cfg.require_stripe
+    assert hook.detector is det.detect and hook.det_cfg == det.DetConfig()
     assert hook.cam == geo.AIM_4A8B6118_BOXFIT and hook.model.cfg.short_hash() == "eb863d84" and hook.model.cfg.color_model == "hs"
 
 

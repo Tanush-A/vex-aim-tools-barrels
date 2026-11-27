@@ -3,19 +3,21 @@
 width ratio / bottom error for a candidate and a baseline side by side, and the difference.
 
     python barrels/tools/report.py                                   # what runs today vs the v1 front end
-    python barrels/tools/report.py --base-model default --base-det body_width=0      # today vs today without hardening (f)
+    python barrels/tools/report.py --base-model default --base-det body_width=1.0    # today vs today with boxes at most one barrel wide
     python barrels/tools/report.py --cand-det stripe_merge=1.68 --base-model default # a detector number vs today
     python barrels/tools/report.py --cand-model results/<x>/config.json --base-model default   # a new color model vs today
     python barrels/tools/report.py --sets CAMPUS,DAVE --out          # fewer sets; also write results/<date>_eval_report/
 
     python barrels/tools/report.py --vendor                          # today vs the robot's built-in (vendor) detector
     python barrels/tools/report.py --gate                            # the never-regress check on today's defaults
-    python barrels/tools/report.py --gate --cand-det cap_behind=false   # ... on a candidate, before it becomes the default
+    python barrels/tools/report.py --gate --cand-det stripe_merge=1.68  # ... on a candidate, before it becomes the default
     python barrels/tools/report.py --save-baseline                   # store today's numbers as the baseline the check compares with
 
 An arm is a color-model file plus DetConfig overrides. --cand-model / --base-model take a results config.json,
 or the words ``default`` (worldmap_bridge.DEFAULT_MODEL, what runs today), ``v1`` (V1_MODEL) or ``vendor``.
---cand-det / --base-det take DetConfig fields as field=value (repeat the flag or separate with commas).
+--cand-det / --base-det take DetConfig fields as field=value (repeat the flag or separate with commas). DetConfig holds the
+detector's 20 numbers; its on/off switches were removed on 2026-11-26 (naming one stops with a message; the detector with
+switches is at the git tag pre-collapse-2026-11-26).
 Defaults: candidate = default model + DetConfig(); baseline = v1 model + DetConfig().
 
 The vendor arm (``--vendor`` = ``--base-model vendor``) runs nothing: it reads the boxes the robot's own detector
