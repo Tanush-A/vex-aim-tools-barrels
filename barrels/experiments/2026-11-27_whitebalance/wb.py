@@ -189,3 +189,7 @@ detect_frame_white_patch = detector_for(Setting("white_patch", 1.0))
 detect_frame_without_loose = detector_for(Setting("without_loose", 1.0))
 detect_frame_gray_above = detector_for(Setting("gray_above", 1.0))
 detect_frame_shades_of_gray = detector_for(Setting("shades_of_gray", 1.0))
+
+# The best candidate, P1 (gray world, partial): every fold of the leave-one-place-out run picked alpha 0.5, so this
+# plain callable gives exactly P1's boxes. EXPERIMENT ONLY: not adoptable without Dave (the image is corrected).
+detect_frame_gray_world_half = detector_for(Setting("gray_world", 0.5))

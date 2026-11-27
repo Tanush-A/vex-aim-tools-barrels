@@ -1,0 +1,4724 @@
+{
+ "made": "2026-11-26",
+ "git": "3778d2e",
+ "folds": {
+  "P1_gray_world_partial": {
+   "home_white": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 10.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 0.033,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.083,
+      "found_w": 9.2,
+      "extra_w": -0.883
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.2,
+      "found_w": 9.617,
+      "extra_w": 1.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 5.45,
+      "found_w": 8.033,
+      "extra_w": 2.583
+     }
+    ]
+   },
+   "campus_study": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 10.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 0.033,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.083,
+      "found_w": 9.2,
+      "extra_w": -0.883
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 9.2,
+      "found_w": 10.617,
+      "extra_w": 1.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.45,
+      "found_w": 9.033,
+      "extra_w": 2.583
+     }
+    ]
+   },
+   "abp_gray": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 8.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 0.033,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 8.083,
+      "found_w": 7.2,
+      "extra_w": -0.883
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 7.2,
+      "found_w": 7.617,
+      "extra_w": 0.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.45,
+      "found_w": 6.033,
+      "extra_w": 2.583
+     }
+    ]
+   },
+   "home_bathtile": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 2.333,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.133,
+      "found_w": -1.467,
+      "extra_w": -1.333
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 2.333,
+      "found_w": 1.2,
+      "extra_w": -1.133
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": -1.133,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": 0.533,
+      "extra_w": 2.333
+     }
+    ]
+   },
+   "home_glass": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 4,
+    "of": 4,
+    "gain": 10.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.667,
+      "found_w": -0.167,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.083,
+      "found_w": 9.0,
+      "extra_w": -1.083
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 9.0,
+      "found_w": 9.417,
+      "extra_w": 0.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "PASS",
+      "gain": 6.25,
+      "found_w": 7.833,
+      "extra_w": 1.583
+     }
+    ]
+   },
+   "home_ottoman": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 10.75,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.2,
+      "found_w": 0.7,
+      "extra_w": -0.5
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.75,
+      "found_w": 10.2,
+      "extra_w": -0.55
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 10.2,
+      "found_w": 11.95,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 7.45,
+      "found_w": 9.7,
+      "extra_w": 2.25
+     }
+    ]
+   },
+   "uc_palewood": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 9.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 1.033,
+      "extra_w": 0.167
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 9.083,
+      "found_w": 9.2,
+      "extra_w": 0.117
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 7.2,
+      "found_w": 9.617,
+      "extra_w": 2.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.45,
+      "found_w": 9.033,
+      "extra_w": 2.583
+     }
+    ]
+   },
+   "abp_white": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 10.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 0.033,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.083,
+      "found_w": 9.2,
+      "extra_w": -0.883
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.2,
+      "found_w": 9.617,
+      "extra_w": 1.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "PASS",
+      "gain": 4.45,
+      "found_w": 6.033,
+      "extra_w": 1.583
+     }
+    ]
+   },
+   "home_wooddesk": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 10.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 0.033,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.083,
+      "found_w": 9.2,
+      "extra_w": -0.883
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.2,
+      "found_w": 9.617,
+      "extra_w": 1.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 5.45,
+      "found_w": 8.033,
+      "extra_w": 2.583
+     }
+    ]
+   },
+   "home_black": {
+    "setting": "gray_world, alpha 0.5",
+    "key": "gray_world|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 10.083,
+    "all": [
+     {
+      "setting": "gray_world, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.867,
+      "found_w": 0.033,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "gray_world, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 10.083,
+      "found_w": 9.2,
+      "extra_w": -0.883
+     },
+     {
+      "setting": "gray_world, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.2,
+      "found_w": 9.617,
+      "extra_w": 1.417
+     },
+     {
+      "setting": "gray_world, alpha 1",
+      "verdict": "FAIL",
+      "gain": 5.45,
+      "found_w": 8.033,
+      "extra_w": 2.583
+     }
+    ]
+   }
+  },
+  "P2_white_patch_partial": {
+   "home_white": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": 3.233,
+      "extra_w": 5.033
+     }
+    ]
+   },
+   "campus_study": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -0.8,
+      "found_w": 4.233,
+      "extra_w": 5.033
+     }
+    ]
+   },
+   "abp_gray": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": 3.233,
+      "extra_w": 5.033
+     }
+    ]
+   },
+   "home_bathtile": {
+    "setting": "no correction (today)",
+    "key": "|0|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 0.0,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.133,
+      "found_w": 0.133,
+      "extra_w": 0.267
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -1.467,
+      "found_w": -0.733,
+      "extra_w": 0.733
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": -4.2,
+      "found_w": -3.2,
+      "extra_w": 1.0
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -6.8,
+      "found_w": -3.267,
+      "extra_w": 3.533
+     }
+    ]
+   },
+   "home_glass": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 7.083,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.917,
+      "found_w": 2.083,
+      "extra_w": 0.167
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.083,
+      "found_w": 7.917,
+      "extra_w": 0.833
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 6.25,
+      "found_w": 8.0,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.0,
+      "found_w": 3.833,
+      "extra_w": 4.833
+     }
+    ]
+   },
+   "home_ottoman": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.95,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.45,
+      "found_w": 1.55,
+      "extra_w": 1.1
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.95,
+      "found_w": 7.85,
+      "extra_w": 0.9
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.05,
+      "found_w": 8.8,
+      "extra_w": 0.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": 1.2,
+      "found_w": 4.9,
+      "extra_w": 3.7
+     }
+    ]
+   },
+   "uc_palewood": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": 0.2,
+      "found_w": 3.233,
+      "extra_w": 3.033
+     }
+    ]
+   },
+   "abp_white": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": 3.233,
+      "extra_w": 5.033
+     }
+    ]
+   },
+   "home_wooddesk": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": 3.233,
+      "extra_w": 5.033
+     }
+    ]
+   },
+   "home_black": {
+    "setting": "white_patch, alpha 0.5",
+    "key": "white_patch|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.283,
+    "all": [
+     {
+      "setting": "white_patch, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.117,
+      "found_w": 1.883,
+      "extra_w": 0.767
+     },
+     {
+      "setting": "white_patch, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.283,
+      "found_w": 7.517,
+      "extra_w": 1.233
+     },
+     {
+      "setting": "white_patch, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.05,
+      "found_w": 6.8,
+      "extra_w": 1.75
+     },
+     {
+      "setting": "white_patch, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.8,
+      "found_w": 3.233,
+      "extra_w": 5.033
+     }
+    ]
+   }
+  },
+  "P3_without_loose_partial": {
+   "home_white": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.283,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.367,
+      "found_w": 12.083,
+      "extra_w": 3.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 10.533,
+      "extra_w": 3.95
+     }
+    ]
+   },
+   "campus_study": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.283,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.367,
+      "found_w": 12.083,
+      "extra_w": 3.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 7.583,
+      "found_w": 11.533,
+      "extra_w": 3.95
+     }
+    ]
+   },
+   "abp_gray": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.283,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.367,
+      "found_w": 12.083,
+      "extra_w": 3.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 10.533,
+      "extra_w": 3.95
+     }
+    ]
+   },
+   "home_bathtile": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 0.533,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.533,
+      "found_w": -0.0,
+      "extra_w": -0.533
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": -0.333,
+      "found_w": 2.333,
+      "extra_w": 2.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": -1.133,
+      "found_w": 2.333,
+      "extra_w": 3.467
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": -1.667,
+      "found_w": 1.533,
+      "extra_w": 3.2
+     }
+    ]
+   },
+   "home_glass": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.083,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.083,
+      "found_w": 1.0,
+      "extra_w": -0.083
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.167,
+      "found_w": 12.083,
+      "extra_w": 3.917
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 10.333,
+      "extra_w": 3.75
+     }
+    ]
+   },
+   "home_ottoman": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 0.95,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.95,
+      "found_w": 1.0,
+      "extra_w": 0.05
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 1.75,
+      "found_w": 5.75,
+      "extra_w": 4.0
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 6.7,
+      "found_w": 9.75,
+      "extra_w": 3.05
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 5.25,
+      "found_w": 8.2,
+      "extra_w": 2.95
+     }
+    ]
+   },
+   "uc_palewood": {
+    "setting": "without_loose, alpha 0.75",
+    "key": "without_loose|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 11.367,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.417,
+      "found_w": 8.083,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 11.367,
+      "found_w": 12.083,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 8.583,
+      "found_w": 10.533,
+      "extra_w": 1.95
+     }
+    ]
+   },
+   "abp_white": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.283,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.367,
+      "found_w": 12.083,
+      "extra_w": 3.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 10.533,
+      "extra_w": 3.95
+     }
+    ]
+   },
+   "home_wooddesk": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.283,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.367,
+      "found_w": 12.083,
+      "extra_w": 3.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 10.533,
+      "extra_w": 3.95
+     }
+    ]
+   },
+   "home_black": {
+    "setting": "without_loose, alpha 0.25",
+    "key": "without_loose|0.25|0",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.283,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.283,
+      "found_w": 1.0,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "without_loose, alpha 0.5",
+      "verdict": "FAIL",
+      "gain": 4.417,
+      "found_w": 8.083,
+      "extra_w": 3.667
+     },
+     {
+      "setting": "without_loose, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.367,
+      "found_w": 12.083,
+      "extra_w": 3.717
+     },
+     {
+      "setting": "without_loose, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 10.533,
+      "extra_w": 3.95
+     }
+    ]
+   }
+  },
+  "P4_gray_above_partial": {
+   "home_white": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 9.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 0.967,
+      "extra_w": 1.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.367,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 9.667,
+      "found_w": 9.7,
+      "extra_w": 0.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 5.35,
+      "found_w": 8.833,
+      "extra_w": 3.483
+     }
+    ]
+   },
+   "campus_study": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 8.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 0.967,
+      "extra_w": 1.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.367,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 8.667,
+      "found_w": 8.7,
+      "extra_w": 0.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.35,
+      "found_w": 7.833,
+      "extra_w": 4.483
+     }
+    ]
+   },
+   "abp_gray": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 7.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 0.967,
+      "extra_w": 1.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.367,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 7.667,
+      "found_w": 7.7,
+      "extra_w": 0.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 2.35,
+      "found_w": 6.833,
+      "extra_w": 4.483
+     }
+    ]
+   },
+   "home_bathtile": {
+    "setting": "gray_above, alpha 0.5",
+    "key": "gray_above|0.5|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 1.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -1.6,
+      "found_w": -0.533,
+      "extra_w": 1.067
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.667,
+      "found_w": 0.867,
+      "extra_w": -0.8
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -1.333,
+      "found_w": -1.8,
+      "extra_w": -0.467
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": -5.4,
+      "found_w": -1.667,
+      "extra_w": 3.733
+     }
+    ]
+   },
+   "home_glass": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 8.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.25,
+      "found_w": 1.167,
+      "extra_w": 0.917
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.167,
+      "extra_w": 0.0
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 8.667,
+      "found_w": 8.5,
+      "extra_w": -0.167
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.75,
+      "found_w": 7.833,
+      "extra_w": 4.083
+     }
+    ]
+   },
+   "home_ottoman": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 10.0,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 1.3,
+      "extra_w": 1.65
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 6.7,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 10.0,
+      "found_w": 9.7,
+      "extra_w": -0.3
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.35,
+      "found_w": 8.5,
+      "extra_w": 2.15
+     }
+    ]
+   },
+   "uc_palewood": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 8.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.65,
+      "found_w": 0.967,
+      "extra_w": 0.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.167,
+      "found_w": 7.367,
+      "extra_w": 1.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 8.667,
+      "found_w": 9.7,
+      "extra_w": 1.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 4.35,
+      "found_w": 8.833,
+      "extra_w": 4.483
+     }
+    ]
+   },
+   "abp_white": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 8.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 0.967,
+      "extra_w": 1.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.367,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 8.667,
+      "found_w": 8.7,
+      "extra_w": 0.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.35,
+      "found_w": 7.833,
+      "extra_w": 4.483
+     }
+    ]
+   },
+   "home_wooddesk": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 8.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 0.967,
+      "extra_w": 1.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.367,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 8.667,
+      "found_w": 8.7,
+      "extra_w": 0.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.35,
+      "found_w": 7.833,
+      "extra_w": 4.483
+     }
+    ]
+   },
+   "home_black": {
+    "setting": "gray_above, alpha 0.75",
+    "key": "gray_above|0.75|0",
+    "allowed": 3,
+    "of": 4,
+    "gain": 8.667,
+    "all": [
+     {
+      "setting": "gray_above, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.35,
+      "found_w": 0.967,
+      "extra_w": 1.317
+     },
+     {
+      "setting": "gray_above, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.167,
+      "found_w": 7.367,
+      "extra_w": 0.2
+     },
+     {
+      "setting": "gray_above, alpha 0.75",
+      "verdict": "PASS",
+      "gain": 8.667,
+      "found_w": 8.7,
+      "extra_w": 0.033
+     },
+     {
+      "setting": "gray_above, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.35,
+      "found_w": 7.833,
+      "extra_w": 4.483
+     }
+    ]
+   }
+  },
+  "P5_shades_of_gray_partial": {
+   "home_white": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.683,
+      "found_w": 0.033,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.867,
+      "extra_w": -0.633
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 6.367,
+      "found_w": 7.033,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 1.533,
+      "found_w": 4.45,
+      "extra_w": 2.917
+     }
+    ]
+   },
+   "campus_study": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.683,
+      "found_w": 0.033,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.867,
+      "extra_w": -0.633
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 7.367,
+      "found_w": 8.033,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 2.533,
+      "found_w": 5.45,
+      "extra_w": 2.917
+     }
+    ]
+   },
+   "abp_gray": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.683,
+      "found_w": 0.033,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.867,
+      "extra_w": -0.633
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 6.367,
+      "found_w": 7.033,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 0.533,
+      "found_w": 3.45,
+      "extra_w": 2.917
+     }
+    ]
+   },
+   "home_bathtile": {
+    "setting": "no correction (today)",
+    "key": "|0|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 0.0,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -1.933,
+      "found_w": -1.467,
+      "extra_w": 0.467
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.0,
+      "found_w": -1.133,
+      "extra_w": -1.133
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": -3.133,
+      "found_w": -3.467,
+      "extra_w": -0.333
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": -5.467,
+      "found_w": -2.8,
+      "extra_w": 2.667
+     }
+    ]
+   },
+   "home_glass": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -1.083,
+      "found_w": -0.167,
+      "extra_w": 0.917
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.667,
+      "extra_w": -0.833
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 7.167,
+      "found_w": 6.833,
+      "extra_w": -0.333
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 3.333,
+      "found_w": 4.25,
+      "extra_w": 0.917
+     }
+    ]
+   },
+   "home_ottoman": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 7.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.65,
+      "found_w": 1.7,
+      "extra_w": 1.05
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 7.5,
+      "found_w": 7.2,
+      "extra_w": -0.3
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 8.7,
+      "found_w": 9.7,
+      "extra_w": 1.0
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 6.2,
+      "found_w": 7.45,
+      "extra_w": 1.25
+     }
+    ]
+   },
+   "uc_palewood": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 5.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.317,
+      "found_w": 0.033,
+      "extra_w": -0.283
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 5.5,
+      "found_w": 5.867,
+      "extra_w": 0.367
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 5.367,
+      "found_w": 7.033,
+      "extra_w": 1.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 0.533,
+      "found_w": 4.45,
+      "extra_w": 3.917
+     }
+    ]
+   },
+   "abp_white": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.683,
+      "found_w": 0.033,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.867,
+      "extra_w": -0.633
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 6.367,
+      "found_w": 7.033,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 1.533,
+      "found_w": 4.45,
+      "extra_w": 2.917
+     }
+    ]
+   },
+   "home_wooddesk": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.683,
+      "found_w": 0.033,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.867,
+      "extra_w": -0.633
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 6.367,
+      "found_w": 7.033,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 1.533,
+      "found_w": 4.45,
+      "extra_w": 2.917
+     }
+    ]
+   },
+   "home_black": {
+    "setting": "shades_of_gray, alpha 0.5",
+    "key": "shades_of_gray|0.5|0",
+    "allowed": 2,
+    "of": 4,
+    "gain": 6.5,
+    "all": [
+     {
+      "setting": "shades_of_gray, alpha 0.25",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": -0.683,
+      "found_w": 0.033,
+      "extra_w": 0.717
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.5",
+      "verdict": "PASS",
+      "gain": 6.5,
+      "found_w": 5.867,
+      "extra_w": -0.633
+     },
+     {
+      "setting": "shades_of_gray, alpha 0.75",
+      "verdict": "FAIL",
+      "gain": 6.367,
+      "found_w": 7.033,
+      "extra_w": 0.667
+     },
+     {
+      "setting": "shades_of_gray, alpha 1",
+      "verdict": "FAIL",
+      "gain": 1.533,
+      "found_w": 4.45,
+      "extra_w": 2.917
+     }
+    ]
+   }
+  },
+  "U3_without_loose_added": {
+   "home_white": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.633,
+      "found_w": 8.75,
+      "extra_w": 4.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.55,
+      "found_w": 15.083,
+      "extra_w": 5.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 5.783,
+      "found_w": 15.833,
+      "extra_w": 10.05
+     }
+    ]
+   },
+   "campus_study": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.633,
+      "found_w": 8.75,
+      "extra_w": 4.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.55,
+      "found_w": 15.083,
+      "extra_w": 5.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 5.783,
+      "found_w": 15.833,
+      "extra_w": 10.05
+     }
+    ]
+   },
+   "abp_gray": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.633,
+      "found_w": 8.75,
+      "extra_w": 4.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.55,
+      "found_w": 15.083,
+      "extra_w": 5.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 5.783,
+      "found_w": 15.833,
+      "extra_w": 10.05
+     }
+    ]
+   },
+   "home_bathtile": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 0.667,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.667,
+      "found_w": 0.667,
+      "extra_w": 0.0
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 0.133,
+      "found_w": 3.0,
+      "extra_w": 2.867
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 1.8,
+      "found_w": 5.333,
+      "extra_w": 3.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 0.533,
+      "found_w": 5.333,
+      "extra_w": 4.8
+     }
+    ]
+   },
+   "home_glass": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.833,
+      "found_w": 8.75,
+      "extra_w": 3.917
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.75,
+      "found_w": 15.083,
+      "extra_w": 5.333
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 6.583,
+      "found_w": 15.833,
+      "extra_w": 9.25
+     }
+    ]
+   },
+   "home_ottoman": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 0.5,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 0.5,
+      "found_w": 1.0,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 1.3,
+      "found_w": 5.75,
+      "extra_w": 4.45
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.55,
+      "found_w": 9.75,
+      "extra_w": 5.2
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 2.45,
+      "found_w": 10.5,
+      "extra_w": 8.05
+     }
+    ]
+   },
+   "uc_palewood": {
+    "setting": "without_loose, alpha 0.5, added to today's mask",
+    "key": "without_loose|0.5|1",
+    "allowed": 2,
+    "of": 4,
+    "gain": 7.633,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "PASS",
+      "gain": 7.633,
+      "found_w": 8.75,
+      "extra_w": 1.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 12.55,
+      "found_w": 15.083,
+      "extra_w": 2.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 7.783,
+      "found_w": 15.833,
+      "extra_w": 8.05
+     }
+    ]
+   },
+   "abp_white": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.633,
+      "found_w": 8.75,
+      "extra_w": 4.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.55,
+      "found_w": 15.083,
+      "extra_w": 5.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 5.783,
+      "found_w": 15.833,
+      "extra_w": 10.05
+     }
+    ]
+   },
+   "home_wooddesk": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.633,
+      "found_w": 8.75,
+      "extra_w": 4.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.55,
+      "found_w": 15.083,
+      "extra_w": 5.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 5.783,
+      "found_w": 15.833,
+      "extra_w": 10.05
+     }
+    ]
+   },
+   "home_black": {
+    "setting": "without_loose, alpha 0.25, added to today's mask",
+    "key": "without_loose|0.25|1",
+    "allowed": 1,
+    "of": 4,
+    "gain": 1.167,
+    "all": [
+     {
+      "setting": "without_loose, alpha 0.25, added to today's mask",
+      "verdict": "NO CLEAR DIFFERENCE",
+      "gain": 1.167,
+      "found_w": 1.667,
+      "extra_w": 0.5
+     },
+     {
+      "setting": "without_loose, alpha 0.5, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 4.633,
+      "found_w": 8.75,
+      "extra_w": 4.117
+     },
+     {
+      "setting": "without_loose, alpha 0.75, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 9.55,
+      "found_w": 15.083,
+      "extra_w": 5.533
+     },
+     {
+      "setting": "without_loose, alpha 1, added to today's mask",
+      "verdict": "FAIL",
+      "gain": 5.783,
+      "found_w": 15.833,
+      "extra_w": 10.05
+     }
+    ]
+   }
+  }
+ },
+ "in_sample_all_places": {
+  "P1_gray_world_partial": {
+   "setting": "gray_world, alpha 0.5",
+   "allowed": 2,
+   "of": 4,
+   "gain": 10.083,
+   "all": [
+    {
+     "setting": "gray_world, alpha 0.25",
+     "verdict": "NO CLEAR DIFFERENCE",
+     "gain": 0.867,
+     "found_w": 0.033,
+     "extra_w": -0.833
+    },
+    {
+     "setting": "gray_world, alpha 0.5",
+     "verdict": "PASS",
+     "gain": 10.083,
+     "found_w": 9.2,
+     "extra_w": -0.883
+    },
+    {
+     "setting": "gray_world, alpha 0.75",
+     "verdict": "FAIL",
+     "gain": 8.2,
+     "found_w": 9.617,
+     "extra_w": 1.417
+    },
+    {
+     "setting": "gray_world, alpha 1",
+     "verdict": "FAIL",
+     "gain": 5.45,
+     "found_w": 8.033,
+     "extra_w": 2.583
+    }
+   ]
+  },
+  "P2_white_patch_partial": {
+   "setting": "white_patch, alpha 0.5",
+   "allowed": 2,
+   "of": 4,
+   "gain": 6.283,
+   "all": [
+    {
+     "setting": "white_patch, alpha 0.25",
+     "verdict": "NO CLEAR DIFFERENCE",
+     "gain": 1.117,
+     "found_w": 1.883,
+     "extra_w": 0.767
+    },
+    {
+     "setting": "white_patch, alpha 0.5",
+     "verdict": "PASS",
+     "gain": 6.283,
+     "found_w": 7.517,
+     "extra_w": 1.233
+    },
+    {
+     "setting": "white_patch, alpha 0.75",
+     "verdict": "FAIL",
+     "gain": 5.05,
+     "found_w": 6.8,
+     "extra_w": 1.75
+    },
+    {
+     "setting": "white_patch, alpha 1",
+     "verdict": "FAIL",
+     "gain": -1.8,
+     "found_w": 3.233,
+     "extra_w": 5.033
+    }
+   ]
+  },
+  "P3_without_loose_partial": {
+   "setting": "without_loose, alpha 0.25",
+   "allowed": 1,
+   "of": 4,
+   "gain": 1.283,
+   "all": [
+    {
+     "setting": "without_loose, alpha 0.25",
+     "verdict": "NO CLEAR DIFFERENCE",
+     "gain": 1.283,
+     "found_w": 1.0,
+     "extra_w": -0.283
+    },
+    {
+     "setting": "without_loose, alpha 0.5",
+     "verdict": "FAIL",
+     "gain": 4.417,
+     "found_w": 8.083,
+     "extra_w": 3.667
+    },
+    {
+     "setting": "without_loose, alpha 0.75",
+     "verdict": "FAIL",
+     "gain": 8.367,
+     "found_w": 12.083,
+     "extra_w": 3.717
+    },
+    {
+     "setting": "without_loose, alpha 1",
+     "verdict": "FAIL",
+     "gain": 6.583,
+     "found_w": 10.533,
+     "extra_w": 3.95
+    }
+   ]
+  },
+  "P4_gray_above_partial": {
+   "setting": "gray_above, alpha 0.75",
+   "allowed": 3,
+   "of": 4,
+   "gain": 8.667,
+   "all": [
+    {
+     "setting": "gray_above, alpha 0.25",
+     "verdict": "NO CLEAR DIFFERENCE",
+     "gain": -0.35,
+     "found_w": 0.967,
+     "extra_w": 1.317
+    },
+    {
+     "setting": "gray_above, alpha 0.5",
+     "verdict": "PASS",
+     "gain": 7.167,
+     "found_w": 7.367,
+     "extra_w": 0.2
+    },
+    {
+     "setting": "gray_above, alpha 0.75",
+     "verdict": "PASS",
+     "gain": 8.667,
+     "found_w": 8.7,
+     "extra_w": 0.033
+    },
+    {
+     "setting": "gray_above, alpha 1",
+     "verdict": "FAIL",
+     "gain": 3.35,
+     "found_w": 7.833,
+     "extra_w": 4.483
+    }
+   ]
+  },
+  "P5_shades_of_gray_partial": {
+   "setting": "shades_of_gray, alpha 0.5",
+   "allowed": 2,
+   "of": 4,
+   "gain": 6.5,
+   "all": [
+    {
+     "setting": "shades_of_gray, alpha 0.25",
+     "verdict": "NO CLEAR DIFFERENCE",
+     "gain": -0.683,
+     "found_w": 0.033,
+     "extra_w": 0.717
+    },
+    {
+     "setting": "shades_of_gray, alpha 0.5",
+     "verdict": "PASS",
+     "gain": 6.5,
+     "found_w": 5.867,
+     "extra_w": -0.633
+    },
+    {
+     "setting": "shades_of_gray, alpha 0.75",
+     "verdict": "FAIL",
+     "gain": 6.367,
+     "found_w": 7.033,
+     "extra_w": 0.667
+    },
+    {
+     "setting": "shades_of_gray, alpha 1",
+     "verdict": "FAIL",
+     "gain": 1.533,
+     "found_w": 4.45,
+     "extra_w": 2.917
+    }
+   ]
+  },
+  "U3_without_loose_added": {
+   "setting": "without_loose, alpha 0.25, added to today's mask",
+   "allowed": 1,
+   "of": 4,
+   "gain": 1.167,
+   "all": [
+    {
+     "setting": "without_loose, alpha 0.25, added to today's mask",
+     "verdict": "NO CLEAR DIFFERENCE",
+     "gain": 1.167,
+     "found_w": 1.667,
+     "extra_w": 0.5
+    },
+    {
+     "setting": "without_loose, alpha 0.5, added to today's mask",
+     "verdict": "FAIL",
+     "gain": 4.633,
+     "found_w": 8.75,
+     "extra_w": 4.117
+    },
+    {
+     "setting": "without_loose, alpha 0.75, added to today's mask",
+     "verdict": "FAIL",
+     "gain": 9.55,
+     "found_w": 15.083,
+     "extra_w": 5.533
+    },
+    {
+     "setting": "without_loose, alpha 1, added to today's mask",
+     "verdict": "FAIL",
+     "gain": 5.783,
+     "found_w": 15.833,
+     "extra_w": 10.05
+    }
+   ]
+  }
+ },
+ "verdicts": {
+  "F1_gray_world": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    141.83
+   ],
+   "found": [
+    211,
+    239
+   ],
+   "extra_w": [
+    1.93,
+    4.52
+   ],
+   "extra": [
+    5,
+    9
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    2.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     34.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     12.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     11.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     15.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     1.33,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     12.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     28.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     34,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     12,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     1,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     2,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     1,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     12,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     28,
+     32
+    ],
+    "window_glass": [
+     14,
+     15,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     11,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     15,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     5,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     13,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     4,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     3,
+     21
+    ],
+    "window_black": [
+     5,
+     3,
+     26
+    ]
+   },
+   "gained": 39,
+   "lost": 11,
+   "clauses": [
+    "[BETTER] found, the ordinary conditions together: 133.8 -> 141.8 of 172 placements (+8.0; counted per frame 211 -> 239 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: campus_study -1.0 of 35 (margin 1.0); abp_gray +2.0 of 16 (margin 6.0); home_bathtile +7.5 of 15 (margin 1.2); home_glass +0.2 of 15 (margin 1.0); home_ottoman -1.7 of 15 (margin 2.3); uc_palewood -1.0 of 15 (margin 1.0); abp_white +2.0 of 32 (margin 1.0).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 4.5 counted once per arrangement (+2.6; per frame: on nothing 5 -> 8, second box 0 -> 0, wrong color 0 -> 1). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 2.0 per arrangement (margin 1.0)."
+   ]
+  },
+  "F2_white_patch": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    137.03
+   ],
+   "found": [
+    211,
+    228
+   ],
+   "extra_w": [
+    1.93,
+    6.97
+   ],
+   "extra": [
+    5,
+    18
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    2.25
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     34.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     10.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.2,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     1.33,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     34,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     14,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     1,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     14,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     14,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     2,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     0,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     1,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     13,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     5,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     16,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     7,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     16,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     11,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     12,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 34,
+   "lost": 17,
+   "clauses": [
+    "[within the noise] found, the ordinary conditions together: 133.8 -> 137.0 of 172 placements (+3.2; counted per frame 211 -> 228 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: campus_study -1.0 of 35 (margin 1.0); home_bathtile +6.5 of 15 (margin 1.2); home_glass -0.6 of 15 (margin 1.0); home_ottoman -1.7 of 15 (margin 2.3).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 7.0 counted once per arrangement (+5.0; per frame: on nothing 5 -> 17, second box 0 -> 0, wrong color 0 -> 1). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 2.2 per arrangement (margin 1.0)."
+   ]
+  },
+  "F3_without_loose": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    144.33
+   ],
+   "found": [
+    211,
+    254
+   ],
+   "extra_w": [
+    1.93,
+    5.88
+   ],
+   "extra": [
+    5,
+    14
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    1.98
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     34.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     13.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     15.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     5.33,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     34,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     9,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     1,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     7,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     6,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     15,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     4,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     13,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     4,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     9,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     6,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     13,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 50,
+   "lost": 7,
+   "clauses": [
+    "[BETTER] found, the ordinary conditions together: 133.8 -> 144.3 of 172 placements (+10.5; counted per frame 211 -> 254 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: campus_study -1.0 of 35 (margin 1.0); home_bathtile +9.0 of 15 (margin 1.2); home_glass +0.2 of 15 (margin 1.0); home_ottoman +2.3 of 15 (margin 2.3).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 5.9 counted once per arrangement (+4.0; per frame: on nothing 5 -> 12, second box 0 -> 1, wrong color 0 -> 1). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 2.0 per arrangement (margin 1.0)."
+   ]
+  },
+  "F4_gray_above": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    141.63
+   ],
+   "found": [
+    211,
+    246
+   ],
+   "extra_w": [
+    1.93,
+    6.42
+   ],
+   "extra": [
+    5,
+    18
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    1.12
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     27.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     11.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     13.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     2.33,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     12.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     27,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     11,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     5,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     1,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     9,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     1,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     12,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     7,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     14,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     6,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     13,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     5,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     15,
+     21
+    ],
+    "window_black": [
+     5,
+     7,
+     26
+    ]
+   },
+   "gained": 46,
+   "lost": 11,
+   "clauses": [
+    "[BETTER] found, the ordinary conditions together: 133.8 -> 141.6 of 172 placements (+7.8; counted per frame 211 -> 246 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: home_white -1.0 of 29 (margin 1.0); abp_gray +1.0 of 16 (margin 6.0); home_bathtile +9.5 of 15 (margin 1.2); home_ottoman -0.7 of 15 (margin 2.3); uc_palewood -1.0 of 15 (margin 1.0).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 6.4 counted once per arrangement (+4.5; per frame: on nothing 5 -> 13, second box 0 -> 0, wrong color 0 -> 5). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 1.1 per arrangement (margin 1.0)."
+   ]
+  },
+  "F5_shades_of_gray": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    138.25
+   ],
+   "found": [
+    211,
+    232
+   ],
+   "extra_w": [
+    1.93,
+    4.85
+   ],
+   "extra": [
+    5,
+    12
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    2.2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     34.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     11.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     11.25,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     15.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     0.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     34,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     11,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     0,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     0,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     0,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     15,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     10,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     18,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     9,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     15,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     5,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     15,
+     21
+    ],
+    "window_black": [
+     5,
+     6,
+     26
+    ]
+   },
+   "gained": 32,
+   "lost": 11,
+   "clauses": [
+    "[BETTER] found, the ordinary conditions together: 133.8 -> 138.2 of 172 placements (+4.5; counted per frame 211 -> 232 of 307). Better above +4.0, worse below -10.9.",
+    "[WORSE] found, place by place: campus_study -1.0 of 35 (margin 1.0); abp_gray +1.0 of 16 (margin 6.0); home_bathtile +7.2 of 15 (margin 1.2); home_glass +0.2 of 15 (margin 1.0); home_ottoman -3.0 of 15 (margin 2.3, WORSE).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 4.8 counted once per arrangement (+2.9; per frame: on nothing 5 -> 10, second box 0 -> 0, wrong color 0 -> 2). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 2.2 per arrangement (margin 1.0)."
+   ]
+  },
+  "P1_gray_world_partial": {
+   "verdict": "PASS",
+   "found_w": [
+    133.8,
+    143.0
+   ],
+   "found": [
+    211,
+    243
+   ],
+   "extra_w": [
+    1.93,
+    1.05
+   ],
+   "extra": [
+    5,
+    5
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     12.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     12.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     15.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     2.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     12,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     1,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     7,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     2,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     11,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     3,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     15,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     7,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     16,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     5,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     17,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     6,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     13,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 38,
+   "lost": 6,
+   "clauses": [
+    "[BETTER] found, the ordinary conditions together: 133.8 -> 143.0 of 172 placements (+9.2; counted per frame 211 -> 243 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: abp_gray +2.0 of 16 (margin 6.0); home_bathtile +8.0 of 15 (margin 1.2); home_glass +0.2 of 15 (margin 1.0); home_ottoman -1.0 of 15 (margin 2.3).",
+    "[within the noise] boxes that are not on their barrel: 1.9 -> 1.1 counted once per arrangement (-0.9; per frame: on nothing 5 -> 4, second box 0 -> 0, wrong color 0 -> 1). Worse above +1.9, better below -1.0.",
+    "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 0.2 per arrangement (margin 1.0)."
+   ]
+  },
+  "P2_white_patch_partial": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    133.07
+   ],
+   "found": [
+    211,
+    208
+   ],
+   "extra_w": [
+    1.93,
+    2.67
+   ],
+   "extra": [
+    5,
+    8
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     4.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.4,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     2.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     0,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     14,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     5,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     3,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     6,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     15,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     3,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     8,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     3,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 7,
+   "lost": 10,
+   "clauses": [
+    "[within the noise] found, the ordinary conditions together: 133.8 -> 133.1 of 172 placements (-0.7; counted per frame 211 -> 208 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: home_glass -0.4 of 15 (margin 1.0); home_ottoman -0.3 of 15 (margin 2.3).",
+    "[within the noise] boxes that are not on their barrel: 1.9 -> 2.7 counted once per arrangement (+0.7; per frame: on nothing 5 -> 4, second box 0 -> 0, wrong color 0 -> 4). Worse above +1.9, better below -1.0.",
+    "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 0.0 per arrangement (margin 1.0)."
+   ]
+  },
+  "P3_without_loose_partial": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    134.8
+   ],
+   "found": [
+    211,
+    215
+   ],
+   "extra_w": [
+    1.93,
+    4.65
+   ],
+   "extra": [
+    5,
+    7
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    2.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     5.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     3.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     14,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     4,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     2,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     3,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     5,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     3,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     3,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     3,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     1,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 6,
+   "lost": 2,
+   "clauses": [
+    "[within the noise] found, the ordinary conditions together: 133.8 -> 134.8 of 172 placements (+1.0; counted per frame 211 -> 215 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: home_bathtile +1.0 of 15 (margin 1.2).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 4.7 counted once per arrangement (+2.7; per frame: on nothing 5 -> 7, second box 0 -> 0, wrong color 0 -> 0). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 2.0 per arrangement (margin 1.0)."
+   ]
+  },
+  "P4_gray_above_partial": {
+   "verdict": "PASS (WEAK)",
+   "found_w": [
+    133.8,
+    138.5
+   ],
+   "found": [
+    211,
+    234
+   ],
+   "extra_w": [
+    1.93,
+    2.47
+   ],
+   "extra": [
+    5,
+    10
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     27.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     11.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     10.5,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     15.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     2.0,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     12.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     27,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     11,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     15,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     3,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     6,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     15,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     2,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     6,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     1,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     12,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     15,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     5,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     13,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     3,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     7,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     7,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 30,
+   "lost": 7,
+   "clauses": [
+    "[BETTER] found, the ordinary conditions together: 133.8 -> 138.5 of 172 placements (+4.7; counted per frame 211 -> 234 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: home_white -1.0 of 29 (margin 1.0); abp_gray +1.0 of 16 (margin 6.0); home_bathtile +6.5 of 15 (margin 1.2); home_glass +0.2 of 15 (margin 1.0); home_ottoman -1.0 of 15 (margin 2.3); uc_palewood -1.0 of 15 (margin 1.0).",
+    "[within the noise] boxes that are not on their barrel: 1.9 -> 2.5 counted once per arrangement (+0.5; per frame: on nothing 5 -> 7, second box 0 -> 2, wrong color 0 -> 1). Worse above +1.9, better below -1.0.",
+    "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 0.2 per arrangement (margin 1.0)."
+   ]
+  },
+  "P5_shades_of_gray_partial": {
+   "verdict": "NO CLEAR DIFFERENCE",
+   "found_w": [
+    133.8,
+    132.67
+   ],
+   "found": [
+    211,
+    208
+   ],
+   "extra_w": [
+    1.93,
+    0.8
+   ],
+   "extra": [
+    5,
+    4
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    0.2
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     4.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     15.0,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     1.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     13,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     0,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     3,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     2,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     15,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     3,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     11,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     0,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     3,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     5,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     2,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 3,
+   "lost": 6,
+   "clauses": [
+    "[within the noise] found, the ordinary conditions together: 133.8 -> 132.7 of 172 placements (-1.1; counted per frame 211 -> 208 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: home_glass +0.2 of 15 (margin 1.0); home_ottoman -1.3 of 15 (margin 2.3).",
+    "[BETTER] boxes that are not on their barrel: 1.9 -> 0.8 counted once per arrangement (-1.1; per frame: on nothing 5 -> 4, second box 0 -> 0, wrong color 0 -> 0). Worse above +1.9, better below -1.0.",
+    "[within the noise] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 0.2 per arrangement (margin 1.0)."
+   ]
+  },
+  "U3_without_loose_added": {
+   "verdict": "FAIL",
+   "found_w": [
+    133.8,
+    135.47
+   ],
+   "found": [
+    211,
+    217
+   ],
+   "extra_w": [
+    1.93,
+    5.43
+   ],
+   "extra": [
+    5,
+    10
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "cluttered_empty_w": [
+    0.0,
+    2.0
+   ],
+   "places": {
+    "home_white": [
+     28.0,
+     28.0,
+     29
+    ],
+    "campus_study": [
+     35.0,
+     35.0,
+     35
+    ],
+    "abp_gray": [
+     10.0,
+     10.0,
+     16
+    ],
+    "home_bathtile": [
+     4.0,
+     5.0,
+     15
+    ],
+    "home_glass": [
+     14.8,
+     14.8,
+     15
+    ],
+    "home_ottoman": [
+     3.0,
+     3.67,
+     15
+    ],
+    "uc_palewood": [
+     13.0,
+     13.0,
+     15
+    ],
+    "abp_white": [
+     26.0,
+     26.0,
+     32
+    ]
+   },
+   "conditions": {
+    "window_light": [
+     28,
+     28,
+     29
+    ],
+    "campus_light": [
+     35,
+     35,
+     35
+    ],
+    "both_abpgray": [
+     10,
+     10,
+     16
+    ],
+    "lampcool6_bathtile": [
+     13,
+     14,
+     15
+    ],
+    "lampcool6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampcool6_ottoman": [
+     3,
+     5,
+     15
+    ],
+    "lampmid3_bathtile": [
+     1,
+     2,
+     15
+    ],
+    "lampmid3_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_bathtile": [
+     1,
+     3,
+     15
+    ],
+    "lampmid6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampmid6_ottoman": [
+     6,
+     6,
+     15
+    ],
+    "lampwarm6_bathtile": [
+     1,
+     1,
+     15
+    ],
+    "lampwarm6_glass": [
+     15,
+     15,
+     15
+    ],
+    "lampwarm6_ottoman": [
+     0,
+     0,
+     15
+    ],
+    "overheaddim_palewood": [
+     13,
+     13,
+     15
+    ],
+    "window_abpwhite": [
+     26,
+     26,
+     32
+    ],
+    "window_glass": [
+     14,
+     14,
+     15
+    ]
+   },
+   "report_only": {
+    "lampcool3_wood": [
+     2,
+     3,
+     21
+    ],
+    "lampcool6_wood": [
+     2,
+     3,
+     21
+    ],
+    "lampmid3_ottoman": [
+     1,
+     1,
+     15
+    ],
+    "lampmid3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampmid6_wood": [
+     1,
+     3,
+     21
+    ],
+    "lampwarm3_wood": [
+     1,
+     1,
+     21
+    ],
+    "lampwarm6_wood": [
+     0,
+     1,
+     21
+    ],
+    "window_black": [
+     5,
+     5,
+     26
+    ]
+   },
+   "gained": 7,
+   "lost": 1,
+   "clauses": [
+    "[within the noise] found, the ordinary conditions together: 133.8 -> 135.5 of 172 placements (+1.7; counted per frame 211 -> 217 of 307). Better above +4.0, worse below -10.9.",
+    "[within the noise] found, place by place: home_bathtile +1.0 of 15 (margin 1.2); home_ottoman +0.7 of 15 (margin 2.3).",
+    "[WORSE] boxes that are not on their barrel: 1.9 -> 5.4 counted once per arrangement (+3.5; per frame: on nothing 5 -> 9, second box 0 -> 1, wrong color 0 -> 0). Worse above +1.9, better below -1.0.",
+    "[WORSE] boxes on empty frames: on clean ones 0 -> 0 (margin 0: none is allowed); on ones with clutter 0.0 -> 2.0 per arrangement (margin 1.0)."
+   ]
+  }
+ }
+}
