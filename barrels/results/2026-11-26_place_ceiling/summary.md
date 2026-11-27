@@ -1,8 +1,8 @@
 # One setting per place, without sliders: results (2026-11-26, git 8b81375)
 
-`python barrels/experiments/2026-11-26_place_ceiling/run.py all` (plan: `../../experiments/2026-11-26_place_ceiling/PREREG.md`). Train frames only; no test frame opened. 154 ordinary train frames, 17 conditions at 8 places: 172 placements, 307 barrels when every light is counted. Baseline everywhere: today's default (the fixed colors). Margins: found better above +4.00 placements, worse below -10.92; boxes not on their barrel worse above +1.85.
+`python barrels/experiments/2026-11-26_place_ceiling/run.py all` (plan: `../../experiments/2026-11-26_place_ceiling/PREREG.md`). Train frames only; no test frame opened. 154 ordinary train frames, 17 conditions at 8 places: 172 placements, 307 barrels when every light is counted. Baseline everywhere: today's default (the fixed colors). Margins: found better above +4.00 placements, worse below -10.92; boxes not on their barrel worse above +1.85; found at one place worse below its own margin (1.0 at campus, home, pale wood, ABP white and glass).
 
-## Every judged candidate
+## Round 1: every judged candidate
 
 | candidate | kind | found, placements | per frame | found either way | boxes not on their barrel | on empty frames: clean / with clutter | gained / lost (per frame) | verdict |
 |---|---|---|---|---|---|---|---|---|
@@ -38,22 +38,34 @@ What each candidate is:
 - `cal_all_net`: every frame of the condition at once: the net setting of its pooled barrel pixels (no sliders, no detector).
 - `oracle`: the best rectangle pair per condition found by search on its own frames.
 
-Each frame in turn, the 4 rotations together: found 137.4 placements on average (lowest 130.9, highest 141.1); per frame 263.8 (256 to 269); boxes not on their barrel 1.6 (0.2 to 2.7); verdicts: FAIL, FAIL, FAIL, FAIL.
+Why each FAIL fails (the judge's clause):
+
+- `cal_core_mid`: worse than the baseline by more than the noise in: found at campus_study.
+- `cal_core_net`: worse than the baseline by more than the noise in: found at campus_study, abp_white, home_white.
+- `cal_core_tool`: worse than the baseline by more than the noise in: found at campus_study, home_white; boxes that are not on their barrel; boxes on empty frames.
+- `cal_rot1_mid`: worse than the baseline by more than the noise in: found at campus_study, abp_white, home_white; boxes on empty frames.
+- `cal_rot2_mid`: worse than the baseline by more than the noise in: found at campus_study, abp_white, home_white.
+- `cal_rot3_mid`: worse than the baseline by more than the noise in: found at campus_study, home_white.
+- `cal_rot4_mid`: worse than the baseline by more than the noise in: found at campus_study, abp_white, home_white.
+- `cal_otherplace_mid`: worse than the baseline by more than the noise in: found over all places; found at abp_gray, campus_study, home_glass, home_ottoman, uc_palewood, abp_white, home_white; boxes that are not on their barrel; boxes on empty frames.
+- `cal_all_net`: worse than the baseline by more than the noise in: found at campus_study, abp_white, home_white.
+
+Each frame in turn, the 4 rotations together: found 137.4 placements on average (lowest 130.9, highest 141.1); per frame 263.8 (256 to 269); boxes not on their barrel 1.6 (0.2 to 2.7); verdicts: FAIL, FAIL, FAIL, FAIL. (In a condition with four frames that can calibrate, rotation 4 gives a frame that can calibrate the same partner as rotation 1.)
 
 ## D. By place: found placements (found per frame) / boxes not on their barrel, once per arrangement
 
-| place | placements (barrels, lights) | fixed | one frame, core_01 (held out) | one frame, each in turn (held out, mean) | hand thresholds | relabelled hand | oracle | vendor |
-|---|---|---|---|---|---|---|---|---|
-| abp_gray | 16 (16, 1) | 10.0 (10) / 0.0 | 15.0 (15) / 0.0 | 11.8 (11.8) / 0.2 | 15.0 (15) / 0.0 | 15.0 (15) / 0.0 | 16.0 (16) / 0.0 | 16.0 (16) / 0.0 |
-| campus_study | 35 (35, 1) | 35.0 (35) / 0.0 | 21.0 (21) / 0.0 | 23.0 (23.0) / 0.2 | 35.0 (35) / 0.0 | 35.0 (35) / 0.0 | 35.0 (35) / 0.0 | 35.0* (35*) |
-| home_bathtile | 15 (60, 4) | 4.0 (16) / 0.0 | 14.0 (56) / 0.0 | 13.9 (55.5) / 0.2 | 12.5 (50) / 0.5 | 14.0 (56) / 0.2 | 14.5 (58) / 0.0 | 7.0 (28) / 0.0 |
-| home_glass | 15 (75, 5) | 14.8 (74) / 0.6 | 14.8 (74) / 0.2 | 14.8 (74.0) / 0.2 | 15.0 (75) / 0.0 | 15.0 (75) / 0.0 | 15.0 (75) / 0.0 | 12.0 (60) / 2.0 |
-| home_ottoman | 15 (45, 3) | 3.0 (9) / 0.3 | 13.0 (39) / 0.0 | 12.7 (38.2) / 0.0 | 13.3 (40) / 0.0 | 13.3 (40) / 0.0 | 13.7 (41) / 0.0 | 12.3 (37) / 0.0 |
-| uc_palewood | 15 (15, 1) | 13.0 (13) / 1.0 | 12.0 (12) / 1.0 | 12.8 (12.8) / 0.8 | 12.0 (12) / 1.0 | 12.0 (12) / 1.0 | 14.0 (14) / 0.0 | 12.0 (12) / 0.0 |
-| abp_white | 32 (32, 1) | 26.0 (26) / 0.0 | 25.0 (25) / 0.0 | 24.0 (24.0) / 0.0 | 26.0 (26) / 0.0 | 26.0 (26) / 0.0 | 27.0 (27) / 0.0 | 24.0 (24) / 1.0 |
-| home_white | 29 (29, 1) | 28.0 (28) / 0.0 | 27.0 (27) / 0.0 | 24.5 (24.5) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28) / 0.0 | 29.0* (29*) |
-| **the six places with vendor files** | 108 (243, 15) | **70.8 (148) / 1.9** | **93.8 (221) / 1.2** | **89.9 (216.2) / 1.4** | **93.8 (218) / 1.5** | **95.3 (224) / 1.2** | **100.2 (231) / 0.0** | **83.3 (177) / 3.0** |
-| **all eight places** | 172 (307, 17) | **133.8 (211) / 1.9** | **141.8 (269) / 1.2** | **137.4 (263.8) / 1.6** | **156.8 (281) / 1.5** | **158.3 (287) / 1.2** | **163.2 (294) / 0.0** | **147.3* (241*)** |
+| place | placements (barrels, lights) | fixed | one frame, core_01 (held out) | one frame, each in turn (held out, mean) | round 2: one frame, keep rule (core_01) | hand thresholds | relabelled hand | oracle | vendor |
+|---|---|---|---|---|---|---|---|---|---|
+| abp_gray | 16 (16, 1) | 10.0 (10) / 0.0 | 15.0 (15) / 0.0 | 11.8 (11.8) / 0.2 | 15.0 (15) / 0.0 | 15.0 (15) / 0.0 | 15.0 (15) / 0.0 | 16.0 (16) / 0.0 | 16.0 (16) / 0.0 |
+| campus_study | 35 (35, 1) | 35.0 (35) / 0.0 | 21.0 (21) / 0.0 | 23.0 (23.0) / 0.2 | 35.0 (35) / 0.0 | 35.0 (35) / 0.0 | 35.0 (35) / 0.0 | 35.0 (35) / 0.0 | 35.0* (35*) |
+| home_bathtile | 15 (60, 4) | 4.0 (16) / 0.0 | 14.0 (56) / 0.0 | 13.9 (55.5) / 0.2 | 13.5 (54) / 0.0 | 12.5 (50) / 0.5 | 14.0 (56) / 0.2 | 14.5 (58) / 0.0 | 7.0 (28) / 0.0 |
+| home_glass | 15 (75, 5) | 14.8 (74) / 0.6 | 14.8 (74) / 0.2 | 14.8 (74.0) / 0.2 | 14.8 (74) / 0.6 | 15.0 (75) / 0.0 | 15.0 (75) / 0.0 | 15.0 (75) / 0.0 | 12.0 (60) / 2.0 |
+| home_ottoman | 15 (45, 3) | 3.0 (9) / 0.3 | 13.0 (39) / 0.0 | 12.7 (38.2) / 0.0 | 12.3 (37) / 0.0 | 13.3 (40) / 0.0 | 13.3 (40) / 0.0 | 13.7 (41) / 0.0 | 12.3 (37) / 0.0 |
+| uc_palewood | 15 (15, 1) | 13.0 (13) / 1.0 | 12.0 (12) / 1.0 | 12.8 (12.8) / 0.8 | 12.0 (12) / 2.0 | 12.0 (12) / 1.0 | 12.0 (12) / 1.0 | 14.0 (14) / 0.0 | 12.0 (12) / 0.0 |
+| abp_white | 32 (32, 1) | 26.0 (26) / 0.0 | 25.0 (25) / 0.0 | 24.0 (24.0) / 0.0 | 26.0 (26) / 0.0 | 26.0 (26) / 0.0 | 26.0 (26) / 0.0 | 27.0 (27) / 0.0 | 24.0 (24) / 1.0 |
+| home_white | 29 (29, 1) | 28.0 (28) / 0.0 | 27.0 (27) / 0.0 | 24.5 (24.5) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28) / 0.0 | 29.0* (29*) |
+| **the six places with vendor files** | 108 (243, 15) | **70.8 (148) / 1.9** | **93.8 (221) / 1.2** | **89.9 (216.2) / 1.4** | **93.6 (218) / 2.6** | **93.8 (218) / 1.5** | **95.3 (224) / 1.2** | **100.2 (231) / 0.0** | **83.3 (177) / 3.0** |
+| **all eight places** | 172 (307, 17) | **133.8 (211) / 1.9** | **141.8 (269) / 1.2** | **137.4 (263.8) / 1.6** | **156.6 (281) / 2.6** | **156.8 (281) / 1.5** | **158.3 (287) / 1.2** | **163.2 (294) / 0.0** | **147.3* (241*)** |
 
 \* = the vendor is ASSUMED to find every barrel on the two white tables without vendor files (home, campus; Tanush 2026-11-26); a starred total holds assumed frames. The vendor's row for the six measured places is measured.
 
@@ -66,6 +78,7 @@ Fixed colors 70.8, the vendor 83.3 of 108 placements: a gap of 12.5.
 | fixed | 70.8 | 0 % | 72.0 | 1.9 |
 | one frame, core_01 (held out) | 93.8 | 184 % | 96.0 | 1.2 |
 | one frame, each in turn (held out, mean) | 89.9 | 153 % | 92.3 | 1.4 |
+| round 2: one frame, keep rule (core_01) | 93.6 | 182 % | 96.0 | 2.6 |
 | hand thresholds | 93.8 | 184 % | 95.8 | 1.5 |
 | relabelled hand | 95.3 | 196 % | 97.2 | 1.2 |
 | oracle | 100.2 | 234 % | 100.8 | 0.0 |
@@ -132,6 +145,18 @@ The setting each condition got (orange hue low / high / S floor, blue hue low / 
 | window_abpwhite | occlx_01 | o 7/10/166  b 64/111/127 | o 8/9/171  b 104/111/198 | o 1/9/149  b 102/149/138 | - | o 7/10/167  b 68/113/124 (mid of occlx_07, 0) |
 | window_glass | core_01 | o 1/10/137  b 104/113/197 | o 1/10/137  b 104/113/189 | o -30/15/116  b 103/117/193 | o -11/12/153  b 104/113/207 | o -11/12/153  b 104/113/207 (hand thresholds, 0) |
 | window_light | core_01 | o 5/11/190  b 105/111/173 | o 5/11/190  b 105/111/211 | o -29/12/128  b 106/137/172 | - | o 3/13/140  b 103/119/113 (fixed, 0) |
+
+## How narrow a setting is: hue units from the low end to the high end (median; smallest to largest)
+
+| setting | how many | orange hue range | blue hue range | orange S floor | blue S floor |
+|---|---|---|---|---|---|
+| fixed | 1 | 10 (10 to 10) | 16 (16 to 16) | 140 (140 to 140) | 113 (113 to 113) |
+| one frame, mid (all 99 frames that can calibrate) | 99 | 7 (1 to 41) | 28 (0 to 145) | 171 (106 to 214) | 137 (5 to 227) |
+| one frame, net | 99 | 7 (1 to 41) | 9 (0 to 148) | 186 (94 to 215) | 183 (5 to 236) |
+| one frame, the tool's proposal | 99 | 18 (1 to 60) | 42 (2 to 90) | 155 (0 to 214) | 138 (5 to 223) |
+| all frames of a condition pooled, net | 17 | 6 (2 to 21) | 10 (4 to 73) | 194 (138 to 215) | 163 (7 to 221) |
+| hand (median per condition) | 14 | 9 (5 to 23) | 20 (8 to 71) | 165 (105 to 191) | 106 (7 to 207) |
+| oracle | 17 | 10 (3 to 26) | 17 (8 to 145) | 166 (105 to 213) | 113 (8 to 225) |
 
 ## B. Which frame calibrates: each frame in turn (found per frame on the OTHER frames of its condition)
 
@@ -216,4 +241,48 @@ By the kind of shot that calibrates (all conditions together; found on the other
 | another light of the same place | 470 of 570 | 82.5 % | 362 of 570 (63.5 %) |
 | another place | 2322 of 4342 | 53.5 % | 3014 of 4342 (69.4 %) |
 
-Files: `settings.json` (the setting of every frame that can calibrate), `oracle.json`, `judged.json` (every tally), `cross.json`, `thresholds.json`, `judge/<candidate>/judge.md` (the judge's page: tables, every barrel gained and lost, the clauses), `sheets/` (contact sheets, not committed).
+## Round 2: a calibration that keeps the fixed colors where they work
+
+Designed AFTER round 1 was seen (PREREG addendum). No tuned number, but the rule was chosen with these frames in view: a hypothesis for the next places, not a held-out result.
+
+| candidate | kind | found, placements | per frame | found either way | boxes not on their barrel | on empty frames: clean / with clutter | gained / lost (per frame) | verdict |
+|---|---|---|---|---|---|---|---|---|
+| `cal_core_keep` | held out, round 2 | 133.8 → 156.6 (+22.8) | 211 → 281 | 159.0 | 1.9 → 2.6 (5 → 5) | 0 / 0.0 | 71 / 1 | **PASS** |
+| `cal_rot1_keep` | held out, round 2 | 133.8 → 154.4 (+20.6) | 211 → 278 | 158.0 | 1.9 → 3.1 (5 → 7) | 0 / 0.2 | 68 / 1 | **PASS** |
+| `cal_rot2_keep` | held out, round 2 | 133.8 → 156.2 (+22.4) | 211 → 280 | 157.7 | 1.9 → 1.6 (5 → 4) | 0 / 0.0 | 70 / 1 | **PASS** |
+| `cal_rot3_keep` | held out, round 2 | 133.8 → 154.0 (+20.2) | 211 → 277 | 155.4 | 1.9 → 1.6 (5 → 4) | 0 / 0.0 | 68 / 2 | **PASS** |
+| `cal_rot4_keep` | held out, round 2 | 133.8 → 153.0 (+19.2) | 211 → 278 | 156.2 | 1.9 → 3.9 (5 → 7) | 0 / 0.0 | 70 / 3 | **FAIL** |
+| `cal_core_wide` | held out, round 2 | 133.8 → 158.5 (+24.7) | 211 → 287 | 159.8 | 1.9 → 7.4 (5 → 21) | 0 / 1.3 | 78 / 2 | **FAIL** |
+
+What each candidate is:
+
+- `cal_core_keep`: ROUND 2. The calibration frame (core_01) first tests the fixed colors: if they find every free-standing box of it and draw no box that is not on its barrel, the fixed colors stay; otherwise its mid setting. The calibration frame itself: the same with the backup frame.
+- `cal_rot1_keep`: ROUND 2. The same keep rule, each frame in turn, rotation 1.
+- `cal_rot2_keep`: ROUND 2. The same keep rule, each frame in turn, rotation 2.
+- `cal_rot3_keep`: ROUND 2. The same keep rule, each frame in turn, rotation 3.
+- `cal_rot4_keep`: ROUND 2. The same keep rule, each frame in turn, rotation 4.
+- `cal_core_wide`: ROUND 2. The calibration may only widen: per color the lower hue low, the higher hue high and the lower S floor of the fixed colors and the calibration frame's mid setting.
+
+Why each FAIL fails (the judge's clause):
+
+- `cal_rot4_keep`: worse than the baseline by more than the noise in: boxes that are not on their barrel.
+- `cal_core_wide`: worse than the baseline by more than the noise in: found at uc_palewood; boxes that are not on their barrel; boxes on empty frames.
+
+The keep rule, each frame in turn: found 154.4 placements on average (lowest 153.0, highest 156.2); per frame 278.2 (277 to 280); verdicts: PASS, PASS, PASS, FAIL.
+
+With core_01 as the calibration frame, the fixed colors are kept at 9 of 17 conditions: campus_light, lampcool6_bathtile, lampcool6_glass, lampmid3_glass, lampmid6_glass, lampwarm6_glass, window_abpwhite, window_glass, window_light. Over all 99 frames that can calibrate, the fixed colors pass the test on 69.
+
+| place | placements | fixed | round 1: one frame (core_01) | round 2: keep rule (core_01) | round 2: keep rule, each in turn (mean) | round 2: only widen (core_01) | hand |
+|---|---|---|---|---|---|---|---|
+| abp_gray | 16 | 10.0 (10) / 0.0 | 15.0 (15) / 0.0 | 15.0 (15) / 0.0 | 12.2 (12.2) / 0.2 | 16.0 (16) / 2.0 | 15.0 (15) / 0.0 |
+| campus_study | 35 | 35.0 (35) / 0.0 | 21.0 (21) / 0.0 | 35.0 (35) / 0.0 | 35.0 (35.0) / 0.0 | 35.0 (35) / 0.0 | 35.0 (35) / 0.0 |
+| home_bathtile | 15 | 4.0 (16) / 0.0 | 14.0 (56) / 0.0 | 13.5 (54) / 0.0 | 13.5 (54.0) / 0.2 | 14.0 (56) / 3.5 | 12.5 (50) / 0.5 |
+| home_glass | 15 | 14.8 (74) / 0.6 | 14.8 (74) / 0.2 | 14.8 (74) / 0.6 | 14.8 (74.0) / 0.6 | 14.8 (74) / 0.6 | 15.0 (75) / 0.0 |
+| home_ottoman | 15 | 3.0 (9) / 0.3 | 13.0 (39) / 0.0 | 12.3 (37) / 0.0 | 12.1 (36.2) / 0.0 | 13.7 (41) / 0.3 | 13.3 (40) / 0.0 |
+| uc_palewood | 15 | 13.0 (13) / 1.0 | 12.0 (12) / 1.0 | 12.0 (12) / 2.0 | 12.8 (12.8) / 1.5 | 11.0 (11) / 1.0 | 12.0 (12) / 1.0 |
+| abp_white | 32 | 26.0 (26) / 0.0 | 25.0 (25) / 0.0 | 26.0 (26) / 0.0 | 26.0 (26.0) / 0.0 | 26.0 (26) / 0.0 | 26.0 (26) / 0.0 |
+| home_white | 29 | 28.0 (28) / 0.0 | 27.0 (27) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28.0) / 0.0 | 28.0 (28) / 0.0 | 28.0 (28) / 0.0 |
+| **the six places with vendor files** | 108 | **70.8 (148) / 1.9** | **93.8 (221) / 1.2** | **93.6 (218) / 2.6** | **91.4 (215.2) / 2.5** | **95.5 (224) / 7.4** | **93.8 (218) / 1.5** |
+| **all eight places** | 172 | **133.8 (211) / 1.9** | **141.8 (269) / 1.2** | **156.6 (281) / 2.6** | **154.4 (278.2) / 2.5** | **158.5 (287) / 7.4** | **156.8 (281) / 1.5** |
+
+Files: `settings.json` (the setting of every frame that can calibrate), `oracle.json`, `judged.json` and `judged2.json` (every tally), `cross.json`, `thresholds.json`, `judge/<candidate>/judge.md` (the judge's page: tables, every barrel gained and lost, the clauses), `sheets/` (contact sheets, not committed).
