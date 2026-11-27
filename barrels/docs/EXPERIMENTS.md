@@ -577,7 +577,6 @@ same jar in three other frames (`lampmid3_glass_occl_02`, `lampmid6_glass_clutte
   test without a strict seed (TODO C4) is the candidate. (5) Read the ottoman's size, not only its colors: barrels
   there are 0.6 to 0.7 of the size their row predicts.
 
-## 2026-11-26 — K1: the detector collapsed, boxes identical (`experiments/2026-11-26_collapse`)
 
 ## 2026-11-26 — The collapse of the detector (TODO K1): no switches, ten stages, the same boxes
 
