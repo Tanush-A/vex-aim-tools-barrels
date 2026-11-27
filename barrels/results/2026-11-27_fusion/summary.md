@@ -1,0 +1,23 @@
+# Fusion: every candidate, judged leave one place out
+
+Made by `run.py`. Baseline columns: the arm named under 'against'.
+
+| candidate | against | verdict | found, placements | per frame | gained / lost | boxes not on their barrel, per arrangement (per frame) | clean / cluttered empty | places that moved |
+|---|---|---|---|---|---|---|---|---|
+| F0 contrast alone (C1 as judged on wip/exp-contrast) | today | PASS | 133.80 -> **155.30** of 172 | 211 -> 275 of 307 | 64 / 0 | 1.93 -> 2.83 (5 -> 9) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_ottoman 3.0 -> 10.0 |
+| F1 contrast + seams + bottom rule + shape checks (checks chosen in the fold) | today | PASS | 133.80 -> **154.83** of 172 | 211 -> 274 of 307 | 64 / 1 | 1.93 -> 0.83 (5 -> 3) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 9.3 |
+| F1 contrast + seams + bottom rule + shape checks (checks chosen in the fold) | F0 | NO CLEAR DIFFERENCE | 155.30 -> **154.83** of 172 | 275 -> 274 of 307 | 1 / 2 | 2.83 -> 0.83 (9 -> 3) | 0 / 0.00 | home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 9.3 |
+| F1a contrast + shape checks only (report only, F1's picks) | today | PASS | 133.80 -> **155.30** of 172 | 211 -> 275 of 307 | 64 / 0 | 1.93 -> 0.83 (5 -> 3) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_ottoman 3.0 -> 10.0 |
+| F1a contrast + shape checks only (report only, F1's picks) | F0 | PASS | 155.30 -> **155.30** of 172 | 275 -> 275 of 307 | 0 / 0 | 2.83 -> 0.83 (9 -> 3) | 0 / 0.00 | none |
+| F1b contrast + seams + bottom rule, no checks (report only) | today | PASS | 133.80 -> **154.83** of 172 | 211 -> 274 of 307 | 64 / 1 | 1.93 -> 2.83 (5 -> 9) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 9.3 |
+| F1b contrast + seams + bottom rule, no checks (report only) | F0 | NO CLEAR DIFFERENCE | 155.30 -> **154.83** of 172 | 275 -> 274 of 307 | 1 / 2 | 2.83 -> 2.83 (9 -> 9) | 0 / 0.00 | home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 9.3 |
+| F2 F1, then boxes of SC/P2/NM/B4 kept when k of them agree and the checks pass | today | PASS | 133.80 -> **154.83** of 172 | 211 -> 274 of 307 | 64 / 1 | 1.93 -> 1.83 (5 -> 4) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 9.3 |
+| F2 F1, then boxes of SC/P2/NM/B4 kept when k of them agree and the checks pass | F0 | NO CLEAR DIFFERENCE | 155.30 -> **154.83** of 172 | 275 -> 274 of 307 | 1 / 2 | 2.83 -> 1.83 (9 -> 4) | 0 / 0.00 | home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 9.3 |
+| F3 as F2, the contrast response one more voter | today | PASS | 133.80 -> **157.08** of 172 | 211 -> 281 of 307 | 71 / 1 | 1.93 -> 2.17 (5 -> 5) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.8; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 11.3 |
+| F3 as F2, the contrast response one more voter | F0 | NO CLEAR DIFFERENCE | 155.30 -> **157.08** of 172 | 275 -> 281 of 307 | 8 / 2 | 2.83 -> 2.17 (9 -> 5) | 0 / 0.00 | home_bathtile 13.5 -> 13.8; home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 11.3 |
+| F4 contrast says where, SC/P2/NM paint the colors there | today | PASS | 133.80 -> **155.17** of 172 | 211 -> 275 of 307 | 65 / 1 | 1.93 -> 0.83 (5 -> 3) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 9.7 |
+| F4 contrast says where, SC/P2/NM paint the colors there | F0 | NO CLEAR DIFFERENCE | 155.30 -> **155.17** of 172 | 275 -> 275 of 307 | 2 / 2 | 2.83 -> 0.83 (9 -> 3) | 0 / 0.00 | home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 9.7 |
+| F5 F4, then F3's votes | today | PASS | 133.80 -> **156.83** of 172 | 211 -> 280 of 307 | 70 / 1 | 1.93 -> 2.17 (5 -> 5) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 11.3 |
+| F5 F4, then F3's votes | F0 | NO CLEAR DIFFERENCE | 155.30 -> **156.83** of 172 | 275 -> 280 of 307 | 7 / 2 | 2.83 -> 2.17 (9 -> 5) | 0 / 0.00 | home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 11.3 |
+| F6 F5 + tidy (one box per barrel; no other-color box on a fixed barrel) | today | PASS | 133.80 -> **156.83** of 172 | 211 -> 280 of 307 | 70 / 1 | 1.93 -> 2.17 (5 -> 5) | 0 / 0.00 | abp_gray 10.0 -> 15.0; home_bathtile 4.0 -> 13.5; home_glass 14.8 -> 15.0; home_ottoman 3.0 -> 11.3 |
+| F6 F5 + tidy (one box per barrel; no other-color box on a fixed barrel) | F0 | NO CLEAR DIFFERENCE | 155.30 -> **156.83** of 172 | 275 -> 280 of 307 | 7 / 2 | 2.83 -> 2.17 (9 -> 5) | 0 / 0.00 | home_glass 14.8 -> 15.0; home_ottoman 10.0 -> 11.3 |

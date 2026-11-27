@@ -1,0 +1,10 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_lampmid6_ottoman_core_01,2,orange,155 166 280 311,found,off,lost,home_ottoman,lampmid6_ottoman,1
+4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,found,off,lost,home_ottoman,lampmid6_ottoman,1
+4A8B_window_glass_occl_02,1,blue,254 114 300 163,off,found,gained,home_glass,window_glass,1
+4A8B_lampmid3_wood_touch_02,1,orange,170 129 232 196,off,found,gained,home_wooddesk,lampmid3_wood,0
+4A8B_lampmid6_wood_touch_02,1,orange,170 129 232 196,off,found,gained,home_wooddesk,lampmid6_wood,0
+4A8B_lampwarm3_wood_touch_02,2,orange,230 129 289 194,off,found,gained,home_wooddesk,lampwarm3_wood,0
+4A8B_lampwarm6_wood_cluster_01,4,orange,270 125 322 183,off,found,gained,home_wooddesk,lampwarm6_wood,0
+4A8B_lampwarm6_wood_occl_02,1,orange,175 117 218 162,off,found,gained,home_wooddesk,lampwarm6_wood,0
+4A8B_window_black_far_01,3,orange,366 114 412 158,off,found,gained,home_black,window_black,0
