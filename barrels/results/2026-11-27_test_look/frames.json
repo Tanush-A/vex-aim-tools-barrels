@@ -1,0 +1,4861 @@
+{
+ "4A8B_window_light_core_04": {
+  "set": "HOME",
+  "condition": "window_light",
+  "place": "home_white",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     317,
+     135,
+     391,
+     214
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      319,
+      136,
+      389,
+      215
+     ]
+    ]
+   ],
+   "gt": [
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      319,
+      136,
+      389,
+      215
+     ]
+    ]
+   ],
+   "gt": [
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_light_edge_02": {
+  "set": "HOME",
+  "condition": "window_light",
+  "place": "home_white",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     612,
+     127,
+     640,
+     190
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      612,
+      129,
+      640,
+      189
+     ]
+    ]
+   ],
+   "gt": [
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      612,
+      129,
+      640,
+      189
+     ]
+    ]
+   ],
+   "gt": [
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_light_far_01": {
+  "set": "HOME",
+  "condition": "window_light",
+  "place": "home_white",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     227,
+     109,
+     259,
+     144
+    ]
+   ],
+   [
+    "orange",
+    [
+     271,
+     109,
+     301,
+     142
+    ]
+   ],
+   [
+    "orange",
+    [
+     329,
+     110,
+     361,
+     145
+    ]
+   ],
+   [
+    "blue",
+    [
+     382,
+     108,
+     414,
+     140
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      224,
+      104,
+      263,
+      144
+     ]
+    ],
+    [
+     "orange",
+     [
+      269,
+      109,
+      302,
+      141
+     ]
+    ],
+    [
+     "orange",
+     [
+      329,
+      110,
+      359,
+      143
+     ]
+    ],
+    [
+     "blue",
+     [
+      383,
+      104,
+      417,
+      141
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      224,
+      104,
+      263,
+      144
+     ]
+    ],
+    [
+     "orange",
+     [
+      269,
+      109,
+      302,
+      141
+     ]
+    ],
+    [
+     "orange",
+     [
+      329,
+      110,
+      359,
+      143
+     ]
+    ],
+    [
+     "blue",
+     [
+      383,
+      104,
+      417,
+      141
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_light_neg_03": {
+  "set": "HOME",
+  "condition": "window_light",
+  "place": "home_white",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_window_light_touch_01": {
+  "set": "HOME",
+  "condition": "window_light",
+  "place": "home_white",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     285,
+     119,
+     332,
+     173
+    ]
+   ],
+   [
+    "orange",
+    [
+     332,
+     119,
+     381,
+     173
+    ]
+   ],
+   [
+    "orange",
+    [
+     379,
+     120,
+     432,
+     174
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      287,
+      120,
+      331,
+      173
+     ]
+    ],
+    [
+     "orange",
+     [
+      335,
+      120,
+      376,
+      171
+     ]
+    ],
+    [
+     "orange",
+     [
+      375,
+      122,
+      430,
+      174
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      287,
+      120,
+      331,
+      173
+     ]
+    ],
+    [
+     "orange",
+     [
+      335,
+      120,
+      376,
+      171
+     ]
+    ],
+    [
+     "orange",
+     [
+      375,
+      122,
+      430,
+      174
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_cluster_01": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     237,
+     128,
+     296,
+     200
+    ]
+   ],
+   [
+    "orange",
+    [
+     270,
+     136,
+     340,
+     214
+    ]
+   ],
+   [
+    "blue",
+    [
+     292,
+     118,
+     334,
+     163
+    ]
+   ],
+   [
+    "orange",
+    [
+     340,
+     125,
+     398,
+     185
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      236,
+      131,
+      304,
+      197
+     ]
+    ],
+    [
+     "orange",
+     [
+      261,
+      136,
+      339,
+      212
+     ]
+    ],
+    [
+     "orange",
+     [
+      342,
+      124,
+      394,
+      183
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      236,
+      131,
+      304,
+      197
+     ]
+    ],
+    [
+     "orange",
+     [
+      261,
+      136,
+      339,
+      212
+     ]
+    ],
+    [
+     "orange",
+     [
+      342,
+      124,
+      394,
+      183
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_clutter_01": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     201,
+     126,
+     257,
+     186
+    ]
+   ],
+   [
+    "blue",
+    [
+     439,
+     123,
+     494,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     473,
+     120,
+     522,
+     174
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      196,
+      124,
+      257,
+      184
+     ]
+    ],
+    [
+     "blue",
+     [
+      441,
+      122,
+      496,
+      179
+     ]
+    ],
+    [
+     "blue",
+     [
+      469,
+      121,
+      520,
+      170
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      196,
+      124,
+      257,
+      184
+     ]
+    ],
+    [
+     "blue",
+     [
+      441,
+      122,
+      496,
+      179
+     ]
+    ],
+    [
+     "blue",
+     [
+      469,
+      121,
+      520,
+      170
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_core_02": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     59,
+     164,
+     186,
+     299
+    ]
+   ],
+   [
+    "blue",
+    [
+     239,
+     111,
+     273,
+     147
+    ]
+   ],
+   [
+    "blue",
+    [
+     333,
+     131,
+     397,
+     201
+    ]
+   ],
+   [
+    "orange",
+    [
+     395,
+     130,
+     463,
+     202
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      62,
+      167,
+      181,
+      298
+     ]
+    ],
+    [
+     "blue",
+     [
+      240,
+      112,
+      271,
+      146
+     ]
+    ],
+    [
+     "blue",
+     [
+      335,
+      132,
+      391,
+      198
+     ]
+    ],
+    [
+     "orange",
+     [
+      398,
+      133,
+      461,
+      201
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      62,
+      167,
+      181,
+      298
+     ]
+    ],
+    [
+     "blue",
+     [
+      240,
+      112,
+      271,
+      146
+     ]
+    ],
+    [
+     "blue",
+     [
+      335,
+      132,
+      391,
+      198
+     ]
+    ],
+    [
+     "orange",
+     [
+      398,
+      133,
+      461,
+      201
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_hand_01": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     128,
+     125,
+     189,
+     186
+    ]
+   ],
+   [
+    "orange",
+    [
+     396,
+     126,
+     454,
+     185
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      125,
+      120,
+      193,
+      186
+     ]
+    ],
+    [
+     "orange",
+     [
+      398,
+      117,
+      453,
+      184
+     ]
+    ],
+    [
+     "orange",
+     [
+      411,
+      99,
+      433,
+      123
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "nothing"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      125,
+      120,
+      193,
+      186
+     ]
+    ],
+    [
+     "orange",
+     [
+      398,
+      117,
+      453,
+      184
+     ]
+    ],
+    [
+     "orange",
+     [
+      411,
+      99,
+      433,
+      123
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "nothing"
+   ]
+  }
+ },
+ "4A8B_campus_light_neg_01": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_campus_light_occl_01": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     274,
+     123,
+     326,
+     180
+    ]
+   ],
+   [
+    "orange",
+    [
+     279,
+     146,
+     367,
+     244
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      276,
+      146,
+      363,
+      243
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      276,
+      146,
+      363,
+      243
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_plain_03": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     129,
+     118,
+     179,
+     167
+    ]
+   ],
+   [
+    "orange",
+    [
+     373,
+     116,
+     417,
+     165
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      127,
+      116,
+      177,
+      166
+     ]
+    ],
+    [
+     "orange",
+     [
+      374,
+      117,
+      416,
+      163
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      127,
+      116,
+      177,
+      166
+     ]
+    ],
+    [
+     "orange",
+     [
+      374,
+      117,
+      416,
+      163
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_room_02": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     183,
+     109,
+     217,
+     144
+    ]
+   ],
+   [
+    "orange",
+    [
+     282,
+     148,
+     372,
+     251
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      183,
+      104,
+      214,
+      143
+     ]
+    ],
+    [
+     "orange",
+     [
+      285,
+      150,
+      369,
+      250
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      183,
+      104,
+      214,
+      143
+     ]
+    ],
+    [
+     "orange",
+     [
+      285,
+      150,
+      369,
+      250
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_touch_01": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     173,
+     125,
+     229,
+     186
+    ]
+   ],
+   [
+    "orange",
+    [
+     228,
+     124,
+     284,
+     184
+    ]
+   ],
+   [
+    "blue",
+    [
+     280,
+     123,
+     332,
+     181
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      175,
+      128,
+      226,
+      184
+     ]
+    ],
+    [
+     "orange",
+     [
+      230,
+      126,
+      282,
+      183
+     ]
+    ],
+    [
+     "blue",
+     [
+      284,
+      125,
+      330,
+      178
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      175,
+      128,
+      226,
+      184
+     ]
+    ],
+    [
+     "orange",
+     [
+      230,
+      126,
+      282,
+      183
+     ]
+    ],
+    [
+     "blue",
+     [
+      284,
+      125,
+      330,
+      178
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_campus_light_window_02": {
+  "set": "CAMPUS",
+  "condition": "campus_light",
+  "place": "campus_study",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     200,
+     115,
+     242,
+     158
+    ]
+   ],
+   [
+    "orange",
+    [
+     331,
+     116,
+     372,
+     160
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      202,
+      115,
+      240,
+      158
+     ]
+    ],
+    [
+     "orange",
+     [
+      334,
+      114,
+      371,
+      157
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      202,
+      115,
+      240,
+      158
+     ]
+    ],
+    [
+     "orange",
+     [
+      334,
+      114,
+      371,
+      157
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_both_abpgray_neg_01": {
+  "set": "4A8B_both_abpgray",
+  "condition": "both_abpgray",
+  "place": "abp_gray",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_both_abpgray_occl_01": {
+  "set": "4A8B_both_abpgray",
+  "condition": "both_abpgray",
+  "place": "abp_gray",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     391,
+     140,
+     475,
+     229
+    ]
+   ],
+   [
+    "orange",
+    [
+     431,
+     130,
+     498,
+     205
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      393,
+      140,
+      477,
+      227
+     ]
+    ],
+    [
+     "orange",
+     [
+      433,
+      133,
+      500,
+      204
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      393,
+      140,
+      477,
+      227
+     ]
+    ],
+    [
+     "orange",
+     [
+      433,
+      133,
+      500,
+      204
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      388,
+      132,
+      478,
+      234
+     ]
+    ],
+    [
+     "orange",
+     [
+      428,
+      124,
+      500,
+      208
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool1_wood_neg_01": {
+  "set": "4A8B_lampcool1_wood",
+  "condition": "lampcool1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool1_wood_occl_03": {
+  "set": "4A8B_lampcool1_wood",
+  "condition": "lampcool1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool1_wood_touch_01": {
+  "set": "4A8B_lampcool1_wood",
+  "condition": "lampcool1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool3_wood_neg_01": {
+  "set": "4A8B_lampcool3_wood",
+  "condition": "lampcool3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool3_wood_occl_03": {
+  "set": "4A8B_lampcool3_wood",
+  "condition": "lampcool3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      177,
+      148,
+      264,
+      245
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool3_wood_touch_01": {
+  "set": "4A8B_lampcool3_wood",
+  "condition": "lampcool3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      100,
+      136,
+      162,
+      203
+     ]
+    ],
+    [
+     "blue",
+     [
+      162,
+      122,
+      226,
+      199
+     ]
+    ],
+    [
+     "orange",
+     [
+      224,
+      134,
+      281,
+      199
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool6_bathtile_neg_01": {
+  "set": "4A8B_lampcool6_bathtile",
+  "condition": "lampcool6_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool6_bathtile_occl_01": {
+  "set": "4A8B_lampcool6_bathtile",
+  "condition": "lampcool6_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     305,
+     129,
+     370,
+     197
+    ]
+   ],
+   [
+    "orange",
+    [
+     334,
+     118,
+     384,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      312,
+      130,
+      382,
+      196
+     ]
+    ],
+    [
+     "orange",
+     [
+      333,
+      118,
+      384,
+      173
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      312,
+      130,
+      382,
+      196
+     ]
+    ],
+    [
+     "orange",
+     [
+      333,
+      118,
+      384,
+      173
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      302,
+      118,
+      380,
+      204
+     ]
+    ],
+    [
+     "orange",
+     [
+      324,
+      110,
+      388,
+      170
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "found"
+   ],
+   "box_states": [
+    "off",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool6_glass_neg_01": {
+  "set": "4A8B_lampcool6_glass",
+  "condition": "lampcool6_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool6_glass_occl_01": {
+  "set": "4A8B_lampcool6_glass",
+  "condition": "lampcool6_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     295,
+     139,
+     377,
+     229
+    ]
+   ],
+   [
+    "orange",
+    [
+     335,
+     118,
+     388,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      298,
+      139,
+      388,
+      231
+     ]
+    ],
+    [
+     "orange",
+     [
+      339,
+      113,
+      386,
+      168
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      298,
+      139,
+      388,
+      231
+     ]
+    ],
+    [
+     "orange",
+     [
+      339,
+      113,
+      386,
+      168
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      290,
+      130,
+      382,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      330,
+      114,
+      392,
+      176
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool6_ottoman_neg_01": {
+  "set": "4A8B_lampcool6_ottoman",
+  "condition": "lampcool6_ottoman",
+  "place": "home_ottoman",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool6_ottoman_occl_01": {
+  "set": "4A8B_lampcool6_ottoman",
+  "condition": "lampcool6_ottoman",
+  "place": "home_ottoman",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "orange",
+    [
+     200,
+     133,
+     271,
+     209
+    ]
+   ],
+   [
+    "blue",
+    [
+     227,
+     149,
+     323,
+     255
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      233,
+      151,
+      320,
+      253
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      233,
+      151,
+      320,
+      253
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "orange",
+     [
+      202,
+      122,
+      278,
+      212
+     ]
+    ],
+    [
+     "blue",
+     [
+      226,
+      144,
+      318,
+      248
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool6_wood_neg_01": {
+  "set": "4A8B_lampcool6_wood",
+  "condition": "lampcool6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampcool6_wood_occl_03": {
+  "set": "4A8B_lampcool6_wood",
+  "condition": "lampcool6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      183,
+      149,
+      266,
+      234
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      183,
+      149,
+      266,
+      234
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampcool6_wood_touch_01": {
+  "set": "4A8B_lampcool6_wood",
+  "condition": "lampcool6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      100,
+      135,
+      165,
+      204
+     ]
+    ],
+    [
+     "blue",
+     [
+      163,
+      132,
+      223,
+      195
+     ]
+    ],
+    [
+     "orange",
+     [
+      224,
+      134,
+      280,
+      199
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid1_wood_neg_01": {
+  "set": "4A8B_lampmid1_wood",
+  "condition": "lampmid1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid1_wood_occl_03": {
+  "set": "4A8B_lampmid1_wood",
+  "condition": "lampmid1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid1_wood_touch_01": {
+  "set": "4A8B_lampmid1_wood",
+  "condition": "lampmid1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid3_bathtile_neg_01": {
+  "set": "4A8B_lampmid3_bathtile",
+  "condition": "lampmid3_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid3_bathtile_occl_01": {
+  "set": "4A8B_lampmid3_bathtile",
+  "condition": "lampmid3_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     305,
+     129,
+     370,
+     197
+    ]
+   ],
+   [
+    "orange",
+    [
+     334,
+     118,
+     384,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      310,
+      129,
+      380,
+      198
+     ]
+    ],
+    [
+     "orange",
+     [
+      340,
+      120,
+      385,
+      176
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      300,
+      108,
+      392,
+      194
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid3_glass_neg_01": {
+  "set": "4A8B_lampmid3_glass",
+  "condition": "lampmid3_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid3_glass_occl_01": {
+  "set": "4A8B_lampmid3_glass",
+  "condition": "lampmid3_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     295,
+     139,
+     377,
+     229
+    ]
+   ],
+   [
+    "orange",
+    [
+     335,
+     118,
+     388,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      299,
+      139,
+      387,
+      229
+     ]
+    ],
+    [
+     "orange",
+     [
+      554,
+      123,
+      605,
+      166
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found",
+    "nothing"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      299,
+      139,
+      387,
+      229
+     ]
+    ],
+    [
+     "orange",
+     [
+      554,
+      123,
+      605,
+      166
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found",
+    "nothing"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      290,
+      130,
+      382,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      330,
+      114,
+      392,
+      174
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid3_ottoman_neg_01": {
+  "set": "4A8B_lampmid3_ottoman",
+  "condition": "lampmid3_ottoman",
+  "place": "home_ottoman",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid3_ottoman_occl_01": {
+  "set": "4A8B_lampmid3_ottoman",
+  "condition": "lampmid3_ottoman",
+  "place": "home_ottoman",
+  "klass": "extreme",
+  "clean": false,
+  "truth": [
+   [
+    "orange",
+    [
+     200,
+     133,
+     271,
+     209
+    ]
+   ],
+   [
+    "blue",
+    [
+     227,
+     149,
+     323,
+     255
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "orange",
+     [
+      198,
+      120,
+      274,
+      178
+     ]
+    ],
+    [
+     "blue",
+     [
+      226,
+      146,
+      326,
+      248
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "found"
+   ],
+   "box_states": [
+    "off",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid3_wood_neg_01": {
+  "set": "4A8B_lampmid3_wood",
+  "condition": "lampmid3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid3_wood_occl_03": {
+  "set": "4A8B_lampmid3_wood",
+  "condition": "lampmid3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      176,
+      148,
+      264,
+      245
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid3_wood_touch_01": {
+  "set": "4A8B_lampmid3_wood",
+  "condition": "lampmid3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      99,
+      136,
+      170,
+      208
+     ]
+    ],
+    [
+     "blue",
+     [
+      164,
+      122,
+      231,
+      199
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "off",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid6_bathtile_neg_01": {
+  "set": "4A8B_lampmid6_bathtile",
+  "condition": "lampmid6_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid6_bathtile_occl_01": {
+  "set": "4A8B_lampmid6_bathtile",
+  "condition": "lampmid6_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     305,
+     129,
+     370,
+     197
+    ]
+   ],
+   [
+    "orange",
+    [
+     334,
+     118,
+     384,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      335,
+      116,
+      377,
+      157
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "off"
+   ],
+   "box_states": [
+    "off"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      335,
+      116,
+      377,
+      157
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "off"
+   ],
+   "box_states": [
+    "off"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      304,
+      108,
+      382,
+      194
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid6_glass_neg_01": {
+  "set": "4A8B_lampmid6_glass",
+  "condition": "lampmid6_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid6_glass_occl_01": {
+  "set": "4A8B_lampmid6_glass",
+  "condition": "lampmid6_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     295,
+     139,
+     377,
+     229
+    ]
+   ],
+   [
+    "orange",
+    [
+     335,
+     118,
+     388,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      299,
+      140,
+      387,
+      228
+     ]
+    ],
+    [
+     "orange",
+     [
+      559,
+      112,
+      610,
+      174
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found",
+    "nothing"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      299,
+      140,
+      387,
+      228
+     ]
+    ],
+    [
+     "orange",
+     [
+      559,
+      112,
+      610,
+      174
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found",
+    "nothing"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      290,
+      130,
+      382,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      330,
+      116,
+      392,
+      176
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid6_ottoman_neg_01": {
+  "set": "4A8B_lampmid6_ottoman",
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid6_ottoman_occl_01": {
+  "set": "4A8B_lampmid6_ottoman",
+  "condition": "lampmid6_ottoman",
+  "place": "home_ottoman",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "orange",
+    [
+     200,
+     133,
+     271,
+     209
+    ]
+   ],
+   [
+    "blue",
+    [
+     227,
+     149,
+     323,
+     255
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      220,
+      144,
+      320,
+      251
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      220,
+      144,
+      320,
+      251
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "orange",
+     [
+      200,
+      120,
+      278,
+      208
+     ]
+    ],
+    [
+     "blue",
+     [
+      212,
+      144,
+      322,
+      248
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampmid6_wood_neg_01": {
+  "set": "4A8B_lampmid6_wood",
+  "condition": "lampmid6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampmid6_wood_occl_03": {
+  "set": "4A8B_lampmid6_wood",
+  "condition": "lampmid6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      176,
+      126,
+      225,
+      192
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "missed"
+   ],
+   "box_states": [
+    "off"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      176,
+      126,
+      225,
+      192
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "missed"
+   ],
+   "box_states": [
+    "off"
+   ]
+  }
+ },
+ "4A8B_lampmid6_wood_touch_01": {
+  "set": "4A8B_lampmid6_wood",
+  "condition": "lampmid6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      101,
+      138,
+      166,
+      204
+     ]
+    ],
+    [
+     "blue",
+     [
+      165,
+      132,
+      224,
+      196
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampwarm1_wood_neg_01": {
+  "set": "4A8B_lampwarm1_wood",
+  "condition": "lampwarm1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm1_wood_occl_03": {
+  "set": "4A8B_lampwarm1_wood",
+  "condition": "lampwarm1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm1_wood_touch_01": {
+  "set": "4A8B_lampwarm1_wood",
+  "condition": "lampwarm1_wood",
+  "place": "home_wooddesk",
+  "klass": "excluded",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm3_wood_neg_01": {
+  "set": "4A8B_lampwarm3_wood",
+  "condition": "lampwarm3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm3_wood_occl_03": {
+  "set": "4A8B_lampwarm3_wood",
+  "condition": "lampwarm3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      176,
+      148,
+      264,
+      245
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampwarm3_wood_touch_01": {
+  "set": "4A8B_lampwarm3_wood",
+  "condition": "lampwarm3_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      158,
+      122,
+      231,
+      199
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampwarm6_bathtile_neg_01": {
+  "set": "4A8B_lampwarm6_bathtile",
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm6_bathtile_occl_01": {
+  "set": "4A8B_lampwarm6_bathtile",
+  "condition": "lampwarm6_bathtile",
+  "place": "home_bathtile",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [
+   [
+    "blue",
+    [
+     305,
+     129,
+     370,
+     197
+    ]
+   ],
+   [
+    "orange",
+    [
+     334,
+     118,
+     384,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      310,
+      130,
+      375,
+      197
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm6_glass_neg_01": {
+  "set": "4A8B_lampwarm6_glass",
+  "condition": "lampwarm6_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm6_glass_occl_01": {
+  "set": "4A8B_lampwarm6_glass",
+  "condition": "lampwarm6_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     295,
+     139,
+     377,
+     229
+    ]
+   ],
+   [
+    "orange",
+    [
+     335,
+     118,
+     388,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      301,
+      140,
+      387,
+      227
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      301,
+      140,
+      387,
+      227
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      290,
+      130,
+      382,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      330,
+      112,
+      392,
+      182
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "off"
+   ],
+   "box_states": [
+    "found",
+    "off"
+   ]
+  }
+ },
+ "4A8B_lampwarm6_ottoman_neg_01": {
+  "set": "4A8B_lampwarm6_ottoman",
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm6_ottoman_occl_01": {
+  "set": "4A8B_lampwarm6_ottoman",
+  "condition": "lampwarm6_ottoman",
+  "place": "home_ottoman",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "orange",
+    [
+     200,
+     133,
+     271,
+     209
+    ]
+   ],
+   [
+    "blue",
+    [
+     227,
+     149,
+     323,
+     255
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "orange",
+     [
+      198,
+      116,
+      274,
+      202
+     ]
+    ],
+    [
+     "blue",
+     [
+      212,
+      144,
+      322,
+      248
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampwarm6_wood_neg_01": {
+  "set": "4A8B_lampwarm6_wood",
+  "condition": "lampwarm6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_lampwarm6_wood_occl_03": {
+  "set": "4A8B_lampwarm6_wood",
+  "condition": "lampwarm6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     175,
+     124,
+     229,
+     181
+    ]
+   ],
+   [
+    "blue",
+    [
+     180,
+     149,
+     266,
+     243
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      176,
+      132,
+      246,
+      207
+     ]
+    ],
+    [
+     "blue",
+     [
+      178,
+      148,
+      264,
+      243
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "found"
+   ],
+   "box_states": [
+    "off",
+    "found"
+   ]
+  }
+ },
+ "4A8B_lampwarm6_wood_touch_01": {
+  "set": "4A8B_lampwarm6_wood",
+  "condition": "lampwarm6_wood",
+  "place": "home_wooddesk",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     99,
+     132,
+     164,
+     200
+    ]
+   ],
+   [
+    "blue",
+    [
+     161,
+     132,
+     224,
+     198
+    ]
+   ],
+   [
+    "orange",
+    [
+     222,
+     129,
+     283,
+     194
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      101,
+      128,
+      166,
+      197
+     ]
+    ],
+    [
+     "blue",
+     [
+      165,
+      132,
+      221,
+      197
+     ]
+    ],
+    [
+     "orange",
+     [
+      221,
+      126,
+      280,
+      193
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_overheaddim_palewood_neg_01": {
+  "set": "4A8B_overheaddim_palewood",
+  "condition": "overheaddim_palewood",
+  "place": "uc_palewood",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_overheaddim_palewood_occl_01": {
+  "set": "4A8B_overheaddim_palewood",
+  "condition": "overheaddim_palewood",
+  "place": "uc_palewood",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     264,
+     120,
+     316,
+     174
+    ]
+   ],
+   [
+    "orange",
+    [
+     277,
+     136,
+     353,
+     219
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      271,
+      138,
+      352,
+      216
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      271,
+      138,
+      352,
+      216
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      260,
+      114,
+      322,
+      184
+     ]
+    ],
+    [
+     "orange",
+     [
+      268,
+      132,
+      358,
+      218
+     ]
+    ]
+   ],
+   "gt": [
+    "off",
+    "found"
+   ],
+   "box_states": [
+    "off",
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_abpwhite_occlx_12": {
+  "set": "4A8B_window_abpwhite",
+  "condition": "window_abpwhite",
+  "place": "abp_white",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "orange",
+    [
+     108,
+     117,
+     159,
+     166
+    ]
+   ],
+   [
+    "blue",
+    [
+     317,
+     132,
+     388,
+     212
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      110,
+      117,
+      157,
+      164
+     ]
+    ],
+    [
+     "blue",
+     [
+      320,
+      134,
+      388,
+      212
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      110,
+      117,
+      157,
+      164
+     ]
+    ],
+    [
+     "blue",
+     [
+      320,
+      134,
+      388,
+      212
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "orange",
+     [
+      110,
+      108,
+      164,
+      168
+     ]
+    ],
+    [
+     "blue",
+     [
+      316,
+      128,
+      392,
+      214
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_black_close_01": {
+  "set": "4A8B_window_black",
+  "condition": "window_black",
+  "place": "home_black",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     0,
+     132,
+     51,
+     206
+    ]
+   ],
+   [
+    "blue",
+    [
+     7,
+     127,
+     75,
+     189
+    ]
+   ],
+   [
+    "orange",
+    [
+     77,
+     280,
+     430,
+     480
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "orange",
+     [
+      87,
+      282,
+      383,
+      480
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "orange",
+     [
+      87,
+      282,
+      383,
+      480
+     ]
+    ]
+   ],
+   "gt": [
+    "missed",
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_black_clutter_01": {
+  "set": "4A8B_window_black",
+  "condition": "window_black",
+  "place": "home_black",
+  "klass": "extreme",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     0,
+     136,
+     73,
+     213
+    ]
+   ],
+   [
+    "orange",
+    [
+     187,
+     111,
+     225,
+     148
+    ]
+   ],
+   [
+    "blue",
+    [
+     307,
+     112,
+     347,
+     153
+    ]
+   ],
+   [
+    "orange",
+    [
+     529,
+     146,
+     640,
+     247
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      0,
+      138,
+      71,
+      208
+     ]
+    ],
+    [
+     "orange",
+     [
+      524,
+      145,
+      618,
+      239
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "missed",
+    "missed",
+    "found"
+   ],
+   "box_states": [
+    "found",
+    "found"
+   ]
+  }
+ },
+ "4A8B_window_black_neg_02": {
+  "set": "4A8B_window_black",
+  "condition": "window_black",
+  "place": "home_black",
+  "klass": "extreme",
+  "clean": false,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_window_black_occl_01": {
+  "set": "4A8B_window_black",
+  "condition": "window_black",
+  "place": "home_black",
+  "klass": "extreme",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     66,
+     120,
+     127,
+     176
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_window_black_touch_01": {
+  "set": "4A8B_window_black",
+  "condition": "window_black",
+  "place": "home_black",
+  "klass": "extreme",
+  "clean": true,
+  "truth": [
+   [
+    "orange",
+    [
+     244,
+     134,
+     318,
+     214
+    ]
+   ],
+   [
+    "blue",
+    [
+     318,
+     134,
+     392,
+     217
+    ]
+   ],
+   [
+    "blue",
+    [
+     392,
+     135,
+     472,
+     221
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [
+    "missed",
+    "missed",
+    "missed"
+   ],
+   "box_states": []
+  }
+ },
+ "4A8B_window_glass_neg_01": {
+  "set": "4A8B_window_glass",
+  "condition": "window_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": true,
+  "truth": [],
+  "before": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "now": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  },
+  "vendor": {
+   "boxes": [],
+   "gt": [],
+   "box_states": []
+  }
+ },
+ "4A8B_window_glass_occl_01": {
+  "set": "4A8B_window_glass",
+  "condition": "window_glass",
+  "place": "home_glass",
+  "klass": "ordinary",
+  "clean": false,
+  "truth": [
+   [
+    "blue",
+    [
+     295,
+     139,
+     377,
+     229
+    ]
+   ],
+   [
+    "orange",
+    [
+     335,
+     118,
+     388,
+     171
+    ]
+   ]
+  ],
+  "before": {
+   "boxes": [
+    [
+     "blue",
+     [
+      298,
+      139,
+      388,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      339,
+      116,
+      387,
+      165
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "off"
+   ],
+   "box_states": [
+    "found",
+    "off"
+   ]
+  },
+  "now": {
+   "boxes": [
+    [
+     "blue",
+     [
+      298,
+      139,
+      388,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      339,
+      116,
+      387,
+      165
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "off"
+   ],
+   "box_states": [
+    "found",
+    "off"
+   ]
+  },
+  "vendor": {
+   "boxes": [
+    [
+     "blue",
+     [
+      290,
+      130,
+      382,
+      232
+     ]
+    ],
+    [
+     "orange",
+     [
+      330,
+      110,
+      392,
+      180
+     ]
+    ]
+   ],
+   "gt": [
+    "found",
+    "off"
+   ],
+   "box_states": [
+    "found",
+    "off"
+   ]
+  }
+ }
+}

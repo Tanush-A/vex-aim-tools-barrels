@@ -1,0 +1,5148 @@
+{
+ "git": "9d43df8",
+ "frames": 78,
+ "vendor_frames": 31,
+ "placements_error": "",
+ "vendor_no_file": 47,
+ "vendor_not_measured": 0,
+ "groups": {
+  "set": {
+   "HOME": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 5,
+      "placements": 9,
+      "barrels": 9,
+      "found_w": 9.0,
+      "found": 9,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 5,
+      "placements": 9,
+      "barrels": 9,
+      "found_w": 9.0,
+      "found": 9,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "CAMPUS": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 10,
+      "placements": 24,
+      "barrels": 24,
+      "found_w": 22.0,
+      "found": 22,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 10,
+      "placements": 24,
+      "barrels": 24,
+      "found_w": 22.0,
+      "found": 22,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_both_abpgray": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampcool1_wood": {
+    "klass": [
+     "excluded"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampcool3_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 4.0,
+      "found": 4,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampcool6_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampcool6_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampcool6_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampcool6_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 4.0,
+      "found": 4,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampmid1_wood": {
+    "klass": [
+     "excluded"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampmid3_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampmid3_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampmid3_ottoman": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampmid3_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampmid6_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampmid6_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampmid6_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampmid6_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampwarm1_wood": {
+    "klass": [
+     "excluded"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampwarm3_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_lampwarm6_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampwarm6_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampwarm6_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_lampwarm6_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 4.0,
+      "found": 4,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_overheaddim_palewood": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_window_abpwhite": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "4A8B_window_black": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 5,
+      "placements": 11,
+      "barrels": 11,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 5,
+      "placements": 11,
+      "barrels": 11,
+      "found_w": 3.0,
+      "found": 3,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "4A8B_window_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   }
+  },
+  "place": {
+   "home_white": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 5,
+      "placements": 9,
+      "barrels": 9,
+      "found_w": 9.0,
+      "found": 9,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 5,
+      "placements": 9,
+      "barrels": 9,
+      "found_w": 9.0,
+      "found": 9,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "campus_study": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 10,
+      "placements": 24,
+      "barrels": 24,
+      "found_w": 22.0,
+      "found": 22,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 10,
+      "placements": 24,
+      "barrels": 24,
+      "found_w": 22.0,
+      "found": 22,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "abp_gray": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "home_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 8,
+      "placements": 2,
+      "barrels": 8,
+      "found_w": 0.5,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 4,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 8,
+      "placements": 2,
+      "barrels": 8,
+      "found_w": 1.25,
+      "found": 5,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 4,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 8,
+      "placements": 2,
+      "barrels": 8,
+      "found_w": 0.5,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 4,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 8,
+      "placements": 2,
+      "barrels": 8,
+      "found_w": 1.25,
+      "found": 5,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 4,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 8,
+      "placements": 2,
+      "barrels": 8,
+      "found_w": 0.75,
+      "found": 3,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 4,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "home_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 10,
+      "placements": 2,
+      "barrels": 10,
+      "found_w": 1.2,
+      "found": 6,
+      "off": 1,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 5,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 10,
+      "placements": 2,
+      "barrels": 10,
+      "found_w": 1.2,
+      "found": 6,
+      "off": 1,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 5,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 10,
+      "placements": 2,
+      "barrels": 10,
+      "found_w": 1.2,
+      "found": 6,
+      "off": 1,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 5,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 10,
+      "placements": 2,
+      "barrels": 10,
+      "found_w": 1.2,
+      "found": 6,
+      "off": 1,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 5,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 10,
+      "placements": 2,
+      "barrels": 10,
+      "found_w": 1.6,
+      "found": 8,
+      "off": 2,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 5,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "home_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 6,
+      "placements": 2,
+      "barrels": 6,
+      "found_w": 0.67,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 3,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 6,
+      "placements": 2,
+      "barrels": 6,
+      "found_w": 0.67,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 3,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 6,
+      "placements": 2,
+      "barrels": 6,
+      "found_w": 0.67,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 3,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 6,
+      "placements": 2,
+      "barrels": 6,
+      "found_w": 0.67,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 3,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 6,
+      "placements": 2,
+      "barrels": 6,
+      "found_w": 2.0,
+      "found": 6,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 3,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "uc_palewood": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "abp_white": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   }
+  },
+  "place_report_only": {
+   "home_wooddesk": {
+    "klass": [
+     "excluded",
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 27,
+      "placements": 5,
+      "barrels": 45,
+      "found_w": 0.11,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 9,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 27,
+      "placements": 5,
+      "barrels": 45,
+      "found_w": 2.0,
+      "found": 18,
+      "off": 3,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 9,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "home_ottoman": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "home_black": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 5,
+      "placements": 11,
+      "barrels": 11,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 5,
+      "placements": 11,
+      "barrels": 11,
+      "found_w": 3.0,
+      "found": 3,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   }
+  },
+  "condition": {
+   "window_light": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 5,
+      "placements": 9,
+      "barrels": 9,
+      "found_w": 9.0,
+      "found": 9,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 5,
+      "placements": 9,
+      "barrels": 9,
+      "found_w": 9.0,
+      "found": 9,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "campus_light": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 10,
+      "placements": 24,
+      "barrels": 24,
+      "found_w": 22.0,
+      "found": 22,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 10,
+      "placements": 24,
+      "barrels": 24,
+      "found_w": 22.0,
+      "found": 22,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "both_abpgray": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampcool1_wood": {
+    "klass": [
+     "excluded"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampcool3_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 4.0,
+      "found": 4,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampcool6_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampcool6_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampcool6_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampcool6_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 4.0,
+      "found": 4,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampmid1_wood": {
+    "klass": [
+     "excluded"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampmid3_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampmid3_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampmid3_ottoman": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampmid3_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampmid6_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampmid6_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 1,
+      "extra_w": 1.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 1,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampmid6_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampmid6_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampwarm1_wood": {
+    "klass": [
+     "excluded"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampwarm3_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "lampwarm6_bathtile": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampwarm6_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampwarm6_ottoman": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "lampwarm6_wood": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 3,
+      "placements": 5,
+      "barrels": 5,
+      "found_w": 4.0,
+      "found": 4,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "overheaddim_palewood": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "window_abpwhite": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 1,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 2.0,
+      "found": 2,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 0,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "window_black": {
+    "klass": [
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 5,
+      "placements": 11,
+      "barrels": 11,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 5,
+      "placements": 11,
+      "barrels": 11,
+      "found_w": 3.0,
+      "found": 3,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": null
+   },
+   "window_glass": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   }
+  },
+  "total": {
+   "all test frames": {
+    "klass": [
+     "excluded",
+     "extreme",
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 78,
+      "placements": 61,
+      "barrels": 121,
+      "found_w": 39.31,
+      "found": 48,
+      "off": 3,
+      "extra": 3,
+      "extra_w": 1.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 3,
+      "empty_frames": 27,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 78,
+      "placements": 61,
+      "barrels": 121,
+      "found_w": 43.95,
+      "found": 70,
+      "off": 5,
+      "extra": 3,
+      "extra_w": 1.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 3,
+      "empty_frames": 27,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 31,
+      "placements": 12,
+      "barrels": 32,
+      "found_w": 7.2,
+      "found": 15,
+      "off": 2,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 15,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 31,
+      "placements": 12,
+      "barrels": 32,
+      "found_w": 7.95,
+      "found": 18,
+      "off": 2,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 15,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 31,
+      "placements": 12,
+      "barrels": 32,
+      "found_w": 9.1,
+      "found": 23,
+      "off": 5,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 15,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "ordinary conditions": {
+    "klass": [
+     "ordinary"
+    ],
+    "all": {
+     "before": {
+      "frames": 44,
+      "placements": 45,
+      "barrels": 63,
+      "found_w": 38.37,
+      "found": 46,
+      "off": 2,
+      "extra": 3,
+      "extra_w": 1.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 3,
+      "empty_frames": 16,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 44,
+      "placements": 45,
+      "barrels": 63,
+      "found_w": 39.12,
+      "found": 49,
+      "off": 2,
+      "extra": 3,
+      "extra_w": 1.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 3,
+      "empty_frames": 16,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 29,
+      "placements": 12,
+      "barrels": 30,
+      "found_w": 7.37,
+      "found": 15,
+      "off": 2,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 14,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 29,
+      "placements": 12,
+      "barrels": 30,
+      "found_w": 8.12,
+      "found": 18,
+      "off": 2,
+      "extra": 2,
+      "extra_w": 0.4,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 2,
+      "empty_frames": 14,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 29,
+      "placements": 12,
+      "barrels": 30,
+      "found_w": 9.35,
+      "found": 22,
+      "off": 4,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 14,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   },
+   "report only (extreme / other)": {
+    "klass": [
+     "excluded",
+     "extreme"
+    ],
+    "all": {
+     "before": {
+      "frames": 34,
+      "placements": 18,
+      "barrels": 58,
+      "found_w": 1.11,
+      "found": 2,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 11,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 34,
+      "placements": 18,
+      "barrels": 58,
+      "found_w": 5.0,
+      "found": 21,
+      "off": 3,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 11,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    },
+    "vendor_frames": {
+     "before": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "now": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 0.0,
+      "found": 0,
+      "off": 0,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     },
+     "vendor": {
+      "frames": 2,
+      "placements": 2,
+      "barrels": 2,
+      "found_w": 1.0,
+      "found": 1,
+      "off": 1,
+      "extra": 0,
+      "extra_w": 0.0,
+      "wrong": 0,
+      "second": 0,
+      "nothing": 0,
+      "empty_frames": 1,
+      "clean_empty": 0,
+      "cluttered_empty_w": 0.0,
+      "empty": 0
+     }
+    }
+   }
+  }
+ }
+}
