@@ -259,6 +259,14 @@ def axis_from_top_row(cam: geo.CameraModel, top_row: float) -> float:
     return cam._d_axis_from_point_row(top_row, geo.BARREL_HEIGHT_MM, +geo.BARREL_END_DIAMETER_MM / 2)
 
 
+def above_horizon(cam: geo.CameraModel, top_row: float) -> bool:
+    """Is ``top_row`` at or above the horizon? Then it is not the top of a barrel on the table. A barrel is 24 mm tall and
+    the camera is 43 mm above the table, so the camera looks down on every barrel's lid: the lid's far edge is always
+    below the horizon. For a row at or above it the top row gives no distance (``axis_from_top_row`` is inf); a rule that
+    reads "no distance" must not take that for "too near to see"."""
+    return math.isinf(axis_from_top_row(cam, top_row))
+
+
 @dataclass(frozen=True)
 class BarrelAt:
     """The barrel the geometry expects, from ONE reading of the picture: its distance, and from that its rows and sizes in
@@ -453,10 +461,21 @@ def find_pieces(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConf
     stripe gets its box from the stripe (stage 3), and a piece is kept only as a close-up (stage 4).
 
     A piece is a blob of barrel color (``find_blobs``), cut into as many parts as it is barrels wide (``split_blob``),
-    with its bottom edge taken from its top row where the seen bottom disagrees (``resolve_bottom``). It decides, for each:
-    is it on the table (the width one barrel has at its bottom row is at least min_width_px), is it barrel-wide
-    (width_min to width_max x that width), and, when its box ends inside the frame, is it barrel-tall (height_min to
-    height_max x the height for its bottom row). Its color is the majority of its pixels (a tie is orange)."""
+    with its bottom edge taken from its top row where the seen bottom disagrees (``resolve_bottom``). Per piece, in order:
+
+    1. on the table: the width W one barrel has at its bottom row is at least min_width_px;                   else "too_far"
+    2. its top is below the horizon (``above_horizon``): the top of a barrel on the table always is;     else "above_horizon"
+    3. barrel-wide: width_min to width_max x W;                                                              else "width"
+    4. barrel-tall, when its box ends inside the frame and does not touch the frame top: height_min to height_max x
+       the height a barrel has at its bottom row.                                                           else "height"
+    Its color is the majority of its pixels (a tie is orange).
+
+    What 4 can still refuse, once 2 has been asked. Where the top row gives a distance, the bottom was either seen
+    where that distance predicts it or drawn there (``resolve_bottom``), so the height already fits its bottom row. So 4
+    decides only where the top row predicts no bottom: a top in the lowest rows of the frame (the base would be at or
+    behind the camera) on a piece that still ends inside the frame. Such a piece is too short. (A piece with its top
+    at or above the horizon is always more than height_max x too tall for its bottom row; 2 refuses it first, by the
+    fact itself.)"""
     h, w = mask.shape
     out = []
     for blob in find_blobs(mask, cfg):
@@ -466,15 +485,18 @@ def find_pieces(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConf
             W = cam.expected_barrel_width_px(bottom_row=y1) if y1 < h else expected_width_px((x0, y0, x1, h), cam, h)
             if not math.isfinite(W) or W < cfg.min_width_px:
                 _note(log, "piece", "too_far", (x0, y0, x1, y1), expected_w=W)
-                continue                                   # above the horizon or too far to be on the table
+                continue                                   # 1. too far to be on the table (or its bottom row gives no distance)
+            if above_horizon(cam, y0):
+                _note(log, "piece", "above_horizon", (x0, y0, x1, y1), top_row=y0)
+                continue                                   # 2. its top is at or above the horizon: nothing on the table looks like that
             if not (cfg.width_min * W <= (x1 - x0) <= cfg.width_max * W):
                 _note(log, "piece", "width", (x0, y0, x1, y1), expected_w=W)
-                continue                                   # a sliver, or too wide to be one barrel
+                continue                                   # 3. a sliver, or too wide to be one barrel
             if y1 < h and y0 > 0:
                 H = cam.expected_barrel_height_px(bottom_row=y1)
                 if math.isfinite(H) and not (cfg.height_min * H <= (y1 - y0) <= cfg.height_max * H):
                     _note(log, "piece", "height", (x0, y0, x1, y1), expected_h=H)
-                    continue                               # barrel-wide but not barrel-tall: not a barrel (a jacket, a strip of wall)
+                    continue                               # 4. barrel-wide but not barrel-tall for its bottom row
             if x0 == 0 or x1 == w or y0 == 0:
                 flags.add("truncated")
             n_o, n_b = piece.n_orange, piece.n_blue
@@ -1265,10 +1287,14 @@ def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraM
 # ================================================================ stage 4: a piece with no stripe
 
 def _closeup_stripe_rows(cam: geo.CameraModel, top_row: float) -> tuple[float, float]:
-    """(stripe top row, stripe bottom row) of a barrel whose lid's far edge is at ``top_row``; inf where the geometry puts
-    them at or behind the camera (far below the frame)."""
+    """(stripe top row, stripe bottom row) of a barrel whose lid's far edge is at ``top_row``. inf where the geometry puts
+    them at or behind the camera (far below the frame). -inf for a top row at or above the horizon (``above_horizon``):
+    no barrel has its top there, so no stripe is "below the frame". ``find_pieces`` refuses such a piece before it gets
+    here."""
     d = axis_from_top_row(cam, top_row)
-    if not math.isfinite(d) or d <= 0:
+    if math.isinf(d):
+        return -math.inf, -math.inf
+    if d <= 0:
         return math.inf, math.inf
     try:
         r = cam.barrel_rows(d)
@@ -1303,8 +1329,16 @@ def closeup_pieces(pieces: list[Piece], found: list[Found], mask: np.ndarray, ca
        below the frame bottom (the frame cuts the stripe: no body is seen below it, so it cannot be found as a stripe).
     3. A close-up that the left or right frame side also cuts shows neither its width nor its stripe: its body must be
        seen from its top row down to where that row puts the stripe (or to the frame bottom).            "closeup_side"
-    4. Keep it if it is a close-up, or if the stripe expected at its middle row is under min_stripe_px tall (too far to
-       resolve a stripe).                                                                                "stripeless\""""
+    4. Keep it if it is a close-up. Keep it also if the stripe expected at its MIDDLE row is under min_stripe_px tall:
+       too far to resolve a stripe (rule "far_piece").                                               else "stripeless"
+
+    Two facts these rules lean on. Both are settled in stage 1 (``find_pieces``):
+    - every piece here has its top below the horizon (its check 2). So its top row gives a distance, and "no stripe
+      row" in 2 and 3 can only mean "at or behind the camera", which is below the frame;
+    - every piece here is on the table by its BOTTOM row (its check 1: nearer than about 637 mm with this camera, where
+      a stripe is 4.3 px tall). The "too far" half of 4 asks about the MIDDLE row (a stripe under 4 px: beyond about
+      687 mm). With this camera and these numbers no piece that stage 1 lets through can pass it: tried for every top
+      row and every bottom row. It is kept as it is, for other numbers."""
     h, w = mask.shape
     new: list[Found] = []
     for piece in pieces:
@@ -1322,7 +1356,7 @@ def closeup_pieces(pieces: list[Piece], found: list[Found], mask: np.ndarray, ca
             _note(log, "piece", "closeup_side", p.bbox, body=p.color, seen_bottom=piece.seen_bottom)
             continue                                                                       # 3.
         if rule is None and hs < cfg.min_stripe_px:
-            rule = "far_piece"
+            rule = "far_piece"                                                            # see the docstring: no piece gets here today
         if rule is not None:
             new.append(Found(p, rule))                                                     # 4.
         else:

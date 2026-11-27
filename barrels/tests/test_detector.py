@@ -209,13 +209,23 @@ def test_touching_same_color_pair_gives_two_stripes():
 
 def test_stripeless_piece_must_be_barrel_tall():
     """A blue blob of barrel width whose bottom sits just below the horizon but which is twice as tall as a barrel
-    there (a jacket above the table edge, campus core_01) is not a barrel; the width check alone would take it."""
+    there (a jacket above the table edge, campus core_01) is not a barrel; the width check alone would take it. Its top
+    is above the horizon, where no barrel on the table has its top. And a piece low in the frame that is barrel-wide
+    but far too short for its bottom row is not a barrel either."""
     cam = geo.AIM_4A8B6118_BOXFIT
     mask = np.zeros((480, 640), np.uint8)
     mask[75:120, 309:333] = io.BLUE                                          # 24 wide, 45 tall, bottom row 120 (horizon 76)
+    assert det.above_horizon(cam, 75) and det.above_horizon(cam, 76) and not det.above_horizon(cam, 77)
     log = []
     assert det.detect(mask, cam=cam, log=log) == []
-    assert whys(log, "piece") == ["height"]                                  # refused for its height, by stage 1
+    assert whys(log, "piece") == ["above_horizon"]                           # refused by stage 1: its top is above the horizon
+    W = cam.expected_barrel_width_px(bottom_row=470)
+    mask[:] = 0
+    mask[440:470, int(320 - 0.3 * W):int(320 + 0.3 * W)] = io.BLUE          # 0.6 of a barrel wide for its bottom row, 30 px tall
+    assert cam.expected_barrel_height_px(bottom_row=470) > 2 * 30
+    log = []
+    assert det.detect(mask, cam=cam, log=log) == []
+    assert whys(log, "piece") == ["height"]                                  # refused by stage 1: not barrel-tall
     H = cam.expected_barrel_height_px(bottom_row=120)
     mask[:] = 0
     mask[120 - int(round(H)):120, 309:333] = io.BLUE                         # the same blob at a barrel's height passes the shape checks ...
