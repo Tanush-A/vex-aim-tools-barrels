@@ -1,0 +1,21 @@
+# The collapse harness with the flag on (yardstick d)
+
+`harness_flag.py`: 5435 masks, the same ones the collapse was proven on. "Today" = the boxes of `before.json` (the flag off reproduces them: `diff.py` prints IDENTICAL BOXES ON EVERY INPUT). Scored where the truth is known: masks made from a train frame against its hand boxes (261 of 261 frames have box labels), simulated scenes against the scene's own boxes. Strict rule; a box on its barrel with the bottom off counts once.
+
+Cell: inputs whose boxes change / all; boxes +added −removed; found today → arm (+gained −lost); boxes not on their barrel today → arm (new ones); boxes on empty inputs today → arm.
+
+| arm | damage | hand | pool | real | real_dilate | real_erode | scene |
+|---|---|---|---|---|---|---|---|
+| A | 0 / 666; +0 −0; found 803 → 803 (+0 −0); not on barrel 7 → 7 (new 0); empty 0 → 0 | 0 / 45; +0 −0; found 115 → 115 (+0 −0); not on barrel 1 → 1 (new 0); empty 0 → 0 | 0 / 53; +0 −0; found 91 → 91 (+0 −0); not on barrel 0 → 0 (new 0); empty 0 → 0 | 0 / 261; +0 −0; found 224 → 224 (+0 −0); not on barrel 9 → 9 (new 0); empty 0 → 0 | 0 / 261; +0 −0; found 234 → 234 (+0 −0); not on barrel 18 → 18 (new 0); empty 3 → 3 | 0 / 261; +0 −0; found 181 → 181 (+0 −0); not on barrel 2 → 2 (new 0); empty 0 → 0 | 0 / 3888; +0 −0; found 4177 → 4177 (+0 −0); not on barrel 21 → 21 (new 0); empty 0 → 0 |
+| B | 27 / 666; +39 −7; found 803 → 841 (+38 −0); not on barrel 7 → 0 (new 0); empty 0 → 0 | 3 / 45; +4 −1; found 115 → 116 (+1 −0); not on barrel 1 → 3 (new 2); empty 0 → 0 | 1 / 53; +1 −0; found 91 → 91 (+0 −0); not on barrel 0 → 1 (new 1); empty 0 → 0 | 7 / 261; +9 −4; found 224 → 227 (+3 −0); not on barrel 9 → 9 (new 0); empty 0 → 0 | 4 / 261; +4 −1; found 234 → 237 (+3 −0); not on barrel 18 → 18 (new 0); empty 3 → 3 | 9 / 261; +14 −3; found 181 → 192 (+11 −0); not on barrel 2 → 1 (new 0); empty 0 → 0 | 8 / 3888; +8 −2; found 4177 → 4180 (+3 −0); not on barrel 21 → 22 (new 1); empty 0 → 0 |
+| C | 19 / 666; +24 −7; found 803 → 827 (+24 −0); not on barrel 7 → 0 (new 0); empty 0 → 0 | 0 / 45; +0 −0; found 115 → 115 (+0 −0); not on barrel 1 → 1 (new 0); empty 0 → 0 | 0 / 53; +0 −0; found 91 → 91 (+0 −0); not on barrel 0 → 0 (new 0); empty 0 → 0 | 3 / 261; +3 −1; found 224 → 226 (+2 −0); not on barrel 9 → 9 (new 0); empty 0 → 0 | 1 / 261; +1 −0; found 234 → 235 (+1 −0); not on barrel 18 → 18 (new 0); empty 3 → 3 | 3 / 261; +6 −1; found 181 → 187 (+6 −0); not on barrel 2 → 1 (new 0); empty 0 → 0 | 21 / 3888; +20 −11; found 4177 → 4183 (+8 −2); not on barrel 21 → 21 (new 0); empty 0 → 0 |
+| D | 27 / 666; +39 −7; found 803 → 841 (+38 −0); not on barrel 7 → 0 (new 0); empty 0 → 0 | 1 / 45; +1 −0; found 115 → 116 (+1 −0); not on barrel 1 → 1 (new 0); empty 0 → 0 | 0 / 53; +0 −0; found 91 → 91 (+0 −0); not on barrel 0 → 0 (new 0); empty 0 → 0 | 7 / 261; +8 −4; found 224 → 227 (+3 −0); not on barrel 9 → 9 (new 0); empty 0 → 0 | 4 / 261; +4 −1; found 234 → 237 (+3 −0); not on barrel 18 → 18 (new 0); empty 3 → 3 | 9 / 261; +14 −3; found 181 → 192 (+11 −0); not on barrel 2 → 1 (new 0); empty 0 → 0 | 6 / 3888; +6 −2; found 4177 → 4180 (+3 −0); not on barrel 21 → 21 (new 0); empty 0 → 0 |
+| CD | 32 / 666; +44 −7; found 803 → 845 (+42 −0); not on barrel 7 → 0 (new 0); empty 0 → 0 | 1 / 45; +1 −0; found 115 → 116 (+1 −0); not on barrel 1 → 1 (new 0); empty 0 → 0 | 0 / 53; +0 −0; found 91 → 91 (+0 −0); not on barrel 0 → 0 (new 0); empty 0 → 0 | 8 / 261; +9 −4; found 224 → 228 (+4 −0); not on barrel 9 → 9 (new 0); empty 0 → 0 | 5 / 261; +5 −1; found 234 → 238 (+4 −0); not on barrel 18 → 18 (new 0); empty 3 → 3 | 9 / 261; +14 −3; found 181 → 192 (+11 −0); not on barrel 2 → 1 (new 0); empty 0 → 0 | 23 / 3888; +22 −12; found 4177 → 4184 (+9 −2); not on barrel 21 → 21 (new 0); empty 0 → 0 |
+
+- A: new boxes that are not on their barrel, by group: none.
+- B: new boxes that are not on their barrel, by group: hand 2, pool 1, scene 1.
+- C: new boxes that are not on their barrel, by group: none.
+- D: new boxes that are not on their barrel, by group: none.
+- CD: new boxes that are not on their barrel, by group: none.
+
+Contact sheets of every input where `D` adds a box that is not on its barrel: `harness_sheets/` (0 tiles; white = the true boxes, gray = today's boxes, magenta = the new box).

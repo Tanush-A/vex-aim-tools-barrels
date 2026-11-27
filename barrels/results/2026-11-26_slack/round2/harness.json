@@ -1,0 +1,933 @@
+{
+ "arms": {
+  "A": {
+   "damage": {
+    "inputs": 666,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 803,
+    "gained": 0,
+    "lost": 0,
+    "off0": 6,
+    "off1": 6,
+    "extra0": 7,
+    "extra1": 7,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "gained": 0,
+    "lost": 0,
+    "off0": 2,
+    "off1": 2,
+    "extra0": 1,
+    "extra1": 1,
+    "new_extra": 0
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "gained": 0,
+    "lost": 0,
+    "off0": 0,
+    "off1": 0,
+    "extra0": 0,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 224,
+    "gained": 0,
+    "lost": 0,
+    "off0": 6,
+    "off1": 6,
+    "extra0": 9,
+    "extra1": 9,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 234,
+    "gained": 0,
+    "lost": 0,
+    "off0": 15,
+    "off1": 15,
+    "extra0": 18,
+    "extra1": 18,
+    "new_extra": 0,
+    "empty0": 3,
+    "empty1": 3
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 181,
+    "gained": 0,
+    "lost": 0,
+    "off0": 1,
+    "off1": 1,
+    "extra0": 2,
+    "extra1": 2,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4177,
+    "gained": 0,
+    "lost": 0,
+    "off0": 239,
+    "off1": 239,
+    "extra0": 21,
+    "extra1": 21,
+    "new_extra": 0
+   }
+  },
+  "B": {
+   "damage": {
+    "inputs": 666,
+    "changed": 27,
+    "added": 39,
+    "removed": 7,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 841,
+    "gained": 38,
+    "lost": 0,
+    "off0": 6,
+    "off1": 7,
+    "extra0": 7,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 3,
+    "added": 4,
+    "removed": 1,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 116,
+    "gained": 1,
+    "lost": 0,
+    "off0": 2,
+    "off1": 2,
+    "extra0": 1,
+    "extra1": 3,
+    "new_extra": 2
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 1,
+    "added": 1,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "gained": 0,
+    "lost": 0,
+    "off0": 0,
+    "off1": 0,
+    "extra0": 0,
+    "extra1": 1,
+    "new_extra": 1,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 7,
+    "added": 9,
+    "removed": 4,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 227,
+    "gained": 3,
+    "lost": 0,
+    "off0": 6,
+    "off1": 8,
+    "extra0": 9,
+    "extra1": 9,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 4,
+    "added": 4,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 237,
+    "gained": 3,
+    "lost": 0,
+    "off0": 15,
+    "off1": 15,
+    "extra0": 18,
+    "extra1": 18,
+    "new_extra": 0,
+    "empty0": 3,
+    "empty1": 3
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 9,
+    "added": 14,
+    "removed": 3,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 192,
+    "gained": 11,
+    "lost": 0,
+    "off0": 1,
+    "off1": 2,
+    "extra0": 2,
+    "extra1": 1,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 8,
+    "added": 8,
+    "removed": 2,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4180,
+    "gained": 3,
+    "lost": 0,
+    "off0": 239,
+    "off1": 241,
+    "extra0": 21,
+    "extra1": 22,
+    "new_extra": 1
+   }
+  },
+  "C": {
+   "damage": {
+    "inputs": 666,
+    "changed": 19,
+    "added": 24,
+    "removed": 7,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 827,
+    "gained": 24,
+    "lost": 0,
+    "off0": 6,
+    "off1": 6,
+    "extra0": 7,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 115,
+    "gained": 0,
+    "lost": 0,
+    "off0": 2,
+    "off1": 2,
+    "extra0": 1,
+    "extra1": 1,
+    "new_extra": 0
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "gained": 0,
+    "lost": 0,
+    "off0": 0,
+    "off1": 0,
+    "extra0": 0,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 3,
+    "added": 3,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 226,
+    "gained": 2,
+    "lost": 0,
+    "off0": 6,
+    "off1": 6,
+    "extra0": 9,
+    "extra1": 9,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 1,
+    "added": 1,
+    "removed": 0,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 235,
+    "gained": 1,
+    "lost": 0,
+    "off0": 15,
+    "off1": 15,
+    "extra0": 18,
+    "extra1": 18,
+    "new_extra": 0,
+    "empty0": 3,
+    "empty1": 3
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 3,
+    "added": 6,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 187,
+    "gained": 6,
+    "lost": 0,
+    "off0": 1,
+    "off1": 1,
+    "extra0": 2,
+    "extra1": 1,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 21,
+    "added": 20,
+    "removed": 11,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4183,
+    "gained": 8,
+    "lost": 2,
+    "off0": 239,
+    "off1": 242,
+    "extra0": 21,
+    "extra1": 21,
+    "new_extra": 0
+   }
+  },
+  "D": {
+   "damage": {
+    "inputs": 666,
+    "changed": 27,
+    "added": 39,
+    "removed": 7,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 841,
+    "gained": 38,
+    "lost": 0,
+    "off0": 6,
+    "off1": 7,
+    "extra0": 7,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 1,
+    "added": 1,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 116,
+    "gained": 1,
+    "lost": 0,
+    "off0": 2,
+    "off1": 2,
+    "extra0": 1,
+    "extra1": 1,
+    "new_extra": 0
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "gained": 0,
+    "lost": 0,
+    "off0": 0,
+    "off1": 0,
+    "extra0": 0,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 7,
+    "added": 8,
+    "removed": 4,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 227,
+    "gained": 3,
+    "lost": 0,
+    "off0": 6,
+    "off1": 7,
+    "extra0": 9,
+    "extra1": 9,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 4,
+    "added": 4,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 237,
+    "gained": 3,
+    "lost": 0,
+    "off0": 15,
+    "off1": 15,
+    "extra0": 18,
+    "extra1": 18,
+    "new_extra": 0,
+    "empty0": 3,
+    "empty1": 3
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 9,
+    "added": 14,
+    "removed": 3,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 192,
+    "gained": 11,
+    "lost": 0,
+    "off0": 1,
+    "off1": 2,
+    "extra0": 2,
+    "extra1": 1,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 6,
+    "added": 6,
+    "removed": 2,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4180,
+    "gained": 3,
+    "lost": 0,
+    "off0": 239,
+    "off1": 240,
+    "extra0": 21,
+    "extra1": 21,
+    "new_extra": 0
+   }
+  },
+  "CD": {
+   "damage": {
+    "inputs": 666,
+    "changed": 32,
+    "added": 44,
+    "removed": 7,
+    "scored": 666,
+    "barrels": 1152,
+    "found0": 803,
+    "found1": 845,
+    "gained": 42,
+    "lost": 0,
+    "off0": 6,
+    "off1": 8,
+    "extra0": 7,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "hand": {
+    "inputs": 45,
+    "changed": 1,
+    "added": 1,
+    "removed": 0,
+    "scored": 45,
+    "barrels": 135,
+    "found0": 115,
+    "found1": 116,
+    "gained": 1,
+    "lost": 0,
+    "off0": 2,
+    "off1": 2,
+    "extra0": 1,
+    "extra1": 1,
+    "new_extra": 0
+   },
+   "pool": {
+    "inputs": 53,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "scored": 53,
+    "barrels": 93,
+    "found0": 91,
+    "found1": 91,
+    "gained": 0,
+    "lost": 0,
+    "off0": 0,
+    "off1": 0,
+    "extra0": 0,
+    "extra1": 0,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real": {
+    "inputs": 261,
+    "changed": 8,
+    "added": 9,
+    "removed": 4,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 224,
+    "found1": 228,
+    "gained": 4,
+    "lost": 0,
+    "off0": 6,
+    "off1": 7,
+    "extra0": 9,
+    "extra1": 9,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "real_dilate": {
+    "inputs": 261,
+    "changed": 5,
+    "added": 5,
+    "removed": 1,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 234,
+    "found1": 238,
+    "gained": 4,
+    "lost": 0,
+    "off0": 15,
+    "off1": 15,
+    "extra0": 18,
+    "extra1": 18,
+    "new_extra": 0,
+    "empty0": 3,
+    "empty1": 3
+   },
+   "real_erode": {
+    "inputs": 261,
+    "changed": 9,
+    "added": 14,
+    "removed": 3,
+    "scored": 261,
+    "barrels": 537,
+    "found0": 181,
+    "found1": 192,
+    "gained": 11,
+    "lost": 0,
+    "off0": 1,
+    "off1": 2,
+    "extra0": 2,
+    "extra1": 1,
+    "new_extra": 0,
+    "empty0": 0,
+    "empty1": 0
+   },
+   "scene": {
+    "inputs": 3888,
+    "changed": 23,
+    "added": 22,
+    "removed": 12,
+    "scored": 3888,
+    "barrels": 5376,
+    "found0": 4177,
+    "found1": 4184,
+    "gained": 9,
+    "lost": 2,
+    "off0": 239,
+    "off1": 242,
+    "extra0": 21,
+    "extra1": 21,
+    "new_extra": 0
+   }
+  }
+ },
+ "new_boxes_not_on_a_barrel": {
+  "B": [
+   {
+    "key": "hand/4A8B_lampmid3_bathtile_clutter_01",
+    "new": [
+     [
+      1,
+      [
+       519,
+       100,
+       548,
+       134
+      ]
+     ]
+    ],
+    "after": [
+     [
+      2,
+      [
+       76,
+       132,
+       150,
+       208
+      ]
+     ],
+     [
+      2,
+      [
+       296,
+       110,
+       331,
+       148
+      ]
+     ],
+     [
+      1,
+      [
+       406,
+       109,
+       442,
+       142
+      ]
+     ],
+     [
+      1,
+      [
+       496,
+       117,
+       563,
+       191
+      ]
+     ],
+     [
+      1,
+      [
+       519,
+       100,
+       548,
+       134
+      ]
+     ]
+    ],
+    "before": [
+     [
+      2,
+      [
+       76,
+       132,
+       150,
+       208
+      ]
+     ],
+     [
+      2,
+      [
+       296,
+       110,
+       331,
+       148
+      ]
+     ],
+     [
+      1,
+      [
+       406,
+       109,
+       442,
+       142
+      ]
+     ],
+     [
+      1,
+      [
+       496,
+       117,
+       563,
+       191
+      ]
+     ]
+    ]
+   },
+   {
+    "key": "hand/4A8B_lampwarm6_ottoman_occl_02",
+    "new": [
+     [
+      1,
+      [
+       220,
+       100,
+       248,
+       130
+      ]
+     ]
+    ],
+    "after": [
+     [
+      1,
+      [
+       220,
+       100,
+       248,
+       130
+      ]
+     ],
+     [
+      1,
+      [
+       235,
+       126,
+       296,
+       192
+      ]
+     ]
+    ],
+    "before": [
+     [
+      1,
+      [
+       224,
+       126,
+       282,
+       192
+      ]
+     ]
+    ]
+   },
+   {
+    "key": "pool/HOME color model/4A8B_window_light_cluster_01",
+    "new": [
+     [
+      2,
+      [
+       344,
+       102,
+       372,
+       134
+      ]
+     ]
+    ],
+    "after": [
+     [
+      1,
+      [
+       315,
+       118,
+       366,
+       162
+      ]
+     ],
+     [
+      2,
+      [
+       326,
+       120,
+       383,
+       173
+      ]
+     ],
+     [
+      2,
+      [
+       344,
+       102,
+       372,
+       134
+      ]
+     ],
+     [
+      2,
+      [
+       391,
+       116,
+       437,
+       170
+      ]
+     ]
+    ],
+    "before": [
+     [
+      1,
+      [
+       315,
+       118,
+       366,
+       162
+      ]
+     ],
+     [
+      2,
+      [
+       326,
+       120,
+       383,
+       173
+      ]
+     ],
+     [
+      2,
+      [
+       391,
+       116,
+       437,
+       170
+      ]
+     ]
+    ]
+   },
+   {
+    "key": "scene/HOME color model/00830/barrel_front/other/0.75/",
+    "new": [
+     [
+      1,
+      [
+       439,
+       96,
+       461,
+       120
+      ]
+     ]
+    ],
+    "after": [
+     [
+      1,
+      [
+       427,
+       111,
+       475,
+       157
+      ]
+     ],
+     [
+      1,
+      [
+       439,
+       96,
+       461,
+       120
+      ]
+     ]
+    ],
+    "before": [
+     [
+      1,
+      [
+       427,
+       111,
+       475,
+       157
+      ]
+     ]
+    ]
+   }
+  ]
+ }
+}

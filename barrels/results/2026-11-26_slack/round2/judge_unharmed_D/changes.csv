@@ -1,0 +1,5 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,found,gained,abp_gray,both_abpgray,1
+4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,missed,found,gained,home_bathtile,lampcool6_bathtile,1
+4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,found,gained,home_ottoman,lampmid6_ottoman,1
+4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,off,other,home_ottoman,lampmid6_ottoman,1

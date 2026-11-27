@@ -1,0 +1,1849 @@
+{
+ "git": "769f6eb",
+ "frames": {
+  "ordinary": 154,
+  "extreme": 77,
+  "excluded": 30,
+  "unlisted": 0
+ },
+ "hand_conditions": [
+  "both_abpgray",
+  "lampcool6_bathtile",
+  "lampcool6_glass",
+  "lampcool6_ottoman",
+  "lampmid3_bathtile",
+  "lampmid3_glass",
+  "lampmid3_ottoman",
+  "lampmid6_bathtile",
+  "lampmid6_glass",
+  "lampmid6_ottoman",
+  "lampwarm6_bathtile",
+  "lampwarm6_glass",
+  "lampwarm6_ottoman",
+  "overheaddim_palewood",
+  "window_glass"
+ ],
+ "empty_frames": 33,
+ "white3_frames": 54,
+ "arms": {
+  "B": {
+   "erosion": {
+    "fixed_e1": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 52,
+      "found_arm": 58,
+      "lost_to_harm": 11,
+      "back": 6,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 54,
+      "boxes_arm": 59
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 121,
+      "found_arm": 126,
+      "lost_to_harm": 29,
+      "back": 5,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 122,
+      "boxes_arm": 128
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 173,
+      "found_arm": 184,
+      "lost_to_harm": 40,
+      "back": 11,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 2,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 176,
+      "boxes_arm": 187
+     },
+     "verdict": "PASS",
+     "found_w": [
+      107.75,
+      116.5
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "fixed_e2": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 29,
+      "found_arm": 52,
+      "lost_to_harm": 34,
+      "back": 23,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 30,
+      "boxes_arm": 53
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 75,
+      "found_arm": 111,
+      "lost_to_harm": 73,
+      "back": 35,
+      "gained_other": 1,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 4,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 77,
+      "boxes_arm": 115
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 104,
+      "found_arm": 163,
+      "lost_to_harm": 107,
+      "back": 58,
+      "gained_other": 1,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 5,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 107,
+      "boxes_arm": 168
+     },
+     "verdict": "PASS",
+     "found_w": [
+      61.0,
+      101.6
+     ],
+     "extra_w": [
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "damage": {
+    "white tables, typical": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 228,
+     "found_arm": 246,
+     "lost_to_harm": 42,
+     "back": 18,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 3,
+     "off_arm": 3,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 234,
+     "boxes_arm": 249
+    },
+    "white tables, bad day": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 217,
+     "found_arm": 237,
+     "lost_to_harm": 51,
+     "back": 20,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 4,
+     "off_arm": 4,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 224,
+     "boxes_arm": 241
+    }
+   },
+   "unharmed": {
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "found_w": [
+     133.8,
+     135.38
+    ],
+    "extra_w": [
+     1.93,
+     1.93
+    ],
+    "the two white tables": {
+     "barrels": 64,
+     "found_unharmed": 63,
+     "found_base": 63,
+     "found_arm": 63,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 0,
+     "off_arm": 0,
+     "extra_base": 0,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 63,
+     "boxes_arm": 63
+    },
+    "the other ordinary places": {
+     "barrels": 243,
+     "found_unharmed": 148,
+     "found_base": 148,
+     "found_arm": 151,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 3,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 4,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 155,
+     "boxes_arm": 160
+    },
+    "all ordinary": {
+     "barrels": 307,
+     "found_unharmed": 211,
+     "found_base": 211,
+     "found_arm": 214,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 3,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 4,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 218,
+     "boxes_arm": 223
+    }
+   },
+   "empty": {
+    "fixed": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_d1": {
+     "today": 3,
+     "arm": 3,
+     "new": []
+    },
+    "hand": {
+     "today": 2,
+     "arm": 3,
+     "new": [
+      [
+       "4A8B_lampmid3_bathtile_neg_02",
+       "orange",
+       [
+        505,
+        122,
+        561,
+        167
+       ]
+      ]
+     ]
+    },
+    "hand_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "hand_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    }
+   },
+   "hand": {
+    "hand": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 281,
+      "found_arm": 283,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 7,
+      "empty_base": 2,
+      "empty_arm": 3,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 288,
+      "boxes_arm": 294
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 192,
+      "found_arm": 194,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 7,
+      "empty_base": 2,
+      "empty_arm": 3,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 199,
+      "boxes_arm": 205
+     },
+     "verdict": "NO CLEAR DIFFERENCE",
+     "found_w": [
+      156.83,
+      157.33
+     ],
+     "extra_w": [
+      1.5,
+      2.58
+     ]
+    },
+    "hand_e1": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 223,
+      "found_arm": 245,
+      "lost_to_harm": 61,
+      "back": 22,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 8,
+      "off_arm": 10,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 233,
+      "boxes_arm": 256
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 147,
+      "found_arm": 163,
+      "lost_to_harm": 47,
+      "back": 16,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 7,
+      "off_arm": 9,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 155,
+      "boxes_arm": 173
+     },
+     "verdict": "PASS",
+     "found_w": [
+      131.83,
+      142.32
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "hand_e2": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 133,
+      "found_arm": 204,
+      "lost_to_harm": 150,
+      "back": 69,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 11,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 138,
+      "boxes_arm": 215
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 92,
+      "found_arm": 133,
+      "lost_to_harm": 102,
+      "back": 39,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 9,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 96,
+      "boxes_arm": 142
+     },
+     "verdict": "PASS",
+     "found_w": [
+      75.8,
+      121.92
+     ],
+     "extra_w": [
+      1.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "C": {
+   "erosion": {
+    "fixed_e1": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 52,
+      "found_arm": 57,
+      "lost_to_harm": 11,
+      "back": 5,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 54,
+      "boxes_arm": 58
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 121,
+      "found_arm": 122,
+      "lost_to_harm": 29,
+      "back": 1,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 0,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 122,
+      "boxes_arm": 123
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 173,
+      "found_arm": 179,
+      "lost_to_harm": 40,
+      "back": 6,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 1,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 176,
+      "boxes_arm": 181
+     },
+     "verdict": "PASS",
+     "found_w": [
+      107.75,
+      113.75
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "fixed_e2": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 29,
+      "found_arm": 29,
+      "lost_to_harm": 34,
+      "back": 0,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 0,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 30,
+      "boxes_arm": 30
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 75,
+      "found_arm": 76,
+      "lost_to_harm": 73,
+      "back": 1,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 2,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 77,
+      "boxes_arm": 78
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 104,
+      "found_arm": 105,
+      "lost_to_harm": 107,
+      "back": 1,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 2,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 107,
+      "boxes_arm": 108
+     },
+     "verdict": "NO CLEAR DIFFERENCE",
+     "found_w": [
+      61.0,
+      62.0
+     ],
+     "extra_w": [
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "damage": {
+    "white tables, typical": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 228,
+     "found_arm": 243,
+     "lost_to_harm": 42,
+     "back": 15,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 3,
+     "off_arm": 3,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 234,
+     "boxes_arm": 246
+    },
+    "white tables, bad day": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 217,
+     "found_arm": 232,
+     "lost_to_harm": 51,
+     "back": 15,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 4,
+     "off_arm": 4,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 224,
+     "boxes_arm": 236
+    }
+   },
+   "unharmed": {
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "found_w": [
+     133.8,
+     134.3
+    ],
+    "extra_w": [
+     1.93,
+     1.93
+    ],
+    "the two white tables": {
+     "barrels": 64,
+     "found_unharmed": 63,
+     "found_base": 63,
+     "found_arm": 63,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 0,
+     "off_arm": 0,
+     "extra_base": 0,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 63,
+     "boxes_arm": 63
+    },
+    "the other ordinary places": {
+     "barrels": 243,
+     "found_unharmed": 148,
+     "found_base": 148,
+     "found_arm": 150,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 2,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 2,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 155,
+     "boxes_arm": 157
+    },
+    "all ordinary": {
+     "barrels": 307,
+     "found_unharmed": 211,
+     "found_base": 211,
+     "found_arm": 213,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 2,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 2,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 218,
+     "boxes_arm": 220
+    }
+   },
+   "empty": {
+    "fixed": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_d1": {
+     "today": 3,
+     "arm": 3,
+     "new": []
+    },
+    "hand": {
+     "today": 2,
+     "arm": 2,
+     "new": []
+    },
+    "hand_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "hand_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    }
+   },
+   "hand": {
+    "hand": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 281,
+      "found_arm": 281,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 3,
+      "empty_base": 2,
+      "empty_arm": 2,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 288,
+      "boxes_arm": 288
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 192,
+      "found_arm": 192,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 3,
+      "empty_base": 2,
+      "empty_arm": 2,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 199,
+      "boxes_arm": 199
+     },
+     "verdict": "NO CLEAR DIFFERENCE",
+     "found_w": [
+      156.83,
+      156.83
+     ],
+     "extra_w": [
+      1.5,
+      1.5
+     ]
+    },
+    "hand_e1": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 223,
+      "found_arm": 230,
+      "lost_to_harm": 61,
+      "back": 7,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 8,
+      "off_arm": 8,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 233,
+      "boxes_arm": 239
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 147,
+      "found_arm": 149,
+      "lost_to_harm": 47,
+      "back": 2,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 7,
+      "off_arm": 7,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 155,
+      "boxes_arm": 157
+     },
+     "verdict": "PASS",
+     "found_w": [
+      131.83,
+      137.33
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "hand_e2": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 133,
+      "found_arm": 134,
+      "lost_to_harm": 150,
+      "back": 1,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 138,
+      "boxes_arm": 139
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 92,
+      "found_arm": 92,
+      "lost_to_harm": 102,
+      "back": 0,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 96,
+      "boxes_arm": 96
+     },
+     "verdict": "NO CLEAR DIFFERENCE",
+     "found_w": [
+      75.8,
+      76.8
+     ],
+     "extra_w": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "D": {
+   "erosion": {
+    "fixed_e1": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 52,
+      "found_arm": 58,
+      "lost_to_harm": 11,
+      "back": 6,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 54,
+      "boxes_arm": 59
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 121,
+      "found_arm": 126,
+      "lost_to_harm": 29,
+      "back": 5,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 122,
+      "boxes_arm": 128
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 173,
+      "found_arm": 184,
+      "lost_to_harm": 40,
+      "back": 11,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 2,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 176,
+      "boxes_arm": 187
+     },
+     "verdict": "PASS",
+     "found_w": [
+      107.75,
+      116.5
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "fixed_e2": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 29,
+      "found_arm": 50,
+      "lost_to_harm": 34,
+      "back": 21,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 0,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 30,
+      "boxes_arm": 50
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 75,
+      "found_arm": 110,
+      "lost_to_harm": 73,
+      "back": 34,
+      "gained_other": 1,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 4,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 77,
+      "boxes_arm": 114
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 104,
+      "found_arm": 160,
+      "lost_to_harm": 107,
+      "back": 55,
+      "gained_other": 1,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 4,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 107,
+      "boxes_arm": 164
+     },
+     "verdict": "PASS",
+     "found_w": [
+      61.0,
+      99.4
+     ],
+     "extra_w": [
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "damage": {
+    "white tables, typical": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 228,
+     "found_arm": 246,
+     "lost_to_harm": 42,
+     "back": 18,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 3,
+     "off_arm": 3,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 234,
+     "boxes_arm": 249
+    },
+    "white tables, bad day": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 217,
+     "found_arm": 237,
+     "lost_to_harm": 51,
+     "back": 20,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 4,
+     "off_arm": 4,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 224,
+     "boxes_arm": 241
+    }
+   },
+   "unharmed": {
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "found_w": [
+     133.8,
+     135.38
+    ],
+    "extra_w": [
+     1.93,
+     1.93
+    ],
+    "the two white tables": {
+     "barrels": 64,
+     "found_unharmed": 63,
+     "found_base": 63,
+     "found_arm": 63,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 0,
+     "off_arm": 0,
+     "extra_base": 0,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 63,
+     "boxes_arm": 63
+    },
+    "the other ordinary places": {
+     "barrels": 243,
+     "found_unharmed": 148,
+     "found_base": 148,
+     "found_arm": 151,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 3,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 3,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 155,
+     "boxes_arm": 159
+    },
+    "all ordinary": {
+     "barrels": 307,
+     "found_unharmed": 211,
+     "found_base": 211,
+     "found_arm": 214,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 3,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 3,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 218,
+     "boxes_arm": 222
+    }
+   },
+   "empty": {
+    "fixed": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_d1": {
+     "today": 3,
+     "arm": 3,
+     "new": []
+    },
+    "hand": {
+     "today": 2,
+     "arm": 2,
+     "new": []
+    },
+    "hand_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "hand_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    }
+   },
+   "hand": {
+    "hand": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 281,
+      "found_arm": 283,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 3,
+      "empty_base": 2,
+      "empty_arm": 2,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 288,
+      "boxes_arm": 290
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 192,
+      "found_arm": 194,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 3,
+      "empty_base": 2,
+      "empty_arm": 2,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 199,
+      "boxes_arm": 201
+     },
+     "verdict": "NO CLEAR DIFFERENCE",
+     "found_w": [
+      156.83,
+      157.33
+     ],
+     "extra_w": [
+      1.5,
+      1.5
+     ]
+    },
+    "hand_e1": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 223,
+      "found_arm": 245,
+      "lost_to_harm": 61,
+      "back": 22,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 8,
+      "off_arm": 10,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 233,
+      "boxes_arm": 256
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 147,
+      "found_arm": 163,
+      "lost_to_harm": 47,
+      "back": 16,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 7,
+      "off_arm": 9,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 155,
+      "boxes_arm": 173
+     },
+     "verdict": "PASS",
+     "found_w": [
+      131.83,
+      142.32
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "hand_e2": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 133,
+      "found_arm": 201,
+      "lost_to_harm": 150,
+      "back": 66,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 10,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 138,
+      "boxes_arm": 211
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 92,
+      "found_arm": 132,
+      "lost_to_harm": 102,
+      "back": 38,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 9,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 96,
+      "boxes_arm": 141
+     },
+     "verdict": "PASS",
+     "found_w": [
+      75.8,
+      119.67
+     ],
+     "extra_w": [
+      1.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "CD": {
+   "erosion": {
+    "fixed_e1": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 52,
+      "found_arm": 58,
+      "lost_to_harm": 11,
+      "back": 6,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 54,
+      "boxes_arm": 59
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 121,
+      "found_arm": 126,
+      "lost_to_harm": 29,
+      "back": 5,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 1,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 122,
+      "boxes_arm": 128
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 173,
+      "found_arm": 184,
+      "lost_to_harm": 40,
+      "back": 11,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 1,
+      "off_arm": 2,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 176,
+      "boxes_arm": 187
+     },
+     "verdict": "PASS",
+     "found_w": [
+      107.75,
+      116.5
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "fixed_e2": {
+     "the two white tables": {
+      "barrels": 64,
+      "found_unharmed": 63,
+      "found_base": 29,
+      "found_arm": 50,
+      "lost_to_harm": 34,
+      "back": 21,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 0,
+      "off_arm": 0,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 30,
+      "boxes_arm": 50
+     },
+     "the other ordinary places": {
+      "barrels": 243,
+      "found_unharmed": 148,
+      "found_base": 75,
+      "found_arm": 110,
+      "lost_to_harm": 73,
+      "back": 34,
+      "gained_other": 1,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 4,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 77,
+      "boxes_arm": 114
+     },
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 211,
+      "found_base": 104,
+      "found_arm": 160,
+      "lost_to_harm": 107,
+      "back": 55,
+      "gained_other": 1,
+      "lost_by_arm": 0,
+      "off_base": 2,
+      "off_arm": 4,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 107,
+      "boxes_arm": 164
+     },
+     "verdict": "PASS",
+     "found_w": [
+      61.0,
+      99.4
+     ],
+     "extra_w": [
+      1.0,
+      0.0
+     ]
+    }
+   },
+   "damage": {
+    "white tables, typical": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 228,
+     "found_arm": 246,
+     "lost_to_harm": 42,
+     "back": 18,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 3,
+     "off_arm": 3,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 234,
+     "boxes_arm": 249
+    },
+    "white tables, bad day": {
+     "barrels": 288,
+     "found_unharmed": 267,
+     "found_base": 217,
+     "found_arm": 237,
+     "lost_to_harm": 51,
+     "back": 20,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 4,
+     "off_arm": 4,
+     "extra_base": 3,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 224,
+     "boxes_arm": 241
+    }
+   },
+   "unharmed": {
+    "verdict": "NO CLEAR DIFFERENCE",
+    "reason": "no count moved by more than a change that means nothing moves it.",
+    "found_w": [
+     133.8,
+     135.63
+    ],
+    "extra_w": [
+     1.93,
+     1.93
+    ],
+    "the two white tables": {
+     "barrels": 64,
+     "found_unharmed": 63,
+     "found_base": 63,
+     "found_arm": 63,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 0,
+     "lost_by_arm": 0,
+     "off_base": 0,
+     "off_arm": 0,
+     "extra_base": 0,
+     "extra_arm": 0,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 63,
+     "boxes_arm": 63
+    },
+    "the other ordinary places": {
+     "barrels": 243,
+     "found_unharmed": 148,
+     "found_base": 148,
+     "found_arm": 152,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 4,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 3,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 155,
+     "boxes_arm": 160
+    },
+    "all ordinary": {
+     "barrels": 307,
+     "found_unharmed": 211,
+     "found_base": 211,
+     "found_arm": 215,
+     "lost_to_harm": 0,
+     "back": 0,
+     "gained_other": 4,
+     "lost_by_arm": 0,
+     "off_base": 2,
+     "off_arm": 3,
+     "extra_base": 5,
+     "extra_arm": 5,
+     "empty_base": 0,
+     "empty_arm": 0,
+     "clean_empty_base": 0,
+     "clean_empty_arm": 0,
+     "boxes_base": 218,
+     "boxes_arm": 223
+    }
+   },
+   "empty": {
+    "fixed": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "fixed_d1": {
+     "today": 3,
+     "arm": 3,
+     "new": []
+    },
+    "hand": {
+     "today": 2,
+     "arm": 2,
+     "new": []
+    },
+    "hand_e1": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    },
+    "hand_e2": {
+     "today": 0,
+     "arm": 0,
+     "new": []
+    }
+   },
+   "hand": {
+    "hand": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 281,
+      "found_arm": 283,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 3,
+      "empty_base": 2,
+      "empty_arm": 2,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 288,
+      "boxes_arm": 290
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 192,
+      "found_arm": 194,
+      "lost_to_harm": 0,
+      "back": 0,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 4,
+      "extra_base": 3,
+      "extra_arm": 3,
+      "empty_base": 2,
+      "empty_arm": 2,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 199,
+      "boxes_arm": 201
+     },
+     "verdict": "NO CLEAR DIFFERENCE",
+     "found_w": [
+      156.83,
+      157.33
+     ],
+     "extra_w": [
+      1.5,
+      1.5
+     ]
+    },
+    "hand_e1": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 223,
+      "found_arm": 245,
+      "lost_to_harm": 61,
+      "back": 22,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 8,
+      "off_arm": 10,
+      "extra_base": 2,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 233,
+      "boxes_arm": 256
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 147,
+      "found_arm": 163,
+      "lost_to_harm": 47,
+      "back": 16,
+      "gained_other": 0,
+      "lost_by_arm": 0,
+      "off_base": 7,
+      "off_arm": 9,
+      "extra_base": 1,
+      "extra_arm": 1,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 155,
+      "boxes_arm": 173
+     },
+     "verdict": "PASS",
+     "found_w": [
+      131.83,
+      142.32
+     ],
+     "extra_w": [
+      2.0,
+      1.0
+     ]
+    },
+    "hand_e2": {
+     "all ordinary": {
+      "barrels": 307,
+      "found_unharmed": 281,
+      "found_base": 133,
+      "found_arm": 201,
+      "lost_to_harm": 150,
+      "back": 66,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 10,
+      "extra_base": 1,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 138,
+      "boxes_arm": 211
+     },
+     "conditions with hand labels": {
+      "barrels": 211,
+      "found_unharmed": 192,
+      "found_base": 92,
+      "found_arm": 132,
+      "lost_to_harm": 102,
+      "back": 38,
+      "gained_other": 2,
+      "lost_by_arm": 0,
+      "off_base": 4,
+      "off_arm": 9,
+      "extra_base": 0,
+      "extra_arm": 0,
+      "empty_base": 0,
+      "empty_arm": 0,
+      "clean_empty_base": 0,
+      "clean_empty_arm": 0,
+      "boxes_base": 96,
+      "boxes_arm": 141
+     },
+     "verdict": "PASS",
+     "found_w": [
+      75.8,
+      119.67
+     ],
+     "extra_w": [
+      1.0,
+      0.0
+     ]
+    }
+   }
+  }
+ }
+}

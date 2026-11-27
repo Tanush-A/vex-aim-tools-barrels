@@ -1,0 +1,708 @@
+mask,arm,stem,barrel,color,bbox,today_unharmed,today_this_mask,arm_this_mask,place,class
+fixed,B,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,missed,found,abp_gray,ordinary
+fixed,B,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+fixed,B,4A8B_lampcool6_ottoman_touch_01,1,blue,198 129 262 198,missed,missed,off,home_ottoman,ordinary
+fixed,B,4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,missed,found,home_ottoman,ordinary
+fixed,B,4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,missed,off,home_ottoman,ordinary
+fixed,C,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+fixed,C,4A8B_lampcool6_bathtile_occl_02,1,orange,346 107 376 137,missed,missed,found,home_bathtile,ordinary
+fixed,D,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,missed,found,abp_gray,ordinary
+fixed,D,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+fixed,D,4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,missed,found,home_ottoman,ordinary
+fixed,D,4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,missed,off,home_ottoman,ordinary
+fixed,CD,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,missed,found,abp_gray,ordinary
+fixed,CD,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+fixed,CD,4A8B_lampcool6_bathtile_occl_02,1,orange,346 107 376 137,missed,missed,found,home_bathtile,ordinary
+fixed,CD,4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,missed,found,home_ottoman,ordinary
+fixed,CD,4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,missed,off,home_ottoman,ordinary
+fixed_e1,B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+fixed_e1,B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e1,B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+fixed_e1,B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+fixed_e1,B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e1,B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e1,B,4A8B_lampcool6_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+fixed_e1,B,4A8B_lampcool6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+fixed_e1,B,4A8B_lampcool6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+fixed_e1,B,4A8B_lampmid6_ottoman_touch_01,1,blue,198 129 262 198,missed,missed,off,home_ottoman,ordinary
+fixed_e1,B,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+fixed_e1,B,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+fixed_e1,C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e1,C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+fixed_e1,C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+fixed_e1,C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e1,C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e1,C,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+fixed_e1,D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+fixed_e1,D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e1,D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+fixed_e1,D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+fixed_e1,D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e1,D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e1,D,4A8B_lampcool6_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+fixed_e1,D,4A8B_lampcool6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+fixed_e1,D,4A8B_lampcool6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+fixed_e1,D,4A8B_lampmid6_ottoman_touch_01,1,blue,198 129 262 198,missed,missed,off,home_ottoman,ordinary
+fixed_e1,D,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+fixed_e1,D,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+fixed_e1,CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+fixed_e1,CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e1,CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+fixed_e1,CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+fixed_e1,CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e1,CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e1,CD,4A8B_lampcool6_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+fixed_e1,CD,4A8B_lampcool6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+fixed_e1,CD,4A8B_lampcool6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+fixed_e1,CD,4A8B_lampmid6_ottoman_touch_01,1,blue,198 129 262 198,missed,missed,off,home_ottoman,ordinary
+fixed_e1,CD,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+fixed_e1,CD,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+fixed_e2,B,4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_cluster_01,2,blue,331 119 382 171,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_cluster_02,1,orange,306 119 351 170,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_cluster_02,2,blue,351 119 398 167,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_cluster_02,3,orange,390 116 432 163,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_core_01,1,blue,239 123 290 178,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,off,home_white,ordinary
+fixed_e2,B,4A8B_window_light_far_02,4,blue,433 106 468 139,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_window_light_touch_02,2,blue,187 122 240 178,found,missed,found,home_white,ordinary
+fixed_e2,B,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_clutter_02,1,orange,202 126 255 186,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_clutter_02,2,blue,438 124 495 180,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_far_01,1,orange,196 116 238 161,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_far_01,2,blue,240 112 273 147,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_hand_02,1,blue,127 124 188 187,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_room_01,2,orange,339 120 389 176,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_touch_02,1,blue,223 123 274 178,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_campus_light_touch_02,2,blue,273 122 324 178,found,missed,found,campus_study,ordinary
+fixed_e2,B,4A8B_both_abpgray_clutter_01,3,blue,365 123 422 182,found,missed,found,abp_gray,ordinary
+fixed_e2,B,4A8B_lampcool6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampcool6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampcool6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampcool6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid3_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid3_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid3_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampmid6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampwarm6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampwarm6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampwarm6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_lampwarm6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_overheaddim_palewood_clutter_01,3,blue,421 119 474 171,found,missed,found,uc_palewood,ordinary
+fixed_e2,B,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,off,uc_palewood,ordinary
+fixed_e2,B,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+fixed_e2,B,4A8B_overheaddim_palewood_core_01,4,blue,428 118 479 169,found,missed,found,uc_palewood,ordinary
+fixed_e2,B,4A8B_overheaddim_palewood_touch_01,1,blue,253 118 302 172,found,missed,found,uc_palewood,ordinary
+fixed_e2,B,4A8B_overheaddim_palewood_touch_01,2,orange,300 118 349 173,found,missed,found,uc_palewood,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_01,1,orange,103 120 153 172,found,missed,off,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_01,2,blue,307 120 360 176,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_02,2,blue,307 119 359 178,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_05,1,orange,46 118 98 170,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_13,1,orange,101 118 153 166,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_17,2,blue,142 115 187 161,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_abpwhite_occlx_18,1,orange,102 118 153 166,found,missed,found,abp_white,ordinary
+fixed_e2,B,4A8B_window_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_window_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_window_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,B,4A8B_window_glass_occl_02,1,blue,254 114 300 163,off,missed,found,home_glass,ordinary
+fixed_e2,C,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_cluster_01,2,blue,331 119 382 171,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_cluster_02,1,orange,306 119 351 170,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_cluster_02,2,blue,351 119 398 167,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_cluster_02,3,orange,390 116 432 163,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_core_01,1,blue,239 123 290 178,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_far_02,4,blue,433 106 468 139,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_window_light_touch_02,2,blue,187 122 240 178,found,missed,found,home_white,ordinary
+fixed_e2,D,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_clutter_02,1,orange,202 126 255 186,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_clutter_02,2,blue,438 124 495 180,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_far_01,1,orange,196 116 238 161,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_far_01,2,blue,240 112 273 147,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_hand_02,1,blue,127 124 188 187,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_room_01,2,orange,339 120 389 176,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_touch_02,1,blue,223 123 274 178,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_campus_light_touch_02,2,blue,273 122 324 178,found,missed,found,campus_study,ordinary
+fixed_e2,D,4A8B_both_abpgray_clutter_01,3,blue,365 123 422 182,found,missed,found,abp_gray,ordinary
+fixed_e2,D,4A8B_lampcool6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampcool6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampcool6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampcool6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid3_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid3_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid3_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampmid6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampwarm6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampwarm6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_lampwarm6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_overheaddim_palewood_clutter_01,3,blue,421 119 474 171,found,missed,found,uc_palewood,ordinary
+fixed_e2,D,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,off,uc_palewood,ordinary
+fixed_e2,D,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+fixed_e2,D,4A8B_overheaddim_palewood_core_01,4,blue,428 118 479 169,found,missed,found,uc_palewood,ordinary
+fixed_e2,D,4A8B_overheaddim_palewood_touch_01,1,blue,253 118 302 172,found,missed,found,uc_palewood,ordinary
+fixed_e2,D,4A8B_overheaddim_palewood_touch_01,2,orange,300 118 349 173,found,missed,found,uc_palewood,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_01,1,orange,103 120 153 172,found,missed,off,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_01,2,blue,307 120 360 176,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_02,2,blue,307 119 359 178,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_05,1,orange,46 118 98 170,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_13,1,orange,101 118 153 166,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_17,2,blue,142 115 187 161,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_abpwhite_occlx_18,1,orange,102 118 153 166,found,missed,found,abp_white,ordinary
+fixed_e2,D,4A8B_window_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_window_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_window_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,D,4A8B_window_glass_occl_02,1,blue,254 114 300 163,off,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_cluster_01,2,blue,331 119 382 171,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_cluster_02,1,orange,306 119 351 170,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_cluster_02,2,blue,351 119 398 167,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_cluster_02,3,orange,390 116 432 163,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_core_01,1,blue,239 123 290 178,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_far_02,4,blue,433 106 468 139,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_window_light_touch_02,2,blue,187 122 240 178,found,missed,found,home_white,ordinary
+fixed_e2,CD,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_clutter_02,1,orange,202 126 255 186,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_clutter_02,2,blue,438 124 495 180,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_far_01,1,orange,196 116 238 161,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_far_01,2,blue,240 112 273 147,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_hand_02,1,blue,127 124 188 187,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_room_01,2,orange,339 120 389 176,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_touch_02,1,blue,223 123 274 178,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_campus_light_touch_02,2,blue,273 122 324 178,found,missed,found,campus_study,ordinary
+fixed_e2,CD,4A8B_both_abpgray_clutter_01,3,blue,365 123 422 182,found,missed,found,abp_gray,ordinary
+fixed_e2,CD,4A8B_lampcool6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampcool6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampcool6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampcool6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid3_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid3_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid3_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampmid6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampwarm6_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampwarm6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_lampwarm6_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_overheaddim_palewood_clutter_01,3,blue,421 119 474 171,found,missed,found,uc_palewood,ordinary
+fixed_e2,CD,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,off,uc_palewood,ordinary
+fixed_e2,CD,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+fixed_e2,CD,4A8B_overheaddim_palewood_core_01,4,blue,428 118 479 169,found,missed,found,uc_palewood,ordinary
+fixed_e2,CD,4A8B_overheaddim_palewood_touch_01,1,blue,253 118 302 172,found,missed,found,uc_palewood,ordinary
+fixed_e2,CD,4A8B_overheaddim_palewood_touch_01,2,orange,300 118 349 173,found,missed,found,uc_palewood,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_01,1,orange,103 120 153 172,found,missed,off,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_01,2,blue,307 120 360 176,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_02,2,blue,307 119 359 178,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_05,1,orange,46 118 98 170,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_13,1,orange,101 118 153 166,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_17,2,blue,142 115 187 161,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_abpwhite_occlx_18,1,orange,102 118 153 166,found,missed,found,abp_white,ordinary
+fixed_e2,CD,4A8B_window_glass_clutter_01,2,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_window_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_window_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+fixed_e2,CD,4A8B_window_glass_occl_02,1,blue,254 114 300 163,off,missed,found,home_glass,ordinary
+fixed_d1,B,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,off,found,abp_gray,ordinary
+fixed_d1,B,4A8B_lampmid6_ottoman_clutter_01,1,blue,79 146 177 241,missed,missed,found,home_ottoman,ordinary
+fixed_d1,B,4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,missed,found,home_ottoman,ordinary
+fixed_d1,B,4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,missed,off,home_ottoman,ordinary
+fixed_d1,C,4A8B_window_black_cluster_01,1,blue,206 122 263 182,missed,missed,found,home_black,extreme
+fixed_d1,D,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,off,found,abp_gray,ordinary
+fixed_d1,D,4A8B_lampmid6_ottoman_clutter_01,1,blue,79 146 177 241,missed,missed,found,home_ottoman,ordinary
+fixed_d1,D,4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,missed,found,home_ottoman,ordinary
+fixed_d1,D,4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,missed,off,home_ottoman,ordinary
+fixed_d1,CD,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,missed,off,found,abp_gray,ordinary
+fixed_d1,CD,4A8B_lampmid6_ottoman_clutter_01,1,blue,79 146 177 241,missed,missed,found,home_ottoman,ordinary
+fixed_d1,CD,4A8B_lampmid6_ottoman_core_01,1,blue,77 133 155 208,missed,missed,found,home_ottoman,ordinary
+fixed_d1,CD,4A8B_lampmid6_ottoman_edge_01,1,blue,0 141 43 229,missed,missed,off,home_ottoman,ordinary
+fixed_d1,CD,4A8B_window_black_cluster_01,1,blue,206 122 263 182,missed,missed,found,home_black,extreme
+hand,B,4A8B_lampwarm6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+hand,B,4A8B_lampwarm6_bathtile_core_01,1,orange,223 115 270 165,missed,missed,found,home_bathtile,ordinary
+hand,D,4A8B_lampwarm6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+hand,D,4A8B_lampwarm6_bathtile_core_01,1,orange,223 115 270 165,missed,missed,found,home_bathtile,ordinary
+hand,CD,4A8B_lampwarm6_bathtile_clutter_01,3,orange,410 108 442 141,missed,missed,found,home_bathtile,ordinary
+hand,CD,4A8B_lampwarm6_bathtile_core_01,1,orange,223 115 270 165,missed,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+hand_e1,B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e1,B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+hand_e1,B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+hand_e1,B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e1,B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e1,B,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampcool6_bathtile_occl_02,1,orange,346 107 376 137,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampcool6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e1,B,4A8B_lampmid3_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampmid3_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampmid3_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,B,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,off,home_glass,ordinary
+hand_e1,B,4A8B_lampmid6_bathtile_clutter_01,2,blue,292 111 330 152,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampmid6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampmid6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+hand_e1,B,4A8B_lampmid6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,B,4A8B_lampmid6_ottoman_core_01,3,blue,273 113 316 160,found,missed,found,home_ottoman,ordinary
+hand_e1,B,4A8B_lampwarm6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,B,4A8B_lampwarm6_ottoman_clutter_01,4,orange,541 129 613 202,found,missed,off,home_ottoman,ordinary
+hand_e1,B,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+hand_e1,B,4A8B_window_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,B,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e1,B,4A8B_window_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+hand_e1,C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e1,C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+hand_e1,C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+hand_e1,C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e1,C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e1,C,4A8B_lampcool6_bathtile_occl_02,1,orange,346 107 376 137,found,missed,found,home_bathtile,ordinary
+hand_e1,C,4A8B_lampmid3_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+hand_e1,D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e1,D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+hand_e1,D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+hand_e1,D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e1,D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e1,D,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampcool6_bathtile_occl_02,1,orange,346 107 376 137,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampcool6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e1,D,4A8B_lampmid3_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampmid3_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampmid3_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,D,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,off,home_glass,ordinary
+hand_e1,D,4A8B_lampmid6_bathtile_clutter_01,2,blue,292 111 330 152,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampmid6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampmid6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+hand_e1,D,4A8B_lampmid6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,D,4A8B_lampmid6_ottoman_core_01,3,blue,273 113 316 160,found,missed,found,home_ottoman,ordinary
+hand_e1,D,4A8B_lampwarm6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,D,4A8B_lampwarm6_ottoman_clutter_01,4,orange,541 129 613 202,found,missed,off,home_ottoman,ordinary
+hand_e1,D,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+hand_e1,D,4A8B_window_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,D,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e1,D,4A8B_window_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+hand_e1,CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e1,CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+hand_e1,CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+hand_e1,CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e1,CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e1,CD,4A8B_lampcool6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampcool6_bathtile_occl_02,1,orange,346 107 376 137,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampcool6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_lampmid3_bathtile_core_01,1,orange,223 115 270 165,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampmid3_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampmid3_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,off,home_glass,ordinary
+hand_e1,CD,4A8B_lampmid6_bathtile_clutter_01,2,blue,292 111 330 152,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampmid6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampmid6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+hand_e1,CD,4A8B_lampmid6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_lampmid6_ottoman_core_01,3,blue,273 113 316 160,found,missed,found,home_ottoman,ordinary
+hand_e1,CD,4A8B_lampwarm6_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_lampwarm6_ottoman_clutter_01,4,orange,541 129 613 202,found,missed,off,home_ottoman,ordinary
+hand_e1,CD,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+hand_e1,CD,4A8B_window_glass_clutter_01,3,orange,359 104 387 133,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e1,CD,4A8B_window_glass_occl_02,1,blue,254 114 300 163,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_cluster_01,2,blue,331 119 382 171,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_cluster_02,1,orange,306 119 351 170,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_cluster_02,2,blue,351 119 398 167,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_cluster_02,3,orange,390 116 432 163,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_core_01,1,blue,239 123 290 178,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,off,home_white,ordinary
+hand_e2,B,4A8B_window_light_far_02,4,blue,433 106 468 139,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_window_light_touch_02,2,blue,187 122 240 178,found,missed,found,home_white,ordinary
+hand_e2,B,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_clutter_02,1,orange,202 126 255 186,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_clutter_02,2,blue,438 124 495 180,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_far_01,1,orange,196 116 238 161,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_far_01,2,blue,240 112 273 147,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_hand_02,1,blue,127 124 188 187,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_room_01,2,orange,339 120 389 176,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_touch_02,1,blue,223 123 274 178,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_campus_light_touch_02,2,blue,273 122 324 178,found,missed,found,campus_study,ordinary
+hand_e2,B,4A8B_both_abpgray_core_01,3,blue,372 109 408 147,found,missed,off,abp_gray,ordinary
+hand_e2,B,4A8B_both_abpgray_touch_01,1,orange,193 124 247 181,off,missed,found,abp_gray,ordinary
+hand_e2,B,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,found,missed,found,abp_gray,ordinary
+hand_e2,B,4A8B_lampcool6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampcool6_bathtile_core_01,4,blue,475 110 513 147,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampcool6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampcool6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampcool6_ottoman_core_01,3,blue,273 113 316 160,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampcool6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,off,home_ottoman,ordinary
+hand_e2,B,4A8B_lampmid3_bathtile_clutter_01,4,orange,495 128 565 191,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid3_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid3_glass_touch_01,2,orange,280 122 335 185,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid6_bathtile_clutter_01,3,orange,410 108 442 141,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid6_bathtile_clutter_01,4,orange,495 128 565 191,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid6_bathtile_core_01,4,blue,475 110 513 147,found,missed,off,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid6_bathtile_edge_01,2,orange,279 122 331 178,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid6_bathtile_touch_01,2,blue,337 123 390 180,found,missed,found,home_bathtile,ordinary
+hand_e2,B,4A8B_lampmid6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid6_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid6_glass_touch_01,3,orange,335 122 390 184,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampmid6_ottoman_clutter_01,4,orange,541 129 613 202,off,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampmid6_ottoman_core_01,3,blue,273 113 316 160,found,missed,off,home_ottoman,ordinary
+hand_e2,B,4A8B_lampmid6_ottoman_core_01,4,orange,413 126 479 190,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampmid6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,off,home_ottoman,ordinary
+hand_e2,B,4A8B_lampmid6_ottoman_touch_01,3,orange,324 128 389 199,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampwarm6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampwarm6_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_lampwarm6_ottoman_clutter_01,3,orange,313 141 401 236,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampwarm6_ottoman_core_01,4,orange,415 126 479 191,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampwarm6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_lampwarm6_ottoman_touch_01,3,orange,324 128 389 199,found,missed,found,home_ottoman,ordinary
+hand_e2,B,4A8B_overheaddim_palewood_clutter_01,3,blue,421 119 474 171,found,missed,found,uc_palewood,ordinary
+hand_e2,B,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+hand_e2,B,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+hand_e2,B,4A8B_overheaddim_palewood_core_01,4,blue,428 118 479 169,found,missed,found,uc_palewood,ordinary
+hand_e2,B,4A8B_overheaddim_palewood_touch_01,1,blue,253 118 302 172,found,missed,found,uc_palewood,ordinary
+hand_e2,B,4A8B_overheaddim_palewood_touch_01,2,orange,300 118 349 173,found,missed,found,uc_palewood,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_01,1,orange,103 120 153 172,found,missed,off,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_01,2,blue,307 120 360 176,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_02,2,blue,307 119 359 178,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_05,1,orange,46 118 98 170,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_13,1,orange,101 118 153 166,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_17,2,blue,142 115 187 161,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_abpwhite_occlx_18,1,orange,102 118 153 166,found,missed,found,abp_white,ordinary
+hand_e2,B,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_window_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_window_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_window_glass_touch_01,2,orange,280 122 335 185,found,missed,found,home_glass,ordinary
+hand_e2,B,4A8B_window_glass_touch_01,3,orange,335 122 390 184,found,missed,found,home_glass,ordinary
+hand_e2,C,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_cluster_01,2,blue,331 119 382 171,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_cluster_02,1,orange,306 119 351 170,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_cluster_02,2,blue,351 119 398 167,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_cluster_02,3,orange,390 116 432 163,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_core_01,1,blue,239 123 290 178,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_far_02,4,blue,433 106 468 139,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_window_light_touch_02,2,blue,187 122 240 178,found,missed,found,home_white,ordinary
+hand_e2,D,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_clutter_02,1,orange,202 126 255 186,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_clutter_02,2,blue,438 124 495 180,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_far_01,1,orange,196 116 238 161,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_far_01,2,blue,240 112 273 147,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_hand_02,1,blue,127 124 188 187,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_room_01,2,orange,339 120 389 176,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_touch_02,1,blue,223 123 274 178,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_campus_light_touch_02,2,blue,273 122 324 178,found,missed,found,campus_study,ordinary
+hand_e2,D,4A8B_both_abpgray_core_01,3,blue,372 109 408 147,found,missed,off,abp_gray,ordinary
+hand_e2,D,4A8B_both_abpgray_touch_01,1,orange,193 124 247 181,off,missed,found,abp_gray,ordinary
+hand_e2,D,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,found,missed,found,abp_gray,ordinary
+hand_e2,D,4A8B_lampcool6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampcool6_bathtile_core_01,4,blue,475 110 513 147,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampcool6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampcool6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampcool6_ottoman_core_01,3,blue,273 113 316 160,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampcool6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,off,home_ottoman,ordinary
+hand_e2,D,4A8B_lampmid3_bathtile_clutter_01,4,orange,495 128 565 191,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid3_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid3_glass_touch_01,2,orange,280 122 335 185,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid6_bathtile_clutter_01,4,orange,495 128 565 191,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampmid6_bathtile_core_01,4,blue,475 110 513 147,found,missed,off,home_bathtile,ordinary
+hand_e2,D,4A8B_lampmid6_bathtile_edge_01,2,orange,279 122 331 178,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampmid6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampmid6_bathtile_touch_01,2,blue,337 123 390 180,found,missed,found,home_bathtile,ordinary
+hand_e2,D,4A8B_lampmid6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid6_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid6_glass_touch_01,3,orange,335 122 390 184,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampmid6_ottoman_clutter_01,4,orange,541 129 613 202,off,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampmid6_ottoman_core_01,3,blue,273 113 316 160,found,missed,off,home_ottoman,ordinary
+hand_e2,D,4A8B_lampmid6_ottoman_core_01,4,orange,413 126 479 190,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampmid6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,off,home_ottoman,ordinary
+hand_e2,D,4A8B_lampmid6_ottoman_touch_01,3,orange,324 128 389 199,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampwarm6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampwarm6_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_lampwarm6_ottoman_clutter_01,3,orange,313 141 401 236,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampwarm6_ottoman_core_01,4,orange,415 126 479 191,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampwarm6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_lampwarm6_ottoman_touch_01,3,orange,324 128 389 199,found,missed,found,home_ottoman,ordinary
+hand_e2,D,4A8B_overheaddim_palewood_clutter_01,3,blue,421 119 474 171,found,missed,found,uc_palewood,ordinary
+hand_e2,D,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+hand_e2,D,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+hand_e2,D,4A8B_overheaddim_palewood_core_01,4,blue,428 118 479 169,found,missed,found,uc_palewood,ordinary
+hand_e2,D,4A8B_overheaddim_palewood_touch_01,1,blue,253 118 302 172,found,missed,found,uc_palewood,ordinary
+hand_e2,D,4A8B_overheaddim_palewood_touch_01,2,orange,300 118 349 173,found,missed,found,uc_palewood,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_01,1,orange,103 120 153 172,found,missed,off,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_01,2,blue,307 120 360 176,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_02,2,blue,307 119 359 178,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_05,1,orange,46 118 98 170,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_13,1,orange,101 118 153 166,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_17,2,blue,142 115 187 161,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_abpwhite_occlx_18,1,orange,102 118 153 166,found,missed,found,abp_white,ordinary
+hand_e2,D,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_window_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_window_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_window_glass_touch_01,2,orange,280 122 335 185,found,missed,found,home_glass,ordinary
+hand_e2,D,4A8B_window_glass_touch_01,3,orange,335 122 390 184,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_cluster_01,2,blue,331 119 382 171,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_cluster_02,1,orange,306 119 351 170,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_cluster_02,2,blue,351 119 398 167,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_cluster_02,3,orange,390 116 432 163,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_core_01,1,blue,239 123 290 178,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_far_02,4,blue,433 106 468 139,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_window_light_touch_02,2,blue,187 122 240 178,found,missed,found,home_white,ordinary
+hand_e2,CD,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_clutter_02,1,orange,202 126 255 186,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_clutter_02,2,blue,438 124 495 180,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_far_01,1,orange,196 116 238 161,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_far_01,2,blue,240 112 273 147,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_hand_02,1,blue,127 124 188 187,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_room_01,2,orange,339 120 389 176,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_touch_02,1,blue,223 123 274 178,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_campus_light_touch_02,2,blue,273 122 324 178,found,missed,found,campus_study,ordinary
+hand_e2,CD,4A8B_both_abpgray_core_01,3,blue,372 109 408 147,found,missed,off,abp_gray,ordinary
+hand_e2,CD,4A8B_both_abpgray_touch_01,1,orange,193 124 247 181,off,missed,found,abp_gray,ordinary
+hand_e2,CD,4A8B_both_abpgray_touch_01,2,blue,246 123 301 181,found,missed,found,abp_gray,ordinary
+hand_e2,CD,4A8B_lampcool6_bathtile_core_01,2,orange,328 106 358 138,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampcool6_bathtile_core_01,4,blue,475 110 513 147,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampcool6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampcool6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampcool6_ottoman_core_01,3,blue,273 113 316 160,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampcool6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,off,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampmid3_bathtile_clutter_01,4,orange,495 128 565 191,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampmid3_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid3_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid3_glass_touch_01,2,orange,280 122 335 185,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid6_bathtile_clutter_01,4,orange,495 128 565 191,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampmid6_bathtile_core_01,4,blue,475 110 513 147,found,missed,off,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampmid6_bathtile_edge_01,2,orange,279 122 331 178,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampmid6_bathtile_touch_01,1,orange,285 121 337 177,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampmid6_bathtile_touch_01,2,blue,337 123 390 180,found,missed,found,home_bathtile,ordinary
+hand_e2,CD,4A8B_lampmid6_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid6_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid6_glass_touch_01,3,orange,335 122 390 184,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampmid6_ottoman_clutter_01,4,orange,541 129 613 202,off,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampmid6_ottoman_core_01,3,blue,273 113 316 160,found,missed,off,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampmid6_ottoman_core_01,4,orange,413 126 479 190,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampmid6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,off,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampmid6_ottoman_touch_01,3,orange,324 128 389 199,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampwarm6_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampwarm6_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_lampwarm6_ottoman_clutter_01,3,orange,313 141 401 236,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampwarm6_ottoman_core_01,4,orange,415 126 479 191,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampwarm6_ottoman_occl_02,1,orange,225 125 286 192,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_lampwarm6_ottoman_touch_01,3,orange,324 128 389 199,found,missed,found,home_ottoman,ordinary
+hand_e2,CD,4A8B_overheaddim_palewood_clutter_01,3,blue,421 119 474 171,found,missed,found,uc_palewood,ordinary
+hand_e2,CD,4A8B_overheaddim_palewood_core_01,2,blue,246 111 282 148,found,missed,found,uc_palewood,ordinary
+hand_e2,CD,4A8B_overheaddim_palewood_core_01,3,orange,364 105 396 138,found,missed,found,uc_palewood,ordinary
+hand_e2,CD,4A8B_overheaddim_palewood_core_01,4,blue,428 118 479 169,found,missed,found,uc_palewood,ordinary
+hand_e2,CD,4A8B_overheaddim_palewood_touch_01,1,blue,253 118 302 172,found,missed,found,uc_palewood,ordinary
+hand_e2,CD,4A8B_overheaddim_palewood_touch_01,2,orange,300 118 349 173,found,missed,found,uc_palewood,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_01,1,orange,103 120 153 172,found,missed,off,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_01,2,blue,307 120 360 176,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_02,2,blue,307 119 359 178,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_05,1,orange,46 118 98 170,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_13,1,orange,101 118 153 166,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_14,2,blue,190 120 244 177,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_17,2,blue,142 115 187 161,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_abpwhite_occlx_18,1,orange,102 118 153 166,found,missed,found,abp_white,ordinary
+hand_e2,CD,4A8B_window_glass_core_01,1,orange,143 112 182 152,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_window_glass_core_01,4,blue,371 111 412 151,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_window_glass_edge_01,2,orange,405 123 464 184,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_window_glass_touch_01,2,orange,280 122 335 185,found,missed,found,home_glass,ordinary
+hand_e2,CD,4A8B_window_glass_touch_01,3,orange,335 122 390 184,found,missed,found,home_glass,ordinary
+"dmg|white tables, typical|0",B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|0",CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|0",CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|1",CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|1",CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, typical|2",CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, typical|2",CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",B,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",B,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",C,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",C,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",D,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",D,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|0",CD,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",CD,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|0",CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",B,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",B,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",C,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",C,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",D,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",D,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_window_light_far_02,3,orange,333 106 363 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_campus_light_far_01,4,orange,379 113 414 150,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|1",CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",B,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",B,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",B,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",B,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",B,4A8B_campus_light_core_01,2,orange,247 110 279 145,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",B,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",B,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",C,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",C,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",C,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",C,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",C,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",D,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",D,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",D,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",D,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",D,4A8B_campus_light_core_01,2,orange,247 110 279 145,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",D,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",D,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_window_light_core_03,1,orange,317 108 346 137,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_window_light_far_02,1,blue,218 106 250 144,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_window_light_far_02,2,orange,244 105 273 135,found,missed,found,home_white,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_campus_light_cluster_02,1,orange,235 118 280 167,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_campus_light_core_01,2,orange,247 110 279 145,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_campus_light_room_03,1,blue,179 112 216 153,found,missed,found,campus_study,ordinary
+"dmg|white tables, bad day|2",CD,4A8B_campus_light_room_03,2,orange,215 112 252 152,found,missed,found,campus_study,ordinary
