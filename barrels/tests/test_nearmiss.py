@@ -121,11 +121,13 @@ def test_hysteresis_bottom_guard(model):
 # ---------------------------------------------------------------- geometry
 
 def test_stripe_geometry_is_the_detectors():
+    # ported 2026-11-26 (experiment 2026-11-26_combined): the collapse renamed detector._stripe_geometry(cam, row) -> (d, rows)
+    # to detector.BarrelAt.from_stripe_row(cam, row) -> BarrelAt(d, rows); the reading itself did not change
     for row in (60.0, 76.0, 90.5, 150.5, 300.0, 470.0):
-        a, b = nm.stripe_geometry(CAM, row), det._stripe_geometry(CAM, row)
+        a, b = nm.stripe_geometry(CAM, row), det.BarrelAt.from_stripe_row(CAM, row)
         assert (a is None) == (b is None)
         if a is not None:
-            assert a[0] == b[0] and a[1] == b[1]
+            assert a[0] == b.d and a[1] == b.rows
 
 
 def test_stripe_height_by_row():

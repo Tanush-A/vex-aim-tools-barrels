@@ -267,4 +267,6 @@ def test_the_fixed_model_must_be_an_hs_model():
 def test_nothing_that_runs_by_default_imports_selfcal():
     src = Path(sc.__file__).parent
     users = [p.name for p in src.glob("*.py") if p.name != "selfcal.py" and "selfcal" in p.read_text()]
-    assert users == []
+    # combined.py (experiment 2026-11-26_combined) uses selfcal and is itself imported by nothing that runs by default:
+    # tests/test_combined.py::test_nothing_that_runs_by_default_imports_combined holds that
+    assert users in ([], ["combined.py"])
