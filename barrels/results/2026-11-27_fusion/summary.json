@@ -1,6 +1,6 @@
 {
  "made": "2026-11-27",
- "git": "50ca1a1",
+ "git": "79d3fdb",
  "rows": [
   {
    "name": "F0",
@@ -522,6 +522,317 @@
    "clean_empty": 0,
    "cluttered_empty_w": 0.0,
    "places_moved": [
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 10.0 -> 11.3"
+   ]
+  },
+  {
+   "name": "F1s",
+   "vs": "today",
+   "verdict": "PASS",
+   "reason": "found is up by more than the noise, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: BETTER",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 154.97,
+   "found_w_base": 133.8,
+   "found": 274,
+   "found_base": 211,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 63,
+   "lost": 0,
+   "extra_w": 0.83,
+   "extra_w_base": 1.93,
+   "extra_frame": 3,
+   "extra_frame_base": 5,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "abp_gray 10.0 -> 15.0",
+    "home_bathtile 4.0 -> 13.5",
+    "home_ottoman 3.0 -> 9.7"
+   ]
+  },
+  {
+   "name": "F1s",
+   "vs": "F0",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "reason": "no count moved by more than a change that means nothing moves it.",
+   "clauses": [
+    "found: within the noise",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 154.97,
+   "found_w_base": 155.3,
+   "found": 274,
+   "found_base": 275,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 0,
+   "lost": 1,
+   "extra_w": 0.83,
+   "extra_w_base": 2.83,
+   "extra_frame": 3,
+   "extra_frame_base": 9,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "home_ottoman 10.0 -> 9.7"
+   ]
+  },
+  {
+   "name": "F1u",
+   "vs": "today",
+   "verdict": "PASS",
+   "reason": "found is up by more than the noise, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: BETTER",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 155.17,
+   "found_w_base": 133.8,
+   "found": 275,
+   "found_base": 211,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 65,
+   "lost": 1,
+   "extra_w": 0.83,
+   "extra_w_base": 1.93,
+   "extra_frame": 3,
+   "extra_frame_base": 5,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "abp_gray 10.0 -> 15.0",
+    "home_bathtile 4.0 -> 13.5",
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 3.0 -> 9.7"
+   ]
+  },
+  {
+   "name": "F1u",
+   "vs": "F0",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "reason": "no count moved by more than a change that means nothing moves it.",
+   "clauses": [
+    "found: within the noise",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 155.17,
+   "found_w_base": 155.3,
+   "found": 275,
+   "found_base": 275,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 1,
+   "lost": 1,
+   "extra_w": 0.83,
+   "extra_w_base": 2.83,
+   "extra_frame": 3,
+   "extra_frame_base": 9,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 10.0 -> 9.7"
+   ]
+  },
+  {
+   "name": "F3r",
+   "vs": "today",
+   "verdict": "PASS",
+   "reason": "found is up by more than the noise, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: BETTER",
+    "place: within the noise",
+    "extra: within the noise",
+    "empty: within the noise"
+   ],
+   "found_w": 157.08,
+   "found_w_base": 133.8,
+   "found": 281,
+   "found_base": 211,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 71,
+   "lost": 1,
+   "extra_w": 1.17,
+   "extra_w_base": 1.93,
+   "extra_frame": 4,
+   "extra_frame_base": 5,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "abp_gray 10.0 -> 15.0",
+    "home_bathtile 4.0 -> 13.8",
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 3.0 -> 11.3"
+   ]
+  },
+  {
+   "name": "F3r",
+   "vs": "F0",
+   "verdict": "PASS",
+   "reason": "boxes that are not on their barrel are down by more than the noise, found is not lower, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: within the noise",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 157.08,
+   "found_w_base": 155.3,
+   "found": 281,
+   "found_base": 275,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 8,
+   "lost": 2,
+   "extra_w": 1.17,
+   "extra_w_base": 2.83,
+   "extra_frame": 4,
+   "extra_frame_base": 9,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "home_bathtile 13.5 -> 13.8",
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 10.0 -> 11.3"
+   ]
+  },
+  {
+   "name": "F5r",
+   "vs": "today",
+   "verdict": "PASS",
+   "reason": "found is up by more than the noise, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: BETTER",
+    "place: within the noise",
+    "extra: within the noise",
+    "empty: within the noise"
+   ],
+   "found_w": 157.08,
+   "found_w_base": 133.8,
+   "found": 281,
+   "found_base": 211,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 71,
+   "lost": 1,
+   "extra_w": 1.17,
+   "extra_w_base": 1.93,
+   "extra_frame": 4,
+   "extra_frame_base": 5,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "abp_gray 10.0 -> 15.0",
+    "home_bathtile 4.0 -> 13.8",
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 3.0 -> 11.3"
+   ]
+  },
+  {
+   "name": "F5r",
+   "vs": "F0",
+   "verdict": "PASS",
+   "reason": "boxes that are not on their barrel are down by more than the noise, found is not lower, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: within the noise",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 157.08,
+   "found_w_base": 155.3,
+   "found": 281,
+   "found_base": 275,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 8,
+   "lost": 2,
+   "extra_w": 1.17,
+   "extra_w_base": 2.83,
+   "extra_frame": 4,
+   "extra_frame_base": 9,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "home_bathtile 13.5 -> 13.8",
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 10.0 -> 11.3"
+   ]
+  },
+  {
+   "name": "F6r",
+   "vs": "today",
+   "verdict": "PASS",
+   "reason": "found is up by more than the noise, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: BETTER",
+    "place: within the noise",
+    "extra: within the noise",
+    "empty: within the noise"
+   ],
+   "found_w": 157.08,
+   "found_w_base": 133.8,
+   "found": 281,
+   "found_base": 211,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 71,
+   "lost": 1,
+   "extra_w": 1.17,
+   "extra_w_base": 1.93,
+   "extra_frame": 4,
+   "extra_frame_base": 5,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "abp_gray 10.0 -> 15.0",
+    "home_bathtile 4.0 -> 13.8",
+    "home_glass 14.8 -> 15.0",
+    "home_ottoman 3.0 -> 11.3"
+   ]
+  },
+  {
+   "name": "F6r",
+   "vs": "F0",
+   "verdict": "PASS",
+   "reason": "boxes that are not on their barrel are down by more than the noise, found is not lower, and nothing is worse by more than the noise.",
+   "clauses": [
+    "found: within the noise",
+    "place: within the noise",
+    "extra: BETTER",
+    "empty: within the noise"
+   ],
+   "found_w": 157.08,
+   "found_w_base": 155.3,
+   "found": 281,
+   "found_base": 275,
+   "barrels": 307,
+   "placements": 172,
+   "gained": 8,
+   "lost": 2,
+   "extra_w": 1.17,
+   "extra_w_base": 2.83,
+   "extra_frame": 4,
+   "extra_frame_base": 9,
+   "clean_empty": 0,
+   "cluttered_empty_w": 0.0,
+   "places_moved": [
+    "home_bathtile 13.5 -> 13.8",
     "home_glass 14.8 -> 15.0",
     "home_ottoman 10.0 -> 11.3"
    ]

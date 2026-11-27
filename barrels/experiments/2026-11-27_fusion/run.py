@@ -24,7 +24,7 @@ from barrels import counting as ct  # noqa: E402
 from barrels import cv as bcv  # noqa: E402
 from barrels import judge as jg  # noqa: E402
 
-ORDER = ["F0", "F1", "F1a", "F1b", "F2", "F3", "F4", "F5", "F6"]
+ORDER = ["F0", "F1", "F1a", "F1b", "F2", "F3", "F4", "F5", "F6", "F1s", "F1u", "F3r", "F5r", "F6r"]
 
 
 def row(name: str, j: jg.Judgement, vs: str) -> dict:

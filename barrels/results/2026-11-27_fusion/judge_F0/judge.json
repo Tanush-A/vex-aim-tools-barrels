@@ -44,17 +44,17 @@
   "source": "margins.json, made 2026-11-26 at git f20ad1c"
  },
  "lopo": true,
- "git": "50ca1a1",
+ "git": "79d3fdb",
  "made": "2026-11-27",
  "baseline": {
   "name": "today",
   "describe": "today's default (the adopted color model, DetConfig defaults)",
-  "seconds": 22.7
+  "seconds": 10.8
  },
  "candidate": {
   "name": "F0",
   "describe": "F0 contrast alone (C1 as judged on wip/exp-contrast): its choice picked on the other places",
-  "seconds": 10.3
+  "seconds": 275.4
  },
  "frames": {
   "ordinary": 154,

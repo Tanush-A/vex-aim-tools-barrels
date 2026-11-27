@@ -52,3 +52,12 @@ def test_tidy_removes_a_second_box_and_an_other_color_box_on_a_fixed_barrel():
     out = fu.tidy([big, inner, other, lone])
     assert out == [big, lone]
     assert fu.tidy([it("FX", (5, 5, 25, 25)), big]) == [it("FX", (5, 5, 25, 25)), big]    # fixed boxes are never removed
+
+
+def test_a_box_the_checks_removed_blocks_proposals_on_it():
+    trap = it("C1", (0, 0, 20, 20))
+    by = {"SC": [it("SC", (0, 0, 20, 20))], "P2": [it("P2", (1, 0, 21, 20))], "NM": [it("NM", (50, 0, 70, 20))],
+          "B4": [it("B4", (50, 0, 70, 20))]}
+    order = ("SC", "P2", "NM", "B4")
+    assert len(fu.vote([], by, order, 2)) == 2
+    assert [x.bbox for x in fu.vote([], by, order, 2, blocked=[trap])] == [(50, 0, 70, 20)]

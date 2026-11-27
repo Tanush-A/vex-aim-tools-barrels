@@ -123,14 +123,15 @@ def votes(cluster: list[Item], extra_vote: Callable[[Item], bool] | None = None)
 
 
 def vote(kept: list[Item], by_method: dict[str, list[Item]], order: tuple[str, ...], k: int | None, ck: Checks = OFF,
-         extra_vote: Callable[[Item], bool] | None = None) -> list[Item]:
+         extra_vote: Callable[[Item], bool] | None = None, blocked: list[Item] = ()) -> list[Item]:
     """``kept`` plus every cluster of the methods' proposals with at least ``k`` votes whose drawn box passes ``ck``.
     Clusters are added most votes first (a tie keeps the order of ``clusters``); one on a box already in the answer is
-    not added. ``k`` None: nothing is added."""
+    not added. ``k`` None: nothing is added. ``blocked`` (round 2 of the experiment): boxes the checks removed; a
+    proposal on one of them is no proposal (a trap stays a trap, whichever method draws it again)."""
     out = list(kept)
     if k is None:
         return out
-    props = {m: proposals(v, kept) for m, v in by_method.items()}
+    props = {m: [p for p in proposals(v, kept) if not any(is_on(p, b) for b in blocked)] for m, v in by_method.items()}
     cl = clusters(props, order)
     scored = sorted(((votes(c, extra_vote), i, c) for i, c in enumerate(cl)), key=lambda t: (-t[0], t[1]))
     for n, _, c in scored:

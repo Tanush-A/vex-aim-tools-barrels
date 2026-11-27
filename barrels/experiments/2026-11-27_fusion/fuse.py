@@ -27,7 +27,7 @@ OUT = M.RES / "2026-11-27_fusion"
 CACHE = OUT / "cache"
 CHECKS = (fu.OFF, fu.MILD, fu.STRONG)               # most cautious first = off
 ORDER = ("SC", "P2", "NM", "B4")
-VERSION = 1
+VERSION = 2
 
 
 # ---------------------------------------------------------------- one frame, every method at every pick
@@ -41,7 +41,7 @@ def build_record(stem: str, frame=None) -> dict:
     fr = M.Frame(frame)
     rec: dict = {"v": VERSION, "FX:def": fr.fixed("def"), "FX:flags": fr.fixed("flags")}
     for spec in _c1_specs():
-        for cfg in ("def", "flags"):
+        for cfg in ("def", "flags", "seams", "bottom"):
             rec[f"C1:{spec}:{cfg}"] = fr.c1(spec, cfg)[0]
     for b in M.bundles():
         for m in ORDER:
@@ -135,6 +135,34 @@ def f3(rec, b, ch):
     return fu.vote(f1(rec, b, ck), others(rec, b), ORDER, k, ck, contrast_vote(rec))
 
 
+def removed(rec, b, ck):
+    """The boxes F1's checks removed (round 2: they block proposals)."""
+    kept = f1(rec, b, ck)
+    return [x for x in rec[f"C1:{b['C1']}:flags"] if not any(x is y for y in kept)]
+
+
+def f1s(rec, b, ck):
+    return fu.apply_checks(rec[f"C1:{b['C1']}:seams"], ck)
+
+
+def f1u(rec, b, ck):
+    return fu.apply_checks(rec[f"C1:{b['C1']}:bottom"], ck)
+
+
+def f3r(rec, b, ch):
+    ck, k = ch
+    return fu.vote(f1(rec, b, ck), others(rec, b), ORDER, k, ck, contrast_vote(rec), blocked=removed(rec, b, ck))
+
+
+def f5r(rec, b, ch):
+    ck, k = ch
+    return fu.vote(f4(rec, b, ck), others(rec, b), ORDER, k, ck, contrast_vote(rec), blocked=removed(rec, b, ck))
+
+
+def f6r(rec, b, ch):
+    return fu.tidy(f5r(rec, b, ch))
+
+
 def f4(rec, b, ck):
     return f1(rec, b, ck) + rec[f"F4:{M.bundle_key(b)}:{ck.key}"]
 
@@ -166,6 +194,12 @@ CANDS = {
     "F4": (f4, None, "F1"),            # no number of its own: F1's checks
     "F5": (f5, KS5, "k"),
     "F6": (f6, KS5, "k"),
+    # round 2 (PREREG addendum 1)
+    "F1s": (f1s, None, "F1"),
+    "F1u": (f1u, None, "F1"),
+    "F3r": (f3r, KS5, "k"),
+    "F5r": (f5r, KS5, "k"),
+    "F6r": (f6r, KS5, "k"),
 }
 TITLES = {
     "F0": "F0 contrast alone (C1 as judged on wip/exp-contrast)",
@@ -177,6 +211,11 @@ TITLES = {
     "F4": "F4 contrast says where, SC/P2/NM paint the colors there",
     "F5": "F5 F4, then F3's votes",
     "F6": "F6 F5 + tidy (one box per barrel; no other-color box on a fixed barrel)",
+    "F1s": "F1s contrast + checks + seams only (round 2, report only)",
+    "F1u": "F1u contrast + checks + bottom rule only (round 2, report only)",
+    "F3r": "F3r F3, a box the checks removed blocks proposals (round 2)",
+    "F5r": "F5r F5, a box the checks removed blocks proposals (round 2)",
+    "F6r": "F6r F6, a box the checks removed blocks proposals (round 2)",
 }
 
 
@@ -287,4 +326,33 @@ def _cli_fit(name):
     return fit
 
 
-fit_F0, fit_F1, fit_F2, fit_F3, fit_F4, fit_F5, fit_F6 = (_cli_fit(n) for n in ("F0", "F1", "F2", "F3", "F4", "F5", "F6"))
+fit_F0, fit_F1, fit_F2, fit_F3, fit_F4, fit_F5, fit_F6, fit_F3r, fit_F5r, fit_F6r = (
+    _cli_fit(n) for n in ("F0", "F1", "F2", "F3", "F4", "F5", "F6", "F3r", "F5r", "F6r"))
+fit = fit_F3r                                 # the best candidate, held out: --cand-fit .../fuse.py:fit
+
+
+# ---------------------------------------------------------------- the best candidate as one importable callable
+
+BEST_BUNDLE = M.bundle("home_wooddesk")       # each method's pick on all eight places (a place with extreme frames only)
+BEST_CHOICE = (fu.MILD, 2)                    # F3r's pick on all eight places (chosen.json, "home_wooddesk")
+
+
+def detect_frame(stem: str, frame) -> list:
+    """F3r with the picks made on all eight places (IN-SAMPLE when judged; the held-out number is ``fit``'s).
+    Computes only what F3r needs on this frame: contrast with the fusion's detector, the shape checks, the four other
+    methods at their picks, and the contrast voter. Nothing is kept between frames."""
+    fr = M.Frame(frame)
+    b, (ck, k) = BEST_BUNDLE, BEST_CHOICE
+    c1 = fr.c1(b["C1"], "flags")[0]
+    kept = fu.apply_checks(c1, ck)
+    blocked = [x for x in c1 if not any(x is y for y in kept)]
+    low = fr.low_candidates()
+    by = {m: fr.method_items(m, b) for m in ORDER}
+
+    def vote(it: fu.Item) -> bool:
+        x0, y0, x1, y1 = it.bbox
+        return any(c == it.color and x0 <= x < x1 and y0 <= y < y1 for c, x, y, _ in low)
+    return fu.barrels(fu.vote(kept, by, ORDER, k, ck, vote, blocked=blocked))
+
+
+detect_frame.describe = "F3r frozen at the all-places picks (mild checks, k 2): contrast + seams + bottom rule + checks, then votes"

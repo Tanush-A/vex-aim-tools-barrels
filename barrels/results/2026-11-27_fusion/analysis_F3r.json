@@ -1,0 +1,789 @@
+{
+ "false_boxes": [
+  {
+   "stem": "4A8B_lampmid3_bathtile_core_01",
+   "color": "orange",
+   "bbox": [
+    218,
+    104,
+    256,
+    145
+   ],
+   "state": "second",
+   "F0": true,
+   "today": false
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_core_01",
+   "color": "blue",
+   "bbox": [
+    120,
+    139,
+    186,
+    203
+   ],
+   "state": "second",
+   "F0": false,
+   "today": false
+  },
+  {
+   "stem": "4A8B_lampwarm6_bathtile_core_01",
+   "color": "orange",
+   "bbox": [
+    465,
+    104,
+    495,
+    134
+   ],
+   "state": "wrong_color",
+   "F0": true,
+   "today": false
+  },
+  {
+   "stem": "4A8B_lampwarm6_ottoman_core_01",
+   "color": "orange",
+   "bbox": [
+    166,
+    248,
+    282,
+    480
+   ],
+   "state": "nothing",
+   "F0": true,
+   "today": true
+  }
+ ],
+ "removed_from_F0": [
+  [
+   "4A8B_lampmid3_glass_occl_02",
+   "orange",
+   [
+    577,
+    117,
+    636,
+    167
+   ],
+   "nothing"
+  ],
+  [
+   "4A8B_lampmid6_glass_clutter_01",
+   "orange",
+   [
+    554,
+    117,
+    604,
+    171
+   ],
+   "nothing"
+  ],
+  [
+   "4A8B_lampwarm6_glass_clutter_01",
+   "orange",
+   [
+    555,
+    117,
+    605,
+    172
+   ],
+   "nothing"
+  ],
+  [
+   "4A8B_lampwarm6_glass_occl_02",
+   "orange",
+   [
+    566,
+    101,
+    595,
+    133
+   ],
+   "nothing"
+  ],
+  [
+   "4A8B_lampwarm6_glass_occl_02",
+   "orange",
+   [
+    572,
+    94,
+    594,
+    118
+   ],
+   "nothing"
+  ],
+  [
+   "4A8B_overheaddim_palewood_core_01",
+   "orange",
+   [
+    235,
+    273,
+    564,
+    480
+   ],
+   "nothing"
+  ]
+ ],
+ "changes_vs_F0": [
+  {
+   "stem": "4A8B_lampcool6_ottoman_occl_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    225,
+    125,
+    286,
+    192
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampcool6_ottoman_touch_01",
+   "i": 0,
+   "color": "blue",
+   "bbox": [
+    198,
+    129,
+    262,
+    198
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_bathtile_edge_01",
+   "i": 0,
+   "color": "blue",
+   "bbox": [
+    0,
+    127,
+    31,
+    196
+   ],
+   "F0": "missed",
+   "cand": "off",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_bathtile_occl_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    346,
+    107,
+    376,
+    137
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_clutter_01",
+   "i": 3,
+   "color": "orange",
+   "bbox": [
+    541,
+    129,
+    613,
+    202
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_core_01",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    155,
+    166,
+    280,
+    311
+   ],
+   "F0": "found",
+   "cand": "off",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_edge_01",
+   "i": 0,
+   "color": "blue",
+   "bbox": [
+    0,
+    141,
+    43,
+    229
+   ],
+   "F0": "found",
+   "cand": "off",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_occl_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    225,
+    125,
+    286,
+    192
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampmid6_ottoman_touch_01",
+   "i": 0,
+   "color": "blue",
+   "bbox": [
+    198,
+    129,
+    262,
+    198
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampwarm6_ottoman_core_01",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    155,
+    166,
+    280,
+    311
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampwarm6_ottoman_touch_01",
+   "i": 1,
+   "color": "blue",
+   "bbox": [
+    262,
+    129,
+    325,
+    198
+   ],
+   "F0": "missed",
+   "cand": "off",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_window_glass_occl_02",
+   "i": 0,
+   "color": "blue",
+   "bbox": [
+    254,
+    114,
+    300,
+    163
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "judged"
+  },
+  {
+   "stem": "4A8B_lampcool3_wood_clutter_01",
+   "i": 2,
+   "color": "blue",
+   "bbox": [
+    377,
+    111,
+    410,
+    146
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampcool3_wood_occl_04",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    181,
+    128,
+    238,
+    186
+   ],
+   "F0": "found",
+   "cand": "missed",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampcool6_wood_clutter_01",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    236,
+    118,
+    280,
+    166
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampcool6_wood_occl_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    175,
+    117,
+    218,
+    162
+   ],
+   "F0": "found",
+   "cand": "missed",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampcool6_wood_occl_04",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    182,
+    130,
+    241,
+    186
+   ],
+   "F0": "off",
+   "cand": "missed",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampmid3_wood_clutter_01",
+   "i": 3,
+   "color": "blue",
+   "bbox": [
+    529,
+    123,
+    594,
+    184
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampmid3_wood_core_01",
+   "i": 3,
+   "color": "blue",
+   "bbox": [
+    334,
+    109,
+    368,
+    144
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampmid3_wood_touch_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    170,
+    129,
+    232,
+    196
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampmid6_wood_touch_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    170,
+    129,
+    232,
+    196
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampwarm3_wood_cluster_01",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    151,
+    129,
+    213,
+    194
+   ],
+   "F0": "missed",
+   "cand": "off",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampwarm3_wood_clutter_01",
+   "i": 2,
+   "color": "blue",
+   "bbox": [
+    377,
+    111,
+    410,
+    146
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampwarm3_wood_clutter_01",
+   "i": 3,
+   "color": "blue",
+   "bbox": [
+    529,
+    123,
+    594,
+    184
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampwarm3_wood_touch_02",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    230,
+    129,
+    289,
+    194
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampwarm6_wood_cluster_01",
+   "i": 3,
+   "color": "orange",
+   "bbox": [
+    270,
+    125,
+    322,
+    183
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_lampwarm6_wood_occl_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    175,
+    117,
+    218,
+    162
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_close_02",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    0,
+    132,
+    51,
+    207
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_cluster_01",
+   "i": 2,
+   "color": "orange",
+   "bbox": [
+    350,
+    128,
+    418,
+    199
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_clutter_02",
+   "i": 0,
+   "color": "blue",
+   "bbox": [
+    0,
+    135,
+    73,
+    212
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_far_01",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    279,
+    112,
+    323,
+    157
+   ],
+   "F0": "missed",
+   "cand": "off",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_far_01",
+   "i": 2,
+   "color": "orange",
+   "bbox": [
+    366,
+    114,
+    412,
+    158
+   ],
+   "F0": "off",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_far_01",
+   "i": 3,
+   "color": "blue",
+   "bbox": [
+    508,
+    116,
+    565,
+    166
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_held_01",
+   "i": 0,
+   "color": "orange",
+   "bbox": [
+    0,
+    132,
+    48,
+    208
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  },
+  {
+   "stem": "4A8B_window_black_touch_02",
+   "i": 1,
+   "color": "orange",
+   "bbox": [
+    304,
+    136,
+    384,
+    219
+   ],
+   "F0": "missed",
+   "cand": "found",
+   "kind": "report only"
+  }
+ ],
+ "extreme": {
+  "home_wooddesk": {
+   "today": 7,
+   "F0": 79,
+   "F3r": 88
+  },
+  "home_ottoman": {
+   "today": 1,
+   "F0": 1,
+   "F3r": 1
+  },
+  "home_black": {
+   "today": 5,
+   "F0": 5,
+   "F3r": 12
+  }
+ },
+ "vendor": {
+  "abp_gray": {
+   "today": {
+    "found_w": 10.0,
+    "found": 10,
+    "extra_w": 0.0
+   },
+   "F0": {
+    "found_w": 15.0,
+    "found": 15,
+    "extra_w": 0.0
+   },
+   "F3r": {
+    "found_w": 15.0,
+    "found": 15,
+    "extra_w": 0.0
+   },
+   "vendor": {
+    "found_w": 16.0,
+    "found": 16,
+    "extra_w": 0.0
+   }
+  },
+  "home_bathtile": {
+   "today": {
+    "found_w": 4.0,
+    "found": 16,
+    "extra_w": 0.0
+   },
+   "F0": {
+    "found_w": 13.5,
+    "found": 54,
+    "extra_w": 0.5
+   },
+   "F3r": {
+    "found_w": 13.75,
+    "found": 55,
+    "extra_w": 0.5
+   },
+   "vendor": {
+    "found_w": 7.0,
+    "found": 28,
+    "extra_w": 0.0
+   }
+  },
+  "home_glass": {
+   "today": {
+    "found_w": 14.8,
+    "found": 74,
+    "extra_w": 0.6
+   },
+   "F0": {
+    "found_w": 14.8,
+    "found": 74,
+    "extra_w": 1.0
+   },
+   "F3r": {
+    "found_w": 15.0,
+    "found": 75,
+    "extra_w": 0.0
+   },
+   "vendor": {
+    "found_w": 12.0,
+    "found": 60,
+    "extra_w": 2.0
+   }
+  },
+  "home_ottoman": {
+   "today": {
+    "found_w": 3.0,
+    "found": 9,
+    "extra_w": 0.33
+   },
+   "F0": {
+    "found_w": 10.0,
+    "found": 30,
+    "extra_w": 0.33
+   },
+   "F3r": {
+    "found_w": 11.33,
+    "found": 34,
+    "extra_w": 0.67
+   },
+   "vendor": {
+    "found_w": 12.33,
+    "found": 37,
+    "extra_w": 0.0
+   }
+  },
+  "uc_palewood": {
+   "today": {
+    "found_w": 13.0,
+    "found": 13,
+    "extra_w": 1.0
+   },
+   "F0": {
+    "found_w": 13.0,
+    "found": 13,
+    "extra_w": 1.0
+   },
+   "F3r": {
+    "found_w": 13.0,
+    "found": 13,
+    "extra_w": 0.0
+   },
+   "vendor": {
+    "found_w": 12.0,
+    "found": 12,
+    "extra_w": 0.0
+   }
+  },
+  "abp_white": {
+   "today": {
+    "found_w": 26.0,
+    "found": 26,
+    "extra_w": 0.0
+   },
+   "F0": {
+    "found_w": 26.0,
+    "found": 26,
+    "extra_w": 0.0
+   },
+   "F3r": {
+    "found_w": 26.0,
+    "found": 26,
+    "extra_w": 0.0
+   },
+   "vendor": {
+    "found_w": 24.0,
+    "found": 24,
+    "extra_w": 1.0
+   }
+  },
+  "**six places**": {
+   "today": {
+    "found_w": 70.8,
+    "found": 148,
+    "extra_w": 1.93
+   },
+   "F0": {
+    "found_w": 92.3,
+    "found": 212,
+    "extra_w": 2.83
+   },
+   "F3r": {
+    "found_w": 94.08,
+    "found": 218,
+    "extra_w": 1.17
+   },
+   "vendor": {
+    "found_w": 83.33,
+    "found": 177,
+    "extra_w": 3.0
+   }
+  }
+ }
+}

@@ -44,17 +44,17 @@
   "source": "margins.json, made 2026-11-26 at git f20ad1c"
  },
  "lopo": true,
- "git": "50ca1a1",
+ "git": "79d3fdb",
  "made": "2026-11-27",
  "baseline": {
   "name": "today",
   "describe": "today's default (the adopted color model, DetConfig defaults)",
-  "seconds": 11.1
+  "seconds": 12.1
  },
  "candidate": {
   "name": "F3",
   "describe": "F3 as F2, the contrast response one more voter: its choice picked on the other places",
-  "seconds": 0.4
+  "seconds": 0.6
  },
  "frames": {
   "ordinary": 154,

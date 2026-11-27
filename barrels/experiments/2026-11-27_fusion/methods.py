@@ -80,7 +80,8 @@ CAM = geo.AIM_4A8B6118_BOXFIT
 MODEL = hl.adopted_model()
 DEF = det.DetConfig()                                        # the detector as it runs today
 CFG = det.DetConfig(seams=True, bottom_rule="low_uncut")     # every fusion candidate (PREREG)
-CFGS = {"def": DEF, "flags": CFG}
+CFGS = {"def": DEF, "flags": CFG,                            # round 2, report only: one flag at a time (C1 only)
+        "seams": det.DetConfig(seams=True), "bottom": det.DetConfig(bottom_rule="low_uncut")}
 B4_NAME = "B4_ramp_rel_without_loose"
 B4_BY_KEY = {s.key: s for s in lt_cand.FAMILIES[B4_NAME]}
 LOW = cn.Params(strength_min=1.0)                            # the contrast voter of F3 (margin 0.5, share 0.5: defaults)

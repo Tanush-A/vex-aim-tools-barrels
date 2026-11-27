@@ -2386,5 +2386,1595 @@
     }
    ]
   }
+ },
+ "F1s": {
+  "home_white": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "campus_study": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "abp_gray": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_bathtile": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_glass": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_ottoman": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "uc_palewood": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "abp_white": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_wooddesk": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_black": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  }
+ },
+ "F1u": {
+  "home_white": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "campus_study": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "abp_gray": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_bathtile": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_glass": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_ottoman": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "uc_palewood": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "abp_white": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_wooddesk": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  },
+  "home_black": {
+   "choice": "checks s0.35|l1.5/0.6",
+   "from": "F1"
+  }
+ },
+ "F3r": {
+  "home_white": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 128.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 128.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 129.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 129.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 130.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "campus_study": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 121.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 121.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 122.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 122.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 123.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "abp_gray": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 141.5,
+     "extra_w": 0.83,
+     "gain": 18.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 141.5,
+     "extra_w": 0.83,
+     "gain": 18.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 142.5,
+     "extra_w": 0.83,
+     "gain": 19.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 142.5,
+     "extra_w": 0.83,
+     "gain": 19.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 143.42,
+     "extra_w": 1.17,
+     "gain": 20.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_bathtile": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 143.0,
+     "extra_w": 0.33,
+     "gain": 14.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 143.0,
+     "extra_w": 0.33,
+     "gain": 14.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 144.0,
+     "extra_w": 0.33,
+     "gain": 15.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 144.0,
+     "extra_w": 0.33,
+     "gain": 15.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 144.67,
+     "extra_w": 0.67,
+     "gain": 16.133,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_glass": {
+   "choice": "checks s0.35|l1.5/0.6, k 4",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 142.08,
+     "extra_w": 1.33,
+     "gain": 23.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 142.08,
+     "extra_w": 1.33,
+     "gain": 23.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 143.08,
+     "extra_w": 1.33,
+     "gain": 24.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 143.08,
+     "extra_w": 1.33,
+     "gain": 24.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 143.08,
+     "extra_w": 1.67,
+     "gain": 23.75,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    }
+   ]
+  },
+  "home_ottoman": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 146.75,
+     "extra_w": 0.5,
+     "gain": 17.05,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "uc_palewood": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 143.5,
+     "extra_w": 0.83,
+     "gain": 22.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 143.5,
+     "extra_w": 0.83,
+     "gain": 22.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 144.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 144.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 145.42,
+     "extra_w": 1.17,
+     "gain": 24.383,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    }
+   ]
+  },
+  "abp_white": {
+   "choice": "checks s0.35|l1.5/0.6, k 4",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 130.08,
+     "extra_w": 1.33,
+     "gain": 22.883,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 130.08,
+     "extra_w": 1.33,
+     "gain": 22.883,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 131.08,
+     "extra_w": 1.33,
+     "gain": 23.883,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 131.08,
+     "extra_w": 1.33,
+     "gain": 23.883,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 131.08,
+     "extra_w": 1.67,
+     "gain": 23.55,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_wooddesk": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 156.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 156.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 158.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_black": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 156.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 156.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 158.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  }
+ },
+ "F5r": {
+  "home_white": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 128.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 128.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 129.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 129.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 130.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "campus_study": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 121.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 121.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 122.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 122.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 123.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "abp_gray": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 141.83,
+     "extra_w": 0.83,
+     "gain": 19.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 141.83,
+     "extra_w": 0.83,
+     "gain": 19.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 142.5,
+     "extra_w": 0.83,
+     "gain": 19.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 142.5,
+     "extra_w": 0.83,
+     "gain": 19.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 143.42,
+     "extra_w": 1.17,
+     "gain": 20.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_bathtile": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 143.33,
+     "extra_w": 0.33,
+     "gain": 15.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 143.33,
+     "extra_w": 0.33,
+     "gain": 15.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 144.0,
+     "extra_w": 0.33,
+     "gain": 15.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 144.0,
+     "extra_w": 0.33,
+     "gain": 15.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 144.67,
+     "extra_w": 0.67,
+     "gain": 16.133,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_glass": {
+   "choice": "checks s0.35|l1.5/0.6, k 4",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 142.42,
+     "extra_w": 1.33,
+     "gain": 23.417,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 142.42,
+     "extra_w": 1.33,
+     "gain": 23.417,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 143.08,
+     "extra_w": 1.33,
+     "gain": 24.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 143.08,
+     "extra_w": 1.33,
+     "gain": 24.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 143.08,
+     "extra_w": 1.67,
+     "gain": 23.75,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    }
+   ]
+  },
+  "home_ottoman": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 146.75,
+     "extra_w": 0.5,
+     "gain": 17.05,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "uc_palewood": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 143.83,
+     "extra_w": 0.83,
+     "gain": 23.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 143.83,
+     "extra_w": 0.83,
+     "gain": 23.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 144.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 144.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 145.42,
+     "extra_w": 1.17,
+     "gain": 24.383,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    }
+   ]
+  },
+  "abp_white": {
+   "choice": "checks s0.35|l1.5/0.6, k 4",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 130.42,
+     "extra_w": 1.33,
+     "gain": 23.217,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 130.42,
+     "extra_w": 1.33,
+     "gain": 23.217,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 131.08,
+     "extra_w": 1.33,
+     "gain": 23.883,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 131.08,
+     "extra_w": 1.33,
+     "gain": 23.883,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 131.08,
+     "extra_w": 1.67,
+     "gain": 23.55,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_wooddesk": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 158.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_black": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 158.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  }
+ },
+ "F6r": {
+  "home_white": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 128.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 128.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 129.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 129.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 130.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "campus_study": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 121.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 121.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 122.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 122.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 123.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "abp_gray": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 141.83,
+     "extra_w": 0.83,
+     "gain": 19.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 141.83,
+     "extra_w": 0.83,
+     "gain": 19.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 142.5,
+     "extra_w": 0.83,
+     "gain": 19.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 142.5,
+     "extra_w": 0.83,
+     "gain": 19.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 143.42,
+     "extra_w": 1.17,
+     "gain": 20.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_bathtile": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 143.33,
+     "extra_w": 0.33,
+     "gain": 15.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 143.33,
+     "extra_w": 0.33,
+     "gain": 15.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 144.0,
+     "extra_w": 0.33,
+     "gain": 15.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 144.0,
+     "extra_w": 0.33,
+     "gain": 15.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 144.67,
+     "extra_w": 0.67,
+     "gain": 16.133,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_glass": {
+   "choice": "checks s0.35|l1.5/0.6, k 4",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 142.42,
+     "extra_w": 1.33,
+     "gain": 23.417,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 142.42,
+     "extra_w": 1.33,
+     "gain": 23.417,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 143.08,
+     "extra_w": 1.33,
+     "gain": 24.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 143.08,
+     "extra_w": 1.33,
+     "gain": 24.083,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 143.08,
+     "extra_w": 1.67,
+     "gain": 23.75,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    }
+   ]
+  },
+  "home_ottoman": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 146.5,
+     "extra_w": 0.5,
+     "gain": 16.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 146.75,
+     "extra_w": 0.5,
+     "gain": 17.05,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "uc_palewood": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 143.83,
+     "extra_w": 0.83,
+     "gain": 23.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 143.83,
+     "extra_w": 0.83,
+     "gain": 23.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 144.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 144.5,
+     "extra_w": 0.83,
+     "gain": 23.8,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 145.42,
+     "extra_w": 1.17,
+     "gain": 24.383,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    }
+   ]
+  },
+  "abp_white": {
+   "choice": "checks s0.35|l1.5/0.6, k 4",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 130.42,
+     "extra_w": 1.33,
+     "gain": 23.217,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 130.42,
+     "extra_w": 1.33,
+     "gain": 23.217,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 131.08,
+     "extra_w": 1.33,
+     "gain": 23.883,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 131.08,
+     "extra_w": 1.33,
+     "gain": 23.883,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 131.08,
+     "extra_w": 1.67,
+     "gain": 23.55,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_wooddesk": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 158.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  },
+  "home_black": {
+   "choice": "checks s0.35|l1.5/0.6, k 2",
+   "table": [
+    {
+     "choice": "checks s0.35|l1.5/0.6, k off",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 5",
+     "found_w": 156.83,
+     "extra_w": 0.83,
+     "gain": 24.133,
+     "vs_today": "PASS",
+     "vs_F0": "NO CLEAR DIFFERENCE",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 4",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 3",
+     "found_w": 157.5,
+     "extra_w": 0.83,
+     "gain": 24.8,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    },
+    {
+     "choice": "checks s0.35|l1.5/0.6, k 2",
+     "found_w": 158.42,
+     "extra_w": 1.17,
+     "gain": 25.383,
+     "vs_today": "PASS",
+     "vs_F0": "PASS",
+     "allowed": true
+    }
+   ]
+  }
  }
 }

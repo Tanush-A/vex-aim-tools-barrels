@@ -6,7 +6,7 @@ JUDGE: F3 against today
 baseline  = today's default (the adopted color model, DetConfig defaults)
 candidate = F3 as F2, the contrast response one more voter: its choice picked on the other places
 Frames: 154 ordinary train frames, 17 conditions at 8 places: 172 placements (physical barrels) in 91 arrangements, 307 barrels when every light is
-    counted. Test frames never opened. git 50ca1a1, 2026-11-27; 11 s in the detectors.
+    counted. Test frames never opened. git 79d3fdb, 2026-11-27; 13 s in the detectors.
 LEAVE ONE PLACE OUT: every place was scored by a candidate fitted on the other places only; the verdict rests on held-out results.
 
 BY PLACE (the verdict is computed on these)
