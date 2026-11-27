@@ -1,6 +1,20 @@
 # The unattended block of 2026-11-26 (reviewer session)
 
-Written by Claude for Tanush. Plain English. **This is a checkpoint: experiments are still running; the last section says which.** Everything is on train frames only. No test frame was opened.
+Written by Claude for Tanush. Plain English. **Updated 2026-11-27 with every result. Start with section 0.** Everything is on train frames only. No test frame was opened.
+
+## 0. The headline (2026-11-27)
+
+**One idea does most of the work: find the stripe by color difference, then paint that barrel with its own colors** (branch `wip/exp-contrast`). Judged with a whole place held out: 133.8 → 155.3 of 172 placements, 64 barrels gained, none lost, no box on an empty frame. On the six places with vendor files it finds 92.3 of 108 placements against the vendor's 83.3 and today's 70.8 (train frames; our methods were shaped on them). Adding the other two winners on top adds nothing above the noise (`wip/exp-combined`). What is left is nearly all hidden or frame-cut barrels. Next: walk you through contrast, adopt it, then test it on a new warm-lit place.
+
+| branch | result |
+|---|---|
+| `wip/exp-contrast` | **PASS +21.5**, the best |
+| `wip/exp-combined` | contrast alone wins; mixes add 0.2 to 2.7, inside the noise |
+| `wip/exp-nearmiss`, `wip/exp-selfcal` | PASS +13.7 / +13.8; mostly covered by contrast |
+| `wip/exp-slack` | `slack=D`: 11 of 40 erosion losses back, no new false box; being prepared for adoption (`wip/adopt-slack`) |
+| `wip/exp-bottom` | `bottom_rule=low_uncut`: helps with looser colors, no effect with fixed ones |
+| `wip/exp-sidecut` | not recommended (one box on a tin, one on the wrong side) |
+| `wip/collapse-2` | merged: 18 numbers, boxes identical |
 
 ## 1. What you asked for, and where each step stands
 
