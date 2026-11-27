@@ -1,0 +1,111 @@
+{
+ "version": 1,
+ "made": "2026-11-26",
+ "git": "f20ad1c",
+ "model_config_hash": "eb863d84",
+ "source": "python barrels/experiments/2026-11-26_noise_floor/run.py (results/2026-11-26_noise_floor/summary.md)",
+ "rule": "each margin = the largest change, in that direction, that a change which means nothing produced at that level, never less than one whole unit. The changes: the fixed color model with one number moved one step (one hue unit, three saturation units, two brightness units; 14 neighbours) and 12 seeded moves of several numbers at once (they broke the one-step margins, so they are included). found_gain / extra_fall: the largest improvement; found_loss / extra_rise / place / groups: the largest worsening.",
+ "units": "found: placements (each physical barrel once, by the share of its lights). extra / cluttered_empty: boxes, each once per arrangement. clean_empty: boxes.",
+ "widened_with_set_b": true,
+ "judge": {
+  "found_gain": 4.0,
+  "found_loss": 10.92,
+  "extra_rise": 1.85,
+  "extra_fall": 1.0,
+  "cluttered_empty": 1.0,
+  "clean_empty": 0.0,
+  "place": {
+   "home_white": 1.0,
+   "campus_study": 1.0,
+   "abp_gray": 6.0,
+   "home_bathtile": 1.25,
+   "home_glass": 1.0,
+   "home_ottoman": 2.34,
+   "uc_palewood": 1.0,
+   "abp_white": 1.0
+  },
+  "place_default": 1.0
+ },
+ "gate": {
+  "groups": {
+   "HOME": {
+    "found": 1.0,
+    "extra": 1.0
+   },
+   "CAMPUS": {
+    "found": 1.0,
+    "extra": 1.0
+   },
+   "GLASS": {
+    "found": 1.0,
+    "extra": 1.0
+   },
+   "PALEWOOD": {
+    "found": 1.0,
+    "extra": 1.0
+   },
+   "ABPWHITE": {
+    "found": 1.0,
+    "extra": 1.0
+   },
+   "BATH-COOL": {
+    "found": 5.0,
+    "extra": 1.0
+   }
+  },
+  "cluttered_empty": 1.0,
+  "clean_empty": 0.0
+ },
+ "as_first_registered": {
+  "note": "PREREG rule 1 before its addendum: the largest ABSOLUTE change, the same in both directions",
+  "judge": {
+   "found_gain": 10.92,
+   "found_loss": 10.92,
+   "extra_rise": 1.85,
+   "extra_fall": 1.85,
+   "cluttered_empty": 1.0,
+   "clean_empty": 0.0,
+   "place": {
+    "home_white": 1.0,
+    "campus_study": 1.0,
+    "abp_gray": 6.0,
+    "home_bathtile": 1.25,
+    "home_glass": 1.0,
+    "home_ottoman": 2.34,
+    "uc_palewood": 1.0,
+    "abp_white": 1.0
+   },
+   "place_default": 1.0
+  },
+  "gate": {
+   "groups": {
+    "HOME": {
+     "found": 1.0,
+     "extra": 1.0
+    },
+    "CAMPUS": {
+     "found": 1.0,
+     "extra": 1.0
+    },
+    "GLASS": {
+     "found": 1.0,
+     "extra": 1.0
+    },
+    "PALEWOOD": {
+     "found": 1.0,
+     "extra": 1.0
+    },
+    "ABPWHITE": {
+     "found": 1.0,
+     "extra": 1.0
+    },
+    "BATH-COOL": {
+     "found": 5.0,
+     "extra": 1.0
+    }
+   },
+   "cluttered_empty": 1.0,
+   "clean_empty": 0.0
+  }
+ }
+}
