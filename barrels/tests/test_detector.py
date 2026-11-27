@@ -276,6 +276,19 @@ def _barrel_behind_a_slanted_edge(seen_at_stripe=0.3, seen_at_bottom=0.95):
     return mask, truth
 
 
+def test_a_box_carries_what_it_was_read_from():
+    """Each box knows its evidence (the box of the stripe, cap piece, band or slices it was read from) and the rule that
+    drew it. The verify stages read that; nothing reads the reason log."""
+    mask = np.zeros((480, 640), np.uint8)
+    truth = paint_barrel(mask, 150, 320)
+    stripes, _ = det.find_stripes(mask, CAM)
+    found, unplaced, lost = det.boxes_from_stripes(stripes, mask, CAM)
+    assert len(found) == 1 and found[0].barrel.bbox == truth and found[0].rule == "whole_stripe"
+    assert found[0].stripe is stripes[0] and found[0].evidence_box == stripes[0].bbox and unplaced == [] and lost == []
+    piece = det.Found(found[0].barrel, "closeup")
+    assert piece.evidence_box == truth                              # a stripeless piece is its own evidence
+
+
 def test_log_names_the_refusing_test_and_never_changes_the_answer():
     mask = np.zeros((480, 640), np.uint8)
     r = CAM.barrel_rows(150)

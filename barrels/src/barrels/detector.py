@@ -153,13 +153,19 @@ class Found:
                                          # "thin_span", "thin_frame", "thin_outline" (the stripe step); "closeup", "closeup_stripe",
                                          # "far_piece" (stripeless pieces); "cap"; "pair"; "half_stripe"
     stripe: Stripe | None = None         # the stripe it was read from, for a box of the stripe step
+    evidence: tuple | None = None        # the box of what it was read from: its stripe, its cap piece, its band (half stripes),
+                                         # its two slices together (pairs). None: a stripeless piece is its own evidence
+
+    @property
+    def evidence_box(self) -> tuple[int, int, int, int]:
+        return tuple(self.evidence) if self.evidence is not None else tuple(self.barrel.bbox)
 
 
 def _note(log: list | None, stage: str, why: str, bbox, **values) -> None:
-    """The reason log. When a caller passes a list as ``log``, every candidate the detector drops (and every one it keeps,
-    why="kept") is appended to it as a dict: the stage, the reason, the candidate's box, and the numbers it was compared
-    with. With log=None nothing is recorded. The boxes do not depend on whether a caller asks for the log; but the two verify
-    stages read the "kept" notes to find what each box was read from (``_evidence``), so ``detect`` always keeps one."""
+    """The reason log: diagnostics only. When a caller passes a list as ``log``, every candidate the detector drops (and
+    every one it keeps, why="kept") is appended to it as a dict: the stage, the reason, the candidate's box, and the numbers
+    it was compared with. With log=None (the default everywhere) nothing is recorded. The answer never depends on it:
+    nothing in this file reads the log."""
     if log is not None:
         log.append({"stage": stage, "why": why, "bbox": tuple(int(v) for v in bbox), **values})
 
@@ -334,8 +340,6 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     the distance gives the expected width, height and stripe height). Later stages only add boxes, except that the two
     verify stages (5 and 9) delete boxes and a half stripe (8) may replace a box of stage 3. docs/DETECTOR-MAP.md walks
     through every check."""
-    if log is None:
-        log = []                                                               # the verify stages read it (see _note)
     layers = sandwiches(mask, cam, cfg)                                        #    per body color: where the other color has it right above / below
     pieces = find_pieces(mask, cam, cfg, log)                                  # 1  blobs of barrel color, barrel-shaped. No box yet
     stripes, leftover = find_stripes(mask, cam, cfg, log, layers)              # 2  stripes: one color with the other right above and below
@@ -1182,7 +1186,7 @@ def box_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetC
         flags.add("truncated")
     conf = 0.5 + 0.5 * s.n_other / max(1, s.n_other + s.n_dark)   # the labeled share of the stripe's box
     return Found(Barrel(color=s.body, bbox=(bx0, top, bx1, bottom), confidence=conf, flags=frozenset(flags),
-                        area=s.n_other + s.n_dark, source="det2"), rule, stripe=s), None
+                        area=s.n_other + s.n_dark, source="det2"), rule, stripe=s, evidence=s.bbox), None
 
 
 def piece_of_found(s: Stripe, found: list) -> bool:
@@ -1243,7 +1247,7 @@ def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraM
             if why == "side_unexplained":
                 unplaced.append(s)
             continue
-        _note(log, "barrel", "kept", s.bbox, body=s.body, box=f.barrel.bbox)
+        _note(log, "barrel", "kept", s.bbox, body=s.body, box=f.barrel.bbox, rule=f.rule)
         dup = next((o for o in found if is_same_barrel(f.barrel.bbox, f.barrel.color, o.barrel)
                     and not (s.cut_from is not None and o.stripe.cut_from == s.cut_from)), None)
         if dup is None:
@@ -1328,23 +1332,6 @@ def closeup_pieces(pieces: list[Piece], found: list[Found], mask: np.ndarray, ca
 
 # ================================================================ stages 5 and 9: the verify step
 
-VERIFY_STAGES = ("barrel", "cap", "pair", "half")            # the reason log's stages that draw a box ("kept" notes)
-
-
-def _evidence(log: list, b: Barrel) -> tuple[int, int, int, int]:
-    """The box of what ``b`` was read from: its stripe (stripe step), its cap piece (caps), its band (half stripes), its
-    two slices together (pairs); a stripeless piece is its own evidence. Read from the "kept" notes of the reason log:
-    the newest one whose box is b's box."""
-    for e in reversed(log):
-        if e.get("why") == "kept" and e.get("stage") in VERIFY_STAGES and e.get("box") is not None and tuple(e["box"]) == tuple(b.bbox):
-            ev = tuple(int(v) for v in e["bbox"])
-            if e.get("other") is not None:
-                o = e["other"]
-                ev = (min(ev[0], o[0]), min(ev[1], o[1]), max(ev[2], o[2]), max(ev[3], o[3]))
-            return ev
-    return tuple(b.bbox)
-
-
 def outline_layout(F: Barrel, cam: geo.CameraModel, shape) -> np.ndarray:
     """What a barrel whose box is F.bbox shows at each pixel, by its own layout: F's body color in its body rows, the other
     color in its stripe rows, 0 outside its outline, -1 within half a stripe height of a seam (either color).
@@ -1393,8 +1380,8 @@ def drop_seen_through(found: list[Found], mask: np.ndarray, cam: geo.CameraModel
     within half a stripe height of a seam, either color). A nearer barrel explains only where it is SEEN: between the
     top and the bottom of its body as walked from its evidence, not where its box was inferred.
 
-    The boxes are taken nearest first, so only boxes that passed explain a farther one. Each box's evidence (``_evidence``:
-    the box of the stripe, cap piece, band or slices it was read from; a piece is its own) is split into the
+    The boxes are taken nearest first, so only boxes that passed explain a farther one. Each box's evidence
+    (``Found.evidence_box``: the box of the stripe, cap piece, band or slices it was read from; a piece is its own) is split into the
     barrel-colored pixels a nearer barrel explains and the rest, its OWN pixels. A box with a nearer barrel and fewer than
     min_area_px own pixels was read from the nearer barrel's picture: dropped ("verify", "front"). A real barrel behind
     another always shows its visible part outside the nearer one's outline.
@@ -1403,14 +1390,13 @@ def drop_seen_through(found: list[Found], mask: np.ndarray, cam: geo.CameraModel
     stripe is cap material again. Stage 9: once more on every box, whatever rule drew it."""
     if len(found) < 2:
         return found
-    log_ = log if log is not None else []
     barrel = np.isin(mask, (ORANGE, BLUE))
     h, w = mask.shape
     kept: list[Found] = []
     seen_rows: dict[int, tuple[int, int]] = {}
     for f in sorted(found, key=lambda f: -f.barrel.bbox[3]):       # nearest first (lowest bottom edge)
         b = f.barrel
-        ex0, ey0, ex1, ey1 = _evidence(log_, b)
+        ex0, ey0, ex1, ey1 = f.evidence_box
         ex0, ey0, ex1, ey1 = max(0, ex0), max(0, ey0), min(w, ex1), min(h, ey1)
         ev = barrel[ey0:ey1, ex0:ex1]
         n = int(ev.sum())
@@ -1451,12 +1437,11 @@ def drop_single_reading(found: list[Found], mask: np.ndarray, cam: geo.CameraMod
 
     It measures the span again, a little differently from ``seen_span``: W comes from the middle row of the stripe's box
     (not the stripe's centre row), and the columns of other stripes are not left out."""
-    log_ = log if log is not None else []
     out = []
     for f in found:
         b = f.barrel
         if b.source == "det2" and "occluded" in b.flags and {"top_inferred", "bottom_inferred"} <= b.flags:
-            ex0, ey0, ex1, ey1 = _evidence(log_, b)
+            ex0, ey0, ex1, ey1 = f.evidence_box
             at = BarrelAt.from_stripe_row(cam, (ey0 + ey1) / 2)      # the row: the middle of the stripe's box, not its centre row
             if at is not None:
                 W = at.W
@@ -1578,7 +1563,7 @@ def _cap_box(piece: tuple, c: int, mask: np.ndarray, boxes: list[Barrel], caps: 
     if bx0 == 0 or bx1 == w or bottom == h:
         flags.add("truncated")
     _note(log, "cap", "kept", cb, body=c, box=box)
-    return Found(Barrel(color=c, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det3"), "cap")
+    return Found(Barrel(color=c, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det3"), "cap", evidence=cb)
 
 
 def caps_behind(found: list[Found], lost: list[Stripe], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
@@ -1681,7 +1666,8 @@ def post_pairs(pieces: list[Stripe], found: list[Found], mask: np.ndarray, cam: 
                 continue                                                                   # 3.
             flags = {"occluded"} | ({"truncated"} if box[0] == 0 or box[2] == w or box[1] == 0 or box[3] == h else set())
             out.append(Found(Barrel(color=l.body, bbox=box, confidence=0.5, flags=frozenset(flags), area=l.n_other + r.n_other,
-                                    source="det2"), "pair"))
+                                    source="det2"), "pair",
+                             evidence=(min(l.bbox[0], r.bbox[0]), min(l.bbox[1], r.bbox[1]), max(l.bbox[2], r.bbox[2]), max(l.bbox[3], r.bbox[3]))))
             paired += [l, r]
             _note(log, "pair", "kept", l.bbox, body=l.body, box=box, other=r.bbox, expected_w=W, outer_span=rx1 - lx0)
     return out
@@ -1809,7 +1795,8 @@ def half_stripes(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg
             flags = {"occluded", "top_inferred" if top_hidden else "bottom_inferred"}
             if box[0] == 0 or box[2] == w or box[1] == 0 or box[3] == h:
                 flags.add("truncated")
-            new.append(Found(Barrel(color=body, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det2"), "half_stripe"))
+            new.append(Found(Barrel(color=body, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det2"), "half_stripe",
+                             evidence=sb))
             replaced += corners
             _note(log, "half", "kept", sb, body=body, box=box, hidden="top" if top_hidden else "bottom", seam=seam, distance_mm=at.d, expected_w=W,
                   expected_h=H, expected_stripe_h=Hs, core_h=core_h, predicted_top=at.top, predicted_bottom=at.bottom, tol=tol,
