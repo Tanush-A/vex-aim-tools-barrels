@@ -79,3 +79,16 @@ of O are fixed (item 4 above).
 
 `tools/vs_vendor.py --all --contrast-from <worktree>/barrels --cand-callable <run.py:best>` with the best candidate;
 the new totals reported against 221 / 211 of 258.
+
+## Addendum 2026-11-27 (written after the first three leave-one-place-out runs, E, H and S, all NO CLEAR DIFFERENCE with no change at all; before any second-round run)
+
+What the first runs show is structural, not a result about the additions: every addition fixes barrels at ONE ordinary
+place (E: the bathroom edge; H, S, B: the ottoman; O: one box on the bathroom floor), so when that place is held out
+its fold sees no gain and leaves the addition off, and at every other place the addition changes nothing. Leave one
+place out cannot show a fix that exists at one place. The registered verdicts stand as they come.
+
+Second round, said now, before it runs: the same families judged as FIXED callables at the setting the fold rule picks
+on all eight places (`run.all_places_pick`; per family and for ALL, `run.py --insample`). These numbers are
+IN-SAMPLE: the place judged took part in choosing them. They are reported as "what the addition does at the setting
+the rule would adopt", never as the held-out result, and the hard limits (empty frames, boxes not on their barrel,
+traps) are checked on them as on the first round.
