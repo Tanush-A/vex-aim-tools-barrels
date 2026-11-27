@@ -1,0 +1,117 @@
+{
+ "found_w": [
+  133.8,
+  145.72
+ ],
+ "found": [
+  211,
+  257
+ ],
+ "extra_w": [
+  1.93,
+  6.68
+ ],
+ "verdict": "FAIL",
+ "folds": {
+  "home_white": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "campus_study": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "abp_gray": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "home_bathtile": {
+   "setting": "blue follows `without_loose`: from warmth 0.11 to 0.3 the S floor goes 113 -> 60, the hue low end 103 -> 96; and bluer than the light by 0.15",
+   "key": "without_loose|0.11|0.3|60|96|0.15||0|1|13|0",
+   "allowed": 270,
+   "of": 270,
+   "gain": 3.0,
+   "found_w": 3.0,
+   "extra_w": 0.0,
+   "runner_up_gain": 3.0
+  },
+  "home_glass": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "home_ottoman": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 8.75,
+   "found_w": 9.75,
+   "extra_w": 1.0,
+   "runner_up_gain": 8.75
+  },
+  "uc_palewood": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "abp_white": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "home_wooddesk": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  },
+  "home_black": {
+   "setting": "blue follows `without_loose`: from warmth 0.08 to 0.18 the S floor goes 113 -> 30, the hue low end 103 -> 96; and bluer than the light by 0.25",
+   "key": "without_loose|0.08|0.18|30|96|0.25||0|1|13|0",
+   "allowed": 162,
+   "of": 270,
+   "gain": 10.417,
+   "found_w": 11.417,
+   "extra_w": 1.0,
+   "runner_up_gain": 10.417
+  }
+ }
+}
