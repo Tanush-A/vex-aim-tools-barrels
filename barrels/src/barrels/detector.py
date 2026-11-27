@@ -59,6 +59,23 @@ class DetConfig:
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe.
                                  # Never under 1: a barrel is one barrel wide
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
+    # EXPERIMENT 2026-11-27_occl_photo (a barrel hidden at the side by a thing that is not a barrel). NOT a permanent switch:
+    # on adoption the chosen value becomes plain code and these fields go. Nothing changes unless ``detect`` is ALSO given
+    # the photo (``photo=``); at the default "off" the detector is today's, box for box, photo or not.
+    #   "off"         today
+    #   "cut"         a partly seen stripe that no reason and no outline places: a side of the seen part is cut when the photo
+    #                 shows a straight edge that runs on past the barrel's top or bottom and meets the seen end
+    #                 (``cut_by_photo``); exactly one side cut: the box is W wide from the other side's end
+    #   "cut+bulge"   the same, and the bulge (``own_side_by_bulge``, from 2026-11-26_sidecut) must agree: the other side
+    #                 bulges like a barrel's own side and the cut side does not
+    side_photo: str = "off"
+    photo_frac: float = 0.6      # EXPERIMENT: a band carries the cut line when at least this share of its rows lie on it
+    photo_cross: float = 0.1     # EXPERIMENT: ... and barrel color lies beyond the line in at most this share of the barrel's rows
+    photo_slack: float = 0.0     # EXPERIMENT: "beyond" = more than 2 px + this x the rows from the band's edge (the line's lean is not exact)
+
+    def __post_init__(self):
+        if self.side_photo not in ("off", "cut", "cut+bulge"):
+            raise ValueError(f"side_photo must be 'off', 'cut' or 'cut+bulge', got {self.side_photo!r}")
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -308,9 +325,10 @@ def on_the_table(at: BarrelAt, cfg: DetConfig) -> bool:
 # ================================================================ the detector: ten stages, in this order
 
 def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
-           log: list | None = None) -> list[Barrel]:
+           log: list | None = None, photo: np.ndarray | None = None) -> list[Barrel]:
     """Class mask (0 other / 1 orange / 2 blue / 255 ignore) -> one Barrel per barrel, left to right. Same signature as
-    detect_cc.detect. ``log``: pass a list to get the reason log (see ``_note``).
+    detect_cc.detect. ``log``: pass a list to get the reason log (see ``_note``). ``photo``: the picture the mask was
+    made from (H x W x 3, R G B), read only by the experiment ``DetConfig.side_photo``; None, or side_photo "off": today.
 
     The stages, in order. Stripes come first: the first boxes are drawn from stripes (stage 3), and a stripe already needs
     body color above and below it. Geometry is not a stage: it is the ruler inside every check (a row gives a distance,
@@ -320,7 +338,8 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     layers = sandwiches(mask, cam, cfg)                                        #    per body color: where the other color has it right above / below
     pieces = find_pieces(mask, cam, cfg, log)                                  # 1  blobs of barrel color, barrel-shaped. No box yet
     stripes, leftover = find_stripes(mask, cam, cfg, log, layers)              # 2  stripes: one color with the other right above and below
-    found, unplaced, lost = boxes_from_stripes(stripes, mask, cam, cfg, log)   # 3  one box per stripe
+    steps = photo_steps(photo) if photo is not None and cfg.side_photo != "off" else None   # EXPERIMENT 2026-11-27_occl_photo
+    found, unplaced, lost = boxes_from_stripes(stripes, mask, cam, cfg, log, steps=steps)   # 3  one box per stripe
     found = found + closeup_pieces(pieces, found, mask, cam, cfg, log)         # 4  a piece with no stripe: only as a close-up
     found = drop_seen_through(found, mask, cam, cfg, log)                      # 5  verify: not read from a nearer barrel's picture
     found = found + caps_behind(found, lost, mask, cam, cfg, log)              # 6  a top showing above a found nearer barrel
@@ -996,6 +1015,196 @@ def own_end_by_outline(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     return (sx0, sx0 + Wi) if left else (sx1 - Wi, sx1)
 
 
+# ---------------------------------------------------------------- the side cut by a thing in front: the photo, and the bulge
+# EXPERIMENT 2026-11-27_occl_photo (DetConfig.side_photo; nothing here runs at the default "off" or without the photo).
+
+PHOTO_BAND = (0.1, 0.5)      # the band above a barrel is the rows 0.1 H to 0.5 H above its top; the band below, as far below its bottom
+PHOTO_REACH = 0.3            # in a band row the edge is looked for within this x W of the seen end, inward and outward
+PHOTO_STEP = 60.0            # a row carries an edge when its strongest step is at least this (|I(x + 2) - I(x - 2)|, R + G + B, 0..255 each)
+PHOTO_TOL_PX = 1.5           # a row lies on the line when its edge is within this many px of it
+PHOTO_LEAN = 0.5             # an occluder's edge is near upright: at most this many px sideways per row
+PHOTO_TOUCH = (3.0, 0.15)    # the line meets the seen part: the median gap between the line and the barrel's outermost pixel at most max(3 px, 0.15 W)
+PHOTO_CROSS_PX = 2           # barrel color counts as beyond the line when more than this many px beyond it
+
+
+def photo_steps(photo: np.ndarray) -> np.ndarray:
+    """The horizontal step at every pixel of the photo: |I(x + 2) - I(x - 2)| summed over R, G, B, on the photo smoothed
+    3 x 3 (float32, H x W; 0 in the two columns at each side of the frame). The photo is not changed."""
+    img = cv2.GaussianBlur(np.asarray(photo, np.float32), (3, 3), 0)
+    g = np.zeros(img.shape[:2], np.float32)
+    g[:, 2:-2] = np.abs(img[:, 4:] - img[:, :-4]).sum(axis=2)
+    return g
+
+
+def _line_fit(y: np.ndarray, x: np.ndarray, tol: float) -> tuple[float, float, np.ndarray]:
+    """The straight line x = a + b y through the points, fitted again (three times) on the points within tol px of it:
+    (a, b, which points lie on it)."""
+    keep = np.ones(len(y), bool)
+    a, b = float(np.median(x)), 0.0
+    for _ in range(3):
+        if keep.sum() >= 3 and np.ptp(y[keep]) > 0:
+            b, a = (float(v) for v in np.polyfit(y[keep], x[keep], 1))
+        elif keep.any():
+            a, b = float(np.median(x[keep])), 0.0
+        keep = np.abs(x - (a + b * y)) <= tol
+    return a, b, keep
+
+
+def cut_line_in_band(steps: np.ndarray, mask: np.ndarray, side: str, x_end: int, top: int, bottom: int, W: float, H: float,
+                     row: float, band: str, slack: float = 0.0) -> dict:
+    """The cut line in one band of rows, beside one end of the seen part of a barrel: ``side`` "L" / "R", ``x_end`` =
+    the seen end (the first seen column on the left, one past the last on the right), ``top``, ``bottom`` = the
+    barrel's rows, ``row`` = its stripe's middle row, ``band`` "up" (above its top) or "down" (below its bottom).
+
+    In every row of the band, the strongest step (``steps``) within PHOTO_REACH x W of the seen end; the rows whose step
+    is at least PHOTO_STEP get a straight line fitted (``_line_fit``). Returns ``frac`` = the share of the band's rows that
+    lie on the line; ``lean`` (px per row); ``cross`` = the share of the barrel's rows (from this band's side to the stripe's
+    middle row: the line is carried no further than half the barrel) in which barrel color lies more
+    than PHOTO_CROSS_PX beyond the line (within 0.3 W of it); ``touch`` = the median gap between the line and the
+    barrel's outermost pixel, inward (None: no barrel pixel near the line)."""
+    h, w = steps.shape
+    o = -1 if side == "L" else 1                                         # outward
+    r = int(round(PHOTO_REACH * W))
+    c0, c1 = max(2, x_end - r), min(w - 2, x_end + r + 1)
+    g0, b0 = max(1, int(round(PHOTO_BAND[0] * H))), max(4, int(round(PHOTO_BAND[1] * H)))
+    rows = np.arange(max(0, top - b0), max(0, top - g0)) if band == "up" else np.arange(min(h, bottom + g0), min(h, bottom + b0))
+    out = {"frac": 0.0, "lean": None, "cross": None, "touch": None, "n": int(rows.size)}
+    if rows.size < 4 or c1 - c0 < 3:
+        return out
+    win = steps[rows, c0:c1]
+    j = win.argmax(axis=1)
+    ok = win[np.arange(rows.size), j] >= PHOTO_STEP
+    if ok.sum() < 3:
+        return out
+    a, b, on = _line_fit((rows[ok] - row).astype(float), (c0 + j[ok]).astype(float), PHOTO_TOL_PX)
+    out["frac"], out["lean"] = float(on.sum() / rows.size), b
+    crossed, counted, gaps = 0, 0, []
+    near = range(max(0, top), min(h, int(row) + 1)) if band == "up" else range(max(0, int(row)), min(h, bottom))
+    for yy in near:                                                  # the barrel's rows from this band's side to its stripe:
+        xl = a + b * (yy - row)                                      # the line is carried no further than half the barrel
+        margin = PHOTO_CROSS_PX + slack * abs(yy - (top if band == "up" else bottom))   # (slack: the line's lean is not exact)
+        if o > 0:
+            beyond = mask[yy, max(0, int(np.ceil(xl + margin))):max(0, min(w, int(xl + 0.3 * W) + 1))]
+            i0 = max(0, int(xl - 0.5 * W))
+            inner = np.isin(mask[yy, i0:max(0, min(w, int(np.ceil(xl + PHOTO_CROSS_PX))))], (ORANGE, BLUE))
+            if inner.any():
+                gaps.append(xl - (i0 + np.flatnonzero(inner)[-1] + 1))
+        else:
+            beyond = mask[yy, max(0, int(np.ceil(xl - 0.3 * W))):max(0, min(w, int(np.floor(xl - margin))))]
+            i0 = max(0, int(np.floor(xl - PHOTO_CROSS_PX)))
+            inner = np.isin(mask[yy, i0:max(0, min(w, int(xl + 0.5 * W) + 1))], (ORANGE, BLUE))
+            if inner.any():
+                gaps.append((i0 + np.flatnonzero(inner)[0]) - xl)
+        counted += 1
+        crossed += bool(np.isin(beyond, (ORANGE, BLUE)).any())
+    out["cross"] = crossed / max(1, counted)
+    out["touch"] = float(np.median(gaps)) if gaps else None
+    return out
+
+
+def cut_by_photo(steps: np.ndarray, mask: np.ndarray, s: Stripe, cam: geo.CameraModel, cfg: DetConfig, top: int, bottom: int,
+                 sx0: int, sx1: int) -> tuple[bool, bool] | None:
+    """Is the left end, and is the right end, of the seen part (columns sx0..sx1, rows top..bottom) cut by a thing
+    standing in front: (left, right)? None when the stripe's row gives no barrel.
+
+    A thing in front that hides a barrel's side has an edge in the photo that is straight and near upright, and that
+    runs on past the barrel: above its top (the thing is taller) or below its bottom (it stands nearer, so its foot is
+    lower in the picture). A barrel's own side ends at its lid and its base. A side is cut when, in the band above OR the
+    band below (``cut_line_in_band``), the line
+      - runs through at least photo_frac of the band's rows, leaning at most PHOTO_LEAN px per row,
+      - has barrel color beyond it in at most photo_cross of the barrel's rows (a thing in front hides everything past
+        its edge; an edge BEHIND the barrel is crossed by the barrel's bulge), and
+      - meets the seen part: the barrel's outermost pixel is at most max(PHOTO_TOUCH) inside it."""
+    at = _at(s, cam)
+    if at is None:
+        return None
+    W, H, row = at.W, at.H, float(s.center_row)
+
+    def cut(side: str, x_end: int) -> bool:
+        for band in ("up", "down"):
+            m = cut_line_in_band(steps, mask, side, x_end, top, bottom, W, H, row, band, cfg.photo_slack)
+            if (m["frac"] >= cfg.photo_frac and m["lean"] is not None and abs(m["lean"]) <= PHOTO_LEAN
+                    and m["cross"] is not None and m["cross"] <= cfg.photo_cross
+                    and m["touch"] is not None and abs(m["touch"]) <= max(PHOTO_TOUCH[0], PHOTO_TOUCH[1] * W)):
+                return True
+        return False
+
+    return cut("L", sx0), cut("R", sx1)
+
+
+SIDE_BAND = 1 / 6            # (from 2026-11-26_sidecut) the top sixth and the bottom sixth of the seen rows are the two ends of a side
+BULGE_SHARE = 0.25           # (from 2026-11-26_sidecut) a side is the barrel's own when it bulges by at least this share of the outline's bulge
+BULGE_MIN_PX = 1.0           # (from 2026-11-26_sidecut) ... and by at least one pixel
+
+
+def _outline_half_width(ol: Outline, v: np.ndarray) -> np.ndarray:
+    """Half the width of a barrel's outline, in barrel widths, at the heights ``v`` (0 = the outline's top row, 1 = its
+    bottom row). From the experiment 2026-11-26_sidecut, unchanged."""
+    u = np.linspace(0.0, 0.5, 201)
+    span = ol.bot_apex - ol.top_apex
+    t = (ol.top(u) - ol.top_apex) / span
+    b = (ol.bottom(u) - ol.top_apex) / span
+    inside = (t[None, :] <= v[:, None]) & (v[:, None] <= b[None, :])
+    return (inside * u[None, :]).max(axis=1)
+
+
+def side_bulges(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, top: int, bottom: int, sx0: int, sx1: int,
+                band: float = SIDE_BAND) -> tuple[float, float, float] | None:
+    """How far each side of the seen part bulges, in px: (left, right, what a barrel's own side shows in the same rows);
+    None when it cannot be measured. From the experiment 2026-11-26_sidecut, unchanged: per row the first and the last
+    barrel-colored column; a ruler from the edge's median column in the top ``band`` of the rows to the one in the bottom
+    ``band``; the bulge is how far the middle rows' median column sticks out past the ruler."""
+    at = _at(s, cam)
+    if at is None or bottom - top < 8 or sx1 - sx0 < 2:
+        return None
+    part = np.isin(mask[top:bottom, sx0:sx1], (ORANGE, BLUE))
+    has = part.any(axis=1)
+    left = sx0 + np.argmax(part, axis=1).astype(float)
+    right = sx1 - np.argmax(part[:, ::-1], axis=1).astype(float)
+    v = (np.arange(bottom - top) + 0.5) / (bottom - top)
+    up, low, mid = has & (v < band), has & (v > 1 - band), has & (v >= band) & (v <= 1 - band)
+    if min(int(up.sum()), int(low.sum()), int(mid.sum())) < 2:
+        return None
+    own = at.W * _outline_half_width(Outline.at(cam, at.d), v)
+    r_up, r_mid, r_low = (float(np.median(v[b])) for b in (up, mid, low))
+    t = (r_mid - r_up) / (r_low - r_up)
+
+    def bulge(edge: np.ndarray) -> float:
+        a, b = float(np.median(edge[up])), float(np.median(edge[low]))
+        return float(np.median(edge[mid])) - (a + (b - a) * t)
+
+    return -bulge(left), bulge(right), bulge(own)
+
+
+def own_side_by_bulge(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, top: int, bottom: int, sx0: int, sx1: int) -> tuple[bool, bool] | None:
+    """Is the left end, and is the right end, the barrel's own side by its bulge: (left, right)? None when it cannot be
+    measured. From the experiment 2026-11-26_sidecut, unchanged: a side bulges by at least BULGE_SHARE of the outline's
+    bulge in those rows, and by at least BULGE_MIN_PX."""
+    m = side_bulges(s, mask, cam, top, bottom, sx0, sx1)
+    if m is None or m[2] <= 0:
+        return None
+    left, right, own = m
+    need = max(BULGE_MIN_PX, BULGE_SHARE * own)
+    return left >= need, right >= need
+
+
+def by_photo(s: Stripe, seen: "SeenSpan", mask: np.ndarray, cam: geo.CameraModel, W: float, cfg: DetConfig, steps: np.ndarray,
+             top: int, bottom: int, edges_seen: bool) -> tuple[int, int] | None:
+    """EXPERIMENT 2026-11-27_occl_photo. A box W wide from the end of the seen part that is NOT cut, when exactly one end
+    is cut by a thing in front (``cut_by_photo``). With side_photo "cut+bulge" the bulge must agree as well
+    (``own_side_by_bulge``: the other end bulges like a barrel's side, the cut end does not; it needs the top and the
+    bottom seen). Else None."""
+    cut = cut_by_photo(steps, mask, s, cam, cfg, top, bottom, seen.x0, seen.x1)
+    if cut is None or cut[0] == cut[1]:
+        return None
+    if cfg.side_photo == "cut+bulge":
+        own = own_side_by_bulge(s, mask, cam, top, bottom, seen.x0, seen.x1) if edges_seen else None
+        if own != (not cut[0], not cut[1]):
+            return None
+    Wi = int(round(W))
+    return (seen.x1 - Wi, seen.x1) if cut[0] else (seen.x0, seen.x0 + Wi)
+
+
 def _body_crosses(mask: np.ndarray, s: Stripe, sx0: int, sx1: int) -> bool:
     """Does the body color cross the stripe's rows in some column of sx0..sx1 (more than half of the rows y0..y1 of the
     stripe)? A barrel's body never crosses its own stripe; a body-colored thing in front of it does."""
@@ -1115,7 +1324,7 @@ def centred(s: Stripe, seen: SeenSpan, W: float, cfg: DetConfig) -> tuple[int, i
 
 
 def thin_slice(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel, W: float,
-               cfg: DetConfig) -> tuple[int, int, str] | None:
+               cfg: DetConfig, steps: np.ndarray | None = None, top: int = 0, bottom: int = 0) -> tuple[int, int, str] | None:
     """The sides for a thin piece of stripe (narrower than a stripe is tall, or taller than wide). A thin piece gets here
     only as a full slice, seen from top to bottom: ``box_from_stripe`` refuses one with an inferred edge before the sides
     are asked. It skips the reasons for a hidden side; in this order:
@@ -1133,11 +1342,18 @@ def thin_slice(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel
     if (seen.x0 <= 0) != (seen.x1 >= w):
         return (seen.x1 - Wi, seen.x1, "thin_frame") if seen.x0 <= 0 else (seen.x0, seen.x0 + Wi, "thin_frame")
     placed = own_end_by_outline(s, mask, cam, cfg, seen.x0, seen.x1)
-    return None if placed is None else (*placed, "thin_outline")
+    if placed is not None:
+        return (*placed, "thin_outline")
+    if steps is not None:                                            # EXPERIMENT 2026-11-27_occl_photo: 4. one end cut by a thing in front
+        placed = by_photo(s, seen, mask, cam, W, cfg, steps, top, bottom, edges_seen=True)   # a thin piece has both edges seen
+        if placed is not None:
+            return (*placed, "thin_photo_cut")
+    return None
 
 
 def partly_seen(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel, W: float, pred_bottom: float, cfg: DetConfig,
-                found: tuple = (), use_outline: bool = True) -> tuple[int, int, str] | None:
+                found: tuple = (), use_outline: bool = True, steps: np.ndarray | None = None, top: int = 0, bottom: int = 0,
+                edges_seen: bool = False) -> tuple[int, int, str] | None:
     """The sides for a stripe narrower than stripe_full x W that is not thin (hidden or not: the color step can leave a
     stripe narrow). In this order:
 
@@ -1159,11 +1375,18 @@ def partly_seen(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraMode
         placed = own_end_by_outline(s, mask, cam, cfg, seen.x0, seen.x1)
         if placed is not None:
             return (*placed, "outline")
+    if steps is not None and use_outline:
+        # EXPERIMENT 2026-11-27_occl_photo: one end cut by a thing in front (``by_photo``); like the outline it never takes
+        # the place of a box that is already there
+        placed = by_photo(s, seen, mask, cam, W, cfg, steps, top, bottom, edges_seen)
+        if placed is not None:
+            return (*placed, "photo_cut")
     return centred(s, seen, W, cfg)
 
 
 def place_sides(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, W: float, top: int, bottom: int, pred_bottom: float,
-                cfg: DetConfig, others: tuple = (), found: tuple = (), use_outline: bool = True) -> tuple[int, int, str] | None:
+                cfg: DetConfig, others: tuple = (), found: tuple = (), use_outline: bool = True, steps: np.ndarray | None = None,
+                edges_seen: bool = False) -> tuple[int, int, str] | None:
     """Left edge, right edge and the rule that placed them, for one stripe; None when nothing places the box.
     ``top``, ``bottom`` = the box's rows; ``pred_bottom`` = the bottom row the stripe's row predicts; ``others`` = the
     columns of the other stripes; ``found`` = the barrels found so far.
@@ -1179,8 +1402,8 @@ def place_sides(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, W: float, top
         return x0, x1, "whole_stripe"
     seen = seen_span(s, mask, W, top, bottom, cfg, others)
     if s.thin:
-        return thin_slice(s, seen, mask, cam, W, cfg)
-    return partly_seen(s, seen, mask, cam, W, pred_bottom, cfg, found, use_outline)
+        return thin_slice(s, seen, mask, cam, W, cfg, steps, top, bottom)
+    return partly_seen(s, seen, mask, cam, W, pred_bottom, cfg, found, use_outline, steps, top, bottom, edges_seen)
 
 
 # ---------------------------------------------------------------- the box holds body color
@@ -1206,7 +1429,8 @@ def holds_body(s: Stripe, mask: np.ndarray, top: int, bottom: int, cfg: DetConfi
 # ---------------------------------------------------------------- one stripe, one box
 
 def box_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), others: tuple = (),
-                    found: tuple = (), log: list | None = None, use_outline: bool = True) -> tuple[Found | None, str | None]:
+                    found: tuple = (), log: list | None = None, use_outline: bool = True,
+                    steps: np.ndarray | None = None) -> tuple[Found | None, str | None]:
     """One box from one stripe: (the box, None), or (None, the reason there is none).
 
     The stripe's row gives the distance; the distance gives the full barrel the geometry predicts (top, bottom, width).
@@ -1238,7 +1462,8 @@ def box_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetC
         return None, "slice_not_full"
     flags = set(edges.inferred)
     top, bottom = max(0, edges.top), min(h, edges.bottom)
-    placed = place_sides(s, mask, cam, W, top, bottom, at.bottom, cfg, others, found, use_outline=use_outline)
+    placed = place_sides(s, mask, cam, W, top, bottom, at.bottom, cfg, others, found, use_outline=use_outline, steps=steps,
+                         edges_seen=not edges.inferred)
     if placed is None:
         why = "outline_unknown" if s.thin else "side_unexplained"
         _note(log, "barrel", why, s.bbox, body=s.body, expected_w=W)
@@ -1278,7 +1503,7 @@ def piece_of_found(s: Stripe, found: list) -> bool:
 
 
 def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                       log: list | None = None) -> tuple[list[Found], list[Stripe], list[Stripe]]:
+                       log: list | None = None, steps: np.ndarray | None = None) -> tuple[list[Found], list[Stripe], list[Stripe]]:
     """Stage 3. In: the stripes. Out: (the boxes; the stripes nothing could place, for stage 7; the stripes that lost to a
     surer box of the same barrel, for stage 6).
 
@@ -1313,12 +1538,12 @@ def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraM
             continue                                                                       # 1.
         others = tuple((o.bbox[0], o.bbox[2]) for o in stripes if o is not s and not o.thin)
         boxes = tuple(f.barrel for f in found)
-        f, why = box_from_stripe(s, mask, cam, cfg, others, boxes, log)                    # 2.
+        f, why = box_from_stripe(s, mask, cam, cfg, others, boxes, log, steps=steps)       # 2.
         if f is not None and same_barrel(f.barrel.bbox, f.barrel.color, boxes):
             if s.thin:                                                                     # 3.
                 _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=f.barrel.bbox)
                 continue
-            f, why = box_from_stripe(s, mask, cam, cfg, others, boxes, use_outline=False)
+            f, why = box_from_stripe(s, mask, cam, cfg, others, boxes, use_outline=False, steps=steps)
         if f is None:
             if why == "side_unexplained":
                 unplaced.append(s)
