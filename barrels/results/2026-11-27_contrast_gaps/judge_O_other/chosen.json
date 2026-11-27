@@ -1,0 +1,92 @@
+{
+ "home_white": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "campus_study": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "abp_gray": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "home_bathtile": {
+  "setting": "today's default",
+  "key": "e-|h-|s-|b-|o-",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.0
+  }
+ },
+ "home_glass": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "home_ottoman": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "uc_palewood": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "abp_white": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "home_wooddesk": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ },
+ "home_black": {
+  "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+  "key": "e-|h-|s-|b-|o0.4",
+  "info": {
+   "allowed": 2,
+   "of": 2,
+   "gain": 0.25
+  }
+ }
+}

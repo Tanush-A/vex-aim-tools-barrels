@@ -1,0 +1,596 @@
+{
+ "rows": [
+  {
+   "name": "E_edge",
+   "title": "E: a window the side of the frame cuts is counted inside the frame",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    157.38
+   ],
+   "found_frame": [
+    277,
+    280
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 3,
+   "lost": 0,
+   "report_gained": 3,
+   "report_lost": 0,
+   "places_found": {
+    "home_bathtile": 0.75
+   },
+   "places_extra": {},
+   "traps": [],
+   "chosen": {},
+   "gained_list": [
+    [
+     "4A8B_lampmid3_bathtile_edge_01",
+     [
+      0,
+      127,
+      31,
+      196
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid6_bathtile_edge_01",
+     [
+      0,
+      127,
+      31,
+      196
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm6_bathtile_edge_01",
+     [
+      0,
+      127,
+      31,
+      196
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampcool3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": [],
+   "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+   "key": "e0.6|h-|s-|b-|o-"
+  },
+  {
+   "name": "H_half",
+   "title": "H: the half sandwich at the bottom of the frame (close-ups)",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    157.63
+   ],
+   "found_frame": [
+    277,
+    280
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 3,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {
+    "home_ottoman": 1.0
+   },
+   "places_extra": {},
+   "traps": [],
+   "chosen": {},
+   "gained_list": [
+    [
+     "4A8B_lampcool6_ottoman_close_01",
+     [
+      218,
+      232,
+      470,
+      480
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid6_ottoman_close_01",
+     [
+      218,
+      232,
+      470,
+      480
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm6_ottoman_close_01",
+     [
+      218,
+      232,
+      470,
+      480
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": [],
+   "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+   "key": "e-|h1.3|s-|b-|o-"
+  },
+  {
+   "name": "S_split",
+   "title": "S: a fixed-colors box two barrels wide is split by the run on the painted mask",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.97
+   ],
+   "found_frame": [
+    277,
+    278
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 1,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {
+    "home_ottoman": 0.33
+   },
+   "places_extra": {},
+   "traps": [],
+   "chosen": {},
+   "gained_list": [
+    [
+     "4A8B_lampcool6_ottoman_touch_01",
+     [
+      198,
+      129,
+      262,
+      198
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": [],
+   "setting": "today's default plus split a box wider than 1.25 W",
+   "key": "e-|h-|s1.25|b-|o-"
+  },
+  {
+   "name": "B_beside",
+   "title": "B: a weaker candidate beside a found barrel, at its stripe row",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.97
+   ],
+   "found_frame": [
+    277,
+    278
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 1,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {
+    "home_ottoman": 0.33
+   },
+   "places_extra": {},
+   "traps": [],
+   "chosen": {},
+   "gained_list": [
+    [
+     "4A8B_lampwarm6_ottoman_touch_01",
+     [
+      262,
+      129,
+      325,
+      198
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": [],
+   "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+   "key": "e-|h-|s-|b1|o-"
+  },
+  {
+   "name": "O_other",
+   "title": "O: two boxes of different colors on one barrel: the one the stripe pattern supports less is dropped",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.18
+   ],
+   "extra_raw": [
+    7,
+    6
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {
+    "home_bathtile": -0.25
+   },
+   "traps": [],
+   "chosen": {},
+   "gained_list": [],
+   "lost_list": [],
+   "box_changes": [
+    {
+     "stem": "4A8B_lampwarm6_bathtile_core_01",
+     "judged": true,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 1,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "boxes_after": []
+    },
+    {
+     "stem": "4A8B_lampwarm6_wood_cluster_01",
+     "judged": false,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 1,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "boxes_after": []
+    }
+   ],
+   "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+   "key": "e-|h-|s-|b-|o0.4"
+  },
+  {
+   "name": "ALL",
+   "title": "ALL (primary): E + H + S + B + O, each number its own family's pick",
+   "verdict": "PASS",
+   "why": "found is up by more than the noise, and nothing is worse by more than the noise.",
+   "found_w": [
+    156.63,
+    159.05
+   ],
+   "found_frame": [
+    277,
+    285
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.18
+   ],
+   "extra_raw": [
+    7,
+    6
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 8,
+   "lost": 0,
+   "report_gained": 3,
+   "report_lost": 0,
+   "places_found": {
+    "home_bathtile": 0.75,
+    "home_ottoman": 1.67
+   },
+   "places_extra": {
+    "home_bathtile": -0.25
+   },
+   "traps": [],
+   "chosen": {},
+   "gained_list": [
+    [
+     "4A8B_lampcool6_ottoman_close_01",
+     [
+      218,
+      232,
+      470,
+      480
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampcool6_ottoman_touch_01",
+     [
+      198,
+      129,
+      262,
+      198
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid3_bathtile_edge_01",
+     [
+      0,
+      127,
+      31,
+      196
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid6_bathtile_edge_01",
+     [
+      0,
+      127,
+      31,
+      196
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid6_ottoman_close_01",
+     [
+      218,
+      232,
+      470,
+      480
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm6_bathtile_edge_01",
+     [
+      0,
+      127,
+      31,
+      196
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm6_ottoman_close_01",
+     [
+      218,
+      232,
+      470,
+      480
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm6_ottoman_touch_01",
+     [
+      262,
+      129,
+      325,
+      198
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampcool3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": [
+    {
+     "stem": "4A8B_lampwarm6_bathtile_core_01",
+     "judged": true,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 1,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "boxes_after": []
+    },
+    {
+     "stem": "4A8B_lampwarm6_wood_cluster_01",
+     "judged": false,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 1,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "boxes_after": []
+    }
+   ],
+   "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+   "key": "e0.6|h1.3|s1.25|b1|o0.4"
+  }
+ ]
+}

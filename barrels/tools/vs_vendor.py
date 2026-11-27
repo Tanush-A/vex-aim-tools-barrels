@@ -53,9 +53,26 @@ def main() -> int:
     ap.add_argument("--like", default=None, help="every train frame whose name contains this text (vendor file or not), e.g. window_light or campus_light")
     ap.add_argument("--open", action="store_true", help="open the picture(s) when done (macOS)")
     ap.add_argument("--contrast-from", default=None, help="a barrels/ folder that has experiments/2026-11-26_contrast")
+    ap.add_argument("--cand-callable", default=None, metavar="FILE:NAME",
+                    help="OURS = this detect_frame(stem, frame) instead of the contrast experiment's BEST (FILE relative to --contrast-from or absolute); "
+                         "if FILE also has masks(stem, frame) -> (fixed mask, painted mask), the segmentation panel uses it")
+    ap.add_argument("--out", default=None, metavar="DIR", help="write the pictures, chart and index.html here instead of results/2026-11-27_vs_vendor")
     a = ap.parse_args()
+    global OUT
+    if a.out:
+        OUT = Path(a.out)
     src = Path(a.contrast_from) if a.contrast_from else (BARRELS if (BARRELS / "experiments" / "2026-11-26_contrast" / "candidate.py").exists() else WORKTREE)
     cand = load_contrast(src)
+    ours_fn = masks_fn = None
+    if a.cand_callable:
+        f, _, name = a.cand_callable.rpartition(":")
+        fp = Path(f) if Path(f).is_absolute() else src / f
+        sys.path.insert(0, str(fp.parent))
+        spec = importlib.util.spec_from_file_location(fp.stem, fp)
+        m = importlib.util.module_from_spec(spec)
+        sys.modules[fp.stem] = m
+        spec.loader.exec_module(m)
+        ours_fn, masks_fn = getattr(m, name), getattr(m, "masks", None)
     from barrels import counting as ct, eval_det as ed, geometry as geo, io, judge as jg
     cam = geo.AIM_4A8B6118_BOXFIT
     splits = json.loads((BARRELS / "data" / "splits.json").read_text())
@@ -76,10 +93,18 @@ def main() -> int:
     rows = []
     for s in stems:
         frame = jg.load_frame(s)
-        fw = cand.FrameWork(frame)
-        ours = fw.detect(cand.BEST)
-        mask, _ = fw.masks(cand.BEST)
-        base = fw.base_mask
+        if ours_fn is not None:
+            ours = ours_fn(s, frame)
+            if masks_fn is not None:
+                base, mask = masks_fn(s, frame)
+            else:
+                fw = cand.FrameWork(frame)
+                base = mask = fw.base_mask
+        else:
+            fw = cand.FrameWork(frame)
+            ours = fw.detect(cand.BEST)
+            mask, _ = fw.masks(cand.BEST)
+            base = fw.base_mask
         try:
             vend, _ = io.vendor_barrels(io.load_vendor(s))
         except (FileNotFoundError, ValueError):

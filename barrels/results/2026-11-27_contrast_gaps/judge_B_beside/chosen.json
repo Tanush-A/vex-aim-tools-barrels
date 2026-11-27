@@ -1,0 +1,92 @@
+{
+ "home_white": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "campus_study": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 0.9)",
+  "key": "e-|h-|s-|b0.9|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.667
+  }
+ },
+ "abp_gray": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "home_bathtile": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "home_glass": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "home_ottoman": {
+  "setting": "today's default",
+  "key": "e-|h-|s-|b-|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.0
+  }
+ },
+ "uc_palewood": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "abp_white": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "home_wooddesk": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ },
+ "home_black": {
+  "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+  "key": "e-|h-|s-|b1|o-",
+  "info": {
+   "allowed": 3,
+   "of": 3,
+   "gain": 0.333
+  }
+ }
+}

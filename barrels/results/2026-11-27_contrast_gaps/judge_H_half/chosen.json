@@ -1,0 +1,92 @@
+{
+ "home_white": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "campus_study": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "abp_gray": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "home_bathtile": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "home_glass": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "home_ottoman": {
+  "setting": "today's default",
+  "key": "e-|h-|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 0.0
+  }
+ },
+ "uc_palewood": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "abp_white": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "home_wooddesk": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ },
+ "home_black": {
+  "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+  "key": "e-|h1.3|s-|b-|o-",
+  "info": {
+   "allowed": 4,
+   "of": 4,
+   "gain": 1.0
+  }
+ }
+}

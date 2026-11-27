@@ -1,0 +1,1199 @@
+{
+ "rows": [
+  {
+   "name": "E_edge",
+   "title": "E: a window the side of the frame cuts is counted inside the frame",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 3,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {},
+   "traps": [],
+   "chosen": {
+    "home_white": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "campus_study": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "abp_gray": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "home_bathtile": {
+     "setting": "today's default",
+     "key": "e-|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.0
+     }
+    },
+    "home_glass": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "home_ottoman": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "uc_palewood": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "abp_white": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "home_wooddesk": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    },
+    "home_black": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside)",
+     "key": "e0.6|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.75
+     }
+    }
+   },
+   "gained_list": [
+    [
+     "4A8B_lampcool3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": []
+  },
+  {
+   "name": "H_half",
+   "title": "H: the half sandwich at the bottom of the frame (close-ups)",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {},
+   "traps": [],
+   "chosen": {
+    "home_white": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "campus_study": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "abp_gray": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "home_bathtile": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "home_glass": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "home_ottoman": {
+     "setting": "today's default",
+     "key": "e-|h-|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.0
+     }
+    },
+    "uc_palewood": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "abp_white": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "home_wooddesk": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    },
+    "home_black": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3)",
+     "key": "e-|h1.3|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 1.0
+     }
+    }
+   },
+   "gained_list": [],
+   "lost_list": [],
+   "box_changes": []
+  },
+  {
+   "name": "S_split",
+   "title": "S: a fixed-colors box two barrels wide is split by the run on the painted mask",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {},
+   "traps": [],
+   "chosen": {
+    "home_white": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "campus_study": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "abp_gray": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "home_bathtile": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "home_glass": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "home_ottoman": {
+     "setting": "today's default",
+     "key": "e-|h-|s-|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.0
+     }
+    },
+    "uc_palewood": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "abp_white": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "home_wooddesk": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    },
+    "home_black": {
+     "setting": "today's default plus split a box wider than 1.25 W",
+     "key": "e-|h-|s1.25|b-|o-",
+     "info": {
+      "allowed": 4,
+      "of": 4,
+      "gain": 0.333
+     }
+    }
+   },
+   "gained_list": [],
+   "lost_list": [],
+   "box_changes": []
+  },
+  {
+   "name": "B_beside",
+   "title": "B: a weaker candidate beside a found barrel, at its stripe row",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    3.43
+   ],
+   "extra_raw": [
+    7,
+    8
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {
+    "campus_study": 1.0
+   },
+   "traps": [],
+   "chosen": {
+    "home_white": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "campus_study": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 0.9)",
+     "key": "e-|h-|s-|b0.9|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.667
+     }
+    },
+    "abp_gray": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "home_bathtile": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "home_glass": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "home_ottoman": {
+     "setting": "today's default",
+     "key": "e-|h-|s-|b-|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.0
+     }
+    },
+    "uc_palewood": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "abp_white": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "home_wooddesk": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    },
+    "home_black": {
+     "setting": "today's default plus beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h-|s-|b1|o-",
+     "info": {
+      "allowed": 3,
+      "of": 3,
+      "gain": 0.333
+     }
+    }
+   },
+   "gained_list": [],
+   "lost_list": [],
+   "box_changes": [
+    {
+     "stem": "4A8B_campus_light_clutter_02",
+     "judged": true,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 1
+     },
+     "boxes_after": [
+      [
+       "blue",
+       [
+        394,
+        115,
+        437,
+        169
+       ]
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "name": "O_other",
+   "title": "O: two boxes of different colors on one barrel: the one the stripe pattern supports less is dropped",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    2.43
+   ],
+   "extra_raw": [
+    7,
+    7
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 0,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {},
+   "traps": [],
+   "chosen": {
+    "home_white": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "campus_study": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "abp_gray": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "home_bathtile": {
+     "setting": "today's default",
+     "key": "e-|h-|s-|b-|o-",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.0
+     }
+    },
+    "home_glass": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "home_ottoman": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "uc_palewood": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "abp_white": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "home_wooddesk": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    },
+    "home_black": {
+     "setting": "today's default plus drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e-|h-|s-|b-|o0.4",
+     "info": {
+      "allowed": 2,
+      "of": 2,
+      "gain": 0.25
+     }
+    }
+   },
+   "gained_list": [],
+   "lost_list": [],
+   "box_changes": [
+    {
+     "stem": "4A8B_lampwarm6_wood_cluster_01",
+     "judged": false,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 1,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "boxes_after": []
+    }
+   ]
+  },
+  {
+   "name": "ALL",
+   "title": "ALL (primary): E + H + S + B + O, each number its own family's pick",
+   "verdict": "NO CLEAR DIFFERENCE",
+   "why": "no count moved by more than a change that means nothing moves it.",
+   "found_w": [
+    156.63,
+    156.63
+   ],
+   "found_frame": [
+    277,
+    277
+   ],
+   "off": [
+    4,
+    4
+   ],
+   "extra_w": [
+    2.43,
+    3.43
+   ],
+   "extra_raw": [
+    7,
+    8
+   ],
+   "empty": [
+    0,
+    0
+   ],
+   "clean_empty": [
+    0,
+    0
+   ],
+   "gained": 0,
+   "lost": 0,
+   "report_gained": 3,
+   "report_lost": 0,
+   "places_found": {},
+   "places_extra": {
+    "campus_study": 1.0
+   },
+   "traps": [],
+   "chosen": {
+    "home_white": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "campus_study": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 0.9)",
+     "key": "e0.6|h1.3|s1.25|b0.9|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.667
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "abp_gray": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "home_bathtile": {
+     "setting": "today's default plus half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, beside a found barrel at its row (strength >= 1)",
+     "key": "e-|h1.3|s1.25|b1|o-",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.0
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.0
+      }
+     }
+    },
+    "home_glass": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "home_ottoman": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), drop an added box overlapping a box of the other color by over 0.4",
+     "key": "e0.6|h-|s-|b-|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.0
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.0
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "uc_palewood": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "abp_white": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "home_wooddesk": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    },
+    "home_black": {
+     "setting": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)",
+     "key": "e0.6|h1.3|s1.25|b1|o0.4",
+     "info": {
+      "E_edge": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.75
+      },
+      "H_half": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 1.0
+      },
+      "S_split": {
+       "allowed": 4,
+       "of": 4,
+       "gain": 0.333
+      },
+      "B_beside": {
+       "allowed": 3,
+       "of": 3,
+       "gain": 0.333
+      },
+      "O_other": {
+       "allowed": 2,
+       "of": 2,
+       "gain": 0.25
+      }
+     }
+    }
+   },
+   "gained_list": [
+    [
+     "4A8B_lampcool3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampmid3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ],
+    [
+     "4A8B_lampwarm3_wood_core_01",
+     [
+      0,
+      168,
+      78,
+      309
+     ],
+     "missed"
+    ]
+   ],
+   "lost_list": [],
+   "box_changes": [
+    {
+     "stem": "4A8B_campus_light_clutter_02",
+     "judged": true,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 1
+     },
+     "boxes_after": [
+      [
+       "blue",
+       [
+        394,
+        115,
+        437,
+        169
+       ]
+      ]
+     ]
+    },
+    {
+     "stem": "4A8B_lampwarm6_wood_cluster_01",
+     "judged": false,
+     "empty": false,
+     "clean": true,
+     "before": {
+      "wrong_color": 1,
+      "second": 0,
+      "nothing": 0
+     },
+     "after": {
+      "wrong_color": 0,
+      "second": 0,
+      "nothing": 0
+     },
+     "boxes_after": []
+    }
+   ]
+  }
+ ],
+ "best_in_sample": "e0.6|h1.3|s1.25|b1|o0.4",
+ "best_describe": "today's default plus edge (window counted inside the frame, >= 0.6 of it inside), half sandwich at the frame bottom (strength >= 1.3), split a box wider than 1.25 W, drop an added box overlapping a box of the other color by over 0.4, beside a found barrel at its row (strength >= 1)"
+}
