@@ -4,14 +4,19 @@
 
 ## Now: the re-plan after the review (2026-11-26)
 
-Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the detector's logic and the final report (`REPORT-2026-11-25.md`). **Order (Tanush, 2026-11-26): on his go, merge `wip/final`; then U1, the detector map, with recommendations for restructuring; pause. On his go, M, the measurement; pause. On his go, K, the collapse, after some planning. Then C, the color experiments: every idea listed there is tried. Each step waits for his go.** The reviewer session is the only one editing code for now; the main session is paused. The plan of the week of 2026-11-18 is kept below as the record.
+Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the detector's logic and the final report (`REPORT-2026-11-25.md`). **Order (Tanush, 2026-11-26, later: he is away, no step waits for a go):** merge `wip/final` (done 2026-11-26, tests 930 pass, never-regress check passes, pushed); then U1, the detector map, with recommendations for restructuring; then M, the measurement; then K, the collapse; then C, the experiments: every idea listed is tried, **each on its own branch** so he can see it. Every step has its checks written down. The reviewer session is the only one editing code for now; the main session is paused. At the end: `docs/OVERNIGHT-2026-11-26.md`. The plan of the week of 2026-11-18 is kept below as the record.
 
 **Decisions from Tanush, 2026-11-26** (to be logged in `DECISIONS.md` by the main session):
 
 - **Labeling:** from now on Claude proposes every box and every threshold label, Tanush reviews briefly and adjusts. Claude may change the labeling tools and asks for a short review. Proposals come from looking at the picture, never from the detector.
 - **Never-regress is loosened.** It was meant as a general principle, not a strict rule. The size of the allowed margin is M2.
 - **The vendor counts as 100 % on a white table under window or overhead light.** An assumption, not a measurement; every table that uses it says so.
-- **The verify step: "understood" on both checks (2026-11-26).** `wip/final` merges into `barrels` on his go.
+- **The verify step: "understood" on both checks (2026-11-26).** `wip/final` merged into `barrels` 2026-11-26.
+- **The tall box around a same-colored barrel straight behind (D4) is accepted** as an edge case; no work.
+- **Pass rules are loosened** to above the noise (M3).
+- **A calibration step is fine for data collection only** (a shot with known barrels that tells us the light of a place), not as a step of the robot's run.
+- **The bottom-edge mismatch (D1) gets fixed** (K2). **A barrel 60 % hidden at the side should still be found** when its stripe, bulge and top or bottom edge show (E7).
+- **More data later:** Tanush shoots one or two more places after this block of work.
 
 ### U. Understand what runs today (first; no code)
 
@@ -34,11 +39,14 @@ Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the
 
 ### K. Collapse the detector (after U1, U2 and M)
 
+Rule for what goes (Tanush, 2026-11-26): a check that is logically sound stays, even when no frame of ours shows its case; what is redundant or can be folded into another check is collapsed.
+
 | # | what | state |
 |---|---|---|
-| **K1** | Remove what U2 marks as doing nothing; freeze the occlusion rules (no new ones); name the stages in the code as on the map. Detector = main code: `wip/` branch, walkthrough, the check from M2. | open |
+| **K1** | Remove the rules that are switched off and the code only they use; make the rules that are on plain code (no switch); fold the duplicates; name the stages in the code as on the map. Check: the boxes on every train frame and on every simulated scene are the same before and after, box for box. Then the map is rewritten for the collapsed detector. | open |
+| **K2** | **The bottom edge** (D1): the detector and the score agree on how far a seen bottom may be from the predicted one. Changes boxes, so it is judged with the rule from M3. | open, after K1 |
 
-### C. Color, in this order (each is one written-first experiment, judged by place with the rule from M3)
+### C. Experiments (each written first, on its own branch `wip/exp-…`, train frames only, judged by place with the rule from M3)
 
 | # | what | state |
 |---|---|---|
@@ -49,6 +57,10 @@ Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the
 | **C6** | **Use more of the photo** (Tanush: keep on the list): how close a pixel came to passing instead of yes or no; the barrel's outline against the table; what is at the unpainted places, table or an object in front. | open |
 | **C7** | **Calibration per place:** at the start of a session one orange and one blue barrel stand at a known spot in front of the robot; the program reads their colors there and sets the ranges for that room. Hand thresholds per condition already do this by hand (218 of 243 against 148). Needs Dave's word, since it adds a setup step. | open, after asking Dave |
 | **C5** | **Adaptive thresholds from room statistics: no further round** until the input is measured on the barrel (C4 gives that) and there are more places. Aiming at any value inside the working range was tried twice (range rule 2026-11-24: 112 found against the fixed 121; relation on ranges 2026-11-25: a different chance winner per threshold). | parked |
+
+| **E6** | **What to read the light or the colors from** (Tanush asked for ideas): a barrel already found with the strict colors, used to set the colors for the rest of the frame; the light read from pixels with almost no color (white and gray things) instead of the brightest ones; one frame of a place setting the ranges for the other frames of that place (what a calibration shot during data collection would give). | open |
+| **E7** | **A barrel 60 % hidden at the side:** one rule that uses the stripe, the bulge of the seen side and the seen top or bottom edge; no cliff between half and 60 % (D2). | open, after K1 |
+| **E8** | **The winners together**, judged once more as one candidate. | open, last |
 
 ### Data and Dave
 

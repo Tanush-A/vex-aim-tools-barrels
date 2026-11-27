@@ -21,6 +21,21 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-26 — After the review: the order of work, labels, never-regress, the vendor on white, calibration
+
+- **Decision:**
+  1. **Order of work:** merge `wip/final`, then the detector map, the measurement fixes, the collapse of the detector, then the experiments; while Tanush is away no step waits for a go, and every experiment sits on its own branch.
+  2. **The verify step is understood** (both checks); `wip/final` is merged into `barrels`.
+  3. **Labels:** Claude proposes every box and every threshold label from the picture (never from a detector's output); Tanush reviews briefly and adjusts.
+  4. **Never-regress is a principle with a margin**, not a strict rule: a change may not make the protected sets worse by more than the amount a meaningless change moves them.
+  5. **Pass rules for experiments are loosened** to above that same noise.
+  6. **The vendor counts as 100 % on a white table under window or overhead light.** An assumption, not a measurement; every table that uses it says so.
+  7. **A calibration step is allowed for data collection only** (a shot with known barrels that tells us the light of a place); not as a step of the robot's run.
+  8. **Accepted as an edge case:** one tall box around a same-colored barrel standing straight behind another (`occlx_10`).
+- **Why:** the review (`TODO.md`, "Now") found that the detector's logic could no longer be followed check by check, that the pass rules rejected changes smaller than their own noise (one barrel is about 0.03 of a condition's score against a 0.02 limit; the hand thresholds, with 70 more barrels found, failed), and that lamp settings had been counted as samples (243 train barrels are 108 placements at 6 places).
+- **Who:** Tanush, 2026-11-26 (reviewer session).
+- **Alternatives:** keep the strict never-regress rule (rejected: it turned down a better camera calibration over one barrel); measure the vendor on a white table first (postponed: no shoot this week).
+
 ## 2026-11-24 — Labels may start from Claude's proposals; Tanush checks every frame
 
 - **Decision:** box labels and slider labels may start from values a Claude session proposes by looking at the picture (and, for slider labels, at renders of the painted pixels under a few settings). Tanush checks and corrects every frame before it counts. Never from our detector or the vendor's (both are scored against these labels). Proposals live in `_boxes_proposed.json` / `_hs_proposed.json`, which no eval reads; the saved label records that it started from a proposal and whether he changed it.
