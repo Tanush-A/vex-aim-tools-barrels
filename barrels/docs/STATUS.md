@@ -4,8 +4,8 @@
 
 ## Now (2026-11-27)
 
-- **What runs:** fixed hs colors `eb863d84` → the collapsed detector (ten named stages, 18 numbers, no switches; `DETECTOR-MAP.md`) with the slack rule (a thin stripe re-measured from its seams; merged 2026-11-27). **Stripe by contrast is being adopted** (`wip/adopt-contrast`), then one planned test look.
-- **Numbers (train, ordinary, 172 barrels counted once):** today 135.4; with contrast 155.3 held out. Vendor comparison (6 places, 108): today 70.8, contrast 92.3, vendor 83.3.
+- **What runs:** fixed hs colors `eb863d84` → the collapsed detector (ten named stages, 18 numbers, no switches; `DETECTOR-MAP.md`) with the slack rule (merged 2026-11-27), then **stripe by contrast** (the default since 2026-11-27, `pipeline.detect_frame`).
+- **Numbers:** train, ordinary, 172 barrels counted once: 156.6 (135.4 before contrast). **Test look 2026-11-27:** frames with vendor files ours 18, vendor 23 of 32; home 9/9, campus 22/24. Vendor comparison (6 places, 108): today 70.8, contrast 92.3, vendor 83.3.
 - **Measuring:** `tools/judge.py` (one pass rule), `tools/report.py --places` (each barrel once), `--gate` (never-regress with a margin; six protected sets).
 - **Open:** walkthrough of contrast; the test look; a new warm-light place; the home white table with vendor files; questions for Dave (`MEETING-2026-11-27.md` section 9).
 

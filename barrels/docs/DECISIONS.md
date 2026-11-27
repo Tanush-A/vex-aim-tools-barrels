@@ -21,6 +21,13 @@ Dated entries below, newest first.
 
 ---
 
+## 2026-11-27 — Stripe by contrast is the default's last stage; the slack rule is plain code
+
+- **Decision:** the default path is `pipeline.detect_frame`: fixed colors, the detector (with the seam reading of thin stripes), then stripe by contrast (a band redder or bluer than the body above and below it at the size its row predicts; that barrel's own colors painted inside its predicted box; boxes only added).
+- **Why:** held out by place it found 155.3 of 172 against 133.8, 64 gained, none lost; combinations with the other passing ideas added nothing above the noise. Test look 2: vendor frames 15 → 18 of 32 (vendor 23).
+- **Who:** Tanush, 2026-11-27 ("we're go on adopting stripe by contrast"; "understood" on the slack rule).
+- **Alternatives:** painting contrast into the fixed mask (failed on boxes); fusion of all methods (+1.8, inside the noise); white balance (forbidden by the 2026-10-07 rule; measured for Dave only).
+
 ## 2026-11-26 — How results are counted and judged (merged 2026-11-26 while Tanush is away, on his word to do the measurement step without a go; the walkthrough is still owed)
 
 - **Proposed** (each follows a decision Tanush took on 2026-11-26; the numbers and definitions are the new part):

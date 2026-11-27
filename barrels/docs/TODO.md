@@ -31,8 +31,12 @@ Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the
 
 | # | what | state |
 |---|---|---|
-| **N1** | Adopt stripe by contrast as the default (Tanush: go) | running on `wip/adopt-contrast` |
-| **N2** | One planned look at the test frames with contrast (Tanush asked) | after N1, same branch |
+| **N1** | Adopt stripe by contrast as the default (Tanush: go) | **done 2026-11-27**, merged 125aed7 (`pipeline.detect_frame`): judge PASS 135.4 → 156.6 of 172, 63 gained, 0 lost; gate PASS; baseline and margins re-measured |
+| **N2** | One planned look at the test frames with contrast | **done 2026-11-27** (PREREG 9d43df8): vendor frames ours 15 → 18 of 32, vendor 23; bathroom 2 → 5 of 8 (vendor 3); ottoman 2 of 6 (vendor 6); glass 6 of 10 (vendor 8); home 9/9, campus 22/24 |
+| **N7** | **The noise margins fell** to +1.0 / −2.79 with contrast (one-step color moves no longer move the counts): the pass rule needs another source of noise | open |
+| **N8** | Ottoman (close-ups, touching barrels) and glass: contrast gains none on test | running: `wip/exp-contrast-gaps` |
+| **N9** | Dave's office: contrast adds 7 boxes not on their barrel (indicative labels): look | open |
+| **N10** | Side occlusion by a non-barrel thing, with a photo cue | running: `wip/exp-occl-photo` |
 | **N3** | Shoot a new warm-light place (pale table or floor, not the bathroom; clutter last, with the tin and the jar) | Tanush |
 | **N4** | **Doc cleanup:** `STATUS.md`, `HOW-IT-WORKS*.md`, `ARCHITECTURE.md`, `CLAUDE.md` "current facts", `HANDOFF.md`, `EVAL.md` still describe the detector before the collapse in places; move the November history to `archive/`; one "Now" block per doc | open |
 | **N5** | Occlusion by non-barrel things, from real frames (what is left after contrast is mostly hidden barrels) | after N1 |
