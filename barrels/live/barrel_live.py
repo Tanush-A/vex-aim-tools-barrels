@@ -27,7 +27,7 @@ class BarrelLive(StateMachineProgram):
     def __init__(self):
         super().__init__(aruco=False, particle_filter=False, speech=False,
                          launch_cam_viewer=False, launch_worldmap_viewer=False)
-        self.hook = wb.BarrelDetectorHook.default()   # frozen v1 model + the stripe detector + provisional camera
+        self.hook = wb.BarrelDetectorHook.default()   # pipeline.detect_frame: hs colors + the detector + the stripe by contrast
         self.capture = capture.FrameCapture()         # snapshots/ next to the .fsm files
         self.mode = "boxes"
         self.last_count = None

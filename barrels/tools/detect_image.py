@@ -3,8 +3,9 @@
 
     python barrels/tools/detect_image.py path/to/image.png [--out DIR] [--cam boxfit|4a8b|nominal] [--show] [--json]
 
-Runs the color segmentation (the hs model, config eb863d84, since 2026-11-09), then the v2 detector (barrels.detector; its stages
-are in docs/DETECTOR-MAP.md), and writes <stem>_boxes.png into --out (default barrels/results/detect_image/).
+Runs what runs by default, ``pipeline.detect_frame``: the color segmentation (the hs model, config eb863d84, since
+2026-11-09), the v2 detector (barrels.detector; its stages are in docs/DETECTOR-MAP.md), then the stripe by contrast
+(barrels.contrast, since 2026-11-27: the barrels the fixed colors missed), and writes <stem>_boxes.png into --out (default barrels/results/detect_image/).
 Prints one line per barrel: color, box, and how its edges were decided (seen / inferred / cut by the frame /
 occluded). --json also writes <stem>_det.json.
 """
@@ -45,8 +46,7 @@ def main(argv=None) -> int:
     img = io.load_image(args.image)
     if img.shape[:2] != (480, 640):
         print(f"warning: {img.shape[1]}x{img.shape[0]} image; the model and geometry assume 640x480")
-    mask, _ = pl.segment(pl.Frame.from_image(img), hook.model)        # step 0: which pixels are barrel-colored
-    barrels = det.detect(mask, cam=hook.cam)                          # class mask -> one Barrel per barrel
+    barrels = pl.detect_frame(pl.Frame.from_image(img), hook.model, hook.cam)   # color step -> detector -> stripe by contrast
     out = det.draw(img, barrels)
     args.out.mkdir(parents=True, exist_ok=True)
     path = args.out / f"{args.image.stem}_boxes.png"
@@ -57,7 +57,8 @@ def main(argv=None) -> int:
         if "top_inferred" in b.flags: how.append("top inferred")
         if "occluded" in b.flags: how.append("partly hidden, full box drawn")
         if "truncated" in b.flags: how.append("cut by frame")
-        how.append({"det2": "from its stripe", "det3": "from its top, behind a found barrel"}.get(b.source, "no stripe seen"))
+        how.append({"det2": "from its stripe", "det3": "from its top, behind a found barrel",
+                    "contrast": "from its stripe by contrast (the fixed colors missed it)"}.get(b.source, "no stripe seen"))
         print(f"  {b.color_name:6}  x {x0}-{x1}  y {y0}-{y1}  {', '.join(how)}")
     if not barrels:
         print("  no barrels")

@@ -6,6 +6,7 @@
     python barrels/tools/judge.py --cand-callable path/to/idea.py:detect_frame         # anything: a function (stem, frame) -> list[Barrel]
     python barrels/tools/judge.py --cand-fit path/to/idea.py:fit                       # anything with fitted numbers: leave one place out
     python barrels/tools/judge.py --cand-model default --base-model default            # today against itself: NO CLEAR DIFFERENCE, nothing changed
+    python barrels/tools/judge.py --cand-model default --base-previous                 # today against the default until 2026-11-27 (no contrast stage)
 
 Both sides are run on the ordinary train conditions (data/conditions.json; today 17 conditions at 8 places). Extreme
 conditions are run and printed, never judged (``--no-extreme`` skips them, about a third faster). Test frames are
@@ -29,7 +30,8 @@ The candidate is ONE of:
                               per place with the ordinary train frames of the OTHER places (read them with
                               ``barrels.judge.load_frame(stem)`` and ``barrels.io.load_boxes(stem)``), and what it
                               returns is run on the held-out place only. The verdict rests on held-out results.
-The baseline is today's default unless --base-model / --base-det / --base-callable say otherwise.
+The baseline is today's default unless --base-model / --base-det / --base-callable / --base-previous say otherwise.
+"Today's default" is ``pipeline.detect_frame``: the color step, the detector, the stripe by contrast (since 2026-11-27).
 
 Exit code: 0 = PASS, 1 = FAIL, 3 = NO CLEAR DIFFERENCE (2 = a usage error). The pages go to
 results/<today>_judge_<name>/ (judge.md, judge.json, changes.csv); ``--no-save`` only prints.
@@ -86,6 +88,8 @@ def main(argv=None) -> int:
     ap.add_argument("--base-model", default=None, help="baseline color model (default: today's)")
     ap.add_argument("--base-det", action="append", default=[], metavar="FIELD=VALUE", help="DetConfig override(s) for the baseline")
     ap.add_argument("--base-callable", default=None, metavar="FILE:NAME", help="baseline = a function NAME(stem, frame) -> list[Barrel] in FILE")
+    ap.add_argument("--base-previous", action="store_true",
+                    help="baseline = the default until 2026-11-27 (the adopted color model and DetConfig(), without the contrast stage)")
     ap.add_argument("--name", default="candidate", help="what to call the candidate in the pages and in the results folder name")
     ap.add_argument("--no-extreme", action="store_true", help="skip the extreme conditions (they are report only; about a third faster)")
     ap.add_argument("--no-save", action="store_true", help="print only; do not write results/<today>_judge_<name>/")
@@ -97,6 +101,10 @@ def main(argv=None) -> int:
         base = side(args.base_model, args.base_det, args.base_callable, "baseline")
     except ValueError as e:
         raise SystemExit(str(e))
+    if args.base_previous:
+        if base is not None:
+            raise SystemExit("--base-previous is the baseline: give it or --base-model / --base-det / --base-callable, not both")
+        base = jg.previous_detector()
     if (cand is None) == (fit is None):
         raise SystemExit("say what the candidate is: exactly one of --cand-model / --cand-det, --cand-callable, --cand-fit (see --help)")
     j = jg.judge(cand, base, fit=fit, name=args.name, report_only=not args.no_extreme)

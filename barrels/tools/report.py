@@ -19,6 +19,9 @@ or the words ``default`` (worldmap_bridge.DEFAULT_MODEL, what runs today), ``v1`
 --cand-det / --base-det take DetConfig fields as field=value (repeat the flag or separate with commas). DetConfig holds the
 detector's 18 numbers; its on/off switches were removed on 2026-11-26 (naming one stops with a message; the detector with
 switches is at the git tag pre-collapse-2026-11-26).
+Every detector arm runs pipeline.detect_frame: the color step, the detector, then the stripe by contrast (since
+2026-11-27). --cand-no-contrast / --base-no-contrast stop before the contrast stage (the default until 2026-11-27):
+    python barrels/tools/report.py --base-model default --base-no-contrast --places   # today vs the default until 2026-11-27
 Defaults: candidate = default model + DetConfig(); baseline = v1 model + DetConfig().
 
 The vendor arm (``--vendor`` = ``--base-model vendor``) runs nothing: it reads the boxes the robot's own detector
@@ -78,13 +81,14 @@ def model_path(text: str) -> Path:
     return p
 
 
-def make_arm(name: str, model: str, det_items: list[str]) -> rp.Arm:
-    """A detector arm from a model word / file and DetConfig overrides, or the vendor arm for the word ``vendor``."""
+def make_arm(name: str, model: str, det_items: list[str], contrast: bool = True) -> rp.Arm:
+    """A detector arm from a model word / file and DetConfig overrides, or the vendor arm for the word ``vendor``.
+    ``contrast=False``: without the contrast stage (the default until 2026-11-27)."""
     if model == VENDOR_WORD:
-        if det_items:
-            raise SystemExit(f"the vendor arm reads saved boxes and has no DetConfig: drop the --{name[:4]}-det option")
+        if det_items or not contrast:
+            raise SystemExit(f"the vendor arm reads saved boxes and has no DetConfig or contrast stage: drop the --{name[:4]}-det / --{name[:4]}-no-contrast option")
         return rp.vendor_arm(name)
-    return rp.Arm(name, model_path(model), rp.parse_det_overrides(det_items))
+    return rp.Arm(name, model_path(model), rp.parse_det_overrides(det_items), contrast=contrast)
 
 
 def run_gate(args, cand: rp.Arm) -> int:
@@ -157,14 +161,16 @@ def main(argv=None) -> int:
     ap.add_argument("--gate", action="store_true",
                     help="the never-regress check: run the candidate and compare it with the stored baseline; exit 1 when a protected set is worse by more than its margin")
     ap.add_argument("--save-baseline", action="store_true", help="store the candidate's run (normally today's defaults) as the baseline --gate compares with")
+    ap.add_argument("--cand-no-contrast", action="store_true", help="the candidate without the contrast stage (the default until 2026-11-27)")
+    ap.add_argument("--base-no-contrast", action="store_true", help="the baseline without the contrast stage (the default until 2026-11-27)")
     ap.add_argument("--force", action="store_true", help="with --save-baseline: replace the stored baseline even when the new run is lower somewhere")
     ap.add_argument("--baseline", default=None, metavar="PATH", help=f"the baseline file for --gate / --save-baseline (default: {gt.BASELINE_PATH})")
     args = ap.parse_args(argv)
     try:
-        cand = make_arm("candidate", args.cand_model, args.cand_det)
+        cand = make_arm("candidate", args.cand_model, args.cand_det, contrast=not args.cand_no_contrast)
         if args.gate or args.save_baseline:
             return run_gate(args, cand)
-        base = make_arm("baseline", VENDOR_WORD if args.vendor else args.base_model, args.base_det)
+        base = make_arm("baseline", VENDOR_WORD if args.vendor else args.base_model, args.base_det, contrast=not args.base_no_contrast)
     except ValueError as e:
         raise SystemExit(str(e))
     rep = rp.make_report(cand, base, split=args.split, only_sets=[x for x in args.sets.split(",") if x] or None,

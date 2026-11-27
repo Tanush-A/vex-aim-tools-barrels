@@ -8,7 +8,7 @@ The data flows in five steps, each one function:
 1. ``select_frames``  which frames: every stem with a box label, grouped into data sets by
    ``{robot}_{light}_{surface}`` (HOME, CAMPUS, DAVE, and any new session with no code change). Train frames
    only; test frames are refused (``TestFrameError``) unless the caller says ``split="test"`` explicitly.
-2. ``run_arm``        one arm (= a color-model file + a DetConfig) on those frames: segment, detect, score each
+2. ``run_arm``        one arm (= a color-model file + a DetConfig) on those frames: ``pipeline.detect_frame`` (color step, detector, contrast stage), score each
    frame with ``eval_det.evaluate_frame``. The home frames are scored leave-one-scene-out (the color model is
    re-fit without the scene being scored), exactly as the published home number is; every other set uses the
    model file as it is.
@@ -182,11 +182,14 @@ class Arm:
     """One side of the comparison: a color-model file (a results ``config.json`` with a fitted ``model``) and
     the detector settings (``det_overrides`` are the DetConfig fields changed from the default). ``kind="vendor"``
     (``vendor_arm``) is the robot's built-in detector instead: no model, no DetConfig, its boxes are read from
-    the saved ``data/vendor/<stem>_vendor.json`` files."""
+    the saved ``data/vendor/<stem>_vendor.json`` files. A detector arm runs ``pipeline.detect_frame`` (the color step, the
+    detector, the stripe by contrast); ``contrast=False`` stops before the contrast stage: the default until 2026-11-27,
+    kept so that the two can be compared."""
     name: str
     model_path: Path | None
     det_overrides: dict = field(default_factory=dict)
     kind: str = "detector"          # "detector" | VENDOR
+    contrast: bool = True           # the contrast stage after the detector (pipeline.detect_frame); False = the default until 2026-11-27
 
     @property
     def is_vendor(self) -> bool:
@@ -201,7 +204,7 @@ class Arm:
             return "the robot's built-in detector (vendor), its boxes as saved with each frame in data/vendor/<stem>_vendor.json"
         ov = ", ".join(f"{k}={v}" for k, v in self.det_overrides.items()) or "defaults"
         p = Path(self.model_path)
-        return f"{p.parent.name}/{p.name}; DetConfig {ov}"
+        return f"{p.parent.name}/{p.name}; DetConfig {ov}" + ("" if self.contrast else "; no contrast stage")
 
 
 def vendor_arm(name: str = "baseline") -> Arm:
@@ -430,11 +433,11 @@ def run_arm(arm: Arm, selection: Selection, splits: dict[str, list[str]], cam=No
                     continue
                 m = pl.fit([cache.frame(s) for s in fold.train], [cache.mask(s) for s in fold.train], model.cfg)
                 for s in held:
-                    out[s] = score_frame(s, pl.segment(cache.frame(s), m)[0], dcfg, cam, loose, labels_dir, boxes)
+                    out[s] = score_boxes(s, pl.detect_frame(cache.frame(s), m, cam, dcfg, contrast=arm.contrast), cam, loose, labels_dir, boxes)
         else:
             for s in stems:
                 if only is None or s in only:
-                    out[s] = score_frame(s, pl.segment(cache.frame(s), model)[0], dcfg, cam, loose, labels_dir, boxes)
+                    out[s] = score_boxes(s, pl.detect_frame(cache.frame(s), model, cam, dcfg, contrast=arm.contrast), cam, loose, labels_dir, boxes)
     return out
 
 
@@ -822,7 +825,7 @@ def to_json(rep: Report) -> dict:
             return {"name": a.name, "kind": VENDOR, "source": "data/vendor/<stem>_vendor.json"}
         mp = Path(a.model_path)
         d = {"name": a.name, "model_path": str(mp.relative_to(PKG_ROOT)) if mp.is_relative_to(PKG_ROOT) else str(mp),
-             "det_overrides": a.det_overrides, "det": a.det_config().to_dict()}
+             "det_overrides": a.det_overrides, "det": a.det_config().to_dict(), "contrast": a.contrast}
         try:
             d["model_config_hash"] = json.load(Path(a.model_path).open()).get("config_hash")
         except (OSError, ValueError):

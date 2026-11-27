@@ -5,8 +5,9 @@ Live feed (built 2026-11-05, ``barrels/live/BarrelViewer.fsm``): an aim_fsm stat
 with aim_fsm's PyQt ``imshow``. ``view`` is the whole chain — RGB→BGR, the color segmentation, the
 detector, ``detector.draw`` (yellow = orange barrel, green = blue), BGR→RGB — so the robot path and the
 photo path (``tools/detect_image.py``) run exactly the same code. ``BarrelDetectorHook.default()`` is "the
-detector as it stands": the hs color model (config eb863d84, adopted 2026-11-09), ``detector.detect`` with ``DetConfig()``
-(the stripe step), camera ``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
+detector as it stands": ``pipeline.detect_frame`` with the hs color model (config eb863d84, adopted 2026-11-09),
+``detector.detect`` with ``DetConfig()`` and the stripe by contrast (``contrast.py``, since 2026-11-27), camera
+``AIM_4A8B6118_BOXFIT``. Modes: ``"boxes"`` (the v2 output image), ``"seg"``
 (the frame with every pixel that is not classified orange or blue dimmed; the live programs also open a second
 window with ``seg_only``: only the classified pixels, in their class color on black), ``"both"`` (the dimmed
 frame with the boxes on it, and the second window). ``render`` is ``view`` with the barrels supplied, for the
@@ -127,7 +128,8 @@ def seg_views(image: np.ndarray, mask: np.ndarray, dim: float = SEG_DIM,
 class BarrelDetectorHook:
     """The detector on a live (RGB) frame: segmentation model + detector + camera, in one object.
 
-    ``default()`` = the detector as it stands (frozen v1 model, the stripe step, the provisional camera).
+    ``default()`` = the detector as it stands (``pipeline.detect_frame``: the hs model, the detector, the stripe by
+    contrast; the box-fit camera).
     ``on_image`` returns the barrels; ``view`` returns the picture to show. Both take and give RGB.
     """
     model: pl.Model
@@ -151,27 +153,38 @@ class BarrelDetectorHook:
 
     @classmethod
     def default(cls, cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT) -> "BarrelDetectorHook":
-        """The detector as it stands: the hs model eb863d84 + detector.detect (DetConfig()) + the given camera;
+        """The detector as it stands: the hs model eb863d84 + detector.detect (DetConfig()) + the stripe by contrast + the given camera;
         with BARRELS_MODEL set in the environment, that model file instead (see default_model_path)."""
         path = default_model_path()
         if path != DEFAULT_MODEL:
             print(f"BarrelDetectorHook: using {MODEL_ENV}={path}")
         return cls.load(path, cam=cam)
 
-    def segment(self, image_rgb: np.ndarray) -> np.ndarray:
-        """The class mask (0 other, 1 orange, 2 blue) of an RGB frame; also kept as ``last_mask``."""
+    def _frame(self, image_rgb: np.ndarray) -> pl.Frame:
         if image_rgb.shape[:2] != (480, 640) and not self._size_warned:
             print(f"BarrelDetectorHook: {image_rgb.shape[1]}x{image_rgb.shape[0]} frame; the model and geometry assume 640x480")
             self._size_warned = True
-        frame = pl.Frame.from_image(_to_bgr(image_rgb))       # the pipeline takes BGR (OpenCV order)
-        mask, _ = pl.segment(frame, self.model)
+        return pl.Frame.from_image(_to_bgr(image_rgb))       # the pipeline takes BGR (OpenCV order)
+
+    def segment(self, image_rgb: np.ndarray) -> np.ndarray:
+        """The class mask (0 other, 1 orange, 2 blue) of an RGB frame; also kept as ``last_mask``."""
+        mask, _ = pl.segment(self._frame(image_rgb), self.model)
         self.last_mask = mask
         return mask
 
     def on_image(self, image_rgb: np.ndarray) -> list[Barrel]:
-        """Segment, then detect. The barrels are also kept as ``last_barrels``."""
-        mask = self.segment(image_rgb)
-        self.last_barrels = self.detector(mask, self.det_cfg, cam=self.cam)
+        """What runs by default on one frame: ``pipeline.detect_frame`` (the color step, the detector, the stripe by
+        contrast), the same function the photo tools and the eval run. The class mask of the color step is kept as
+        ``last_mask`` (the seg view), the barrels as ``last_barrels``. A hook built with another mask-to-boxes
+        ``detector`` (the CC floor in the tests) runs that on the mask instead, without the contrast stage, which
+        needs ``detector.detect``."""
+        frame = self._frame(image_rgb)
+        mask, _ = pl.segment(frame, self.model)
+        self.last_mask = mask
+        if self.detector is det.detect:
+            self.last_barrels = pl.detect_frame(frame, self.model, self.cam, self.det_cfg, mask=mask)
+        else:
+            self.last_barrels = self.detector(mask, self.det_cfg, cam=self.cam)
         return self.last_barrels
 
     def view(self, image_rgb: np.ndarray, mode: str = "boxes") -> np.ndarray:
