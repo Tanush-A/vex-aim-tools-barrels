@@ -207,6 +207,19 @@ def test_touching_same_color_pair_gives_two_stripes():
     assert abs(out[0].bbox[2] - a[2]) <= 3 and abs(out[1].bbox[0] - b[0]) <= 3
 
 
+def test_a_barrel_on_the_table_has_a_stripe_tall_enough_to_resolve():
+    """The stripe finder, the caps and the half stripes ask only "at least min_width_px wide" (``on_the_table``). That is
+    enough because, with each camera preset and the default numbers, the stripe of the farthest such barrel is still
+    min_stripe_px tall, and a nearer barrel's is taller. If this fails after a change of the camera numbers or of the two
+    limits, ``on_the_table`` must ask the stripe's height again (its assertion says the same at run time)."""
+    for cam in (geo.AIM_4A8B6118_BOXFIT, geo.NOMINAL, geo.AIM_4A8B6118):
+        d_far = cam.f * geo.BARREL_BULGE_DIAMETER_MM / CFG.min_width_px          # the farthest barrel that is min_width_px wide
+        for d in np.arange(20.0, d_far, 5.0).tolist() + [d_far - 1e-6]:
+            at = det.BarrelAt(d, cam.barrel_rows(d))
+            assert det.on_the_table(at, CFG) and at.Hs >= CFG.min_stripe_px
+        assert not det.on_the_table(det.BarrelAt(d_far + 1, cam.barrel_rows(d_far + 1)), CFG)
+
+
 def test_stripeless_piece_must_be_barrel_tall():
     """A blue blob of barrel width whose bottom sits just below the horizon but which is twice as tall as a barrel
     there (a jacket above the table edge, campus core_01) is not a barrel; the width check alone would take it. Its top
