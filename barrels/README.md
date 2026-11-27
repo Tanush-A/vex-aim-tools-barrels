@@ -27,12 +27,12 @@ python barrels/tools/report.py                                              # 7.
 python barrels/tools/report.py --vendor                                     # 7b. the same table against the robot's built-in (vendor) detector, on the frames that have a vendor file
 python barrels/tools/report.py --places                                     # 7b'. the same run counted per placement and by place (each physical barrel once; a misplaced box once); always printed with --vendor
 python barrels/tools/report.py --gate                                       # 7c. the never-regress check, with a margin: PASS / FAIL against results/baseline/baseline.json (run before every merge; --save-baseline after one)
-python barrels/tools/judge.py --cand-det stripe_bridge=false                # 7c'. THE STANDARD PASS RULE: a candidate (DetConfig fields, a model file, --cand-callable file.py:fn, or --cand-fit file.py:fn for leave one place out) against today -> PASS / FAIL / NO CLEAR DIFFERENCE (≈ 25 s)
+python barrels/tools/judge.py --cand-det stripe_merge=1.68                 # 7c'. THE STANDARD PASS RULE: a candidate (DetConfig fields, a model file, --cand-callable file.py:fn, or --cand-fit file.py:fn for leave one place out) against today -> PASS / FAIL / NO CLEAR DIFFERENCE (≈ 25 s)
 python barrels/experiments/2026-11-24_vendor/run.py                        # 7d. ours vs the vendor per condition on the real vendor files, with a check of the files; summary.md in results/<today>_vendor/
 python barrels/experiments/run_all.py                                       # 7e. the nightly run: tests, gate, eval table, vendor, adaptive rule (if present) -> ONE page results/<today>_run_all/summary.md
 ```
 
-`detect_image.py --step1` runs the detector without the stripe step, for comparison. In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`); `tm save` also writes what the robot's built-in detector reported for the frame (`robot_snapN_vendor.json`), which `tools/import_snaps.py` moves to `data/vendor/`.
+In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt to switch between the segmentation (non-barrel pixels dimmed, plus a second window with only the segmented pixels) and the boxes; `tm save` / `tm rec` write raw frames to `barrels/live/snapshots/` for importing (`docs/RUNBOOK.md`); `tm save` also writes what the robot's built-in detector reported for the frame (`robot_snapN_vendor.json`), which `tools/import_snaps.py` moves to `data/vendor/`.
 
 ## Where to read
 
@@ -40,6 +40,7 @@ python barrels/experiments/run_all.py                                       # 7e
 |---|---|
 | the one-page explanation of how it works | `docs/HOW-IT-WORKS-SHORT.md` |
 | the same with worked numbers, per module | `docs/HOW-IT-WORKS.md` |
+| the detector check by check: every stage, every number, and why (no on/off switches since 2026-11-26) | `docs/DETECTOR-MAP.md` |
 | how the files fit together (diagrams) | `docs/ARCHITECTURE.md` |
 | what we are building, exactly | `docs/PROBLEM.md` (the spec), `docs/constraints.md` (the physical facts), `docs/EVAL.md` (how it is scored) |
 | what happened and why | `docs/EXPERIMENTS.md` (every experiment, newest first), `docs/DECISIONS.md` (every decision, with alternatives) |

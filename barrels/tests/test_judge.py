@@ -262,7 +262,7 @@ def test_load_callable(tmp_path):
 
 def test_command_says_what_it_needs_and_returns_the_verdict_as_exit_code(tmp_path, monkeypatch, capsys, no_images):
     tool = load_tool("judge")
-    for bad in ([], ["--cand-det", "cap_behind=false", "--cand-fit", "x.py:f"], ["--cand-model", "default", "--cand-callable", "x.py:f"]):
+    for bad in ([], ["--cand-det", "min_width_px=20", "--cand-fit", "x.py:f"], ["--cand-model", "default", "--cand-callable", "x.py:f"]):
         with pytest.raises(SystemExit):
             tool.main(bad)
     p = tmp_path / "idea.py"

@@ -209,9 +209,22 @@ def vendor_arm(name: str = "baseline") -> Arm:
     return Arm(name, None, {}, VENDOR)
 
 
+# DetConfig's on/off switches until the detector was collapsed (2026-11-26): named here only so that an old command line gets a
+# clear answer. The detector with its switches is at the git tag COLLAPSE_TAG.
+REMOVED_DET_SWITCHES = ("require_stripe", "stripe_mode", "dark_stripe", "cover_rows", "occl_body_side", "stripe_join", "cap_behind",
+                        "side_hidden", "seam_height", "cap_seen_bottom", "slice_box", "cover_unpinned", "stripe_two", "edge_check",
+                        "cap_same", "half_stripe", "half_thin", "post_pair", "stripe_wide", "slice_behind", "cap_low", "pin_outline",
+                        "pin_thin", "stripe_bridge", "thin_frame", "own_close", "thin_span", "closeup_side", "closeup_stripe",
+                        "verify_front", "verify_readings")
+ZERO_MEANT_OFF = ("body_min", "body_width", "height_max")      # numbers whose value 0 switched their check off until then
+COLLAPSE_TAG = "pre-collapse-2026-11-26"
+
+
 def parse_det_overrides(items: list[str] | None) -> dict:
-    """``["body_width=0", "cover_rows=false"]`` -> ``{"body_width": 0.0, "cover_rows": False}``. Each value is
-    converted to the type of that DetConfig field's default; an unknown field or a bad value raises ValueError."""
+    """``["body_width=1.1", "stripe_merge=1.5,min_area_px=30"]`` -> ``{"body_width": 1.1, "stripe_merge": 1.5, "min_area_px": 30}``.
+    Each value is converted to the type of that DetConfig field's default; an unknown field or a bad value raises ValueError.
+    DetConfig holds numbers only. A switch that was removed in the collapse, or a 0 that used to mean "this check off", raises
+    ValueError with a message that names the tag where the old detector is."""
     from . import detector as det
     defaults = det.DetConfig().to_dict()
     out = {}
@@ -222,19 +235,22 @@ def parse_det_overrides(items: list[str] | None) -> dict:
             if "=" not in part:
                 raise ValueError(f"DetConfig override must be field=value, got {part!r}")
             k, v = (x.strip() for x in part.split("=", 1))
+            if k in REMOVED_DET_SWITCHES:
+                raise ValueError(f"{k} was an on/off switch of the detector and no longer exists: since the collapse of 2026-11-26 every "
+                                 f"rule always runs, and only the numbers can be overridden ({', '.join(defaults)}). The detector with "
+                                 f"its switches is at the git tag {COLLAPSE_TAG}.")
             if k not in defaults:
                 raise ValueError(f"DetConfig has no field {k!r} (fields: {', '.join(defaults)})")
             d = defaults[k]
-            if isinstance(d, bool):
-                if v.lower() not in ("1", "0", "true", "false", "on", "off", "yes", "no"):
-                    raise ValueError(f"{k} is a switch: use true/false, got {v!r}")
-                out[k] = v.lower() in ("1", "true", "on", "yes")
-            elif isinstance(d, int):
+            if isinstance(d, int):
                 out[k] = int(v)
             elif isinstance(d, float):
                 out[k] = float(v)
             else:
                 out[k] = v
+            if k in ZERO_MEANT_OFF and out[k] == 0:
+                raise ValueError(f"{k}=0 used to switch that check off. Since the collapse of 2026-11-26 the check always runs, and 0 is "
+                                 f"not a size it can use. The detector with its switches is at the git tag {COLLAPSE_TAG}.")
     return out
 
 

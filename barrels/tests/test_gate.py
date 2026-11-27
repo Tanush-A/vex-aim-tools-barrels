@@ -296,8 +296,8 @@ def test_command_save_baseline_then_gate(tmp_path, monkeypatch, capsys):
     assert capsys.readouterr().out.rstrip().splitlines()[-1].startswith("RESULT: PASS")
 
     current["rep"] = make_rep(lower=True)                           # one barrel lost: inside the margin
-    assert tool.main(["--gate", "--cand-det", "cap_behind=false"] + args) == 0
-    assert calls[-1][0].det_overrides == {"cap_behind": False}
+    assert tool.main(["--gate", "--cand-det", "min_width_px=20"] + args) == 0
+    assert calls[-1][0].det_overrides == {"min_width_px": 20.0}
     out = capsys.readouterr().out
     assert "4A8B_campus_light_occl_01 #1: found -> missed" in out and "Lower inside the margin: CAMPUS" in out
     before = path.read_text()                                       # ... the check passes, but the reference does not slide down

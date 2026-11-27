@@ -1,18 +1,11 @@
-"""2026-11-20, the mechanics of the two position switches on synthetic barrels (their quality is judged by the
-occlusion scorecard, ``experiments/2026-11-20_occl_pin``): ``pin_outline`` (the barrel's outline, slid over the seen
-part, places a partly seen stripe that no side reason places, when it fits in one place only) and ``pin_thin`` (a thin
-piece of stripe is a barrel only as a full slice that the outline places)."""
-import dataclasses
-
+"""Where a cut barrel is, sideways, on synthetic barrels (their quality is judged by the occlusion scorecard,
+``experiments/2026-11-20_occl_pin``): the barrel's outline places a partly seen stripe that no side reason places, when
+exactly one end of what is seen is the barrel's own side; a thin piece of stripe is a barrel only as a full slice that
+the outline (or the frame edge, or its body's whole width) places."""
 import numpy as np
 
 from barrels import detector as det, geometry as geo, io
-from test_detector import CAM, CFG2, paint_barrel
-
-BASE = dataclasses.replace(CFG2, pin_outline=False, pin_thin=False,          # the detector before these switches, spelled out
-                           half_stripe=False, half_thin=False, post_pair=False, stripe_wide=False, slice_behind=False, cap_low=False)   # ... and without those of the parallel branch (tests/test_detector_vertical.py; together: test_detector_combined.py)
-PIN = dataclasses.replace(BASE, pin_outline=True)
-THIN = dataclasses.replace(BASE, pin_outline=True, pin_thin=True)
+from test_detector import CAM, CFG, paint_barrel, stripes_of, whys
 
 
 def paint_round_barrel(mask, d_axis_mm, x_center, body=io.BLUE, cam=CAM):
@@ -67,71 +60,69 @@ def test_outline_rows_are_the_camera_models():
 
 
 def test_a_whole_round_barrel_is_found_as_before():
-    """The switches do nothing to a barrel seen whole."""
+    """A barrel seen whole never asks the outline: one box from its stripe, not flagged occluded."""
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_round_barrel(mask, 150, 320)
-    base = det.detect(mask, BASE, CAM)
-    assert len(base) == 1 and det.box_iou(base[0].bbox, truth) > 0.9
-    assert det.detect(mask, PIN, CAM) == base and det.detect(mask, THIN, CAM) == base
+    out = det.detect(mask, cam=CAM)
+    assert len(out) == 1 and det.box_iou(out[0].bbox, truth) > 0.9 and "occluded" not in out[0].flags
 
 
-# ---------------------------------------------------------------- pin_outline
+# ---------------------------------------------------------------- a partly seen stripe placed by the outline
 
 def test_half_hidden_by_a_straight_edge_is_placed_by_the_outline():
-    """The left half shows; the stripe and the body end together on both sides, so no side has a reason. Before: a box
-    centred on what is seen, a quarter barrel off. Now: the seen part has rounded corners on the left (the barrel's own
-    side) and square ones on the right (the cut), the outline fits in one place only, and the box is the barrel's."""
+    """The left half shows; the stripe and the body end together on both sides, so no side has a reason. The seen part
+    has rounded corners on the left (the barrel's own side) and square ones on the right (the cut), the outline fits in
+    one place only, and the box is the barrel's (not a box centred on the seen half, a quarter barrel off)."""
     mask, truth = _round_cut(0.0, 0.5)
     W = truth[2] - truth[0]
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1 and abs((old[0].bbox[0] + old[0].bbox[2]) / 2 - (truth[0] + 0.25 * W)) <= 3     # centred on the seen half
-    out = det.detect(mask, PIN, CAM)
+    out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
     assert abs(out[0].bbox[0] - truth[0]) <= 0.05 * W and abs(out[0].bbox[2] - truth[2]) <= 0.05 * W
     assert abs((out[0].bbox[2] - out[0].bbox[0]) - W) <= 1                                               # one barrel wide
     assert det.box_iou(out[0].bbox, truth) > 0.85
-    mirrored = det.detect(mask[:, ::-1].copy(), PIN, CAM)
+    mirrored = det.detect(mask[:, ::-1].copy(), cam=CAM)
     assert len(mirrored) == 1 and det.box_iou(mirrored[0].bbox, _mirror(truth)) > 0.85
 
 
 def test_a_third_showing_gets_a_box_where_before_there_was_none():
-    """0.35 of the width shows: under the 0.4 floor of the centred box, so before: no box. The corner is there: placed."""
+    """0.35 of the width shows: under the 0.4 floor of the centred box, so without the outline: no box. The corner is
+    there: placed."""
     mask, truth = _round_cut(0.65, 1.0)
-    assert det.detect(mask, BASE, CAM) == []
-    out = det.detect(mask, PIN, CAM)
+    out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and det.box_iou(out[0].bbox, truth) > 0.85
 
 
 def test_a_piece_from_the_middle_fits_in_many_places_and_is_left_as_before():
     """Both sides cut, the middle 45 % shows: the top and the bottom are nearly flat there, the outline fits at many
-    positions and does not know. The box is what it was (centred on what is seen)."""
+    positions and does not know. The box is one barrel wide, centred on what is seen."""
     mask, truth = _round_cut(0.275, 0.725)
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1
-    assert det.detect(mask, PIN, CAM) == old
-    s = det.find_stripes(mask, CAM, PIN)[0]
-    assert det._outline_place(s, mask, CAM, PIN, s.bbox[0], s.bbox[2]) is None
+    W = truth[2] - truth[0]
+    out = det.detect(mask, cam=CAM)
+    assert len(out) == 1 and abs((out[0].bbox[2] - out[0].bbox[0]) - W) <= 1
+    assert abs((out[0].bbox[0] + out[0].bbox[2]) / 2 - (truth[0] + truth[2]) / 2) <= 2
+    s = stripes_of(mask)[0]
+    assert det.own_end_by_outline(s, mask, CAM, CFG, s.bbox[0], s.bbox[2]) is None
 
 
 def test_a_square_cornered_piece_is_left_as_before():
     """A barrel painted as a plain rectangle, half hidden: both ends of what is seen are square, like two cuts. The
-    outline does not know which end is the barrel's own, and nothing changes."""
+    outline does not know which end is the barrel's own: the box is centred on the seen half."""
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_barrel(mask, 150, 320, body=io.BLUE)
-    mask[:, truth[0] + (truth[2] - truth[0]) // 2:] = 0
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1 and det.detect(mask, PIN, CAM) == old
+    W = truth[2] - truth[0]
+    mask[:, truth[0] + W // 2:] = 0
+    out = det.detect(mask, cam=CAM)
+    assert len(out) == 1 and abs((out[0].bbox[0] + out[0].bbox[2]) / 2 - (truth[0] + 0.25 * W)) <= 2
 
 
 def test_a_reason_for_one_side_still_decides():
-    """Cut by the frame edge: the frame is the reason, and the box is a barrel wide from the seen edge, as before; the
-    outline is not asked."""
+    """Cut by the frame edge: the frame is the reason, and the box is a barrel wide from the seen edge; the outline is
+    not asked."""
     mask = np.zeros((480, 640), np.uint8)
     W = CAM.barrel_rows(150).width_px
     truth = paint_round_barrel(mask, 150, 0.1 * W)                    # 0.4 of the barrel is left of the frame
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1 and old[0].bbox[0] == 0
-    assert det.detect(mask, PIN, CAM) == old
+    out = det.detect(mask, cam=CAM)
+    assert len(out) == 1 and out[0].bbox[0] == 0 and abs(out[0].bbox[2] - truth[2]) <= 2 and "truncated" in out[0].flags
 
 
 def test_outline_place_needs_a_barrels_outline():
@@ -140,14 +131,14 @@ def test_outline_place_needs_a_barrels_outline():
     mask, truth = _round_cut(0.0, 0.5)
     W, H = truth[2] - truth[0], truth[3] - truth[1]
     mask[truth[1]:truth[1] + int(0.3 * H), truth[0]:truth[0] + int(0.25 * W)] = 0
-    s = max(det.find_stripes(mask, CAM, PIN), key=lambda s: s.bbox[2] - s.bbox[0])
-    assert det._outline_place(s, mask, CAM, PIN, truth[0], truth[0] + W // 2) is None
+    s = max(stripes_of(mask), key=lambda s: s.bbox[2] - s.bbox[0])
+    assert det.own_end_by_outline(s, mask, CAM, CFG, truth[0], truth[0] + W // 2) is None
 
 
 def test_a_slanted_cut_is_not_taken_for_the_barrels_own_side():
-    """Round 2. A slanted edge hides the right part: its upper end imitates a rounded top corner, but the bottom corner
-    there is square (the seen part even runs on). Each end is asked by itself and all three lines must fit: the left end
-    is the barrel's own side, the slanted one is not, and the box starts at the barrel's own side."""
+    """A slanted edge hides the right part: its upper end imitates a rounded top corner, but the bottom corner there is
+    square (the seen part even runs on). Each end is asked by itself and all three lines must fit: the left end is the
+    barrel's own side, the slanted one is not, and the box starts at the barrel's own side."""
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_round_barrel(mask, 150, 320)
     W, H = truth[2] - truth[0], truth[3] - truth[1]
@@ -155,17 +146,16 @@ def test_a_slanted_cut_is_not_taken_for_the_barrels_own_side():
     for lean in (1, -1):
         m = mask.copy()
         m[cols >= truth[0] + 0.5 * W + lean * 0.25 * W * (rows - (truth[1] + truth[3]) / 2) / H] = 0
-        out = det.detect(m, PIN, CAM)
+        out = det.detect(m, cam=CAM)
         assert len(out) == 1 and abs(out[0].bbox[0] - truth[0]) <= 2 and det.box_iou(out[0].bbox, truth) > 0.8
-        s = max(det.find_stripes(m, CAM, PIN), key=lambda s: s.bbox[2] - s.bbox[0])
-        only_right = det._outline_place(s, m, CAM, PIN, truth[0] + int(0.3 * W), s.bbox[2])     # without the own side in view: the slant alone
+        s = max(stripes_of(m), key=lambda s: s.bbox[2] - s.bbox[0])
+        only_right = det.own_end_by_outline(s, m, CAM, CFG, truth[0] + int(0.3 * W), s.bbox[2])     # without the own side in view: the slant alone
         assert only_right is None
 
 
 def test_a_placed_box_never_replaces_a_found_barrels_box():
-    """Round 2. A piece with a barrel's corner stands right against a whole barrel of its color, so that a barrel W wide
-    from the piece's own side would lie over the whole barrel's box. The whole barrel keeps its box, and the piece is
-    treated as before the switch."""
+    """A piece with a barrel's corner stands right against a whole barrel of its color, so that a barrel W wide from the
+    piece's own side would lie over the whole barrel's box. The whole barrel keeps its box, and no second box sits on it."""
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_round_barrel(mask, 150, 320)
     W = truth[2] - truth[0]
@@ -173,35 +163,32 @@ def test_a_placed_box_never_replaces_a_found_barrels_box():
     paint_round_barrel(piece, 150, 320 - int(0.3 * W))
     piece[:, truth[0]:] = 0                                            # the left 0.3 W of a second barrel, its own side showing
     mask[piece > 0] = piece[piece > 0]
-    old = det.detect(mask, BASE, CAM)
-    assert any(det.box_iou(b.bbox, truth) > 0.8 for b in old)
-    new = det.detect(mask, PIN, CAM)
-    assert any(det.box_iou(b.bbox, truth) > 0.8 for b in new) and len(new) >= len(old)
+    new = det.detect(mask, cam=CAM)
+    assert any(det.box_iou(b.bbox, truth) > 0.8 for b in new)
+    assert sum(det.box_iou(b.bbox, truth) > 0.5 for b in new) == 1
 
 
-# ---------------------------------------------------------------- pin_thin
+# ---------------------------------------------------------------- thin pieces
 
 def _thin_share(d=150):
-    """A share of the width so small that the stripe piece is narrower than a stripe is tall (under the finder's old floor)."""
+    """A share of the width so small that the stripe piece is narrower than a stripe is tall."""
     r = CAM.barrel_rows(d)
     return 0.8 * (r.stripe_bottom - r.stripe_top) / r.width_px
 
 
 def test_thin_slice_with_a_corner_is_a_barrel():
-    """A slice narrower than a stripe is tall shows at the barrel's left side. Before, and with pin_outline alone: the
-    finder refuses the piece. With pin_thin: it is a full slice (top and bottom where its row predicts them) and its
-    corners fit the outline in one place: a box one barrel wide on the barrel."""
+    """A slice narrower than a stripe is tall shows at the barrel's left side. It is a full slice (top and bottom where
+    its row predicts them) and its corners fit the outline in one place: a box one barrel wide on the barrel."""
     v = _thin_share()
     mask, truth = _round_cut(0.0, v)
     W = truth[2] - truth[0]
-    assert det.detect(mask, BASE, CAM) == [] and det.detect(mask, PIN, CAM) == []
-    stripes = det.find_stripes(mask, CAM, THIN)
-    assert len(stripes) == 1 and stripes[0].small
-    out = det.detect(mask, THIN, CAM)
+    stripes = stripes_of(mask)
+    assert len(stripes) == 1 and stripes[0].thin
+    out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
     assert abs(out[0].bbox[0] - truth[0]) <= 1                                        # anchored on the barrel's own side
     assert 0.9 * W <= out[0].bbox[2] - out[0].bbox[0] <= W + 1 and det.box_iou(out[0].bbox, truth) > 0.7   # a side piece's row reads a little far
-    mirrored = det.detect(mask[:, ::-1].copy(), THIN, CAM)
+    mirrored = det.detect(mask[:, ::-1].copy(), cam=CAM)
     assert len(mirrored) == 1 and det.box_iou(mirrored[0].bbox, _mirror(truth)) > 0.7
 
 
@@ -210,62 +197,66 @@ def test_thin_slice_that_is_not_full_gives_no_box():
     mask, truth = _round_cut(0.0, _thin_share())
     H = truth[3] - truth[1]
     mask[truth[3] - int(0.3 * H):] = 0
-    assert det.detect(mask, THIN, CAM) == []
+    log = []
+    assert det.detect(mask, cam=CAM, log=log) == [] and "slice_not_full" in whys(log, "barrel")
 
 
 def test_thin_slice_from_the_middle_gives_no_box():
-    """A thin slice from the middle of a barrel is a full slice, but flat: the outline fits in many places. No box (the
-    2026-11-19 slice_box drew a box 1.8 barrels wide here)."""
+    """A thin slice from the middle of a barrel is a full slice, but flat: the outline fits in many places. No box."""
     v = _thin_share()
     mask, truth = _round_cut(0.5 - v / 2, 0.5 + v / 2)
-    assert any(s.small for s in det.find_stripes(mask, CAM, THIN))
-    assert det.detect(mask, THIN, CAM) == []
+    assert any(s.thin for s in stripes_of(mask))
+    log = []
+    assert det.detect(mask, cam=CAM, log=log) == [] and "outline_unknown" in whys(log, "barrel")
 
 
 def test_thin_slice_at_the_frame_edge():
-    """A barrel entering at the frame's left edge, a thin slice of it in the frame. Its own corner is inside the frame:
-    the outline places it, and the box is cut by the frame."""
+    """A barrel entering at the frame's left edge, a thin slice of it in the frame. The frame is its hidden side: the box
+    is one barrel wide from the slice's other end, and cut by the frame."""
     v = _thin_share()
     W = CAM.barrel_rows(150).width_px
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_round_barrel(mask, 150, (v - 0.5) * W)              # only the right v of the barrel is in the frame
-    assert det.detect(mask, BASE, CAM) == []
-    out = det.detect(mask, THIN, CAM)
+    out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].bbox[0] == 0 and "truncated" in out[0].flags
     assert abs(out[0].bbox[2] - truth[2]) <= 0.1 * W
 
 
 def test_thin_piece_of_a_found_barrels_stripe_is_not_another_barrel():
-    """A highlight takes a part out of a whole barrel's stripe and leaves a thin piece beside the long one. The barrel
-    has its box from the long piece; the thin one is a second piece of the same stripe, and the box does not change."""
+    """A highlight takes a strip out of a whole barrel, from top to bottom, and leaves a thin piece of stripe beside the
+    long one. The two do not join (no body over the gap, and the thin one is not stripe-shaped). One of them gives the
+    barrel its box; the other is a second piece of the same stripe, not another barrel."""
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_round_barrel(mask, 150, 320)
-    r = CAM.barrel_rows(150); W = truth[2] - truth[0]
+    W = truth[2] - truth[0]
     a, b = truth[0] + int(0.14 * W), truth[0] + int(0.32 * W)
-    rows = slice(int(r.stripe_top) - 12, int(r.stripe_bottom) + 6)
-    mask[rows, a:b][mask[rows, a:b] == io.ORANGE] = 0                 # the stripe's pixels there are gone, the body stays
-    old = det.detect(mask, BASE, CAM)
-    assert len(old) == 1 and det.box_iou(old[0].bbox, truth) > 0.85
-    assert len(det.find_stripes(mask, CAM, THIN)) >= len(det.find_stripes(mask, CAM, BASE))
-    assert det.detect(mask, THIN, CAM) == old
+    mask[:, a:b] = 0
+    stripes = stripes_of(mask)
+    assert len(stripes) == 2 and [s.thin for s in stripes] == [True, False]
+    log = []
+    out = det.detect(mask, cam=CAM, log=log)
+    assert len(out) == 1 and det.box_iou(out[0].bbox, truth) > 0.85
+    assert "stripe_piece" in whys(log, "barrel")
+
+
+def test_a_thin_piece_is_a_stripe_and_a_left_over_piece_and_is_handed_over_once():
+    """A piece narrower than a stripe is tall enters the stripe step as a thin stripe AND is kept aside for the pairs (its
+    twin among the left-over pieces), exactly as a piece the finder refuses for its width. A thin stripe left without a
+    box is not handed over a second time: only stripes that are not thin count as "unplaced"."""
+    from test_detector_vertical import _behind_a_post, _slice_beside_a_nearer_barrel
+    for mask in (_slice_beside_a_nearer_barrel()[0], _round_cut(0.5 - _thin_share() / 2, 0.5 + _thin_share() / 2)[0], _behind_a_post()[0]):
+        stripes, leftover = det.find_stripes(mask, cam=CAM)
+        thin = [s for s in stripes if s.thin]
+        assert thin and sorted(s.bbox for s in thin) == sorted(s.bbox for s in leftover) and not any(s.thin for s in leftover)
+        for s in thin:                                # with or without a box, a thin stripe is never "unplaced"
+            assert det.box_from_stripe(s, mask, CAM)[1] != "side_unexplained"
 
 
 def test_end_costs_tell_a_barrels_own_side_from_a_cut():
     """The left half shows: the left end follows the outline (cost near 0), the cut end does not (cost over pin_good)."""
     mask, truth = _round_cut(0.0, 0.5)
     W = truth[2] - truth[0]
-    s = det.find_stripes(mask, CAM, PIN)[0]
-    left, right = det._end_costs(s, mask, CAM, PIN, truth[0], truth[0] + W // 2)
-    assert left < 0.02 < PIN.pin_good < right
-    assert det._outline_place(s, mask, CAM, PIN, truth[0], truth[0] + W // 2)[0] == truth[0]
-
-
-def test_pin_outline_and_pin_thin_are_on_by_default_and_pin_thin_needs_pin_outline():
-    """2026-11-20: pin_outline passed its pre-registered rule on wip/occl-pin; pin_thin passed the rule of the combined
-    experiment (experiments/2026-11-20_occl_combined) and is on since then; slice_behind failed it and is off."""
-    cfg = det.DetConfig()
-    assert cfg.pin_outline is True and cfg.pin_thin is True and cfg.pin_good == 0.05 and cfg.slice_behind is False
-    assert cfg.slice_box is False and cfg.cover_unpinned is False and cfg.stripe_two is False
-    assert all(getattr(cfg, k) for k in ("half_stripe", "half_thin", "post_pair", "stripe_wide", "cap_low", "edge_check", "cap_same"))
-    mask, truth = _round_cut(0.0, _thin_share())
-    assert det.detect(mask, dataclasses.replace(BASE, pin_thin=True), CAM) == []      # pin_thin without pin_outline changes nothing
+    s = stripes_of(mask)[0]
+    left, right = det._end_costs(s, mask, CAM, CFG, truth[0], truth[0] + W // 2)
+    assert left < 0.02 < CFG.pin_good < right
+    assert det.own_end_by_outline(s, mask, CAM, CFG, truth[0], truth[0] + W // 2)[0] == truth[0]

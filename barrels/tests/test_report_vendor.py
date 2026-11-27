@@ -273,4 +273,4 @@ def test_command_vendor_options(monkeypatch, capsys):
     assert tool.main(["--cand-model", "vendor", "--base-model", "default"]) == 1
     assert seen["cand"].is_vendor and not seen["base"].is_vendor
     with pytest.raises(SystemExit):
-        tool.main(["--base-model", "vendor", "--base-det", "body_width=0"])     # the vendor has no DetConfig
+        tool.main(["--base-model", "vendor", "--base-det", "body_width=1.0"])     # the vendor has no DetConfig

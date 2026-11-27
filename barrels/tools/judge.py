@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THE STANDARD PASS RULE: is a candidate better than a baseline, worse, or neither? (TODO M3, 2026-11-26)
 
-    python barrels/tools/judge.py --cand-det stripe_bridge=false                       # a detector change against today's default
+    python barrels/tools/judge.py --cand-det stripe_merge=1.68                        # a detector number changed, against today's default
     python barrels/tools/judge.py --cand-model results/<x>/config.json                 # a color model file against today's default
     python barrels/tools/judge.py --cand-callable path/to/idea.py:detect_frame         # anything: a function (stem, frame) -> list[Barrel]
     python barrels/tools/judge.py --cand-fit path/to/idea.py:fit                       # anything with fitted numbers: leave one place out

@@ -72,17 +72,29 @@ def test_run_arm_refuses_test_frames_before_opening_anything(tmp_path):
 
 
 def test_parse_det_overrides():
-    assert rp.parse_det_overrides(["body_width=0", "cover_rows=false,stripe_mode=bands", "min_area_px=30"]) == {
-        "body_width": 0.0, "cover_rows": False, "stripe_mode": "bands", "min_area_px": 30}
+    assert rp.parse_det_overrides(["body_width=1.1", "stripe_full=0.75,stripe_merge=1.5", "min_area_px=30"]) == {
+        "body_width": 1.1, "stripe_full": 0.75, "stripe_merge": 1.5, "min_area_px": 30}
     assert rp.parse_det_overrides(None) == {}
-    arm = rp.Arm("a", "m.json", rp.parse_det_overrides(["dark_stripe=on"]))
-    assert arm.det_config().dark_stripe is True and arm.det_config().body_width == 1.2
-    for bad in (["no_such_field=1"], ["body_width"], ["cover_rows=maybe"], ["min_area_px=x"]):
+    arm = rp.Arm("a", "m.json", rp.parse_det_overrides(["pin_good=0.04"]))
+    assert arm.det_config().pin_good == 0.04 and arm.det_config().body_width == 1.2
+    for bad in (["no_such_field=1"], ["body_width"], ["body_width=wide"], ["min_area_px=x"]):
         with pytest.raises(ValueError):
             rp.parse_det_overrides(bad)
 
 
-# ---------------------------------------------------------------- counting, medians, deltas
+def test_a_removed_detector_switch_gives_a_clear_error():
+    """DetConfig holds numbers only since the collapse of 2026-11-26. An old command line that names a switch, or sets to 0 a
+    number whose 0 meant "check off", is told so, with the tag where the old detector is."""
+    from barrels import detector as det
+    assert not any(isinstance(v, (bool, str)) for v in det.DetConfig().to_dict().values()) and len(det.DetConfig().to_dict()) == 20
+    assert not set(rp.REMOVED_DET_SWITCHES) & set(det.DetConfig().to_dict()) and len(rp.REMOVED_DET_SWITCHES) == 31
+    for gone in ("cap_behind=false", "side_hidden=true", "dark_stripe=on", "stripe_mode=bands", "require_stripe=false", "cover_rows=false"):
+        with pytest.raises(ValueError, match="no longer exists.*pre-collapse-2026-11-26"):
+            rp.parse_det_overrides([gone])
+    for zero in ("body_width=0", "body_min=0.0", "height_max=0"):
+        with pytest.raises(ValueError, match="used to switch that check off.*pre-collapse-2026-11-26"):
+            rp.parse_det_overrides([zero])
+
 
 def synthetic():
     """Two sets. Candidate: finds both campus core barrels (one 10 % narrow, 2 px low) and misses the occluded one;
@@ -165,7 +177,7 @@ def test_build_rows_groups_by_set_and_scene():
 def make_rep():
     sets, cand, base = synthetic()
     return rp.Report(rp.build_rows(sets, cand, base), rp.Arm("candidate", "results/a/config.json"),
-                     rp.Arm("baseline", "results/b/config.json", {"body_width": 0.0}), rp.Selection(sets), "loso", "abc1234", 1.5)
+                     rp.Arm("baseline", "results/b/config.json", {"body_width": 1.0}), rp.Selection(sets), "loso", "abc1234", 1.5)
 
 
 def test_format_text_one_table_about_140_columns():
@@ -178,7 +190,7 @@ def test_format_text_one_table_about_140_columns():
     assert home.rstrip().split("|")[-1].strip() == "0/1 DQ:b"
     campus = next(x for x in lines if x.startswith("CAMPUS all"))
     assert campus.split("|")[3].split() == ["+1", "-1", "-1", "-0.05", "+1.0"]            # the delta block
-    assert "leave-one-scene-out" in text and "body_width=0.0" in text
+    assert "leave-one-scene-out" in text and "body_width=1.0" in text
     assert rep.subtotal("CAMPUS").cand.found == 2 and rep.subtotal("4A8B_window_light").label == "HOME"
 
 
@@ -195,6 +207,6 @@ def test_writers(tmp_path):
     neg = next(r for r in rows if r["label"] == "HOME" and r["scene"] == "neg")
     assert neg["cand_width"] == "" and neg["base_false"] == "1"
     d = json.loads((out / "report.json").read_text())
-    assert d["rule"] == "v2" and d["baseline"]["det_overrides"] == {"body_width": 0.0} and d["baseline"]["det"]["body_width"] == 0.0
+    assert d["rule"] == "v2" and d["baseline"]["det_overrides"] == {"body_width": 1.0} and d["baseline"]["det"]["body_width"] == 1.0
     assert d["sets"]["4A8B_campus_light"]["label"] == "CAMPUS" and len(d["rows"]) == len(rep.rows)
     assert d["rows"][1]["candidate"]["width"] is None                                     # nan is written as null

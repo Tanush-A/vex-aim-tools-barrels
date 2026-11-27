@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — how the pieces fit
 
-The code in one picture, then each layer. For *why* each step works, read `HOW-IT-WORKS-SHORT.md` (one page) and `HOW-IT-WORKS.md` (the long form). State as of 2026-11-05.
+The code in one picture, then each layer. For *why* each step works, read `HOW-IT-WORKS-SHORT.md` (one page) and `HOW-IT-WORKS.md` (the long form); for the detector check by check, `DETECTOR-MAP.md`. State as of 2026-11-05.
 
 ## 1. What happens to one image
 
@@ -15,7 +15,7 @@ flowchart LR
     MASK --> DET
     subgraph DET["3 · the detector — detector.py"]
         direction TB
-        S4["stripe step: a band of one color<br/>sandwiched in the other = one barrel"] --> S1["blobs → how many barrels<br/>(width ÷ expected width) → cut at the waist"] --> S3["bottom edge: seen if it agrees<br/>with the geometry, else predicted"]
+        S1["pieces: blobs of barrel color,<br/>cut to barrel width, bottom edge resolved"] --> S4["stripes: a band of one color sandwiched in the other.<br/>One box per stripe"] --> S3["close-ups, caps, pairs, half stripes;<br/>verify: drop a box read from a nearer barrel"]
     end
     GEO["2 · camera geometry — geometry.py<br/>row ↔ distance, barrel size per row"] <--> DET
     DET --> BARRELS["list of Barrel<br/>color, box, flags, confidence"]
@@ -74,7 +74,7 @@ All under `src/barrels/`. **Main code** (walked through before every commit, exp
 | analysis | `conditions.py` | place (table + room) and light kind (window / overhead / lamp / mixed) of each condition, from `data/conditions.json`; a missing one is guessed from its tags and flagged | `info`, `load_table` |
 | front end | `cleanup.py` | speck removal / opening / hole filling; **off** (tie, 2026-10-28) | `apply` |
 | geometry ★ | `geometry.py` | pinhole camera: row ↔ distance, the barrel's rows and width at any distance, presets | `CameraModel`, `barrel_rows`, `horizon_row`, `AIM_4A8B6118_BOXFIT` |
-| detector ★ | `detector.py` | steps 1–4: blobs, count by width, bottom edge, the stripe; then the occlusion rules, each a `DetConfig` switch (which are on: `HOW-IT-WORKS.md` §3, "The numbers"): a stripe in pieces, a top behind a found barrel, a partly seen stripe placed by what is seen (a side hidden only for a reason; else by the barrel's outline at its own corner), and (2026-11-20) a stripe with body on one side only, two slices behind a post; built and off: a slice beside a found barrel, the cover box; `draw` | `DetConfig`, `find_blobs`, `split_blob`, `resolve_bottom`, `find_stripes`, `barrel_from_stripe`, `caps_behind`, `post_pairs`, `slices_behind`, `half_stripes`, `detect`, `draw` |
+| detector ★ | `detector.py` | ten stages in a fixed order, 20 numbers, no switches (collapsed 2026-11-26; guide: `DETECTOR-MAP.md`): pieces (blobs, count by width, bottom edge), stripes, one box per stripe (a partly seen stripe placed by what is seen, a side hidden only for a reason, else by the barrel's outline), close-ups, verify (a barrel cannot be seen through a nearer one; a guessed side needs a seen edge), caps (a top behind a found barrel), pairs (two slices behind a post), half stripes (body on one side only); `draw` | `DetConfig`, `detect`, `find_pieces`, `find_stripes`, `boxes_from_stripes`, `closeup_pieces`, `drop_seen_through`, `caps_behind`, `post_pairs`, `half_stripes`, `drop_single_reading`, `BarrelAt`, `Found`, `draw` |
 | detector | `detect_types.py` | one detected barrel and its conversions (incl. the aivision dict the world map reads) | `Barrel`, `barrels_from_boxes` |
 | detector | `detect_cc.py` | the floor: one box per connected blob, never tuned | `detect`, `write_detections` |
 | scoring ★ | `eval_det.py` | box matching and metrics under the v1 and v2 rules; result tables | `evaluate_frame`, `match_best_first`, `aggregate`, `write_results`, `score` |
