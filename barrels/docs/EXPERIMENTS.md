@@ -63,7 +63,7 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 
 ---
 
-### 2026-11-26 — The barrel as its own color reference (TODO E6, first idea; pre-registered, one round; branch `wip/exp-selfcal`; nothing adopted)
+## 2026-11-26 — The barrel as its own color reference (TODO E6, first idea; pre-registered, one round; branch `wip/exp-selfcal`; nothing adopted)
 
 - **Hypothesis:** The fixed colors fail when the light or the table changes. Whole-frame statistics cannot say what the
   right colors are, because barrels are 4 % of the pixels. A barrel that is found, or half found, can: its place is
