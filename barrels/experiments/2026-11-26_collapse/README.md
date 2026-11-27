@@ -53,3 +53,14 @@ tag give the same file.
 
 After every step of the collapse: the same boxes on all 5435 masks, and the test suite passes. A step that changes a
 box is taken back and becomes an experiment of its own (list (b) of `docs/DETECTOR-MAP.md`, section 6).
+
+## The second pass (2026-11-26, branch `wip/collapse-2`)
+
+The same harness and the same rule, for the things the collapse had proved dead (`docs/DETECTOR-MAP.md`, section 5). Two more
+scripts hold the numbers it quotes; their output is `results/2026-11-26_collapse/second_pass.md`.
+
+- `second_pass_margins.py <barrels/src>`: for each camera and each set of numbers, every top row and every seen bottom row
+  through stage 1. It prints the tallest piece, the pieces that are too short, the thinnest stripe at a piece's middle row,
+  the stripe of the farthest barrel on the table, and whether the stripe rows are one unbroken range.
+- `second_pass_b7.py <barrels/src> <inputs.pkl>`: would `drop_single_reading` decide the same if it read the span stage 3
+  measured? No: 3 of the 43 boxes it asks on the 5435 masks get the other answer. So B7 was not done.

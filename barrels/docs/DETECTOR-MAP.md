@@ -1,6 +1,6 @@
 # DETECTOR-MAP.md — what `detect()` does, check by check
 
-**Now (2026-11-26, after the collapse).** This is the map of `barrels/src/barrels/detector.py` as it stands on branch `wip/collapse`. The detector has **no on/off switches**. It has 20 numbers (`DetConfig`) and ten stages, each one function. It draws exactly the boxes it drew before the collapse: 6152 boxes on 5435 masks, box for box (section 5).
+**Now (2026-11-26, after the collapse and its second pass).** This is the map of `barrels/src/barrels/detector.py`. The detector has **no on/off switches**. It has 18 numbers (`DetConfig`) and ten stages, each one function. It draws exactly the boxes it drew before the collapse: 6152 boxes on 5435 masks, box for box (section 5).
 
 - Every name in `code font` is a function or a field of that file. There are no line numbers: search for the name.
 - W = the width, H = the height, "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in question.
@@ -79,21 +79,20 @@ Stage 1 finds this barrel's piece, but cannot refuse the barrel: a barrel with a
 | 2 | **The sandwich.** Every stripe pixel has body color above it **and** below it in its own column, near enough. | 3 × the stripe height expected at that row (`band_h_max`) [39 px; 20 px] | `sandwiches`, `_reach_by_row` | no stripe at all. This is the commonest real miss: the body is not painted |
 | 3 | If a highlight cut the stripe, the pieces join into one. | same rows; together at most 1.2 W; each piece stripe-shaped, or the gap bridged by body color | `_join_pieces` | each piece is judged alone |
 | 4 | Big enough. | 20 px (`min_area_px`) | `find_stripes` 1 | "area" |
-| 5 | Its row gives a distance. | below the horizon (row 76) | `find_stripes` 2 | "no_geometry" |
-| 6 | On the table. | W at least 16 px, i.e. nearer than 637 mm (`min_width_px`) | `on_the_table` | "too_far" |
-| 7 | As tall as a stripe. | 0.45 to 1.6 × the stripe height [5.9–21 px; 3.0–10.8 px], from the 10th to the 90th percentile of its rows. Too thin but seen whole: read once more as the mean of its height and the gap between the two body parts | `find_stripes` 4 | "height" |
-| 8 | Not a speck sideways. | at least 0.45 × the stripe height wide [5.9 px] | `find_stripes` 5 | "width"; kept for stage 7 |
-| 9 | Not wider than one barrel. | at most 1.4 W (`stripe_merge`); and at most 1.2 × W where body is seen right above and below | `_one_stripe_per_barrel` | it is cut into two barrels |
-| 10 | Top and bottom. The body is walked up and down from the stripe. A seen end that agrees with the predicted row is the edge; else the predicted row is drawn. This refuses only when **both** edges are predicted **and** the body above ends against the other barrel color. | the edge tolerance [8.3 px; 4.2 px]; "against" = the 4 rows beyond the end, half of the stripe's columns | `read_edges` | "top_against_barrel" |
-| 11 | Is the stripe at least 0.8 W wide? Yes: the box's sides are the body joined to the stripe. (No: the partly seen branch, also for a barrel that is not hidden.) | `stripe_full` 0.8 [41 px; 20 px]; the box at most 1.2 W (`body_width`) | `place_sides`, `_body_columns` | the partly seen branch |
-| 12 | The box is not empty. | at least 2 × 2 px | `box_from_stripe` | "empty_box" |
-| 13 | The box holds the body color. | in the stripe's columns, outside its rows: body pixels ≥ stripe-colored pixels, and body ≥ 10 % (`body_min`) | `holds_body` | "body_min" |
-| 14 | It is not the same barrel as a surer box. | same color, IoU over 0.5; the box whose stripe holds more labeled pixels stays | `boxes_from_stripes` 4 | "duplicate" |
-| 15 | It was not read from a nearer barrel's picture. Asked twice (stages 5 and 9). | at least 20 of its evidence pixels are not explained by a nearer kept barrel | `drop_seen_through` | "verify: front" |
+| 5 | On the table. | W at least 16 px, i.e. nearer than 637 mm (`min_width_px`) | `on_the_table` | "too_far" |
+| 6 | As tall as a stripe. | 0.45 to 1.6 × the stripe height [5.9–21 px; 3.0–10.8 px], from the 10th to the 90th percentile of its rows. Too thin but seen whole: read once more as the mean of its height and the gap between the two body parts | `find_stripes` 3 | "height" |
+| 7 | Not a speck sideways. | at least 0.45 × the stripe height wide [5.9 px] | `find_stripes` 4 | "width"; kept for stage 7 |
+| 8 | Not wider than one barrel. | at most 1.4 W (`stripe_merge`); and at most 1.2 × W where body is seen right above and below | `_one_stripe_per_barrel` | it is cut into two barrels |
+| 9 | Top and bottom. The body is walked up and down from the stripe. A seen end that agrees with the predicted row is the edge; else the predicted row is drawn. This refuses only when **both** edges are predicted **and** the body above ends against the other barrel color. | the edge tolerance [8.3 px; 4.2 px]; "against" = the 4 rows beyond the end, half of the stripe's columns | `read_edges` | "top_against_barrel" |
+| 10 | Is the stripe at least 0.8 W wide? Yes: the box's sides are the body joined to the stripe. (No: the partly seen branch, also for a barrel that is not hidden.) | `stripe_full` 0.8 [41 px; 20 px]; the box at most 1.2 W (`body_width`) | `place_sides`, `_body_columns` | the partly seen branch |
+| 11 | The box is not empty. | at least 2 × 2 px | `box_from_stripe` | "empty_box" |
+| 12 | The box holds the body color. | in the stripe's columns, outside its rows: body pixels ≥ stripe-colored pixels, and body ≥ 10 % (`body_min`) | `holds_body` | "body_min" |
+| 13 | It is not the same barrel as a surer box. | same color, IoU over 0.5; the box whose stripe holds more labeled pixels stays | `boxes_from_stripes` 4 | "duplicate" |
+| 14 | It was not read from a nearer barrel's picture. Asked twice (stages 5 and 9). | at least 20 of its evidence pixels are not explained by a nearer kept barrel | `drop_seen_through` | "verify: front" |
 
 Each test is a hard yes or no. None can make up for another. `drop_single_reading` does not ask this barrel anything: its box is not flagged "occluded".
 
-After that the scorer asks for overlap ≥ 0.5 and the bottom edge within 10 % of the height (at least 3 px). The detector's own "agrees" in test 10 is 15 % (at least 4 px). See B8 in section 6.
+After that the scorer asks for overlap ≥ 0.5 and the bottom edge within 10 % of the height (at least 3 px). The detector's own "agrees" in test 9 is 15 % (at least 4 px). See B8 in section 6.
 
 ---
 
@@ -116,7 +115,7 @@ Then four checks, numbered as in `find_pieces`:
 1. **Is it on the table?** W at its bottom row is at least 16 px. No: "too_far". *The hand at the horizon.*
 2. **Is its top below the horizon?** (`above_horizon`) No: "above_horizon". *A barrel is 24 mm tall and the camera is 43 mm up, so the camera looks down on every lid. Nothing on the table has its top at or above the horizon. A jacket above the table edge does.*
 3. **Is it barrel-wide?** 0.4 to 1.6 × W. No: "width".
-4. **Is it barrel-tall?** Asked only when the box ends inside the frame and does not touch the frame top: 0.5 to 1.5 × H for its bottom row. No: "height". Once 2 has been asked, this can only refuse a piece that is too short with its top in the lowest rows of the frame (row 427 or lower; see B13).
+4. **Is it far too short?** Asked only when the box ends inside the frame and does not touch the frame top: under 0.5 × H for its bottom row (`height_min`). Yes: "height". *The case: a top in the lowest rows of the frame (row 427 or lower). There the top row predicts no bottom, because the base would be at or behind the camera. A barrel that near runs out of the frame bottom; a piece that ends inside the frame there is not one.* Everywhere else the bottom was seen or drawn where the top row predicts it, so the height already fits. No piece is too tall (at most 1.1 × H), so no upper limit is asked (section 5, B13).
 
 Its color is the majority of its pixels. A tie is orange.
 
@@ -131,12 +130,13 @@ First the sandwich (`sandwiches`, computed once per image and used again by stag
 Per stripe, in this order:
 
 1. **Big enough?** 20 px. No: "area".
-2. **Does its row give a distance?** The median row of its pixels is below the horizon. No: "no_geometry".
-3. **On the table?** (`on_the_table`) W at least 16 px. No: "too_far".
-4. **As tall as a stripe?** 0.45 to 1.6 × the stripe height, measured from the 10th to the 90th percentile of its rows. Too thin **and** at least 0.8 W wide: read a second time as the mean of its own height and the gap between the two body parts. *Mixed pixels at the two seams make the stripe thinner and the gap taller by the same amount.* No: "height".
-5. **Wide enough to look at?** At least 0.45 × the stripe height. No: "width", and the piece becomes a **left-over piece**.
-6. **Wider than one barrel?** (`_one_stripe_per_barrel`) Over 1.4 W: cut into round(width ÷ W) equal parts. Or, where body is seen right above **and** below the whole region: over 1.2 × W₂, cut into at least two parts. W₂ is the larger of W and the width of a barrel as tall as that body. Each part remembers the region (`Stripe.cut_from`). *Two same-colored barrels side by side have one joined stripe. A near barrel runs wider than its row predicts, but then it is taller too.*
-7. **Thin?** Narrower than one stripe height, or taller than wide: marked `Stripe.thin`. It enters stage 3 **and** a copy goes to the left-over pieces.
+2. **On the table?** (`on_the_table`) W at least 16 px. No: "too_far".
+3. **As tall as a stripe?** 0.45 to 1.6 × the stripe height, measured from the 10th to the 90th percentile of its rows. Too thin **and** at least 0.8 W wide: read a second time as the mean of its own height and the gap between the two body parts. *Mixed pixels at the two seams make the stripe thinner and the gap taller by the same amount.* No: "height".
+4. **Wide enough to look at?** At least 0.45 × the stripe height. No: "width", and the piece becomes a **left-over piece**.
+5. **Wider than one barrel?** (`_one_stripe_per_barrel`) Over 1.4 W: cut into round(width ÷ W) equal parts. Or, where body is seen right above **and** below the whole region: over 1.2 × W₂, cut into at least two parts. W₂ is the larger of W and the width of a barrel as tall as that body. Each part remembers the region (`Stripe.cut_from`). *Two same-colored barrels side by side have one joined stripe. A near barrel runs wider than its row predicts, but then it is taller too.*
+6. **Thin?** Narrower than one stripe height, or taller than wide: marked `Stripe.thin`. It enters stage 3 **and** a copy goes to the left-over pieces.
+
+"Does its row give a distance?" is not asked. It always does: a stripe's pixels sit only at rows where a barrel can have its stripe (section 5, C1).
 
 ### Stage 3 — One box per stripe (`boxes_from_stripes`, `box_from_stripe`)
 
@@ -156,7 +156,7 @@ Per stripe, four steps, numbered as in `boxes_from_stripes`:
    2. **Where are the left and the right?** (`place_sides`) See the tree below. Nothing places it: no box, "side_unexplained" (thin: "outline_unknown"). A stripe that is not thin is then kept for stage 7.
    3. **Is the box at least 2 × 2?** No: "empty_box". **Does it hold the body color?** (`holds_body`) In the stripe's columns, outside its rows: body pixels ≥ stripe-colored pixels, and body ≥ 10 %. No: "body_min". *A blue barrel's body between two orange things is not an orange barrel.*
 3. **Would the box sit on a found box** (`same_barrel`: same color, IoU over 0.5)? A box the outline placed never takes a found box's place. A thin stripe: no box, "duplicate". Any other: the box is made again without the outline (`use_outline=False`).
-4. **Is it the same barrel as a found box** (and not another part cut from the same wide stripe)? The surer one stays: confidence = 0.5 + 0.5 × the labeled share of the stripe's box. "duplicate". The stripe of the box that goes is "lost": stage 6 still treats it as a stripe.
+4. **Is it the same barrel as a found box** (and not another part cut from the same wide stripe)? The surer one stays: confidence = 0.5 + 0.5 × the labeled share of the stripe's box. "duplicate". The stripe of the box that goes is "lost": stage 6 still treats it as a stripe. In the log, "kept" is written when a box goes into the list, and "duplicate" for the box that goes.
 
 **The sides (`place_sides`).**
 
@@ -196,9 +196,9 @@ flowchart TD
 In: the stage-1 pieces and the boxes so far. Out: more boxes (source "det1").
 
 1. **Does a box already account for this piece?** They share more than 0.3 of the narrower one's width, **and** they share rows. A piece kept just before counts too. Yes: "covered". *A far barrel standing above a close-up in the picture must not hide it.*
-2. **Is it a close-up?** Its box reaches the frame bottom (rule "closeup"). Or its top row puts the stripe's bottom edge at or below the frame bottom: top at row 241 or lower (rule "closeup_stripe"; `_closeup_stripe_rows`). *The frame cuts the stripe, so no body shows below it and the stripe finder cannot see it.*
+2. **Is it a close-up?** Its box reaches the frame bottom (rule "closeup"). Or its top row puts the stripe's bottom edge at or below the frame bottom: top at row 241 or lower (rule "closeup_stripe"; `_closeup_stripe_rows`). *The frame cuts the stripe, so no body shows below it and the stripe finder cannot see it.* Neither: "stripeless". *Its stripe would be in view, and the stripe stages found no barrel there.*
 3. **A close-up that the left or right frame side also cuts: is its body seen down to where its top row puts the stripe (or to the frame bottom)?** Within the edge tolerance (`_seen_to_stripe`). No: "closeup_side". *A printed orange fruit at the frame corner. With the side cut, the width says nothing.*
-4. **Keep it?** A close-up: yes. Else only if the stripe expected at its middle row is under 4 px (`min_stripe_px`; rule "far_piece"). Else "stripeless". The "far" half takes no piece today (B1).
+A close-up that passes 3 is a box. "Too far away to show a stripe" is not a way to be kept without one: no piece on the table is that far (section 5, B1).
 
 Nothing here asks whether the piece is a solid face (B10).
 
@@ -298,7 +298,7 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 
 ## 4. Every number that is left
 
-### 4.1 `DetConfig`: 20 numbers, no switches
+### 4.1 `DetConfig`: 18 numbers, no switches
 
 | name | value | what it means | where it is used |
 |---|---|---|---|
@@ -310,17 +310,15 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 | `width_max` | 1.6 | wider × W is not one barrel | a piece (`find_pieces` 3) |
 | `split_search` | 0.25 | where a blob's waist is looked for, ± × W | `split_blob` |
 | `min_width_px` | 16 | a barrel narrower than this is beyond the table | `find_pieces` 1, `on_the_table` (stripes, caps, half stripes) |
-| `stripe_h_min` | 0.45 | a stripe's least height, × the stripe height | `find_stripes` 4. Also a stripe piece's least **width**, × the stripe height (`find_stripes` 5) |
-| `stripe_h_max` | 1.6 | a stripe's greatest height, × the stripe height | `find_stripes` 4, `half_stripes` 3, "stripe-shaped" in `_join_pieces` |
+| `stripe_h_min` | 0.45 | a stripe's least height, × the stripe height | `find_stripes` 3. Also a stripe piece's least **width**, × the stripe height (`find_stripes` 4) |
+| `stripe_h_max` | 1.6 | a stripe's greatest height, × the stripe height | `find_stripes` 3, `half_stripes` 3, "stripe-shaped" in `_join_pieces` |
 | `band_h_max` | 3.0 | "right above / right below": within this × the stripe height | `_reach_by_row` (the sandwich: stages 2 and 8) |
 | `stripe_w_min` | 0.4 | × W | the least stripe for the centred guess (`centred`); the widest slice of a pair (`post_pairs`) |
 | `stripe_merge` | 1.4 | a stripe region wider × W is several barrels | `_one_stripe_per_barrel` |
-| `stripe_full` | 0.8 | "the whole width shows", × W | whole or partly seen (`place_sides`, the order of stage 3); the second height reading (`find_stripes` 4); the seen span (`seen_span`, `drop_single_reading`); a cap (`_cap_box` 4, 7); a pair's span; half stripes (the shares 0.8 and 0.2, and the widths) |
-| `min_stripe_px` | 4.0 | a stripe thinner than this cannot be resolved | the "far" half of `closeup_pieces` 4; the assertion in `on_the_table` |
-| `height_min` | 0.5 | a piece's least height, × H | `find_pieces` 4 |
-| `height_max` | 1.5 | a piece's greatest height, × H | `find_pieces` 4 |
+| `stripe_full` | 0.8 | "the whole width shows", × W | whole or partly seen (`place_sides`, the order of stage 3); the second height reading (`find_stripes` 3); the seen span (`seen_span`, `drop_single_reading`); a cap (`_cap_box` 4, 7); a pair's span; half stripes (the shares 0.8 and 0.2, and the widths) |
+| `height_min` | 0.5 | a piece shorter than this × H is far too short to be a barrel | `find_pieces` 4 |
 | `body_min` | 0.1 | the least share of body color in the box | `holds_body` |
-| `body_width` | 1.2 | one barrel is at most this × W wide | as it is: the box (`place_sides`), the trusted body (`seen_span`, `drop_single_reading`). As `widest_barrel` (never under 1): a joined stripe, the second cut of `_one_stripe_per_barrel`, a cap, a pair, a half stripe |
+| `body_width` | 1.2 | one barrel is at most this × W wide | the box (`place_sides`), the trusted body (`seen_span`, `drop_single_reading`), a joined stripe (`_join_pieces`), the second cut of `_one_stripe_per_barrel`, a cap, a pair, a half stripe |
 | `pin_good` | 0.05 | an end is the barrel's own side when the outline's lines lie within this × H | `own_end_by_outline` |
 
 Seven numbers do more than one job: `stripe_full`, `body_width`, `bottom_tol`, `close_px`, `min_area_px`, `width_min`, and `stripe_h_min`. None can be changed for one job without moving the others.
@@ -335,7 +333,7 @@ Seven numbers do more than one job: `stripe_full`, `body_width`, `bottom_tol`, `
 | 10th to 90th percentile of the rows, + 1 | "the stripe's height" | `find_stripes`, `_join_pieces`, `half_stripes` |
 | overlap at least half the shorter height | "the same rows" | `same_rows` (join, `piece_of_found`, pairs) |
 | middles within ½ stripe height; gap ≤ ½ the joined span; body in every gap column | the bridge | `_join_pieces` |
-| equal weights ½ and ½ | the second height reading | `find_stripes` 4 |
+| equal weights ½ and ½ | the second height reading | `find_stripes` 3 |
 | 3 empty rows end the walk | where the body ends, up and down | `_body_extent`, `_seen_lines` |
 | 2 body pixels make a column; 2 empty columns end the walk | where the body ends, sideways | `_body_columns`, `_body_span` |
 | 0.353 W; the side curve 1 − √(1 − t) | the barrel's outline: the lid's half width, the shoulder | `LID_HALF`, `Outline` |
@@ -353,6 +351,7 @@ Seven numbers do more than one job: `stripe_full`, `body_width`, `bottom_tol`, `
 | a strictly lower bottom edge | "nearer" | `standing_nearer`, `drop_seen_through` |
 | 12.75 + 1 mm | the nearest a barrel's axis can be | `BarrelAt` |
 | 2 px | the smallest box | `box_from_stripe`, `half_stripes` |
+| 4 px (`THINNEST_STRIPE_PX`) | a fact, not a setting: the stripe of a barrel on the table is at least this tall. It is asserted; nothing is refused by it | `on_the_table` |
 
 ### 4.3 Where one idea still has several numbers
 
@@ -366,21 +365,20 @@ The collapse put each idea in one helper but did **not** make the numbers the sa
 | "ends against" | the **other** barrel color (`read_edges`, `_full_slice`); **any** barrel color (`half_stripes` 8, 9) |
 | the row that gives a stripe's barrel | the median row of the candidate's pixels (`find_stripes`); the stripe's centre row (stage 3, `Stripe.at`); the middle of a piece's box (`_join_pieces`); the middle of the stripe's box (`drop_single_reading`) |
 | "the same rows" | overlap at least half the shorter (`same_rows`); middles within half a stripe height (the bridge); any overlap (`closeup_pieces` 1) |
-| "one barrel at most" | `body_width` as it is at 3 sites; never under 1 at 6 (`widest_barrel`). The same today |
 | "the seen edge agrees" | 15 %, at least 4 px (the detector); 10 %, at least 3 px (the scorer, `eval_det.py`) |
 
 ---
 
 ## 5. What the collapse removed, and why it is safe
 
-Before: 1904 lines, 51 `DetConfig` fields (30 on/off switches read at 63 places, 20 numbers, 1 mode). After: 1825 lines, 20 numbers. The file is not much shorter: about 420 lines of switches and dead code went, and the docstrings that now say what each check asks came in.
+Before: 1904 lines, 51 `DetConfig` fields (30 on/off switches read at 63 places, 20 numbers, 1 mode). After the collapse: 1825 lines, 20 numbers. After its second pass, which took out what was proved dead (below): 1823 lines, 18 numbers. The file is not much shorter: about 420 lines of switches and dead code went, and the docstrings that now say what each check asks came in.
 
 | step | what went or changed | why no box can change |
 |---|---|---|
 | A1 | the 7 switches that were off (`dark_stripe`, `occl_body_side`, `slice_box`, `cover_unpinned`, `stripe_two`, `slice_behind`, `own_close`), the "bands" finder, and their code | every line sat behind an `if` that was false |
 | A2 | the 23 switches that were on are plain code; step 1 alone (`detect_step1`, `--step1`) is gone | every `if` was true |
 | A3 | `detect` is ten named stages; the partly seen branch is small functions | code moved |
-| A4 | one helper per idea (`edge_tol`, `same_rows`, `same_barrel`, `ends_against`, `standing_nearer`, `widest_barrel`, `sandwiches`) | each is called with the number its site had |
+| A4 | one helper per idea (`edge_tol`, `same_rows`, `same_barrel`, `ends_against`, `standing_nearer`, `widest_barrel`, `sandwiches`; `widest_barrel` went in the second pass) | each is called with the number its site had |
 | A5 | `BarrelAt`: the geometry's barrel, built once per stripe | same row in, same numbers out |
 | A6 | each box carries its evidence (`Found`); the verify stages no longer search the reason log | not certain in advance; the check decided |
 | A7 | the horizon fact is a check of its own (`above_horizon`) | not certain in advance; the check decided |
@@ -402,6 +400,30 @@ The reason logs are the same too, except in one step, A7. On 224 of the 5435 mas
 
 **Old experiments** that name switches run at the git tag `pre-collapse-2026-11-26` (`experiments/README.md`).
 
+### The second pass (2026-11-26): what was proved dead went
+
+The same rule as the collapse: after every step the same 6152 boxes on the 5435 masks, and the test suite passes. And one rule more. A thing went only when an **argument** says no box can change. "No mask showed a difference" was not enough.
+
+| step | what went | why no box can change |
+|---|---|---|
+| B14 | `widest_barrel` (6 sites) | it returned the larger of `body_width` and 1. `body_width` is 1.2, so all nine sites read 1.2 before and after |
+| B13 | the upper limit of the height check in `find_pieces`, and its number `height_max` | no piece that gets to that check is too tall (below) |
+| B1 | the "too far for a stripe" half of the close-up rule, its rule name "far_piece", and its number `min_stripe_px` | no piece that stage 1 lets through is that far (below) |
+| C1 | "does the stripe's row give a distance?" in `find_stripes` (reason "no_geometry"), and the same question in `_join_pieces` | it always does (below) |
+| B15 | no check: two notes of stage 3 are written at another moment | notes only. The detector does not read its log |
+
+**B13, the height check.** A piece's bottom is either seen where its top row predicts it or drawn there (`resolve_bottom`). So its height already fits its bottom row. Tried for every top row and every seen bottom row, with the four cameras the repo names and the four corners of the measured camera range: the tallest piece is 1.09 × the height for its bottom row. The limit was 1.5. With the edge tolerance at 50 % it is still only 1.17. So the upper limit refused nothing, once the horizon is asked first (A7). The lower limit stays, because it can decide. A piece is under 0.5 × exactly when its top row predicts no bottom (top at row 427 or lower) and it still ends inside the frame. A test tries every pair of rows for the four cameras.
+
+**B1, the far piece.** Stage 4 kept a piece with no stripe when the stripe expected at its middle row was under 4 px: "too far away to show a stripe". Stage 1 lets a piece through only when a barrel is at least 16 px wide at its bottom row. For every top row and bottom row that stage 1 lets through, a piece that is not a close-up has a stripe at least 4.14 px tall at its middle row (4.12 px at the worst corner of the camera range). So the rule kept no piece. The margin is small, and that is the reason to remove the rule and not to keep it for later: with `min_width_px` at 14, or the tolerance floor at 8 px, it would wake up and box far blobs that have no stripe (the audit: 43 false boxes with the limit at 4.8 px). A test states the fact for the four cameras. The 4 px lives on as `THINNEST_STRIPE_PX`: `on_the_table` asserts that a barrel on the table has a stripe that tall.
+
+**C1, the stripe's row.** A stripe pixel is in the sandwich only at a row where a barrel can have its stripe. At any other row the allowed distance to the body is −1 rows, and no pixel is that near. The rows where a barrel can have its stripe are one unbroken range, from just below the horizon to past the frame bottom, because the distance only falls as the row goes down. A stripe is read at the median row of its pixels (a piece at the middle of its box, a cut part at its centre row). That row lies between two of its own pixels' rows, so inside the range. `find_stripes` and `_join_pieces` assert it. A test checks the range for the four cameras, and runs the finder on a frame filled with bands from the top.
+
+**B15, the notes.** Stage 3 wrote "kept" for a stripe's box before it asked whether the box is a duplicate. So the log could say "kept" for a box that then lost. And it wrote "duplicate" for the newcomer even when the older box was the one to go. Now "kept" is written when a box goes into the list, and "duplicate" for the box that goes. On the 5435 masks this changes the log of 3 inputs and no box.
+
+**The proof.** After every step: IDENTICAL BOXES ON EVERY INPUT. The reason logs are those of the collapse, except the 3 inputs of B15. Tests: 952 before, 955 after (3 added, none removed). The numbers above come from `experiments/2026-11-26_collapse/second_pass_margins.py` and are in `results/2026-11-26_collapse/second_pass.md`.
+
+**`report.py --cand-det`** with `height_max=…` or `min_stripe_px=…` stops with a message that says why the number is gone.
+
 ---
 
 ## 6. What is still not clean
@@ -410,26 +432,30 @@ The collapse changed how the code reads, not what it does. Everything below **wo
 
 | # | change | what it would fix |
 |---|---|---|
-| B1 | delete the "too far for a stripe" half of `closeup_pieces` 4, and `min_stripe_px` with it | a rule that takes no piece. Tried for every top row and bottom row: stage 1 lets nothing through that reaches it. At other numbers it wakes up (the audit: 43 false boxes at 4.8) |
 | B2 | one rule for cutting a wide stripe: trust the body's height where it is seen, use 1.4 W only where it is not | 2 real stripe regions that `stripe_merge` alone cuts are one barrel each: two false boxes |
 | B3 | one number for "wider than one barrel" (today 1.2, 1.4, 1.5, 1.6) | four limits for one idea |
 | B4 | one meaning of "a barrel standing nearer" (today four bottoms, and 3 pixels or 1 beside) | caps and partly seen stripes judge "nearer" differently |
 | B5 | one "ends against" test (today the other color, or any barrel color) | three rules, two meanings |
 | B6 | one row for a stripe (today four) | far barrels, where one row is 5 % of the size |
-| B7 | `drop_single_reading` reads the span that `seen_span` measured | it measures the span again with another row and without leaving out other stripes' columns. "Under 0.8 W" can be true in one and false in the other |
+| B7 | `drop_single_reading` reads the span that `seen_span` measured | it measures the span again with another row and without leaving out other stripes' columns. Tried in the second pass: of the 43 boxes the last stage asks on the 5435 masks, 3 get the other answer (stage 3 says the body shows the whole width; the last stage measures under 0.8 W and drops the box). So it changes boxes, and it stays here |
 | B8 | the detector and the scorer agree on the bottom edge (15 % against 10 %) | a bottom the detector calls "agrees" can be outside what the scorer accepts |
 | B9 | one rule for a barrel cut at the side, without the cliff at 0.4 W. It replaces the centred guess | the guess (`centred`) is the weakest exit of the partly seen branch |
 | B10 | a close-up must be a solid face | "reaches the frame bottom" is decided on a box that stage 1 may have stretched; wood grain gets a box 330 px wide |
 | B11 | a cap's least height gets its own number | it borrows `width_min` |
 | B12 | a join that does not depend on left and right | `_join_pieces` is greedy from the left: mirroring a mask changes boxes on 6 of 199 real frame-runs (the audit) |
-| B13 | say what the height check of `find_pieces` is, or delete it | with the horizon check in place, `height_max` can refuse nothing (tried for every top row and bottom row), and `height_min` only a short piece with its top in rows 427 to 479 |
-| B14 | `widest_barrel` and `body_width` become one | "never under 1" at 6 sites and not at 3. The same number today |
-| B15 | the "kept" note of a stripe is written after the duplicate decision | diagnostics only: today a note can say "kept" for a box that then loses as a duplicate |
 
 Kept on purpose, because they are today's behaviour:
 
 - **Stage 4 reads the list it is adding to.** A piece kept as a close-up can cover a later piece.
 - **A stripe that lost as a duplicate is still erased from the cap mask**, and a stripe whose box the verify step dropped is not. Both are what the code did.
 - **The detector leans on the color step's row gate.** The color step paints nothing above row 50; the horizon is row 76. Rows 50 to 75 can hold paint. Stage 1 now refuses a piece that starts there. A cap that starts there is dropped because its top row gives no distance.
+
+Five more things decide nothing inside `detect` today and stay all the same, each for its own reason:
+
+- **"The box is at least 2 × 2"** (`box_from_stripe`, `half_stripes`; reason "empty_box"). It never fires on the masks. Nothing proves it cannot.
+- **"The stripe's row gives a distance" in stage 3** (`box_from_stripe`, reason "no_geometry"; the order of `boxes_from_stripes`). It cannot fire for a stripe the finder made (C1). These functions also take a stripe made by hand.
+- **`_closeup_stripe_rows` for a top above the horizon.** Stage 1 refuses such a piece first. The helper is also called directly, and "no distance" must never again read as "below the frame" (A7).
+- **"A blob holds at least one barrel pixel"** (`find_blobs`). True with the 3 × 3 closing, not with a larger `close_px`. It guards a division.
+- **"Does not touch the frame top"** in the height check of `find_pieces`. With these cameras a piece at the frame top is above the horizon, and check 2 refuses it. Kept for a camera whose horizon is above the frame.
 
 None of this is why barrels are missed. On real frames the misses are the color step's. The structure was why nobody could say what the detector would do.

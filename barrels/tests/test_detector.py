@@ -2,12 +2,15 @@
 
 The detector has no on/off switches (the collapse of 2026-11-26): every test states what the detector does with its
 default numbers. A test of one stage calls that stage's function, or reads the reason log to see which check decided."""
+import math
+
 import numpy as np
 
 from barrels import detector as det, geometry as geo, io
 
 CAM = geo.NOMINAL
 CFG = det.DetConfig()
+PRESETS = (geo.AIM_4A8B6118_BOXFIT, geo.NOMINAL, geo.AIM_4A8B6118, geo.WORLDMAP_CURRENT)      # every camera the repo names
 
 
 def paint_barrel(mask, d_axis_mm, x_center, body=io.ORANGE, cam=CAM, cut_bottom_frac=0.0):
@@ -210,13 +213,13 @@ def test_touching_same_color_pair_gives_two_stripes():
 def test_a_barrel_on_the_table_has_a_stripe_tall_enough_to_resolve():
     """The stripe finder, the caps and the half stripes ask only "at least min_width_px wide" (``on_the_table``). That is
     enough because, with each camera preset and the default numbers, the stripe of the farthest such barrel is still
-    min_stripe_px tall, and a nearer barrel's is taller. If this fails after a change of the camera numbers or of the two
-    limits, ``on_the_table`` must ask the stripe's height again (its assertion says the same at run time)."""
-    for cam in (geo.AIM_4A8B6118_BOXFIT, geo.NOMINAL, geo.AIM_4A8B6118):
+    THINNEST_STRIPE_PX (4 px) tall, and a nearer barrel's is taller. If this fails after a change of the camera numbers or
+    of min_width_px, ``on_the_table`` must ask the stripe's height again (its assertion says the same at run time)."""
+    for cam in PRESETS:
         d_far = cam.f * geo.BARREL_BULGE_DIAMETER_MM / CFG.min_width_px          # the farthest barrel that is min_width_px wide
         for d in np.arange(20.0, d_far, 5.0).tolist() + [d_far - 1e-6]:
             at = det.BarrelAt(d, cam.barrel_rows(d))
-            assert det.on_the_table(at, CFG) and at.Hs >= CFG.min_stripe_px
+            assert det.on_the_table(at, CFG) and at.Hs >= det.THINNEST_STRIPE_PX
         assert not det.on_the_table(det.BarrelAt(d_far + 1, cam.barrel_rows(d_far + 1)), CFG)
 
 
@@ -244,6 +247,86 @@ def test_stripeless_piece_must_be_barrel_tall():
     mask[120 - int(round(H)):120, 309:333] = io.BLUE                         # the same blob at a barrel's height passes the shape checks ...
     assert len(pieces(mask, cam)) == 1
     assert det.detect(mask, cam=cam) == []                                   # ... but a stripe (5.8 px here) could have been seen, so no box
+
+
+_STAGE_1 = {}
+
+
+def _pieces_stage_1_lets_through(cam):
+    """Every (top row, bottom row as drawn) a piece can have after checks 1 and 2 of ``find_pieces`` (on the table by its
+    bottom row, top below the horizon): every top row with every seen bottom row, through the same lines as ``find_pieces``.
+    The width is not asked, so this is every piece and more."""
+    if repr(cam) not in _STAGE_1:
+        h, out = cam.height, set()
+        for y0 in range(h):
+            if det.above_horizon(cam, y0):
+                continue
+            for seen in range(y0 + 1, h + 1):
+                y1, _ = det.resolve_bottom((0, y0, 10, seen), cam, h, CFG)
+                W = cam.expected_barrel_width_px(bottom_row=y1) if y1 < h else det.expected_width_px((0, y0, 10, h), cam, h)
+                if math.isfinite(W) and W >= CFG.min_width_px:
+                    out.add((y0, y1))
+        _STAGE_1[repr(cam)] = sorted(out)
+    return _STAGE_1[repr(cam)]
+
+
+def test_no_piece_is_too_tall_and_only_a_piece_with_no_predicted_bottom_is_too_short():
+    """The height check of ``find_pieces`` (its check 4) asks only "far too short?". For every camera preset, every top row and
+    every seen bottom row, of the pieces that get to it (on the table, top below the horizon, the box ends inside the
+    frame): (1) none is taller than 1.5 x the height for its bottom row, the upper limit the check had until 2026-11-26
+    (the tallest is 1.1 x), so that limit refused nothing; (2) a piece is shorter than height_min x that height exactly
+    when its top row predicts no bottom (the base would be at or behind the camera): the one case the check is for.
+    If (1) fails after a change of the camera, of the edge tolerance or of ``resolve_bottom``, the upper limit must come
+    back."""
+    for cam in PRESETS:
+        short = 0
+        for y0, y1 in _pieces_stage_1_lets_through(cam):
+            if not (y1 < cam.height and y0 > 0):
+                continue
+            H = cam.expected_barrel_height_px(bottom_row=y1)
+            assert math.isfinite(H) and (y1 - y0) <= 1.5 * H and (y1 - y0) <= 1.1 * H, (cam, y0, y1)
+            too_short = (y1 - y0) < CFG.height_min * H
+            assert too_short == math.isinf(det.predicted_bottom(cam, y0)), (cam, y0, y1)
+            short += too_short
+        assert short > 0
+
+
+def test_no_piece_is_too_far_away_to_show_a_stripe():
+    """The fact that let the "too far for a stripe" half of the close-up rule go. Stage 4 used to keep a piece with no stripe
+    when the stripe expected at its middle row was under 4 px tall. For every camera preset, every top row and every seen
+    bottom row: a piece that stage 1 lets through and that is not a close-up has, at its middle row, a stripe at least
+    THINNEST_STRIPE_PX tall. So that rule kept no piece. If this fails after a change of the camera, of min_width_px or of
+    the edge tolerance, a far piece can exist again, and stage 4 must say what happens to it."""
+    for cam in PRESETS:
+        n = 0
+        for y0, y1 in _pieces_stage_1_lets_through(cam):
+            if y1 >= cam.height or det._closeup_stripe_rows(cam, y0)[1] >= cam.height:
+                continue                                                     # a close-up
+            at = det.BarrelAt.from_stripe_row(cam, (y0 + y1) / 2)            # the row the rule asked: the middle of the piece's box
+            assert at is None or at.Hs >= det.THINNEST_STRIPE_PX, (cam, y0, y1)
+            n += 1
+        assert n > 0
+
+
+def test_a_stripes_row_always_gives_a_distance():
+    """The fact that let the "no_geometry" check of the stripe finder go. For every camera preset: (1) the rows where a
+    barrel can have its stripe are one unbroken range, from just below the horizon to the frame bottom, and that holds
+    for every half row too (a median of whole rows is a whole or a half row); (2) the sandwich holds no pixel outside that
+    range, even when body color and stripe color fill the frame from the top."""
+    for cam in PRESETS:
+        h = cam.height
+        ok = [det.BarrelAt.from_stripe_row(cam, k / 2) is not None for k in range(2 * h + 1)]
+        first = ok.index(True)
+        assert all(ok[first:]) and abs(first / 2 - cam.horizon_row()) <= 0.5
+        reach = det._reach_by_row(cam, h, CFG)
+        assert [r >= 0 for r in reach] == [ok[2 * r + 1] for r in range(h)]          # row r is asked at r + 0.5
+        mask = np.full((h, 160), io.BLUE, np.uint8)
+        mask[(np.arange(h) // 4) % 2 == 0] = io.ORANGE                           # bands 4 rows tall, the two colors in turn, from the top
+        for sw in det.sandwiches(mask, cam, CFG).values():
+            rows = np.where((sw.stripe & sw.above & sw.below).any(axis=1))[0]
+            assert len(rows) and all(ok[2 * r + 1] for r in rows)
+        log: list = []
+        det.find_stripes(mask, cam, CFG, log)                                    # and the finder's own assertion holds on it
 
 
 def test_box_is_as_wide_as_the_body_not_the_stripe():

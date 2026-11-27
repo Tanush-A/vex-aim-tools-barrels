@@ -128,13 +128,13 @@ So a barrel at 20 cm is about 51 px wide and 55 px tall with its bottom at row 1
 
 **Numbers to remember.** Horizon row ≈ 76. A barrel at 20 cm is ≈ 51 px wide. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
 
-## 3. The detector — `src/barrels/detector.py` (v2; collapsed 2026-11-26: ten stages, 20 numbers, no switches)
+## 3. The detector — `src/barrels/detector.py` (v2; collapsed 2026-11-26: ten stages, 18 numbers, no switches)
 
 **Now (2026-11-26).** The detector was collapsed on branch `wip/collapse`: the 30 on/off switches are gone (the ones that were on are plain code, the ones that were off are deleted), and `detect` is a list of ten named stages. It draws exactly the boxes it drew before (`experiments/2026-11-26_collapse/`). **Every check, with its number and the case it exists for, is in `DETECTOR-MAP.md`.** This section gives the idea of each stage and one worked example. The section as it stood before the collapse, with every switch and every experiment's numbers, is `archive/HOW-IT-WORKS-detector-before-collapse-2026-11-26.md`. When each rule was added: `archive/DETECTOR-HISTORY.md`.
 
 **What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` / `top_inferred` when that edge was computed rather than seen; `occluded` when the barrel is partly hidden and the full box is drawn anyway; `truncated` when the box reaches a frame edge), `area` and `source` (`"det2"` for a barrel found from its stripe, `"det1"` for a close-up with no stripe in view, `"det3"` for a barrel found from its top behind another). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, left to right. `draw(image, barrels)` paints a 1-px rectangle per barrel, yellow for an orange barrel and green for a blue one, and nothing else.
 
-Nothing is remembered between images and nothing is fit per image. `DetConfig` holds 20 numbers and no switch: every rule always runs.
+Nothing is remembered between images and nothing is fit per image. `DetConfig` holds 18 numbers and no switch: every rule always runs.
 
 **The one idea.** *What is seen fixes the distance; the distance fixes the full size; the box is the full barrel, placed where the seen part allows; a rule acts only when what is seen could not be anything else.* Every rule has three parts: a **reading** that gives the distance (the stripe's row, a seam, a top row), a **second reading that agrees** (a seen edge where the first predicts it), and a **place** (where the seen part pins a box W wide and H tall). No second reading, or nothing that pins the place: no box. A miss is allowed; a box in the wrong place is not.
 
@@ -171,9 +171,9 @@ Take every pixel that is orange *or* blue (both at once, so a barrel's body and 
 
 **The bottom edge.** The top row of a piece says how far away the barrel is, and the distance says where its base must be. If the seen bottom agrees with that (edge tolerance), it is kept. If not, the predicted bottom is drawn (`bottom_inferred`). *`touch_02`, piece A:* top row 122 → axis 182 mm away → predicted bottom 182.6. Seen bottom 175. Tolerance 9.1 px, difference 7.6 → **seen bottom kept**. *`far_02`, the middle orange barrel:* predicted bottom 144.4, seen 136 (the shaded lower face was not painted), tolerance 5.8 → **bottom replaced by 144**.
 
-Then four checks: on the table (one barrel is at least 16 px wide at its bottom row; the hand at the horizon in `far_02` fails this), its top below the horizon, barrel-wide (0.4 to 1.6 ×), barrel-tall (0.5 to 1.5 ×).
+Then four checks: on the table (one barrel is at least 16 px wide at its bottom row; the hand at the horizon in `far_02` fails this), its top below the horizon, barrel-wide (0.4 to 1.6 ×), not far too short (at least 0.5 × the height for its bottom row; this refuses only a short piece with its top in the lowest rows of the frame, where a real barrel would run out of the frame bottom).
 
-**The horizon check** is new as a check of its own (2026-11-26). A barrel is 24 mm tall and the camera is 43 mm up, so the camera looks down on every lid: the top of a barrel on the table is always below the horizon (row 76). *Campus `core_01`:* a blue jacket above the table edge, 24 px wide and 45 tall, with its bottom just under the horizon, so its top is above it. Before, the height check refused it (twice as tall as a barrel at its bottom row). The height check was doing the horizon's job by accident: without it, 107 false boxes appear on 36 real frame-runs. Now the fact is asked directly.
+**The horizon check** is new as a check of its own (2026-11-26). A barrel is 24 mm tall and the camera is 43 mm up, so the camera looks down on every lid: the top of a barrel on the table is always below the horizon (row 76). *Campus `core_01`:* a blue jacket above the table edge, 24 px wide and 45 tall, with its bottom just under the horizon, so its top is above it. Before, the height check refused it (twice as tall as a barrel at its bottom row). The height check was doing the horizon's job by accident: without it, 107 false boxes appear on 36 real frame-runs. Now the fact is asked directly. And the height check has no upper limit any more: once the horizon is asked first, no piece is too tall for its bottom row (at most 1.1 ×; `DETECTOR-MAP.md`, section 5, B13).
 
 No box is drawn in stage 1. A barrel with a stripe gets its box in stage 3; a piece is used only in stage 4.
 
@@ -240,7 +240,7 @@ A barrel behind one of the other color shows only its top; its stripe melts into
 
 ### The numbers (`DetConfig`)
 
-20 numbers, no switches. The table with every number, its value, its meaning and where it is used is `DETECTOR-MAP.md`, section 4. `report.py --cand-det name=value` runs the detector with one number changed; naming a removed switch stops with a message.
+18 numbers, no switches. The table with every number, its value, its meaning and where it is used is `DETECTOR-MAP.md`, section 4. `report.py --cand-det name=value` runs the detector with one number changed; naming a removed switch stops with a message.
 
 ### How to run and how to score
 
