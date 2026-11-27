@@ -1,0 +1,10 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_window_light_cluster_01,1,orange,313 115 356 164,found,missed,lost,home_white,window_light,1
+4A8B_both_abpgray_clutter_01,2,orange,205 114 246 158,off,found,gained,abp_gray,both_abpgray,1
+4A8B_both_abpgray_edge_01,2,blue,588 150 640 260,found,off,lost,abp_gray,both_abpgray,1
+4A8B_lampcool6_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampcool6_glass,1
+4A8B_lampcool6_glass_edge_01,1,blue,0 145 40 237,found,off,lost,home_glass,lampcool6_glass,1
+4A8B_lampcool6_ottoman_touch_01,2,blue,262 129 325 198,found,off,lost,home_ottoman,lampcool6_ottoman,1
+4A8B_lampmid3_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampmid3_glass,1
+4A8B_window_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,window_glass,1
+4A8B_window_black_occl_04,2,blue,269 156 377 273,found,off,lost,home_black,window_black,0

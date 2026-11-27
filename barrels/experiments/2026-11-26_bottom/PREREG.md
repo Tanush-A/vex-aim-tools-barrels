@@ -175,3 +175,76 @@ Needs a dated addendum in this file, committed before it runs.
 
 `results/2026-11-26_bottom/`: `yardstick.md` (step A), `summary.md` (step C), `summary.json`, one folder per
 judgement under `judge/`, `sheets/`. `ENTRY.md` in this folder: the entry for `EXPERIMENTS.md`.
+
+---
+
+## Addendum 1, 2026-11-26: a second round, one more candidate (`low_uncut`)
+
+Written after round 1 was run and looked at, and **before `low_uncut` was run on any frame**. It is committed
+together with the results of round 1, which do not contain it.
+
+### What round 1 said (`results/2026-11-26_bottom/summary.md` at commit `d86fd73`)
+
+| candidate | fixed colors: found, placements (gained / lost per frame), verdict | yardstick sum over the five steps (today 35) | found sum over the five steps (today 694.5) | works |
+|---|---|---|---|---|
+| `low` | 133.8 → 132.7 (1 / 2), NO CLEAR DIFFERENCE | 29 | 696.2 (+1.7) | yes |
+| `both` | 133.8 → 132.0 (2 / 5), NO CLEAR DIFFERENCE | 27 | 695.8 (+1.4) | yes |
+| `predicted` | 133.8 → 131.0 (2 / 6), NO CLEAR DIFFERENCE | 30 | 692.7 (−1.7) | no: (d), (e) |
+| `rows` | 133.8 → 126.7 (2 / 11), **FAIL** | 59 | 677.2 | no: all five |
+| `rows+low` | 133.8 → 127.7 (2 / 10), NO CLEAR DIFFERENCE | 53 | 681.6 | no: (b) to (e) |
+
+By the rule written above, round 1 recommends `both`. Every verdict was NO CLEAR DIFFERENCE except four of `rows` and
+`rows+low` (FAIL) and one PASS of `rows+low` (`s40`, on fewer false boxes). The official command
+(`tools/judge.py --cand-det bottom_rule=both`) gives the same numbers as `run.py` (133.8 → 132.0).
+
+### What the contact sheets of round 1 show (`sheets/changed_low.png`, `changed_both.png`, looked at box by box)
+
+- **`low` does what it was written for.** 15 times a box comes back, on 8 barrels (the glass table, the white
+  tables, the gray table). In every one the box's bottom goes from 5 to 7 px low to within 2 px of the true bottom.
+- **`low` loses 5 barrels, 10 times.** In each the seen bottom was right, the *prediction* is more than 10 % too high,
+  and the rule replaces a good row by a bad one:
+  - three barrels **cut by the left or right frame edge** (`both_abpgray_edge_01` #2, 4 times; `lampcool6_glass_edge_01`
+    #1; `campus_light_edge_01` #1): the risk named above under "What I expect";
+  - one very near barrel (`ottoman_core_01` #2, 145 px tall, 3 times): the camera model draws it 13 % too small;
+  - one barrel on the bathroom floor with a badly painted stripe (once).
+- **`both` adds two kinds of loss.** It takes away the bottom that cap check 7 reads on purpose (the home cluster's
+  left barrel, found → missed, 5 times). And where the lower body is short it trusts a prediction that is itself too
+  low (`ottoman_touch_01` #2, 5 times). It also adds real gains (`both_abpgray_clutter_01` #2, 3 times; an ottoman barrel, 3 times).
+- `rows` moves the bottom of clean near barrels up, because the base's rim is an arc: 8 to 12 boxes too high per step.
+
+### Why the frame-cut barrels go wrong (a fact of the geometry, checked on the numbers)
+
+A stripe is an arc: seen from above it sits lower at the barrel's middle than at its sides. For a barrel 10 cm away
+the camera model puts the side of the stripe 16 px above its middle. When the frame cuts the barrel, only the side
+of the arc is left, the stripe's row reads high, the distance reads far, and the whole predicted barrel sits too
+high: for the three barrels above the seen top is 4 to 8 % of the height below the predicted top, and the seen
+bottom 10 to 15 % below the predicted bottom. The seen bottom is right; the prediction is not.
+
+### The candidate
+
+| # | name | setting | the rule |
+|---|---|---|---|
+| 6 | `low_uncut` | `bottom_rule=low_uncut` | `low`, except for a box of the stripe step whose stripe touches the left or right frame edge: there the seen row is drawn, as today. At the other four sites it is `low`. |
+
+No new number. **It is post-hoc:** the exception was chosen after seeing which barrels `low` lost on these same
+frames. Three barrels support it. Whatever it gains over `low` in this round is therefore not independent evidence;
+the evidence for it is the geometry above. The other two losses of `low` (the very near barrel, the bathroom
+barrel) are left as they are: nothing but a distance cut-off fitted to one barrel would remove them, and that is
+not a rule.
+
+Not run in round 2: a `both` without the cap site, a `rows` with another share. They would be fitted to the losses
+just seen.
+
+### How it is judged, and what counts as success
+
+Exactly as round 1: `run.py` with `low_uncut` added to its list (the five candidates of round 1 are run again and
+must give the numbers above). The same five conditions (a) to (e). **The recommendation** is made over all six
+candidates by the same rule: among those that work, the lowest yardstick sum; a tie goes to the higher found sum,
+then to the earlier candidate.
+
+### What I expect (written before running)
+
+`low_uncut` keeps the 15 gains of `low` (none of those boxes has a stripe at the frame edge) and is left with 4 of
+its 10 losses (the very near barrel 3 times, the bathroom barrel once). With the fixed colors: 1 gained, 1 lost (the very near ottoman barrel under one of its three lights), found
+about 133.7. Yardstick sum about 24, found sum about +5.9. If it differs from `low` anywhere else, that is a
+surprise and will be said.

@@ -39,7 +39,7 @@ def _one(mask, cfg):
 
 def test_the_experiment_is_off_by_default_and_refuses_a_setting_it_does_not_know():
     cfg = det.DetConfig()
-    assert cfg.bottom_rule == "" and cfg.bottom_rows == 0.0 and det.BOTTOM_RULES == ("", "low", "both", "predicted")
+    assert cfg.bottom_rule == "" and cfg.bottom_rows == 0.0 and det.BOTTOM_RULES == ("", "low", "both", "predicted", "low_uncut")
     for bad in ({"bottom_rule": "lower"}, {"bottom_rule": "on"}, {"bottom_rows": 1.5}, {"bottom_rows": -0.1}):
         with pytest.raises(ValueError):
             replace(cfg, **bad)
@@ -60,6 +60,23 @@ def test_drawn_bottom_rule_by_rule():
         assert [det.drawn_bottom(seen, 200.0, 50.0, c) for c in (det.DetConfig(), LOW, BOTH, PRED)] == [today, low, both, 200]
     assert det.drawn_bottom(203, 200.0, 20.0, LOW) == 203 and det.drawn_bottom(204, 200.0, 20.0, LOW) == 200     # a small barrel: at least 3 px
     assert det.drawn_bottom(210, 200.4, 50.0, PRED) == 200
+
+
+def test_low_uncut_is_low_except_for_a_stripe_the_frame_side_cuts():
+    """Round 2. A barrel standing free: "low_uncut" does what "low" does. The same barrel with its left half outside the
+    frame, shadow and all: the stripe touches the frame edge, its row is not trusted, and the seen bottom is drawn, as
+    today; "low" draws the predicted row there."""
+    uncut = replace(det.DetConfig(), bottom_rule="low_uncut")
+    assert det.drawn_bottom(206, 200.0, 50.0, uncut) == 200 and det.drawn_bottom(206, 200.0, 50.0, uncut, reading_cut=True) == 206
+    assert det.drawn_bottom(206, 200.0, 50.0, LOW, reading_cut=True) == 200
+    mask, truth, _ = _barrel(extra_rows=9)
+    assert _one(mask, uncut) == _one(mask, LOW)
+    cut = np.zeros_like(mask)
+    shift = (truth[0] + truth[2]) // 2
+    cut[:, :640 - shift] = mask[:, shift:]                                           # the barrel's right half at the left frame edge
+    today, low, unc = (det.detect(cut, c, CAM) for c in (det.DetConfig(), LOW, uncut))
+    assert len(today) == 1 and today[0].bbox[0] == 0 and today[0].bbox[3] == truth[3] + 9
+    assert unc == today and abs(low[0].bbox[3] - truth[3]) <= 1
 
 
 def test_rows_with_body_counts_a_row_by_its_share_of_the_columns():

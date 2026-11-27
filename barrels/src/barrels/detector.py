@@ -35,7 +35,7 @@ from .detect_types import Barrel
 from .io import BLUE, ORANGE
 
 
-BOTTOM_RULES = ("", "low", "both", "predicted")       # DetConfig.bottom_rule (an experiment, off by default): see ``drawn_bottom``
+BOTTOM_RULES = ("", "low", "both", "predicted", "low_uncut")       # DetConfig.bottom_rule (an experiment, off by default): see ``drawn_bottom``
 
 
 @dataclass(frozen=True)
@@ -67,7 +67,7 @@ class DetConfig:
     # EXPERIMENT 2026-11-26_bottom (map B8, TODO K2: "more paint, box disappears"). Both are OFF at their defaults, and
     # then every box is today's box. On adoption the chosen rule becomes plain code and these two fields go.
     bottom_rule: str = ""        # the one experiment flag: which row is DRAWN for a seen bottom that agrees with the predicted one.
-                                 # "" = the seen row (today); "low", "both", "predicted": see ``drawn_bottom``
+                                 # "" = the seen row (today); "low", "both", "predicted", "low_uncut": see ``drawn_bottom``
     bottom_rows: float = 0.0     # a row under the body is the barrel's when body color fills at least this share of the columns walked;
                                  # 0 = one pixel is enough (today). See ``rows_with_body``
 
@@ -185,11 +185,12 @@ SCORER_BOTTOM_TOL, SCORER_BOTTOM_MIN_PX = 0.10, 3       # the scorer's tolerance
                                                         # the detector does not import the scorer: a test keeps the two pairs equal)
 
 
-def drawn_bottom(seen: int, pred: float, H: float, cfg: DetConfig) -> int:
+def drawn_bottom(seen: int, pred: float, H: float, cfg: DetConfig, reading_cut: bool = False) -> int:
     """The row to DRAW for a seen bottom that agrees with the predicted one (``edge_tol``: within 15 % of the height).
     ``seen`` = one past the last row of the body's color; ``pred`` = the bottom the rule's reading predicts (the stripe's
     row in the stripe step; the top row for a piece; the width or the top row for a cap; the seam for a half stripe);
-    ``H`` = the barrel's height.
+    ``H`` = the barrel's height; ``reading_cut`` = the reading behind ``pred`` is a stripe that the left or right frame
+    edge cuts (only ``read_edges`` says so).
 
     Today (bottom_rule ""): the seen row. Shadow and reflection under a barrel are painted in its color and are then "a
     seen bottom that agrees": the box ends up to 15 % low, the scorer allows 10 %, and the distance read off the bottom is
@@ -199,12 +200,16 @@ def drawn_bottom(seen: int, pred: float, H: float, cfg: DetConfig) -> int:
                  Shadow and reflection only ever extend a barrel downward. Above stays as today.
     "both"       a seen bottom further than the scorer's tolerance from the predicted one, either way: the predicted row.
     "predicted"  always the predicted row: the paint only says that the bottom is there, not where.
+    "low_uncut"  (round 2) "low", except where the stripe is cut by the left or right frame edge: there the seen row is
+                 drawn, as today. A stripe is an arc that sits higher at the barrel's sides than at its middle (16 px
+                 at 10 cm). The row read from the part of it that the frame leaves is too high, and the predicted
+                 bottom with it: a correct seen bottom then lies more than 10 % below a wrong prediction.
 
     This decides the drawn row only. The seen bottom still counts as SEEN wherever a rule asks whether an edge was seen
     (the flag bottom_inferred, a thin slice seen from top to bottom, the second reading of ``drop_single_reading``, a
     full slice, a half stripe's far edge): those answers are today's."""
     rule = cfg.bottom_rule
-    if rule == "":
+    if rule == "" or (rule == "low_uncut" and reading_cut):
         return seen
     tol = max(SCORER_BOTTOM_MIN_PX, SCORER_BOTTOM_TOL * H)
     if rule == "predicted" or seen - pred > tol or (rule == "both" and pred - seen > tol):
@@ -1034,7 +1039,7 @@ def read_edges(s: Stripe, at: BarrelAt, mask: np.ndarray, cfg: DetConfig) -> Edg
     if abs(bottom_seen - at.bottom) > tol and not (bottom_seen >= h and at.bottom >= h):
         bottom = int(round(at.bottom)); inferred.add("bottom_inferred")
     else:
-        bottom = drawn_bottom(bottom_seen, at.bottom, at.H, cfg)       # the experiment 2026-11-26_bottom; today: the seen row
+        bottom = drawn_bottom(bottom_seen, at.bottom, at.H, cfg, reading_cut=x0 <= 0 or x1 >= mask.shape[1])   # the experiment 2026-11-26_bottom; today: the seen row
     other = (_other(s.body),)
     if {"top_inferred", "bottom_inferred"} <= inferred and ends_against(mask, other, top_seen - 4, top_seen, x0, x1):
         return None                                                                        # (a)

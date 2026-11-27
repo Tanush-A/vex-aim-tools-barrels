@@ -37,7 +37,8 @@ from barrels import eval_det as ed  # noqa: E402
 from barrels import judge as jg  # noqa: E402
 
 CANDS = {"low": {"bottom_rule": "low"}, "both": {"bottom_rule": "both"}, "predicted": {"bottom_rule": "predicted"},
-         "rows": {"bottom_rows": 0.5}, "rows+low": {"bottom_rows": 0.5, "bottom_rule": "low"}}
+         "rows": {"bottom_rows": 0.5}, "rows+low": {"bottom_rows": 0.5, "bottom_rule": "low"},
+         "low_uncut": {"bottom_rule": "low_uncut"}}          # round 2 (the PREREG's addendum 1)
 ARMS = {"today": {}, **CANDS}
 MORE = lib.PAINT[1:]            # the five "more paint" color steps
 _HAND_STEMS: list = []

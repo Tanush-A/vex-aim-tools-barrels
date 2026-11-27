@@ -1,0 +1,17 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_window_light_far_02,2,orange,244 105 273 135,off,found,gained,home_white,window_light,1
+4A8B_window_light_far_02,4,blue,433 106 468 139,off,found,gained,home_white,window_light,1
+4A8B_campus_light_cluster_02,4,blue,379 117 419 163,off,found,gained,campus_study,campus_light,1
+4A8B_campus_light_edge_01,1,orange,602 143 638 228,found,off,lost,campus_study,campus_light,1
+4A8B_both_abpgray_clutter_01,2,orange,205 114 246 158,off,found,gained,abp_gray,both_abpgray,1
+4A8B_both_abpgray_edge_01,2,blue,588 150 640 260,found,off,lost,abp_gray,both_abpgray,1
+4A8B_lampcool6_glass_core_01,2,blue,176 123 233 185,off,found,gained,home_glass,lampcool6_glass,1
+4A8B_lampcool6_ottoman_core_01,2,orange,155 166 280 311,found,missed,lost,home_ottoman,lampcool6_ottoman,1
+4A8B_lampcool6_ottoman_touch_01,2,blue,262 129 325 198,found,off,lost,home_ottoman,lampcool6_ottoman,1
+4A8B_lampmid3_glass_core_01,4,blue,371 111 412 151,off,found,gained,home_glass,lampmid3_glass,1
+4A8B_lampmid6_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampmid6_glass,1
+4A8B_lampmid6_glass_occl_02,1,blue,254 114 300 163,off,found,gained,home_glass,lampmid6_glass,1
+4A8B_lampmid6_ottoman_touch_01,2,blue,262 129 325 198,found,off,lost,home_ottoman,lampmid6_ottoman,1
+4A8B_lampwarm6_ottoman_core_01,2,orange,155 166 280 311,found,off,lost,home_ottoman,lampwarm6_ottoman,1
+4A8B_window_abpwhite_occlx_09,1,blue,106 114 152 164,off,found,gained,abp_white,window_abpwhite,1
+4A8B_lampmid3_wood_occl_04,1,orange,178 128 238 186,found,off,lost,home_wooddesk,lampmid3_wood,0

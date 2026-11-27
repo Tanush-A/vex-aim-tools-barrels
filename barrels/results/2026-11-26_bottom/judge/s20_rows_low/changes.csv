@@ -1,0 +1,16 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_both_abpgray_clutter_01,1,blue,34 132 110 203,found,off,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_clutter_01,2,orange,205 114 246 158,off,found,gained,abp_gray,both_abpgray,1
+4A8B_both_abpgray_clutter_01,4,orange,506 124 579 190,found,off,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_edge_01,2,blue,588 150 640 260,found,off,lost,abp_gray,both_abpgray,1
+4A8B_both_abpgray_occl_02,1,blue,366 123 422 181,found,off,lost,abp_gray,both_abpgray,1
+4A8B_lampcool6_bathtile_clutter_01,1,blue,73 133 152 209,found,off,lost,home_bathtile,lampcool6_bathtile,1
+4A8B_lampcool6_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampcool6_glass,1
+4A8B_lampcool6_glass_edge_01,1,blue,0 145 40 237,found,off,lost,home_glass,lampcool6_glass,1
+4A8B_lampcool6_ottoman_touch_01,2,blue,262 129 325 198,found,off,lost,home_ottoman,lampcool6_ottoman,1
+4A8B_lampmid3_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,lampmid3_glass,1
+4A8B_lampmid6_ottoman_occl_02,1,orange,225 125 286 192,off,missed,other,home_ottoman,lampmid6_ottoman,1
+4A8B_overheaddim_palewood_close_01,1,orange,291 243 566 480,found,missed,lost,uc_palewood,overheaddim_palewood,1
+4A8B_overheaddim_palewood_core_01,1,orange,125 137 207 223,found,off,lost,uc_palewood,overheaddim_palewood,1
+4A8B_window_abpwhite_occlx_08,1,orange,111 114 160 164,off,found,gained,abp_white,window_abpwhite,1
+4A8B_window_glass_clutter_01,2,blue,254 114 300 163,off,found,gained,home_glass,window_glass,1
