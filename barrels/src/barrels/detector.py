@@ -39,7 +39,10 @@ from .io import BLUE, ORANGE
 class DetConfig:
     """The detector's numbers. There is no on/off switch: every rule in this file always runs. In the comments, W = the
     width, H = the height and "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in
-    question. Where each number is used: docs/DETECTOR-MAP.md, section 4."""
+    question. Where each number is used: docs/DETECTOR-MAP.md, section 4.
+
+    One field is not a number: ``side_cut``, the flag of the experiment 2026-11-26_sidecut. At its default the detector
+    is today's, box for box."""
     min_area_px: int = 20        # a blob, a stripe, a cap piece or a half-stripe band under this many pixels is a speck; and a box needs this many evidence pixels of its own (verify)
     close_px: int = 3            # gaps this small are closed (3 x 3) before pieces are found; also: how many pixels beside a seen end are searched for a nearer barrel
     bottom_tol: float = 0.15     # a seen edge agrees with the predicted one within this share of the height ...
@@ -60,6 +63,17 @@ class DetConfig:
     body_min: float = 0.1        # in the stripe's columns, outside its rows, the box holds at least this share of body color (and more body than stripe color)
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
+    # EXPERIMENT 2026-11-26_sidecut (docs/DETECTOR-MAP.md, B9). NOT a number and not a permanent switch: on adoption the chosen
+    # value becomes plain code and this field goes. What a partly seen stripe gets when no reason and no outline places it:
+    #   "centred"           today, box for box: a stripe at least stripe_w_min x W wide gets a box centred on what is seen (a guess)
+    #   "own_side"          the candidate: the side of the seen part that BULGES like a barrel's side is the barrel's own side and the
+    #                       box is W wide from it (``own_side_by_bulge``); both sides bulge: centred as today; neither: no box
+    #   "own_side+centred"  for comparison: the own side first, else today's centred guess
+    side_cut: str = "centred"
+
+    def __post_init__(self):
+        if self.side_cut not in ("centred", "own_side", "own_side+centred"):
+            raise ValueError(f"side_cut must be 'centred', 'own_side' or 'own_side+centred', got {self.side_cut!r}")
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -917,6 +931,81 @@ def own_end_by_outline(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: D
     return (sx0, sx0 + Wi) if left else (sx1 - Wi, sx1)
 
 
+# ---------------------------------------------------------------- the barrel's side: which side of a seen part bulges
+# EXPERIMENT 2026-11-26_sidecut (DetConfig.side_cut; nothing here runs at the default "centred").
+
+SIDE_BAND = 1 / 6            # the top sixth and the bottom sixth of the seen rows are the two ends of a side; the rows between them are its middle
+BULGE_SHARE = 0.25           # a side is the barrel's own when it bulges by at least this share of the outline's bulge: halfway between a straight
+                             # cut (0) and what a barrel's own side shows in a mask (about half of the outline's: the lid's top rows are often not
+                             # painted and the table's reflection widens the base)
+BULGE_MIN_PX = 1.0           # ... and by at least one pixel: under that, a bulge cannot be told from a straight edge
+
+
+def _outline_half_width(ol: Outline, v: np.ndarray) -> np.ndarray:
+    """Half the width of a barrel's outline, in barrel widths, at the heights ``v`` (0 = the outline's top row, 1 = its
+    bottom row): the largest |u| at which the top line is above that height and the bottom line below it. 0.5 at the
+    widest part (mid-height), less toward the lid and the base. Read off ``Outline`` on a grid of 201 columns."""
+    u = np.linspace(0.0, 0.5, 201)
+    span = ol.bot_apex - ol.top_apex
+    t = (ol.top(u) - ol.top_apex) / span                             # the top line as a height: 0 at the centre, falling to mid-height at the side
+    b = (ol.bottom(u) - ol.top_apex) / span                          # the bottom line: 1 at the centre, rising to mid-height at the side
+    inside = (t[None, :] <= v[:, None]) & (v[:, None] <= b[None, :])
+    return (inside * u[None, :]).max(axis=1)
+
+
+def side_bulges(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, top: int, bottom: int, sx0: int, sx1: int,
+                band: float = SIDE_BAND) -> tuple[float, float, float] | None:
+    """How far each side of the seen part of a barrel bulges, in pixels: (the left side, the right side, what a barrel's
+    own side would show in the same rows). None when it cannot be measured.
+
+    ``top``, ``bottom`` = the SEEN top and bottom rows of the barrel; ``sx0``, ``sx1`` = the columns seen of it. Per row,
+    the left edge is the first barrel-colored pixel (either color) in those columns and the right edge the last. The rows
+    are split by height into the top ``band``, the bottom ``band`` and the middle between them. Lay a ruler from an edge's
+    place in the top rows to its place in the bottom rows (the median column of each); the bulge is how far the edge's
+    median column in the middle rows sticks out past the ruler's middle. A lean of the edge moves both ends of the ruler
+    and cancels.
+
+    A barrel's own side bulges: the barrel is widest at mid-height (25.5 mm) and narrower at the lid and the base (18 mm).
+    The third number is the same measure on the barrel's outline (``Outline``, stretched from the seen top to the seen
+    bottom), taken in the same rows. A side cut by a straight edge, upright or leaning, bulges by about 0; a side cut by
+    a nearer barrel's bulge is hollow (negative)."""
+    at = _at(s, cam)
+    if at is None or bottom - top < 8 or sx1 - sx0 < 2:
+        return None
+    part = np.isin(mask[top:bottom, sx0:sx1], (ORANGE, BLUE))
+    has = part.any(axis=1)
+    left = sx0 + np.argmax(part, axis=1).astype(float)                # first colored column, per row
+    right = sx1 - np.argmax(part[:, ::-1], axis=1).astype(float)      # one past the last
+    v = (np.arange(bottom - top) + 0.5) / (bottom - top)
+    up, low, mid = has & (v < band), has & (v > 1 - band), has & (v >= band) & (v <= 1 - band)
+    if min(int(up.sum()), int(low.sum()), int(mid.sum())) < 2:
+        return None
+    own = at.W * _outline_half_width(Outline.at(cam, at.d), v)
+    r_up, r_mid, r_low = (float(np.median(v[b])) for b in (up, mid, low))
+    t = (r_mid - r_up) / (r_low - r_up)                              # where the middle rows sit along the ruler (0.5 when no row is missing)
+
+    def bulge(edge: np.ndarray) -> float:
+        a, b = float(np.median(edge[up])), float(np.median(edge[low]))
+        return float(np.median(edge[mid])) - (a + (b - a) * t)
+
+    return -bulge(left), bulge(right), bulge(own)
+
+
+def own_side_by_bulge(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, top: int, bottom: int, sx0: int, sx1: int) -> tuple[bool, bool] | None:
+    """Is the left end, and is the right end, of the seen part the barrel's own side: (left, right)? None when it cannot
+    be measured (``side_bulges``).
+
+    A side is the barrel's own when it bulges (``side_bulges``) by at least BULGE_SHARE of what the barrel's outline
+    predicts for those rows, and by at least BULGE_MIN_PX. Needs the top AND the bottom of the barrel seen: with one of
+    them hidden, a leaning straight cut and a barrel's side look the same."""
+    m = side_bulges(s, mask, cam, top, bottom, sx0, sx1)
+    if m is None or m[2] <= 0:
+        return None
+    left, right, own = m
+    need = max(BULGE_MIN_PX, BULGE_SHARE * own)
+    return left >= need, right >= need
+
+
 def _body_crosses(mask: np.ndarray, s: Stripe, sx0: int, sx1: int) -> bool:
     """Does the body color cross the stripe's rows in some column of sx0..sx1 (more than half of the rows y0..y1 of the
     stripe)? A barrel's body never crosses its own stripe; a body-colored thing in front of it does."""
@@ -1035,8 +1124,18 @@ def centred(s: Stripe, seen: SeenSpan, W: float, cfg: DetConfig) -> tuple[int, i
     return None
 
 
+def _own_side_box(own: tuple[bool, bool] | None, seen: SeenSpan, W: float) -> tuple[int, int] | None:
+    """A box W wide from the barrel's own side, when exactly one end of the seen part is one (``own_side_by_bulge``)."""
+    Wi = int(round(W))
+    if own == (True, False):
+        return seen.x0, seen.x0 + Wi
+    if own == (False, True):
+        return seen.x1 - Wi, seen.x1
+    return None
+
+
 def thin_slice(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel, W: float,
-               cfg: DetConfig) -> tuple[int, int, str] | None:
+               cfg: DetConfig, top: int = 0, bottom: int = 0) -> tuple[int, int, str] | None:
     """The sides for a thin piece of stripe (narrower than a stripe is tall, or taller than wide). A thin piece gets here
     only as a full slice, seen from top to bottom: ``box_from_stripe`` refuses one with an inferred edge before the sides
     are asked. It skips the reasons for a hidden side; in this order:
@@ -1054,11 +1153,18 @@ def thin_slice(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel
     if (seen.x0 <= 0) != (seen.x1 >= w):
         return (seen.x1 - Wi, seen.x1, "thin_frame") if seen.x0 <= 0 else (seen.x0, seen.x0 + Wi, "thin_frame")
     placed = own_end_by_outline(s, mask, cam, cfg, seen.x0, seen.x1)
-    return None if placed is None else (*placed, "thin_outline")
+    if placed is not None:
+        return (*placed, "thin_outline")
+    if cfg.side_cut != "centred":                                    # EXPERIMENT 2026-11-26_sidecut: 4. exactly one side bulges like a barrel's
+        placed = _own_side_box(own_side_by_bulge(s, mask, cam, top, bottom, seen.x0, seen.x1), seen, W)
+        if placed is not None:
+            return (*placed, "thin_own_side")
+    return None
 
 
 def partly_seen(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel, W: float, pred_bottom: float, cfg: DetConfig,
-                found: tuple = (), use_outline: bool = True) -> tuple[int, int, str] | None:
+                found: tuple = (), use_outline: bool = True, top: int = 0, bottom: int = 0,
+                edges_seen: bool = False) -> tuple[int, int, str] | None:
     """The sides for a stripe narrower than stripe_full x W that is not thin (hidden or not: the color step can leave a
     stripe narrow). In this order:
 
@@ -1080,11 +1186,24 @@ def partly_seen(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraMode
         placed = own_end_by_outline(s, mask, cam, cfg, seen.x0, seen.x1)
         if placed is not None:
             return (*placed, "outline")
+    if cfg.side_cut != "centred":
+        # EXPERIMENT 2026-11-26_sidecut. The side of the seen part that bulges like a barrel's side is the barrel's own side
+        # (``own_side_by_bulge``; it needs the top and the bottom seen, and like the outline it never takes a found box's place)
+        own = own_side_by_bulge(s, mask, cam, top, bottom, seen.x0, seen.x1) if use_outline and edges_seen else None
+        placed = _own_side_box(own, seen, W)
+        if placed is not None:
+            return (*placed, "own_side")
+        if cfg.side_cut == "own_side":
+            # no side to place it from. Both sides bulge: all of the barrel is seen and its paint is narrow, so centred on
+            # what is seen is right. Neither, or it cannot be told: no box, where "centred" guesses
+            placed = centred(s, seen, W, cfg) if own == (True, True) else None
+            return None if placed is None else (placed[0], placed[1], "two_sides")
     return centred(s, seen, W, cfg)
 
 
 def place_sides(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, W: float, top: int, bottom: int, pred_bottom: float,
-                cfg: DetConfig, others: tuple = (), found: tuple = (), use_outline: bool = True) -> tuple[int, int, str] | None:
+                cfg: DetConfig, others: tuple = (), found: tuple = (), use_outline: bool = True,
+                edges_seen: bool = False) -> tuple[int, int, str] | None:
     """Left edge, right edge and the rule that placed them, for one stripe; None when nothing places the box.
     ``top``, ``bottom`` = the box's rows; ``pred_bottom`` = the bottom row the stripe's row predicts; ``others`` = the
     columns of the other stripes; ``found`` = the barrels found so far.
@@ -1100,8 +1219,8 @@ def place_sides(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, W: float, top
         return x0, x1, "whole_stripe"
     seen = seen_span(s, mask, W, top, bottom, cfg, others)
     if s.thin:
-        return thin_slice(s, seen, mask, cam, W, cfg)
-    return partly_seen(s, seen, mask, cam, W, pred_bottom, cfg, found, use_outline)
+        return thin_slice(s, seen, mask, cam, W, cfg, top, bottom)
+    return partly_seen(s, seen, mask, cam, W, pred_bottom, cfg, found, use_outline, top, bottom, edges_seen)
 
 
 # ---------------------------------------------------------------- the box holds body color
@@ -1159,7 +1278,8 @@ def box_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetC
         return None, "slice_not_full"
     flags = set(edges.inferred)
     top, bottom = max(0, edges.top), min(h, edges.bottom)
-    placed = place_sides(s, mask, cam, W, top, bottom, at.bottom, cfg, others, found, use_outline=use_outline)
+    placed = place_sides(s, mask, cam, W, top, bottom, at.bottom, cfg, others, found, use_outline=use_outline,
+                         edges_seen=not edges.inferred)
     if placed is None:
         why = "outline_unknown" if s.thin else "side_unexplained"
         _note(log, "barrel", why, s.bbox, body=s.body, expected_w=W)
