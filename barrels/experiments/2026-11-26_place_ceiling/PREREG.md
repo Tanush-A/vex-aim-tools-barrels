@@ -134,3 +134,64 @@ still misses; the warm bathroom under `hand` and `relabel`; the barrels lost whe
 `results/2026-11-26_place_ceiling/`: `summary.md`, `settings.json`, `oracle.json`, `judged.json`, `cross.json`,
 `thresholds.json`, `judge/<candidate>/` (the judge's pages). `ENTRY.md` in this folder. A second round, if any, gets
 a dated addendum here before it runs.
+
+---
+
+# Addendum, 2026-11-26: round 2
+
+Written after round 1 was run, committed (`6671255`) and looked at. Committed before round 2 ran.
+
+## One change to the code of round 1, and why
+
+`run.py` first read the proposals back from the label folder. A static guard in the tests
+(`test_box_proposals.py`: experiment code never names the proposal files) failed on that. `run.py` now takes the
+same numbers from `write_proposals.py`. The numbers are identical; no result depends on it. The change was made
+before the judge stage ran.
+
+## What round 1 said
+
+- The primary, `cal_core_mid`: **FAIL**. Found +8.0 placements (133.8 → 141.8; per frame 211 → 269). The clause that
+  fails is one place: campus, 35 → 21 of 35.
+- All four rotations FAIL, on campus, home and the ABP white table.
+- Where the fixed colors fail (bathroom, ottoman, gray table) one frame reaches the hand thresholds: 42 of 46
+  placements against the hand's 40.8 and the fixed 17.
+- Where the fixed colors already work (campus, home, ABP white, pale wood) one frame loses barrels. In the pictures
+  the lost barrels have their blue left unpainted: the blue hue range of one frame ends at 106, the barrels of other
+  frames read 107 and more.
+- The control fails as it should (−52.9). Another light of the same place passes (+15.1), because places with one
+  light keep the fixed colors there.
+
+## What I looked at before writing this
+
+Everything of round 1: every table of `summary.md`, the clauses of every judge page, and these contact sheets:
+both `cal_core_lost`, `hand_finds_cal_core_misses_01`, `oracle_still_missed_01`, `warm_bathroom_hand_vs_relabel_01`,
+`otherlight_lost_01`, `cal_core_gained_01`.
+
+## The question of round 2
+
+Can a calibration shot be made safe, with a rule that has no number: never worse than the fixed colors beyond the
+noise, and still the gain where the fixed colors fail?
+
+## The candidates
+
+| name | what |
+|---|---|
+| `cal_core_keep` | **Primary of round 2.** The calibration frame first tests the fixed colors. If today's detector with the fixed colors finds every free-standing box of the calibration frame (strict rule) and draws no box that is not on its barrel, every frame it calibrates keeps the fixed colors. Otherwise they get its mid setting, as in round 1. The calibration frame itself is scored by the same rule applied to the backup frame. |
+| `cal_rot1_keep` … `cal_rot4_keep` | the same rule with each frame in turn (the rotations of round 1) |
+| `cal_core_wide` | the calibration may only widen: per color the hue low is the lower of fixed and mid, the hue high the higher, the S floor the lower |
+
+Free-standing boxes only, because they are the boxes the calibration is computed from; a half-hidden barrel is
+missed for reasons that are not color.
+
+## What it is worth, said before it runs
+
+These candidates were designed after seeing where round 1 lost. They have no tuned number, but which rule to try
+was chosen with the judged frames in view, and much of the outcome can be predicted from round 1 (campus keeps the
+fixed colors, so its 35 come back). **A PASS here is a hypothesis for the next places that are shot, not a held-out
+result.**
+
+Called "safe on these frames": `cal_core_keep` PASS with at least 152.2 placements, and all four rotations PASS.
+Reported either way, with the conditions that kept the fixed colors. 21 comparisons are judged in all.
+
+Also added to the report, from files round 1 already wrote: how wide the hue ranges of a one-frame setting are
+next to the fixed and the hand ranges.

@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """What can a color setting made per place reach, without hand sliders? (2026-11-26; TODO C1, C7, the third idea of
-E6. Plan: PREREG.md in this folder, written and committed before any stage below was run on all frames.)
+E6. Plan: PREREG.md in this folder, written and committed before any stage below was run on all frames; round 2 is
+its dated addendum.)
 
     python barrels/experiments/2026-11-26_place_ceiling/run.py settings   # one setting per frame, from the frame and its boxes
     python barrels/experiments/2026-11-26_place_ceiling/run.py oracle     # the best rectangle pair per condition, by search (in-sample)
     python barrels/experiments/2026-11-26_place_ceiling/run.py judge      # every candidate through the standard pass rule; contact sheets
     python barrels/experiments/2026-11-26_place_ceiling/run.py cross      # each frame in turn; one light / one place applied to another
+    python barrels/experiments/2026-11-26_place_ceiling/run.py round2     # the candidates of the addendum (needs settings)
     python barrels/experiments/2026-11-26_place_ceiling/run.py report     # summary.md from the files the stages wrote
-    python barrels/experiments/2026-11-26_place_ceiling/run.py all
+    python barrels/experiments/2026-11-26_place_ceiling/run.py all        # settings, oracle, judge, cross, round2, report
 
 Train frames only: every image is read through ``judge.load_frame``, which refuses anything else. No pixel is changed.
 The judge is ``barrels.judge`` (``run_many`` + ``compare``: what ``judge.judge`` does, with several candidates in one
@@ -71,6 +73,10 @@ def text_of(six) -> str:
     return "o " + "/".join(str(v) for v in six[:3]) + "  b " + "/".join(str(v) for v in six[3:])
 
 
+def fixed_six() -> tuple:
+    return six_of(hl.thresholds_from_model(hl.adopted_model()))
+
+
 def scene_of(stem: str) -> str:
     return io.parse_name(stem)["scene"]
 
@@ -80,13 +86,17 @@ def short(stem: str) -> str:
     return f"{t['scene']}_{t['nn']}"
 
 
+def is_free(box: dict) -> bool:
+    """A free-standing box: not flagged occluded, truncated, held or no_stripe."""
+    return not any(f in pc.SKIP_FLAGS for f in (box.get("flags") or ()))
+
+
 # ---------------------------------------------------------------- which frame calibrates which
 
 def eligible(stem: str) -> bool:
-    """A frame can calibrate when at least one of its barrels is free-standing (not flagged occluded, truncated, held
-    or no_stripe): only such a barrel gives zone pixels. Read from the label file."""
-    boxes = io.load_boxes(stem, check_image=False)["barrels"]
-    return any(not any(f in pc.SKIP_FLAGS for f in (b.get("flags") or ())) for b in boxes)
+    """A frame can calibrate when at least one of its barrels is free-standing: only such a barrel gives zone pixels.
+    Read from the label file."""
+    return any(is_free(b) for b in io.load_boxes(stem, check_image=False)["barrels"])
 
 
 @dataclasses.dataclass
@@ -281,8 +291,7 @@ def _oracle(args) -> tuple:
 
 def stage_oracle(jobs: int) -> None:
     L, S = layout(), load_settings()
-    base = hl.adopted_model()
-    fixed = six_of(hl.thresholds_from_model(base))
+    fixed = fixed_six()
     hand, prop = hand_thresholds(L.ordinary), proposal_thresholds()
     tasks = []
     for c, ss in L.by_cond.items():
@@ -382,30 +391,31 @@ def vendor_counts(L: Layout, truth) -> tuple:
     return counts, assumed
 
 
-def stage_judge(sheets: bool = True) -> None:
-    L, S = layout(), load_settings()
-    hand, prop, oracle = hand_thresholds(L.ordinary), proposal_thresholds(), load_oracle()
-    A = assignments(L, S, hand, prop, oracle)
+def run_candidates(L: Layout, A: dict, also: dict | None = None) -> tuple:
+    """Every candidate of ``A`` (and, run but not judged, of ``also``) and today's default on the ordinary train
+    frames in one pass; each candidate of ``A`` judged against today. Returns (runs, judgements, the record that goes
+    into a json file, truth, every assignment)."""
+    every = {**(also or {}), **A}
     frames = {cnd.ORDINARY: L.ordinary, cnd.EXTREME: [], cnd.EXCLUDED: [], cnd.UNLISTED: []}
     truth = jg.load_truth(L.ordinary)
     margins = jg.load_margins()
     dets = {"today": jg.fixed_detector()}
-    dets.update({n: assign_detector(a, d) for n, (d, _, a) in A.items()})
+    dets.update({n: assign_detector(a, d) for n, (d, _, a) in every.items()})
     runs = jg.run_many(dets, L.ordinary, truth)
     vcounts, assumed = vendor_counts(L, truth)
     measured = [s for s in L.ordinary if s in vcounts and s not in assumed]
 
-    def tallies(counts: dict, stems=None) -> dict:
-        stems = [s for s in (stems or L.ordinary) if s in counts]
+    def tallies(counts: dict) -> dict:
+        stems = [s for s in L.ordinary if s in counts]
         return {"all": ct.tally(counts, stems, truth.placements).to_dict(),
                 "measured": ct.tally(counts, [s for s in stems if s in measured], truth.placements).to_dict(),
                 "places": {p: ct.tally(counts, ss, truth.placements).to_dict() for p, ss in ct.group_stems(stems, "place").items()},
                 "conditions": {c: ct.tally(counts, ss, truth.placements).to_dict() for c, ss in ct.group_stems(stems, "condition").items()}}
-    judged = {"made": dt.date.today().isoformat(), "git": bcv.git_hash(), "margins": dataclasses.asdict(margins),
+    record = {"made": dt.date.today().isoformat(), "git": bcv.git_hash(), "margins": dataclasses.asdict(margins),
               "today": tallies(runs["today"].counts), "vendor": {**tallies(vcounts), "assumed_frames": len(assumed), "measured_frames": len(measured)},
               "candidates": {}}
     js = {}
-    for n, (describe, kind, assign) in A.items():
+    for n, (describe, kind, _) in A.items():
         j = jg.compare(runs["today"], runs[n], frames, truth, margins)
         js[n] = j
         jg.write(j, OUT / "judge" / n)
@@ -413,26 +423,44 @@ def stage_judge(sheets: bool = True) -> None:
         gain = c.found_w - b.found_w
         weak = j.result == jg.PASS and gain < margins.found_gain + STRONG
         ch = [x for x in j.changes if x.judged]
-        judged["candidates"][n] = {"describe": describe, "kind": kind, "verdict": j.result, "weak": weak, "reason": j.verdict.reason,
+        record["candidates"][n] = {"describe": describe, "kind": kind, "verdict": j.result, "weak": weak, "reason": j.verdict.reason,
                                    "clauses": [dataclasses.asdict(x) for x in j.verdict.clauses], "gain": round(gain, 4),
                                    "gained": sum(x.kind == "gained" for x in ch), "lost": sum(x.kind == "lost" for x in ch),
-                                   "settings": {c: assign[ss[0]] for c, ss in L.by_cond.items()} if kind != "held out" or "rot" not in n else None,
                                    **tallies(runs[n].counts)}
         print(f"{n:24s} {j.result}{' (WEAK)' if weak else ''}: found {b.found_w:.1f} -> {c.found_w:.1f} ({gain:+.1f}), per frame {b.found} -> {c.found}, "
               f"boxes not on their barrel {b.extra_w:.1f} -> {c.extra_w:.1f}", flush=True)
-    (OUT / "judged.json").write_text(json.dumps(judged, indent=1, default=str) + "\n")
+    return runs, js, record, truth, every
+
+
+def stage_judge(sheets: bool = True) -> None:
+    L, S = layout(), load_settings()
+    hand, prop, oracle = hand_thresholds(L.ordinary), proposal_thresholds(), load_oracle()
+    A = assignments(L, S, hand, prop, oracle)
+    runs, js, record, truth, every = run_candidates(L, A)
+    (OUT / "judged.json").write_text(json.dumps(record, indent=1, default=str) + "\n")
     (OUT / "thresholds.json").write_text(json.dumps({"hand": hand, "proposals_median": prop, "oracle": oracle}, indent=1) + "\n")
-    if sheets:
-        make_sheets(L, A, runs, js, truth)
+    if not sheets:
+        return
+    sheet, changed, state, all_barrels = sheet_maker(every, runs, js, truth)
+    prim = f"cal_core_{PRIMARY}"
+    sheet("cal_core_gained", changed(prim, "gained"), "today", prim)
+    sheet("cal_core_lost", changed(prim, "lost"), "today", prim)
+    sheet("hand_finds_cal_core_misses", [(s, i) for s, i in all_barrels if state("hand", s, i) == ct.FOUND and state(prim, s, i) != ct.FOUND], "hand", prim)
+    sheet("oracle_still_missed", [(s, i) for s, i in all_barrels if state("oracle", s, i) != ct.FOUND], prim, "oracle")
+    sheet("warm_bathroom_hand_vs_relabel", [(s, i) for s, i in all_barrels if ct.condition_of(s) == "lampwarm6_bathtile"], "hand", "relabel")
+    sheet("otherlight_lost", [(s, i) for s, i in all_barrels if state(prim, s, i) == ct.FOUND and state(f"cal_otherlight_{PRIMARY}", s, i) != ct.FOUND],
+          prim, f"cal_otherlight_{PRIMARY}")
 
 
 # ---------------------------------------------------------------- contact sheets (pictures to look at; not committed)
 
-def make_sheets(L: Layout, A: dict, runs: dict, js: dict, truth) -> None:
+def sheet_maker(A: dict, runs: dict, js: dict, truth) -> tuple:
+    """(sheet(title, [(stem, barrel index)], run a, run b), changed(name, kind), state(name, stem, index), every barrel).
+    One tile per barrel: the raw crop with the hand box, then the paint and the detector's boxes under run a and run b."""
     import cv2
     import hs_slider as tool
     base = hl.adopted_model()
-    fixed = six_of(hl.thresholds_from_model(base))
+    fixed = fixed_six()
     out = OUT / "sheets"
     out.mkdir(parents=True, exist_ok=True)
     size, font = 210, cv2.FONT_HERSHEY_SIMPLEX
@@ -453,6 +481,9 @@ def make_sheets(L: Layout, A: dict, runs: dict, js: dict, truth) -> None:
         cx, cy = (x0 + x1) // 2 + half, (y0 + y1) // 2 + half
         return cv2.resize(pad[cy - half:cy + half, cx - half:cx + half], (size, size), interpolation=cv2.INTER_NEAREST)
 
+    def state(name: str, stem: str, gi: int) -> str:
+        return runs[name].counts[stem].gt[gi]
+
     def sheet(title: str, items: list, a: str, b: str) -> None:
         tiles = []
         for stem, gi in items:
@@ -461,7 +492,7 @@ def make_sheets(L: Layout, A: dict, runs: dict, js: dict, truth) -> None:
             g = truth.gts[stem][gi]
             row = np.hstack([panel(bgr, stem, None, g), panel(bgr, stem, a, g), panel(bgr, stem, b, g)])
             head = np.full((32, row.shape[1], 3), 32, np.uint8)
-            cv2.putText(head, f"{ct.condition_of(stem)} {short(stem)} #{gi + 1} {dtp.COLOR_NAMES[g.color]}   {a}: {runs[a].counts[stem].gt[gi]}   {b}: {runs[b].counts[stem].gt[gi]}",
+            cv2.putText(head, f"{ct.condition_of(stem)} {short(stem)} #{gi + 1} {dtp.COLOR_NAMES[g.color]}   {a}: {state(a, stem, gi)}   {b}: {state(b, stem, gi)}",
                         (4, 12), font, 0.36, (235, 235, 235), 1, cv2.LINE_AA)
             cv2.putText(head, f"{a} {text_of(setting(a, stem))}   |   {b} {text_of(setting(b, stem))}", (4, 27), font, 0.34, (0, 255, 255), 1, cv2.LINE_AA)
             tiles.append(np.vstack([head, row]))
@@ -471,25 +502,12 @@ def make_sheets(L: Layout, A: dict, runs: dict, js: dict, truth) -> None:
             if len(chunk) % 2:
                 chunk.append(np.zeros_like(chunk[0]))
             pic = np.vstack([np.hstack(chunk[i:i + 2]) for i in range(0, len(chunk), 2)])
-            name = f"{title}_{k // per + 1:02d}.jpg"
-            cv2.imwrite(str(out / name), pic, [cv2.IMWRITE_JPEG_QUALITY, 82])
+            cv2.imwrite(str(out / f"{title}_{k // per + 1:02d}.jpg"), pic, [cv2.IMWRITE_JPEG_QUALITY, 82])
         print(f"  sheets: {title}: {len(items)} barrels on {(len(tiles) + per - 1) // per} sheet(s)")
 
     def changed(name: str, kind: str) -> list:
         return [(x.stem, x.index) for x in js[name].changes if x.judged and x.kind == kind]
-
-    def state(name: str, stem: str, gi: int) -> str:
-        return runs[name].counts[stem].gt[gi]
-    prim = f"cal_core_{PRIMARY}"
-    sheet("cal_core_gained", changed(prim, "gained"), "today", prim)
-    sheet("cal_core_lost", changed(prim, "lost"), "today", prim)
-    every = [(s, i) for s in L.ordinary for i in range(len(truth.gts[s]))]
-    sheet("hand_finds_cal_core_misses", [(s, i) for s, i in every if state("hand", s, i) == ct.FOUND and state(prim, s, i) != ct.FOUND], "hand", prim)
-    sheet("oracle_still_missed", [(s, i) for s, i in every if state("oracle", s, i) != ct.FOUND], prim, "oracle")
-    bath = [(s, i) for s, i in every if ct.condition_of(s) == "lampwarm6_bathtile"]
-    sheet("warm_bathroom_hand_vs_relabel", bath, "hand", "relabel")
-    sheet("otherlight_lost", [(s, i) for s, i in every if state(prim, s, i) == ct.FOUND and state(f"cal_otherlight_{PRIMARY}", s, i) != ct.FOUND],
-          prim, f"cal_otherlight_{PRIMARY}")
+    return sheet, changed, state, [(s, i) for s in sorted(truth.gts) for i in range(len(truth.gts[s]))]
 
 
 # ---------------------------------------------------------------- stage 4: each frame in turn; another light; another place
@@ -527,10 +545,86 @@ def stage_cross(jobs: int) -> None:
                                                 "targets": dict(sorted(res.items()))}, indent=1) + "\n")
 
 
+# ---------------------------------------------------------------- round 2 (PREREG addendum): keep the fixed colors where they work
+
+def fixed_works(L: Layout) -> dict:
+    """frame that can calibrate -> True when today's detector with the fixed colors finds every free-standing box of
+    it (strict rule) and draws no box that is not on its barrel."""
+    base = hl.adopted_model()
+    out = {}
+    for e in L.eligible.values():
+        for s in e:
+            label = io.load_boxes(s, check_image=False)
+            preds = det.detect(pl.segment(jg.load_frame(s), base)[0], det.DetConfig(), CAM)
+            fc = ct.classify_frame(s, preds, dtp.barrels_from_boxes(label), bool(label.get("clean", True)))
+            if len(fc.gt) != len(label["barrels"]):
+                raise ValueError(f"{s}: the true barrels do not line up with the label's boxes")
+            out[s] = fc.extra == 0 and all(st == ct.FOUND for st, b in zip(fc.gt, label["barrels"]) if is_free(b))
+    return out
+
+
+def assignments2(L: Layout, S: dict, ok: dict) -> dict:
+    F, fixed = S["frames"], fixed_six()
+
+    def keep(g: str):
+        return None if ok[g] else F[g][PRIMARY]
+
+    def wide(six) -> tuple:
+        return (min(fixed[0], six[0]), max(fixed[1], six[1]), min(fixed[2], six[2]), min(fixed[3], six[3]), max(fixed[4], six[4]), min(fixed[5], six[5]))
+    out = {"cal_core_keep": ("ROUND 2. The calibration frame (core_01) first tests the fixed colors: if they find every free-standing box of it and draw no box "
+                             "that is not on its barrel, the fixed colors stay; otherwise its mid setting. The calibration frame itself: the same with the backup frame",
+                             "held out, round 2", {s: keep(source_frame(L, s)) for s in L.ordinary})}
+    for r in ROTATIONS:
+        out[f"cal_rot{r}_keep"] = (f"ROUND 2. The same keep rule, each frame in turn, rotation {r}", "held out, round 2",
+                                   {s: keep(source_frame(L, s, r)) for s in L.ordinary})
+    out["cal_core_wide"] = ("ROUND 2. The calibration may only widen: per color the lower hue low, the higher hue high and the lower S floor of the fixed "
+                            "colors and the calibration frame's mid setting", "held out, round 2", {s: wide(F[source_frame(L, s)][PRIMARY]) for s in L.ordinary})
+    return out
+
+
+def stage_round2(sheets: bool = True) -> None:
+    L, S = layout(), load_settings()
+    ok = fixed_works(L)
+    A2 = assignments2(L, S, ok)
+    A1 = assignments(L, S, hand_thresholds(L.ordinary), proposal_thresholds(), load_oracle())
+    also = {n: A1[n] for n in ("hand", f"cal_core_{PRIMARY}")}
+    runs, js, record, truth, every = run_candidates(L, A2, also)
+    record["fixed_works"] = ok
+    record["kept"] = {c: bool(ok[L.cal[c]]) for c in L.by_cond}
+    (OUT / "judged2.json").write_text(json.dumps(record, indent=1, default=str) + "\n")
+    print("the calibration frame keeps the fixed colors at: " + (", ".join(c for c, k in record["kept"].items() if k) or "no condition"))
+    if not sheets:
+        return
+    sheet, changed, state, all_barrels = sheet_maker(every, runs, js, truth)
+    sheet("keep_lost", changed("cal_core_keep", "lost"), "today", "cal_core_keep")
+    sheet("hand_finds_keep_misses", [(s, i) for s, i in all_barrels if state("hand", s, i) == ct.FOUND and state("cal_core_keep", s, i) != ct.FOUND],
+          "hand", "cal_core_keep")
+    sheet("wide_lost", changed("cal_core_wide", "lost"), "today", "cal_core_wide")
+
+
 # ---------------------------------------------------------------- the report
 
-def _pf(t: dict) -> str:
-    return f"{t['found_w']:.1f} ({t['found']})"
+def _cand_row(n: str, c: dict, t0: dict) -> str:
+    a = c["all"]
+    return (f"| `{n}` | {c['kind']} | {t0['found_w']:.1f} → {a['found_w']:.1f} ({c['gain']:+.1f}) | {t0['found']} → {a['found']} | {a['found_w'] + a['off_w']:.1f} | "
+            f"{t0['extra_w']:.1f} → {a['extra_w']:.1f} ({t0['extra']} → {a['extra']}) | {a['clean_empty']} / {a['cluttered_empty_w']:.1f} | "
+            f"{c['gained']} / {c['lost']} | **{c['verdict']}{' (WEAK)' if c['weak'] else ''}** |")
+
+
+CAND_HEAD = ["| candidate | kind | found, placements | per frame | found either way | boxes not on their barrel | on empty frames: clean / with clutter | gained / lost (per frame) | verdict |",
+             "|---|---|---|---|---|---|---|---|---|"]
+
+
+def _cell(t: dict | None, star: bool = False) -> str:
+    if t is None or not t.get("frames"):
+        return "-"
+    if star:
+        return f"{t['found_w']:.1f}* ({t['found']}*)"
+    return f"{t['found_w']:.1f} ({t['found']}) / {t['extra_w']:.1f}"
+
+
+def _mean_cell(ts: list) -> str:
+    return f"{np.mean([t['found_w'] for t in ts]):.1f} ({np.mean([t['found'] for t in ts]):.1f}) / {np.mean([t['extra_w'] for t in ts]):.1f}"
 
 
 def stage_report() -> None:
@@ -539,65 +633,60 @@ def stage_report() -> None:
     X = json.loads((OUT / "cross.json").read_text())["targets"]
     O = json.loads((OUT / "oracle.json").read_text())["conditions"]
     T = json.loads((OUT / "thresholds.json").read_text())
+    J2 = json.loads((OUT / "judged2.json").read_text()) if (OUT / "judged2.json").exists() else None
     C, today, vendor, m = J["candidates"], J["today"], J["vendor"], J["margins"]
     prim = f"cal_core_{PRIMARY}"
     rots = [f"cal_rot{r}_{PRIMARY}" for r in ROTATIONS]
     places = list(today["places"])
+    t0 = today["all"]
     lines = [f"# One setting per place, without sliders: results ({J['made']}, git {J['git']})", "",
              "`python barrels/experiments/2026-11-26_place_ceiling/run.py all` (plan: `../../experiments/2026-11-26_place_ceiling/PREREG.md`). Train frames only; "
-             f"no test frame opened. {len(L.ordinary)} ordinary train frames, {len(L.by_cond)} conditions at {len(places)} places: {today['all']['placements']} placements, "
-             f"{today['all']['barrels']} barrels when every light is counted. Baseline everywhere: today's default (the fixed colors). "
-             f"Margins: found better above +{m['found_gain']:.2f} placements, worse below -{m['found_loss']:.2f}; boxes not on their barrel worse above +{m['extra_rise']:.2f}.", "",
-             "## Every judged candidate", "",
-             "| candidate | kind | found, placements | per frame | found either way | boxes not on their barrel | on empty frames: clean / with clutter | gained / lost (per frame) | verdict |",
-             "|---|---|---|---|---|---|---|---|---|"]
-    t0 = today["all"]
-    for n, c in C.items():
-        a = c["all"]
-        lines.append(f"| `{n}` | {c['kind']} | {t0['found_w']:.1f} → {a['found_w']:.1f} ({c['gain']:+.1f}) | {t0['found']} → {a['found']} | {a['found_w'] + a['off_w']:.1f} | "
-                     f"{t0['extra_w']:.1f} → {a['extra_w']:.1f} ({t0['extra']} → {a['extra']}) | {a['clean_empty']} / {a['cluttered_empty_w']:.1f} | "
-                     f"{c['gained']} / {c['lost']} | **{c['verdict']}{' (WEAK)' if c['weak'] else ''}** |")
+             f"no test frame opened. {len(L.ordinary)} ordinary train frames, {len(L.by_cond)} conditions at {len(places)} places: {t0['placements']} placements, "
+             f"{t0['barrels']} barrels when every light is counted. Baseline everywhere: today's default (the fixed colors). "
+             f"Margins: found better above +{m['found_gain']:.2f} placements, worse below -{m['found_loss']:.2f}; boxes not on their barrel worse above +{m['extra_rise']:.2f}; "
+             "found at one place worse below its own margin (1.0 at campus, home, pale wood, ABP white and glass).", "",
+             "## Round 1: every judged candidate", ""] + CAND_HEAD
+    lines += [_cand_row(n, c, t0) for n, c in C.items()]
     lines += ["", "What each candidate is:", ""] + [f"- `{n}`: {c['describe']}." for n, c in C.items()]
-    rw = [C[r]["all"]["found_w"] for r in rots]
-    rf = [C[r]["all"]["found"] for r in rots]
-    re = [C[r]["all"]["extra_w"] for r in rots]
+    lines += ["", "Why each FAIL fails (the judge's clause):", ""]
+    for n, c in C.items():
+        if c["verdict"] == jg.FAIL:
+            lines.append(f"- `{n}`: {c['reason']}")
+    rw, rf, re = ([C[r]["all"][k] for r in rots] for k in ("found_w", "found", "extra_w"))
     lines += ["", f"Each frame in turn, the {len(rots)} rotations together: found {np.mean(rw):.1f} placements on average (lowest {min(rw):.1f}, highest {max(rw):.1f}); "
               f"per frame {np.mean(rf):.1f} ({min(rf)} to {max(rf)}); boxes not on their barrel {np.mean(re):.1f} ({min(re):.1f} to {max(re):.1f}); verdicts: "
-              + ", ".join(C[r]["verdict"] + (" (WEAK)" if C[r]["weak"] else "") for r in rots) + ".", ""]
+              + ", ".join(C[r]["verdict"] + (" (WEAK)" if C[r]["weak"] else "") for r in rots) + ". (In a condition with four frames that can calibrate, "
+              "rotation 4 gives a frame that can calibrate the same partner as rotation 1.)", ""]
 
     # ---- table D
-    def cell(t: dict | None, star: bool = False) -> str:
-        if t is None or not t.get("frames"):
-            return "-"
-        if star:
-            return f"{t['found_w']:.1f}* ({t['found']}*)"
-        return f"{t['found_w']:.1f} ({t['found']}) / {t['extra_w']:.1f}"
-
-    def rot_cell(key: str, p: str | None) -> str:
-        ts = [(C[r][key] if p is None else C[r][key].get(p)) for r in rots]
-        return f"{np.mean([t['found_w'] for t in ts]):.1f} ({np.mean([t['found'] for t in ts]):.1f}) / {np.mean([t['extra_w'] for t in ts]):.1f}"
     cols = [("fixed", None), ("one frame, core_01 (held out)", prim), ("one frame, each in turn (held out, mean)", "rot"), ("hand thresholds", "hand"),
             ("relabelled hand", "relabel"), ("oracle", "oracle"), ("vendor", "vendor")]
+    if J2:
+        cols.insert(3, ("round 2: one frame, keep rule (core_01)", "keep"))
+
+    def pick(rec: dict, key: str, p: str | None):
+        return rec[key] if p is None else rec[key].get(p)
     lines += ["## D. By place: found placements (found per frame) / boxes not on their barrel, once per arrangement", "",
               "| place | placements (barrels, lights) | " + " | ".join(n for n, _ in cols) + " |", "|---|---|" + "---|" * len(cols)]
 
     def row(name: str, key: str, p: str | None, bold: bool = False) -> str:
-        src = today[key] if p is None else today[key][p]
+        src = pick(today, key, p)
         cells = []
         for _, k in cols:
             if k is None:
-                cells.append(cell(src))
+                cells.append(_cell(src))
             elif k == "rot":
-                cells.append(rot_cell(key, p))
+                cells.append(_mean_cell([pick(C[r], key, p) for r in rots]))
+            elif k == "keep":
+                cells.append(_cell(pick(J2["candidates"]["cal_core_keep"], key, p)))
             elif k == "vendor":
-                v = vendor[key] if p is None else vendor[key].get(p)
-                cells.append(cell(v, star=bool(v and v.get("assumed_frames"))))
+                v = pick(vendor, key, p)
+                cells.append(_cell(v, star=bool(v and v.get("assumed_frames"))))
             else:
-                cells.append(cell(C[k][key] if p is None else C[k][key].get(p)))
+                cells.append(_cell(pick(C[k], key, p)))
         b = "**" if bold else ""
         return f"| {b}{name}{b} | {src['placements']} ({src['barrels']}, {src['conditions']}) | " + " | ".join(f"{b}{x}{b}" for x in cells) + " |"
-    for p in places:
-        lines.append(row(p, "places", p))
+    lines += [row(p, "places", p) for p in places]
     lines.append(row("the six places with vendor files", "measured", None, True))
     lines.append(row("all eight places", "all", None, True))
     lines += ["", "\\* = the vendor is ASSUMED to find every barrel on the two white tables without vendor files (home, campus; Tanush 2026-11-26); "
@@ -609,12 +698,8 @@ def stage_report() -> None:
               "| arm | found, placements | gap to the vendor closed | found either way | boxes not on their barrel |", "|---|---|---|---|---|",
               f"| fixed | {f6['found_w']:.1f} | 0 % | {f6['found_w'] + f6['off_w']:.1f} | {f6['extra_w']:.1f} |"]
     for label, k in cols[1:-1]:
-        if k == "rot":
-            fw = float(np.mean([C[r]["measured"]["found_w"] for r in rots]))
-            ow = float(np.mean([C[r]["measured"]["off_w"] for r in rots]))
-            ew = float(np.mean([C[r]["measured"]["extra_w"] for r in rots]))
-        else:
-            fw, ow, ew = C[k]["measured"]["found_w"], C[k]["measured"]["off_w"], C[k]["measured"]["extra_w"]
+        ts = [C[r]["measured"] for r in rots] if k == "rot" else [J2["candidates"]["cal_core_keep"]["measured"]] if k == "keep" else [C[k]["measured"]]
+        fw, ow, ew = (float(np.mean([t[x] for t in ts])) for x in ("found_w", "off_w", "extra_w"))
         lines.append(f"| {label} | {fw:.1f} | {100 * (fw - f6['found_w']) / gap:.0f} % | {fw + ow:.1f} | {ew:.1f} |")
     lines += [f"| vendor | {v6['found_w']:.1f} | 100 % | {v6['found_w'] + v6['off_w']:.1f} | {v6['extra_w']:.1f} |", ""]
 
@@ -646,6 +731,20 @@ def stage_report() -> None:
         f = S["frames"][L.cal[c]]
         lines.append(f"| {c} | {short(L.cal[c])} | {text_of(f['mid'])} | {text_of(f['net'])} | {text_of(f['tool'])} | {text_of(T['hand'][c]) if c in T['hand'] else '-'} | "
                      f"{text_of(O[c]['best'])} ({O[c]['seed']}, {O[c]['moves']}) |")
+
+    # ---- how narrow a one-frame setting is
+    fixed = fixed_six()
+    sets = {"fixed": [fixed], "one frame, mid (all 99 frames that can calibrate)": [f["mid"] for f in S["frames"].values()],
+            "one frame, net": [f["net"] for f in S["frames"].values()], "one frame, the tool's proposal": [f["tool"] for f in S["frames"].values()],
+            "all frames of a condition pooled, net": list(S["pooled_net"].values()), "hand (median per condition)": [tuple(v) for v in T["hand"].values()],
+            "oracle": [tuple(O[c]["best"]) for c in O]}
+    lines += ["", "## How narrow a setting is: hue units from the low end to the high end (median; smallest to largest)", "",
+              "| setting | how many | orange hue range | blue hue range | orange S floor | blue S floor |", "|---|---|---|---|---|---|"]
+    for name, ss in sets.items():
+        ow, bw = [s[1] - s[0] for s in ss], [s[4] - s[3] for s in ss]
+        lines.append(f"| {name} | {len(ss)} | {np.median(ow):.0f} ({min(ow)} to {max(ow)}) | {np.median(bw):.0f} ({min(bw)} to {max(bw)}) | "
+                     f"{np.median([s[2] for s in ss]):.0f} ({min(s[2] for s in ss)} to {max(s[2] for s in ss)}) | "
+                     f"{np.median([s[5] for s in ss]):.0f} ({min(s[5] for s in ss)} to {max(s[5] for s in ss)}) |")
 
     # ---- each frame in turn, by the kind of calibration shot
     by_scene, per_cond = defaultdict(lambda: [0, 0, 0, 0, 0]), {}
@@ -685,7 +784,6 @@ def stage_report() -> None:
         for src in cs:
             lines.append(f"| {src} | " + " | ".join(("**%d of %d**" if src == t else "%d of %d") % block(src, t)[:2] for t in cs) + " |")
         lines.append("")
-    same = other_light = other_place = None
     agg = {"the same condition (its other frames)": [0, 0, 0], "another light of the same place": [0, 0, 0], "another place": [0, 0, 0]}
     for tgt in L.by_cond:
         for src in L.by_cond:
@@ -696,7 +794,33 @@ def stage_report() -> None:
               "| the setting comes from | found | share | fixed colors on the same frames |", "|---|---|---|---|"]
     for k, (f, n, fx) in agg.items():
         lines.append(f"| {k} | {f} of {n} | {100 * f / max(1, n):.1f} % | {fx} of {n} ({100 * fx / max(1, n):.1f} %) |")
-    lines += ["", "Files: `settings.json` (the setting of every frame that can calibrate), `oracle.json`, `judged.json` (every tally), `cross.json`, "
+
+    # ---- round 2
+    if J2:
+        C2 = J2["candidates"]
+        keeps = [f"cal_rot{r}_keep" for r in ROTATIONS]
+        kw, kf = [C2[r]["all"]["found_w"] for r in keeps], [C2[r]["all"]["found"] for r in keeps]
+        kept = [c for c, k in J2["kept"].items() if k]
+        n_ok = sum(1 for v in J2["fixed_works"].values() if v)
+        lines += ["", "## Round 2: a calibration that keeps the fixed colors where they work", "",
+                  "Designed AFTER round 1 was seen (PREREG addendum). No tuned number, but the rule was chosen with these frames in view: a hypothesis for "
+                  "the next places, not a held-out result.", ""] + CAND_HEAD + [_cand_row(n, c, t0) for n, c in C2.items()]
+        lines += ["", "What each candidate is:", ""] + [f"- `{n}`: {c['describe']}." for n, c in C2.items()]
+        lines += ["", "Why each FAIL fails (the judge's clause):", ""] + [f"- `{n}`: {c['reason']}" for n, c in C2.items() if c["verdict"] == jg.FAIL]
+        lines += ["", f"The keep rule, each frame in turn: found {np.mean(kw):.1f} placements on average (lowest {min(kw):.1f}, highest {max(kw):.1f}); per frame "
+                  f"{np.mean(kf):.1f} ({min(kf)} to {max(kf)}); verdicts: " + ", ".join(C2[r]["verdict"] + (" (WEAK)" if C2[r]["weak"] else "") for r in keeps) + ".", "",
+                  f"With core_01 as the calibration frame, the fixed colors are kept at {len(kept)} of {len(J2['kept'])} conditions: {', '.join(kept) or 'none'}. "
+                  f"Over all {len(J2['fixed_works'])} frames that can calibrate, the fixed colors pass the test on {n_ok}.", "",
+                  "| place | placements | fixed | round 1: one frame (core_01) | round 2: keep rule (core_01) | round 2: keep rule, each in turn (mean) | round 2: only widen (core_01) | hand |",
+                  "|---|---|---|---|---|---|---|---|"]
+
+        def row2(name: str, key: str, p: str | None, bold: bool = False) -> str:
+            cells = [_cell(pick(today, key, p)), _cell(pick(C[prim], key, p)), _cell(pick(C2["cal_core_keep"], key, p)),
+                     _mean_cell([pick(C2[r], key, p) for r in keeps]), _cell(pick(C2["cal_core_wide"], key, p)), _cell(pick(C["hand"], key, p))]
+            b = "**" if bold else ""
+            return f"| {b}{name}{b} | {pick(today, key, p)['placements']} | " + " | ".join(f"{b}{x}{b}" for x in cells) + " |"
+        lines += [row2(p, "places", p) for p in places] + [row2("the six places with vendor files", "measured", None, True), row2("all eight places", "all", None, True)]
+    lines += ["", "Files: `settings.json` (the setting of every frame that can calibrate), `oracle.json`, `judged.json` and `judged2.json` (every tally), `cross.json`, "
               "`thresholds.json`, `judge/<candidate>/judge.md` (the judge's page: tables, every barrel gained and lost, the clauses), `sheets/` (contact sheets, not committed).", ""]
     (OUT / "summary.md").write_text("\n".join(lines))
     print("\n".join(lines))
@@ -704,7 +828,7 @@ def stage_report() -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("stage", choices=("settings", "oracle", "judge", "cross", "report", "all"))
+    ap.add_argument("stage", choices=("settings", "oracle", "judge", "cross", "round2", "report", "all"))
     ap.add_argument("--jobs", type=int, default=8)
     ap.add_argument("--no-sheets", action="store_true")
     args = ap.parse_args()
@@ -717,6 +841,8 @@ def main() -> int:
         stage_judge(not args.no_sheets)
     if args.stage in ("cross", "all"):
         stage_cross(args.jobs)
+    if args.stage in ("round2", "all"):
+        stage_round2(not args.no_sheets)
     if args.stage in ("report", "all"):
         stage_report()
     return 0
