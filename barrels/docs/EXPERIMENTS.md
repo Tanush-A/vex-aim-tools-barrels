@@ -386,8 +386,6 @@ run is needed only when a candidate was painted: 4 of 26 frames.
 
 **Next.** One look at the recommended rule with the next color-step candidate (C2 or C4), since it matters only when more is painted. Judge it again once the camera self-calibration is in.
 
-## 2026-11-26 — Near-miss colors next to strong evidence (branch `wip/exp-nearmiss`)
-
 ## 2026-11-26: near-miss colors count next to strong evidence of a barrel (TODO C2, branch `wip/exp-nearmiss`)
 
 **Hypothesis (Tanush).** The detector needs both colors of a barrel. Most clean misses have one color at full
