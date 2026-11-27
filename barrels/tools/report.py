@@ -17,7 +17,7 @@ width ratio / bottom error for a candidate and a baseline side by side, and the 
 An arm is a color-model file plus DetConfig overrides. --cand-model / --base-model take a results config.json,
 or the words ``default`` (worldmap_bridge.DEFAULT_MODEL, what runs today), ``v1`` (V1_MODEL) or ``vendor``.
 --cand-det / --base-det take DetConfig fields as field=value (repeat the flag or separate with commas). DetConfig holds the
-detector's 20 numbers; its on/off switches were removed on 2026-11-26 (naming one stops with a message; the detector with
+detector's 18 numbers; its on/off switches were removed on 2026-11-26 (naming one stops with a message; the detector with
 switches is at the git tag pre-collapse-2026-11-26).
 Defaults: candidate = default model + DetConfig(); baseline = v1 model + DetConfig().
 

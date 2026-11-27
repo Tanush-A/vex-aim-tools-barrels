@@ -104,3 +104,58 @@ Renamed, same test: `test_dark_gap_alone_is_not_a_stripe_unless_asked` → `test
 | `report.py --gate` (the check with margins) | PASS: all 6 protected sets "same", the 19 other sets unchanged, no box on an empty frame |
 | `judge.py --cand-det bottom_tol=0.15 --no-save` (a candidate that changes nothing) | NO CLEAR DIFFERENCE: 0 barrels gained, 0 lost, 0 boxes changed (exit code 3) |
 | the eval table at the end of the test run | the HOME, CAMPUS and ALL rows are those of the tag |
+
+## Second pass
+
+**2026-11-26, branch `wip/collapse-2`, from `barrels` at `c0019d5`.** The collapse left a list of things it had proved dead or never deciding. This pass takes them out. The rule is the same (after every step the same boxes on the 5435 masks, and the suite passes), with one rule more: a thing goes only when an **argument** says no box can change. "No mask showed a difference" is not enough. One commit per item, with the argument in the commit message.
+
+| item | commit | what went | the argument, in one line | harness after the step |
+|---|---|---|---|---|
+| B14 | `7a738ce` | `widest_barrel`: "one barrel at most" is `body_width` at all nine sites | it returned the larger of `body_width` and 1, and `body_width` is 1.2 | IDENTICAL BOXES ON EVERY INPUT; the log is the same |
+| B13 | `09d239b` | the upper limit of the height check of `find_pieces`, and `height_max` | a piece's bottom is seen or drawn where its top row predicts it, so no piece is too tall: at most 1.09 × for 8 cameras, every top row and bottom row (the limit was 1.5) | IDENTICAL BOXES ON EVERY INPUT; the log is the same |
+| B1 | `1954f18` | the "too far for a stripe" half of the close-up rule, the rule name "far_piece", and `min_stripe_px` | the rule asked "is the stripe at its middle row under 4 px?"; for every piece stage 1 lets through that is not a close-up it is at least 4.12 px (8 cameras, every pair of rows) | IDENTICAL BOXES ON EVERY INPUT; the log is the same |
+| C1 (new) | `422b1e3` | "does the stripe's row give a distance?" in `find_stripes` (reason "no_geometry") and in `_join_pieces` | sandwich pixels exist only at rows that give a distance; those rows are one unbroken range; a stripe is read at a row between two of its own pixels' rows | IDENTICAL BOXES ON EVERY INPUT; the log is the same |
+| B15 | `7a6bf17` | no check: "kept" is written when a box goes into the list, "duplicate" for the box that goes | notes only; the lists are built by the same statements, and the detector does not read its log | IDENTICAL BOXES ON EVERY INPUT; the log differs on 3 inputs (2 "kept" notes of boxes that lost are gone, 1 "duplicate" note moved to the box that went) |
+
+`DetConfig`: 20 → 18 numbers. `detector.py`: 1825 → 1823 lines. The stripe finder has 6 checks (was 7), the close-up stage 3 steps (was 4), and the path of a plain barrel 14 tests (was 15).
+
+**What stays of each removed check.**
+- B13: `height_min` stays, because it decides. A piece is under 0.5 × the height for its bottom row exactly when its top row predicts no bottom (top at row 427 or lower: the base would be at or behind the camera) and it still ends inside the frame. A barrel that near runs out of the frame bottom. Without the check such a piece would go on to stage 4 as a close-up.
+- B1: the 4 px is now the constant `THINNEST_STRIPE_PX`. `on_the_table` asserts that a barrel on the table has a stripe that tall.
+- C1: `find_stripes` and `_join_pieces` assert the fact.
+- Each fact has a test that tries every row for the four cameras the repo names.
+
+**How near to breaking** (`second_pass_margins.py`; output in `results/2026-11-26_collapse/second_pass.md`). B13 is far from it: 1.17 × with the edge tolerance at 50 %, 1.28 × with its floor at 12 px. B1 is near: it breaks with `min_width_px` at 14 or with the tolerance floor at 8 px. The removed rule would then have kept far blobs with no stripe; now they are refused as "stripeless". That is a difference at other numbers, and it is the wanted one. C1 holds for any camera.
+
+**Not done, and why.**
+
+| item | why not |
+|---|---|
+| B7: `drop_single_reading` reads the span `seen_span` measured | not identical. Of the 43 boxes the last stage asks on the 5435 masks, 3 get the other answer and would be kept (`second_pass_b7.py`). It stays an experiment |
+| "the box is at least 2 × 2" ("empty_box") | it never fires on the masks, but no argument says it cannot |
+| "no_geometry" in `box_from_stripe`, and the same question in the order of `boxes_from_stripes` | dead for a stripe the finder made (C1), but these functions also take a stripe made by hand |
+| `_closeup_stripe_rows` for a top above the horizon | stage 1 refuses such a piece first, but the helper is called directly too, and "no distance" must not read as "below the frame" again |
+| "a blob holds at least one barrel pixel" (`find_blobs`) | true with the 3 × 3 closing only; it guards a division |
+| "does not touch the frame top" in the height check | dead with these cameras (such a piece is above the horizon); kept for a camera whose horizon is above the frame |
+| B2 to B6, B8 to B12 | they change boxes: experiments of their own |
+
+**Tests.** 952 before, 955 after. None removed, none weakened.
+
+| test | file | item | what changed |
+|---|---|---|---|
+| `test_no_piece_is_too_tall_and_only_a_piece_with_no_predicted_bottom_is_too_short` | `test_detector.py` | B13 | added |
+| `test_no_piece_is_too_far_away_to_show_a_stripe` | `test_detector.py` | B1 | added |
+| `test_a_stripes_row_always_gives_a_distance` | `test_detector.py` | C1 | added |
+| `test_a_barrel_on_the_table_has_a_stripe_tall_enough_to_resolve` | `test_detector.py` | B1 | reads `THINNEST_STRIPE_PX`; four cameras, was three |
+| `test_a_removed_detector_switch_gives_a_clear_error` | `test_report.py` | B13, B1 | 18 numbers, was 20; `height_max` and `min_stripe_px` must stop with "no longer a number of the detector" |
+
+**Everything that uses the detector.** `report.py --cand-det height_max=…` or `min_stripe_px=…` stops with a message that says why the number is gone (`REMOVED_DET_NUMBERS` in `report.py`). Nothing else named the two numbers. `detect(mask, DetConfig(), cam)` and `detect(mask, log=log)` are unchanged. One reason name is gone from the log ("stripe: no_geometry", which never occurred), one rule name ("far_piece", which no box ever had), and the "stripeless" note no longer carries `expected_stripe_h` (nothing read it).
+
+**At the end**, on the last code commit (`7a6bf17`):
+
+| check | result |
+|---|---|
+| the test suite | 955 pass |
+| the proof harness | IDENTICAL BOXES ON EVERY INPUT: 5435 masks, 6152 boxes, against the boxes before the collapse. Reason logs: the 224 inputs of A7 and the 3 of B15, nothing else |
+| `report.py --gate` | PASS: all 6 protected sets "same", the 19 other sets unchanged, no box on an empty frame |
+| `judge.py --cand-det bottom_tol=0.15 --no-save` (a candidate that changes nothing) | NO CLEAR DIFFERENCE: 0 barrels gained, 0 lost, 0 frames with a changed box (exit code 3) |

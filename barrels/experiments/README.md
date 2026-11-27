@@ -6,7 +6,7 @@ One folder per experiment, `<date>_<name>/`, with the script that produced a cla
 ## Experiments dated before 2026-11-26 run at the tag `pre-collapse-2026-11-26`
 
 On 2026-11-26 the detector was collapsed (`2026-11-26_collapse/`, `docs/DETECTOR-MAP.md`): `DetConfig` lost its 30
-on/off switches and the `stripe_mode` setting. It keeps the 20 numbers. The switches that were on are plain code now. The
+on/off switches and the `stripe_mode` setting. It kept the 20 numbers (18 since the second pass of the same day: `height_max` and `min_stripe_px` limited checks that can never say no). The switches that were on are plain code now. The
 switches that were off are deleted with their code. Step 1 alone (`require_stripe=False`, `detect_step1`,
 `detect_image.py --step1`) is gone too.
 
@@ -23,5 +23,5 @@ A script that only calls `det.detect(mask, det.DetConfig(), cam)` or reads the r
 before. That covers everything `run_all.py` starts (`2026-11-24_vendor`, `2026-11-24_adaptive`,
 `2026-11-24_adaptive_range`, `2026-11-25_color`).
 
-`report.py --cand-det field=value` still takes the 20 numbers. For a removed switch it stops with a message that names
-the tag.
+`report.py --cand-det field=value` still takes the numbers. For a removed switch it stops with a message that names
+the tag; for one of the two removed numbers, with a message that says why it is gone.
