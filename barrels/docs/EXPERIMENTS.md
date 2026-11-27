@@ -8,6 +8,7 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 
 | date | experiment | headline |
 |---|---|---|
+| 2026-11-27 | **The barrels' colors as histogram peaks** (Tanush's idea; branch `wip/exp-peaks`; leave one place out; nothing adopted) | Barrels are their own small peak in nearly every frame but rarely the biggest. Counting only pixels in a stripe sandwich of the two colors finds the barrel peak in about 9 of 10 frames. As a color step: PASS +14.0 (32 gained, 1 lost); fixes the ottoman and the gray table, not the warm bathroom. Below stripe by contrast (+21.5) |
 | 2026-11-27 | **White balance, then the fixed colors** (branch `wip/exp-whitebalance`; tests what Dave's 2026-10-07 rule forbids, run for numbers only; pre-registered, leave one place out) | Full corrections all FAIL on boxes (they turn the warm-bathroom orange pink and the dark ottoman fabric blue). Gray world at half strength PASSES: 133.8 → 143.0 of 172 (+9.2), 38 gained, 6 lost (ottoman), boxes off a barrel 1.93 → 1.05. 34 of its 38 gains are already found by the ideas that change no pixel (33 by stripe by contrast, which is +21.5). Correction cannot fix the ottoman's orange. Plainly: the rule against correction costs about 4 barrels here |
 | 2026-11-27 | **The winners together (E8)** (branch `wip/exp-combined`; pre-registered plus a dated addendum; nothing adopted) | **Contrast alone is the answer:** 133.8 → 155.3 of 172 placements held out; adding near-miss or self-calibration gains 0.2 to 2.7 more, never above the noise, and brings their clutter boxes. Contrast finds 44 of the 50 barrels the other two gain, plus 20 neither finds. **Against the vendor** (six measured places, train): contrast 92.3, vendor 83.3, today 70.8 of 108 placements; boxes off a barrel 2.83 against the vendor's 3.00. It still loses at the gray table (15.0 against 16.0) and the ottoman (10.0 against 12.3). What is left after contrast: 16.7 placements, nearly all hidden or frame-cut (15.0). Methods were shaped on these frames; the vendor's were not |
 | 2026-11-26 | **Slack in the stripe tests (E9)** (branch `wip/exp-slack`; pre-registered, two rounds; missed its own success line) | One pixel shaved off every painted region loses 40 barrels on the ordinary frames. Best rule `slack=D`: a stripe refused as too thin is measured again from the gap between the bodies; one refused as too small is asked again only when the barrel's own top and bottom show where its row predicts. It brings back 11 of 40 (target was 14) and 55 of 107 at two pixels, adds no box off a barrel on any of 5435 masks or any empty frame, and changes nothing that matters on unharmed frames (NO CLEAR DIFFERENCE, +1.6). Forgiving exactly one failed test barely helps: one pixel fails several tests at once |
@@ -71,6 +72,38 @@ One entry per experiment, newest first; the index is the fast path, the entries 
 ---
 
 ## Experiment-log entry, ready to paste into `docs/EXPERIMENTS.md`
+
+### 2026-11-27 — The barrels' colors as peaks of the frame's own histogram (branch `wip/exp-peaks`)
+
+Tanush's idea: barrels show up as peaks in the histogram; read their colors from the peaks. Plan: `experiments/2026-11-27_peaks/PREREG.md`, committed before any judged run; one round plus two report-only diagnostics (dated addendum). Train frames only. Nothing adopted. Written from the agent's report (its harness refused report files).
+
+- **Do barrels show up as peaks?** Yes, as their own small peak in 96 of 97 orange frames and 87 of 92 blue frames (hue × saturation). It is the biggest peak in its hue region in only 28 of 97 (orange) and 53 of 92 (blue): the floor or the wall is bigger. The barrel peak is clean: 88–100 % of the pixels near it lie inside a hand box.
+- **Which finder picks the barrel peak** (in-sample; within 3 hue units / fooled by 5 or more):
+
+| finder | orange (97) | blue (92) | extreme orange (35) |
+|---|---|---|---|
+| every pixel | 38 / 56 | 68 / 22 | 7 / 26 |
+| saturation-weighted | 75 / 21 | 83 / 9 | 9 / 25 |
+| rows below the horizon | 45 / 50 | 69 / 22 | 7 / 26 |
+| barrel-sized regions | 68 / 27 | 56 / 36 | 8 / 25 |
+| only pixels in a stripe sandwich of the two colors ("pair") | 82 / 11 | 88 / 4 | 28 / 2 |
+| pair + barrel-sized | 89 / 4 | 88 / 3 | 29 / 2 |
+
+- **Judged, leave one place out** (baseline 133.8 of 172 placements, 211 of 307 per frame, 1.93 boxes off a barrel):
+
+| candidate | verdict | placements | per frame | gained / lost | boxes off a barrel |
+|---|---|---|---|---|---|
+| pair + barrel-sized (primary) | FAIL (pale wood −2) | 131.8 | 209 | 0 / 2 | 1.93 |
+| **pair** | **PASS (+14.0)** | **147.8** | **242** | **32 / 1** | **3.45** |
+| saturation-weighted | FAIL (pale wood) | 142.7 | 230 | 21 / 2 | 3.53 |
+| every pixel | FAIL | 131.3 | 207 | 0 / 4 | 4.53 |
+| primary, then self-calibration | FAIL (pale wood) | 146.6 | 249 | 40 / 2 | 2.43 |
+| pair, then self-calibration (diagnostic) | FAIL (boxes) | 152.8 | 261 | 51 / 1 | 5.37 |
+
+- **Why the primary failed:** one frame and one hue unit. On `overheaddim_palewood_clutter_01` the primary's blue range moved its lower edge from 103 to 100 and both barrels there were lost; the pair finder moved it to 101 and kept them. The finder itself is as good (+12.3 with the pair's setting); the detector's fragility decided it.
+- **What it fixes:** the ottoman (orange at hue 14–17, the range widens to reach it), the gray table (orange at hue 1–2), and in the report-only wood lamp ladder 2 → 30 barrels per frame. **Cannot:** the bathroom under the mid and warm lamp (+1): the blue there is no longer blue (saturation 40–80). New boxes off a barrel: the glass jar's blue and red label (3 frames), one too-high box on wood, a bathroom floor edge, a second box on a home barrel.
+- **Takeaway.** Barrels are peaks, but small ones; a peak counted only over the stripe pattern is the barrel's color in about 9 of 10 frames. As a color step it passes (+14.0), level with near-miss and self-calibration and below stripe by contrast (+21.5). It wins at the ottoman and the gray table, where self-calibration wins at the bathroom; stacked they find more but fail on clutter boxes.
+- **Next.** Nothing on its own; stripe by contrast already covers these barrels. The pair finder is a cheap check of a frame's colors if one is ever wanted.
 
 ## 2026-11-27 — White balance in memory, then the fixed colors (an experiment the standing rule forbids; branch `wip/exp-whitebalance`; nothing adoptable without Dave)
 
