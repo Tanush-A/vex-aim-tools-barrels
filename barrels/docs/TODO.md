@@ -36,7 +36,7 @@ Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the
 | **N7** | **The noise margins fell** to +1.0 / −2.79 with contrast (one-step color moves no longer move the counts): the pass rule needs another source of noise | open |
 | **N8** | Ottoman (close-ups, touching barrels) and glass: contrast gains none on test | **measured 2026-11-27** (`wip/exp-contrast-gaps`): five fixes, +8 barrels and 0 lost in-sample (vendor-better frames 16 → 11), but each fix lives at one place, so leave-one-place-out cannot confirm any. Needs more frames of each case at other places (close-ups, frame-cut, touching pairs) |
 | **N9** | Dave's office: contrast adds 7 boxes not on their barrel (indicative labels): look | open |
-| **N10** | Side occlusion by a non-barrel thing, with a photo cue | running: `wip/exp-occl-photo` |
+| **N10** | Side occlusion by a non-barrel thing, with a photo cue | **measured 2026-11-27** (`wip/exp-occl-photo`): the occluder's straight edge in the photo; weak PASS held out (+2 barrels, 0 lost, no new false box); simulation at 75 % hidden 28 → 197. Promising, but rests on 3 real barrels: shoot more side cuts (boxes, books, chargers) before adopting |
 | **N3** | Shoot a new warm-light place (pale table or floor, not the bathroom; clutter last, with the tin and the jar) | Tanush |
 | **N4** | **Doc cleanup:** `STATUS.md`, `HOW-IT-WORKS*.md`, `ARCHITECTURE.md`, `CLAUDE.md` "current facts", `HANDOFF.md`, `EVAL.md` still describe the detector before the collapse in places; move the November history to `archive/`; one "Now" block per doc | open |
 | **N5** | Occlusion by non-barrel things, from real frames (what is left after contrast is mostly hidden barrels) | after N1 |
