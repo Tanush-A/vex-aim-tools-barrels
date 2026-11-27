@@ -123,15 +123,82 @@ class Blob:
         return self.bbox[3] - self.bbox[1]
 
 
+@dataclass(frozen=True)
+class Piece:
+    """A barrel-shaped piece (stage 1): a blob of barrel color, cut to one barrel's width, with its bottom edge resolved."""
+    barrel: Barrel                       # its box, color and flags (source "det1")
+    seen_bottom: int                     # one past the last row its own pixels reach (the box's bottom may be a predicted one)
+
+
+@dataclass(frozen=True)
+class Stripe:
+    """A stripe (stage 2): a band of one barrel color with the other color, the body, right above and right below it."""
+    body: int                            # ORANGE | BLUE: the color found above and below the band
+    bbox: tuple[int, int, int, int]      # the band, half-open
+    n_other: int                         # band pixels labeled the stripe's color
+    n_dark: int                          # unlabeled pixels inside the band's box (its shadowed part)
+    center_row: float                    # the stripe's middle row: the median row of its colored pixels when they are at least
+                                         # a quarter of the part, else the middle of its box
+    cut_from: tuple | None = None        # when this stripe is a part cut from a wider stripe region: that region's box
+    thin: bool = False                   # narrower than a stripe is tall, or taller than wide. A thin piece is a barrel only as a
+                                         # slice seen from top to bottom (see box_from_stripe, thin_slice)
+
+
+@dataclass(frozen=True)
+class Found:
+    """A box the detector has drawn, with what it was drawn from."""
+    barrel: Barrel
+    rule: str                            # which rule drew it: "whole_stripe", "body_span", "hidden_side", "outline", "centred",
+                                         # "thin_span", "thin_frame", "thin_outline" (the stripe step); "closeup", "closeup_stripe",
+                                         # "far_piece" (stripeless pieces); "cap"; "pair"; "half_stripe"
+    stripe: Stripe | None = None         # the stripe it was read from, for a box of the stripe step
+
+
 def _note(log: list | None, stage: str, why: str, bbox, **values) -> None:
-    """Diagnostics only: when a caller passes a list as ``log``, every candidate the detector drops (and every
-    one it keeps, why="kept") is appended to it as a dict. With log=None (the default everywhere) nothing happens;
-    the answer never depends on it. Used by the attribution experiments to say *which* test refused a barrel."""
+    """The reason log. When a caller passes a list as ``log``, every candidate the detector drops (and every one it keeps,
+    why="kept") is appended to it as a dict: the stage, the reason, the candidate's box, and the numbers it was compared
+    with. With log=None nothing is recorded. The boxes do not depend on whether a caller asks for the log; but the two verify
+    stages read the "kept" notes to find what each box was read from (``_evidence``), so ``detect`` always keeps one."""
     if log is not None:
         log.append({"stage": stage, "why": why, "bbox": tuple(int(v) for v in bbox), **values})
 
 
-# ---------------------------------------------------------------- step 1a: blobs
+def box_iou(a: tuple, b: tuple) -> float:
+    ax0, ay0, ax1, ay1 = a; bx0, by0, bx1, by1 = b
+    iw = max(0, min(ax1, bx1) - max(ax0, bx0)); ih = max(0, min(ay1, by1) - max(ay0, by0))
+    inter = iw * ih
+    union = (ax1 - ax0) * (ay1 - ay0) + (bx1 - bx0) * (by1 - by0) - inter
+    return inter / union if union else 0.0
+
+
+# ================================================================ the detector: ten stages, in this order
+
+def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
+           log: list | None = None) -> list[Barrel]:
+    """Class mask (0 other / 1 orange / 2 blue / 255 ignore) -> one Barrel per barrel, left to right. Same signature as
+    detect_cc.detect. ``log``: pass a list to get the reason log (see ``_note``).
+
+    The stages, in order. Stripes come first: the first boxes are drawn from stripes (stage 3), and a stripe already needs
+    body color above and below it. Geometry is not a stage: it is the ruler inside every check (a row gives a distance,
+    the distance gives the expected width, height and stripe height). Later stages only add boxes, except that the two
+    verify stages (5 and 9) delete boxes and a half stripe (8) may replace a box of stage 3. docs/DETECTOR-MAP.md walks
+    through every check."""
+    if log is None:
+        log = []                                                               # the verify stages read it (see _note)
+    pieces = find_pieces(mask, cam, cfg, log)                                  # 1  blobs of barrel color, barrel-shaped. No box yet
+    stripes, leftover = find_stripes(mask, cam, cfg, log)                      # 2  stripes: one color with the other right above and below
+    found, unplaced, lost = boxes_from_stripes(stripes, mask, cam, cfg, log)   # 3  one box per stripe
+    found = found + closeup_pieces(pieces, found, mask, cam, cfg, log)         # 4  a piece with no stripe: only as a close-up
+    found = drop_seen_through(found, mask, cam, cfg, log)                      # 5  verify: not read from a nearer barrel's picture
+    found = found + caps_behind(found, lost, mask, cam, cfg, log)              # 6  a top showing above a found nearer barrel
+    found = found + post_pairs(leftover + unplaced, found, mask, cam, cfg, log)   # 7  two thin slices, one barrel apart
+    found = half_stripes(found, mask, cam, cfg, log)                           # 8  a stripe with body on one side only (adds; may replace)
+    found = drop_seen_through(found, mask, cam, cfg, log)                      # 9  verify again, on every box
+    found = drop_single_reading(found, mask, cam, cfg, log)                    #    verify: a guessed side needs a seen edge
+    return sorted((f.barrel for f in found), key=lambda b: b.bbox[0])
+
+
+# ================================================================ stage 1: pieces
 
 def find_blobs(mask: np.ndarray, cfg: DetConfig = DetConfig()) -> list[Blob]:
     """Connected blobs of barrel-colored pixels (orange and blue together, so a body and its stripe are one
@@ -153,8 +220,6 @@ def find_blobs(mask: np.ndarray, cfg: DetConfig = DetConfig()) -> list[Blob]:
         out.append(Blob((x, y, x + bw, y + bh), sel, n_o, n_b))
     return sorted(out, key=lambda b: b.bbox[0])
 
-
-# ---------------------------------------------------------------- step 1b: how many barrels is this blob?
 
 def expected_width_px(bbox, cam: geo.CameraModel, frame_h: int) -> float:
     """How wide one barrel is at this blob's distance. From the bottom row when the bottom is in the frame,
@@ -202,8 +267,6 @@ def split_blob(blob: Blob, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfi
     return pieces or [blob]
 
 
-# ---------------------------------------------------------------- step 1c: the bottom edge
-
 def predicted_bottom(cam: geo.CameraModel, top_row: float) -> float:
     """Where the base must be if the lid's far edge is at ``top_row`` (24 mm tall barrel, base near edge 18 mm
     closer than the lid far edge). inf when the top row puts the base at or behind the camera (below the frame)."""
@@ -216,7 +279,7 @@ def predicted_bottom(cam: geo.CameraModel, top_row: float) -> float:
 
 def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = DetConfig()) -> tuple[int, set[str]]:
     """The bottom row to draw. The top row says how far away the barrel is, and from that where its base
-    must be (`bottom_row_from_top_row`). Keep the seen bottom when it agrees with that prediction; replace it
+    must be (``predicted_bottom``). Keep the seen bottom when it agrees with that prediction; replace it
     when it does not (a shadowed face makes the blob too short, a reflection too tall, an occluder hides the
     base). Always clipped to the frame; a box reaching the frame bottom is 'truncated'."""
     x0, y0, x1, y1 = bbox
@@ -232,12 +295,15 @@ def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = De
     return y1, flags
 
 
-# ---------------------------------------------------------------- the detector
+def find_pieces(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), log: list | None = None) -> list[Piece]:
+    """Stage 1. In: the class mask. Out: the barrel-shaped pieces, left to right. No box is drawn here: a barrel with a
+    stripe gets its box from the stripe (stage 3), and a piece is kept only as a close-up (stage 4).
 
-def _step1_pieces(mask: np.ndarray, cfg: DetConfig, cam: geo.CameraModel, log: list | None = None) -> list[tuple[Barrel, int]]:
-    """Stage 1: the barrel-shaped pieces (class mask -> one Barrel per piece that is barrel-wide and barrel-tall for its
-    row), each with the bottom row its own pixels reach (before the bottom is resolved). No box yet: ``detect`` keeps a
-    piece only where no stripe could be seen."""
+    A piece is a blob of barrel color (``find_blobs``), cut into as many parts as it is barrels wide (``split_blob``),
+    with its bottom edge taken from its top row where the seen bottom disagrees (``resolve_bottom``). It decides, for each:
+    is it on the table (the width one barrel has at its bottom row is at least min_width_px), is it barrel-wide
+    (width_min to width_max x that width), and, when its box ends inside the frame, is it barrel-tall (height_min to
+    height_max x the height for its bottom row). Its color is the majority of its pixels (a tie is orange)."""
     h, w = mask.shape
     out = []
     for blob in find_blobs(mask, cfg):
@@ -260,48 +326,12 @@ def _step1_pieces(mask: np.ndarray, cfg: DetConfig, cam: geo.CameraModel, log: l
                 flags.add("truncated")
             n_o, n_b = piece.n_orange, piece.n_blue
             color = ORANGE if n_o >= n_b else BLUE
-            out.append((Barrel(color=color, bbox=(x0, y0, x1, y1), confidence=max(n_o, n_b) / (n_o + n_b),
-                               flags=frozenset(flags), area=int(piece.pixels.sum()), source="det1"), piece.bbox[3]))
-    return sorted(out, key=lambda bs: bs[0].bbox[0])
+            out.append(Piece(Barrel(color=color, bbox=(x0, y0, x1, y1), confidence=max(n_o, n_b) / (n_o + n_b),
+                                    flags=frozenset(flags), area=int(piece.pixels.sum()), source="det1"), piece.bbox[3]))
+    return sorted(out, key=lambda p: p.barrel.bbox[0])
 
 
-def _closeup_stripe_rows(cam: geo.CameraModel, top_row: float) -> tuple[float, float]:
-    """(stripe top row, stripe bottom row) of a barrel whose lid's far edge is at ``top_row``; inf where the geometry puts
-    them at or behind the camera (far below the frame)."""
-    d = cam._d_axis_from_point_row(top_row, geo.BARREL_HEIGHT_MM, +geo.BARREL_END_DIAMETER_MM / 2)
-    if not math.isfinite(d) or d <= 0:
-        return math.inf, math.inf
-    try:
-        r = cam.barrel_rows(d)
-    except ValueError:
-        return math.inf, math.inf
-    return r.stripe_top, r.stripe_bottom
-
-
-def _seen_to_stripe(cam: geo.CameraModel, cfg: DetConfig, top_row: int, seen_bottom: int, h: int) -> bool:
-    """``closeup_side``: is the piece's body seen from ``top_row`` down to where that row puts the stripe's top (or to the
-    frame bottom, when that is higher), within max(bottom_tol_min_px, bottom_tol x that height)?"""
-    target = min(float(h), _closeup_stripe_rows(cam, top_row)[0])
-    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * (target - top_row))
-    return seen_bottom >= target - tol
-
-
-# ---------------------------------------------------------------- step 2: the stripe is the barrel
-
-@dataclass(frozen=True)
-class Stripe:
-    body: int                            # ORANGE | BLUE: the color found above and below the band
-    bbox: tuple[int, int, int, int]      # the band, half-open
-    n_other: int                         # band pixels labeled the other barrel color (a proper stripe)
-    n_dark: int                          # band pixels labeled nothing (a shadowed stripe)
-    center_row: float                    # the stripe's middle row: the median row of its other-colored pixels when there
-                                         # are enough of them (the band also holds unlabeled shadow), else the band's middle
-    merged: tuple | None = None          # when this stripe is a part cut from a wider stripe region: that region's box
-    small: bool = False                  # slice_box: a piece the finder's floor refused before (narrower than a stripe is tall, or
-                                         # taller than wide); it is a barrel only as a full slice (see barrel_from_stripe)
-    narrow: bool = False                 # post_pair, slice_behind: a piece under the finder's width floor. Never a barrel by itself:
-                                         # kept aside as one of a pair, or as a slice beside a found nearer barrel
-
+# ================================================================ stage 2: stripes
 
 def _stripe_geometry(cam: geo.CameraModel, center_row: float):
     """(axis distance, BarrelRows) for a barrel whose stripe centre sits at ``center_row``; None if impossible."""
@@ -320,49 +350,9 @@ def _closed(bm: np.ndarray, cfg: DetConfig) -> np.ndarray:
     return bm.astype(bool)
 
 
-def _split_merged(sel: np.ndarray, mask: np.ndarray, other: int, body: int, x: int, bw: int, W: float, cfg: DetConfig,
-                  n_dark_of, W_two: float | None = None) -> list[Stripe]:
-    """One Stripe per barrel from a stripe region ``sel``: a region wider than stripe_merge x one barrel is the
-    merged stripes of touching same-color barrels and is cut into equal parts. With ``stripe_wide`` and ``W_two`` given, a
-    region wider than body_width x one barrel already is (a stripe cannot be wider than its barrel), and it is cut into
-    at least two: two same-colored barrels that overlap by half have a joined stripe under 1.5 barrels wide. The
-    barrel width it is compared with there is ``W_two``: the larger of the width the stripe's row gives and the width
-    of a barrel as tall as the body seen above and below the stripe (round 2: a near barrel can be 1.3 x the width its
-    row predicts, but then it is taller by as much; two barrels side by side are not taller than one)."""
-    k = int(round(bw / W)) if bw > cfg.stripe_merge * W else 1
-    Wt = W_two or W
-    # ... and where the caller could read the barrel's size off the body (W_two given), already wider than body_width x that
-    if W_two is not None and bw > max(cfg.body_width, 1.0) * Wt:
-        k = max(2, int(round(bw / Wt)))
-    edges = [x + round(j * bw / k) for j in range(k + 1)]
-    whole = None
-    if k > 1:
-        ys_all = np.where(sel)[0]
-        whole = (x, int(ys_all.min()), x + bw, int(ys_all.max()) + 1)
-    out = []
-    for a, b in zip(edges[:-1], edges[1:]):
-        part = sel.copy(); part[:, :a] = False; part[:, b:] = False
-        ys, xs = np.where(part)
-        if len(xs) == 0:
-            continue
-        ys_o = np.where(part & (mask == other))[0]
-        center = float(np.median(ys_o)) + 0.5 if len(ys_o) >= 0.25 * part.sum() else (ys.min() + ys.max() + 1) / 2
-        bbox = (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
-        out.append(Stripe(body, bbox, int((mask[part] == other).sum()), n_dark_of(part, bbox), center, whole))
-    return out
-
-
-def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), log: list | None = None,
-                 narrow: list | None = None) -> list[Stripe]:
-    """The stripes in the mask, one per barrel (``_find_stripes_cores``). ``narrow``: when a list is passed, the pieces the
-    finder refuses for their width alone are appended to it (``Stripe.narrow``); the returned stripes are the same with or
-    without it."""
-    return _find_stripes_cores(mask, cam, cfg, log, narrow)
-
-
 def _reach_by_row(cam: geo.CameraModel, h: int, cfg: DetConfig) -> np.ndarray:
     """For every image row: how far (in rows) the body color may be from a stripe centred there and still be
-    "right above / right below" it — band_h_max x the stripe height the geometry expects at that row; -1 where
+    "right above / right below" it: band_h_max x the stripe height the geometry expects at that row; -1 where
     no barrel can have its stripe (at or above the horizon)."""
     reach = np.full(h, -1.0)
     for r in range(h):
@@ -372,18 +362,21 @@ def _reach_by_row(cam: geo.CameraModel, h: int, cfg: DetConfig) -> np.ndarray:
     return reach
 
 
-def _join_bridged(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.ndarray, sand: np.ndarray) -> list[list[int]]:
-    """Which connected pieces of sandwiched stripe color are one stripe. ``st`` is the stats table of the pieces (row 0 =
-    background), ``lab`` their label image, ``sand`` the finder's sandwich. Going left to right, a piece joins the nearest
-    group to its left when (1) they share rows: the overlap is at least half the height of the shorter of the two, and (2)
-    together they span no more than one barrel: body_width x the width a barrel has at that row (two barrels cannot both have
-    their stripe inside one barrel's width at the same rows), and (3a) both are stripe-shaped: not taller than stripe_h_max x
-    the expected stripe height and not taller than wide (slivers of a barrel's own upper body between specks are tall), or
-    (3b) the GAP between them is bridged: each of the two is no taller than stripe_h_max x the expected stripe height by the finder's height
-    measure (10th to 90th percentile of its rows), body color is right above and right below the stripe rows in every column of
-    the gap (``sand``, the finder's sandwich), and the gap is at most half the joined span. Two barrels' stripes never pass that
-    (census_pairs.md: 0 of 59 two-barrel pairs on the patched masks are bridged; the pairs on no barrel are pieces a whole gap
-    apart). A piece that is not stripe-shaped joins only by a bridge. Returns the groups as lists of piece numbers."""
+def _join_pieces(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.ndarray, sand: np.ndarray) -> list[list[int]]:
+    """Which connected pieces of sandwiched stripe color are one stripe (a highlight or a shadow line cut it). ``st`` is the
+    stats table of the pieces (row 0 = background), ``lab`` their label image, ``sand`` the finder's sandwich. Returns the
+    groups as lists of piece numbers.
+
+    Going left to right, a piece joins the nearest group to its left when
+    1. they share rows: the overlap is at least half the height of the shorter of the two;
+    2. together they span no more than one barrel: body_width x the width a barrel has at that row (two barrels cannot both
+       have their stripe inside one barrel's width at the same rows);
+    3. (a) both are stripe-shaped: not taller than stripe_h_max x the expected stripe height and not taller than wide (slivers
+       of a barrel's own upper body between specks are tall); or (b) the GAP between them is bridged: each of the two is no
+       taller than stripe_h_max x the expected stripe height by the finder's height measure (10th to 90th percentile of its
+       rows), the two are at the same rows (box middles within half a stripe height), body color is right above and right
+       below the stripe rows in every column of the gap, and the gap is at most half the joined span.
+    A piece that is not stripe-shaped joins only by a bridge. The join is greedy and goes left to right."""
     def core(i):
         x, y, bw, bh = (int(v) for v in st[i][:4])
         ys = np.where(lab[y:y + bh, x:x + bw] == i)[0] + y
@@ -410,7 +403,7 @@ def _join_bridged(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.
             if not ok and core_ok and gco:
                 a, b = gx1, x                                    # the gap's columns
                 ya, yb = max(gy0, y), min(gy1, y + bh)
-                level = abs((y + bh / 2) - (gy0 + gy1) / 2) <= hs / 2            # round 2: at the same rows (a stripe is level)
+                level = abs((y + bh / 2) - (gy0 + gy1) / 2) <= hs / 2            # at the same rows (a stripe is level)
                 ok = level and (b <= a or (b - a <= joined / 2 and bool(sand[ya:yb, a:b].any(axis=0).all())))
             if ok:
                 grp[:] = [ids + [i], min(gx0, x), max(gx1, x + bw), min(gy0, y), max(gy1, y + bh), gsh and shaped, gco and core_ok]
@@ -420,16 +413,68 @@ def _join_bridged(st: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, lab: np.
     return [grp[0] for grp in groups]
 
 
-def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, log: list | None = None,
-                        narrow: list | None = None) -> list[Stripe]:
-    """A stripe is a connected component of the *other* color whose every pixel has body color above AND below it
-    within band_h_max x the expected stripe height for its row (the sandwich, pixel by pixel — so a stripe that
-    touches a neighbouring barrel's body is cut from it), with stripe proportions for its row: height between
-    stripe_h_min and stripe_h_max x the expected stripe height, at least stripe_w_min of a barrel wide, not taller
-    than wide. Only the stripe's own pixels are measured, so shadow the segmentation left unlabeled around it
-    changes nothing. A gap with no stripe-colored pixel at all is not a stripe."""
+def _one_stripe_per_barrel(sel: np.ndarray, mask: np.ndarray, other: int, body: int, x: int, bw: int, W: float, cfg: DetConfig,
+                           W_two: float | None = None) -> list[Stripe]:
+    """One Stripe per barrel from a stripe region ``sel`` (``x`` = its left column, ``bw`` = its width, ``W`` = the width of
+    one barrel at its row). A stripe cannot be wider than its barrel, so a wide region is the joined stripes of
+    same-colored barrels standing side by side, and is cut into equal parts:
+
+    - wider than stripe_merge x W: round(width / W) parts;
+    - where the caller could read the barrel's size off the body (``W_two`` given: the larger of W and the width of a
+      barrel as tall as the body seen right above and below the region), wider than body_width x W_two: at least two
+      parts, round(width / W_two). A near barrel can be 1.3 x the width its row predicts, but then it is taller by as
+      much; two barrels side by side are not taller than one.
+    Each part remembers the region it was cut from (``Stripe.cut_from``)."""
+    k = int(round(bw / W)) if bw > cfg.stripe_merge * W else 1
+    Wt = W_two or W
+    if W_two is not None and bw > max(cfg.body_width, 1.0) * Wt:
+        k = max(2, int(round(bw / Wt)))
+    edges = [x + round(j * bw / k) for j in range(k + 1)]
+    whole = None
+    if k > 1:
+        ys_all = np.where(sel)[0]
+        whole = (x, int(ys_all.min()), x + bw, int(ys_all.max()) + 1)
+    out = []
+    for a, b in zip(edges[:-1], edges[1:]):
+        part = sel.copy(); part[:, :a] = False; part[:, b:] = False
+        ys, xs = np.where(part)
+        if len(xs) == 0:
+            continue
+        ys_o = np.where(part & (mask == other))[0]
+        center = float(np.median(ys_o)) + 0.5 if len(ys_o) >= 0.25 * part.sum() else (ys.min() + ys.max() + 1) / 2
+        x0, y0, x1, y1 = int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1
+        n_dark = int((mask[y0:y1, x0:x1] == 0).sum())          # unlabeled pixels inside the part's own box (its shadowed part)
+        out.append(Stripe(body, (x0, y0, x1, y1), int((mask[part] == other).sum()), n_dark, center, whole))
+    return out
+
+
+def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                 log: list | None = None) -> tuple[list[Stripe], list[Stripe]]:
+    """Stage 2. In: the class mask. Out: (the stripes, left to right, one per barrel; the left-over pieces).
+
+    Done twice: orange as the body (blue stripes), then blue as the body. A stripe is a connected piece of the OTHER color
+    whose every pixel has body color above AND below it in its own column, within band_h_max x the stripe height expected
+    at that pixel's row (the sandwich; so a stripe that touches a neighbouring barrel's body is cut from it). Only the
+    stripe's own pixels are measured, so shadow the segmentation left unlabeled around it changes nothing, and a gap with
+    no stripe-colored pixel is not a stripe. Pieces a highlight cut apart are joined first (``_join_pieces``). Then, per
+    stripe, in this order:
+
+    1. big enough: min_area_px pixels;                                                    else "area"
+    2. its row gives a distance (below the horizon);                                      else "no_geometry"
+    3. on the table: one barrel is at least min_width_px wide there (and its stripe min_stripe_px tall);   else "too_far"
+    4. as tall as a stripe: stripe_h_min to stripe_h_max x the expected stripe height, measured from the 10th to the
+       90th percentile of its rows. A stripe that is too thin but seen whole (stripe_full x W wide) is read a second
+       time, as the mean of its own height and of the gap between the body above and below it: mixed pixels at the
+       two seams make the one thinner and the other taller by the same amount;            else "height"
+    5. not a speck sideways: at least stripe_h_min x the expected stripe height wide;     else "width" -> a left-over piece
+    6. no wider than one barrel, else it is cut into one stripe per barrel (``_one_stripe_per_barrel``);
+    7. thin? Narrower than a stripe is tall, or taller than wide: marked ``Stripe.thin``, and handed out a second time
+       as a left-over piece.
+
+    The left-over pieces (5 and 7) are never a barrel alone: stage 7 pairs them."""
     h, w = mask.shape
     out: list[Stripe] = []
+    leftover: list[Stripe] = []
     rows_idx = np.arange(h)[:, None]
     reach = _reach_by_row(cam, h, cfg)[:, None]
     for body in (ORANGE, BLUE):
@@ -440,70 +485,59 @@ def _find_stripes_cores(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, 
         dn = np.minimum.accumulate(np.where(bm, rows_idx, 10 ** 6)[::-1], axis=0)[::-1]   # first body row at or below
         sandwich = ((rows_idx - up) <= reach) & ((dn - rows_idx) <= reach)
         n, lab, st, _ = cv2.connectedComponentsWithStats((om & sandwich).astype(np.uint8), connectivity=8)
-        # one candidate per group of connected pieces: pieces that share rows and fit in one barrel's width are one stripe
-        groups = _join_bridged(st, cam, cfg, lab, sandwich)
-        for ids in groups:
+        for ids in _join_pieces(st, cam, cfg, lab, sandwich):       # one candidate per group of pieces
             x, y = int(min(st[i][0] for i in ids)), int(min(st[i][1] for i in ids))
             bw, bh = int(max(st[i][0] + st[i][2] for i in ids)) - x, int(max(st[i][1] + st[i][3] for i in ids)) - y
             area = int(sum(st[i][4] for i in ids))
             sb = (x, y, x + bw, y + bh)
             if area < cfg.min_area_px:
                 _note(log, "stripe", "area", sb, body=body, area=area)
-                continue
+                continue                                                                   # 1.
             sel = np.isin(lab, ids) if len(ids) > 1 else lab == ids[0]
             ys = np.where(sel)[0]
             g = _stripe_geometry(cam, float(np.median(ys)) + 0.5)
             if g is None:
                 _note(log, "stripe", "no_geometry", sb, body=body)
-                continue
+                continue                                                                   # 2.
             d, rows = g
             W, Hs = rows.width_px, rows.stripe_bottom - rows.stripe_top
             if W < cfg.min_width_px or Hs < cfg.min_stripe_px:
                 _note(log, "stripe", "too_far", sb, body=body, expected_w=W, expected_stripe_h=Hs)
-                continue
+                continue                                                                   # 3.
             core_h = np.percentile(ys, 90) - np.percentile(ys, 10) + 1
             h_ok = cfg.stripe_h_min * Hs <= core_h <= cfg.stripe_h_max * Hs
             seam_h = None
             if core_h < cfg.stripe_h_min * Hs and bw >= cfg.stripe_full * W:
-                # 2026-11-19: too thin by its own rows. Mixed pixels at the two seams are neither color: the stripe is thinner
-                # and the gap between the two body parts taller by the same amount, so the middle of the two is the stripe's height.
-                # Asked only of a stripe seen whole (round 2): thin because eaten, or short because partly hidden, not both
-                # (a blue sliver between two fingers is thin and short)
+                # too thin by its own rows, and seen whole: the second reading. Not asked of a short piece: thin because the
+                # seams were eaten, or short because partly hidden, not both (a blue sliver between two fingers is thin and short)
                 gap = float(np.median((dn - up - 1)[sel]))
                 seam_h = (core_h + gap) / 2
                 h_ok = cfg.stripe_h_min * Hs <= seam_h <= cfg.stripe_h_max * Hs
             if not h_ok:
                 _note(log, "stripe", "height", sb, body=body, core_h=float(core_h), expected_stripe_h=Hs,
                       **({} if seam_h is None else {"seam_h": float(seam_h)}))
-                continue
-            # the width floor: stripe_h_min of a stripe height (a barrel three quarters hidden shows a piece about as wide as a stripe
-            # is tall). A piece may be taller than wide; whether a narrow one is a barrel is judged in barrel_from_stripe
+                continue                                                                   # 4.
+            twin = Stripe(body, sb, int((mask[sel] == other).sum()), 0, float(np.median(ys)) + 0.5)    # the candidate as a left-over piece
             if bw < cfg.stripe_h_min * Hs:
                 _note(log, "stripe", "width", sb, body=body, core_h=float(core_h), expected_w=W)
-                if narrow is not None:             # 2026-11-20: kept aside for post_pair / slice_behind, never a barrel alone
-                    narrow.append(Stripe(body, sb, int((mask[sel] == other).sum()), 0, float(np.median(ys)) + 0.5, narrow=True))
-                continue
-
-            def n_dark_of(part, bbox):
-                x0, y0, x1, y1 = bbox                      # unlabeled pixels inside the stripe's own box (its shadowed part)
-                return int((mask[y0:y1, x0:x1] == 0).sum())
+                leftover.append(twin)
+                continue                                                                   # 5.
+            # 6. The barrel's size can be read off the body only where body IS seen right above and right below the region
+            # (the body walk allows 3 empty rows). With none there the seen height says nothing, and a near barrel's stripe
+            # can be 1.26 x the width its row gives
             W_two = None
-            top_s, bot_s = _body_extent(mask, body, x, x + bw, y, y + bh)      # the body seen above and below the whole region
-            # stripe_wide (2026-11-20): only where body IS seen right above and right below the stripe. With none there (the walk
-            # allows 3 empty rows), the seen height says nothing, and a near barrel's stripe can be 1.26 x the width its row gives
+            top_s, bot_s = _body_extent(mask, body, x, x + bw, y, y + bh)
             if top_s < y and bot_s > y + bh:
                 W_two = max(W, (bot_s - top_s) * W / (rows.bottom - rows.top))
-            parts = _split_merged(sel, mask, other, body, x, bw, W, cfg, n_dark_of, W_two)
-            if bw < Hs or bw < core_h:
-                parts = [replace(s, small=True) for s in parts]                     # under the floor of before slice_box
-                if narrow is not None:
-                    # 2026-11-20 (occl_combined): the lower floor lets this piece into the stripe step as a thin stripe. The left-over
-                    # rules (post_pair, slice_behind) are still handed it, exactly as when the finder refuses it for its width: the
-                    # floor is lowered for the stripe step only (without this, pin_thin took every narrow slice away from them)
-                    narrow.append(Stripe(body, sb, int((mask[sel] == other).sum()), 0, float(np.median(ys)) + 0.5, narrow=True))
+            parts = _one_stripe_per_barrel(sel, mask, other, body, x, bw, W, cfg, W_two)
+            if bw < Hs or bw < core_h:                                                     # 7.
+                parts = [replace(s, thin=True) for s in parts]
+                leftover.append(twin)
             out.extend(parts)
-    return sorted(out, key=lambda s: s.bbox[0])
+    return sorted(out, key=lambda s: s.bbox[0]), leftover
 
+
+# ================================================================ stage 3: one box per stripe
 
 def _body_extent(mask: np.ndarray, body: int, x0: int, x1: int, y0: int, y1: int, max_gap: int = 3) -> tuple[int, int]:
     """Seen top and bottom of the body color in columns x0..x1, walking up from row y0 and down from row y1
@@ -579,7 +613,7 @@ def _body_span(mask: np.ndarray, body: int, x0: int, x1: int, top: int, bottom: 
     return min(a for a, _ in joined), max(b for _, b in joined)
 
 
-# ---------------------------------------------------------------- the outline (2026-11-20): where a cut barrel is, sideways
+# ---------------------------------------------------------------- the barrel's outline: which end of a seen part is its own side
 
 LID_HALF = geo.BARREL_END_DIAMETER_MM / geo.BARREL_BULGE_DIAMETER_MM / 2     # half the width of the lid (and of the base), in barrel widths: 0.353
 
@@ -598,8 +632,8 @@ class Outline:
 
     The rims are circles seen from above (ellipse arcs). Between a rim's end and the widest part the side is a curve:
     the barrel's radius falls off with the square of the height above its middle (9 mm at the lid, 12.75 mm at the
-    middle); a straight side predicts the shoulder twice as deep as it is seen (shape census, part A). Every row comes
-    from the camera model and the barrel's sizes; nothing is fit."""
+    middle); a straight side predicts the shoulder twice as deep as it is seen. Every row comes from the camera model
+    and the barrel's sizes; nothing is fit."""
     W: float
     top_apex: float
     top_end: float
@@ -666,41 +700,10 @@ def _seen_lines(mask: np.ndarray, body: int, x0: int, x1: int, y0: int, y1: int,
     return top, bot, mid
 
 
-def _outline_place(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, sx0: int, sx1: int) -> tuple[int, int] | None:
-    """``pin_outline`` (2026-11-20): left and right edge of a box one barrel wide, placed by the barrel's outline, or
-    None when the outline does not know where the barrel is. ``sx0``, ``sx1`` = the columns seen of the barrel.
-
-    If an end of the seen part is the barrel's own side, the barrel is W wide from that end. So each end is asked by
-    itself, and only in the columns near it (what the other end looks like, straight, slanted or a neighbour, cannot
-    matter):
-
-    1. The stripe's row gives the distance, the distance the outline (``Outline``): top line, stripe arc, bottom line.
-    2. The same three lines as they are seen in the columns sx0..sx1 (``_seen_lines``).
-    3. Put the outline with its side on the end. Over the columns within half a lid's width (LID_HALF x W) of the end,
-       the end's cost = the LARGEST of the three lines' mean distances in rows between seen and predicted, after
-       taking out each line's own up-down offset (its median): the top corner, the stripe and the bottom corner must
-       each follow the outline.
-    4. The end is the barrel's own side when its cost is at most pin_good x H. Exactly one such end: the box is W wide
-       from it. Neither, or both: None.
-
-    A barrel's own side has rounded corners (the top runs down and the bottom runs up over the last 0.15 W); a side
-    cut by a straight edge has square ones; a slanted cut imitates one rounded corner and never both (round 1 slid the
-    whole outline and took the mean of the lines: a slanted cut fooled it). A piece from the middle of a barrel has no
-    such end and gets no box from here."""
-    costs = _end_costs(s, mask, cam, cfg, sx0, sx1)
-    if costs is None:
-        return None
-    left, right = costs[0] <= cfg.pin_good, costs[1] <= cfg.pin_good
-    if left == right:
-        return None                                                  # no end, or both ends, look like a barrel's own side
-    Wi = int(round(_stripe_geometry(cam, s.center_row)[1].width_px))
-    return (sx0, sx0 + Wi) if left else (sx1 - Wi, sx1)
-
-
 def _end_costs(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, sx0: int, sx1: int) -> tuple[float, float] | None:
     """(cost of "the left end of the seen columns sx0..sx1 is the barrel's own side", the same for the right end), in
-    barrel heights; None when the stripe's row gives no barrel. Steps 1 to 3 of ``_outline_place``. inf = no line could
-    be compared at that end."""
+    barrel heights; None when the stripe's row gives no barrel. Steps 1 to 3 of ``own_end_by_outline``. inf = no line
+    could be compared at that end."""
     g = _stripe_geometry(cam, s.center_row)
     if g is None or sx1 - sx0 < 2:
         return None
@@ -730,192 +733,406 @@ def _end_costs(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig
     return cost(True), cost(False)
 
 
+def own_end_by_outline(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig, sx0: int, sx1: int) -> tuple[int, int] | None:
+    """Left and right edge of a box one barrel wide, placed by the barrel's outline; None when the outline does not know
+    where the barrel is. ``sx0``, ``sx1`` = the columns seen of the barrel.
+
+    If an end of the seen part is the barrel's own side, the barrel is W wide from that end. So each end is asked by
+    itself, and only in the columns near it (what the other end looks like, straight, slanted or a neighbour, cannot
+    matter):
+
+    1. The stripe's row gives the distance, the distance the outline (``Outline``): top line, stripe arc, bottom line.
+    2. The same three lines as they are seen in the columns sx0..sx1 (``_seen_lines``).
+    3. Put the outline with its side on the end. Over the columns within half a lid's width (LID_HALF x W) of the end,
+       the end's cost = the LARGEST of the three lines' mean distances in rows between seen and predicted, after
+       taking out each line's own up-down offset (its median): the top corner, the stripe and the bottom corner must
+       each follow the outline.
+    4. The end is the barrel's own side when its cost is at most pin_good x H. Exactly one such end: the box is W wide
+       from it. Neither, or both: None.
+
+    A barrel's own side has rounded corners (the top runs down and the bottom runs up over the last 0.15 W); a side
+    cut by a straight edge has square ones; a slanted cut imitates one rounded corner and never both. A piece from the
+    middle of a barrel has no such end and gets no box from here."""
+    costs = _end_costs(s, mask, cam, cfg, sx0, sx1)
+    if costs is None:
+        return None
+    left, right = costs[0] <= cfg.pin_good, costs[1] <= cfg.pin_good
+    if left == right:
+        return None                                                  # no end, or both ends, look like a barrel's own side
+    Wi = int(round(_stripe_geometry(cam, s.center_row)[1].width_px))
+    return (sx0, sx0 + Wi) if left else (sx1 - Wi, sx1)
+
+
 def _body_crosses(mask: np.ndarray, s: Stripe, sx0: int, sx1: int) -> bool:
-    """``thin_span`` (round 2): does the body color cross the stripe's rows in some column of sx0..sx1 (more than half of the
-    rows y0..y1 of the stripe)? A barrel's body never crosses its own stripe; a body-colored thing in front of it does."""
+    """Does the body color cross the stripe's rows in some column of sx0..sx1 (more than half of the rows y0..y1 of the
+    stripe)? A barrel's body never crosses its own stripe; a body-colored thing in front of it does."""
     y0, y1 = s.bbox[1], s.bbox[3]
     if y1 <= y0 or sx1 <= sx0:
         return False
     return bool(((mask[y0:y1, sx0:sx1] == s.body).mean(axis=0) > 0.5).any())
 
 
-def _partly_seen(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, pred_bottom: float, cfg: DetConfig,
-                 others: tuple = (), found: tuple = (), full_slice: bool = False,
-                 cam: geo.CameraModel | None = None, outline: bool = True) -> tuple[int, int] | None:
-    """``side_hidden`` (2026-11-19): left and right edge of the box for a stripe narrower than stripe_full x the barrel
-    width W, or None when nothing says where the rest of the barrel is. ``top``, ``bottom`` = the box's rows;
-    ``pred_bottom`` = the bottom row the stripe's row predicts; ``found`` = the barrels found so far.
+# ---------------------------------------------------------------- top and bottom
 
-    1. What is seen of the barrel = the stripe's columns joined with the columns of body color above and below it
-       (``_body_span``). A body wider than body_width x W holds a same-colored neighbour: only the stripe counts.
-    2. Seen span >= stripe_full x W: that span is the box. The barrel is all there, only its stripe was cut.
-    3. Otherwise a side counts as hidden only for a reason: (a) the seen span touches the frame edge there; (b) a found
-       barrel standing nearer is there (its box holds one of the close_px pixels beside the seen span at the stripe's
-       middle row, and its bottom edge is lower than pred_bottom); (c) the outline is cut there: the body and the stripe
-       end at different columns, further apart than the edge tolerance (bottom_tol of W, at least bottom_tol_min_px).
-       At a barrel's own edge the stripe and the body end together. (c) is asked of an untrusted body too: its far end
-       is not this barrel's edge, but where it runs past the stripe the stripe is cut, and where it ends with the stripe
-       that is this barrel's edge.
-    4. Exactly one side hidden: W wide from the seen edge of the other side.
-    5. No side or both: a stripe at least stripe_w_min x W wide is centred on what is seen; a narrower one gives None.
+@dataclass(frozen=True)
+class Edges:
+    """The top and the bottom of a stripe's barrel (``read_edges``)."""
+    top: int                             # the row to draw (not yet clipped to the frame)
+    bottom: int
+    inferred: frozenset                  # "top_inferred" / "bottom_inferred": that edge is the predicted one, not a seen one
 
-    A part cut from a wider stripe (``stripe_wide``) is hidden on the side where it was cut.
 
-    ``pin_outline`` (2026-11-20, needs ``cam``) changes step 5, and comes first: with no reason on either side,
-    or one on both, each end of the seen part is asked whether it is the barrel's own side (``_outline_place``); with
-    exactly one such end the box is W wide from it. Otherwise step 5 is as above. ``outline=False`` leaves this out (asked
-    by ``detect`` when the box the outline placed would sit on a found barrel's box). A thin piece (``Stripe.small``) is
-    placed by the outline or gets no box, whatever its span and whatever reasons its sides have, with two exceptions: its
-    body shows the whole width (step 2, and no body color crossing the stripe's rows), or it touches the frame on exactly
-    one side (then it is W wide from its other end)."""
-    h, w = mask.shape
+def read_edges(s: Stripe, rows, mask: np.ndarray, cfg: DetConfig) -> Edges | None:
+    """Where are the top and the bottom of this stripe's barrel? ``rows`` = the rows the stripe's row predicts.
+
+    The body color is walked up and down from the stripe, in the stripe's columns (``_body_extent``). A seen end within
+    the edge tolerance (bottom_tol x the height, at least bottom_tol_min_px) of the predicted row is the edge; else the
+    predicted row is drawn and the edge is "inferred". This never refuses by itself. Two more questions, because an edge
+    is seen only against something that is not a barrel ("against" = the OTHER barrel color in at least half of the
+    stripe's columns, in the 4 rows beyond the seen end):
+
+    (a) both edges inferred, and the body above ends against the other barrel color: None, not a barrel. That thing
+        stands behind and cannot hide a top; the "stripe" is a piece of another barrel.
+    (b) a seen bottom that ends against the other barrel color, with the predicted bottom lower: the barrel may go on
+        behind that barrel, so the predicted bottom is drawn (inferred)."""
+    h = mask.shape[0]
     x0, y0, x1, y1 = s.bbox
-    span = _body_span(mask, s.body, x0, x1, top, bottom, y0, y1, others) if bottom - top >= 2 else None
-    trusted = span is not None and max(span[1], x1) - min(span[0], x0) <= cfg.body_width * W
-    sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if trusted else (x0, x1)
-    thin = s.small                                                   # a thin piece: placed by the outline, or no box
-    if sx1 - sx0 >= cfg.stripe_full * W and (not thin or (trusted and full_slice and not _body_crosses(mask, s, sx0, sx1))):
-        return sx0, sx1                                              # 2. the whole width is seen (thin_span: for a thin full slice too)
-    row, tol = int(s.center_row), max(cfg.bottom_tol_min_px, cfg.bottom_tol * W)
-    # (c) the outline is cut where the body and the stripe end apart. Asked of every body, trusted or not (round 2): a body
-    # running on into a same-colored neighbour still runs past the end of the stripe on the side where the stripe is cut
-    left_cut = span is not None and abs(span[0] - x0) > tol
-    right_cut = span is not None and abs(span[1] - x1) > tol
-    if s.merged is not None:                       # a part cut from a wider stripe: its neighbour is where it was cut
-        left_cut = left_cut or x0 > s.merged[0]
-        right_cut = right_cut or x1 < s.merged[2]
-    if span is not None and not trusted:                             # the body's far end is not this barrel's; an end shared with the stripe is
-        sx0 = x0 if left_cut else min(span[0], x0)
-        sx1 = x1 if right_cut else max(span[1], x1)
-
-    def nearer(pixels) -> bool:                                      # (b) a found barrel standing nearer holds one of these pixels
-        return any(b.bbox[3] > pred_bottom and b.bbox[1] <= row < b.bbox[3] and any(b.bbox[0] <= px < b.bbox[2] for px in pixels)
-                   for b in found)
-
-    Wi = int(round(W))
-    if thin:
-        if full_slice and (sx0 <= 0) != (sx1 >= w):
-            # 2026-11-20 (A8): the frame edge is a hidden side that is known; a thin full slice cut by it is W wide from its other end
-            return (sx1 - Wi, sx1) if sx0 <= 0 else (sx0, sx0 + Wi)
-        return _outline_place(s, mask, cam, cfg, sx0, sx1) if cam is not None else None
-    left = sx0 <= 0 or nearer(range(sx0 - cfg.close_px, sx0)) or left_cut
-    right = sx1 >= w or nearer(range(sx1, sx1 + cfg.close_px)) or right_cut
-    if left and not right:
-        return sx1 - Wi, sx1
-    if right and not left:
-        return sx0, sx0 + Wi
-    if outline and cam is not None:
-        # 2026-11-20: nothing pins the box (no reason, or one on both sides). The outline does, when it fits in one place only
-        placed = _outline_place(s, mask, cam, cfg, sx0, sx1)
-        if placed is not None:
-            return placed
-    wide = (x1 - x0) >= cfg.stripe_w_min * W
-    if wide:
-        cx = (sx0 + sx1) / 2
-        return int(round(cx - W / 2)), int(round(cx + W / 2))
-    return None
-
-
-def barrel_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                       others: tuple = (), log: list | None = None, found: tuple = (), unplaced: list | None = None,
-                       outline: bool = True) -> Barrel | None:
-    """One barrel from its stripe. The stripe's row gives the distance; the distance gives the full box the
-    geometry predicts (top, bottom, width). The seen body extent above and below the stripe is used for an
-    edge when it agrees with the prediction, otherwise the prediction is drawn and the edge flagged. A stripe
-    much narrower than a barrel is partly hidden: the box is widened to a full barrel around it.
-    ``unplaced`` (2026-11-20): when a list is passed, a stripe that gets no box because nothing says where the rest
-    of the barrel is (``side_unexplained``) is appended to it (``post_pair`` pairs such pieces)."""
-    h, w = mask.shape
-    g = _stripe_geometry(cam, s.center_row)
-    if g is None:
-        _note(log, "barrel", "no_geometry", s.bbox, body=s.body)
-        return None
-    d, rows = g
-    x0, y0, x1, y1 = s.bbox
-    W = rows.width_px
-    flags: set[str] = set()
+    inferred: set[str] = set()
     top_seen, bottom_seen = _body_extent(mask, s.body, x0, x1, y0, y1)
     H = rows.bottom - rows.top
     tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
     top = top_seen
     if abs(top_seen - rows.top) > tol:
-        top = int(round(rows.top)); flags.add("top_inferred")
+        top = int(round(rows.top)); inferred.add("top_inferred")
     bottom = bottom_seen
     if abs(bottom_seen - rows.bottom) > tol and not (bottom_seen >= h and rows.bottom >= h):
-        bottom = int(round(rows.bottom)); flags.add("bottom_inferred")
-    # 2026-11-19: an edge is seen only against something that is not a barrel. "Against the other barrel color" = that color in
-    # at least half of the stripe's columns, in the rows right beyond the seen end (the 3-row gap the body walk allows, + 1)
+        bottom = int(round(rows.bottom)); inferred.add("bottom_inferred")
     other_c = BLUE if s.body == ORANGE else ORANGE
 
     def against(r0: int, r1: int) -> bool:
         band = mask[max(0, r0):max(0, min(h, r1)), x0:x1]
         return band.size > 0 and float((band == other_c).any(axis=0).mean()) >= 0.5
-    if {"top_inferred", "bottom_inferred"} <= flags and against(top_seen - 4, top_seen):
-        # (a) neither edge is where the stripe's row predicts it, and the body above ends against barrel color inside this
-        # barrel's own box: that thing stands behind and cannot hide a top. The "stripe" is a piece of another barrel
-        _note(log, "barrel", "top_against_barrel", s.bbox, body=s.body)
-        return None
-    if "bottom_inferred" not in flags and int(round(rows.bottom)) > bottom_seen and against(bottom_seen, bottom_seen + 4):
-        # (b) the seen bottom ends against another barrel: the barrel may go on behind it. The lower of the two bottoms
-        bottom = int(round(rows.bottom)); flags.add("bottom_inferred")
-    thin = s.small
-    if thin and ({"top_inferred", "bottom_inferred"} & flags):
-        # round 2: a piece under the floor of before slice_box is a barrel only as a slice seen from top to bottom, with or
-        # without a reason for a side (a reason says where a barrel would be, not that there is one). pin_thin asks the same
-        _note(log, "barrel", "slice_not_full", s.bbox, body=s.body, expected_w=W)
-        return None
-    if (x1 - x0) < cfg.stripe_full * W:
-        # 2026-11-19: partly seen. The box comes from what is seen of the barrel; a side is hidden only for a reason
-        sides = _partly_seen(s, mask, W, max(0, top), min(h, bottom), rows.bottom, cfg, others, found,
-                             full_slice=not ({"top_inferred", "bottom_inferred"} & flags), cam=cam, outline=outline)
-        if sides is None:
-            _note(log, "barrel", "outline_unknown" if thin else "side_unexplained", s.bbox, body=s.body, expected_w=W)
-            if unplaced is not None and not s.small:         # a thin piece was handed over by the finder already (its ``narrow`` twin)
-                unplaced.append(s)
-            return None
-        bx0, bx1 = sides
-        flags.add("occluded")
-    else:
-        bx0, bx1 = x0, x1
-    top, bottom = max(0, top), min(h, bottom)
-    if "occluded" not in flags and bottom - top >= 2:
-        # (f) 2026-11-09: the stripe's outermost pixels curve away from the camera and go dark, so a box as wide as the
-        # stripe runs ~15 % narrow on big barrels; the body pixels joined to the stripe give the barrel's real extent
-        bx0, bx1 = _body_columns(mask, s.body, x0, x1, top, bottom, y0, y1, cap_px=cfg.body_width * W, others=others)
-    bx0, bx1 = max(0, bx0), min(w, bx1)
-    if bx1 - bx0 < 2 or bottom - top < 2:
-        _note(log, "barrel", "empty_box", s.bbox, body=s.body)
-        return None
-    # hardening (c), 2026-11-08: in the stripe's own columns, outside the stripe rows, the box must hold more body
-    # color than stripe color and at least body_min of body color — a stripe-colored thing with the other barrel
-    # color above and below it is not this body's barrel
+    if {"top_inferred", "bottom_inferred"} <= inferred and against(top_seen - 4, top_seen):
+        return None                                                                        # (a)
+    if "bottom_inferred" not in inferred and int(round(rows.bottom)) > bottom_seen and against(bottom_seen, bottom_seen + 4):
+        bottom = int(round(rows.bottom)); inferred.add("bottom_inferred")                  # (b)
+    return Edges(top, bottom, frozenset(inferred))
+
+
+# ---------------------------------------------------------------- left and right
+
+@dataclass(frozen=True)
+class SeenSpan:
+    """What is seen of a partly seen barrel, sideways (``seen_span``)."""
+    x0: int                              # the columns seen of the barrel: the stripe joined with its body; or, where the body
+    x1: int                              # is not trusted, the stripe's end on a cut side and the body's end on the other
+    shows_width: bool                    # the seen span is at least stripe_full x W wide
+    trusted: bool                        # the body joined to the stripe is no wider than one barrel (body_width x W)
+    left_cut: bool                       # on that side the body and the stripe end apart (further than the tolerance), or the
+    right_cut: bool                      # stripe was cut there from a wider stripe
+
+
+def seen_span(s: Stripe, mask: np.ndarray, W: float, top: int, bottom: int, cfg: DetConfig, others: tuple = ()) -> SeenSpan:
+    """What is seen of the barrel of a partly seen stripe. ``top``, ``bottom`` = the box's rows; ``W`` = the barrel's width.
+
+    The seen span is the stripe's columns joined with the columns of body color above and below it (``_body_span``;
+    columns under another stripe, ``others``, never count). A body wider than body_width x W holds a same-colored
+    neighbour: it is not trusted, and only the stripe counts.
+
+    A side is "cut" when the body's end and the stripe's end there are further apart than the edge tolerance
+    (bottom_tol x W, at least bottom_tol_min_px): at a barrel's own edge the stripe and the body end together. Asked of
+    an untrusted body too: its far end is not this barrel's, but where it runs past the stripe the stripe is cut, and
+    where it ends with the stripe that is this barrel's edge. A part cut from a wider stripe is cut on its cut side."""
+    x0, y0, x1, y1 = s.bbox
+    span = _body_span(mask, s.body, x0, x1, top, bottom, y0, y1, others) if bottom - top >= 2 else None
+    trusted = span is not None and max(span[1], x1) - min(span[0], x0) <= cfg.body_width * W
+    sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if trusted else (x0, x1)
+    shows_width = sx1 - sx0 >= cfg.stripe_full * W
+    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * W)
+    left_cut = span is not None and abs(span[0] - x0) > tol
+    right_cut = span is not None and abs(span[1] - x1) > tol
+    if s.cut_from is not None:                                       # its neighbour is where it was cut
+        left_cut = left_cut or x0 > s.cut_from[0]
+        right_cut = right_cut or x1 < s.cut_from[2]
+    if span is not None and not trusted:                             # the body's far end is not this barrel's; an end shared with the stripe is
+        sx0 = x0 if left_cut else min(span[0], x0)
+        sx1 = x1 if right_cut else max(span[1], x1)
+    return SeenSpan(sx0, sx1, shows_width, trusted, left_cut, right_cut)
+
+
+def hidden_side(s: Stripe, seen: SeenSpan, frame_w: int, pred_bottom: float, found: tuple, cfg: DetConfig) -> str | None:
+    """Which side of a partly seen barrel is hidden: "left", "right", or None when no side or both have a reason.
+
+    A side counts as hidden only for a reason: (a) the seen span touches the frame edge there; (b) a found barrel
+    standing nearer is there: its box holds one of the close_px pixels beside the seen span at the stripe's middle row,
+    and its bottom edge is lower than ``pred_bottom``, the bottom this stripe's row predicts; (c) the side is cut
+    (``seen_span``). ``found`` = the barrels found so far."""
+    row = int(s.center_row)
+
+    def nearer(pixels) -> bool:
+        return any(b.bbox[3] > pred_bottom and b.bbox[1] <= row < b.bbox[3] and any(b.bbox[0] <= px < b.bbox[2] for px in pixels)
+                   for b in found)
+    left = seen.x0 <= 0 or nearer(range(seen.x0 - cfg.close_px, seen.x0)) or seen.left_cut
+    right = seen.x1 >= frame_w or nearer(range(seen.x1, seen.x1 + cfg.close_px)) or seen.right_cut
+    if left and not right:
+        return "left"
+    if right and not left:
+        return "right"
+    return None
+
+
+def centred(s: Stripe, seen: SeenSpan, W: float, cfg: DetConfig) -> tuple[int, int, str] | None:
+    """The last resort for a partly seen stripe that nothing places: a stripe at least stripe_w_min x W wide gets a box W
+    wide, centred on what is seen. This is a guess. A narrower stripe gets None."""
+    if (s.bbox[2] - s.bbox[0]) >= cfg.stripe_w_min * W:
+        cx = (seen.x0 + seen.x1) / 2
+        return int(round(cx - W / 2)), int(round(cx + W / 2)), "centred"
+    return None
+
+
+def thin_slice(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel, W: float, cfg: DetConfig,
+               full_slice: bool) -> tuple[int, int, str] | None:
+    """The sides for a thin piece of stripe (narrower than a stripe is tall, or taller than wide). It skips the reasons
+    for a hidden side; in this order:
+
+    1. its body shows the barrel's whole width (trusted, at least stripe_full x W), the piece is a full slice, and no
+       column of the span has body color across the stripe's rows (a body-colored thing in front): the span is the box;
+    2. a full slice that touches the frame on exactly one side: W wide from its other end (the frame is a hidden side
+       that is known);
+    3. exactly one end is the barrel's own side by the outline: W wide from that end;
+    else None."""
+    w = mask.shape[1]
+    Wi = int(round(W))
+    if seen.shows_width and seen.trusted and full_slice and not _body_crosses(mask, s, seen.x0, seen.x1):
+        return seen.x0, seen.x1, "thin_span"
+    if full_slice and (seen.x0 <= 0) != (seen.x1 >= w):
+        return (seen.x1 - Wi, seen.x1, "thin_frame") if seen.x0 <= 0 else (seen.x0, seen.x0 + Wi, "thin_frame")
+    placed = own_end_by_outline(s, mask, cam, cfg, seen.x0, seen.x1)
+    return None if placed is None else (*placed, "thin_outline")
+
+
+def partly_seen(s: Stripe, seen: SeenSpan, mask: np.ndarray, cam: geo.CameraModel, W: float, pred_bottom: float, cfg: DetConfig,
+                found: tuple = (), use_outline: bool = True) -> tuple[int, int, str] | None:
+    """The sides for a stripe narrower than stripe_full x W that is not thin (hidden or not: the color step can leave a
+    stripe narrow). In this order:
+
+    1. the seen span shows the whole width: the span is the box. The barrel is all there, only its stripe was cut;
+    2. exactly one side is hidden for a reason (``hidden_side``): W wide from the seen end of the other side;
+    3. exactly one end is the barrel's own side by the outline (``own_end_by_outline``): W wide from that end. Left out
+       with ``use_outline=False``;
+    4. a stripe at least stripe_w_min x W wide: W wide, centred on what is seen (``centred``);
+    else None: nothing says where the rest of the barrel is."""
+    if seen.shows_width:
+        return seen.x0, seen.x1, "body_span"
+    Wi = int(round(W))
+    side = hidden_side(s, seen, mask.shape[1], pred_bottom, found, cfg)
+    if side == "left":
+        return seen.x1 - Wi, seen.x1, "hidden_side"
+    if side == "right":
+        return seen.x0, seen.x0 + Wi, "hidden_side"
+    if use_outline:
+        placed = own_end_by_outline(s, mask, cam, cfg, seen.x0, seen.x1)
+        if placed is not None:
+            return (*placed, "outline")
+    return centred(s, seen, W, cfg)
+
+
+def place_sides(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, W: float, top: int, bottom: int, pred_bottom: float,
+                cfg: DetConfig, others: tuple = (), found: tuple = (), full_slice: bool = False,
+                use_outline: bool = True) -> tuple[int, int, str] | None:
+    """Left edge, right edge and the rule that placed them, for one stripe; None when nothing places the box.
+    ``top``, ``bottom`` = the box's rows; ``pred_bottom`` = the bottom row the stripe's row predicts; ``others`` = the
+    columns of the other stripes; ``found`` = the barrels found so far; ``full_slice`` = neither edge was inferred.
+
+    - A stripe at least stripe_full x W wide is seen whole: the box is as wide as the body joined to it (``_body_columns``:
+      the stripe's outermost pixels curve away from the camera and go dark, so the stripe alone runs narrow), at most
+      body_width x W.
+    - A narrower stripe is partly seen: ``thin_slice`` for a thin piece, ``partly_seen`` for the others."""
+    x0, y0, x1, y1 = s.bbox
+    if (x1 - x0) >= cfg.stripe_full * W:
+        if bottom - top >= 2:
+            return (*_body_columns(mask, s.body, x0, x1, top, bottom, y0, y1, cap_px=cfg.body_width * W, others=others), "whole_stripe")
+        return x0, x1, "whole_stripe"
+    seen = seen_span(s, mask, W, top, bottom, cfg, others)
+    if s.thin:
+        return thin_slice(s, seen, mask, cam, W, cfg, full_slice)
+    return partly_seen(s, seen, mask, cam, W, pred_bottom, cfg, found, use_outline)
+
+
+# ---------------------------------------------------------------- the box holds body color
+
+def holds_body(s: Stripe, mask: np.ndarray, top: int, bottom: int, cfg: DetConfig) -> tuple[bool, float, float]:
+    """Does the box hold the body color? In the stripe's own columns, outside the stripe's rows, the box (rows top..bottom)
+    must hold at least as many body-colored pixels as stripe-colored ones, and at least body_min of body color. A
+    stripe-colored thing with the other barrel color above and below it is not this body's barrel (a blue barrel's body
+    between two orange things is not an orange barrel). Returns (yes or no, the share of body color, the share of stripe
+    color)."""
+    x0, y0, x1, y1 = s.bbox
     cols = mask[top:bottom, x0:x1]
     outside = np.ones(cols.shape[0], bool); outside[max(0, y0 - top):max(0, y1 - top)] = False
     region = cols[outside]
     other = BLUE if s.body == ORANGE else ORANGE
-    if region.size and ((region == s.body).sum() < (region == other).sum() or (region == s.body).mean() < cfg.body_min):
-        _note(log, "barrel", "body_min", s.bbox, body=s.body, box=(bx0, top, bx1, bottom),
-              body_frac=float((region == s.body).mean()), other_frac=float((region == other).mean()))
-        return None
+    if not region.size:
+        return True, 0.0, 0.0
+    body_frac, other_frac = float((region == s.body).mean()), float((region == other).mean())
+    ok = not ((region == s.body).sum() < (region == other).sum() or (region == s.body).mean() < cfg.body_min)
+    return ok, body_frac, other_frac
+
+
+# ---------------------------------------------------------------- one stripe, one box
+
+def box_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), others: tuple = (),
+                    found: tuple = (), log: list | None = None, use_outline: bool = True) -> tuple[Found | None, str | None]:
+    """One box from one stripe: (the box, None), or (None, the reason there is none).
+
+    The stripe's row gives the distance; the distance gives the full barrel the geometry predicts (top, bottom, width).
+    Four steps:
+    1. ``read_edges``: top and bottom, seen where they agree with the prediction, else predicted.   "top_against_barrel"
+       A thin piece must be a slice seen from top to bottom: neither edge inferred.                 "slice_not_full"
+    2. ``place_sides``: left and right. A stripe seen whole: the body joined to it. A partly seen one: what is seen, then
+       a reason for a hidden side, then the outline, then centred; the box is flagged "occluded".
+                                                                              "side_unexplained" / thin: "outline_unknown"
+    3. the box is at least 2 x 2 pixels,                                                             "empty_box"
+       and ``holds_body``.                                                                           "body_min"
+    ``others`` = the columns of the other stripes; ``found`` = the barrels found so far; ``use_outline=False`` leaves the
+    outline out of step 2."""
+    h, w = mask.shape
+    g = _stripe_geometry(cam, s.center_row)
+    if g is None:
+        _note(log, "barrel", "no_geometry", s.bbox, body=s.body)
+        return None, "no_geometry"
+    d, rows = g
+    x0, y0, x1, y1 = s.bbox
+    W = rows.width_px
+    edges = read_edges(s, rows, mask, cfg)
+    if edges is None:
+        _note(log, "barrel", "top_against_barrel", s.bbox, body=s.body)
+        return None, "top_against_barrel"
+    if s.thin and edges.inferred:
+        # a thin piece is a barrel only as a slice seen from top to bottom, with or without a reason for a side (a reason says
+        # where a barrel would be, not that there is one)
+        _note(log, "barrel", "slice_not_full", s.bbox, body=s.body, expected_w=W)
+        return None, "slice_not_full"
+    flags = set(edges.inferred)
+    top, bottom = max(0, edges.top), min(h, edges.bottom)
+    placed = place_sides(s, mask, cam, W, top, bottom, rows.bottom, cfg, others, found, full_slice=not edges.inferred, use_outline=use_outline)
+    if placed is None:
+        why = "outline_unknown" if s.thin else "side_unexplained"
+        _note(log, "barrel", why, s.bbox, body=s.body, expected_w=W)
+        return None, why
+    bx0, bx1, rule = placed
+    if rule != "whole_stripe":
+        flags.add("occluded")
+    bx0, bx1 = max(0, bx0), min(w, bx1)
+    if bx1 - bx0 < 2 or bottom - top < 2:
+        _note(log, "barrel", "empty_box", s.bbox, body=s.body)
+        return None, "empty_box"
+    ok, body_frac, other_frac = holds_body(s, mask, top, bottom, cfg)
+    if not ok:
+        _note(log, "barrel", "body_min", s.bbox, body=s.body, box=(bx0, top, bx1, bottom), body_frac=body_frac, other_frac=other_frac)
+        return None, "body_min"
     if bx0 == 0 or bx1 == w or top == 0 or bottom == h:
         flags.add("truncated")
-    conf = 0.5 + 0.5 * s.n_other / max(1, s.n_other + s.n_dark)   # a labeled stripe is surer than a dark band
-    return Barrel(color=s.body, bbox=(bx0, top, bx1, bottom), confidence=conf, flags=frozenset(flags),
-                  area=s.n_other + s.n_dark, source="det2")
+    conf = 0.5 + 0.5 * s.n_other / max(1, s.n_other + s.n_dark)   # the labeled share of the stripe's box
+    return Found(Barrel(color=s.body, bbox=(bx0, top, bx1, bottom), confidence=conf, flags=frozenset(flags),
+                        area=s.n_other + s.n_dark, source="det2"), rule, stripe=s), None
 
 
-def _piece_of_found(s: Stripe, made: list) -> bool:
-    """``slice_box`` (2026-11-19): is the partly seen stripe ``s`` a second piece of the stripe of a barrel already
-    found? Yes when it shares rows with that barrel's stripe (half the height of the shorter of the two, as in
-    ``_join_pieces``), has its body color, and its middle column is inside that barrel's box: two barrels cannot both
-    have their stripe at the same rows inside one barrel's box. ``made`` = the (stripe, barrel) pairs so far."""
+def piece_of_found(s: Stripe, found: list) -> bool:
+    """Is the stripe piece ``s`` a second piece of the stripe of a barrel already found? Yes when it shares rows with that
+    barrel's stripe (the overlap is at least half the height of the shorter of the two), has its body color, and its
+    middle column is inside that barrel's box: two barrels cannot both have their stripe at the same rows inside one
+    barrel's box. Only boxes of the stripe step (``Found.stripe``) are asked."""
     x0, y0, x1, y1 = s.bbox
     mid = (x0 + x1) / 2
-    for o, b in made:
+    for f in found:
+        if f.stripe is None:
+            continue
+        o, b = f.stripe, f.barrel
         shared = min(y1, o.bbox[3]) - max(y0, o.bbox[1])
         if o.body == s.body and 2 * shared >= min(y1 - y0, o.bbox[3] - o.bbox[1]) and b.bbox[0] <= mid < b.bbox[2]:
             return True
     return False
+
+
+def boxes_from_stripes(stripes: list[Stripe], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                       log: list | None = None) -> tuple[list[Found], list[Stripe], list[Stripe]]:
+    """Stage 3. In: the stripes. Out: (the boxes; the stripes nothing could place, for stage 7; the stripes that lost to a
+    surer box of the same barrel, for stage 6).
+
+    Order: the stripes seen whole (at least stripe_full x W wide) first, left to right; then the partly seen ones, the
+    lowest stripe row (the nearest barrel) first, because a partly seen stripe asks about the barrels found so far. Per
+    stripe:
+
+    1. A partly seen stripe that was not cut from a wider one: is it a second piece of a found barrel's stripe
+       (``piece_of_found``)? Then no box.                                                            "stripe_piece"
+    2. ``box_from_stripe``. A thin stripe is never among the "other stripes" whose columns a barrel's body may not take.
+    3. Would the box sit on a box already found (same color, IoU over 0.5)? A box the outline placed never takes the place
+       of a box that is already there: a thin piece gets no box ("duplicate"); any other is made again without the
+       outline (and may then be left for stage 7).
+    4. Is it the same barrel as a found box (same color, IoU over 0.5, and not another part cut from the same wide
+       stripe)? The surer box stays: the one whose stripe's box holds the larger share of labeled pixels.  "duplicate"
+       The stripe of the box that goes is "lost": still a stripe, so stage 6 does not read it as a cap."""
+    def partly(s: Stripe) -> bool:
+        g = _stripe_geometry(cam, s.center_row)
+        return g is not None and (s.bbox[2] - s.bbox[0]) < cfg.stripe_full * g[1].width_px
+
+    found: list[Found] = []
+    unplaced: list[Stripe] = []
+    lost: list[Stripe] = []
+    order = [s for s in stripes if not partly(s)] + sorted((s for s in stripes if partly(s)), key=lambda s: -s.center_row)
+    for s in order:
+        if s.cut_from is None and partly(s) and piece_of_found(s, found):
+            _note(log, "barrel", "stripe_piece", s.bbox, body=s.body)
+            continue                                                                       # 1.
+        others = tuple((o.bbox[0], o.bbox[2]) for o in stripes if o is not s and not o.thin)
+        boxes = tuple(f.barrel for f in found)
+        f, why = box_from_stripe(s, mask, cam, cfg, others, boxes, log)                    # 2.
+        if f is not None and any(o.color == f.barrel.color and box_iou(o.bbox, f.barrel.bbox) > 0.5 for o in boxes):
+            if s.thin:                                                                     # 3.
+                _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=f.barrel.bbox)
+                continue
+            f, why = box_from_stripe(s, mask, cam, cfg, others, boxes, use_outline=False)
+        if f is None:
+            if why == "side_unexplained":
+                unplaced.append(s)
+            continue
+        _note(log, "barrel", "kept", s.bbox, body=s.body, box=f.barrel.bbox)
+        dup = next((o for o in found if o.barrel.color == f.barrel.color and box_iou(o.barrel.bbox, f.barrel.bbox) > 0.5
+                    and not (s.cut_from is not None and o.stripe.cut_from == s.cut_from)), None)
+        if dup is None:
+            found.append(f)
+            continue
+        _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=f.barrel.bbox)         # 4.
+        if f.barrel.confidence > dup.barrel.confidence and not s.thin:
+            found = [o for o in found if o is not dup] + [f]
+            lost.append(dup.stripe)
+        else:
+            lost.append(s)
+    return found, unplaced, lost
+
+
+# ================================================================ stage 4: a piece with no stripe
+
+def _closeup_stripe_rows(cam: geo.CameraModel, top_row: float) -> tuple[float, float]:
+    """(stripe top row, stripe bottom row) of a barrel whose lid's far edge is at ``top_row``; inf where the geometry puts
+    them at or behind the camera (far below the frame)."""
+    d = cam._d_axis_from_point_row(top_row, geo.BARREL_HEIGHT_MM, +geo.BARREL_END_DIAMETER_MM / 2)
+    if not math.isfinite(d) or d <= 0:
+        return math.inf, math.inf
+    try:
+        r = cam.barrel_rows(d)
+    except ValueError:
+        return math.inf, math.inf
+    return r.stripe_top, r.stripe_bottom
+
+
+def _seen_to_stripe(cam: geo.CameraModel, cfg: DetConfig, top_row: int, seen_bottom: int, h: int) -> bool:
+    """Is the piece's body seen from ``top_row`` down to where that row puts the stripe's top (or to the frame bottom,
+    when that is higher), within max(bottom_tol_min_px, bottom_tol x that height)?"""
+    target = min(float(h), _closeup_stripe_rows(cam, top_row)[0])
+    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * (target - top_row))
+    return seen_bottom >= target - tol
 
 
 def _x_overlap(a: tuple, b: tuple) -> float:
@@ -924,454 +1141,54 @@ def _x_overlap(a: tuple, b: tuple) -> float:
     return inter / max(1, min(a[2] - a[0], b[2] - b[0]))
 
 
-def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
-           log: list | None = None) -> list[Barrel]:
-    """Class mask (0 other / 1 orange / 2 blue / 255 ignore) -> barrels. Same signature as detect_cc.detect.
+def closeup_pieces(pieces: list[Piece], found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                   log: list | None = None) -> list[Found]:
+    """Stage 4. In: the pieces of stage 1 and the boxes so far. Out: the boxes of the pieces that are barrels without a
+    stripe in view. Per piece, left to right:
 
-    Step 2: every stripe is a barrel. Step-1 pieces (barrel-colored, barrel-sized) are then only kept where
-    no stripe barrel already covers them AND a stripe could not have been seen: the piece reaches the frame
-    bottom (the stripe is below the frame) or the expected stripe is too thin to resolve at that distance.
-    Then the verify step, the caps, the pairs, the half stripes, and the verify step once more."""
-    if log is None:
-        log = []                                             # 2026-11-24: the verify step reads each box's evidence off the reason log
+    1. Does a box already account for it? They share more than 0.3 of the narrower one's width, and they share rows (a
+       far barrel standing above a close-up in the picture must not hide it). A piece kept here counts too.   "covered"
+    2. Is it a close-up, with its stripe below the frame? Either its box reaches the frame bottom (seen there, or drawn
+       there because its top row predicts a base below the frame), or its top row puts the stripe's bottom edge at or
+       below the frame bottom (the frame cuts the stripe: no body is seen below it, so it cannot be found as a stripe).
+    3. A close-up that the left or right frame side also cuts shows neither its width nor its stripe: its body must be
+       seen from its top row down to where that row puts the stripe (or to the frame bottom).            "closeup_side"
+    4. Keep it if it is a close-up, or if the stripe expected at its middle row is under min_stripe_px tall (too far to
+       resolve a stripe).                                                                                "stripeless\""""
     h, w = mask.shape
-    seen = _step1_pieces(mask, cfg, cam, log)
-    pieces = [b for b, _ in seen]
-    seen_bottom = {id(b): y for b, y in seen}
-    out: list[Barrel] = []
-    narrows: list[Stripe] = []                               # ... refused by the finder for their width
-    unplaced: list[Stripe] = []                              # ... or left without a box because no side has a reason
-    stripes = find_stripes(mask, cam, cfg, log, narrow=narrows)
-    used: list[Stripe] = []                                  # the stripes that gave a barrel
-    made: list[tuple[Stripe, Barrel]] = []                   # ... each with the barrel it gave (the ones in ``out``)
-
-    def partly(s: Stripe) -> bool:
-        g = _stripe_geometry(cam, s.center_row)
-        return g is not None and (s.bbox[2] - s.bbox[0]) < cfg.stripe_full * g[1].width_px
-    # 2026-11-19: the barrels whose stripe is seen whole first, then the partly seen ones, nearest first: a partly seen
-    # stripe may be hidden by a barrel already found
-    order = [s for s in stripes if not partly(s)] + sorted((s for s in stripes if partly(s)), key=lambda s: -s.center_row)
-    # 2026-11-20, pin_thin: the thin pieces the lower floor lets in. They never change another barrel's box: they are not among
-    # the "other stripes" whose columns a barrel's body may not take, and they never replace a box as its duplicate
-    for s in order:
-        if s.merged is None and partly(s) and _piece_of_found(s, made):
-            _note(log, "barrel", "stripe_piece", s.bbox, body=s.body)
-            continue                                         # a second piece of a found barrel's stripe, not another barrel
-        others = tuple((o.bbox[0], o.bbox[2]) for o in stripes if o is not s and not o.small)
-        b = barrel_from_stripe(s, mask, cam, cfg, others=others, log=log, found=tuple(out), unplaced=unplaced)
-        if b is None:
-            continue
-        if any(o.color == b.color and box_iou(o.bbox, b.bbox) > 0.5 for o in out):
-            # 2026-11-20 (round 2): a box the outline places never takes the place of a box that is already there. If this
-            # one would be a found barrel's duplicate, the piece is treated as before the switch (a thin piece: no box)
-            if s.small:
-                _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=b.bbox)
-                continue
-            b = barrel_from_stripe(s, mask, cam, cfg, others=others, found=tuple(out), outline=False,
-                                   unplaced=unplaced)      # ... made again without the outline; it may wait for the pairs
-            if b is None:
-                continue
-        used.append(s)
-        _note(log, "barrel", "kept", s.bbox, body=s.body, box=b.bbox)
-
-        def sibling(o: Barrel) -> bool:                      # stripe_two: o came from another part of the same wide stripe
-            return s.merged is not None and any(mb is o and ms.merged == s.merged for ms, mb in made)
-        dup = next((o for o in out if o.color == b.color and box_iou(o.bbox, b.bbox) > 0.5 and not sibling(o)), None)
-        if dup is not None:
-            _note(log, "barrel", "duplicate", s.bbox, body=s.body, box=b.bbox)
-            if b.confidence > dup.confidence and not s.small:
-                out.remove(dup); out.append(b)
-                made = [(ms, mb) for ms, mb in made if mb is not dup] + [(s, b)]
-            continue
-        out.append(b); made.append((s, b))
-    for p in pieces:
-        # (g) 2026-11-09: a stripe barrel accounts for a piece only if the two boxes share rows as well as columns — a far
-        # barrel standing above a close one in the picture used to "cover" it (live run with Dave: the close-up got no box)
-        if any(_x_overlap(p.bbox, o.bbox) > 0.3 and min(p.bbox[3], o.bbox[3]) > max(p.bbox[1], o.bbox[1]) for o in out):
+    new: list[Found] = []
+    for piece in pieces:
+        p = piece.barrel
+        boxes = [f.barrel for f in found + new]
+        if any(_x_overlap(p.bbox, o.bbox) > 0.3 and min(p.bbox[3], o.bbox[3]) > max(p.bbox[1], o.bbox[1]) for o in boxes):
             _note(log, "piece", "covered", p.bbox, body=p.color)
-            continue                                         # the stripe barrels already account for this piece
+            continue                                                                       # 1.
         g = _stripe_geometry(cam, (p.bbox[1] + p.bbox[3]) / 2)
         hs = (g[1].stripe_bottom - g[1].stripe_top) if g else math.inf
-        close = p.bbox[3] >= h
-        if not close and _closeup_stripe_rows(cam, p.bbox[1])[1] >= h:
-            close = True                                     # 2026-11-23: its stripe straddles the frame bottom (no body below it in view)
-        if (close and (p.bbox[0] == 0 or p.bbox[2] == w)
-                and not _seen_to_stripe(cam, cfg, p.bbox[1], seen_bottom[id(p)], h)):
-            # 2026-11-23: cut by the frame's side too, so its width says nothing; its body is not seen down to its stripe
-            _note(log, "piece", "closeup_side", p.bbox, body=p.color, seen_bottom=seen_bottom[id(p)])
-            continue
-        if close or hs < cfg.min_stripe_px:
-            out.append(p)                                    # stripe below the frame, or too far to resolve one
+        rule = "closeup" if p.bbox[3] >= h else None                                       # 2.
+        if rule is None and _closeup_stripe_rows(cam, p.bbox[1])[1] >= h:
+            rule = "closeup_stripe"
+        if rule is not None and (p.bbox[0] == 0 or p.bbox[2] == w) and not _seen_to_stripe(cam, cfg, p.bbox[1], piece.seen_bottom, h):
+            _note(log, "piece", "closeup_side", p.bbox, body=p.color, seen_bottom=piece.seen_bottom)
+            continue                                                                       # 3.
+        if rule is None and hs < cfg.min_stripe_px:
+            rule = "far_piece"
+        if rule is not None:
+            new.append(Found(p, rule))                                                     # 4.
         else:
             _note(log, "piece", "stripeless", p.bbox, body=p.color, expected_stripe_h=hs)
-    # 2026-11-24 (occl_strict): the verify step, first on the boxes of the stripe step and the stripeless pieces, so that the
-    # rules after them (caps, pairs, half stripes) lean only on boxes that passed it and may still read a barrel whose wrong
-    # box was dropped (a cap above a front barrel whose upper body was read as a stripe)
-    kept = verify_front(mask, out, log, cam, cfg, log)
-    gone = [b for b in out if not any(b is k for k in kept)]
-    if gone:
-        out = kept
-        used = [u for u in used if not any(ms is u and any(mb is g for g in gone) for ms, mb in made)]
-        made = [(ms, mb) for ms, mb in made if not any(mb is g for g in gone)]
-    out += caps_behind(mask, out, used, cam, cfg, log)
-    # 2026-11-20: what is left over, after everything above (so nothing above changes, and no cap leans on these boxes)
-    pairs, _ = post_pairs(narrows + unplaced, mask, out, cam, cfg, log, made=tuple(made))
-    out += pairs
-    new, replaced = half_stripes(mask, out, made, cam, cfg, log)
-    out = [b for b in out if not any(b is r for r in replaced)] + new
-    out = verify_front(mask, out, log, cam, cfg, log)           # 2026-11-24: and once more on every box, whatever rule drew it
-    out = verify_readings(mask, out, log, cam, cfg, log)
-    return sorted(out, key=lambda b: b.bbox[0])
+    return new
 
 
-def caps_behind(mask: np.ndarray, found: list[Barrel], used: list[Stripe], cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                log: list | None = None) -> list[Barrel]:
-    """``cap_behind`` (2026-11-18): barrels standing behind a found barrel. Such a barrel shows its upper body (its
-    "cap") above the front barrel; its stripe has melted into the front barrel's body of the same color, or is
-    hidden, so the stripe step cannot find it. ``found`` = the barrels found so far, ``used`` = the stripes that gave
-    them. Per color: take that color's pixels without the boxes of the used stripes; a connected piece is a cap when
+# ================================================================ stages 5 and 9: the verify step
 
-    1. it is not a found barrel's own body (fewer than half of its pixels inside found boxes of its color);
-    2. its top row gives the distance, hence the expected width W, height H and upper-body height (top row to the
-       top of the stripe), and the piece is barrel-wide (width_min to body_width x W) and as tall as an upper body,
-       not more (height_min x the upper body, to the upper body + the usual edge tolerance);
-    3. what hides the rest is a barrel: at least half of the predicted box below the cap lies inside boxes of
-       found barrels whose bottom edge is lower than this barrel's (they stand nearer).
-
-    The box: top = the cap's top row; sides = the cap's columns. A cap narrower than stripe_full x W is kept only
-    when exactly one side is hidden by a nearer found barrel or the frame edge, and is widened to W toward that side.
-    Bottom = top + the height of a barrel as wide as the cap when the whole width shows, else the bottom the top row
-    predicts; the cap's own color seen ending near that estimate (the usual tolerance) replaces it. No new threshold.
-
-    ``cap_seen_bottom`` (2026-11-19, A5), for a narrow cap with no such seen end: the top-row estimate is 4 to 7 px
-    low at mid and far range with this camera, so a seen end can be refused for the estimate's error. Then the cap's
-    color is read in the cap's columns outside the boxes of the nearer found barrels (inside them that color is the
-    front barrel's stripe); seen ending between the bottom of a barrel only as wide as the seen cap (the barrel is at
-    least that big, whatever the tilt) and the estimate + the tolerance, that end is the bottom."""
-    h, w = mask.shape
-    out: list[Barrel] = []
-    for c in (ORANGE, BLUE):
-        cm = _closed(mask == c, cfg)
-        for s in used:
-            if s.body != c:                                  # a stripe of this color, on a barrel of the other color
-                x0, y0, x1, y1 = s.bbox
-                cm[y0:y1, x0:x1] = False
-        own = np.zeros(mask.shape, bool)
-        for b in found:
-            if b.color == c:
-                own[b.bbox[1]:b.bbox[3], b.bbox[0]:b.bbox[2]] = True
-        n, lab, st, _ = cv2.connectedComponentsWithStats(cm.astype(np.uint8), connectivity=8)
-        cands = []                                           # (x, y, width, height, area) of the pieces to test
-        for i in range(1, n):
-            if int(st[i][4]) < cfg.min_area_px:
-                continue
-            if 2 * int((own & (lab == i)).sum()) < int(st[i][4]):
-                cands.append(tuple(int(v) for v in st[i]))
-            else:
-                # 1. a found barrel's own body was skipped whole. cap_same (2026-11-19): what of it lies OUTSIDE the found boxes of
-                # its color is tested, each connected part by itself (the top of a barrel behind a found barrel of its own color)
-                n2, _, st2, _ = cv2.connectedComponentsWithStats(((lab == i) & ~own).astype(np.uint8), connectivity=8)
-                cands += [tuple(int(v) for v in st2[j]) for j in range(1, n2)]
-        for x, y, bw, bh, area in cands:
-            if area < cfg.min_area_px or y <= 0:
-                continue                                     # a speck, or the top is cut by the frame: no top row to read
-            d = cam._d_axis_from_point_row(y, geo.BARREL_HEIGHT_MM, +geo.BARREL_END_DIAMETER_MM / 2)
-            if not math.isfinite(d) or d <= geo.BARREL_BULGE_DIAMETER_MM / 2 + 1:
-                continue
-            rows = cam.barrel_rows(d)
-            W, H, upper = rows.width_px, rows.bottom - rows.top, rows.stripe_top - rows.top
-            cb = (x, y, x + bw, y + bh)
-            if W < cfg.min_width_px:
-                continue                                     # above the table's far end
-            tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
-            if not (cfg.width_min * W <= bw <= max(cfg.body_width, 1.0) * W):
-                _note(log, "cap", "width", cb, body=c, expected_w=W)
-                continue                                     # 2. not barrel-wide for its row
-            # cap_low (2026-11-20): the floor is width_min ("narrower than this is a sliver") instead of height_min: a barrel three
-            # quarters hidden by one straight in front shows 0.55 of an upper body, less the rows lost at the seam
-            if not (cfg.width_min * upper <= bh <= upper + tol):
-                _note(log, "cap", "height", cb, body=c, expected_upper_h=upper)
-                continue                                     # 2. not as tall as an upper body (taller: body color where the stripe must be)
-            bx0, bx1 = x, x + bw
-            if bw >= cfg.stripe_full * W:
-                bottom = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)   # the whole width shows: size from width
-            else:
-                # a narrow cap must be explained (round 2): exactly one side hidden, by a found barrel standing nearer (its box
-                # holds the pixel next to the cap at the cap's middle row) or by the frame edge. Neither side: the narrowness has
-                # no cause, not a cap. Both sides: a wedge between two barrels, neither its width nor its place can be measured.
-                row, Wi = y + bh // 2, int(round(W))
-
-                def hidden(px: int) -> bool:
-                    return px < 0 or px >= w or any(b.bbox[0] <= px < b.bbox[2] and b.bbox[1] <= row < b.bbox[3] and b.bbox[3] > y + bh
-                                                    for b in found)
-                left_hidden, right_hidden = hidden(x - 1), hidden(x + bw)
-                if left_hidden == right_hidden:
-                    _note(log, "cap", "both_sides" if left_hidden else "narrow", cb, body=c, expected_w=W)
-                    continue
-                bottom = rows.bottom                         # size from the top row
-                if left_hidden:
-                    bx0 = bx1 - Wi
-                else:
-                    bx1 = bx0 + Wi
-            # the seen bottom is used when it agrees (as in step 3): the cap's own color, in the cap's columns, ending near the estimate
-            col = (mask[:, x:x + bw] == c).any(axis=1)
-            near = [r for r in range(max(y + bh, int(round(bottom - tol))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
-            if near and not col[near[-1] + 1:near[-1] + 4].any():
-                bottom = near[-1] + 1
-            elif bw < cfg.stripe_full * W:
-                # 2026-11-19 (A5): a narrow cap's estimate is the top-row bottom, 4 to 7 px low at mid and far range, so a seen end
-                # can be refused for the estimate's error. Read the cap's color only beside the nearer found barrels (inside their
-                # boxes it is their stripe). The barrel is at least as wide as what is seen of it, so its bottom is not above that
-                # of a barrel bw wide (a bound that does not depend on the tilt), and not below the estimate + the tolerance
-                beside = np.ones(bw, bool)
-                for b in found:
-                    if b.bbox[3] > y + bh:
-                        beside[max(0, b.bbox[0] - x):max(0, b.bbox[2] - x)] = False
-                least = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)
-                col = (mask[:, x:x + bw][:, beside] == c).any(axis=1)
-                seen = [r for r in range(max(y + bh, int(round(least))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
-                if seen and not col[seen[-1] + 1:seen[-1] + 4].any():
-                    bottom = seen[-1] + 1
-            bx0, bx1, bottom = max(0, bx0), min(w, bx1), min(h, int(round(bottom)))
-            below = np.zeros((max(0, bottom - (y + bh)), bx1 - bx0), bool)       # where the rest of this barrel should be
-            for b in found:
-                if b.bbox[3] > bottom:                       # a found barrel standing nearer
-                    below[max(0, b.bbox[1] - (y + bh)):max(0, b.bbox[3] - (y + bh)), max(0, b.bbox[0] - bx0):max(0, b.bbox[2] - bx0)] = True
-            if below.size == 0 or below.mean() < 0.5:
-                _note(log, "cap", "not_hidden", cb, body=c, hidden_frac=float(below.mean()) if below.size else 0.0)
-                continue                                     # 3. nothing found stands in front of it
-            box = (bx0, y, bx1, bottom)
-            if any(o.color == c and box_iou(o.bbox, box) > 0.5 for o in found + out):
-                _note(log, "cap", "duplicate", cb, body=c, box=box)
-                continue
-            flags = {"occluded", "bottom_inferred"}
-            if bx0 == 0 or bx1 == w or bottom == h:
-                flags.add("truncated")
-            _note(log, "cap", "kept", cb, body=c, box=box)
-            out.append(Barrel(color=c, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det3"))
-    return out
-
-
-# ---------------------------------------------------------------- 2026-11-20: hidden from above or below, a post, a slice beside a barrel
-
-def _full_slice(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig):
-    """For a narrow stripe piece: (W, rows, top, bottom, sx0, sx1) when it is a FULL SLICE of a barrel, else None. A full
-    slice: the body color above and below the piece ends where the piece's row predicts the barrel's top and bottom
-    (the usual edge tolerance: bottom_tol of the height, at least bottom_tol_min_px), and neither end lies against the
-    other barrel color. ``top``, ``bottom`` = those seen ends; ``sx0``, ``sx1`` = the piece's columns joined with the body
-    joined to it (``_body_span``)."""
-    g = _stripe_geometry(cam, s.center_row)
-    if g is None:
-        return None
-    rows = g[1]
-    x0, y0, x1, y1 = s.bbox
-    top, bottom = _body_extent(mask, s.body, x0, x1, y0, y1)
-    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * (rows.bottom - rows.top))
-    if abs(top - rows.top) > tol or abs(bottom - rows.bottom) > tol:
-        return None
-    # round 2: both ends are seen edges, i.e. not against the other barrel color (edge_check's test: that color in at least half
-    # of the piece's columns in the 4 rows beyond the end). A strip of a barrel's upper body between a finger and its own stripe
-    # is "a full slice" of a barrel of the other color whose bottom is that barrel's lower body
-    other = BLUE if s.body == ORANGE else ORANGE
-    for band in (mask[max(0, top - 4):max(0, top), x0:x1], mask[bottom:bottom + 4, x0:x1]):
-        if band.size and float((band == other).any(axis=0).mean()) >= 0.5:
-            return None
-    span = _body_span(mask, s.body, x0, x1, max(0, top), min(mask.shape[0], bottom), y0, y1) if bottom - top >= 2 else None
-    sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if span else (x0, x1)
-    return rows.width_px, rows, top, bottom, sx0, sx1
-
-
-def post_pairs(pieces: list[Stripe], mask: np.ndarray, found: list[Barrel], cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-               log: list | None = None, made: tuple = ()) -> tuple[list[Barrel], list[Stripe]]:
-    """``post_pair`` (2026-11-20): one barrel behind a post. ``pieces`` = the stripe pieces that gave no box alone (under
-    the finder's width floor, or left without a box because no side has a reason); a piece of a found barrel's own stripe
-    (``_piece_of_found`` with ``made``, the stripe step's (stripe, barrel) pairs) is left out. Two of them are one barrel when
-
-    1. each is under stripe_w_min x the barrel width W wide (a wider piece is placed alone);
-    2. they have one body color and share rows: the overlap is at least half the height of the shorter (as ``stripe_join``);
-    3. each is a full slice (``_full_slice``): its body ends where its row predicts the top and the bottom;
-    4. their outer body edges are stripe_full to body_width x W apart, the left piece wholly left of the right one.
-
-    Two barrels at one distance cannot have their outer edges within 1.2 W of each other, so the two slices are one
-    barrel with something upright in front of its middle (or with its stripe and body cut by a highlight). The box runs
-    from outer edge to outer edge; top and bottom are the seen ones. No new number.
-    Returns (the barrels, the pieces they used)."""
-    h, w = mask.shape
-    info = []
-    for s in sorted(pieces, key=lambda s: s.bbox[0]):
-        f = None if _piece_of_found(s, made) else _full_slice(s, mask, cam, cfg)
-        if f is not None and (s.bbox[2] - s.bbox[0]) < cfg.stripe_w_min * f[0]:
-            info.append((s, *f))
-    out: list[Barrel] = []
-    paired: list[Stripe] = []
-    for i, (l, Wl, _, tl, bl, lx0, _) in enumerate(info):
-        for r, Wr, _, tr, br, _, rx1 in info[i + 1:]:
-            if any(l is p or r is p for p in paired) or l.body != r.body or r.bbox[0] < l.bbox[2]:
-                continue
-            shared = min(l.bbox[3], r.bbox[3]) - max(l.bbox[1], r.bbox[1])
-            if 2 * shared < min(l.bbox[3] - l.bbox[1], r.bbox[3] - r.bbox[1]):
-                continue
-            W = (Wl + Wr) / 2
-            if not (cfg.stripe_full * W <= rx1 - lx0 <= max(cfg.body_width, 1.0) * W):
-                continue
-            box = (max(0, lx0), max(0, min(tl, tr)), min(w, rx1), min(h, max(bl, br)))
-            if any(o.color == l.body and box_iou(o.bbox, box) > 0.5 for o in found + out):
-                _note(log, "pair", "duplicate", l.bbox, body=l.body, box=box)
-                continue
-            flags = {"occluded"} | ({"truncated"} if box[0] == 0 or box[2] == w or box[1] == 0 or box[3] == h else set())
-            out.append(Barrel(color=l.body, bbox=box, confidence=0.5, flags=frozenset(flags), area=l.n_other + r.n_other, source="det2"))
-            paired += [l, r]
-            _note(log, "pair", "kept", l.bbox, body=l.body, box=box, other=r.bbox, expected_w=W, outer_span=rx1 - lx0)
-    return out, paired
-
-
-def half_stripes(mask: np.ndarray, found: list[Barrel], made: list, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                 log: list | None = None) -> tuple[list[Barrel], list[Barrel]]:
-    """``half_stripe`` (2026-11-20): barrels hidden from above or from below by something that is not a barrel, found from
-    a stripe that has body color on ONE side only. ``found`` = the barrels found so far; ``made`` = the (stripe, barrel)
-    pairs of the stripe step.
-
-    A band = a connected piece (min_area_px or more) of one barrel color. "Body right above" a column of it = the other
-    barrel color within band_h_max stripe heights above the band there (the stripe finder's sandwich, one side). The
-    band is "bottom hidden" when it has body right above in at least stripe_full of its columns and right below in at
-    most 1 - stripe_full of them (the upper body and the stripe show), "top hidden" in the reverse case (the stripe and
-    the lower body show). The seam between band and body gives the distance: the stripe's top edge is 15 mm above the
-    table and its bottom edge 9 mm, at the bulge. From it: the barrel's width W, its top and bottom rows, the stripe
-    height. The band is a barrel's stripe when
-
-    1. it is not taller than a stripe (stripe_h_max x the stripe height) and, unless ``half_thin``, at least stripe_h_min of it;
-    2. the whole width shows: the band is stripe_full to body_width x W wide;
-    3. the second reading agrees: the body's far edge (its top when the bottom is hidden, its bottom when the top is) is
-       where the seam predicts it, within the usual edge tolerance, and inside the frame;
-    4. the body joined to the band is stripe_full to body_width x W wide;
-    5. the open side is clear: barrel color in the 4 rows beyond the band in fewer than half of its columns;
-    6. the body's far edge is a seen edge: not against barrel color (the same test beyond that edge). An ordinary barrel's
-       upper body and stripe pass 1 to 5 as the "stripe and lower body" of a smaller barrel of the other color; its
-       "bottom" ends against the real barrel's lower body;
-    7. it is not a found barrel's: fewer than half of the band's pixels inside found boxes, and no found box of its color
-       overlapping the new box by more than half;
-    8. (round 2) it is the thinner band: less tall than the body part beside it (seam to far edge). A stripe is 6 mm, a body
-       part 9 mm or more; a barrel hidden from below whose stripe shows whole would otherwise also pass as a smaller barrel
-       of the other color hidden from above (its upper body as the stripe, its stripe as the lower body).
-
-    The box: sides = the seen band and body; the seen far edge; the hidden edge where the seam's distance predicts it
-    (flags occluded and bottom_inferred or top_inferred). A box the stripe step made from a narrow, partly seen piece of
-    this same band (its stripe lies inside the band's box) is replaced by this one: the band shows the whole width, the
-    piece was a corner of it; such a box is not "found" in test 7. No new number.
-    Returns (the barrels, the found barrels they replace)."""
-    h, w = mask.shape
-    rows_idx = np.arange(h)[:, None]
-    reach = _reach_by_row(cam, h, cfg)[:, None]
-    barrel = np.isin(mask, (ORANGE, BLUE))
-    bulge_r = geo.BARREL_BULGE_DIAMETER_MM / 2
-    z_top, z_bottom = (geo.BARREL_HEIGHT_MM + geo.STRIPE_HEIGHT_MM) / 2, (geo.BARREL_HEIGHT_MM - geo.STRIPE_HEIGHT_MM) / 2
-    out: list[Barrel] = []
-    replaced: list[Barrel] = []
-    for body in (ORANGE, BLUE):
-        other = BLUE if body == ORANGE else ORANGE
-        bm = _closed(mask == body, cfg)
-        om = _closed(mask == other, cfg) & ~bm
-        up = np.maximum.accumulate(np.where(bm, rows_idx, -10 ** 6), axis=0)              # last body row at or above
-        dn = np.minimum.accumulate(np.where(bm, rows_idx, 10 ** 6)[::-1], axis=0)[::-1]   # first body row at or below
-        above, below = (rows_idx - up) <= reach, (dn - rows_idx) <= reach
-        n, lab, st, _ = cv2.connectedComponentsWithStats(om.astype(np.uint8), connectivity=8)
-        for i in range(1, n):
-            x, y, bw, bh, area = (int(v) for v in st[i])
-            if area < cfg.min_area_px:
-                continue
-            sel = lab[y:y + bh, x:x + bw] == i                                             # the band, in its own box
-            cols = np.flatnonzero(sel.any(axis=0))
-            fa = float((sel & above[y:y + bh, x:x + bw]).any(axis=0)[cols].mean())
-            fb = float((sel & below[y:y + bh, x:x + bw]).any(axis=0)[cols].mean())
-            if fb >= cfg.stripe_full and fa <= 1 - cfg.stripe_full:
-                top_hidden = True
-            elif fa >= cfg.stripe_full and fb <= 1 - cfg.stripe_full:
-                top_hidden = False
-            else:
-                continue                                                                   # body on both sides (a stripe) or on neither
-            sb = (x, y, x + bw, y + bh)
-            first = y + np.argmax(sel[:, cols], axis=0)                                    # first and last band row, per column
-            last = y + bh - 1 - np.argmax(sel[::-1][:, cols], axis=0)
-            if top_hidden:
-                seams = dn[last, x + cols]; seams = seams[seams < 10 ** 5]                 # first body row under the band
-                seam, z = (float(np.median(seams)) if len(seams) else math.nan), z_bottom
-            else:
-                seams = up[first, x + cols]; seams = seams[seams > -10 ** 5]               # one past the last body row above it
-                seam, z = (float(np.median(seams)) + 1 if len(seams) else math.nan), z_top
-            d = cam._d_axis_from_point_row(seam, z, -bulge_r) if math.isfinite(seam) else math.inf
-            if not math.isfinite(d) or d <= bulge_r + 1:
-                continue
-            rows = cam.barrel_rows(d)
-            W, H, Hs = rows.width_px, rows.bottom - rows.top, rows.stripe_bottom - rows.stripe_top
-            if W < cfg.min_width_px or Hs < cfg.min_stripe_px:
-                continue
-            ys = np.where(sel)[0]
-            core_h = float(np.percentile(ys, 90) - np.percentile(ys, 10) + 1)
-            if core_h > cfg.stripe_h_max * Hs:
-                _note(log, "half", "height", sb, body=body, core_h=core_h, expected_stripe_h=Hs)
-                continue                                                                   # 1.
-            if not (cfg.stripe_full * W <= bw <= max(cfg.body_width, 1.0) * W):
-                _note(log, "half", "width", sb, body=body, expected_w=W)
-                continue                                                                   # 2.
-            tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
-            top_s, bottom_s = _body_extent(mask, body, x, x + bw, y, y + bh)
-            if top_hidden:
-                agrees, r0, r1 = abs(bottom_s - rows.bottom) <= tol and bottom_s < h, y, bottom_s
-            else:
-                agrees, r0, r1 = abs(top_s - rows.top) <= tol and top_s > 0, top_s, y + bh
-            if not agrees:
-                _note(log, "half", "far_edge", sb, body=body, seen=bottom_s if top_hidden else top_s, predicted=rows.bottom if top_hidden else rows.top)
-                continue                                                                   # 3.
-            if core_h >= ((bottom_s - seam) if top_hidden else (seam - top_s)):
-                # round 2: the stripe is the thinner band (6 mm against a body part of 9 mm or more). A barrel hidden from below whose
-                # stripe shows whole passes 1 to 6 the other way round too: its upper body as "a stripe", its stripe as "a lower body"
-                _note(log, "half", "thicker_than_body", sb, body=body, core_h=core_h)
-                continue
-            span = _body_span(mask, body, x, x + bw, r0, r1, y, y + bh) if r1 - r0 >= 2 else None
-            sx0, sx1 = (min(span[0], x), max(span[1], x + bw)) if span else (x, x + bw)
-            if span is None or not (cfg.stripe_full * W <= sx1 - sx0 <= max(cfg.body_width, 1.0) * W):
-                _note(log, "half", "body_width", sb, body=body, expected_w=W)
-                continue                                                                   # 4.
-            beyond = [(max(0, f - 4), f) for f in first] if top_hidden else [(l + 1, min(h, l + 5)) for l in last]
-            if float(np.mean([barrel[a:b, x + c].any() for (a, b), c in zip(beyond, cols)])) >= 0.5:
-                _note(log, "half", "open_side", sb, body=body)
-                continue                                                                   # 5.
-            far = barrel[bottom_s:min(h, bottom_s + 4), x:x + bw] if top_hidden else barrel[max(0, top_s - 4):max(0, top_s), x:x + bw]
-            if far.size and float(far.any(axis=0).mean()) >= 0.5:
-                _note(log, "half", "far_edge_against_barrel", sb, body=body)
-                continue                                                                   # 6.
-            box = (max(0, sx0), max(0, int(round(rows.top))) if top_hidden else top_s, min(w, sx1), bottom_s if top_hidden else min(h, int(round(rows.bottom))))
-            if box[2] - box[0] < 2 or box[3] - box[1] < 2:
-                continue
-            # boxes the stripe step made from a narrow, partly seen piece of this same band
-            corners = [b for s, b in made if s.body == body and "occluded" in b.flags and x <= s.bbox[0] and s.bbox[2] <= x + bw
-                       and y <= s.bbox[1] and s.bbox[3] <= y + bh and any(b is o for o in found)]
-            others = [b for b in found + out if not any(b is c for c in corners)]
-            inside = np.zeros(sel.shape, bool)
-            for b in others:
-                inside[max(0, b.bbox[1] - y):max(0, b.bbox[3] - y), max(0, b.bbox[0] - x):max(0, b.bbox[2] - x)] = True
-            if 2 * int((sel & inside).sum()) >= area or any(o.color == body and box_iou(o.bbox, box) > 0.5 for o in others):
-                _note(log, "half", "found", sb, body=body, box=box)
-                continue                                                                   # 7.
-            flags = {"occluded", "top_inferred" if top_hidden else "bottom_inferred"}
-            if box[0] == 0 or box[2] == w or box[1] == 0 or box[3] == h:
-                flags.add("truncated")
-            out.append(Barrel(color=body, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det2"))
-            replaced += corners
-            _note(log, "half", "kept", sb, body=body, box=box, hidden="top" if top_hidden else "bottom", seam=seam, distance_mm=d, expected_w=W,
-                  expected_h=H, expected_stripe_h=Hs, core_h=core_h, predicted_top=rows.top, predicted_bottom=rows.bottom, tol=tol,
-                  seen_far_edge=bottom_s if top_hidden else top_s, body_span=(sx0, sx1))
-    return out, replaced
-
-
-# ---------------------------------------------------------------- 2026-11-24: the verify step (experiments/2026-11-24_occl_strict)
-
-VERIFY_STAGES = ("barrel", "cap", "pair", "half")   # the reason log's stages that draw a box ("kept" notes)
+VERIFY_STAGES = ("barrel", "cap", "pair", "half")            # the reason log's stages that draw a box ("kept" notes)
 
 
 def _evidence(log: list, b: Barrel) -> tuple[int, int, int, int]:
-    """The box of what ``b`` was read from: its stripe (stripe step, slices), its cap piece (caps), its band (half stripes), its
-    two slices together (post pairs); a stripeless piece is its own evidence. Read from the "kept" notes of the reason log."""
+    """The box of what ``b`` was read from: its stripe (stripe step), its cap piece (caps), its band (half stripes), its
+    two slices together (pairs); a stripeless piece is its own evidence. Read from the "kept" notes of the reason log:
+    the newest one whose box is b's box."""
     for e in reversed(log):
         if e.get("why") == "kept" and e.get("stage") in VERIFY_STAGES and e.get("box") is not None and tuple(e["box"]) == tuple(b.bbox):
             ev = tuple(int(v) for v in e["bbox"])
@@ -1420,39 +1237,43 @@ def outline_layout(F: Barrel, cam: geo.CameraModel, shape) -> np.ndarray:
     return out
 
 
-def verify_front(mask: np.ndarray, found: list[Barrel], log: list, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                 note: list | None = None) -> list[Barrel]:
-    """``verify_front`` (2026-11-24): a barrel cannot be seen through a nearer barrel.
+def drop_seen_through(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                      log: list | None = None) -> list[Found]:
+    """Stages 5 and 9. A barrel cannot be seen through a nearer barrel. In: the boxes. Out: the boxes that pass, left to
+    right (fewer than two boxes: nothing to do).
 
-    Inside the outline of a barrel standing nearer (its bottom edge lower in the picture), every pixel is that barrel's own
-    picture: its body color in its body rows, its stripe color in its stripe rows (``outline_layout``; within half a stripe
-    height of a seam, either color). A nearer barrel explains only where it is SEEN: between the top and the bottom of its
-    body as seen from its evidence (the stripe step's body walk), not where its box was inferred.
+    Inside the outline of a barrel standing nearer (its bottom edge strictly lower in the picture), every pixel is that
+    barrel's own picture: its body color in its body rows, its stripe color in its stripe rows (``outline_layout``;
+    within half a stripe height of a seam, either color). A nearer barrel explains only where it is SEEN: between the
+    top and the bottom of its body as walked from its evidence, not where its box was inferred.
 
-    Every box's evidence (``_evidence``: the stripe, cap, band, slices or piece it was read from) is split into the
-    barrel-colored pixels a kept nearer barrel explains and the rest, its OWN evidence. A box whose own evidence is fewer
-    than ``min_area_px`` pixels (the detector's speck floor: less than any piece it would read anything from) was read
-    from the nearer barrel's picture: it is dropped. A real barrel behind another always shows its visible part outside
-    the nearer one's outline; that part is its own evidence. The boxes are checked nearest first, so only kept boxes
-    explain a farther one. Applied to every rule's box. ``note`` = the caller's reason log (dropped boxes are noted there
-    as stage "verify", with the explained share and the own pixel count)."""
+    The boxes are taken nearest first, so only boxes that passed explain a farther one. Each box's evidence (``_evidence``:
+    the box of the stripe, cap piece, band or slices it was read from; a piece is its own) is split into the
+    barrel-colored pixels a nearer barrel explains and the rest, its OWN pixels. A box with a nearer barrel and fewer than
+    min_area_px own pixels was read from the nearer barrel's picture: dropped ("verify", "front"). A real barrel behind
+    another always shows its visible part outside the nearer one's outline.
+
+    It runs twice. Stage 5, before the caps: the stages after it lean only on boxes that passed, and a dropped box's
+    stripe is cap material again. Stage 9: once more on every box, whatever rule drew it."""
     if len(found) < 2:
         return found
+    log_ = log if log is not None else []
     barrel = np.isin(mask, (ORANGE, BLUE))
     h, w = mask.shape
-    kept: list[Barrel] = []
+    kept: list[Found] = []
     seen_rows: dict[int, tuple[int, int]] = {}
-    for b in sorted(found, key=lambda b: -b.bbox[3]):              # nearest first (lowest bottom edge)
-        ex0, ey0, ex1, ey1 = _evidence(log, b)
+    for f in sorted(found, key=lambda f: -f.barrel.bbox[3]):       # nearest first (lowest bottom edge)
+        b = f.barrel
+        ex0, ey0, ex1, ey1 = _evidence(log_, b)
         ex0, ey0, ex1, ey1 = max(0, ex0), max(0, ey0), min(w, ex1), min(h, ey1)
         ev = barrel[ey0:ey1, ex0:ex1]
         n = int(ev.sum())
-        nearer = [F for F in kept if F.bbox[3] > b.bbox[3]]       # bottoms equal: neither is nearer
+        nearer = [F for F in kept if F.barrel.bbox[3] > b.bbox[3]]   # bottoms equal: neither is nearer
         own, share = n, 0.0
         if n and nearer:
             ok = np.zeros((ey1 - ey0, ex1 - ex0), bool)
             for F in nearer:
-                lay = outline_layout(F, cam, mask.shape)
+                lay = outline_layout(F.barrel, cam, mask.shape)
                 t, bt = seen_rows[id(F)]
                 lay[:t] = 0; lay[bt:] = 0                          # F explains only where it is seen
                 lay = lay[ey0:ey1, ex0:ex1]
@@ -1460,32 +1281,36 @@ def verify_front(mask: np.ndarray, found: list[Barrel], log: list, cam: geo.Came
             own = int((ev & ~ok).sum())
             share = 1.0 - own / n
         if nearer and own < cfg.min_area_px:
-            _note(note, "verify", "front", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), explained=round(share, 3), own_px=own)
+            _note(log, "verify", "front", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), explained=round(share, 3), own_px=own)
             continue
         if ex1 > ex0 and ey1 > ey0:
             t, bt = _body_extent(mask, b.color, ex0, ex1, ey0, ey1)
-            seen_rows[id(b)] = (max(b.bbox[1], t), min(b.bbox[3], bt))
+            seen_rows[id(f)] = (max(b.bbox[1], t), min(b.bbox[3], bt))
         else:
-            seen_rows[id(b)] = (b.bbox[1], b.bbox[3])
-        kept.append(b)
-    return sorted(kept, key=lambda b: b.bbox[0])
+            seen_rows[id(f)] = (b.bbox[1], b.bbox[3])
+        kept.append(f)
+    return sorted(kept, key=lambda f: f.barrel.bbox[0])
 
 
-def verify_readings(mask: np.ndarray, found: list[Barrel], log: list, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
-                    note: list | None = None) -> list[Barrel]:
-    """``verify_readings`` (2026-11-24): every box needs a second reading that agrees with its distance.
+def drop_single_reading(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                        log: list | None = None) -> list[Found]:
+    """The last stage. A box placed from a guessed side needs a second reading that agrees with its distance. In: the
+    boxes. Out: the boxes that pass, in the same order.
 
-    The stripe step reads the distance off the stripe's row. A second reading is a seen edge where that distance puts it:
-    the top, the bottom, or both sides (the body joined to the stripe seen stripe_full to body_width x W wide, as in
-    ``_partly_seen`` step 2). A partly seen stripe (flag ``occluded``) whose box is placed W wide from one side, with its
-    top AND its bottom inferred, has none: only the stripe's row and its (partly seen) height. It is dropped. Every other
-    rule's box has a seen edge by construction (caps: the top; half stripes: the far edge; pairs and thin pieces: top and
-    bottom). ``note`` = the caller's reason log."""
-    h, w = mask.shape
+    The stripe step reads the distance off the stripe's row. A second reading is a seen edge where that distance puts
+    it: the top, the bottom, or both sides (the body joined to the stripe seen stripe_full x W wide). A partly seen
+    stripe's box (flag "occluded") with its top AND its bottom inferred, whose seen span is under stripe_full x W, has
+    none: only the stripe's row. It is dropped ("verify", "readings"). Every other rule's box has a seen edge by the way
+    it is made (a cap its top, a half stripe its far edge, pairs and thin pieces top and bottom).
+
+    It measures the span again, a little differently from ``seen_span``: W comes from the middle row of the stripe's box
+    (not the stripe's centre row), and the columns of other stripes are not left out."""
+    log_ = log if log is not None else []
     out = []
-    for b in found:
+    for f in found:
+        b = f.barrel
         if b.source == "det2" and "occluded" in b.flags and {"top_inferred", "bottom_inferred"} <= b.flags:
-            ex0, ey0, ex1, ey1 = _evidence(log, b)
+            ex0, ey0, ex1, ey1 = _evidence(log_, b)
             g = _stripe_geometry(cam, (ey0 + ey1) / 2)
             if g is not None:
                 W = g[1].width_px
@@ -1493,26 +1318,382 @@ def verify_readings(mask: np.ndarray, found: list[Barrel], log: list, cam: geo.C
                 trusted = span is not None and max(span[1], ex1) - min(span[0], ex0) <= cfg.body_width * W
                 seen = (max(span[1], ex1) - min(span[0], ex0)) if trusted else (ex1 - ex0)
                 if seen < cfg.stripe_full * W:
-                    _note(note, "verify", "readings", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), seen_w=seen, expected_w=W)
+                    _note(log, "verify", "readings", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), seen_w=seen, expected_w=W)
                     continue
-        out.append(b)
+        out.append(f)
     return out
 
 
-def box_iou(a: tuple, b: tuple) -> float:
-    ax0, ay0, ax1, ay1 = a; bx0, by0, bx1, by1 = b
-    iw = max(0, min(ax1, bx1) - max(ax0, bx0)); ih = max(0, min(ay1, by1) - max(ay0, by0))
-    inter = iw * ih
-    union = (ax1 - ax0) * (ay1 - ay0) + (bx1 - bx0) * (by1 - by0) - inter
-    return inter / union if union else 0.0
+# ================================================================ stage 6: caps
 
+def _cap_pieces(mask: np.ndarray, c: int, boxes: list[Barrel], spent: list[Stripe], cfg: DetConfig) -> list[tuple]:
+    """(x, y, width, height, area) of the pieces of color ``c`` that may be the top of a barrel behind a found one.
+
+    Take that color's pixels (gaps closed) without the boxes of the stripes already read (``spent``: a stripe of this
+    color sits on a barrel of the other color). A connected piece of min_area_px or more is a candidate when fewer than
+    half of its pixels lie inside found boxes of its color (it is not a found barrel's own body). Of a piece that is half
+    or more inside them, the parts OUTSIDE those boxes are candidates, each connected part by itself: the top of a barrel
+    behind a found barrel of its own color."""
+    cm = _closed(mask == c, cfg)
+    for s in spent:
+        if s.body != c:                                      # a stripe of this color, on a barrel of the other color
+            x0, y0, x1, y1 = s.bbox
+            cm[y0:y1, x0:x1] = False
+    own = np.zeros(mask.shape, bool)
+    for b in boxes:
+        if b.color == c:
+            own[b.bbox[1]:b.bbox[3], b.bbox[0]:b.bbox[2]] = True
+    n, lab, st, _ = cv2.connectedComponentsWithStats(cm.astype(np.uint8), connectivity=8)
+    cands = []
+    for i in range(1, n):
+        if int(st[i][4]) < cfg.min_area_px:
+            continue
+        if 2 * int((own & (lab == i)).sum()) < int(st[i][4]):
+            cands.append(tuple(int(v) for v in st[i]))
+        else:
+            n2, _, st2, _ = cv2.connectedComponentsWithStats(((lab == i) & ~own).astype(np.uint8), connectivity=8)
+            cands += [tuple(int(v) for v in st2[j]) for j in range(1, n2)]
+    return cands
+
+
+def _cap_box(piece: tuple, c: int, mask: np.ndarray, boxes: list[Barrel], caps: list[Barrel], cam: geo.CameraModel, cfg: DetConfig,
+             log: list | None) -> Found | None:
+    """The box of the barrel whose top is ``piece`` (x, y, width, height, area; color ``c``), or None. ``boxes`` = the found
+    barrels, ``caps`` = the caps made before this one. The checks, in order (the numbers are those of ``caps_behind``):"""
+    h, w = mask.shape
+    x, y, bw, bh, area = piece
+    if area < cfg.min_area_px or y <= 0:
+        return None                                          # 1. a speck, or the top is cut by the frame: no top row to read
+    d = cam._d_axis_from_point_row(y, geo.BARREL_HEIGHT_MM, +geo.BARREL_END_DIAMETER_MM / 2)
+    if not math.isfinite(d) or d <= geo.BARREL_BULGE_DIAMETER_MM / 2 + 1:
+        return None
+    rows = cam.barrel_rows(d)
+    W, H, upper = rows.width_px, rows.bottom - rows.top, rows.stripe_top - rows.top
+    cb = (x, y, x + bw, y + bh)
+    if W < cfg.min_width_px:
+        return None                                          # above the table's far end
+    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
+    if not (cfg.width_min * W <= bw <= max(cfg.body_width, 1.0) * W):
+        _note(log, "cap", "width", cb, body=c, expected_w=W)
+        return None                                          # 2. not barrel-wide for its row
+    if not (cfg.width_min * upper <= bh <= upper + tol):
+        _note(log, "cap", "height", cb, body=c, expected_upper_h=upper)
+        return None                                          # 3. not as tall as an upper body (taller: body color where the stripe must be)
+    bx0, bx1 = x, x + bw
+    if bw >= cfg.stripe_full * W:
+        bottom = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)   # 4. the whole width shows: size from width
+    else:
+        # 5. a narrow cap must be explained: exactly one side hidden, by a found barrel standing nearer (its box holds the
+        # pixel next to the cap at the cap's middle row, and its bottom is lower than the cap's) or by the frame edge.
+        # Neither side: the narrowness has no cause. Both sides: a wedge between two barrels, neither its width nor its
+        # place can be measured
+        row, Wi = y + bh // 2, int(round(W))
+
+        def hidden(px: int) -> bool:
+            return px < 0 or px >= w or any(b.bbox[0] <= px < b.bbox[2] and b.bbox[1] <= row < b.bbox[3] and b.bbox[3] > y + bh
+                                            for b in boxes)
+        left_hidden, right_hidden = hidden(x - 1), hidden(x + bw)
+        if left_hidden == right_hidden:
+            _note(log, "cap", "both_sides" if left_hidden else "narrow", cb, body=c, expected_w=W)
+            return None
+        bottom = rows.bottom                                 # size from the top row
+        if left_hidden:
+            bx0 = bx1 - Wi
+        else:
+            bx1 = bx0 + Wi
+    # 6. the seen bottom is used when it agrees: the cap's own color, in the cap's columns, ending near the estimate
+    col = (mask[:, x:x + bw] == c).any(axis=1)
+    near = [r for r in range(max(y + bh, int(round(bottom - tol))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
+    if near and not col[near[-1] + 1:near[-1] + 4].any():
+        bottom = near[-1] + 1
+    elif bw < cfg.stripe_full * W:
+        # 7. a narrow cap's estimate is the top-row bottom, 4 to 7 px low at mid and far range with this camera, so a seen end
+        # can be refused for the estimate's error. Read the cap's color only beside the nearer found barrels (inside their
+        # boxes it is their stripe). The barrel is at least as wide as what is seen of it, so its bottom is not above that
+        # of a barrel bw wide (a bound that does not depend on the tilt), and not below the estimate + the tolerance
+        beside = np.ones(bw, bool)
+        for b in boxes:
+            if b.bbox[3] > y + bh:
+                beside[max(0, b.bbox[0] - x):max(0, b.bbox[2] - x)] = False
+        least = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)
+        col = (mask[:, x:x + bw][:, beside] == c).any(axis=1)
+        seen = [r for r in range(max(y + bh, int(round(least))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
+        if seen and not col[seen[-1] + 1:seen[-1] + 4].any():
+            bottom = seen[-1] + 1
+    bx0, bx1, bottom = max(0, bx0), min(w, bx1), min(h, int(round(bottom)))
+    below = np.zeros((max(0, bottom - (y + bh)), bx1 - bx0), bool)       # where the rest of this barrel should be
+    for b in boxes:
+        if b.bbox[3] > bottom:                               # a found barrel standing nearer
+            below[max(0, b.bbox[1] - (y + bh)):max(0, b.bbox[3] - (y + bh)), max(0, b.bbox[0] - bx0):max(0, b.bbox[2] - bx0)] = True
+    if below.size == 0 or below.mean() < 0.5:
+        _note(log, "cap", "not_hidden", cb, body=c, hidden_frac=float(below.mean()) if below.size else 0.0)
+        return None                                          # 8. nothing found stands in front of it
+    box = (bx0, y, bx1, bottom)
+    if any(o.color == c and box_iou(o.bbox, box) > 0.5 for o in boxes + caps):
+        _note(log, "cap", "duplicate", cb, body=c, box=box)
+        return None                                          # 9.
+    flags = {"occluded", "bottom_inferred"}
+    if bx0 == 0 or bx1 == w or bottom == h:
+        flags.add("truncated")
+    _note(log, "cap", "kept", cb, body=c, box=box)
+    return Found(Barrel(color=c, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det3"), "cap")
+
+
+def caps_behind(found: list[Found], lost: list[Stripe], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                log: list | None = None) -> list[Found]:
+    """Stage 6. Barrels standing behind a found barrel. In: the boxes so far and the stripes that lost to a surer box
+    (``boxes_from_stripes``). Out: the new boxes (source "det3", flags occluded and bottom_inferred, confidence 0.5).
+
+    Such a barrel shows its upper body (its "cap") above the front barrel; its stripe has melted into the front
+    barrel's body of the same color, or is hidden, so the stripe step cannot find it. The distance comes from the cap's
+    TOP ROW: it gives the expected width W, the height H and the height of an upper body (top row to the stripe's top).
+    Per color, per candidate piece (``_cap_pieces``), the checks of ``_cap_box``:
+
+    1. its top row can be read (not at the frame top) and is on the table (W at least min_width_px);     no note
+    2. barrel-wide: width_min to body_width x W;                                                         "width"
+    3. as tall as an upper body, not more: width_min x the upper body, to the upper body + the edge tolerance;  "height"
+    4. the whole width shows (stripe_full x W): the bottom is the top + the height of a barrel as wide as the cap;
+    5. a narrower cap: exactly one side hidden, by the frame edge or by a found barrel beside it whose bottom is lower
+       than the cap's. It is widened to W toward that side; the bottom is the one the top row predicts.
+                                                                                       "narrow" / "both_sides"
+    6. the cap's own color seen ending within the edge tolerance of that bottom (and 3 empty rows after it) is the bottom;
+    7. else, for a narrow cap: its color seen ending beside the nearer found barrels, between the bottom of a barrel
+       only as wide as the seen cap and the estimate + the tolerance, is the bottom;
+    8. what hides the rest is a barrel: at least half of the box below the cap lies inside found boxes whose bottom
+       edge is lower than this box's;                                                                    "not_hidden"
+    9. not the same barrel as a found box or an earlier cap (same color, IoU over 0.5).                  "duplicate\""""
+    boxes = [f.barrel for f in found]
+    spent = [f.stripe for f in found if f.stripe is not None] + list(lost)
+    new: list[Found] = []
+    for c in (ORANGE, BLUE):
+        for piece in _cap_pieces(mask, c, boxes, spent, cfg):
+            cap = _cap_box(piece, c, mask, boxes, [f.barrel for f in new], cam, cfg, log)
+            if cap is not None:
+                new.append(cap)
+    return new
+
+
+# ================================================================ stage 7: pairs
+
+def _full_slice(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig):
+    """For a narrow stripe piece: (W, rows, top, bottom, sx0, sx1) when it is a FULL SLICE of a barrel, else None. A full
+    slice: the body color above and below the piece ends where the piece's row predicts the barrel's top and bottom
+    (the usual edge tolerance: bottom_tol of the height, at least bottom_tol_min_px), and neither end lies against the
+    other barrel color (that color in at least half of the piece's columns in the 4 rows beyond the end: a strip of a
+    barrel's upper body between a finger and its own stripe is not a slice of a barrel of the other color). ``top``,
+    ``bottom`` = those seen ends; ``sx0``, ``sx1`` = the piece's columns joined with the body joined to it
+    (``_body_span``)."""
+    g = _stripe_geometry(cam, s.center_row)
+    if g is None:
+        return None
+    rows = g[1]
+    x0, y0, x1, y1 = s.bbox
+    top, bottom = _body_extent(mask, s.body, x0, x1, y0, y1)
+    tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * (rows.bottom - rows.top))
+    if abs(top - rows.top) > tol or abs(bottom - rows.bottom) > tol:
+        return None
+    other = BLUE if s.body == ORANGE else ORANGE
+    for band in (mask[max(0, top - 4):max(0, top), x0:x1], mask[bottom:bottom + 4, x0:x1]):
+        if band.size and float((band == other).any(axis=0).mean()) >= 0.5:
+            return None
+    span = _body_span(mask, s.body, x0, x1, max(0, top), min(mask.shape[0], bottom), y0, y1) if bottom - top >= 2 else None
+    sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if span else (x0, x1)
+    return rows.width_px, rows, top, bottom, sx0, sx1
+
+
+def post_pairs(pieces: list[Stripe], found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+               log: list | None = None) -> list[Found]:
+    """Stage 7. One barrel behind a post. In: the stripe pieces that gave no box alone (the finder's left-over pieces,
+    and the stripes stage 3 could not place) and the boxes so far. Out: the new boxes (flag occluded, confidence 0.5).
+
+    A piece counts when it is not a second piece of a found barrel's stripe (``piece_of_found``), is a full slice
+    (``_full_slice``: its body ends where its row predicts the top and the bottom), and is under stripe_w_min x W wide (a
+    wider piece is placed alone). Two such pieces, the left one wholly left of the right one, are one barrel when
+
+    1. they have one body color and share rows: the overlap is at least half the height of the shorter;
+    2. their outer body edges are stripe_full to body_width x W apart (W = the mean of the two);
+    3. the box is not the same barrel as a found box or an earlier pair (same color, IoU over 0.5).       "duplicate"
+
+    Two barrels at one distance cannot have their outer edges within 1.2 W of each other, so the two slices are one
+    barrel with something upright in front of its middle (or with its stripe and body cut by a highlight). The box runs
+    from outer edge to outer edge; top and bottom are the seen ones."""
+    h, w = mask.shape
+    info = []
+    for s in sorted(pieces, key=lambda s: s.bbox[0]):
+        f = None if piece_of_found(s, found) else _full_slice(s, mask, cam, cfg)
+        if f is not None and (s.bbox[2] - s.bbox[0]) < cfg.stripe_w_min * f[0]:
+            info.append((s, *f))
+    boxes = [f.barrel for f in found]
+    out: list[Found] = []
+    paired: list[Stripe] = []
+    for i, (l, Wl, _, tl, bl, lx0, _) in enumerate(info):
+        for r, Wr, _, tr, br, _, rx1 in info[i + 1:]:
+            if any(l is p or r is p for p in paired) or l.body != r.body or r.bbox[0] < l.bbox[2]:
+                continue
+            shared = min(l.bbox[3], r.bbox[3]) - max(l.bbox[1], r.bbox[1])
+            if 2 * shared < min(l.bbox[3] - l.bbox[1], r.bbox[3] - r.bbox[1]):
+                continue                                                                   # 1.
+            W = (Wl + Wr) / 2
+            if not (cfg.stripe_full * W <= rx1 - lx0 <= max(cfg.body_width, 1.0) * W):
+                continue                                                                   # 2.
+            box = (max(0, lx0), max(0, min(tl, tr)), min(w, rx1), min(h, max(bl, br)))
+            if any(o.color == l.body and box_iou(o.bbox, box) > 0.5 for o in boxes + [f.barrel for f in out]):
+                _note(log, "pair", "duplicate", l.bbox, body=l.body, box=box)
+                continue                                                                   # 3.
+            flags = {"occluded"} | ({"truncated"} if box[0] == 0 or box[2] == w or box[1] == 0 or box[3] == h else set())
+            out.append(Found(Barrel(color=l.body, bbox=box, confidence=0.5, flags=frozenset(flags), area=l.n_other + r.n_other,
+                                    source="det2"), "pair"))
+            paired += [l, r]
+            _note(log, "pair", "kept", l.bbox, body=l.body, box=box, other=r.bbox, expected_w=W, outer_span=rx1 - lx0)
+    return out
+
+
+# ================================================================ stage 8: half stripes
+
+def half_stripes(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
+                 log: list | None = None) -> list[Found]:
+    """Stage 8. Barrels hidden from above or from below by something that is not a barrel, found from a stripe that has
+    body color on ONE side only. In: the boxes so far. Out: the boxes, with the new ones added (flags occluded and
+    top_inferred or bottom_inferred, confidence 0.5) and the boxes they replace taken out.
+
+    Done per body color. A band = a connected piece (min_area_px or more) of the other barrel color. "Body right above"
+    a column of it = the body color within band_h_max stripe heights above the band there (the stripe finder's
+    sandwich, one side). The checks, in order:
+
+     1. body right below in at least stripe_full of its columns and right above in at most 1 - stripe_full: "top
+        hidden" (the stripe and the lower body show). The reverse: "bottom hidden". Else not a half stripe.   no note
+     2. the SEAM between band and body gives the distance: the stripe's top edge is 15 mm above the table and its bottom
+        edge 9 mm, at the bulge. The barrel is on the table (W at least min_width_px, stripe min_stripe_px).    no note
+     3. the band is not taller than a stripe (stripe_h_max x the stripe height). There is no floor: a barrel half hidden
+        from below shows a few rows of its stripe.                                                        "height"
+     4. the whole width shows: the band is stripe_full to body_width x W wide.                            "width"
+     5. the second reading agrees: the body's far edge (its bottom when the top is hidden, its top when the bottom is)
+        is where the seam predicts it, within the edge tolerance, and inside the frame.                   "far_edge"
+     6. it is the thinner band: less tall than the body part beside it (seam to far edge). A stripe is 6 mm, a body
+        part 9 mm or more; else a barrel hidden from below whose stripe shows whole would also pass as a smaller barrel
+        of the other color hidden from above.                                                    "thicker_than_body"
+     7. the body joined to the band is stripe_full to body_width x W wide.                                "body_width"
+     8. the open side is clear: barrel color in the 4 rows beyond the band in fewer than half of its columns.  "open_side"
+     9. the body's far edge is a seen edge: not against barrel color (the same test beyond that edge). An ordinary
+        barrel's upper body and stripe pass 1 to 8 as the "stripe and lower body" of a smaller barrel of the other
+        color; its "bottom" ends against the real barrel's lower body.                    "far_edge_against_barrel"
+    10. it is not a found barrel's: fewer than half of the band's pixels inside found boxes, and no found box of its
+        color overlapping the new box by more than half.                                                  "found"
+
+    The box: sides = the seen band and body; the seen far edge; the hidden edge where the seam's distance puts it. A box
+    the stripe step made from a narrow, partly seen piece of this same band (flag occluded, its stripe inside the band's
+    box) is a corner of it: it does not count as "found" in 10, and the new box REPLACES it."""
+    h, w = mask.shape
+    rows_idx = np.arange(h)[:, None]
+    reach = _reach_by_row(cam, h, cfg)[:, None]
+    barrel = np.isin(mask, (ORANGE, BLUE))
+    bulge_r = geo.BARREL_BULGE_DIAMETER_MM / 2
+    z_top, z_bottom = (geo.BARREL_HEIGHT_MM + geo.STRIPE_HEIGHT_MM) / 2, (geo.BARREL_HEIGHT_MM - geo.STRIPE_HEIGHT_MM) / 2
+    new: list[Found] = []
+    replaced: list[Found] = []
+    for body in (ORANGE, BLUE):
+        other = BLUE if body == ORANGE else ORANGE
+        bm = _closed(mask == body, cfg)
+        om = _closed(mask == other, cfg) & ~bm
+        up = np.maximum.accumulate(np.where(bm, rows_idx, -10 ** 6), axis=0)              # last body row at or above
+        dn = np.minimum.accumulate(np.where(bm, rows_idx, 10 ** 6)[::-1], axis=0)[::-1]   # first body row at or below
+        above, below = (rows_idx - up) <= reach, (dn - rows_idx) <= reach
+        n, lab, st, _ = cv2.connectedComponentsWithStats(om.astype(np.uint8), connectivity=8)
+        for i in range(1, n):
+            x, y, bw, bh, area = (int(v) for v in st[i])
+            if area < cfg.min_area_px:
+                continue
+            sel = lab[y:y + bh, x:x + bw] == i                                             # the band, in its own box
+            cols = np.flatnonzero(sel.any(axis=0))
+            fa = float((sel & above[y:y + bh, x:x + bw]).any(axis=0)[cols].mean())
+            fb = float((sel & below[y:y + bh, x:x + bw]).any(axis=0)[cols].mean())
+            if fb >= cfg.stripe_full and fa <= 1 - cfg.stripe_full:
+                top_hidden = True
+            elif fa >= cfg.stripe_full and fb <= 1 - cfg.stripe_full:
+                top_hidden = False
+            else:
+                continue                                                                   # 1. body on both sides (a stripe) or on neither
+            sb = (x, y, x + bw, y + bh)
+            first = y + np.argmax(sel[:, cols], axis=0)                                    # first and last band row, per column
+            last = y + bh - 1 - np.argmax(sel[::-1][:, cols], axis=0)
+            if top_hidden:
+                seams = dn[last, x + cols]; seams = seams[seams < 10 ** 5]                 # first body row under the band
+                seam, z = (float(np.median(seams)) if len(seams) else math.nan), z_bottom
+            else:
+                seams = up[first, x + cols]; seams = seams[seams > -10 ** 5]               # one past the last body row above it
+                seam, z = (float(np.median(seams)) + 1 if len(seams) else math.nan), z_top
+            d = cam._d_axis_from_point_row(seam, z, -bulge_r) if math.isfinite(seam) else math.inf
+            if not math.isfinite(d) or d <= bulge_r + 1:
+                continue                                                                   # 2.
+            rows = cam.barrel_rows(d)
+            W, H, Hs = rows.width_px, rows.bottom - rows.top, rows.stripe_bottom - rows.stripe_top
+            if W < cfg.min_width_px or Hs < cfg.min_stripe_px:
+                continue
+            ys = np.where(sel)[0]
+            core_h = float(np.percentile(ys, 90) - np.percentile(ys, 10) + 1)
+            if core_h > cfg.stripe_h_max * Hs:
+                _note(log, "half", "height", sb, body=body, core_h=core_h, expected_stripe_h=Hs)
+                continue                                                                   # 3.
+            if not (cfg.stripe_full * W <= bw <= max(cfg.body_width, 1.0) * W):
+                _note(log, "half", "width", sb, body=body, expected_w=W)
+                continue                                                                   # 4.
+            tol = max(cfg.bottom_tol_min_px, cfg.bottom_tol * H)
+            top_s, bottom_s = _body_extent(mask, body, x, x + bw, y, y + bh)
+            if top_hidden:
+                agrees, r0, r1 = abs(bottom_s - rows.bottom) <= tol and bottom_s < h, y, bottom_s
+            else:
+                agrees, r0, r1 = abs(top_s - rows.top) <= tol and top_s > 0, top_s, y + bh
+            if not agrees:
+                _note(log, "half", "far_edge", sb, body=body, seen=bottom_s if top_hidden else top_s, predicted=rows.bottom if top_hidden else rows.top)
+                continue                                                                   # 5.
+            if core_h >= ((bottom_s - seam) if top_hidden else (seam - top_s)):
+                _note(log, "half", "thicker_than_body", sb, body=body, core_h=core_h)
+                continue                                                                   # 6.
+            span = _body_span(mask, body, x, x + bw, r0, r1, y, y + bh) if r1 - r0 >= 2 else None
+            sx0, sx1 = (min(span[0], x), max(span[1], x + bw)) if span else (x, x + bw)
+            if span is None or not (cfg.stripe_full * W <= sx1 - sx0 <= max(cfg.body_width, 1.0) * W):
+                _note(log, "half", "body_width", sb, body=body, expected_w=W)
+                continue                                                                   # 7.
+            beyond = [(max(0, f - 4), f) for f in first] if top_hidden else [(l + 1, min(h, l + 5)) for l in last]
+            if float(np.mean([barrel[a:b, x + c].any() for (a, b), c in zip(beyond, cols)])) >= 0.5:
+                _note(log, "half", "open_side", sb, body=body)
+                continue                                                                   # 8.
+            far = barrel[bottom_s:min(h, bottom_s + 4), x:x + bw] if top_hidden else barrel[max(0, top_s - 4):max(0, top_s), x:x + bw]
+            if far.size and float(far.any(axis=0).mean()) >= 0.5:
+                _note(log, "half", "far_edge_against_barrel", sb, body=body)
+                continue                                                                   # 9.
+            box = (max(0, sx0), max(0, int(round(rows.top))) if top_hidden else top_s, min(w, sx1), bottom_s if top_hidden else min(h, int(round(rows.bottom))))
+            if box[2] - box[0] < 2 or box[3] - box[1] < 2:
+                continue
+            # boxes the stripe step made from a narrow, partly seen piece of this same band
+            corners = [f for f in found if f.stripe is not None and f.stripe.body == body and "occluded" in f.barrel.flags
+                       and x <= f.stripe.bbox[0] and f.stripe.bbox[2] <= x + bw and y <= f.stripe.bbox[1] and f.stripe.bbox[3] <= y + bh]
+            others = [f.barrel for f in found + new if not any(f is c for c in corners)]
+            inside = np.zeros(sel.shape, bool)
+            for b in others:
+                inside[max(0, b.bbox[1] - y):max(0, b.bbox[3] - y), max(0, b.bbox[0] - x):max(0, b.bbox[2] - x)] = True
+            if 2 * int((sel & inside).sum()) >= area or any(o.color == body and box_iou(o.bbox, box) > 0.5 for o in others):
+                _note(log, "half", "found", sb, body=body, box=box)
+                continue                                                                   # 10.
+            flags = {"occluded", "top_inferred" if top_hidden else "bottom_inferred"}
+            if box[0] == 0 or box[2] == w or box[1] == 0 or box[3] == h:
+                flags.add("truncated")
+            new.append(Found(Barrel(color=body, bbox=box, confidence=0.5, flags=frozenset(flags), area=area, source="det2"), "half_stripe"))
+            replaced += corners
+            _note(log, "half", "kept", sb, body=body, box=box, hidden="top" if top_hidden else "bottom", seam=seam, distance_mm=d, expected_w=W,
+                  expected_h=H, expected_stripe_h=Hs, core_h=core_h, predicted_top=rows.top, predicted_bottom=rows.bottom, tol=tol,
+                  seen_far_edge=bottom_s if top_hidden else top_s, body_span=(sx0, sx1))
+    return [f for f in found if not any(f is r for r in replaced)] + new
+
+
+# ================================================================ the output image
 
 BOX_COLOR_BGR = {ORANGE: (0, 255, 255), BLUE: (0, 255, 0)}   # yellow = orange barrel, green = blue barrel (Dave's convention)
 
 
 def draw(image_bgr: np.ndarray, barrels: list[Barrel], thickness: int = 1) -> np.ndarray:
-    """The v2 output image: the input with one 1-px rectangle per barrel — yellow for an orange barrel, green
-    for a blue one, so the lines stand out from the barrels themselves — and nothing else."""
+    """The v2 output image: the input with one 1-px rectangle per barrel, yellow for an orange barrel and green
+    for a blue one, so the lines stand out from the barrels themselves, and nothing else."""
     out = image_bgr.copy()
     for b in barrels:
         x0, y0, x1, y1 = b.bbox

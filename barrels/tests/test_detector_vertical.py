@@ -7,7 +7,7 @@ import numpy as np
 
 from barrels import detector as det, io
 from barrels.detect_types import Barrel
-from test_detector import CAM, paint_barrel, whys
+from test_detector import CAM, paint_barrel, stripes_of, whys
 from test_detector_occl import _close, _free_barrels, _front_of_other_color, _one_barrel
 
 R = CAM.barrel_rows(150)                                    # the barrel of _one_barrel: blue, 150 mm away, centred on column 320
@@ -22,7 +22,7 @@ def test_stripe_and_lower_body_is_a_barrel_hidden_from_above():
     base, so it is a barrel; the top is drawn where the seam's distance puts it."""
     mask, truth = _one_barrel()
     mask[:S_TOP + 2] = 0
-    assert det.find_stripes(mask, CAM) == []
+    assert stripes_of(mask) == []
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.BLUE and {"occluded", "top_inferred"} <= out[0].flags
     assert out[0].bbox[3] == truth[3] and out[0].bbox[0] == truth[0] and out[0].bbox[2] == truth[2]
@@ -34,7 +34,7 @@ def test_upper_body_and_stripe_is_a_barrel_hidden_from_below():
     top is where the seam predicts it: a barrel; the bottom is drawn where the seam's distance puts it."""
     mask, truth = _one_barrel()
     mask[S_BOTTOM - 2:] = 0
-    assert det.find_stripes(mask, CAM) == []
+    assert stripes_of(mask) == []
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.BLUE and {"occluded", "bottom_inferred"} <= out[0].flags
     assert out[0].bbox[:3] == truth[:3] and abs(out[0].bbox[3] - truth[3]) <= 2
@@ -114,10 +114,10 @@ def test_half_stripe_replaces_a_box_made_from_a_corner_of_the_same_band():
     mask[S_BOTTOM - 2:] = 0
     piece = det.Stripe(io.BLUE, (truth[0], S_TOP, truth[0] + 14, S_BOTTOM - 2), 14 * 15, 0, (S_TOP + S_BOTTOM) / 2)
     corner = Barrel(color=io.BLUE, bbox=(truth[0] - 20, truth[1], truth[2] - 20, truth[3] - 6), flags=frozenset({"occluded"}), source="det2")
-    new, replaced = det.half_stripes(mask, [corner], [(piece, corner)], CAM)
-    assert len(new) == 1 and replaced == [corner] and det.box_iou(new[0].bbox, truth) > 0.9
-    new, replaced = det.half_stripes(mask, [corner], [], CAM)
-    assert new == [] and replaced == []
+    out = det.half_stripes([det.Found(corner, "hidden_side", stripe=piece)], mask, CAM)
+    assert len(out) == 1 and out[0].rule == "half_stripe" and det.box_iou(out[0].barrel.bbox, truth) > 0.9     # the corner box is gone
+    given = det.Found(corner, "cap")
+    assert det.half_stripes([given], mask, CAM) == [given]
 
 
 # ---------------------------------------------------------------- pairs
@@ -131,9 +131,8 @@ def _behind_a_post(hidden=0.6):
 
 def _left_over(mask):
     """The stripe pieces of a mask that could be half of a pair: the ones the finder keeps aside, else all it found."""
-    narrow = []
-    stripes = det.find_stripes(mask, CAM, narrow=narrow)
-    return narrow or stripes
+    stripes, leftover = det.find_stripes(mask, cam=CAM)
+    return leftover or stripes
 
 
 def test_two_slices_left_and_right_of_a_post_are_one_barrel():
@@ -193,10 +192,10 @@ def test_a_piece_of_a_found_barrels_own_stripe_is_not_half_of_a_pair():
     mask, truth = _behind_a_post()
     left_over = _left_over(mask)
     assert len(left_over) == 2
-    assert len(det.post_pairs(left_over, mask, [], CAM)[0]) == 1
+    assert len(det.post_pairs(left_over, [], mask, CAM)) == 1
     left = left_over[0]
     owner = Barrel(color=io.BLUE, bbox=(left.bbox[0] - 5, truth[1], left.bbox[2] + 5, truth[3]), source="det2")
-    assert det.post_pairs(left_over, mask, [owner], CAM, made=((left, owner),)) == ([], [])
+    assert det.post_pairs(left_over, [det.Found(owner, "whole_stripe", stripe=left)], mask, CAM) == []
 
 
 # ---------------------------------------------------------------- a stripe wider than a barrel
@@ -226,8 +225,8 @@ def test_stripe_wide_leaves_a_wide_stripe_alone_when_no_body_is_seen_right_besid
     r = CAM.barrel_rows(150)
     mask[int(round(r.stripe_top)) - 5:int(round(r.stripe_top))] = 0
     mask[int(round(r.stripe_bottom)):int(round(r.stripe_bottom)) + 5] = 0
-    stripes = det.find_stripes(mask, CAM)
-    assert len(stripes) == 1 and stripes[0].merged is None and stripes[0].bbox[0] == a[0] and stripes[0].bbox[2] == b[2]
+    stripes = stripes_of(mask)
+    assert len(stripes) == 1 and stripes[0].cut_from is None and stripes[0].bbox[0] == a[0] and stripes[0].bbox[2] == b[2]
     assert len(det.detect(mask, cam=CAM)) == 1
 
 
@@ -241,14 +240,14 @@ def test_one_barrel_larger_than_its_row_predicts_is_not_cut_in_two():
     x0, x1 = int(round(320 - W / 2)), int(round(320 + W / 2))
     mask[int(round(mid - up)):int(round(mid + down)), x0:x1] = io.ORANGE
     mask[int(round(mid - 1.3 * (mid - r.stripe_top))):int(round(mid + 1.3 * (r.stripe_bottom - mid))), x0:x1] = io.BLUE
-    stripes = det.find_stripes(mask, CAM)
-    assert len(stripes) == 1 and stripes[0].merged is None and stripes[0].bbox[2] - stripes[0].bbox[0] > 1.2 * r.width_px
+    stripes = stripes_of(mask)
+    assert len(stripes) == 1 and stripes[0].cut_from is None and stripes[0].bbox[2] - stripes[0].bbox[0] > 1.2 * r.width_px
     assert len(det.detect(mask, cam=CAM)) == 1
 
 
 def test_stripe_wide_leaves_one_barrel_and_a_touching_pair_alone():
     one = np.zeros((480, 640), np.uint8); truth = paint_barrel(one, 150, 320)
-    assert [s.merged for s in det.find_stripes(one, CAM)] == [None] and [b.bbox for b in det.detect(one, cam=CAM)] == [truth]
+    assert [s.cut_from for s in stripes_of(one)] == [None] and [b.bbox for b in det.detect(one, cam=CAM)] == [truth]
     pair = np.zeros((480, 640), np.uint8)
     a = paint_barrel(pair, 150, 300); b = paint_barrel(pair, 150, 300 + (a[2] - a[0]))
     out = det.detect(pair, cam=CAM)

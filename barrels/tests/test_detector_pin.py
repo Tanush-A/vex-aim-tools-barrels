@@ -5,7 +5,7 @@ the outline (or the frame edge, or its body's whole width) places."""
 import numpy as np
 
 from barrels import detector as det, geometry as geo, io
-from test_detector import CAM, CFG, paint_barrel, whys
+from test_detector import CAM, CFG, paint_barrel, stripes_of, whys
 
 
 def paint_round_barrel(mask, d_axis_mm, x_center, body=io.BLUE, cam=CAM):
@@ -100,8 +100,8 @@ def test_a_piece_from_the_middle_fits_in_many_places_and_is_left_as_before():
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and abs((out[0].bbox[2] - out[0].bbox[0]) - W) <= 1
     assert abs((out[0].bbox[0] + out[0].bbox[2]) / 2 - (truth[0] + truth[2]) / 2) <= 2
-    s = det.find_stripes(mask, CAM)[0]
-    assert det._outline_place(s, mask, CAM, CFG, s.bbox[0], s.bbox[2]) is None
+    s = stripes_of(mask)[0]
+    assert det.own_end_by_outline(s, mask, CAM, CFG, s.bbox[0], s.bbox[2]) is None
 
 
 def test_a_square_cornered_piece_is_left_as_before():
@@ -131,8 +131,8 @@ def test_outline_place_needs_a_barrels_outline():
     mask, truth = _round_cut(0.0, 0.5)
     W, H = truth[2] - truth[0], truth[3] - truth[1]
     mask[truth[1]:truth[1] + int(0.3 * H), truth[0]:truth[0] + int(0.25 * W)] = 0
-    s = max(det.find_stripes(mask, CAM), key=lambda s: s.bbox[2] - s.bbox[0])
-    assert det._outline_place(s, mask, CAM, CFG, truth[0], truth[0] + W // 2) is None
+    s = max(stripes_of(mask), key=lambda s: s.bbox[2] - s.bbox[0])
+    assert det.own_end_by_outline(s, mask, CAM, CFG, truth[0], truth[0] + W // 2) is None
 
 
 def test_a_slanted_cut_is_not_taken_for_the_barrels_own_side():
@@ -148,8 +148,8 @@ def test_a_slanted_cut_is_not_taken_for_the_barrels_own_side():
         m[cols >= truth[0] + 0.5 * W + lean * 0.25 * W * (rows - (truth[1] + truth[3]) / 2) / H] = 0
         out = det.detect(m, cam=CAM)
         assert len(out) == 1 and abs(out[0].bbox[0] - truth[0]) <= 2 and det.box_iou(out[0].bbox, truth) > 0.8
-        s = max(det.find_stripes(m, CAM), key=lambda s: s.bbox[2] - s.bbox[0])
-        only_right = det._outline_place(s, m, CAM, CFG, truth[0] + int(0.3 * W), s.bbox[2])     # without the own side in view: the slant alone
+        s = max(stripes_of(m), key=lambda s: s.bbox[2] - s.bbox[0])
+        only_right = det.own_end_by_outline(s, m, CAM, CFG, truth[0] + int(0.3 * W), s.bbox[2])     # without the own side in view: the slant alone
         assert only_right is None
 
 
@@ -182,8 +182,8 @@ def test_thin_slice_with_a_corner_is_a_barrel():
     v = _thin_share()
     mask, truth = _round_cut(0.0, v)
     W = truth[2] - truth[0]
-    stripes = det.find_stripes(mask, CAM)
-    assert len(stripes) == 1 and stripes[0].small
+    stripes = stripes_of(mask)
+    assert len(stripes) == 1 and stripes[0].thin
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.BLUE and "occluded" in out[0].flags
     assert abs(out[0].bbox[0] - truth[0]) <= 1                                        # anchored on the barrel's own side
@@ -205,7 +205,7 @@ def test_thin_slice_from_the_middle_gives_no_box():
     """A thin slice from the middle of a barrel is a full slice, but flat: the outline fits in many places. No box."""
     v = _thin_share()
     mask, truth = _round_cut(0.5 - v / 2, 0.5 + v / 2)
-    assert any(s.small for s in det.find_stripes(mask, CAM))
+    assert any(s.thin for s in stripes_of(mask))
     log = []
     assert det.detect(mask, cam=CAM, log=log) == [] and "outline_unknown" in whys(log, "barrel")
 
@@ -231,8 +231,8 @@ def test_thin_piece_of_a_found_barrels_stripe_is_not_another_barrel():
     W = truth[2] - truth[0]
     a, b = truth[0] + int(0.14 * W), truth[0] + int(0.32 * W)
     mask[:, a:b] = 0
-    stripes = det.find_stripes(mask, CAM)
-    assert len(stripes) == 2 and [s.small for s in stripes] == [True, False]
+    stripes = stripes_of(mask)
+    assert len(stripes) == 2 and [s.thin for s in stripes] == [True, False]
     log = []
     out = det.detect(mask, cam=CAM, log=log)
     assert len(out) == 1 and det.box_iou(out[0].bbox, truth) > 0.85
@@ -241,27 +241,22 @@ def test_thin_piece_of_a_found_barrels_stripe_is_not_another_barrel():
 
 def test_a_thin_piece_is_a_stripe_and_a_left_over_piece_and_is_handed_over_once():
     """A piece narrower than a stripe is tall enters the stripe step as a thin stripe AND is kept aside for the pairs (its
-    ``narrow`` twin), exactly as a piece the finder refuses for its width. The stripes returned do not depend on the
-    list, and a thin stripe left without a box is not handed over a second time."""
+    twin among the left-over pieces), exactly as a piece the finder refuses for its width. A thin stripe left without a
+    box is not handed over a second time: only stripes that are not thin count as "unplaced"."""
     from test_detector_vertical import _behind_a_post, _slice_beside_a_nearer_barrel
     for mask in (_slice_beside_a_nearer_barrel()[0], _round_cut(0.5 - _thin_share() / 2, 0.5 + _thin_share() / 2)[0], _behind_a_post()[0]):
-        narrow = []
-        stripes = det.find_stripes(mask, CAM, narrow=narrow)
-        thin = [s for s in stripes if s.small]
-        assert thin and all(s.narrow for s in narrow)
-        assert sorted(s.bbox for s in thin) == sorted(s.bbox for s in narrow)
-        assert det.find_stripes(mask, CAM) == stripes
-        unplaced = []
-        for s in thin:
-            det.barrel_from_stripe(s, mask, CAM, unplaced=unplaced)
-        assert unplaced == []
+        stripes, leftover = det.find_stripes(mask, cam=CAM)
+        thin = [s for s in stripes if s.thin]
+        assert thin and sorted(s.bbox for s in thin) == sorted(s.bbox for s in leftover) and not any(s.thin for s in leftover)
+        for s in thin:                                # with or without a box, a thin stripe is never "unplaced"
+            assert det.box_from_stripe(s, mask, CAM)[1] != "side_unexplained"
 
 
 def test_end_costs_tell_a_barrels_own_side_from_a_cut():
     """The left half shows: the left end follows the outline (cost near 0), the cut end does not (cost over pin_good)."""
     mask, truth = _round_cut(0.0, 0.5)
     W = truth[2] - truth[0]
-    s = det.find_stripes(mask, CAM)[0]
+    s = stripes_of(mask)[0]
     left, right = det._end_costs(s, mask, CAM, CFG, truth[0], truth[0] + W // 2)
     assert left < 0.02 < CFG.pin_good < right
-    assert det._outline_place(s, mask, CAM, CFG, truth[0], truth[0] + W // 2)[0] == truth[0]
+    assert det.own_end_by_outline(s, mask, CAM, CFG, truth[0], truth[0] + W // 2)[0] == truth[0]

@@ -10,6 +10,10 @@ from barrels.detect_types import Barrel
 from test_detector import CAM, paint_barrel, whys
 
 
+def kept(found):
+    return [f.barrel for f in found]
+
+
 def _shifted_reading():
     """occlx_17 in miniature: a blue barrel (orange stripe) standing alone, and a strip of orange clutter right above it
     (the wall seen past the table's end). Blue upper body between orange clutter above and the orange stripe below is
@@ -41,7 +45,7 @@ def test_verify_front_drops_evidence_that_is_the_nearer_barrels_own_picture():
     ev = (fb[0] + 6, fb[1] + 3, fb[2] - 6, int(r.stripe_top))     # the blue upper body, inside F
     B = Barrel(color=io.ORANGE, bbox=(fb[0], fb[1] - 15, fb[2], int(r.stripe_bottom)), source="det2")
     log = [{"stage": "barrel", "why": "kept", "bbox": fb, "box": fb}, {"stage": "barrel", "why": "kept", "bbox": ev, "box": B.bbox}]
-    assert det.verify_front(mask, [F, B], log, CAM) == [F]
+    assert kept(det.drop_seen_through([det.Found(F, "whole_stripe"), det.Found(B, "whole_stripe")], mask, CAM, log=log)) == [F]
 
 
 def test_a_real_barrel_behind_whose_stripe_shows_beside_the_nearer_one_stays():
@@ -64,7 +68,8 @@ def test_a_box_whose_evidence_is_outside_every_nearer_outline_is_kept_and_order_
     F = Barrel(color=io.BLUE, bbox=fb, source="det2")
     B = Barrel(color=io.ORANGE, bbox=bb, source="det2")
     log = [{"stage": "barrel", "why": "kept", "bbox": fb, "box": fb}, {"stage": "barrel", "why": "kept", "bbox": bb, "box": bb}]
-    assert det.verify_front(mask, [B, F], log, CAM) == [F, B]           # sorted left to right, nothing dropped
+    out = det.drop_seen_through([det.Found(B, "whole_stripe"), det.Found(F, "whole_stripe")], mask, CAM, log=log)
+    assert kept(out) == [F, B]                                          # sorted left to right, nothing dropped
 
 
 def test_a_single_barrel_is_untouched():
@@ -96,6 +101,6 @@ def test_a_partly_seen_stripe_with_no_seen_edge_and_a_guessed_side_is_dropped():
     B = Barrel(color=io.ORANGE, bbox=(300, int(r.top), 300 + W, int(r.bottom)), flags=frozenset({"occluded", "top_inferred", "bottom_inferred"}),
                source="det2")
     log = [{"stage": "barrel", "why": "kept", "bbox": ev, "box": B.bbox}]
-    assert det.verify_readings(mask, [B], log, CAM) == []
+    assert det.drop_single_reading([det.Found(B, "hidden_side")], mask, CAM, log=log) == []
     mask[s0 - 3:s0, 300:300 + W] = io.ORANGE                   # the upper body seen across the whole width: a second reading
-    assert det.verify_readings(mask, [B], log, CAM) == [B]
+    assert kept(det.drop_single_reading([det.Found(B, "hidden_side")], mask, CAM, log=log)) == [B]

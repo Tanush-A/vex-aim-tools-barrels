@@ -5,7 +5,7 @@ import numpy as np
 
 from barrels import detector as det, io
 from barrels.detect_types import Barrel
-from test_detector import CAM, CFG, _behind, _cap, paint_barrel
+from test_detector import _behind, CAM, _cap, caps, CFG, paint_barrel
 
 
 def _scene(seen=0.55, front_below=20):
@@ -24,7 +24,7 @@ def test_seen_end_beside_the_front_barrel_is_the_bottom_when_the_top_row_estimat
     mask, r, x0, n, top, bottom, front, tol = _scene()
     end = bottom - int(tol) - 3
     mask[int(round(r.stripe_bottom)):end, x0:x0 + 8] = io.BLUE
-    out = det.caps_behind(mask, [front], [], CAM)
+    out = caps(mask, [front])
     assert len(out) == 1 and out[0].bbox[3] == end and out[0].bbox[:3] == (x0, top, x0 + int(round(r.width_px)))
 
 
@@ -34,11 +34,11 @@ def test_cap_dropped_because_the_front_barrel_no_longer_stood_nearer_is_found():
     mask, r, x0, n, top, bottom, front, tol = _scene(front_below=0)
     end = bottom - int(tol) - 3
     mask[int(round(r.stripe_bottom)):end, x0:x0 + 8] = io.BLUE
-    out = det.caps_behind(mask, [front], [], CAM)
+    out = caps(mask, [front])
     assert len(out) == 1 and out[0].bbox[3] == end and {"occluded", "bottom_inferred"} <= out[0].flags
     bare, *_ = _scene(front_below=0)                                    # the same cap with no lower body in view: the top-row bottom stays,
     log = []                                                            # and the front barrel does not stand nearer than that
-    assert det.caps_behind(bare, [front], [], CAM, log=log) == [] and "not_hidden" in [e["why"] for e in log]
+    assert caps(bare, [front], log) == [] and "not_hidden" in [e["why"] for e in log]
 
 
 def test_color_inside_the_front_barrels_box_is_not_this_barrels_bottom():
@@ -46,7 +46,7 @@ def test_color_inside_the_front_barrels_box_is_not_this_barrels_bottom():
     mask, r, x0, n, top, bottom, front, tol = _scene()
     end = bottom - int(tol) - 3
     mask[int(round(r.stripe_bottom)):end, front.bbox[0]:x0 + n] = io.BLUE
-    out = det.caps_behind(mask, [front], [], CAM)
+    out = caps(mask, [front])
     assert len(out) == 1 and abs(out[0].bbox[3] - bottom) <= 1
 
 
@@ -58,14 +58,14 @@ def test_seen_end_above_the_smallest_barrel_that_shows_this_width_is_not_used():
     start, end = int(round(r.stripe_top)) + 5, int(least) - 3            # a patch of the color under the cap (not joined to it), ending too high
     assert end - start >= 3 and end < bottom - tol
     mask[start:end, x0:x0 + 8] = io.BLUE
-    out = det.caps_behind(mask, [front], [], CAM)
+    out = caps(mask, [front])
     assert len(out) == 1 and abs(out[0].bbox[3] - bottom) <= 1
 
 
 def test_color_running_on_below_the_estimate_is_not_used():
     mask, r, x0, n, top, bottom, front, tol = _scene()
     mask[int(round(r.stripe_bottom)):bottom + 40, x0:x0 + 8] = io.BLUE
-    out = det.caps_behind(mask, [front], [], CAM)
+    out = caps(mask, [front])
     assert out == [] or abs(out[0].bbox[3] - bottom) <= 1
 
 
@@ -74,7 +74,7 @@ def test_a_seen_end_that_agrees_and_a_cap_seen_whole_are_untouched():
     tolerance is taken as it is; a cap seen whole gets its bottom from its width."""
     mask, r, x0, n, top, bottom, front, tol = _scene()
     mask[int(round(r.stripe_bottom)):bottom - 5, x0:x0 + 8] = io.BLUE              # inside the tolerance
-    out = det.caps_behind(mask, [front], [], CAM)
+    out = caps(mask, [front])
     assert len(out) == 1 and out[0].bbox[3] == bottom - 5
     for dx in (0, 15, 30):                                                          # a barrel behind another, its cap seen whole
         scene, back, _ = _behind(dx)

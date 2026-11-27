@@ -4,7 +4,7 @@ only for a reason; a stripe too thin by its own rows is read at the seams too.""
 import numpy as np
 
 from barrels import degrade as dg, detector as det, io
-from test_detector import CAM, CFG, _barrel_behind_a_slanted_edge, paint_barrel, whys
+from test_detector import _barrel_behind_a_slanted_edge, CAM, CFG, paint_barrel, stripes_of, whys
 
 
 def _close(box, truth, px=2):
@@ -103,18 +103,18 @@ def test_found_nearer_barrel_is_a_reason():
     assert len(out) == 2 and _close(out[0].bbox, front)
     b = out[1]
     assert "occluded" in b.flags and abs(b.bbox[2] - back[2]) <= 2 and abs(b.bbox[0] - back[0]) <= 3     # the full box through the front barrel
-    s = next(s for s in det.find_stripes(mask, CAM) if s.bbox[0] >= front[2] - 2)                        # the back barrel's stripe
+    s = next(s for s in stripes_of(mask) if s.bbox[0] >= front[2] - 2)                        # the back barrel's stripe
     W = CAM.barrel_rows(220).width_px
     # the body says the same without the found barrel: it runs on into the front barrel on the left (cut there) and
     # ends with the stripe on the right (the barrel's own edge)
-    alone = det._partly_seen(s, mask, W, back[1], back[3], back[3], CFG, found=())
+    alone = det.place_sides(s, mask, CAM, W, back[1], back[3], back[3], CFG, found=(), use_outline=False)
     assert alone is not None and abs(alone[1] - back[2]) <= 2 and abs(alone[0] - back[0]) <= 3
     # the found barrel alone is a reason too: a mask that holds the stripe and no body at all gives the body nothing to say
     bare = np.zeros_like(mask)
     bare[s.bbox[1]:s.bbox[3], s.bbox[0]:s.bbox[2]] = io.BLUE
     front_b = out[0]
-    assert det._partly_seen(s, bare, W, back[1], back[3], back[3], CFG, found=()) != det._partly_seen(s, bare, W, back[1], back[3], back[3], CFG, found=(front_b,))
-    with_front = det._partly_seen(s, bare, W, back[1], back[3], back[3], CFG, found=(front_b,))
+    assert det.place_sides(s, bare, CAM, W, back[1], back[3], back[3], CFG, found=(), use_outline=False) != det.place_sides(s, bare, CAM, W, back[1], back[3], back[3], CFG, found=(front_b,), use_outline=False)
+    with_front = det.place_sides(s, bare, CAM, W, back[1], back[3], back[3], CFG, found=(front_b,), use_outline=False)
     assert with_front is not None and abs(with_front[1] - s.bbox[2]) <= 1 and with_front[1] - with_front[0] == int(round(W))
 
 
@@ -157,7 +157,7 @@ def _far_barrel_with_eaten_edges(e=2):
 
 def test_stripe_eaten_at_both_seams_is_read_at_the_seams():
     mask, truth, Hs = _far_barrel_with_eaten_edges(2)                             # 2 or 3 rows of stripe left where 6 to 7 are expected
-    stripes = det.find_stripes(mask, CAM)
+    stripes = stripes_of(mask)
     x0, y0, x1, y1 = stripes[0].bbox
     ys = np.where(mask[y0:y1, x0:x1] == io.BLUE)[0]
     assert len(stripes) == 1 and np.percentile(ys, 90) - np.percentile(ys, 10) + 1 < CFG.stripe_h_min * Hs      # too thin by its own rows (the finder's measure)

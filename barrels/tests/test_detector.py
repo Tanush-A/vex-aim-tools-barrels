@@ -24,7 +24,17 @@ def paint_barrel(mask, d_axis_mm, x_center, body=io.ORANGE, cam=CAM, cut_bottom_
 
 def pieces(mask, cam=CAM):
     """Stage 1 alone: the barrel-shaped pieces, before the stripe step decides which of them are barrels."""
-    return [b for b, _ in det._step1_pieces(mask, CFG, cam)]
+    return [p.barrel for p in det.find_pieces(mask, cam)]
+
+
+def stripes_of(mask, cam=CAM):
+    """Stage 2 alone: the stripes (without the left-over pieces)."""
+    return det.find_stripes(mask, cam)[0]
+
+
+def caps(mask, boxes, log=None):
+    """Stage 6 alone: the barrels behind the given found barrels, from their tops."""
+    return [f.barrel for f in det.caps_behind([det.Found(b, "given") for b in boxes], [], mask, CAM, log=log)]
 
 
 def whys(log, stage):
@@ -93,7 +103,7 @@ def test_draw_only_adds_rectangles():
 def test_stripe_found_and_barrel_rebuilt_from_it():
     mask = np.zeros((480, 640), np.uint8)
     truth = paint_barrel(mask, 150, 320, body=io.ORANGE)
-    stripes = det.find_stripes(mask, CAM)
+    stripes = stripes_of(mask)
     assert len(stripes) == 1 and stripes[0].body == io.ORANGE and stripes[0].n_other > 0
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].source == "det2" and out[0].color == io.ORANGE
@@ -222,7 +232,7 @@ def test_box_is_as_wide_as_the_body_not_the_stripe():
     sy0, sy1 = int(round(r.stripe_top)), int(round(r.stripe_bottom))
     trim = int(round(0.08 * (x1 - x0)))
     mask[sy0:sy1, x0:x0 + trim] = 0; mask[sy0:sy1, x1 - trim:x1] = 0      # the stripe's outer 8 % per side unlabeled (still a "full" stripe)
-    stripes = det.find_stripes(mask, CAM)
+    stripes = stripes_of(mask)
     assert len(stripes) == 1 and (stripes[0].bbox[2] - stripes[0].bbox[0]) <= 0.86 * (x1 - x0)      # the stripe alone is narrow
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.BLUE
@@ -291,7 +301,7 @@ def test_stripe_cut_by_a_pale_slit_is_one_stripe_with_stripe_join():
     r = CAM.barrel_rows(150); W = truth[2] - truth[0]
     c = truth[0] + int(0.45 * W)
     mask[int(r.stripe_top) - 2:int(r.stripe_bottom) + 3, c:c + int(0.15 * W)] = 0       # a highlight 0.15 of a barrel wide across the stripe
-    assert len(det.find_stripes(mask, CAM)) == 1                     # the two pieces are one stripe
+    assert len(stripes_of(mask)) == 1                     # the two pieces are one stripe
     out = det.detect(mask, cam=CAM)
     assert len(out) == 1 and out[0].color == io.ORANGE and _close(out[0].bbox, truth) and "occluded" not in out[0].flags
 
@@ -316,8 +326,7 @@ def test_stripe_join_does_not_join_pieces_that_are_taller_than_wide():
     for c in (x0 + 8, x0 + 24, x0 + 40):
         mask[st:sb, c:c + 5] = io.ORANGE                                      # three orange slivers 5 px wide, a stripe tall, 0.55 of a barrel together
     assert sb - st > 5
-    narrow = []
-    stripes = det.find_stripes(mask, CAM, narrow=narrow)
+    stripes, narrow = det.find_stripes(mask, cam=CAM)
     assert len(stripes + narrow) >= 3 and all(s.bbox[2] - s.bbox[0] <= 5 for s in stripes + narrow)     # each sliver alone, none joined
 
 
@@ -335,15 +344,15 @@ def test_narrow_cap_needs_one_side_hidden_by_a_found_barrel():
     mask, r, x0, n = _cap()
     top, bottom, W = int(round(r.top)), int(round(r.bottom)), int(round(r.width_px))
     right = Barrel(color=io.ORANGE, bbox=(x0 + n - 5, top + 2, x0 + n + 60, bottom + 20))      # a nearer barrel over the cap's right side
-    out = det.caps_behind(mask, [right], [], CAM)
+    out = caps(mask, [right])
     assert len(out) == 1 and out[0].color == io.BLUE and {"occluded", "bottom_inferred"} <= out[0].flags
     assert out[0].bbox[:3] == (x0, top, x0 + W) and abs(out[0].bbox[3] - bottom) <= 1          # widened to a full barrel toward the hidden side
     below = Barrel(color=io.ORANGE, bbox=(x0 - 5, int(round(r.stripe_top)), x0 + 60, bottom + 20))   # a barrel below it only: no side is hidden
     log = []
-    assert det.caps_behind(mask, [below], [], CAM, log=log) == [] and [e["why"] for e in log] == ["narrow"]
+    assert caps(mask, [below], log) == [] and [e["why"] for e in log] == ["narrow"]
     left = Barrel(color=io.ORANGE, bbox=(x0 - 60, top + 2, x0 + 5, bottom + 20))               # both sides hidden: a wedge between two barrels
     log = []
-    assert det.caps_behind(mask, [left, right], [], CAM, log=log) == [] and [e["why"] for e in log] == ["both_sides"]
+    assert caps(mask, [left, right], log) == [] and [e["why"] for e in log] == ["both_sides"]
 
 
 def test_cap_uses_its_seen_bottom_when_it_agrees():
@@ -352,10 +361,10 @@ def test_cap_uses_its_seen_bottom_when_it_agrees():
     top, bottom = int(round(r.top)), int(round(r.bottom))
     right = Barrel(color=io.ORANGE, bbox=(x0 + n - 5, top + 2, x0 + n + 60, bottom + 20))
     mask[int(round(r.stripe_bottom)):bottom - 5, x0:x0 + 8] = io.BLUE        # its lower body shows beside the front barrel and ends 5 px above the estimate
-    out = det.caps_behind(mask, [right], [], CAM)
+    out = caps(mask, [right])
     assert len(out) == 1 and out[0].bbox[3] == bottom - 5
     mask[int(round(r.stripe_bottom)):bottom + 40, x0:x0 + 8] = io.BLUE       # blue running on far below the estimate is not this barrel's bottom
-    out = det.caps_behind(mask, [right], [], CAM)
+    out = caps(mask, [right])
     assert out == [] or abs(out[0].bbox[3] - bottom) <= 1
 
 
