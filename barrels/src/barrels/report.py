@@ -220,6 +220,7 @@ ZERO_MEANT_OFF = ("body_min", "body_width")                    # numbers whose v
 # numbers that left DetConfig after the collapse because the check they limited can never say no (docs/DETECTOR-MAP.md, section 5)
 REMOVED_DET_NUMBERS = {
     "height_max": "no piece that gets to the height check is too tall for its bottom row, so the upper limit refused nothing",
+    "min_stripe_px": "no piece on the table is too far away to show a stripe, so the rule that asked it kept no piece",
 }
 COLLAPSE_TAG = "pre-collapse-2026-11-26"
 

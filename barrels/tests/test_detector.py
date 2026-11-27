@@ -213,13 +213,13 @@ def test_touching_same_color_pair_gives_two_stripes():
 def test_a_barrel_on_the_table_has_a_stripe_tall_enough_to_resolve():
     """The stripe finder, the caps and the half stripes ask only "at least min_width_px wide" (``on_the_table``). That is
     enough because, with each camera preset and the default numbers, the stripe of the farthest such barrel is still
-    min_stripe_px tall, and a nearer barrel's is taller. If this fails after a change of the camera numbers or of the two
-    limits, ``on_the_table`` must ask the stripe's height again (its assertion says the same at run time)."""
-    for cam in (geo.AIM_4A8B6118_BOXFIT, geo.NOMINAL, geo.AIM_4A8B6118):
+    THINNEST_STRIPE_PX (4 px) tall, and a nearer barrel's is taller. If this fails after a change of the camera numbers or
+    of min_width_px, ``on_the_table`` must ask the stripe's height again (its assertion says the same at run time)."""
+    for cam in PRESETS:
         d_far = cam.f * geo.BARREL_BULGE_DIAMETER_MM / CFG.min_width_px          # the farthest barrel that is min_width_px wide
         for d in np.arange(20.0, d_far, 5.0).tolist() + [d_far - 1e-6]:
             at = det.BarrelAt(d, cam.barrel_rows(d))
-            assert det.on_the_table(at, CFG) and at.Hs >= CFG.min_stripe_px
+            assert det.on_the_table(at, CFG) and at.Hs >= det.THINNEST_STRIPE_PX
         assert not det.on_the_table(det.BarrelAt(d_far + 1, cam.barrel_rows(d_far + 1)), CFG)
 
 
@@ -289,6 +289,23 @@ def test_no_piece_is_too_tall_and_only_a_piece_with_no_predicted_bottom_is_too_s
             assert too_short == math.isinf(det.predicted_bottom(cam, y0)), (cam, y0, y1)
             short += too_short
         assert short > 0
+
+
+def test_no_piece_is_too_far_away_to_show_a_stripe():
+    """The fact that let the "too far for a stripe" half of the close-up rule go. Stage 4 used to keep a piece with no stripe
+    when the stripe expected at its middle row was under 4 px tall. For every camera preset, every top row and every seen
+    bottom row: a piece that stage 1 lets through and that is not a close-up has, at its middle row, a stripe at least
+    THINNEST_STRIPE_PX tall. So that rule kept no piece. If this fails after a change of the camera, of min_width_px or of
+    the edge tolerance, a far piece can exist again, and stage 4 must say what happens to it."""
+    for cam in PRESETS:
+        n = 0
+        for y0, y1 in _pieces_stage_1_lets_through(cam):
+            if y1 >= cam.height or det._closeup_stripe_rows(cam, y0)[1] >= cam.height:
+                continue                                                     # a close-up
+            at = det.BarrelAt.from_stripe_row(cam, (y0 + y1) / 2)            # the row the rule asked: the middle of the piece's box
+            assert at is None or at.Hs >= det.THINNEST_STRIPE_PX, (cam, y0, y1)
+            n += 1
+        assert n > 0
 
 
 def test_box_is_as_wide_as_the_body_not_the_stripe():
