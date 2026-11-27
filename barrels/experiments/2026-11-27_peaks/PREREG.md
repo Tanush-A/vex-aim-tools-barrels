@@ -81,3 +81,17 @@ P5 takes P1's choice in each fold.
 - Part D (the comparison with selfcal +13.8, contrast +21.5, near-miss +13.7) is read off the same judge; those
   numbers come from their own branches and are not re-run here, except S0.
 - A second round needs a dated addendum committed first.
+
+## Addendum, 2026-11-27, after the first (and only judged) round; written before these runs
+
+Round 1: P1 FAIL (-2.0: 7 of 8 folds kept the fixed ranges, because every setting cost 2 barrels on one pale-wood
+frame, `overheaddim_palewood_clutter_01`, where the blue low end went 103 -> 100); P2 PASS (+14.0); P3 FAIL (pale
+wood); P0 FAIL; P5 FAIL (it takes P1's choices, so the same pale-wood loss); S0 PASS (+14.75, report only).
+
+Two diagnostics, **report only, post hoc, not candidates for adoption**, to say why P1 and P2 differ:
+
+- D1: the F6 finder (P1's) with one fixed setting, the one P2's folds picked in 9 of 10 folds
+  (cap 4, n_min 50, pad 0, s_follow on, union). No fold. Is F6 itself worse, or did one frame decide it?
+- D2: P2 with its fold choices as the first pass of selfcal AB (as P5, on P2's ranges). Do the two stack?
+
+Nothing else is run. Neither changes the verdicts of round 1.
