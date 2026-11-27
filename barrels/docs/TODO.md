@@ -33,9 +33,9 @@ Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the
 
 | # | what | state |
 |---|---|---|
-| **M1** | **Count placements and places, not lamp settings.** The 243 train barrels are 108 placements at 6 places. A box on a real barrel with a bad bottom edge counts once, not as a miss plus a false box. Vendor on the white table: assumed 100 % (decision above). Eval = main code: walkthrough first. | open |
-| **M2** | **The never-regress check with a margin** (decision above). Propose the margin from how much the score moves under a change that means nothing (one hue unit). | open |
-| **M3** | **Pass rules above the noise.** One barrel is about 0.03 of a condition's score; a rule tighter than that rejects everything. Write the standard pass rule once and reuse it. | open, with M2 |
+| **M1** | **Count placements and places, not lamp settings.** The 243 train barrels are 108 placements at 6 places. A box on a real barrel with a bad bottom edge counts once, not as a miss plus a false box. Vendor on the white table: assumed 100 % (decision above). Eval = main code: walkthrough first. | **done 2026-11-26, merged.** `python barrels/tools/report.py --places` (and with `--vendor`). Per placement: ours 70.8, vendor 83.3 of 108 on the six measured places; the vendor's 30 "false boxes" are 23 on a barrel that fail the strict rule and 7 on nothing (ours 2 and 5). Walkthrough owed |
+| **M2** | **The never-regress check with a margin** (decision above). Propose the margin from how much the score moves under a change that means nothing (one hue unit). | **done 2026-11-26, merged.** A change that means nothing moves found by up to 10.92 placements down and 4.00 up. The check judges each protected set on its total with a margin of 1 placement and 1 box (cool-lamp bathroom: 5); a box on a clean empty frame still fails. Protected: home, campus, glass, pale wood, ABP white, cool-lamp bathroom. Passes on today's defaults |
+| **M3** | **Pass rules above the noise.** One barrel is about 0.03 of a condition's score; a rule tighter than that rejects everything. Write the standard pass rule once and reuse it. | **done 2026-11-26, merged.** `python barrels/tools/judge.py`: PASS / FAIL / NO CLEAR DIFFERENCE (`EVAL.md`, "The standard pass rule"). A gain counts above +4.0 placements; a PASS under +6 is called weak. Hand thresholds: PASS (+23.0). The light rule: PASS, weak (+5.9) |
 
 ### K. Collapse the detector (after U1, U2 and M)
 
@@ -65,6 +65,7 @@ Rule for what goes (Tanush, 2026-11-26): a check that is logically sound stays, 
 ### Data and Dave
 
 - **Shooting (Tanush: one or two more places):** most useful is a new surface under warm light, since only two places have it and the light rule (C3) is judged there. A new place counts, a new lamp setting on the same table does not. Three frames at a new place (`core_01`, `clutter_01`, `neg_01`) beat a full nine at an old one. The parked sets (black table, wood, Dave's office) count as places for analysis. No generated images for color work.
+- **Shot request:** the home white table with vendor files (9 shots; three times each also gives a shot-to-shot noise floor), so the ASSUMED vendor rows become measured. The one white table with vendor files (ABP) has the vendor at 24 of 32.
 - **Ask Dave:** can the camera's exposure and white balance be locked; is a calibration per place allowed (show the robot one barrel at the start of a session); does learning a barrel's colors from a barrel already found count as image correction.
 - **From the final report, still open:** merge of `wip/final` (waits on D4 and "understood"); protecting the new conditions (now M1 and M2); the orange conflict (now C2 and C4); the light rule (now C3).
 
