@@ -86,3 +86,39 @@ the place level also, per neighbour, the largest drop in any one place.
 level), `per_neighbour.csv`; and the margins as data in `results/baseline/margins.json`, read by `gate.py` and
 `judge.py`. The script is re-run whenever the default color model or the default detector changes
 (`python barrels/experiments/2026-11-26_noise_floor/run.py`).
+
+## Addendum, 2026-11-26 (written after the first run, before any candidate was judged with these margins)
+
+The first run is kept as it was written: `results/2026-11-26_noise_floor/first_run/`.
+
+**What it showed.**
+
+1. *Rule 3 fired.* With the margins from set A, 6 of the 12 joint moves got the verdict FAIL (none failed the
+   never-regress check). Small changes that come together add up: the largest one-step change in found over the
+   ordinary conditions is 6.20 placements, the largest joint one 10.92. So, as registered, the margins are taken over
+   sets A and B together.
+2. *Something this plan did not foresee: the changes are one-sided.* Of the 26 neighbours, 16 lose found, 8 gain and 2
+   change nothing. The largest loss is 10.92 placements; the largest gain is 4.00. The fixed model was picked because it
+   scores well, so a small move mostly hurts it. Rule 1 as registered takes the largest *absolute* change, 10.92, for
+   both directions. A candidate would then have to gain 10.92 placements, which is 29 % of everything missed today,
+   to count as better, although no change that means nothing gained more than 4.00.
+
+**The one change to rule 1: a margin per direction.** A gain is compared with the largest gain a neighbour produced,
+a loss with the largest loss. The same for boxes that are not on their barrel: a rise with the largest rise, a fall
+with the largest fall. The margin of a place and of a protected set is a drop in found (and a rise in boxes), so it is
+the largest drop (and the largest rise). The floor of one whole unit and the zero for clean empty frames stay. The
+margins as first registered (absolute) are stored beside the new ones, and the sanity checks of the pass rule give
+the verdict under both.
+
+**What was known when this was written (honesty).** No candidate has been run through the judge. From the review's
+forensic report, counted per frame under the strict rule: the hand thresholds find 281 against 211 of 307 with 7
+false boxes each and two boxes on empty bathroom frames; "blue follows the light", leave one place out in round 1 of
+`2026-11-25_color`, found 22 more with 6 more false boxes and one box on an empty glass frame. Neither has been
+counted per placement. For a gain between 4.00 and 10.92 placements the two versions of the rule give different
+verdicts; the second of these candidates may fall there. The reason for the change is the one-sidedness in point 2,
+which is a property of the noise numbers alone.
+
+**A new check, set C.** Sets A and B are now both inside the margins by construction, so they can no longer test
+them. Set C: 12 more joint moves, drawn exactly like set B with seed 20261127, used for nothing else. Reported: how
+many get a verdict other than NO CLEAR DIFFERENCE and how many fail the never-regress check. No margin changes
+because of set C in this round; if more than 2 of 12 are called, the summary says so in its first lines.
