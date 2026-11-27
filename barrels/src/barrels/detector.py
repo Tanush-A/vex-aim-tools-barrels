@@ -35,9 +35,13 @@ from .detect_types import Barrel
 from .io import BLUE, ORANGE
 
 
+BOTTOM_RULES = ("", "low", "both", "predicted")       # DetConfig.bottom_rule (an experiment, off by default): see ``drawn_bottom``
+
+
 @dataclass(frozen=True)
 class DetConfig:
-    """The detector's numbers. There is no on/off switch: every rule in this file always runs. In the comments, W = the
+    """The detector's numbers. There is no on/off switch: every rule in this file always runs. (One experiment is in the
+    file, off by default: the last two fields.) In the comments, W = the
     width, H = the height and "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in
     question. Where each number is used: docs/DETECTOR-MAP.md, section 4."""
     min_area_px: int = 20        # a blob, a stripe, a cap piece or a half-stripe band under this many pixels is a speck; and a box needs this many evidence pixels of its own (verify)
@@ -60,6 +64,18 @@ class DetConfig:
     body_min: float = 0.1        # in the stripe's columns, outside its rows, the box holds at least this share of body color (and more body than stripe color)
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
+    # EXPERIMENT 2026-11-26_bottom (map B8, TODO K2: "more paint, box disappears"). Both are OFF at their defaults, and
+    # then every box is today's box. On adoption the chosen rule becomes plain code and these two fields go.
+    bottom_rule: str = ""        # the one experiment flag: which row is DRAWN for a seen bottom that agrees with the predicted one.
+                                 # "" = the seen row (today); "low", "both", "predicted": see ``drawn_bottom``
+    bottom_rows: float = 0.0     # a row under the body is the barrel's when body color fills at least this share of the columns walked;
+                                 # 0 = one pixel is enough (today). See ``rows_with_body``
+
+    def __post_init__(self):
+        if self.bottom_rule not in BOTTOM_RULES:
+            raise ValueError(f"bottom_rule must be one of {BOTTOM_RULES}, got {self.bottom_rule!r}")
+        if not 0.0 <= self.bottom_rows <= 1.0:
+            raise ValueError(f"bottom_rows is a share of the columns (0 to 1), got {self.bottom_rows!r}")
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -161,6 +177,48 @@ def edge_tol(cfg: DetConfig, size: float) -> float:
     ``resolve_bottom``, the distance from the top row to the stripe in ``_seen_to_stripe``, H elsewhere) and the barrel's
     WIDTH at one (``seen_span``: how far apart the body's end and the stripe's end may be, sideways)."""
     return max(cfg.bottom_tol_min_px, cfg.bottom_tol * size)
+
+
+# ---------------------------------------------------------------- EXPERIMENT 2026-11-26_bottom: the bottom edge (off by default)
+
+SCORER_BOTTOM_TOL, SCORER_BOTTOM_MIN_PX = 0.10, 3       # the scorer's tolerance for a bottom edge (eval_det.BOTTOM_TOL_FRAC, BOTTOM_TOL_MIN_PX;
+                                                        # the detector does not import the scorer: a test keeps the two pairs equal)
+
+
+def drawn_bottom(seen: int, pred: float, H: float, cfg: DetConfig) -> int:
+    """The row to DRAW for a seen bottom that agrees with the predicted one (``edge_tol``: within 15 % of the height).
+    ``seen`` = one past the last row of the body's color; ``pred`` = the bottom the rule's reading predicts (the stripe's
+    row in the stripe step; the top row for a piece; the width or the top row for a cap; the seam for a half stripe);
+    ``H`` = the barrel's height.
+
+    Today (bottom_rule ""): the seen row. Shadow and reflection under a barrel are painted in its color and are then "a
+    seen bottom that agrees": the box ends up to 15 % low, the scorer allows 10 %, and the distance read off the bottom is
+    wrong. The experiment's rules, each for the bottom edge only (the scorer's tolerance = 10 % of H, at least 3 px):
+
+    "low"        a seen bottom BELOW the predicted one by more than the scorer's tolerance: the predicted row is drawn.
+                 Shadow and reflection only ever extend a barrel downward. Above stays as today.
+    "both"       a seen bottom further than the scorer's tolerance from the predicted one, either way: the predicted row.
+    "predicted"  always the predicted row: the paint only says that the bottom is there, not where.
+
+    This decides the drawn row only. The seen bottom still counts as SEEN wherever a rule asks whether an edge was seen
+    (the flag bottom_inferred, a thin slice seen from top to bottom, the second reading of ``drop_single_reading``, a
+    full slice, a half stripe's far edge): those answers are today's."""
+    rule = cfg.bottom_rule
+    if rule == "":
+        return seen
+    tol = max(SCORER_BOTTOM_MIN_PX, SCORER_BOTTOM_TOL * H)
+    if rule == "predicted" or seen - pred > tol or (rule == "both" and pred - seen > tol):
+        return int(round(pred))
+    return seen
+
+
+def rows_with_body(sel: np.ndarray, share: float) -> np.ndarray:
+    """Per row of ``sel`` (bool; the body's color in the columns walked): is the row the barrel's? With ``share`` 0 (today)
+    one pixel is enough. With bottom_rows > 0 the body's color must fill at least that share of the columns: paint under a
+    barrel that is narrower than the barrel (the tail of a shadow, a streak of reflection) is not its bottom."""
+    if share <= 0 or sel.shape[1] == 0:
+        return sel.any(axis=1)
+    return sel.mean(axis=1) >= share
 
 
 def widest_barrel(cfg: DetConfig) -> float:
@@ -409,18 +467,24 @@ def predicted_bottom(cam: geo.CameraModel, top_row: float) -> float:
     return cam.point_row(d_base, 0.0)
 
 
-def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = DetConfig()) -> tuple[int, set[str]]:
+def resolve_bottom(bbox, cam: geo.CameraModel, frame_h: int, cfg: DetConfig = DetConfig(), seen_bottom: int | None = None) -> tuple[int, set[str]]:
     """The bottom row to draw. The top row says how far away the barrel is, and from that where its base
     must be (``predicted_bottom``). Keep the seen bottom when it agrees with that prediction; replace it
     when it does not (a shadowed face makes the blob too short, a reflection too tall, an occluder hides the
-    base). Always clipped to the frame; a box reaching the frame bottom is 'truncated'."""
+    base). Always clipped to the frame; a box reaching the frame bottom is 'truncated'.
+    (The experiment 2026-11-26_bottom, off by default: ``seen_bottom`` replaces the box's bottom as the seen one, and
+    ``drawn_bottom`` says which row is drawn for a seen bottom that agrees.)"""
     x0, y0, x1, y1 = bbox
+    if seen_bottom is not None:
+        y1 = seen_bottom
     flags: set[str] = set()
     pred = predicted_bottom(cam, y0)
     if math.isfinite(pred):
         tol = edge_tol(cfg, pred - y0)
         if abs(y1 - pred) > tol and not (y1 >= frame_h and pred >= frame_h):
             y1 = int(round(pred)); flags.add("bottom_inferred")
+        else:
+            y1 = drawn_bottom(y1, pred, pred - y0, cfg)
     y1 = min(max(y1, y0 + 1), frame_h)
     if y1 >= frame_h:
         flags.add("truncated")
@@ -452,7 +516,11 @@ def find_pieces(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConf
     for blob in find_blobs(mask, cfg):
         for piece in split_blob(blob, mask, cam, cfg):
             x0, y0, x1, y1 = piece.bbox
-            y1, flags = resolve_bottom(piece.bbox, cam, h, cfg)
+            seen = None
+            if cfg.bottom_rows > 0:                        # the experiment 2026-11-26_bottom: the last row the piece fills bottom_rows of its width
+                full = np.flatnonzero(rows_with_body(piece.pixels[y0:y1, x0:x1], cfg.bottom_rows))
+                seen = y0 + int(full[-1]) + 1 if len(full) else y1
+            y1, flags = resolve_bottom(piece.bbox, cam, h, cfg, seen)
             W = cam.expected_barrel_width_px(bottom_row=y1) if y1 < h else expected_width_px((x0, y0, x1, h), cam, h)
             if not math.isfinite(W) or W < cfg.min_width_px:
                 _note(log, "piece", "too_far", (x0, y0, x1, y1), expected_w=W)
@@ -690,10 +758,13 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
 
 # ================================================================ stage 3: one box per stripe
 
-def _body_extent(mask: np.ndarray, body: int, x0: int, x1: int, y0: int, y1: int, max_gap: int = 3) -> tuple[int, int]:
+def _body_extent(mask: np.ndarray, body: int, x0: int, x1: int, y0: int, y1: int, max_gap: int = 3, below_share: float = 0.0) -> tuple[int, int]:
     """Seen top and bottom of the body color in columns x0..x1, walking up from row y0 and down from row y1
-    while body pixels keep appearing (gaps of up to max_gap rows allowed): the barrel this stripe belongs to."""
-    col = (mask[:, x0:x1] == body).any(axis=1)
+    while body pixels keep appearing (gaps of up to max_gap rows allowed): the barrel this stripe belongs to.
+    (The experiment 2026-11-26_bottom, off by default: the rules that DECIDE a bottom pass ``below_share`` =
+    bottom_rows, and a row below then counts only when the body color fills that share of the columns; ``rows_with_body``.)"""
+    sel = mask[:, x0:x1] == body
+    col = sel.any(axis=1)
     top, gap, r = y0, 0, y0 - 1
     while r >= 0 and gap <= max_gap:
         if col[r]:
@@ -701,6 +772,8 @@ def _body_extent(mask: np.ndarray, body: int, x0: int, x1: int, y0: int, y1: int
         else:
             gap += 1
         r -= 1
+    if below_share > 0:
+        col = rows_with_body(sel, below_share)
     bottom, gap, r = y1, 0, y1
     while r < len(col) and gap <= max_gap:
         if col[r]:
@@ -952,7 +1025,7 @@ def read_edges(s: Stripe, at: BarrelAt, mask: np.ndarray, cfg: DetConfig) -> Edg
     h = mask.shape[0]
     x0, y0, x1, y1 = s.bbox
     inferred: set[str] = set()
-    top_seen, bottom_seen = _body_extent(mask, s.body, x0, x1, y0, y1)
+    top_seen, bottom_seen = _body_extent(mask, s.body, x0, x1, y0, y1, below_share=cfg.bottom_rows)
     tol = at.tol(cfg)
     top = top_seen
     if abs(top_seen - at.top) > tol:
@@ -960,6 +1033,8 @@ def read_edges(s: Stripe, at: BarrelAt, mask: np.ndarray, cfg: DetConfig) -> Edg
     bottom = bottom_seen
     if abs(bottom_seen - at.bottom) > tol and not (bottom_seen >= h and at.bottom >= h):
         bottom = int(round(at.bottom)); inferred.add("bottom_inferred")
+    else:
+        bottom = drawn_bottom(bottom_seen, at.bottom, at.H, cfg)       # the experiment 2026-11-26_bottom; today: the seen row
     other = (_other(s.body),)
     if {"top_inferred", "bottom_inferred"} <= inferred and ends_against(mask, other, top_seen - 4, top_seen, x0, x1):
         return None                                                                        # (a)
@@ -1537,10 +1612,11 @@ def _cap_box(piece: tuple, c: int, mask: np.ndarray, boxes: list[Barrel], caps: 
         else:
             bx1 = bx0 + Wi
     # 6. the seen bottom is used when it agrees: the cap's own color, in the cap's columns, ending near the estimate
-    col = (mask[:, x:x + bw] == c).any(axis=1)
+    # (the experiment 2026-11-26_bottom, off by default: ``rows_with_body`` and ``drawn_bottom``, here and in 7)
+    col = rows_with_body(mask[:, x:x + bw] == c, cfg.bottom_rows)
     near = [r for r in range(max(y + bh, int(round(bottom - tol))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
     if near and not col[near[-1] + 1:near[-1] + 4].any():
-        bottom = near[-1] + 1
+        bottom = drawn_bottom(near[-1] + 1, bottom, H, cfg)
     elif bw < cfg.stripe_full * W:
         # 7. a narrow cap's estimate is the top-row bottom, 4 to 7 px low at mid and far range with this camera, so a seen end
         # can be refused for the estimate's error. Read the cap's color only beside the nearer found barrels (inside their
@@ -1550,10 +1626,10 @@ def _cap_box(piece: tuple, c: int, mask: np.ndarray, boxes: list[Barrel], caps: 
         for b in standing_nearer(boxes, y + bh):
             beside[max(0, b.bbox[0] - x):max(0, b.bbox[2] - x)] = False
         least = y + cam.expected_barrel_height_px(d_axis_mm=cam.f * geo.BARREL_BULGE_DIAMETER_MM / bw)
-        col = (mask[:, x:x + bw][:, beside] == c).any(axis=1)
+        col = rows_with_body(mask[:, x:x + bw][:, beside] == c, cfg.bottom_rows)
         seen = [r for r in range(max(y + bh, int(round(least))), min(h, int(round(bottom + tol)) + 1)) if col[r]]
         if seen and not col[seen[-1] + 1:seen[-1] + 4].any():
-            bottom = seen[-1] + 1
+            bottom = drawn_bottom(seen[-1] + 1, bottom, H, cfg)
     bx0, bx1, bottom = max(0, bx0), min(w, bx1), min(h, int(round(bottom)))
     below = np.zeros((max(0, bottom - (y + bh)), bx1 - bx0), bool)       # where the rest of this barrel should be
     for b in standing_nearer(boxes, bottom):
@@ -1620,7 +1696,7 @@ def _full_slice(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfi
     if at is None:
         return None
     x0, y0, x1, y1 = s.bbox
-    top, bottom = _body_extent(mask, s.body, x0, x1, y0, y1)
+    top, bottom = _body_extent(mask, s.body, x0, x1, y0, y1, below_share=cfg.bottom_rows)
     tol = at.tol(cfg)
     if abs(top - at.top) > tol or abs(bottom - at.bottom) > tol:
         return None
@@ -1629,7 +1705,7 @@ def _full_slice(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfi
         return None
     span = _body_span(mask, s.body, x0, x1, max(0, top), min(mask.shape[0], bottom), y0, y1) if bottom - top >= 2 else None
     sx0, sx1 = (min(span[0], x0), max(span[1], x1)) if span else (x0, x1)
-    return at.W, top, bottom, sx0, sx1
+    return at.W, top, drawn_bottom(bottom, at.bottom, at.H, cfg), sx0, sx1       # the experiment 2026-11-26_bottom; today: the seen row
 
 
 def post_pairs(pieces: list[Stripe], found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
@@ -1761,7 +1837,7 @@ def half_stripes(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg
                 _note(log, "half", "width", sb, body=body, expected_w=W)
                 continue                                                                   # 4.
             tol = edge_tol(cfg, H)
-            top_s, bottom_s = _body_extent(mask, body, x, x + bw, y, y + bh)
+            top_s, bottom_s = _body_extent(mask, body, x, x + bw, y, y + bh, below_share=cfg.bottom_rows)
             if top_hidden:
                 agrees, r0, r1 = abs(bottom_s - at.bottom) <= tol and bottom_s < h, y, bottom_s
             else:
@@ -1785,7 +1861,9 @@ def half_stripes(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg
             if ends_against(mask, (ORANGE, BLUE), e0, e0 + 4, x, x + bw):
                 _note(log, "half", "far_edge_against_barrel", sb, body=body)
                 continue                                                                   # 9.
-            box = (max(0, sx0), max(0, int(round(at.top))) if top_hidden else top_s, min(w, sx1), bottom_s if top_hidden else min(h, int(round(at.bottom))))
+            # (the seen bottom of a barrel hidden from above: the experiment 2026-11-26_bottom says which row is drawn; today: the seen row)
+            box = (max(0, sx0), max(0, int(round(at.top))) if top_hidden else top_s, min(w, sx1),
+                   min(h, drawn_bottom(bottom_s, at.bottom, H, cfg)) if top_hidden else min(h, int(round(at.bottom))))
             if box[2] - box[0] < 2 or box[3] - box[1] < 2:
                 continue
             # boxes the stripe step made from a narrow, partly seen piece of this same band
