@@ -15,6 +15,10 @@ Written by Claude for Tanush. Plain English. **Updated 2026-11-27 with every res
 | `wip/exp-bottom` | `bottom_rule=low_uncut`: helps with looser colors, no effect with fixed ones |
 | `wip/exp-sidecut` | not recommended (one box on a tin, one on the wrong side) |
 | `wip/collapse-2` | merged: 18 numbers, boxes identical |
+| `wip/exp-bluer-geom` | bluer than the light + two shape checks (paint solidity, label not stripe): PASS +13.25, boxes back near today's level; the checks also trim contrast's boxes 2.83 → 2.23 |
+| `wip/exp-peaks` | histogram peaks over stripe-pattern pixels: PASS +14.0 |
+| `wip/exp-whitebalance` | numbers for Dave: half gray world PASS +9.2, but 34 of its 38 gains are already found by contrast |
+| `wip/adopt-slack` | slack rule as plain code, ready; waits for your "understood" |
 
 ## 1. What you asked for, and where each step stands
 
