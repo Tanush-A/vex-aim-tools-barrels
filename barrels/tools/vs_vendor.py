@@ -50,6 +50,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--frame", action="append", default=[], help="a train frame stem (repeatable)")
     ap.add_argument("--all", action="store_true", help="every train frame with a vendor file")
+    ap.add_argument("--like", default=None, help="every train frame whose name contains this text (vendor file or not), e.g. window_light or campus_light")
     ap.add_argument("--open", action="store_true", help="open the picture(s) when done (macOS)")
     ap.add_argument("--contrast-from", default=None, help="a barrels/ folder that has experiments/2026-11-26_contrast")
     a = ap.parse_args()
@@ -61,6 +62,8 @@ def main() -> int:
     test = set(splits["test"])
     if a.all:
         stems = sorted(s for s in splits["train"] if io.vendor_path(s).exists() and io.boxes_path(s).exists())
+    elif a.like:
+        stems = sorted(s for s in splits["train"] if a.like in s and io.boxes_path(s).exists())
     else:
         stems = a.frame
     if not stems:
@@ -87,7 +90,8 @@ def main() -> int:
             if preds is None:
                 return None
             r = ed.evaluate_frame(s, preds, gts, cam, rule="v2")
-            return len(gts) - len(r.unmatched_gt), len(r.unmatched_pred)
+            on = sum(1 for g in gts if any(p.color == g.color and ct.is_on(p, g) for p in preds))
+            return len(gts) - len(r.unmatched_gt), len(r.unmatched_pred), on
         ho, hv = hits(ours), hits(vend)
         img = io.load_image(io.find_image(s)).copy()          # BGR; load_frame above already refused a test frame
 
@@ -102,8 +106,8 @@ def main() -> int:
             return p
         colour = lambda b: (0, 140, 255) if b.color == 1 else (255, 90, 0)
         n = len(gts)
-        p1 = panel(ours, colour, f"OURS {ho[0]}/{n} found, {ho[1]} extra")
-        p2 = panel(vend, lambda b: (255, 0, 255), f"VENDOR {hv[0]}/{n} found, {hv[1]} extra" if hv else "VENDOR: no file")
+        p1 = panel(ours, colour, f"OURS {ho[0]}/{n} strict, {ho[2]}/{n} on barrel")
+        p2 = panel(vend, lambda b: (255, 0, 255), f"VENDOR {hv[0]}/{n} strict, {hv[2]}/{n} on barrel" if hv else "VENDOR: no file")
         seg = np.zeros_like(img)
         seg[base == 1] = (0, 140, 255)
         seg[base == 2] = (255, 90, 0)
@@ -115,32 +119,40 @@ def main() -> int:
         pic = np.hstack([p1, p2, seg])
         path = OUT / "frames" / f"{s}.jpg"
         cv2.imwrite(str(path), pic, [cv2.IMWRITE_JPEG_QUALITY, 85])
-        verdict = "same" if hv is None or ho[0] == hv[0] else ("ours" if ho[0] > hv[0] else "vendor")
+        verdict = "same" if hv is None or ho[2] == hv[2] else ("ours" if ho[2] > hv[2] else "vendor")   # judged on "a box on the barrel", so a slightly big box is not a loss
         rows.append({"stem": s, "place": ct.place_of(s), "condition": ct.condition_of(s), "barrels": n,
-                     "ours": ho[0], "ours_extra": ho[1], "vendor": hv[0] if hv else None, "vendor_extra": hv[1] if hv else None,
+                     "ours": ho[0], "ours_extra": ho[1], "ours_on": ho[2], "vendor_on": hv[2] if hv else None, "vendor": hv[0] if hv else None, "vendor_extra": hv[1] if hv else None,
                      "better": verdict if hv else "no vendor file", "picture": str(path)})
-        print(f"{s:45s} barrels {n}  ours {ho[0]} (+{ho[1]} extra)  vendor {hv[0] if hv else '-'} (+{hv[1] if hv else '-'} extra)  -> {verdict}")
-    if a.all:
-        write_chart(rows)
+        print(f"{s:45s} barrels {n}  ours {ho[0]} (+{ho[1]} extra)  vendor {hv[0] if hv else '-'} (+{hv[1] if hv else '-'} extra)  on-barrel {ho[2]} vs {hv[2] if hv else '-'} -> {verdict}")
+    if a.all or a.like:
+        write_chart(rows, a.like)
     if a.open:
         subprocess.run(["open"] + [r["picture"] for r in rows][:12] + ([str(OUT / "index.html")] if a.all else []))
     return 0
 
 
-def write_chart(rows: list[dict]) -> None:
+def write_chart(rows: list[dict], like: str | None = None) -> None:
+    global OUT
+    if like:
+        OUT = OUT / like
+        OUT.mkdir(parents=True, exist_ok=True)
+        import shutil
+        for r in rows:
+            shutil.copy(r["picture"], OUT / Path(r["picture"]).name)
+        rows = [dict(r, vendor=r["vendor"] or 0, vendor_extra=r["vendor_extra"] or 0) for r in rows]
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     (OUT / "frames.json").write_text(json.dumps(rows, indent=1))
     conds = sorted({r["condition"] for r in rows})
-    tot = {c: [sum(r[k] or 0 for r in rows if r["condition"] == c) for k in ("barrels", "ours", "vendor")] for c in conds}
+    tot = {c: [sum(r[k] or 0 for r in rows if r["condition"] == c) for k in ("barrels", "ours_on", "vendor_on")] for c in conds}
     fig, ax = plt.subplots(figsize=(13, 5))
     x = np.arange(len(conds))
     ax.bar(x - 0.27, [tot[c][0] for c in conds], 0.27, label="labelled barrels", color="#9a9a9a")
-    ax.bar(x, [tot[c][1] for c in conds], 0.27, label="ours (contrast)", color="#e8831d")
-    ax.bar(x + 0.27, [tot[c][2] for c in conds], 0.27, label="vendor", color="#c026d3")
+    ax.bar(x, [tot[c][1] for c in conds], 0.27, label="ours (contrast), box on the barrel", color="#e8831d")
+    ax.bar(x + 0.27, [tot[c][2] for c in conds], 0.27, label="vendor, box on the barrel", color="#c026d3")
     ax.set_xticks(x, [c.replace("_", "\n") for c in conds], fontsize=8)
-    ax.set_ylabel("barrels found (strict rule, per frame)")
+    ax.set_ylabel("barrels with a box on them (per frame)")
     ax.set_title("Ours vs the vendor by condition (train frames with vendor files)")
     ax.legend()
     fig.tight_layout()
@@ -148,8 +160,8 @@ def write_chart(rows: list[dict]) -> None:
     plt.close(fig)
     fig, ax = plt.subplots(figsize=(6, 6))
     jit = np.random.default_rng(0).uniform(-0.15, 0.15, (len(rows), 2))
-    xs = [r["vendor"] + j[0] for r, j in zip(rows, jit)]
-    ys = [r["ours"] + j[1] for r, j in zip(rows, jit)]
+    xs = [(r["vendor_on"] or 0) + j[0] for r, j in zip(rows, jit)]
+    ys = [r["ours_on"] + j[1] for r, j in zip(rows, jit)]
     colors = ["#16a34a" if r["better"] == "ours" else "#dc2626" if r["better"] == "vendor" else "#64748b" for r in rows]
     ax.scatter(xs, ys, c=colors, s=22)
     m = max(max(xs), max(ys)) + 1
@@ -161,20 +173,21 @@ def write_chart(rows: list[dict]) -> None:
     fig.savefig(OUT / "scatter.png", dpi=110)
     plt.close(fig)
     n = {k: sum(r["better"] == k for r in rows) for k in ("ours", "same", "vendor")}
-    T = [sum(r[k] or 0 for r in rows) for k in ("barrels", "ours", "vendor", "ours_extra", "vendor_extra")]
+    T = [sum(r[k] or 0 for r in rows) for k in ("barrels", "ours", "vendor", "ours_extra", "vendor_extra", "ours_on", "vendor_on")]
     parts = [f"<!doctype html><meta charset=utf-8><title>Ours vs vendor</title><style>body{{font-family:system-ui;margin:16px;background:#fff;color:#111}}"
              "img{max-width:100%}.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px}"
              ".c{border:1px solid #ddd;padding:6px;border-radius:6px}.ours{border-color:#16a34a}.vendor{border-color:#dc2626}h2{margin-top:28px}</style>",
              f"<h1>Ours (fixed colors + stripe by contrast) vs the vendor</h1><p>Train frames with vendor files ({len(rows)} frames). "
              f"Our methods were shaped on these frames; the vendor's were not.</p>",
-             f"<p><b>Totals:</b> {T[0]} labelled barrels; ours found {T[1]} with {T[3]} extra boxes; vendor found {T[2]} with {T[4]} extra boxes. "
+             f"<p><b>Totals:</b> {T[0]} labelled barrels. <b>A box on the barrel</b> (what matters for the robot): ours {T[5]}, vendor {T[6]}. "
+             f"Strict rule (overlap 0.5, bottom within 10 %): ours {T[1]} with {T[3]} extra boxes; vendor {T[2]} with {T[4]} extra boxes. Frames are grouped by the on-barrel count. "
              f"Frames where we find more: {n['ours']}; the same: {n['same']}; the vendor finds more: {n['vendor']}.</p>",
              "<img src=chart.png><img src=scatter.png style='max-width:520px'>"]
     for key, title in (("vendor", "The vendor finds more"), ("ours", "We find more"), ("same", "The same number")):
         parts.append(f"<h2>{title} ({n[key]} frames)</h2><div class=g>")
         for r in sorted((r for r in rows if r["better"] == key), key=lambda r: r["stem"]):
-            parts.append(f"<div class='c {key}'><div><b>{html.escape(r['stem'])}</b><br>barrels {r['barrels']}: ours {r['ours']} (+{r['ours_extra']}), "
-                         f"vendor {r['vendor']} (+{r['vendor_extra']})</div><a href='frames/{r['stem']}.jpg'><img loading=lazy src='frames/{r['stem']}.jpg'></a></div>")
+            parts.append(f"<div class='c {key}'><div><b>{html.escape(r['stem'])}</b><br>barrels {r['barrels']}: on barrel ours {r['ours_on']}, vendor {r['vendor_on']}; strict ours {r['ours']} (+{r['ours_extra']} extra), "
+                         f"vendor {r['vendor']} (+{r['vendor_extra']} extra)</div><a href='frames/{r['stem']}.jpg'><img loading=lazy src='frames/{r['stem']}.jpg'></a></div>")
         parts.append("</div>")
     (OUT / "index.html").write_text("\n".join(parts))
     print(f"\nwrote {OUT / 'index.html'}, chart.png, scatter.png; ours better {n['ours']}, same {n['same']}, vendor better {n['vendor']}")
