@@ -1,0 +1,15 @@
+frame,arm,what,color,box,rule,state
+4A8B_lampcool6_ottoman_clutter_01,loose,new box,blue,"[300, 113, 344, 163]",photo_cut,found
+4A8B_lampcool6_ottoman_clutter_01,loose,box gone,blue,"[288, 113, 332, 163]",centred,found
+4A8B_lampcool6_ottoman_occl_02,cut,new box,orange,"[226, 134, 286, 188]",thin_photo_cut,found
+4A8B_lampcool6_ottoman_occl_02,slack,new box,orange,"[226, 134, 286, 188]",thin_photo_cut,found
+4A8B_lampcool6_ottoman_occl_02,loose,new box,orange,"[226, 134, 286, 188]",thin_photo_cut,found
+4A8B_lampwarm6_glass_clutter_01,loose,new box,orange,"[512, 112, 561, 172]",photo_cut,found
+4A8B_lampwarm6_glass_clutter_01,loose,box gone,orange,"[518, 112, 566, 172]",centred,found
+4A8B_window_abpwhite_occlx_02,cut,new box,orange,"[91, 122, 140, 171]",thin_photo_cut,found
+4A8B_window_abpwhite_occlx_02,cut+bulge,new box,orange,"[91, 122, 140, 171]",thin_photo_cut,found
+4A8B_window_abpwhite_occlx_02,slack,new box,orange,"[91, 122, 140, 171]",thin_photo_cut,found
+4A8B_window_abpwhite_occlx_02,loose,new box,orange,"[91, 122, 140, 171]",thin_photo_cut,found
+4A8B_window_abpwhite_occlx_03,slack,new box,orange,"[101, 120, 151, 171]",photo_cut,found
+4A8B_window_abpwhite_occlx_03,loose,new box,orange,"[101, 120, 151, 171]",photo_cut,found
+4A8B_window_black_cluster_01,loose,new box,blue,"[425, 131, 492, 200]",thin_photo_cut,found

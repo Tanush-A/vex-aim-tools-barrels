@@ -1,0 +1,5 @@
+stem,barrel,color,bbox,before,after,kind,place,condition,judged
+4A8B_lampcool6_ottoman_occl_02,1,orange,225 125 286 192,missed,found,gained,home_ottoman,lampcool6_ottoman,1
+4A8B_window_abpwhite_occlx_02,1,orange,92 119 143 170,missed,found,gained,abp_white,window_abpwhite,1
+4A8B_window_abpwhite_occlx_03,1,orange,99 120 152 172,missed,found,gained,abp_white,window_abpwhite,1
+4A8B_window_black_cluster_01,4,blue,418 129 485 203,missed,found,gained,home_black,window_black,0
