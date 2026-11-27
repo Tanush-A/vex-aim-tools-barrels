@@ -182,3 +182,45 @@ changed. No learned model.
 `results/2026-11-26_slack/`: `summary.md` (one table, every arm on every yardstick), `changes.csv` (every barrel
 and box that changed, per yardstick), the judge pages of (c), the contact sheets, `harness.md`. `ENTRY.md` in
 this folder is the experiment-log entry.
+
+---
+
+# Addendum, 2026-11-27: round 1, and round 2, written before round 2 was run
+
+## Round 1 (`results/2026-11-26_slack/round1/summary.md`; the harness half of (d) was still running when this was written)
+
+Per frame, ordinary train frames, each arm against today's detector on the same mask.
+
+| arm | (a) 1 px: back of 40 | (a) 2 px: back of 107 | (c) unharmed, fixed | (e) hand colors, unharmed: boxes not on their barrel | (d) new box on an empty frame |
+|---|---|---|---|---|---|
+| A | 0 | 0 | 211 → 211 | 3 → 3 | none |
+| B | 11 | 58 | 211 → 214, NO CLEAR DIFFERENCE | **3 → 7** | **1** (`lampmid3_bathtile_neg_02`, hand colors) |
+| C | 6 | 1 | 211 → 213 | 3 → 3 | none |
+| AB, ABC | as B | as B | 214, 215 | 3 → 7 | 1 |
+
+- **A does nothing on any real mask.** No stripe of any train frame is between the scaled floor and 20 px where it matters.
+- **B breaks hard limits 1 to 3** with hand-set colors: four new boxes on nothing (`lampmid3_bathtile_clutter_01`, `neg_02`, `lampmid6_bathtile_occl_02`, `lampwarm6_ottoman_occl_02`), one on an empty frame. Everywhere else B is clean: on the fixed colors and on every eroded mask it adds no box that is not on its barrel and lowers that count.
+- **C breaks no hard limit but misses the success line** (6 of 40 at one pixel, under one in three). The pixel fails several tests at once.
+
+## What was looked at after round 1 (scripts `after_round1.py`, `after_round1_gains.py`)
+
+- Every contact sheet of round 1 (13 sheets, 252 boxes), by eye.
+- For every box B adds, which part of B let its stripe through. All four boxes on nothing come from a stripe that is
+  **too small by its own pixels** (under 20 px) and was called "seen whole" **by its width** (as today, or with the
+  eaten pixels given back). For all four, the rest of the barrel with its edges as seen says no. Of B's 167 new boxes
+  that are strict hits, 146 + 8 come through the rest of the barrel on a stripe that is not small, and 7 + 6 on a small
+  one (7 with the edges as seen, 6 only with the eaten pixels given back). One strict hit (`lampmid6_bathtile_core_01`, 1 px) is a small stripe
+  passed by its width that the rest also supports.
+- So **round 2 is shaped by these four false boxes on train frames.** It is a second attempt after seeing results.
+
+## Round 2: one more letter, `D`
+
+**D = B, except that a stripe too small by its own pixels (under the area floor) is read a second time only when the
+rest of the barrel supports it with its top and bottom AS SEEN** (`_rest_supports` with nothing given back). The width
+readings and the eaten pixels stay for a stripe that is big enough and only too thin. No new number.
+
+Arms judged: `D` and `CD`. Same yardsticks, same hard limits, same success line (one in three of the 40 found barrels
+lost to one pixel on the ordinary frames, fixed colors), same choice rule among the arms that break no hard limit
+(round-1 arms included). Expected cost, written now: the 6 strict hits that need the eaten pixels on a small stripe
+(two-pixel masks, mostly HOME `far_02`, `core_03`) are lost again. No third round: if D breaks a hard limit, the
+report says so and recommends nothing.

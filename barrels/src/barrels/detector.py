@@ -60,6 +60,16 @@ class DetConfig:
     body_min: float = 0.1        # in the stripe's columns, outside its rows, the box holds at least this share of body color (and more body than stripe color)
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
+    slack: str = ""              # EXPERIMENT 2026-11-26_slack, off by default (""): the letters of the slack rules that are on. "A": the stripe's area floor
+                                 # scales with the barrel (``area_floor``). "B": a thin or small stripe is read at the seams when the barrel is seen whole,
+                                 # by the stripe's width or by the rest of the barrel (``_seam_reading``, ``_rest_supports``). "C": one size floor missed by a
+                                 # pixel is forgiven when the rest fits (``_fits_well``). Not a rule of the detector: on adoption the chosen rule becomes
+                                 # plain code and this flag goes (experiments/2026-11-26_slack/PREREG.md). "D" (round 2): B, except that a stripe
+                                 # too SMALL by its own pixels is read again only when the rest of the barrel supports it with its edges as seen
+
+    def __post_init__(self):
+        if set(self.slack) - set("ABCD"):
+            raise ValueError(f"DetConfig.slack holds the letters A, B, C, D (or nothing), got {self.slack!r}")
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -101,6 +111,9 @@ class Stripe:
     thin: bool = False                   # narrower than a stripe is tall, or taller than wide. A thin piece is a barrel only as a
                                          # slice seen from top to bottom (see box_from_stripe, thin_slice)
     at: BarrelAt | None = None           # the barrel its centre row predicts (None: that row gives no barrel)
+    floor_px: float | None = None        # (experiment "slack") how many pixels of its own a box read from this stripe needs in the verify step,
+                                         # where that is not min_area_px: the scaled floor (A), or all of its pixels when it was admitted under it
+    marginal: bool = False               # (experiment "slack", C) admitted with one size floor missed by a pixel: its box must fit well
 
 
 @dataclass(frozen=True)
@@ -606,6 +619,79 @@ def _one_stripe_per_barrel(sel: np.ndarray, mask: np.ndarray, other: int, body: 
     return out
 
 
+# ---------------------------------------------------------------- EXPERIMENT 2026-11-26_slack (off unless DetConfig.slack names a letter)
+
+SEAM_MAX_EATEN = 3.0     # the most pixels per edge the seams may give back: the 3 empty rows the body walk allows between a stripe and its body
+FITS_FILL = 0.5          # "well filled" (C): the share of barrel color in the stripe's columns between the seen top and bottom
+
+
+def area_floor(at: BarrelAt, cfg: DetConfig) -> float:
+    """How many pixels a stripe needs. min_area_px; with slack "A" a share of the stripe its row predicts: the smallest
+    stripe that passes the height floor and is wide enough to be placed alone (stripe_h_min x stripe_w_min x W x the
+    stripe height), and never more than min_area_px. 20 px is 3 % of the predicted stripe at 20 cm and 29 % at 64 cm;
+    the share is 18 % everywhere beyond 50 cm, where it is under 20 px."""
+    if "A" in cfg.slack:
+        return min(float(cfg.min_area_px), cfg.stripe_h_min * cfg.stripe_w_min * at.W * at.Hs)
+    return float(cfg.min_area_px)
+
+
+def _seam_reading(sw: Sandwich, sel: np.ndarray, core_h: float) -> tuple[float, float, int, int]:
+    """The stripe ``sel`` read at its seams: (its height, the pixels eaten per edge, the row after the body above, the
+    first body row below).
+
+    Mixed pixels at the two seams belong to neither color. With h the stripe's own height and g the gap between the body
+    above and the body below (the median over the stripe's pixels), each color lost e = (g - h) / 4 pixels at each of its
+    edges. The stripe's height is h + 2e = the mean of h and g. ``e`` is not below 0 and not above SEAM_MAX_EATEN."""
+    up_r, dn_r = sw.up[sel], sw.dn[sel]
+    gap = float(np.median(dn_r - up_r - 1))
+    eaten = min(SEAM_MAX_EATEN, max(0.0, (gap - core_h) / 4))
+    return (core_h + gap) / 2, eaten, int(round(float(np.median(up_r)))) + 1, int(round(float(np.median(dn_r))))
+
+
+def _rest_supports(body: int, x: int, bw: int, sy0: int, sy1: int, at: BarrelAt, eaten: float, mask: np.ndarray, cfg: DetConfig) -> bool:
+    """Slack "B", the second way to read "the barrel is seen whole": does the rest of the barrel support a stripe in
+    columns x..x+bw whose band (body to body) is rows sy0..sy1? Yes when
+
+    1. the body walked up and down from the band ends where the stripe's row predicts the top and the bottom (the edge
+       tolerance; an edge may agree as it is seen, or with the ``eaten`` pixels given back);
+    2. neither end lies against the other barrel color (as ``_full_slice``);
+    3. on at least one side the stripe and the body joined to it end together (the sideways tolerance of ``seen_span``):
+       that side is the barrel's own edge. A sliver in the middle of something wider has no such side."""
+    h = mask.shape[0]
+    x1 = x + bw
+    top, bottom = _body_extent(mask, body, x, x1, sy0, sy1)
+    if top >= sy0 or bottom <= sy1:
+        return False                                                 # no body joined above, or none below
+    tol = at.tol(cfg)
+    if min(abs(top - at.top), abs(top - eaten - at.top)) > tol or min(abs(bottom - at.bottom), abs(bottom + eaten - at.bottom)) > tol:
+        return False                                                 # 1.
+    other = (_other(body),)
+    if ends_against(mask, other, top - 4, top, x, x1) or ends_against(mask, other, bottom, bottom + 4, x, x1):
+        return False                                                 # 2.
+    span = _body_span(mask, body, x, x1, max(0, top), min(h, bottom), sy0, sy1) if bottom - top >= 2 else None
+    if span is None:
+        return False
+    tol_w = edge_tol(cfg, at.W)
+    return abs(span[0] - x) <= tol_w or abs(span[1] - x1) <= tol_w   # 3.
+
+
+def _fits_well(s: Stripe, inferred: frozenset, mask: np.ndarray, top: int, bottom: int, cfg: DetConfig) -> bool:
+    """Slack "C": does the rest of the barrel make up for the one size floor a marginal stripe missed? Yes when top and
+    bottom are both seen where its row predicts them (neither inferred), body color is above and below the stripe in at
+    least stripe_full of its columns, and in the stripe's columns, rows top..bottom, at least FITS_FILL of the pixels are
+    barrel-colored."""
+    if inferred:
+        return False
+    x0, y0, x1, y1 = s.bbox
+    cols = mask[top:bottom, x0:x1]
+    above, below = cols[:max(0, y0 - top)], cols[max(0, y1 - top):]
+    if not above.size or not below.size or not cols.size:
+        return False
+    if float((above == s.body).any(axis=0).mean()) < cfg.stripe_full or float((below == s.body).any(axis=0).mean()) < cfg.stripe_full:
+        return False
+    return float(np.isin(cols, (ORANGE, BLUE)).mean()) >= FITS_FILL
+
+
 def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), log: list | None = None,
                  layers: dict | None = None) -> tuple[list[Stripe], list[Stripe]]:
     """Stage 2. In: the class mask (and ``layers``, its ``sandwiches``, when the caller has them). Out: (the stripes, left to
@@ -630,9 +716,17 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
     7. thin? Narrower than a stripe is tall, or taller than wide: marked ``Stripe.thin``, and handed out a second time
        as a left-over piece.
 
-    The left-over pieces (5 and 7) are never a barrel alone: stage 7 pairs them."""
+    The left-over pieces (5 and 7) are never a barrel alone: stage 7 pairs them.
+
+    EXPERIMENT (DetConfig.slack, off by default; with "" every line below does what the list above says). "A": the
+    floor of 1 is ``area_floor``. "B": a stripe that is too thin (4) or too small (1) is read at the seams
+    (``_seam_reading``) when the barrel is seen whole by either of two readings: its own width with the eaten pixels
+    given back, or the rest of the barrel (``_rest_supports``); a stripe accepted that way is from then on the band
+    between its two bodies. "C": a stripe that misses exactly one of the floors of 1, 4 (the thin side) and 5 by one
+    pixel on each edge goes on, marked ``Stripe.marginal``; stage 3 keeps its box only if the rest fits well."""
     out: list[Stripe] = []
     leftover: list[Stripe] = []
+    slack = cfg.slack
     for body, sw in (layers or sandwiches(mask, cam, cfg)).items():
         other, up, dn = sw.other, sw.up, sw.dn
         sandwich = sw.above & sw.below
@@ -642,12 +736,16 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
             bw, bh = int(max(st[i][0] + st[i][2] for i in ids)) - x, int(max(st[i][1] + st[i][3] for i in ids)) - y
             area = int(sum(st[i][4] for i in ids))
             sb = (x, y, x + bw, y + bh)
-            if area < cfg.min_area_px:
+            small = area < cfg.min_area_px
+            if small and not slack:
                 _note(log, "stripe", "area", sb, body=body, area=area)
                 continue                                                                   # 1.
             sel = np.isin(lab, ids) if len(ids) > 1 else lab == ids[0]
             ys = np.where(sel)[0]
             at = BarrelAt.from_stripe_row(cam, float(np.median(ys)) + 0.5)      # the row: the median row of the candidate's pixels
+            if small and (at is None or not on_the_table(at, cfg)):
+                _note(log, "stripe", "area", sb, body=body, area=area)                     # (slack) a small candidate whose row gives no barrel on the table
+                continue
             if at is None:
                 _note(log, "stripe", "no_geometry", sb, body=body)
                 continue                                                                   # 2.
@@ -656,31 +754,69 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
                 _note(log, "stripe", "too_far", sb, body=body, expected_w=W, expected_stripe_h=Hs)
                 continue                                                                   # 3.
             core_h = np.percentile(ys, 90) - np.percentile(ys, 10) + 1
-            h_ok = cfg.stripe_h_min * Hs <= core_h <= cfg.stripe_h_max * Hs
-            seam_h = None
-            if core_h < cfg.stripe_h_min * Hs and bw >= cfg.stripe_full * W:
+            lo, hi = cfg.stripe_h_min * Hs, cfg.stripe_h_max * Hs
+            floor = area_floor(at, cfg)
+            a_ok = area >= floor
+            h_ok = lo <= core_h <= hi
+            seam_h, band = None, None
+            if "B" in slack or "D" in slack:
+                if (core_h < lo or not a_ok) and core_h <= hi:
+                    # (slack B) too thin or too small by its own pixels: the second reading, when the barrel is seen whole by the
+                    # stripe's own width with the eaten pixels given back, or by the rest of the barrel
+                    sh, eaten, sy0, sy1 = _seam_reading(sw, sel, float(core_h))
+                    sy0, sy1 = min(y, sy0), max(y + bh, sy1)
+                    if "D" in slack and not a_ok:
+                        # (slack D) too small by its own pixels: only the rest of the barrel, with its edges as seen, says "seen whole"
+                        whole = _rest_supports(body, x, bw, sy0, sy1, at, 0.0, mask, cfg)
+                    else:
+                        whole = bw + 2 * eaten >= cfg.stripe_full * W or _rest_supports(body, x, bw, sy0, sy1, at, eaten, mask, cfg)
+                    if whole:
+                        seam_h = sh
+                        if lo <= seam_h <= hi:
+                            h_ok, a_ok, band = True, a_ok or area * seam_h / core_h >= floor, (sy0, sy1)
+            elif core_h < lo and bw >= cfg.stripe_full * W:
                 # too thin by its own rows, and seen whole: the second reading. Not asked of a short piece: thin because the
                 # seams were eaten, or short because partly hidden, not both (a blue sliver between two fingers is thin and short)
                 gap = float(np.median((dn - up - 1)[sel]))
                 seam_h = (core_h + gap) / 2
-                h_ok = cfg.stripe_h_min * Hs <= seam_h <= cfg.stripe_h_max * Hs
+                h_ok = lo <= seam_h <= hi
+            w_ok = bw >= lo
+            marginal = False
+            if "C" in slack and core_h <= hi and (not a_ok) + (not h_ok) + (not w_ok) == 1:
+                # (slack C) exactly one floor missed: forgiven if one pixel on each edge would pass it. Stage 3 asks the rest
+                if not a_ok:
+                    marginal = area + 2 * (bw + bh) + 4 >= floor
+                elif not h_ok:
+                    marginal = core_h + 2 >= lo
+                else:
+                    marginal = bw + 2 >= lo
+                if marginal:
+                    a_ok = h_ok = w_ok = True
+            if not a_ok:
+                _note(log, "stripe", "area", sb, body=body, area=area)
+                continue                                                                   # 1. (slack: asked after the row is known)
             if not h_ok:
                 _note(log, "stripe", "height", sb, body=body, core_h=float(core_h), expected_stripe_h=Hs,
                       **({} if seam_h is None else {"seam_h": float(seam_h)}))
                 continue                                                                   # 4.
             twin = Stripe(body, sb, int((mask[sel] == other).sum()), 0, float(np.median(ys)) + 0.5, at=at)    # the candidate as a left-over piece
-            if bw < cfg.stripe_h_min * Hs:
+            if not w_ok:
                 _note(log, "stripe", "width", sb, body=body, core_h=float(core_h), expected_w=W)
                 leftover.append(twin)
                 continue                                                                   # 5.
             # 6. The barrel's size can be read off the body only where body IS seen right above and right below the region
             # (the body walk allows 3 empty rows). With none there the seen height says nothing, and a near barrel's stripe
             # can be 1.26 x the width its row gives
+            ry0, ry1 = band if band is not None else (y, y + bh)                           # the stripe's rows (slack B: the band between its bodies)
             W_two = None
-            top_s, bot_s = _body_extent(mask, body, x, x + bw, y, y + bh)
-            if top_s < y and bot_s > y + bh:
+            top_s, bot_s = _body_extent(mask, body, x, x + bw, ry0, ry1)
+            if top_s < ry0 and bot_s > ry1:
                 W_two = max(W, (bot_s - top_s) * W / at.H)
             parts = _one_stripe_per_barrel(sel, mask, other, body, x, bw, W, cam, cfg, W_two)
+            own = min(floor, float(area)) if (floor < cfg.min_area_px or area < floor) else None
+            if band is not None or own is not None or marginal:                            # (slack) what the later stages need to know
+                parts = [replace(s, bbox=(s.bbox[0], min(s.bbox[1], ry0), s.bbox[2], max(s.bbox[3], ry1)), floor_px=own, marginal=marginal)
+                         for s in parts]
             if bw < Hs or bw < core_h:                                                     # 7.
                 parts = [replace(s, thin=True) for s in parts]
                 leftover.append(twin)
@@ -1175,6 +1311,9 @@ def box_from_stripe(s: Stripe, mask: np.ndarray, cam: geo.CameraModel, cfg: DetC
     if not ok:
         _note(log, "barrel", "body_min", s.bbox, body=s.body, box=(bx0, top, bx1, bottom), body_frac=body_frac, other_frac=other_frac)
         return None, "body_min"
+    if s.marginal and not _fits_well(s, edges.inferred, mask, top, bottom, cfg):
+        _note(log, "barrel", "marginal", s.bbox, body=s.body, box=(bx0, top, bx1, bottom))   # (slack C) one floor missed, and the rest does not make up for it
+        return None, "marginal"
     if bx0 == 0 or bx1 == w or top == 0 or bottom == h:
         flags.add("truncated")
     conf = 0.5 + 0.5 * s.n_other / max(1, s.n_other + s.n_dark)   # the labeled share of the stripe's box
@@ -1418,7 +1557,10 @@ def drop_seen_through(found: list[Found], mask: np.ndarray, cam: geo.CameraModel
                 ok |= (lay == -1) | ((lay > 0) & (lay == mask[ey0:ey1, ex0:ex1]))
             own = int((ev & ~ok).sum())
             share = 1.0 - own / n
-        if nearer and own < cfg.min_area_px:
+        need = cfg.min_area_px
+        if f.stripe is not None and f.stripe.floor_px is not None:
+            need = f.stripe.floor_px                                # (slack) the floor this stripe was admitted with
+        if nearer and own < need:
             _note(log, "verify", "front", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), explained=round(share, 3), own_px=own)
             continue
         if ex1 > ex0 and ey1 > ey0:
