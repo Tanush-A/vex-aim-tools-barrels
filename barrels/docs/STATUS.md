@@ -1,10 +1,15 @@
 # STATUS.md — where we are
 
-**2026-11-27 (phone check-in):** the next shoot is one new place, the **gray wood table under a warm lamp**, 9 shots, clutter last with the tin and the jar, vendor files on every frame (`TODO.md`, "Next shoot"). The black table under the window is skipped (glare is parked). Fusion is dropped (+1.8, inside the noise, and 5 times slower). The shape checks are not adopted. The blind test look of 2026-11-25 (ours 14 vs the vendor's 23 of 32) used the fixed colors from before contrast; its losses (ottoman, dim bathroom) are the color problem contrast addresses on train frames. It is not fixed on the test frames themselves (no tuning on test); a second pre-registered look waits for the adopted detector.
+**Updated:** 2026-11-27. Read `MEETING-2026-11-27.md` (the week, brief) and `REPORT-2026-11-27.md` (the two days of review and experiments). The history below this block is from before 2026-11-26 and is out of date in places (doc cleanup is on the TODO).
 
-**Updated:** 2026-11-25. Final report of the week's push: `REPORT-2026-11-25.md`. Test look done (pre-registered, one configuration): home 9 of 9, campus 22 of 24; new conditions ours 14 of 32 against the vendor's 23 (the gap is the color step on the ottoman and the dim / warm bathroom); we draw fewer false boxes. Waiting for Tanush: "understood" on the verify step (`wip/final`), protecting the new conditions, the orange conflict, a fresh try of the light rule.
+## Now (2026-11-27)
 
-## What runs
+- **What runs:** fixed hs colors `eb863d84` → the collapsed detector (ten named stages, 18 numbers, no switches; `DETECTOR-MAP.md`) with the slack rule (a thin stripe re-measured from its seams; merged 2026-11-27). **Stripe by contrast is being adopted** (`wip/adopt-contrast`), then one planned test look.
+- **Numbers (train, ordinary, 172 barrels counted once):** today 135.4; with contrast 155.3 held out. Vendor comparison (6 places, 108): today 70.8, contrast 92.3, vendor 83.3.
+- **Measuring:** `tools/judge.py` (one pass rule), `tools/report.py --places` (each barrel once), `--gate` (never-regress with a margin; six protected sets).
+- **Open:** walkthrough of contrast; the test look; a new warm-light place; the home white table with vendor files; questions for Dave (`MEETING-2026-11-27.md` section 9).
+
+## (history) What runs
 
 hs color model `eb863d84` (orange hue 3–13, S ≥ 140; blue hue 103–119, S ≥ 113; fit on the 16 home frames) → stripe detector, hardening a–g, with the reason log, `stripe_join` and `cap_behind` (2026-11-18); side-occlusion fix in the code but switched off → provisional camera `AIM_4A8B6118_BOXFIT`. Live: `BarrelViewer`, `BarrelTracker`, `tm seg` with a second window. Eval: `python barrels/tools/report.py`.
 

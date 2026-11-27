@@ -27,6 +27,17 @@ Agreed with Tanush in the reviewer session on 2026-11-26, from the review of the
 - **The bottom-edge mismatch (D1) gets fixed** (K2). **A barrel 60 % hidden at the side should still be found** when its stripe, bulge and top or bottom edge show (E7).
 - **More data later:** Tanush shoots one or two more places after this block of work.
 
+### Next (2026-11-27)
+
+| # | what | state |
+|---|---|---|
+| **N1** | Adopt stripe by contrast as the default (Tanush: go) | running on `wip/adopt-contrast` |
+| **N2** | One planned look at the test frames with contrast (Tanush asked) | after N1, same branch |
+| **N3** | Shoot a new warm-light place (pale table or floor, not the bathroom; clutter last, with the tin and the jar) | Tanush |
+| **N4** | **Doc cleanup:** `STATUS.md`, `HOW-IT-WORKS*.md`, `ARCHITECTURE.md`, `CLAUDE.md` "current facts", `HANDOFF.md`, `EVAL.md` still describe the detector before the collapse in places; move the November history to `archive/`; one "Now" block per doc | open |
+| **N5** | Occlusion by non-barrel things, from real frames (what is left after contrast is mostly hidden barrels) | after N1 |
+| **N6** | A photo-based check for near-barrel traps (the mask cannot tell a printed label from a barrel) | open |
+
 ### U. Understand what runs today (first; no code)
 
 | # | what | state |
