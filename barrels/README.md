@@ -4,6 +4,8 @@ One 640×480 camera image in, the same image out with one box around every barre
 
 Where it stands (2026-11-09): the color front end is the **hs model** (a hue range and an HSV-saturation floor per barrel color, read once off labeled frames; nothing estimated from the image), the detector is the **stripe-anchored** one with this weekend's hardening. On the 21 campus training frames it scores **0.99** mean F1 under the strict rule (overlap ≥ ½ and bottom edge within a tenth of the height) against 0.41 for the previous front end, home 0.93 unchanged, nothing drawn on any empty frame. First live run with Dave on 2026-11-09 found two detector bugs (thin boxes; a close-up hidden by a far barrel), both fixed the same day. This week: generalize to many lights, tables (wood included) and clutter, and look at hue/saturation histograms as the ground for an adaptive front end. Current state and the task list: `docs/STATUS.md`, `docs/TODO.md`.
 
+Since 2026-11-27 the default path is **three steps in one call, `pipeline.detect_frame(frame)`**: the color step, the detector, and **the stripe by contrast** (`src/barrels/contrast.py`), which finds a barrel the fixed colors missed from a stripe that is bluer (or redder) than the body above and below it, paints that barrel in its own colors and adds its box. On the ordinary train frames: 135.4 → 156.6 of 172 placements, no barrel lost, no box on an empty frame. Everything that detects a frame (the photo tool, the live programs, the eval table, the gate, the judge) goes through it.
+
 ## Setup
 
 ```zsh
@@ -15,7 +17,7 @@ pip install -e barrels                     # once, from the repo root; the packa
 
 ```zsh
 cd barrels && python -m pytest                                              # 1. the tests (infrastructure only); a full run ends with the eval report table (≈ 15 s; BARRELS_NO_REPORT=1 skips it)
-python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png   # 2. the detector on a photo → results/detect_image/<stem>_boxes.png
+python barrels/tools/detect_image.py barrels/data/raw/4A8B_window_light_touch_02.png   # 2. the detector on a photo (pipeline.detect_frame: colors, detector, contrast) → results/detect_image/<stem>_boxes.png
 python barrels/tools/segment_image.py barrels/data/raw/4A8B_window_light_touch_02.png  # 3. the color segmentation alone → results/segment_image/
 python barrels/experiments/2026-11-08_seg_hs_v2/run.py                      # 4. reproduce the headline numbers (v1 front end vs hs, home + campus, ≈ 1 min)
 cd barrels/live && simple_cli BarrelViewer                                  # 5. live on the robot, per frame (robot on, setup.zsh sourced; docs/RUNBOOK.md)
@@ -27,7 +29,7 @@ python barrels/tools/report.py                                              # 7.
 python barrels/tools/report.py --vendor                                     # 7b. the same table against the robot's built-in (vendor) detector, on the frames that have a vendor file
 python barrels/tools/report.py --places                                     # 7b'. the same run counted per placement and by place (each physical barrel once; a misplaced box once); always printed with --vendor
 python barrels/tools/report.py --gate                                       # 7c. the never-regress check, with a margin: PASS / FAIL against results/baseline/baseline.json (run before every merge; --save-baseline after one)
-python barrels/tools/judge.py --cand-det stripe_merge=1.68                 # 7c'. THE STANDARD PASS RULE: a candidate (DetConfig fields, a model file, --cand-callable file.py:fn, or --cand-fit file.py:fn for leave one place out) against today -> PASS / FAIL / NO CLEAR DIFFERENCE (≈ 25 s)
+python barrels/tools/judge.py --cand-det stripe_merge=1.68                 # 7c'. THE STANDARD PASS RULE: a candidate (DetConfig fields, a model file, --cand-callable file.py:fn, or --cand-fit file.py:fn for leave one place out) against today -> PASS / FAIL / NO CLEAR DIFFERENCE (≈ 25 s; --base-previous = against the default before the contrast stage)
 python barrels/experiments/2026-11-24_vendor/run.py                        # 7d. ours vs the vendor per condition on the real vendor files, with a check of the files; summary.md in results/<today>_vendor/
 python barrels/experiments/run_all.py                                       # 7e. the nightly run: tests, gate, eval table, vendor, adaptive rule (if present) -> ONE page results/<today>_run_all/summary.md
 ```
@@ -40,7 +42,7 @@ In the live programs, type `tm seg`, `tm boxes` or `tm both` at the `C>` prompt 
 |---|---|
 | the one-page explanation of how it works | `docs/HOW-IT-WORKS-SHORT.md` |
 | the same with worked numbers, per module | `docs/HOW-IT-WORKS.md` |
-| the detector check by check: every stage, every number, and why (no on/off switches since 2026-11-26) | `docs/DETECTOR-MAP.md` |
+| the detector check by check: every stage, every number, and why (no on/off switches since 2026-11-26; the stripe by contrast is stage 11 since 2026-11-27) | `docs/DETECTOR-MAP.md` |
 | how the files fit together (diagrams) | `docs/ARCHITECTURE.md` |
 | what we are building, exactly | `docs/PROBLEM.md` (the spec), `docs/constraints.md` (the physical facts), `docs/EVAL.md` (how it is scored) |
 | what happened and why | `docs/EXPERIMENTS.md` (every experiment, newest first), `docs/DECISIONS.md` (every decision, with alternatives) |
