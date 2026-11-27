@@ -2,9 +2,9 @@
 """Contact sheets from ``boxes.csv`` (part B) or from a list of changed boxes: per box, the photo crop with the box
 and the hand boxes, and the mask crop. To be LOOKED at. Images are not committed.
 
-    python sheets.py false            # every B4 box not on its barrel
-    python sheets.py real [rule]      # every real barrel B4 finds (optionally one rule)
-    python sheets.py csv <file.csv> <name>   # rows with stem,x0,y0,x1,y1,color[,mask],[note]: any list of boxes
+    python bgsheets.py false            # every B4 box not on its barrel
+    python bgsheets.py real [rule]      # every real barrel B4 finds (optionally one rule)
+    python bgsheets.py csv <file.csv> <name>   # rows with stem,x0,y0,x1,y1,color[,mask],[note]: any list of boxes
 
 Train frames only (``judge.load_frame``)."""
 from __future__ import annotations
