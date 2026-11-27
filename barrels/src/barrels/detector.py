@@ -1,18 +1,18 @@
 """The v2 detector: class mask -> one Barrel per barrel, with the edges that cannot be seen filled in by the geometry.
 
-One entry point: ``detect(mask, cfg, cam)``. It runs ten stages in a fixed order. Each stage is one function, and its
+One entry point: ``detect(mask, cfg, cam)``. It runs eleven stages in a fixed order. Each stage is one function, and its
 docstring says what goes in, what comes out and what it decides, check by check. The file reads in this order:
 
     DetConfig                      the numbers (there are no on/off switches: every rule always runs)
     Piece, Stripe, Found           what the stages hand to each other
     small helpers                  one idea, one place (the edge tolerance, "the same barrel", "ends against", "nearer", ...)
     BarrelAt                       the ruler: the barrel the geometry expects from one reading of the picture
-    detect                         the ten stages
+    detect                         the eleven stages
     stage 1   find_pieces          blobs of barrel color, cut to barrel width, bottom edge resolved. No box yet
     stage 2   find_stripes         a band of one color with the other color right above and right below
     stage 3   boxes_from_stripes   one box per stripe: read_edges, place_sides, holds_body, then duplicates
     stage 4   closeup_pieces       a piece with no stripe in view: only as a close-up
-    stages 5 and 9                 drop_seen_through, drop_single_reading: the verify step
+    stages 5, 9, 10, 11            drop_seen_through, drop_single_reading, drop_unlike_paint: the verify step
     stage 6   caps_behind          a top showing above a found nearer barrel
     stage 7   post_pairs           two thin slices, one barrel apart
     stage 8   half_stripes         a stripe with body on one side only
@@ -59,13 +59,9 @@ class DetConfig:
     body_width: float = 1.2      # one barrel is at most this x W wide: the box, the seen span, a joined stripe, a cap, a pair, a half stripe.
                                  # Never under 1: a barrel is one barrel wide
     pin_good: float = 0.05       # an end of the seen part is the barrel's own side when the outline's three lines lie within this x H of the seen ones
-    # The paint checks (stage 11, ``drop_unlike_paint``; 2026-11-27, experiments/2026-11-27_checks). Off by default while
-    # they are measured: each switch turns on one check; the numbers are those of experiments/2026-11-27_bluer_geom.
-    check_solid: bool = False    # EXPERIMENT SWITCH: drop a box whose barrel color is speckle (solidity under solid_min)
-    check_label: bool = False    # EXPERIMENT SWITCH: drop a box whose "stripe" is a label (taller than label_stripe x a stripe height, body under label_body)
-    solid_min: float = 0.40      # of the barrel-colored pixels in the box, at least this share have all 8 neighbours barrel-colored too
-    label_stripe: float = 1.25   # a stripe taller than this x a stripe height ...
-    label_body: float = 0.6      # ... in a box whose rows outside the stripe hold less than this share of body color is a label
+    solid_min: float = 0.40      # the paint is solid: of the barrel-colored pixels in the box (closed 3 x 3), at least this share have all 8 neighbours barrel-colored too
+    label_stripe: float = 1.5    # a stripe taller than this x a stripe height ...
+    label_body: float = 0.6      # ... with less than this share of body color in its columns outside its rows is a label, not a stripe
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -310,7 +306,7 @@ def on_the_table(at: BarrelAt, cfg: DetConfig) -> bool:
     return True
 
 
-# ================================================================ the detector: ten stages, in this order
+# ================================================================ the detector: eleven stages, in this order
 
 def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel = geo.AIM_4A8B6118_BOXFIT,
            log: list | None = None) -> list[Barrel]:
@@ -319,8 +315,8 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
 
     The stages, in order. Stripes come first: the first boxes are drawn from stripes (stage 3), and a stripe already needs
     body color above and below it. Geometry is not a stage: it is the ruler inside every check (a row gives a distance,
-    the distance gives the expected width, height and stripe height). Later stages only add boxes, except that the two
-    verify stages (5 and 9) delete boxes and a half stripe (8) may replace a box of stage 3. docs/DETECTOR-MAP.md walks
+    the distance gives the expected width, height and stripe height). Later stages only add boxes, except that the
+    verify stages (5, 9, 10, 11) delete boxes and a half stripe (8) may replace a box of stage 3. docs/DETECTOR-MAP.md walks
     through every check."""
     layers = sandwiches(mask, cam, cfg)                                        #    per body color: where the other color has it right above / below
     pieces = find_pieces(mask, cam, cfg, log)                                  # 1  blobs of barrel color, barrel-shaped. No box yet
@@ -333,7 +329,7 @@ def detect(mask: np.ndarray, cfg: DetConfig = DetConfig(), cam: geo.CameraModel 
     found = half_stripes(found, mask, cam, cfg, log, layers)                   # 8  a stripe with body on one side only (adds; may replace)
     found = drop_seen_through(found, mask, cam, cfg, log)                      # 9  verify again, on every box
     found = drop_single_reading(found, mask, cam, cfg, log)                    #    verify: a guessed side needs a seen edge
-    found = drop_unlike_paint(found, mask, cam, cfg, log)                      # 11 verify: solid paint, a stripe not a label (off by default)
+    found = drop_unlike_paint(found, mask, cam, cfg, log)                      # 11 verify: solid paint, a stripe not a label
     return sorted((f.barrel for f in found), key=lambda b: b.bbox[0])
 
 
@@ -1518,27 +1514,29 @@ def paint_readings(f: Found, mask: np.ndarray, cam: geo.CameraModel, cfg: DetCon
 
 def drop_unlike_paint(found: list[Found], mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(),
                       log: list | None = None) -> list[Found]:
-    """Stage 11, the paint checks (2026-11-27; each off unless its switch is on). In: the boxes. Out: the boxes that pass,
-    in the same order. Every box is asked, whichever rule drew it; ``paint_readings`` says what is read.
+    """Stage 11, the last: the paint checks (2026-11-27, experiments/2026-11-27_checks). In: the boxes. Out: the boxes
+    that pass, in the same order. Every box is asked, whichever rule drew it; ``paint_readings`` says what is read.
 
-    1. ``check_solid``: the barrel color in the box is solid paint: solidity at least solid_min;      else "speckle"
-    2. ``check_label``: the stripe is not a label: NOT (taller than label_stripe x a stripe height AND the body share
-       outside it under label_body). A box with no stripe is not asked;                                else "label"
+    1. the barrel color in the box is solid paint: solidity at least solid_min;                         else "speckle"
+    2. the stripe is not a label: NOT (taller than label_stripe x a stripe height AND the body share in its columns
+       outside its rows under label_body). A box with no stripe is not asked;                            else "label"
 
     Why: a jar with an orange lid and a blue label, a blue tin, a small figure (the near-barrel traps of the bathroom
     frames). The tin and the figure are printed in speckle; the jar's label is taller than a barrel's stripe and the jar
-    around it holds little body color. A reading that cannot be made (nan) never drops a box."""
-    if not (cfg.check_solid or cfg.check_label):
-        return found
+    around it holds little body color. A reading that cannot be made (nan) never drops a box.
+
+    Measured on everything (experiments/2026-11-27_checks): no real barrel lost on the train frames, the extreme
+    conditions or the 5435 masks of the proof harness. Read on the whole box without the closing, solidity lost
+    damaged and partly hidden barrels; a label at 1.25 x lost barrels hidden by one of the other color."""
     out = []
     for f in found:
         r = paint_readings(f, mask, cam, cfg)
         if r is not None:
             solid, stripe_h, body = r
-            if cfg.check_solid and solid < cfg.solid_min:
+            if solid < cfg.solid_min:
                 _note(log, "verify", "speckle", f.barrel.bbox, body=f.barrel.color, rule=f.rule, solid=solid, stripe_h=stripe_h, body_share=body)
                 continue
-            if cfg.check_label and stripe_h > cfg.label_stripe and body < cfg.label_body:
+            if stripe_h > cfg.label_stripe and body < cfg.label_body:
                 _note(log, "verify", "label", f.barrel.bbox, body=f.barrel.color, rule=f.rule, solid=solid, stripe_h=stripe_h, body_share=body)
                 continue
         out.append(f)

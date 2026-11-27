@@ -95,3 +95,13 @@ their barrel, per arrangement. Found placements never moved in J2 and J3 (156.83
 
 - The B4 color step with the checks (bluer_geom's G1) was not re-run with the round-2 readings.
 - The judge with the checks was not run leave one place out: nothing was fitted here.
+
+#### Adoption (the second commit on the branch, awaiting Tanush's "understood")
+
+- The switches are gone: stage 11 always runs, with `solid_min` 0.40, `label_stripe` 1.5, `label_body` 0.6 (21
+  numbers). Tests: `tests/test_detector_paint.py` (6), `tests/test_report.py` (21 numbers, no switch).
+- Checked against the detector before it (`verify_plain.py`, `results/2026-11-27_checks/plain/`): fixed colors, no
+  box changes on any train frame (NO CLEAR DIFFERENCE, 133.80 placements, boxes 1.93); hand thresholds, one box goes
+  (the jar on `lampmid6_bathtile_neg_02`; 1.50 → 1.25); contrast winner, no box changes (156.97, 2.43). Proof harness
+  (`plain/harness_diff.md`): 3 of 5435 inputs differ, all scenes, exactly round 2's L M removals.
+- `harness.py`, `judge_all.py` and `arms.py` name the switches: they run at commit 4863839 (round 2).

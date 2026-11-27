@@ -1,6 +1,8 @@
 # DETECTOR-MAP.md — what `detect()` does, check by check
 
-**Now (2026-11-26, after the collapse and its second pass).** This is the map of `barrels/src/barrels/detector.py`. The detector has **no on/off switches**. It has 18 numbers (`DetConfig`) and ten stages, each one function. It draws exactly the boxes it drew before the collapse: 6152 boxes on 5435 masks, box for box (section 5).
+**Now (2026-11-27, branch `wip/adopt-checks`, awaiting Tanush's "understood").** This is the map of `barrels/src/barrels/detector.py`. Stage 11, the paint checks (`drop_unlike_paint`), is plain code: solid paint, and "a label, not a stripe" (section 3, stages 5, 9, 10 and 11). The detector has **no on/off switches**, 21 numbers (`DetConfig`) and eleven stages, each one function. On the 5435 masks of the proof harness it draws the boxes of the collapse except 3, all in simulated scenes; on the train frames with the fixed colors it changes no box (`experiments/2026-11-27_checks/ENTRY.md`).
+
+**Before (2026-11-26, after the collapse and its second pass).** 18 numbers and ten stages. It drew exactly the boxes it drew before the collapse: 6152 boxes on 5435 masks, box for box (section 5).
 
 - Every name in `code font` is a function or a field of that file. There are no line numbers: search for the name.
 - W = the width, H = the height, "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in question.
@@ -26,8 +28,9 @@ The color step (`pipeline.py`, not the detector) makes every pixel orange, blue 
 | 8 | Half stripes | `half_stripes` | a stripe with body on one side only is a barrel hidden from above or from below | adds; may **replace** a stage-3 box |
 | 9 | Verify, pass 2 | `drop_seen_through` | the stage-5 check again, on every box | deletes |
 | 10 | Verify, readings | `drop_single_reading` | a box placed from a guessed side must have a seen top, bottom or full width | deletes |
+| 11 | Verify, paint | `drop_unlike_paint` | the barrel color in the box is solid paint, and the stripe is not a label (2026-11-27) | deletes |
 
-Then the boxes are sorted left to right and returned. `detect` is these ten lines and nothing else.
+Then the boxes are sorted left to right and returned. `detect` is these eleven lines and nothing else.
 
 Three things to keep in mind:
 
@@ -57,7 +60,7 @@ flowchart TD
     ASIDE -. "left-over stripes" .-> S7
     S2 -. "left-over pieces" .-> S7
     S7 --> S8["8 HALF STRIPES half_stripes<br/>body on one side only.<br/>May replace a stage 3 box"]
-    S8 --> V2["9 VERIFY drop_seen_through, again<br/>10 drop_single_reading:<br/>a guessed side needs a seen edge"]
+    S8 --> V2["9 VERIFY drop_seen_through, again<br/>10 drop_single_reading:<br/>a guessed side needs a seen edge<br/>11 drop_unlike_paint:<br/>solid paint, a stripe not a label"]
     V2 --> OUT["boxes, left to right"]
 ```
 
@@ -89,6 +92,7 @@ Stage 1 finds this barrel's piece, but cannot refuse the barrel: a barrel with a
 | 12 | The box holds the body color. | in the stripe's columns, outside its rows: body pixels ≥ stripe-colored pixels, and body ≥ 10 % (`body_min`) | `holds_body` | "body_min" |
 | 13 | It is not the same barrel as a surer box. | same color, IoU over 0.5; the box whose stripe holds more labeled pixels stays | `boxes_from_stripes` 4 | "duplicate" |
 | 14 | It was not read from a nearer barrel's picture. Asked twice (stages 5 and 9). | at least 20 of its evidence pixels are not explained by a nearer kept barrel | `drop_seen_through` | "verify: front" |
+| 15 | Its paint is solid and its stripe is a stripe (stage 11, 2026-11-27). | closed 3 × 3, at least 0.40 of its barrel-colored pixels are barrel color all around (`solid_min`); NOT a stripe over 1.5 × with under 0.6 body in its columns (`label_stripe`, `label_body`) | `drop_unlike_paint` | "verify: speckle", "verify: label" |
 
 Each test is a hard yes or no. None can make up for another. `drop_single_reading` does not ask this barrel anything: its box is not flagged "occluded".
 
@@ -202,7 +206,7 @@ A close-up that passes 3 is a box. "Too far away to show a stripe" is not a way 
 
 Nothing here asks whether the piece is a solid face (B10).
 
-### Stages 5, 9 and 10 — Verify (`drop_seen_through`, `drop_single_reading`)
+### Stages 5, 9, 10 and 11 — Verify (`drop_seen_through`, `drop_single_reading`, `drop_unlike_paint`)
 
 **A barrel cannot be seen through a nearer barrel** (`drop_seen_through`; stage 5 and stage 9).
 
@@ -232,6 +236,23 @@ only for a box from a stripe (source det2) flagged occluded, with top AND bottom
 ```
 
 *A tin with an orange lid and a blue label: a piece of the label made a box from one stripe row and nothing else.* Caps, pairs, half stripes and thin stripes always have a seen edge by the way they are made.
+
+**The paint is a barrel's paint** (`drop_unlike_paint`, `paint_readings`; the last stage, 2026-11-27, awaiting Tanush's "understood"). Every box, whichever rule drew it.
+
+```
+the row gives the barrel: its stripe's centre row; a box with no stripe, its top row. No barrel there → not asked
+├─ solid paint: the barrel-colored pixels in the box (either color), closed 3 × 3 (close_px, as blobs are);
+│    of those, the share whose 3 × 3 neighbourhood is all barrel color (the box edge counts as more of the same)
+│    under 0.40 (solid_min) → dropped: "verify: speckle"
+└─ a label, not a stripe (a box read from a stripe only):
+     the stripe's height = column by column over the stripe's box, the 10th to 90th percentile of its
+       stripe-colored rows; the median of the columns, over the stripe height its row predicts
+     the body share = in the stripe's columns, the box's rows outside the stripe's rows: the share of body color
+     taller than 1.5 (label_stripe) AND body share under 0.6 (label_body) → dropped: "verify: label"
+a reading that cannot be made (nan) never drops a box
+```
+
+*A jar with an orange lid and a blue label, a blue tin, a small figure: the near-barrel traps on the cluttered bathroom and glass frames (`experiments/2026-11-27_bluer_geom`). The tin and the figure are printed in speckle; the jar's label is taller than a stripe and the jar around it holds little orange.* Why the closing and the column-by-column reading (`experiments/2026-11-27_checks`): read on the whole box as the first experiment did, solid paint dropped damaged barrels (pinholes, ragged edges) and slivers of partly hidden ones, and the label check dropped barrels standing beside or behind a barrel of the other color, whose body is the stripe's color. With them, no real barrel is lost on the train frames, the extreme conditions or the 5435 harness masks. The price: today, with the fixed colors, they remove no box on the train frames; under the hand thresholds, the jar on `lampmid6_bathtile_neg_02`; in the harness, 3 boxes (a wrong color, a second box, and the box of a barrel 68 % hidden whose box was off). A label at 1.25 × removes more traps but lost 7 barrels hidden by one of the other color.
 
 ### Stage 6 — Caps (`caps_behind`, `_cap_pieces`, `_cap_box`)
 
@@ -298,7 +319,7 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 
 ## 4. Every number that is left
 
-### 4.1 `DetConfig`: 18 numbers, no switches
+### 4.1 `DetConfig`: 21 numbers, no switches
 
 | name | value | what it means | where it is used |
 |---|---|---|---|
@@ -320,6 +341,9 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 | `body_min` | 0.1 | the least share of body color in the box | `holds_body` |
 | `body_width` | 1.2 | one barrel is at most this × W wide | the box (`place_sides`), the trusted body (`seen_span`, `drop_single_reading`), a joined stripe (`_join_pieces`), the second cut of `_one_stripe_per_barrel`, a cap, a pair, a half stripe |
 | `pin_good` | 0.05 | an end is the barrel's own side when the outline's lines lie within this × H | `own_end_by_outline` |
+| `solid_min` | 0.40 | the least share of the box's barrel-colored pixels (closed 3 × 3) that are barrel color all around: solid paint | `drop_unlike_paint` 1 (2026-11-27) |
+| `label_stripe` | 1.5 | a stripe taller than this × the stripe height ... | `drop_unlike_paint` 2 (2026-11-27) |
+| `label_body` | 0.6 | ... with less than this share of body color in its columns outside its rows is a label | `drop_unlike_paint` 2 (2026-11-27) |
 
 Seven numbers do more than one job: `stripe_full`, `body_width`, `bottom_tol`, `close_px`, `min_area_px`, `width_min`, and `stripe_h_min`. None can be changed for one job without moving the others.
 
@@ -330,7 +354,8 @@ Seven numbers do more than one job: `stripe_full`, `body_width`, `bottom_tol`, `
 | touching diagonally counts (8-connected) | what is one piece | `find_blobs`, `find_stripes`, `_cap_pieces`, `half_stripes` |
 | a tie is orange | a piece's color | `find_pieces` |
 | a quarter | the stripe's centre row is the median row of its colored pixels when they are at least a quarter of the part, else the box middle | `_one_stripe_per_barrel` |
-| 10th to 90th percentile of the rows, + 1 | "the stripe's height" | `find_stripes`, `_join_pieces`, `half_stripes` |
+| 10th to 90th percentile of the rows, + 1 | "the stripe's height" | `find_stripes`, `_join_pieces`, `half_stripes`; per column, then the median of the columns, in `paint_readings` |
+| 3 × 3, all 8 neighbours | "solid": the closing first, and the neighbourhood asked | `paint_readings` |
 | overlap at least half the shorter height | "the same rows" | `same_rows` (join, `piece_of_found`, pairs) |
 | middles within ½ stripe height; gap ≤ ½ the joined span; body in every gap column | the bridge | `_join_pieces` |
 | equal weights ½ and ½ | the second height reading | `find_stripes` 3 |

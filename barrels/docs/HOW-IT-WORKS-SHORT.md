@@ -1,6 +1,6 @@
 # HOW-IT-WORKS, the short version — start here
 
-One page to understand (or re-explain) the detector. The long form with worked numbers is `HOW-IT-WORKS.md`; the diagrams of how the files fit are `ARCHITECTURE.md`. State as of 2026-11-26 (the hs color model is the front end; the detector is ten stages with no on/off switches, collapsed on that day: `DETECTOR-MAP.md`).
+One page to understand (or re-explain) the detector. The long form with worked numbers is `HOW-IT-WORKS.md`; the diagrams of how the files fit are `ARCHITECTURE.md`. State as of 2026-11-26 (the hs color model is the front end; the detector is ten stages with no on/off switches, collapsed on that day: `DETECTOR-MAP.md`; since 2026-11-27 on `wip/adopt-checks`, awaiting Tanush's "understood", eleven stages: the paint checks are the last).
 
 **Naming note.** `EXPERIMENTS.md`, `DECISIONS.md` and `TODO.md` call the stripe step "detector step 2" (it was the second thing built, after "step 1" = blobs → count → bottom edge). Since the collapse of 2026-11-26 the detector is ten named stages (section 3 below, `DETECTOR-MAP.md`): "step 1" is stage 1, "step 2" is stages 2 and 3.
 
@@ -34,7 +34,7 @@ The tilt was corrected on 2026-11-03: the October estimate (23.3°) put every pr
 
 ## 3. The detector (`detector.py`)
 
-**Now (2026-11-26):** ten stages in a fixed order, 18 numbers, **no on/off switches**. The detector was collapsed on that day and draws exactly the boxes it drew before. **The guide to every check, with its number and the case it exists for, is `DETECTOR-MAP.md`.** The long form with worked numbers is `HOW-IT-WORKS.md` §3. When each rule was added: `archive/DETECTOR-HISTORY.md`.
+**Now (2026-11-27, `wip/adopt-checks`, awaiting Tanush's "understood"):** eleven stages in a fixed order, 21 numbers, **no on/off switches**; stage 11, the paint checks, is new. **Before (2026-11-26):** ten stages, 18 numbers. The detector was collapsed on that day and draws exactly the boxes it drew before. **The guide to every check, with its number and the case it exists for, is `DETECTOR-MAP.md`.** The long form with worked numbers is `HOW-IT-WORKS.md` §3. When each rule was added: `archive/DETECTOR-HISTORY.md`.
 
 One idea: *what is seen fixes the distance; the distance fixes the full size; the box is the full barrel, placed where the seen part allows.* A rule needs a reading that gives the distance, a second reading that agrees, and something that pins the place. Without those, no box: a miss is allowed, a box in the wrong place is not.
 
@@ -50,8 +50,9 @@ The stages, in the order `detect` runs them:
 8. **Half stripes** (`half_stripes`). A stripe with body on one side only is a barrel hidden from above or from below.
 9. **Verify again** (`drop_seen_through`), on every box.
 10. **Verify the readings** (`drop_single_reading`). A box placed from a guessed side, with neither its top nor its bottom seen, is dropped.
+11. **Verify the paint** (`drop_unlike_paint`, 2026-11-27). Two questions of every box. *Solid paint:* fill pinholes (the same 3 × 3 closing as stage 1), then at least 40 % of the box's barrel-colored pixels must be barrel color all around; a printed tin or a figure is speckle. *A stripe, not a label:* measured column by column (the median), a "stripe" taller than 1.5 × the stripe its row predicts, with under 60 % body color above and below it in its columns, is a jar's label. Measured on everything (`experiments/2026-11-27_checks`): no real barrel lost; today it removes almost nothing (no box on the train frames with the fixed colors); it is the safety net for looser colors.
 
-`detect(..., log=[])` lists every candidate dropped and the check that dropped it; it never changes the answer. `report.py --cand-det name=value` changes one of the 18 numbers. Experiments dated before 2026-11-26 name switches that no longer exist: they run at the git tag `pre-collapse-2026-11-26` (`experiments/README.md`).
+`detect(..., log=[])` lists every candidate dropped and the check that dropped it; it never changes the answer. `report.py --cand-det name=value` changes one of the 21 numbers. Experiments dated before 2026-11-26 name switches that no longer exist: they run at the git tag `pre-collapse-2026-11-26` (`experiments/README.md`).
 
 
 **Numbers** (v2 rule, train frames; `EXPERIMENTS.md` 2026-11-08 later, 2026-11-09): campus **0.99** (v1 front end 0.41), home **0.93**, nothing drawn on any negative of either session; median box width / true width 0.96. History: home with steps 1–3 alone 0.71, with the stripe step 0.91 (2026-11-03).
@@ -84,7 +85,7 @@ Two small aim_fsm state machines on one base (`live/barrel_live.py`). **`BarrelV
 | `tools/detect_image.py` | all (≈ 70 lines) | the whole chain in 10 lines: load model → segment → detect → draw |
 | `src/barrels/pipeline.py` | `Config` (the hs fields), `Frame.hs`, `fit_hs`, the `"hs"` branch at the top of `segment` | the front end: hue sector + saturation floor; skip the v1 gates and `fit` |
 | `src/barrels/geometry.py` | `horizon_row`, `point_row`, `row_to_ground_distance`, `barrel_rows`, the presets | the two formulas and the barrel table |
-| `src/barrels/detector.py` | with `DETECTOR-MAP.md` beside it: the docstring at the top, `DetConfig`, `detect` (the ten stages), then the stages in order: `find_pieces`, `find_stripes`, `boxes_from_stripes` (`box_from_stripe`, `read_edges`, `place_sides`), `closeup_pieces`, `drop_seen_through`, `caps_behind`, `post_pairs`, `half_stripes`, `drop_single_reading`; `draw` | the detector in the order it runs; each function's docstring lists its checks |
+| `src/barrels/detector.py` | with `DETECTOR-MAP.md` beside it: the docstring at the top, `DetConfig`, `detect` (the ten stages), then the stages in order: `find_pieces`, `find_stripes`, `boxes_from_stripes` (`box_from_stripe`, `read_edges`, `place_sides`), `closeup_pieces`, `drop_seen_through`, `caps_behind`, `post_pairs`, `half_stripes`, `drop_single_reading`, `drop_unlike_paint` (`paint_readings`); `draw` | the detector in the order it runs; each function's docstring lists its checks |
 | `src/barrels/detect_types.py` | the `Barrel` dataclass at the top | what one detected barrel is |
 | `src/barrels/eval_det.py` | `box_iou`, `match_best_first`, `evaluate_frame`, `Match` | how a hit is decided; what is reported (bottom error, width ratio) |
 | `src/barrels/report.py` | the docstring, `select_frames`, `run_arm`, `summarize`, `build_rows` | the one table: which frames, one arm on them, counts per row, candidate next to baseline; then `vendor_coverage`, `score_boxes`, `loose_counts` for the vendor arm |

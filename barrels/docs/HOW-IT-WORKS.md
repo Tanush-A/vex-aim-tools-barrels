@@ -128,13 +128,13 @@ So a barrel at 20 cm is about 51 px wide and 55 px tall with its bottom at row 1
 
 **Numbers to remember.** Horizon row ≈ 76. A barrel at 20 cm is ≈ 51 px wide. The bottom edge leaves the frame when the barrel's base is within ≈ 28 mm of the bumper; in that zone the top edge moves ≈ 13 px per mm.
 
-## 3. The detector — `src/barrels/detector.py` (v2; collapsed 2026-11-26: ten stages, 18 numbers, no switches)
+## 3. The detector — `src/barrels/detector.py` (v2; collapsed 2026-11-26; since 2026-11-27, awaiting Tanush's "understood": eleven stages, 21 numbers, no switches)
 
 **Now (2026-11-26).** The detector was collapsed on branch `wip/collapse`: the 30 on/off switches are gone (the ones that were on are plain code, the ones that were off are deleted), and `detect` is a list of ten named stages. It draws exactly the boxes it drew before (`experiments/2026-11-26_collapse/`). **Every check, with its number and the case it exists for, is in `DETECTOR-MAP.md`.** This section gives the idea of each stage and one worked example. The section as it stood before the collapse, with every switch and every experiment's numbers, is `archive/HOW-IT-WORKS-detector-before-collapse-2026-11-26.md`. When each rule was added: `archive/DETECTOR-HISTORY.md`.
 
 **What it does.** Takes the class mask from section 1 and returns a list of barrels. Each barrel is a `Barrel` record (`detect_types.py`): `color` (orange or blue), `bbox` = `(x0, y0, x1, y1)` in pixels, half-open (x1 and y1 are one past the last pixel), `confidence` (0–1), `flags` (`bottom_inferred` / `top_inferred` when that edge was computed rather than seen; `occluded` when the barrel is partly hidden and the full box is drawn anyway; `truncated` when the box reaches a frame edge), `area` and `source` (`"det2"` for a barrel found from its stripe, `"det1"` for a close-up with no stripe in view, `"det3"` for a barrel found from its top behind another). `detect(mask, cfg, cam)` is the one entry point: mask in, barrels out, left to right. `draw(image, barrels)` paints a 1-px rectangle per barrel, yellow for an orange barrel and green for a blue one, and nothing else.
 
-Nothing is remembered between images and nothing is fit per image. `DetConfig` holds 18 numbers and no switch: every rule always runs.
+Nothing is remembered between images and nothing is fit per image. `DetConfig` holds 21 numbers and no switch: every rule always runs (18 until the paint checks of 2026-11-27).
 
 **The one idea.** *What is seen fixes the distance; the distance fixes the full size; the box is the full barrel, placed where the seen part allows; a rule acts only when what is seen could not be anything else.* Every rule has three parts: a **reading** that gives the distance (the stripe's row, a seam, a top row), a **second reading that agrees** (a seen edge where the first predicts it), and a **place** (where the seen part pins a box W wide and H tall). No second reading, or nothing that pins the place: no box. A miss is allowed; a box in the wrong place is not.
 
@@ -144,7 +144,7 @@ Section 2 says: a row gives a distance, and the distance gives every size. `Barr
 
 "A seen edge agrees with the predicted one" always means the same: within 15 % of the height, at least 4 px (`edge_tol`). *A barrel 20 cm away is 55 px tall: 8.3 px. At 40 cm, 28 px tall: 4.2 px.*
 
-### The ten stages (`detect`)
+### The eleven stages (`detect`)
 
 ```
 pieces            = find_pieces(mask)                    # 1  blobs of barrel color, barrel-shaped. No box yet
@@ -157,6 +157,7 @@ found += post_pairs(leftover + unplaced, found)          # 7  two thin slices, o
 found  = half_stripes(found)                             # 8  a stripe with body on one side only
 found  = drop_seen_through(found)                        # 9  verify again
 found  = drop_single_reading(found)                      # 10 a guessed side needs a seen edge
+found  = drop_unlike_paint(found)                        # 11 solid paint, a stripe not a label (2026-11-27)
 ```
 
 Stripes come first: the first boxes are drawn in stage 3. Later stages only add boxes, except that the verify stages delete and a half stripe may replace a stage-3 box. On the 261 real train frames, 201 of the 239 boxes come from stage 3, 28 from stage 4, 6 are caps, 4 half stripes.
@@ -216,12 +217,13 @@ A stage-1 piece that no box covers is kept only when a stripe could not be seen:
 - *`4A8B_overheaddim_palewood_close_01`:* top row 241 → stripe rows 434–483, base 508. The frame cuts the stripe, so no body shows below it and stage 2 cannot see it. Box (292, 241, 568, 477) against the label (291, 243, 566, 480).
 - **A close-up that the frame's side also cuts** shows neither its width nor its stripe. It must be seen from its top row down to where that row puts the stripe. *The printed fruit on the empty frame `occlx_15`:* top row 286, it must be seen down to row 451, its pixels end at 368 → no box.
 
-### Stages 5, 9 and 10 — verify (`drop_seen_through`, `drop_single_reading`)
+### Stages 5, 9, 10 and 11 — verify (`drop_seen_through`, `drop_single_reading`, `drop_unlike_paint`)
 
 Two facts are checked on the boxes, whatever rule drew them.
 
 - **A barrel cannot be seen through a nearer barrel.** The boxes are taken nearest first. Each box knows what it was read from (its evidence: its stripe, its cap piece, its band). Evidence pixels that lie inside a nearer kept barrel's outline and have that barrel's own colors there are the nearer barrel's. Fewer than 20 own pixels: dropped. *ABP white `occlx_17`:* the far blue barrel (144, 117, 185, 160) has orange clutter right above it. Its blue upper body between that clutter and its own orange stripe was read as the blue stripe of a smaller orange barrel (161, 105, 196, 143). That "stripe" lies wholly inside the blue barrel: dropped. It runs before the caps (stage 5) and once more at the end (stage 9).
 - **A guessed side needs a second reading.** A partly seen stripe's box with its top **and** bottom both predicted, whose seen span is under 0.8 W, rests on the stripe's row alone: dropped. *Glass `lampmid3_glass_neg_02`:* a tin with an orange lid and a blue label; a piece of the label (560, 144, 580, 155) made a box from one side → dropped.
+- **The paint is a barrel's paint** (stage 11, `drop_unlike_paint`; 2026-11-27, awaiting Tanush's "understood"). Two questions of every box, read by `paint_readings`. *Solid paint:* the barrel-colored pixels in the box are closed 3 × 3 (pinholes filled, as for blobs), and at least 40 % of them (`solid_min`) must have all eight neighbours barrel-colored; a printed tin or a small figure read 0.17–0.39 in the first experiment (without the closing). *A stripe, not a label:* for a box read from a stripe, each column of the stripe's box gives the 10th-to-90th-percentile span of its stripe-colored rows; the median of the columns, over the predicted stripe height, is the stripe's height. The body share is the body color in the stripe's columns, in the box's rows outside the stripe. Taller than 1.5 (`label_stripe`) with a body share under 0.6 (`label_body`): a label, dropped. *Hand thresholds, `lampmid6_bathtile_neg_02` (an empty frame with clutter):* the jar with the gold lid gets an orange box; its paint is speckle → dropped. **Why these readings** (`experiments/2026-11-27_checks`). Read on the whole box, without the closing, solid paint dropped real barrels with pinholes or a ragged edge and slivers of partly hidden ones (43 in the proof harness at 0.40), and the label check dropped barrels beside or behind a barrel of the other color, whose body has the stripe's color (54 at 1.25). With the closing and the column median, at 0.40 and 1.5: no real barrel lost on the train frames, the extreme conditions or the 5435 harness masks. Today it removes almost nothing (no box on the train frames with the fixed colors; that one jar box under the hand thresholds; 3 harness boxes). It is a safety net for looser color steps.
 
 ### Stage 6 — caps (`caps_behind`)
 
@@ -240,7 +242,7 @@ A barrel behind one of the other color shows only its top; its stripe melts into
 
 ### The numbers (`DetConfig`)
 
-18 numbers, no switches. The table with every number, its value, its meaning and where it is used is `DETECTOR-MAP.md`, section 4. `report.py --cand-det name=value` runs the detector with one number changed; naming a removed switch stops with a message.
+21 numbers, no switches (18 before the paint checks of 2026-11-27). The table with every number, its value, its meaning and where it is used is `DETECTOR-MAP.md`, section 4. `report.py --cand-det name=value` runs the detector with one number changed; naming a removed switch stops with a message.
 
 ### How to run and how to score
 

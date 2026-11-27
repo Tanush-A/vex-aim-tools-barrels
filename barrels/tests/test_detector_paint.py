@@ -1,4 +1,4 @@
-"""The paint checks (stage 11, ``drop_unlike_paint``; experiments/2026-11-27_checks). Mechanics on synthetic masks:
+"""The paint checks (stage 11, ``drop_unlike_paint``, the last; experiments/2026-11-27_checks). Mechanics on synthetic masks:
 a barrel painted solid keeps its box; a box whose barrel color is speckle is dropped ("speckle"); a box read from a
 "stripe" taller than a stripe, with little body around it, is dropped ("label"); a reading that cannot be made never
 drops a box. Quality is judged by the experiment."""
@@ -10,16 +10,15 @@ from barrels import detector as det, io
 from barrels.detect_types import Barrel
 from test_detector import CAM, paint_barrel, whys
 
-ON = dataclasses.replace(det.DetConfig(), check_solid=True, check_label=True)
+ON = det.DetConfig()
 
 
-def test_a_solid_barrel_keeps_its_box_with_both_checks():
+def test_a_solid_barrel_keeps_its_box():
     mask = np.zeros((480, 640), np.uint8)
     box = paint_barrel(mask, 220, 320, body=io.BLUE)
     log: list = []
-    off = det.detect(mask, cam=CAM)
     on = det.detect(mask, ON, cam=CAM, log=log)
-    assert len(on) == 1 and on == off and det.box_iou(on[0].bbox, box) > 0.8
+    assert len(on) == 1 and det.box_iou(on[0].bbox, box) > 0.8
     assert not whys(log, "verify")
     f = det.Found(on[0], "whole_stripe", evidence=on[0].bbox)
     solid, _, body = det.paint_readings(f, mask, CAM)
@@ -28,8 +27,8 @@ def test_a_solid_barrel_keeps_its_box_with_both_checks():
 
 def test_speckle_paint_is_dropped():
     """The same barrel painted as dots: 3 x 3 dots of barrel color 3 px apart, as a printed tin reads. The closing (3 x 3)
-    does not join them, so about one pixel in nine is solid: dropped as speckle by the paint check, kept with the checks
-    off. (A pixel checkerboard is closed into solid paint first: test_pinholes_close.)"""
+    does not join them, so about one pixel in nine is solid: dropped as speckle. With solid_min 0 it would stay. (A pixel
+    checkerboard is closed into solid paint first: test_pinholes_close.)"""
     mask = np.zeros((480, 640), np.uint8)
     paint_barrel(mask, 220, 320, body=io.BLUE)
     found = [f for f in det.boxes_from_stripes(det.find_stripes(mask, CAM)[0], mask, CAM)[0]]
@@ -40,7 +39,7 @@ def test_speckle_paint_is_dropped():
     log: list = []
     assert det.drop_unlike_paint(found, speckled, CAM, ON, log) == []
     assert whys(log, "verify") == ["speckle"]
-    assert det.drop_unlike_paint(found, speckled, CAM, det.DetConfig()) == found
+    assert det.drop_unlike_paint(found, speckled, CAM, dataclasses.replace(ON, solid_min=0.0)) == found
 
 
 def test_a_label_taller_than_a_stripe_with_thin_body_is_dropped():
@@ -61,7 +60,7 @@ def test_a_label_taller_than_a_stripe_with_thin_body_is_dropped():
     assert stripe_h > 1.5 and body < 0.3            # 10th to 90th percentile of the rows: 1.6 of a stripe
     log: list = []
     assert det.drop_unlike_paint([f], mask, CAM, ON, log) == [] and whys(log, "verify") == ["label"]
-    assert det.drop_unlike_paint([f], mask, CAM, dataclasses.replace(ON, check_label=False)) == [f]
+    assert det.drop_unlike_paint([f], mask, CAM, dataclasses.replace(ON, label_stripe=2.0)) == [f]       # under 2 x: a stripe
 
 
 def test_a_box_with_no_stripe_is_not_asked_the_label_question():
@@ -73,11 +72,12 @@ def test_a_box_with_no_stripe_is_not_asked_the_label_question():
     assert det.drop_unlike_paint([f], mask, CAM, ON) == [f]
 
 
-def test_the_checks_off_change_nothing():
+def test_two_painted_barrels_keep_both_boxes():
     mask = np.zeros((480, 640), np.uint8)
     paint_barrel(mask, 220, 200, body=io.ORANGE)
     paint_barrel(mask, 300, 420, body=io.BLUE)
-    assert det.detect(mask, cam=CAM) == det.detect(mask, det.DetConfig(), cam=CAM)
+    log: list = []
+    assert len(det.detect(mask, cam=CAM, log=log)) == 2 and not whys(log, "verify")
 
 
 def test_pinholes_close():
