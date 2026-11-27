@@ -1,0 +1,5747 @@
+{
+ "|0|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9723604201216142,
+   "orange_hue": 7.0,
+   "orange_s": 223.0,
+   "orange_v": 170.0,
+   "blue_in": 0.9885176620684156,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.000638721491270564,
+   "flood_blue": 0.00011844323444493964,
+   "wall_in": 6.492439351486465e-05
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9410595489209801,
+   "orange_hue": 8.0,
+   "orange_s": 213.0,
+   "orange_v": 141.0,
+   "blue_in": 0.9210621387283237,
+   "blue_hue": 107.0,
+   "blue_s": 204.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.002848876328618343,
+   "flood_blue": 0.0028468392343540465
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.30802825947334617,
+   "orange_hue": 1.0,
+   "orange_s": 231.0,
+   "orange_v": 204.0,
+   "blue_in": 0.948093220338983,
+   "blue_hue": 112.0,
+   "blue_s": 234.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.004845155302171577,
+   "flood_blue": 0.012942948957112345
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9625838926174497,
+   "orange_hue": 10.0,
+   "orange_s": 220.0,
+   "orange_v": 153.0,
+   "blue_in": 0.3798679423258321,
+   "blue_hue": 102.0,
+   "blue_s": 198.0,
+   "blue_v": 76.0,
+   "flood_orange": 0.003610974858848454,
+   "flood_blue": 0.002005517346942325
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.99200465183893,
+   "orange_hue": 8.0,
+   "orange_s": 208.0,
+   "orange_v": 161.0,
+   "blue_in": 0.9974034404414152,
+   "blue_hue": 109.0,
+   "blue_s": 230.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.0016961892610944623,
+   "flood_blue": 0.01722336785053754
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.13398624713481974,
+   "orange_hue": 16.0,
+   "orange_s": 207.0,
+   "orange_v": 129.0,
+   "blue_in": 0.6535365969131711,
+   "blue_hue": 103.5,
+   "blue_s": 187.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.003531471017152036,
+   "flood_blue": 0.013161358252171624
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.973489932885906,
+   "orange_hue": 10.0,
+   "orange_s": 218.0,
+   "orange_v": 165.0,
+   "blue_in": 0.020751920226384585,
+   "blue_hue": 98.0,
+   "blue_s": 46.0,
+   "blue_v": 52.0,
+   "flood_orange": 0.010530939173018661,
+   "flood_blue": 2.247983731514657e-05
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9908416921064108,
+   "orange_hue": 7.0,
+   "orange_s": 212.0,
+   "orange_v": 168.0,
+   "blue_in": 0.9956183057448881,
+   "blue_hue": 109.0,
+   "blue_s": 229.0,
+   "blue_v": 139.0,
+   "flood_orange": 0.0021482932626810947,
+   "flood_blue": 0.01617045304638464
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9901006711409396,
+   "orange_hue": 9.0,
+   "orange_s": 220.0,
+   "orange_v": 177.0,
+   "blue_in": 0.05093653146476216,
+   "blue_hue": 99.0,
+   "blue_s": 79.0,
+   "blue_v": 62.0,
+   "flood_orange": 0.01796464317810329,
+   "flood_blue": 5.484689432317504e-05
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9950574211367932,
+   "orange_hue": 7.0,
+   "orange_s": 218.0,
+   "orange_v": 170.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.0027607154458067903,
+   "flood_blue": 0.014167406615600541
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.2592206709731194,
+   "orange_hue": 15.0,
+   "orange_s": 211.0,
+   "orange_v": 140.0,
+   "blue_in": 0.5565760818104346,
+   "blue_hue": 105.0,
+   "blue_s": 129.0,
+   "blue_v": 78.0,
+   "flood_orange": 0.009148297038631788,
+   "flood_blue": 0.002057652371063311
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9921140939597315,
+   "orange_hue": 8.0,
+   "orange_s": 221.0,
+   "orange_v": 183.0,
+   "blue_in": 0.0,
+   "blue_hue": 38.0,
+   "blue_s": 42.0,
+   "blue_v": 53.0,
+   "flood_orange": 0.05386252826254104,
+   "flood_blue": 1.7111528378899431e-06
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9954935310364879,
+   "orange_hue": 7.0,
+   "orange_s": 220.0,
+   "orange_v": 174.0,
+   "blue_in": 0.987990912041545,
+   "blue_hue": 109.0,
+   "blue_s": 217.0,
+   "blue_v": 126.0,
+   "flood_orange": 0.0039052204794816467,
+   "flood_blue": 0.010317845232923235
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.3224949304244458,
+   "orange_hue": 14.0,
+   "orange_s": 213.0,
+   "orange_v": 135.0,
+   "blue_in": 0.002065145968271848,
+   "blue_hue": 101.0,
+   "blue_s": 48.0,
+   "blue_v": 53.0,
+   "flood_orange": 0.01229395760547476,
+   "flood_blue": 3.6377139998939e-05
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9474120573255952,
+   "orange_hue": 7.0,
+   "orange_s": 220.0,
+   "orange_v": 214.0,
+   "blue_in": 0.9527509449811004,
+   "blue_hue": 109.0,
+   "blue_s": 225.0,
+   "blue_v": 140.0,
+   "flood_orange": 0.08558531420120563,
+   "flood_blue": 0.0025639218512527465
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9683760683760684,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 199.0,
+   "blue_in": 0.9913439868879328,
+   "blue_hue": 108.0,
+   "blue_s": 229.0,
+   "blue_v": 181.0,
+   "flood_orange": 0.006093888644350821,
+   "flood_blue": 0.010096627470707832
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9749963657508359,
+   "orange_hue": 7.0,
+   "orange_s": 211.0,
+   "orange_v": 171.0,
+   "blue_in": 0.9972411554690036,
+   "blue_hue": 109.0,
+   "blue_s": 231.0,
+   "blue_v": 151.0,
+   "flood_orange": 0.001814611665985361,
+   "flood_blue": 0.025607938125250404
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5946750902527076,
+   "orange_hue": 13.0,
+   "orange_s": 208.0,
+   "orange_v": 133.0,
+   "blue_in": 0.11160558464223386,
+   "blue_hue": 103.0,
+   "blue_s": 63.0,
+   "blue_v": 63.0,
+   "flood_orange": 0.002773897753602945,
+   "flood_blue": 8.216521781999244e-07
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6624808022404914,
+   "orange_hue": 12.0,
+   "orange_s": 215.0,
+   "orange_v": 174.0,
+   "blue_in": 0.3335960073548726,
+   "blue_hue": 104.0,
+   "blue_s": 103.0,
+   "blue_v": 94.0,
+   "flood_orange": 0.0034222016796012582,
+   "flood_blue": 0.0001371300614100681
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.47037577273042996,
+   "orange_hue": 13.0,
+   "orange_s": 206.0,
+   "orange_v": 54.0,
+   "blue_in": 0.10519837136634788,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 18.0,
+   "flood_orange": 0.06569196607720913,
+   "flood_blue": 0.0004548008239920811
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6761338021819493,
+   "orange_hue": 12.0,
+   "orange_s": 198.0,
+   "orange_v": 146.0,
+   "blue_in": 0.0,
+   "blue_hue": 103.0,
+   "blue_s": 36.0,
+   "blue_v": 68.0,
+   "flood_orange": 0.008197223126222414,
+   "flood_blue": 0.0
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.861058515913804,
+   "orange_hue": 10.0,
+   "orange_s": 217.0,
+   "orange_v": 188.0,
+   "blue_in": 0.006000521784503,
+   "blue_hue": 103.0,
+   "blue_s": 47.0,
+   "blue_v": 78.0,
+   "flood_orange": 0.016002647744925387,
+   "flood_blue": 1.5969511009580508e-06
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6865927328464521,
+   "orange_hue": 13.0,
+   "orange_s": 209.0,
+   "orange_v": 147.0,
+   "blue_in": 0.0,
+   "blue_hue": 50.0,
+   "blue_s": 22.0,
+   "blue_v": 61.0,
+   "flood_orange": 0.020261388611368465,
+   "flood_blue": 1.6133605614817426e-06
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.9101974573978902,
+   "orange_hue": 9.0,
+   "orange_s": 218.0,
+   "orange_v": 192.0,
+   "blue_in": 0.0,
+   "blue_hue": 36.0,
+   "blue_s": 33.0,
+   "blue_v": 70.0,
+   "flood_orange": 0.025429538762399652,
+   "flood_blue": 1.1943797267577687e-06
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.04305100608329434,
+   "orange_hue": 22.0,
+   "orange_s": 115.0,
+   "orange_v": 245.0,
+   "blue_in": 0.18412698412698414,
+   "blue_hue": 100.0,
+   "blue_s": 149.0,
+   "blue_v": 231.0,
+   "flood_orange": 0.001325588362394649,
+   "flood_blue": 0.0018598004724396924
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.25759624921107205,
+   "orange_hue": 6.0,
+   "orange_s": 35.0,
+   "orange_v": 23.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 4.0,
+   "flood_orange": 0.02195203917520824,
+   "flood_blue": 0.0
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.33008745829952213,
+   "orange_hue": 7.0,
+   "orange_s": 78.0,
+   "orange_v": 25.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 4.0,
+   "flood_orange": 0.03106520765635944,
+   "flood_blue": 1.1482242711646438e-05
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.42719321972770713,
+   "orange_hue": 10.0,
+   "orange_s": 133.0,
+   "orange_v": 32.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 6.0,
+   "flood_orange": 0.02675901505109773,
+   "flood_blue": 4.5239247761788215e-06
+  }
+ },
+ "gray_world|1|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9623180394324673,
+   "orange_hue": 7.0,
+   "orange_s": 224.0,
+   "orange_v": 178.0,
+   "blue_in": 0.9870823698269675,
+   "blue_hue": 110.0,
+   "blue_s": 231.0,
+   "blue_v": 133.0,
+   "flood_orange": 0.0008961962524463735,
+   "flood_blue": 0.00047546844420330575,
+   "wall_in": 4.869655553030549e-05,
+   "gains": [
+    1.0369274616241455,
+    0.9697363972663879,
+    0.9971238672733307
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9596381632321921,
+   "orange_hue": 7.0,
+   "orange_s": 213.0,
+   "orange_v": 144.0,
+   "blue_in": 0.9211524566473989,
+   "blue_hue": 108.0,
+   "blue_s": 202.0,
+   "blue_v": 94.0,
+   "flood_orange": 0.0029935100213833786,
+   "flood_blue": 0.002894914658991439,
+   "gains": [
+    1.0114970207214355,
+    0.977074921131134,
+    1.013845682144165
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.4300578034682081,
+   "orange_hue": 2.0,
+   "orange_s": 227.0,
+   "orange_v": 181.0,
+   "blue_in": 0.9641949152542373,
+   "blue_hue": 110.0,
+   "blue_s": 236.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.0034427441105337906,
+   "flood_blue": 0.014214725978307611,
+   "gains": [
+    0.8841697573661804,
+    1.134542465209961,
+    1.0054686665534973
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9739932885906041,
+   "orange_hue": 8.0,
+   "orange_s": 203.0,
+   "orange_v": 136.0,
+   "blue_in": 0.9858509634820105,
+   "blue_hue": 109.0,
+   "blue_s": 217.0,
+   "blue_v": 101.0,
+   "flood_orange": 0.0024049973851161506,
+   "flood_blue": 0.003871883446915539,
+   "gains": [
+    0.8900269865989685,
+    0.8896657824516296,
+    1.331672191619873
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9938944614042738,
+   "orange_hue": 7.0,
+   "orange_s": 217.0,
+   "orange_v": 184.0,
+   "blue_in": 0.9952937358000649,
+   "blue_hue": 108.0,
+   "blue_s": 224.0,
+   "blue_v": 125.0,
+   "flood_orange": 0.002548610905062853,
+   "flood_blue": 0.014416372429754028,
+   "gains": [
+    1.122110366821289,
+    0.9846133589744568,
+    0.9118542671203613
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.1307911370424394,
+   "orange_hue": 16.0,
+   "orange_s": 198.0,
+   "orange_v": 122.0,
+   "blue_in": 0.8577786194489159,
+   "blue_hue": 106.0,
+   "blue_s": 195.0,
+   "blue_v": 104.0,
+   "flood_orange": 0.002559259736042716,
+   "flood_blue": 0.0145831692166398,
+   "gains": [
+    0.9681875109672546,
+    0.9679160118103027,
+    1.0763076543807983
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9231543624161074,
+   "orange_hue": 9.0,
+   "orange_s": 171.0,
+   "orange_v": 125.0,
+   "blue_in": 0.965638054170597,
+   "blue_hue": 114.0,
+   "blue_s": 161.0,
+   "blue_v": 88.0,
+   "flood_orange": 0.0022306915489645443,
+   "flood_blue": 0.007555530962229262,
+   "gains": [
+    0.7506467700004578,
+    0.9145825505256653,
+    1.7338457107543945
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9944759412705335,
+   "orange_hue": 7.0,
+   "orange_s": 217.0,
+   "orange_v": 177.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 108.0,
+   "blue_s": 226.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.0025002804801820717,
+   "flood_blue": 0.014018461143939964,
+   "gains": [
+    1.044252872467041,
+    1.0254424810409546,
+    0.936283528804779
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.928020134228188,
+   "orange_hue": 7.0,
+   "orange_s": 167.0,
+   "orange_v": 130.0,
+   "blue_in": 0.985042447109554,
+   "blue_hue": 113.0,
+   "blue_s": 184.0,
+   "blue_v": 113.0,
+   "flood_orange": 0.0016665457368823082,
+   "flood_blue": 0.004078666443470277,
+   "gains": [
+    0.7343627214431763,
+    0.9115856885910034,
+    1.8557515144348145
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9952027911033581,
+   "orange_hue": 8.0,
+   "orange_s": 219.0,
+   "orange_v": 169.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 130.0,
+   "flood_orange": 0.002702819647274418,
+   "flood_blue": 0.013787122633661593,
+   "gains": [
+    0.9937055110931396,
+    1.0113563537597656,
+    1.0006262063980103
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.14037646731958048,
+   "orange_hue": 17.0,
+   "orange_s": 186.0,
+   "orange_v": 116.0,
+   "blue_in": 0.8453744910519837,
+   "blue_hue": 110.0,
+   "blue_s": 174.0,
+   "blue_v": 104.0,
+   "flood_orange": 0.003751722648782873,
+   "flood_blue": 0.008044849200754472,
+   "gains": [
+    0.842185914516449,
+    0.9790186882019043,
+    1.2945804595947266
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.03657718120805369,
+   "orange_hue": -6.0,
+   "orange_s": 129.0,
+   "orange_v": 119.0,
+   "blue_in": 0.9818083816197278,
+   "blue_hue": 116.0,
+   "blue_s": 192.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.0004374847422205288,
+   "flood_blue": 0.006577101124569645,
+   "gains": [
+    0.6450273394584656,
+    0.9011836647987366,
+    2.910654067993164
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9952027911033581,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 163.0,
+   "blue_in": 0.9923726062966569,
+   "blue_hue": 109.0,
+   "blue_s": 221.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.0030092461660843938,
+   "flood_blue": 0.013072560079620767,
+   "gains": [
+    0.9285367727279663,
+    1.0229101181030273,
+    1.0649406909942627
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.1474722047409272,
+   "orange_hue": 18.0,
+   "orange_s": 164.0,
+   "orange_v": 101.0,
+   "blue_in": 0.8354454144372477,
+   "blue_hue": 111.0,
+   "blue_s": 157.0,
+   "blue_v": 82.0,
+   "flood_orange": 0.0031890626065736523,
+   "flood_blue": 0.02370728528014187,
+   "gains": [
+    0.7633126378059387,
+    0.9731441736221313,
+    1.4809401035308838
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.8157053180149236,
+   "orange_hue": 10.0,
+   "orange_s": 202.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9697606047879043,
+   "blue_hue": 110.0,
+   "blue_s": 235.0,
+   "blue_v": 170.0,
+   "flood_orange": 0.0018034413730935413,
+   "flood_blue": 0.005778060195042213,
+   "gains": [
+    0.7928333878517151,
+    1.0879526138305664,
+    1.2043882608413696
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9617826617826618,
+   "orange_hue": 8.0,
+   "orange_s": 213.0,
+   "orange_v": 190.0,
+   "blue_in": 0.9939049375128047,
+   "blue_hue": 109.0,
+   "blue_s": 232.0,
+   "blue_v": 193.0,
+   "flood_orange": 0.0045064872455930745,
+   "flood_blue": 0.014790128114658078,
+   "gains": [
+    0.9524008631706238,
+    0.9863210916519165,
+    1.0682010650634766
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9924407617386248,
+   "orange_hue": 7.0,
+   "orange_s": 220.0,
+   "orange_v": 192.0,
+   "blue_in": 0.9725738396624473,
+   "blue_hue": 108.0,
+   "blue_s": 224.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0027648804257854845,
+   "flood_blue": 0.017094160499325814,
+   "gains": [
+    1.124086320400238,
+    1.0280853509902954,
+    0.8811688125133514
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.44431407942238266,
+   "orange_hue": 12.0,
+   "orange_s": 166.0,
+   "orange_v": 105.5,
+   "blue_in": 0.9557591623036649,
+   "blue_hue": 113.0,
+   "blue_s": 151.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.00016104382692718518,
+   "flood_blue": 0.013332128243471974,
+   "gains": [
+    0.8030615746974945,
+    0.9192695915699005,
+    1.5056943893432617
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6448640346914807,
+   "orange_hue": 10.0,
+   "orange_s": 171.0,
+   "orange_v": 137.0,
+   "blue_in": 0.9689169074511864,
+   "blue_hue": 113.0,
+   "blue_s": 182.0,
+   "blue_v": 153.0,
+   "flood_orange": 0.00043881619651221787,
+   "flood_blue": 0.02833792719039057,
+   "gains": [
+    0.7824527621269226,
+    0.9025014638900757,
+    1.6285463571548462
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.018614989233868166,
+   "orange_hue": 21.0,
+   "orange_s": 120.0,
+   "orange_v": 37.0,
+   "blue_in": 0.5424675693589622,
+   "blue_hue": 113.0,
+   "blue_s": 188.0,
+   "blue_v": 41.0,
+   "flood_orange": 0.008039273388801199,
+   "flood_blue": 0.24722437732416597,
+   "gains": [
+    0.7187728881835938,
+    1.0119565725326538,
+    1.6114602088928223
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.13109728608781895,
+   "orange_hue": 11.0,
+   "orange_s": 130.0,
+   "orange_v": 110.0,
+   "blue_in": 0.9607791981911471,
+   "blue_hue": 114.0,
+   "blue_s": 153.0,
+   "blue_v": 110.0,
+   "flood_orange": 7.24990252908822e-06,
+   "flood_blue": 0.0284578812884849,
+   "gains": [
+    0.7519891262054443,
+    0.9394350349903107,
+    1.6554843187332153
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.2828419439184925,
+   "orange_hue": 7.0,
+   "orange_s": 135.0,
+   "orange_v": 130.0,
+   "blue_in": 0.9661709713888165,
+   "blue_hue": 115.0,
+   "blue_s": 184.0,
+   "blue_v": 160.0,
+   "flood_orange": 0.00016169129897200264,
+   "flood_blue": 0.04729131142822124,
+   "gains": [
+    0.6909699440002441,
+    0.9153674840927124,
+    2.1851987838745117
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.07745018483455053,
+   "orange_hue": 11.0,
+   "orange_s": 123.0,
+   "orange_v": 104.0,
+   "blue_in": 0.9695625706583181,
+   "blue_hue": 115.0,
+   "blue_s": 168.0,
+   "blue_v": 118.0,
+   "flood_orange": 1.1696864070742635e-05,
+   "flood_blue": 0.04532373491356623,
+   "gains": [
+    0.6991660296916962,
+    0.929410845041275,
+    2.0096304416656494
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.03155711838427554,
+   "orange_hue": 1.0,
+   "orange_s": 112.0,
+   "orange_v": 124.0,
+   "blue_in": 0.9595617010174797,
+   "blue_hue": 116.0,
+   "blue_s": 190.0,
+   "blue_v": 168.0,
+   "flood_orange": 6.648713812284913e-05,
+   "flood_blue": 0.047604392769384385,
+   "gains": [
+    0.644615888595581,
+    0.9295536279678345,
+    2.689663887023926
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.05737014506317267,
+   "orange_hue": 21.0,
+   "orange_s": 113.0,
+   "orange_v": 245.0,
+   "blue_in": 0.27709750566893426,
+   "blue_hue": 101.0,
+   "blue_s": 155.0,
+   "blue_v": 235.0,
+   "flood_orange": 0.0007429922771222007,
+   "flood_blue": 0.0024099196428334717,
+   "gains": [
+    0.9826900959014893,
+    0.9845393598079681,
+    1.034754455089569
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.1775313317103958,
+   "orange_hue": 110.0,
+   "orange_s": 88.0,
+   "orange_v": 27.0,
+   "blue_in": 0.0005217845030002609,
+   "blue_hue": 115.0,
+   "blue_s": 78.0,
+   "blue_v": 6.0,
+   "flood_orange": 0.0007381358169903262,
+   "flood_blue": 0.0011042031733839027,
+   "gains": [
+    0.8900290429592133,
+    0.9451321661472321,
+    1.2597479224205017
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.210440898025426,
+   "orange_hue": 105.0,
+   "orange_s": 102.0,
+   "orange_v": 27.0,
+   "blue_in": 0.0004348204191668841,
+   "blue_hue": 115.0,
+   "blue_s": 85.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.000602817742361438,
+   "flood_blue": 0.0034618961775614012,
+   "gains": [
+    0.8498291075229645,
+    0.951003760099411,
+    1.3151653409004211
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.23965377332972682,
+   "orange_hue": 15.0,
+   "orange_s": 121.0,
+   "orange_v": 31.0,
+   "blue_in": 0.015131750587007565,
+   "blue_hue": 115.0,
+   "blue_s": 107.0,
+   "blue_v": 9.0,
+   "flood_orange": 0.00021714838925658344,
+   "flood_blue": 0.0078037702389084675,
+   "gains": [
+    0.81927490234375,
+    0.9444963037967682,
+    1.440521478652954
+   ]
+  }
+ },
+ "white_patch|1|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9729132117191819,
+   "orange_hue": 7.0,
+   "orange_s": 222.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9887568774419903,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.0006583409227430388,
+   "flood_blue": 0.0005946383242583371,
+   "wall_in": 6.492439351486465e-05,
+   "gains": [
+    1.002168744802475,
+    0.9982341527938843,
+    1.0014349222183228
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9099058899886419,
+   "orange_hue": 8.0,
+   "orange_s": 212.0,
+   "orange_v": 142.0,
+   "blue_in": 0.9293262283236994,
+   "blue_hue": 107.0,
+   "blue_s": 206.5,
+   "blue_v": 92.0,
+   "flood_orange": 0.0029393233139530977,
+   "flood_blue": 0.0029340268688659273,
+   "gains": [
+    0.9973257184028625,
+    0.9961503744125366,
+    1.0050628185272217
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.31496467565831726,
+   "orange_hue": 1.0,
+   "orange_s": 231.0,
+   "orange_v": 202.0,
+   "blue_in": 0.9483050847457627,
+   "blue_hue": 111.0,
+   "blue_s": 234.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.00449493373238599,
+   "flood_blue": 0.01354833921780122,
+   "gains": [
+    0.9993094205856323,
+    1.0111483335494995,
+    0.9897782206535339
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9736577181208054,
+   "orange_hue": 8.0,
+   "orange_s": 206.0,
+   "orange_v": 139.0,
+   "blue_in": 0.9822126398059561,
+   "blue_hue": 108.0,
+   "blue_s": 214.0,
+   "blue_v": 97.0,
+   "flood_orange": 0.002182935186827943,
+   "flood_blue": 0.08527014475208466,
+   "gains": [
+    0.8693715333938599,
+    0.9054496884346008,
+    1.3885420560836792
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9898241023404565,
+   "orange_hue": 7.0,
+   "orange_s": 211.0,
+   "orange_v": 174.0,
+   "blue_in": 0.9956183057448881,
+   "blue_hue": 108.0,
+   "blue_s": 227.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.001267196787625236,
+   "flood_blue": 0.04832594032183089,
+   "gains": [
+    1.0758262872695923,
+    0.9996439814567566,
+    0.9344695806503296
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.0391053691741335,
+   "orange_hue": 18.0,
+   "orange_s": 122.0,
+   "orange_v": 93.0,
+   "blue_in": 0.928983997727488,
+   "blue_hue": 113.0,
+   "blue_s": 225.0,
+   "blue_v": 169.0,
+   "flood_orange": 0.0011931683904523472,
+   "flood_blue": 0.5019204054851162,
+   "gains": [
+    0.8008601665496826,
+    0.9481643438339233,
+    1.4353934526443481
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9266778523489932,
+   "orange_hue": 9.0,
+   "orange_s": 174.0,
+   "orange_v": 126.0,
+   "blue_in": 0.9609217086646005,
+   "blue_hue": 114.0,
+   "blue_s": 158.0,
+   "blue_v": 85.0,
+   "flood_orange": 0.0019943650541130033,
+   "flood_blue": 0.1250778148214755,
+   "gains": [
+    0.7545711398124695,
+    0.9133094549179077,
+    1.7787916660308838
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9863352231428987,
+   "orange_hue": 8.0,
+   "orange_s": 210.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9946445959104186,
+   "blue_hue": 109.0,
+   "blue_s": 230.0,
+   "blue_v": 139.0,
+   "flood_orange": 0.0014332229083883917,
+   "flood_blue": 0.03218679610261999,
+   "gains": [
+    0.9786137938499451,
+    1.0342897176742554,
+    0.9859435558319092
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.936744966442953,
+   "orange_hue": 6.0,
+   "orange_s": 171.0,
+   "orange_v": 132.0,
+   "blue_in": 0.9836949198221264,
+   "blue_hue": 113.0,
+   "blue_s": 180.0,
+   "blue_v": 111.0,
+   "flood_orange": 0.0014214486778756199,
+   "flood_blue": 0.03582987636024583,
+   "gains": [
+    0.741345226764679,
+    0.9028087854385376,
+    1.9106515645980835
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9924407617386248,
+   "orange_hue": 8.0,
+   "orange_s": 213.0,
+   "orange_v": 160.0,
+   "blue_in": 0.9951314508276533,
+   "blue_hue": 109.0,
+   "blue_s": 231.0,
+   "blue_v": 137.0,
+   "flood_orange": 0.0017076213419758557,
+   "flood_blue": 0.02975783101618096,
+   "gains": [
+    0.8804195523262024,
+    1.0322717428207397,
+    1.1969603300094604
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.049107452941585056,
+   "orange_hue": 17.0,
+   "orange_s": 92.0,
+   "orange_v": 92.0,
+   "blue_in": 0.9169586213426759,
+   "blue_hue": 115.0,
+   "blue_s": 217.0,
+   "blue_v": 192.0,
+   "flood_orange": 0.0027403611052895637,
+   "flood_blue": 0.5264621080775557,
+   "gains": [
+    0.6676660180091858,
+    0.9454492330551147,
+    2.3056931495666504
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.027013422818791946,
+   "orange_hue": -7.0,
+   "orange_s": 136.0,
+   "orange_v": 122.0,
+   "blue_in": 0.9638862686969412,
+   "blue_hue": 117.0,
+   "blue_s": 192.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.000492241633033007,
+   "flood_blue": 0.003956185361201549,
+   "gains": [
+    0.6611841320991516,
+    0.8671164512634277,
+    2.9690065383911133
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9911324320395406,
+   "orange_hue": 8.0,
+   "orange_s": 212.0,
+   "orange_v": 156.0,
+   "blue_in": 0.9939954560207724,
+   "blue_hue": 110.0,
+   "blue_s": 224.0,
+   "blue_v": 139.0,
+   "flood_orange": 0.0021927000658291404,
+   "flood_blue": 0.02195708710266337,
+   "gains": [
+    0.8730961680412292,
+    1.0424368381500244,
+    1.1122450828552246
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.05055590518145584,
+   "orange_hue": 15.0,
+   "orange_s": 76.0,
+   "orange_v": 87.0,
+   "blue_in": 0.9203041396789636,
+   "blue_hue": 116.0,
+   "blue_s": 206.0,
+   "blue_v": 141.0,
+   "flood_orange": 0.0029344226265810795,
+   "flood_blue": 0.4920659941948147,
+   "gains": [
+    0.658538818359375,
+    0.9329932332038879,
+    2.846585988998413
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9504915314461684,
+   "orange_hue": 8.0,
+   "orange_s": 219.0,
+   "orange_v": 210.0,
+   "blue_in": 0.9514909701805964,
+   "blue_hue": 108.0,
+   "blue_s": 224.0,
+   "blue_v": 139.0,
+   "flood_orange": 0.0756018765338914,
+   "flood_blue": 0.0020830799345691237,
+   "gains": [
+    0.9884077310562134,
+    1.0282793045043945,
+    0.9839305281639099
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9658119658119658,
+   "orange_hue": 9.0,
+   "orange_s": 215.0,
+   "orange_v": 193.0,
+   "blue_in": 0.984839172300758,
+   "blue_hue": 108.0,
+   "blue_s": 230.0,
+   "blue_v": 183.0,
+   "flood_orange": 0.004792014551179489,
+   "flood_blue": 0.011419461969672622,
+   "gains": [
+    0.9746757745742798,
+    1.011960744857788,
+    1.0126813650131226
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9848815234772496,
+   "orange_hue": 6.0,
+   "orange_s": 212.0,
+   "orange_v": 185.0,
+   "blue_in": 0.9933463161311262,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 143.0,
+   "flood_orange": 0.0018491853822327705,
+   "flood_blue": 0.026280091844060337,
+   "gains": [
+    1.0667275786399841,
+    1.0061348676681519,
+    0.9288282692432404
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.512725631768953,
+   "orange_hue": 12.0,
+   "orange_s": 189.0,
+   "orange_v": 117.0,
+   "blue_in": 0.5732111692844677,
+   "blue_hue": 113.0,
+   "blue_s": 115.0,
+   "blue_v": 77.0,
+   "flood_orange": 0.05693885264489836,
+   "flood_blue": 0.005272952853598015,
+   "gains": [
+    0.8983642756938934,
+    0.9369811415672302,
+    1.215928077697754
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6617580630589935,
+   "orange_hue": 11.0,
+   "orange_s": 199.0,
+   "orange_v": 158.0,
+   "blue_in": 0.7811049820506085,
+   "blue_hue": 111.0,
+   "blue_s": 151.0,
+   "blue_v": 118.0,
+   "flood_orange": 0.0010700178027085608,
+   "flood_blue": 0.0050689723876521636,
+   "gains": [
+    0.8933700621128082,
+    0.9245057106018066,
+    1.2427095174789429
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.06188789331110648,
+   "orange_hue": 17.0,
+   "orange_s": 132.0,
+   "orange_v": 39.0,
+   "blue_in": 0.47542846321371085,
+   "blue_hue": 113.0,
+   "blue_s": 194.0,
+   "blue_v": 37.0,
+   "flood_orange": 0.011650926991091255,
+   "flood_blue": 0.49291045774365283,
+   "gains": [
+    0.7285929918289185,
+    0.9964529871940613,
+    1.6238139867782593
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.36957893787755836,
+   "orange_hue": 12.0,
+   "orange_s": 158.0,
+   "orange_v": 121.0,
+   "blue_in": 0.6616227498043308,
+   "blue_hue": 113.0,
+   "blue_s": 119.0,
+   "blue_v": 94.0,
+   "flood_orange": 0.00019816400246174467,
+   "flood_blue": 0.01589178634376138,
+   "gains": [
+    0.8365672826766968,
+    0.9495924413204193,
+    1.3441288471221924
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6699125417004779,
+   "orange_hue": 9.0,
+   "orange_s": 175.0,
+   "orange_v": 147.0,
+   "blue_in": 0.8752935037829377,
+   "blue_hue": 115.0,
+   "blue_s": 153.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.003237419119417209,
+   "flood_blue": 0.02116399370322181,
+   "gains": [
+    0.7716945111751556,
+    0.9150452315807343,
+    1.6401301622390747
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.3442430799747543,
+   "orange_hue": 12.0,
+   "orange_s": 162.0,
+   "orange_v": 115.0,
+   "blue_in": 0.8265936168362467,
+   "blue_hue": 114.0,
+   "blue_s": 127.0,
+   "blue_v": 94.0,
+   "flood_orange": 0.00011817866112853765,
+   "flood_blue": 0.024177821374365395,
+   "gains": [
+    0.7840461134910583,
+    0.9365355968475342,
+    1.5320183634757996
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.4113244973401857,
+   "orange_hue": 5.0,
+   "orange_s": 144.0,
+   "orange_v": 138.0,
+   "blue_in": 0.8959909557352813,
+   "blue_hue": 117.0,
+   "blue_s": 165.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.0009164873769987945,
+   "flood_blue": 0.027159398733320485,
+   "gains": [
+    0.7161262929439545,
+    0.8873566389083862,
+    2.1388760805130005
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.04838558727187646,
+   "orange_hue": 21.0,
+   "orange_s": 107.0,
+   "orange_v": 240.0,
+   "blue_in": 0.34506802721088436,
+   "blue_hue": 102.0,
+   "blue_s": 158.0,
+   "blue_v": 240.0,
+   "flood_orange": 0.0005792821143664616,
+   "flood_blue": 0.002747944675244107,
+   "gains": [
+    0.9771455526351929,
+    0.9791508316993713,
+    1.0402247309684753
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.08240916058065098,
+   "orange_hue": 110.0,
+   "orange_s": 118.0,
+   "orange_v": 28.0,
+   "blue_in": 0.016871032263675104,
+   "blue_hue": 113.0,
+   "blue_s": 85.0,
+   "blue_v": 7.0,
+   "flood_orange": 0.00019803643870472168,
+   "flood_blue": 0.10362106627619481,
+   "gains": [
+    0.8154716789722443,
+    0.9697117209434509,
+    1.4132750630378723
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.11631052204490128,
+   "orange_hue": 109.0,
+   "orange_s": 123.0,
+   "orange_v": 30.0,
+   "blue_in": 0.03035046525784851,
+   "blue_hue": 113.0,
+   "blue_s": 109.0,
+   "blue_v": 6.0,
+   "flood_orange": 4.018784949076254e-05,
+   "flood_blue": 0.0984315256455891,
+   "gains": [
+    0.7783247828483582,
+    0.9790418744087219,
+    1.4558693766593933
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.16202326210440898,
+   "orange_hue": 18.0,
+   "orange_s": 134.0,
+   "orange_v": 33.0,
+   "blue_in": 0.06965823115053484,
+   "blue_hue": 114.0,
+   "blue_s": 127.0,
+   "blue_v": 10.0,
+   "flood_orange": 7.238279641886114e-05,
+   "flood_blue": 0.0689536614385176,
+   "gains": [
+    0.7616259455680847,
+    0.9604669511318207,
+    1.5703117847442627
+   ]
+  }
+ },
+ "without_loose|1|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9695964621337756,
+   "orange_hue": 7.0,
+   "orange_s": 223.0,
+   "orange_v": 174.0,
+   "blue_in": 0.9878797544055498,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.0007331854205824791,
+   "flood_blue": 4.795861026604918e-05,
+   "wall_in": 2.2318031955363935e-05,
+   "gains": [
+    1.0225619673728943,
+    0.9907947182655334,
+    0.9875060021877289
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9578127535291254,
+   "orange_hue": 8.0,
+   "orange_s": 214.0,
+   "orange_v": 144.0,
+   "blue_in": 0.9149656791907514,
+   "blue_hue": 107.0,
+   "blue_s": 204.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.0029474716910102825,
+   "flood_blue": 0.0028633396978948464,
+   "gains": [
+    1.0128726959228516,
+    0.9926818013191223,
+    0.9991127848625183
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.3152215799614644,
+   "orange_hue": 1.0,
+   "orange_s": 231.0,
+   "orange_v": 202.0,
+   "blue_in": 0.948093220338983,
+   "blue_hue": 111.0,
+   "blue_s": 234.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.004580837136295662,
+   "flood_blue": 0.013472601897194465,
+   "gains": [
+    0.9998259842395782,
+    1.0121519565582275,
+    0.9895559251308441
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9778523489932885,
+   "orange_hue": 8.0,
+   "orange_s": 209.0,
+   "orange_v": 142.0,
+   "blue_in": 0.9757445088263037,
+   "blue_hue": 108.0,
+   "blue_s": 211.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.0030879980889895416,
+   "flood_blue": 0.003283969428471041,
+   "gains": [
+    0.9308369755744934,
+    0.9033684730529785,
+    1.2222131490707397
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9941852013374037,
+   "orange_hue": 7.0,
+   "orange_s": 216.0,
+   "orange_v": 178.0,
+   "blue_in": 0.9956183057448881,
+   "blue_hue": 108.0,
+   "blue_s": 225.0,
+   "blue_v": 125.0,
+   "flood_orange": 0.002203686120919008,
+   "flood_blue": 0.015393041173387136,
+   "gains": [
+    1.092077374458313,
+    0.9997402429580688,
+    0.9224631190299988
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.24845453914009863,
+   "orange_hue": 15.0,
+   "orange_s": 202.0,
+   "orange_v": 128.0,
+   "blue_in": 0.8635545876337468,
+   "blue_hue": 107.0,
+   "blue_s": 193.0,
+   "blue_v": 98.0,
+   "flood_orange": 0.002163458305393467,
+   "flood_blue": 0.014164311391972148,
+   "gains": [
+    0.9934272766113281,
+    0.940097451210022,
+    1.0770171880722046
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9568791946308725,
+   "orange_hue": 8.0,
+   "orange_s": 180.0,
+   "orange_v": 133.0,
+   "blue_in": 0.9277725373938822,
+   "blue_hue": 115.0,
+   "blue_s": 149.0,
+   "blue_v": 83.0,
+   "flood_orange": 0.002756950304572975,
+   "flood_blue": 0.002619765656342081,
+   "gains": [
+    0.8001434206962585,
+    0.8884775042533875,
+    1.6007602214813232
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9940398313708387,
+   "orange_hue": 8.0,
+   "orange_s": 215.0,
+   "orange_v": 173.0,
+   "blue_in": 0.9939954560207724,
+   "blue_hue": 108.0,
+   "blue_s": 228.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.002240142816810071,
+   "flood_blue": 0.015140998312187388,
+   "gains": [
+    1.029047966003418,
+    1.031105875968933,
+    0.9484557509422302
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9568791946308725,
+   "orange_hue": 6.0,
+   "orange_s": 179.0,
+   "orange_v": 140.0,
+   "blue_in": 0.9742622288101334,
+   "blue_hue": 113.0,
+   "blue_s": 172.0,
+   "blue_v": 105.0,
+   "flood_orange": 0.00369988007955085,
+   "flood_blue": 0.002213872036482326,
+   "gains": [
+    0.7858105301856995,
+    0.8790510296821594,
+    1.6918314695358276
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9956389010030527,
+   "orange_hue": 8.0,
+   "orange_s": 218.0,
+   "orange_v": 169.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 108.0,
+   "blue_s": 227.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.002577277178877906,
+   "flood_blue": 0.014388629508940026,
+   "gains": [
+    0.9894077181816101,
+    1.0223462581634521,
+    0.9933945536613464
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.2169896506216573,
+   "orange_hue": 16.0,
+   "orange_s": 189.0,
+   "orange_v": 121.0,
+   "blue_in": 0.835432250733832,
+   "blue_hue": 110.0,
+   "blue_s": 171.0,
+   "blue_v": 102.0,
+   "flood_orange": 0.0037691872908212193,
+   "flood_blue": 0.007679679412679965,
+   "gains": [
+    0.8570894598960876,
+    0.9526697397232056,
+    1.2775017023086548
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.09429530201342282,
+   "orange_hue": -3.0,
+   "orange_s": 143.0,
+   "orange_v": 127.0,
+   "blue_in": 0.9493329739927233,
+   "blue_hue": 116.0,
+   "blue_s": 179.0,
+   "blue_v": 114.0,
+   "flood_orange": 0.0013837522615736675,
+   "flood_blue": 0.002367665143360385,
+   "gains": [
+    0.687437117099762,
+    0.8651034832000732,
+    2.5887110233306885
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9950574211367932,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 163.0,
+   "blue_in": 0.99269717624148,
+   "blue_hue": 109.0,
+   "blue_s": 220.0,
+   "blue_v": 130.0,
+   "flood_orange": 0.002931021410717273,
+   "flood_blue": 0.013413138629911461,
+   "gains": [
+    0.9271594285964966,
+    1.035866618156433,
+    1.0435433387756348
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.2660653101181736,
+   "orange_hue": 16.0,
+   "orange_s": 163.0,
+   "orange_v": 104.0,
+   "blue_in": 0.8405144090866422,
+   "blue_hue": 113.0,
+   "blue_s": 157.0,
+   "blue_v": 85.0,
+   "flood_orange": 0.003733203992391115,
+   "flood_blue": 0.08324302203090542,
+   "gains": [
+    0.7658794522285461,
+    0.9238684177398682,
+    1.634237289428711
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9477673812625844,
+   "orange_hue": 8.0,
+   "orange_s": 220.0,
+   "orange_v": 214.0,
+   "blue_in": 0.9510709785804284,
+   "blue_hue": 109.0,
+   "blue_s": 224.0,
+   "blue_v": 137.0,
+   "flood_orange": 0.10141501659075124,
+   "flood_blue": 0.0019978242755826657,
+   "gains": [
+    1.0043230056762695,
+    1.0135418176651,
+    0.9835202097892761
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9664224664224664,
+   "orange_hue": 8.0,
+   "orange_s": 216.0,
+   "orange_v": 195.0,
+   "blue_in": 0.9902171686129891,
+   "blue_hue": 109.0,
+   "blue_s": 230.0,
+   "blue_v": 183.0,
+   "flood_orange": 0.00503375789799735,
+   "flood_blue": 0.011760417903912843,
+   "gains": [
+    0.9783605933189392,
+    1.003697156906128,
+    1.0149956941604614
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9882250327082425,
+   "orange_hue": 6.0,
+   "orange_s": 217.0,
+   "orange_v": 189.0,
+   "blue_in": 0.9933463161311262,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 138.0,
+   "flood_orange": 0.0020795073448809545,
+   "flood_blue": 0.021098610339981654,
+   "gains": [
+    1.0597516298294067,
+    1.000334918498993,
+    0.9436659812927246
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8205776173285199,
+   "orange_hue": 12.0,
+   "orange_s": 199.0,
+   "orange_v": 125.0,
+   "blue_in": 0.3387434554973822,
+   "blue_hue": 113.0,
+   "blue_s": 90.0,
+   "blue_v": 71.0,
+   "flood_orange": 0.004367081327132598,
+   "flood_blue": 2.8757826236997354e-06,
+   "gains": [
+    0.9605686664581299,
+    0.940988302230835,
+    1.121678650379181
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8503026470322522,
+   "orange_hue": 10.0,
+   "orange_s": 209.0,
+   "orange_v": 167.0,
+   "blue_in": 0.5785833114438316,
+   "blue_hue": 110.0,
+   "blue_s": 125.0,
+   "blue_v": 104.0,
+   "flood_orange": 0.006360818230877011,
+   "flood_blue": 4.557557923334616e-05,
+   "gains": [
+    0.9702112376689911,
+    0.9453118443489075,
+    1.1003979444503784
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.2831145377509203,
+   "orange_hue": 14.0,
+   "orange_s": 187.0,
+   "orange_v": 48.0,
+   "blue_in": 0.20736672663573524,
+   "blue_hue": 114.0,
+   "blue_s": 73.0,
+   "blue_v": 22.0,
+   "flood_orange": 0.02766259129457717,
+   "flood_blue": 0.0012841435030364642,
+   "gains": [
+    0.8811625242233276,
+    0.9642260670661926,
+    1.2122536897659302
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6233883328825174,
+   "orange_hue": 12.0,
+   "orange_s": 173.0,
+   "orange_v": 127.0,
+   "blue_in": 0.24506478824245587,
+   "blue_hue": 113.0,
+   "blue_s": 99.0,
+   "blue_v": 83.0,
+   "flood_orange": 0.0017158102652175453,
+   "flood_blue": 0.0001413730993172203,
+   "gains": [
+    0.8721271753311157,
+    0.946099728345871,
+    1.256877601146698
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8791813181859165,
+   "orange_hue": 9.0,
+   "orange_s": 195.0,
+   "orange_v": 162.0,
+   "blue_in": 0.5258718149404296,
+   "blue_hue": 115.0,
+   "blue_s": 114.0,
+   "blue_v": 101.0,
+   "flood_orange": 0.012924923735603985,
+   "flood_blue": 0.00040003625078999174,
+   "gains": [
+    0.8557950854301453,
+    0.9104569852352142,
+    1.3620861768722534
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5551347939770985,
+   "orange_hue": 12.0,
+   "orange_s": 176.0,
+   "orange_v": 120.0,
+   "blue_in": 0.36211844508218105,
+   "blue_hue": 113.0,
+   "blue_s": 108.0,
+   "blue_v": 83.0,
+   "flood_orange": 0.0019670898645866145,
+   "flood_blue": 0.0014810649954402398,
+   "gains": [
+    0.8214600682258606,
+    0.9325096607208252,
+    1.403233826160431
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8980254260210981,
+   "orange_hue": 6.0,
+   "orange_s": 173.0,
+   "orange_v": 151.0,
+   "blue_in": 0.6278806852769806,
+   "blue_hue": 118.0,
+   "blue_s": 135.0,
+   "blue_v": 111.0,
+   "flood_orange": 0.06398172758268691,
+   "flood_blue": 0.004630212074064283,
+   "gains": [
+    0.7880300581455231,
+    0.865367203950882,
+    1.7385947108268738
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.044174075807206364,
+   "orange_hue": 22.0,
+   "orange_s": 115.0,
+   "orange_v": 244.0,
+   "blue_in": 0.20487528344671202,
+   "blue_hue": 101.0,
+   "blue_s": 151.0,
+   "blue_v": 232.0,
+   "flood_orange": 0.0012593089442749165,
+   "flood_blue": 0.0019665103356124617,
+   "gains": [
+    0.9991798102855682,
+    0.9964037835597992,
+    1.0044402480125427
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.19006401586872237,
+   "orange_hue": 109.0,
+   "orange_s": 88.0,
+   "orange_v": 27.0,
+   "blue_in": 0.00026089225150013044,
+   "blue_hue": 110.0,
+   "blue_s": 51.0,
+   "blue_v": 6.0,
+   "flood_orange": 0.00036006625219040303,
+   "flood_blue": 0.03196188098610144,
+   "gains": [
+    0.9165506958961487,
+    0.9553909599781036,
+    1.1991026997566223
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.22017852312685962,
+   "orange_hue": 105.0,
+   "orange_s": 97.0,
+   "orange_v": 27.0,
+   "blue_in": 0.00026089225150013044,
+   "blue_hue": 113.0,
+   "blue_s": 85.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.000235385975588752,
+   "flood_blue": 0.019192568692517023,
+   "gains": [
+    0.8617701828479767,
+    0.9617749750614166,
+    1.261761486530304
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.2670633847263547,
+   "orange_hue": 16.0,
+   "orange_s": 119.0,
+   "orange_v": 30.0,
+   "blue_in": 0.007826767545003914,
+   "blue_hue": 116.0,
+   "blue_s": 96.0,
+   "blue_v": 8.0,
+   "flood_orange": 0.00047501210149877626,
+   "flood_blue": 0.008690459495039516,
+   "gains": [
+    0.8384902775287628,
+    0.9435873329639435,
+    1.3665540218353271
+   ]
+  }
+ },
+ "gray_above|1|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9613045881702598,
+   "orange_hue": 6.0,
+   "orange_s": 232.0,
+   "orange_v": 210.0,
+   "blue_in": 0.9799059086197273,
+   "blue_hue": 109.0,
+   "blue_s": 222.5,
+   "blue_v": 117.0,
+   "flood_orange": 0.002584920650299378,
+   "flood_blue": 0.0,
+   "wall_in": 0.0006614951006750902,
+   "gains": [
+    1.2245025038719177,
+    0.9669314026832581,
+    0.8717424869537354
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9483206230731787,
+   "orange_hue": 6.0,
+   "orange_s": 212.0,
+   "orange_v": 146.0,
+   "blue_in": 0.9282875722543352,
+   "blue_hue": 109.0,
+   "blue_s": 206.0,
+   "blue_v": 97.0,
+   "flood_orange": 0.0032326648880117615,
+   "flood_blue": 0.0034634676681565297,
+   "gains": [
+    1.0056613683700562,
+    0.942122220993042,
+    1.0562349557876587
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.3412973667308927,
+   "orange_hue": 1.0,
+   "orange_s": 232.0,
+   "orange_v": 209.0,
+   "blue_in": 0.9471398305084746,
+   "blue_hue": 111.0,
+   "blue_s": 233.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.0063863335308942185,
+   "flood_blue": 0.012089506263832227,
+   "gains": [
+    1.0285488367080688,
+    1.0300756096839905,
+    0.9476415514945984
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9736577181208054,
+   "orange_hue": 8.0,
+   "orange_s": 197.0,
+   "orange_v": 132.0,
+   "blue_in": 0.9897587926155504,
+   "blue_hue": 110.0,
+   "blue_s": 220.0,
+   "blue_v": 109.0,
+   "flood_orange": 0.002070454595527911,
+   "flood_blue": 0.004107860769900658,
+   "gains": [
+    0.8694061636924744,
+    0.87884122133255,
+    1.4146066904067993
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9918592818723652,
+   "orange_hue": 6.0,
+   "orange_s": 213.0,
+   "orange_v": 178.0,
+   "blue_in": 0.9961051606621227,
+   "blue_hue": 109.0,
+   "blue_s": 226.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.001987335449861041,
+   "flood_blue": 0.01640370787961507,
+   "gains": [
+    1.0694042444229126,
+    0.9649822115898132,
+    0.9609097242355347
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.17204973258317705,
+   "orange_hue": 15.0,
+   "orange_s": 200.0,
+   "orange_v": 127.0,
+   "blue_in": 0.8669633557428273,
+   "blue_hue": 107.0,
+   "blue_s": 195.0,
+   "blue_v": 101.0,
+   "flood_orange": 0.0019847712517508448,
+   "flood_blue": 0.016016508378117175,
+   "gains": [
+    0.9688646793365479,
+    0.9569730162620544,
+    1.0869334936141968
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.8973154362416107,
+   "orange_hue": 10.0,
+   "orange_s": 179.0,
+   "orange_v": 127.0,
+   "blue_in": 0.9509500067376364,
+   "blue_hue": 112.0,
+   "blue_s": 151.0,
+   "blue_v": 81.0,
+   "flood_orange": 0.002488345068961224,
+   "flood_blue": 0.004865443763516723,
+   "gains": [
+    0.7627760767936707,
+    0.9458252787590027,
+    1.545156478881836
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9918592818723652,
+   "orange_hue": 7.0,
+   "orange_s": 214.0,
+   "orange_v": 175.0,
+   "blue_in": 0.9943200259655955,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 137.0,
+   "flood_orange": 0.0021045260254786966,
+   "flood_blue": 0.015814150749159483,
+   "gains": [
+    1.019313097000122,
+    0.9920187592506409,
+    0.9882668256759644
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9305369127516778,
+   "orange_hue": 8.0,
+   "orange_s": 167.0,
+   "orange_v": 127.0,
+   "blue_in": 0.985581458024525,
+   "blue_hue": 112.0,
+   "blue_s": 184.0,
+   "blue_v": 112.0,
+   "flood_orange": 0.0016922552185962966,
+   "flood_blue": 0.004468307921891166,
+   "gains": [
+    0.719815731048584,
+    0.9408266544342041,
+    1.823371410369873
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9941852013374037,
+   "orange_hue": 7.0,
+   "orange_s": 216.0,
+   "orange_v": 168.0,
+   "blue_in": 0.9951314508276533,
+   "blue_hue": 110.0,
+   "blue_s": 228.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0023444751258319472,
+   "flood_blue": 0.015751923207012828,
+   "gains": [
+    0.9666602611541748,
+    0.9809800982475281,
+    1.0474625825881958
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.17114676668750434,
+   "orange_hue": 16.0,
+   "orange_s": 187.0,
+   "orange_v": 118.0,
+   "blue_in": 0.8404507148944229,
+   "blue_hue": 110.0,
+   "blue_s": 175.0,
+   "blue_v": 101.0,
+   "flood_orange": 0.003089653946056484,
+   "flood_blue": 0.009589676173782714,
+   "gains": [
+    0.8455512523651123,
+    0.9621965289115906,
+    1.30064058303833
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.16744966442953022,
+   "orange_hue": 1.0,
+   "orange_s": 129.0,
+   "orange_v": 118.0,
+   "blue_in": 0.9823473925346988,
+   "blue_hue": 114.0,
+   "blue_s": 182.0,
+   "blue_v": 111.0,
+   "flood_orange": 0.0006673496067770778,
+   "flood_blue": 0.006117941779735844,
+   "gains": [
+    0.6430651545524597,
+    0.9561448693275452,
+    2.5057568550109863
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9892426224741968,
+   "orange_hue": 8.0,
+   "orange_s": 212.0,
+   "orange_v": 157.0,
+   "blue_in": 0.9936708860759493,
+   "blue_hue": 111.0,
+   "blue_s": 225.0,
+   "blue_v": 141.0,
+   "flood_orange": 0.0025254561405831234,
+   "flood_blue": 0.015751457086500935,
+   "gains": [
+    0.8982681632041931,
+    0.9904136061668396,
+    1.1319695711135864
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.19243409551779594,
+   "orange_hue": 17.0,
+   "orange_s": 165.0,
+   "orange_v": 102.0,
+   "blue_in": 0.8365718576926687,
+   "blue_hue": 112.0,
+   "blue_s": 155.0,
+   "blue_v": 83.0,
+   "flood_orange": 0.002691908359921486,
+   "flood_blue": 0.03879470409470182,
+   "gains": [
+    0.7638893127441406,
+    0.9535799622535706,
+    1.5619378089904785
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9387658415255241,
+   "orange_hue": 9.0,
+   "orange_s": 216.0,
+   "orange_v": 195.0,
+   "blue_in": 0.9548509029819403,
+   "blue_hue": 108.0,
+   "blue_s": 228.0,
+   "blue_v": 144.0,
+   "flood_orange": 0.023665265821461008,
+   "flood_blue": 0.0018159455364115552,
+   "gains": [
+    0.9283104538917542,
+    1.0641272068023682,
+    1.0248364210128784
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9597069597069597,
+   "orange_hue": 7.0,
+   "orange_s": 216.0,
+   "orange_v": 199.0,
+   "blue_in": 0.992880557262856,
+   "blue_hue": 110.0,
+   "blue_s": 230.0,
+   "blue_v": 190.0,
+   "flood_orange": 0.007460972888879573,
+   "flood_blue": 0.014052321830728421,
+   "gains": [
+    0.997907817363739,
+    0.94778972864151,
+    1.0582187175750732
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9856083733100741,
+   "orange_hue": 6.0,
+   "orange_s": 216.0,
+   "orange_v": 186.0,
+   "blue_in": 0.9954560207724765,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 142.0,
+   "flood_orange": 0.0021771272495795225,
+   "flood_blue": 0.02048797749861197,
+   "gains": [
+    1.081171452999115,
+    0.9895045161247253,
+    0.9361296892166138
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7015342960288808,
+   "orange_hue": 12.0,
+   "orange_s": 196.0,
+   "orange_v": 124.0,
+   "blue_in": 0.39022687609075046,
+   "blue_hue": 113.0,
+   "blue_s": 100.0,
+   "blue_v": 72.0,
+   "flood_orange": 0.0007579741343894303,
+   "flood_blue": 4.1904261088196145e-05,
+   "gains": [
+    0.9502522051334381,
+    0.9363304972648621,
+    1.1508392691612244
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7584244285843347,
+   "orange_hue": 10.0,
+   "orange_s": 205.0,
+   "orange_v": 164.0,
+   "blue_in": 0.704666841782681,
+   "blue_hue": 111.0,
+   "blue_s": 136.0,
+   "blue_v": 111.0,
+   "flood_orange": 0.0014753581312883209,
+   "flood_blue": 0.0003057193722024459,
+   "gains": [
+    0.9460742473602295,
+    0.9232019782066345,
+    1.1748223900794983
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.307633534764187,
+   "orange_hue": 14.0,
+   "orange_s": 189.0,
+   "orange_v": 49.0,
+   "blue_in": 0.1963829182842534,
+   "blue_hue": 112.0,
+   "blue_s": 70.0,
+   "blue_v": 21.0,
+   "flood_orange": 0.015222451108911421,
+   "flood_blue": 0.0014312849460927258,
+   "gains": [
+    0.8831373453140259,
+    0.9581007957458496,
+    1.2180372476577759
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5666756829862051,
+   "orange_hue": 12.0,
+   "orange_s": 171.0,
+   "orange_v": 128.0,
+   "blue_in": 0.2752413253326376,
+   "blue_hue": 113.0,
+   "blue_s": 101.0,
+   "blue_v": 84.0,
+   "flood_orange": 0.0019542515039520023,
+   "flood_blue": 0.00039431414310985377,
+   "gains": [
+    0.8745993673801422,
+    0.9456260502338409,
+    1.2553424835205078
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7800018032639077,
+   "orange_hue": 9.0,
+   "orange_s": 188.0,
+   "orange_v": 155.0,
+   "blue_in": 0.7113662057570224,
+   "blue_hue": 114.0,
+   "blue_s": 130.5,
+   "blue_v": 109.0,
+   "flood_orange": 0.006015315559533738,
+   "flood_blue": 0.0020329187515195986,
+   "gains": [
+    0.8269226253032684,
+    0.9166096746921539,
+    1.4452037811279297
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5027499774592011,
+   "orange_hue": 12.0,
+   "orange_s": 177.0,
+   "orange_v": 121.0,
+   "blue_in": 0.3199408644229933,
+   "blue_hue": 114.0,
+   "blue_s": 108.0,
+   "blue_v": 82.0,
+   "flood_orange": 0.00296293667116122,
+   "flood_blue": 0.003922886205242857,
+   "gains": [
+    0.825899213552475,
+    0.9365170300006866,
+    1.4094607830047607
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.818952303669642,
+   "orange_hue": 7.0,
+   "orange_s": 168.0,
+   "orange_v": 145.0,
+   "blue_in": 0.8088529437342378,
+   "blue_hue": 116.0,
+   "blue_s": 140.0,
+   "blue_v": 112.0,
+   "flood_orange": 0.006282437362745863,
+   "flood_blue": 0.014504149275170757,
+   "gains": [
+    0.7555479407310486,
+    0.902586817741394,
+    1.8106887936592102
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.07318671034160038,
+   "orange_hue": 20.0,
+   "orange_s": 110.0,
+   "orange_v": 244.0,
+   "blue_in": 0.3353174603174603,
+   "blue_hue": 102.0,
+   "blue_s": 153.0,
+   "blue_v": 238.0,
+   "flood_orange": 0.0009299002362198462,
+   "flood_blue": 0.002576280982314,
+   "gains": [
+    0.9983936548233032,
+    0.9752912223339081,
+    1.0276487469673157
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.20376882156703632,
+   "orange_hue": 112.0,
+   "orange_s": 88.0,
+   "orange_v": 27.0,
+   "blue_in": 0.00026089225150013044,
+   "blue_hue": 120.0,
+   "blue_s": 57.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.0051909551357449775,
+   "flood_blue": 3.6006625219040305e-05,
+   "gains": [
+    0.9216782450675964,
+    0.9426974654197693,
+    1.2089567184448242
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.23821116220358848,
+   "orange_hue": 38.0,
+   "orange_s": 102.0,
+   "orange_v": 27.0,
+   "blue_in": 0.0,
+   "blue_hue": 115.0,
+   "blue_s": 78.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.003846551308401557,
+   "flood_blue": 0.000235385975588752,
+   "gains": [
+    0.885867178440094,
+    0.939399003982544,
+    1.2630063891410828
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.30132539897213956,
+   "orange_hue": 13.0,
+   "orange_s": 112.0,
+   "orange_v": 31.0,
+   "blue_in": 0.00191320984433429,
+   "blue_hue": 119.0,
+   "blue_s": 91.0,
+   "blue_v": 8.0,
+   "flood_orange": 0.0024202997552556695,
+   "flood_blue": 0.0014612277027057593,
+   "gains": [
+    0.8549200296401978,
+    0.933345377445221,
+    1.3846361637115479
+   ]
+  }
+ },
+ "shades_of_gray|1|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9716233646581905,
+   "orange_hue": 7.0,
+   "orange_s": 223.0,
+   "orange_v": 173.0,
+   "blue_in": 0.9881189697791245,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0007012130137384464,
+   "flood_blue": 6.782025694188773e-05,
+   "wall_in": 6.695640529320819e-05,
+   "gains": [
+    1.0102172493934631,
+    0.9874715805053711,
+    1.0035812258720398
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9557439558656499,
+   "orange_hue": 7.0,
+   "orange_s": 214.0,
+   "orange_v": 144.0,
+   "blue_in": 0.9184429190751445,
+   "blue_hue": 107.0,
+   "blue_s": 203.0,
+   "blue_v": 92.0,
+   "flood_orange": 0.002941971536496683,
+   "flood_blue": 0.002885544025375676,
+   "gains": [
+    1.0127480030059814,
+    0.9838653206825256,
+    1.0099207162857056
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.36480411046885036,
+   "orange_hue": 1.0,
+   "orange_s": 229.0,
+   "orange_v": 197.0,
+   "blue_in": 0.9527542372881356,
+   "blue_hue": 111.0,
+   "blue_s": 234.0,
+   "blue_v": 133.0,
+   "flood_orange": 0.004659624281893291,
+   "flood_blue": 0.013674398650757424,
+   "gains": [
+    0.9580897390842438,
+    1.0568074584007263,
+    0.9871332943439484
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9756711409395973,
+   "orange_hue": 8.0,
+   "orange_s": 206.0,
+   "orange_v": 138.0,
+   "blue_in": 0.9820778870772133,
+   "blue_hue": 108.0,
+   "blue_s": 215.0,
+   "blue_v": 98.0,
+   "flood_orange": 0.0026914170351275725,
+   "flood_blue": 0.003707800934864461,
+   "gains": [
+    0.905547559261322,
+    0.8953384160995483,
+    1.284027338027954
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.993749091437709,
+   "orange_hue": 7.0,
+   "orange_s": 216.0,
+   "orange_v": 181.0,
+   "blue_in": 0.9954560207724765,
+   "blue_hue": 108.0,
+   "blue_s": 225.0,
+   "blue_v": 125.0,
+   "flood_orange": 0.0022352115044160263,
+   "flood_blue": 0.015156291724772276,
+   "gains": [
+    1.0965040922164917,
+    0.9976211190223694,
+    0.9224820137023926
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.03868861568382302,
+   "orange_hue": 19.0,
+   "orange_s": 194.0,
+   "orange_v": 116.0,
+   "blue_in": 0.6400909004829088,
+   "blue_hue": 104.0,
+   "blue_s": 199.0,
+   "blue_v": 102.0,
+   "flood_orange": 0.0024132359072594977,
+   "flood_blue": 0.12496565557974341,
+   "gains": [
+    0.9237788319587708,
+    1.028833031654358,
+    1.036173701286316
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9359060402684564,
+   "orange_hue": 9.0,
+   "orange_s": 174.0,
+   "orange_v": 127.0,
+   "blue_in": 0.9589004177334591,
+   "blue_hue": 113.5,
+   "blue_s": 156.0,
+   "blue_v": 84.0,
+   "flood_orange": 0.0023632649485154085,
+   "flood_blue": 0.005721983205832308,
+   "gains": [
+    0.7619626522064209,
+    0.9117685556411743,
+    1.6776789426803589
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9944759412705335,
+   "orange_hue": 7.0,
+   "orange_s": 216.0,
+   "orange_v": 175.0,
+   "blue_in": 0.9939954560207724,
+   "blue_hue": 108.0,
+   "blue_s": 227.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.0023110334122787442,
+   "flood_blue": 0.014859901690155084,
+   "gains": [
+    1.0310560464859009,
+    1.0312529802322388,
+    0.9487943053245544
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9431208053691276,
+   "orange_hue": 7.0,
+   "orange_s": 171.0,
+   "orange_v": 132.0,
+   "blue_in": 0.9830211561784126,
+   "blue_hue": 113.0,
+   "blue_s": 180.0,
+   "blue_v": 110.0,
+   "flood_orange": 0.0018522253270388904,
+   "flood_blue": 0.003430787504277772,
+   "gains": [
+    0.746539294719696,
+    0.9034952521324158,
+    1.7974692583084106
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.995348161069923,
+   "orange_hue": 8.0,
+   "orange_s": 218.0,
+   "orange_v": 170.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.002605310933956739,
+   "flood_blue": 0.014180814063681721,
+   "gains": [
+    0.9890491366386414,
+    1.0157887935638428,
+    1.0004528760910034
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.07473779259567966,
+   "orange_hue": 19.0,
+   "orange_s": 187.0,
+   "orange_v": 115.0,
+   "blue_in": 0.829088154530821,
+   "blue_hue": 107.0,
+   "blue_s": 171.0,
+   "blue_v": 101.0,
+   "flood_orange": 0.004523342287931615,
+   "flood_blue": 0.13877880872088963,
+   "gains": [
+    0.8336662650108337,
+    1.0046089887619019,
+    1.2018373012542725
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.052684563758389265,
+   "orange_hue": -5.0,
+   "orange_s": 134.0,
+   "orange_v": 121.0,
+   "blue_in": 0.9738579706239051,
+   "blue_hue": 116.0,
+   "blue_s": 188.0,
+   "blue_v": 123.0,
+   "flood_orange": 0.000581221580603284,
+   "flood_blue": 0.0046566172561778325,
+   "gains": [
+    0.6582127809524536,
+    0.8868652582168579,
+    2.8045942783355713
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9950574211367932,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 164.0,
+   "blue_in": 0.9923726062966569,
+   "blue_hue": 109.0,
+   "blue_s": 221.0,
+   "blue_v": 132.0,
+   "flood_orange": 0.003003830606097439,
+   "flood_blue": 0.013125512221715433,
+   "gains": [
+    0.9303874373435974,
+    1.0264133214950562,
+    1.0523395538330078
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.10782462764841619,
+   "orange_hue": 19.0,
+   "orange_s": 168.0,
+   "orange_v": 100.0,
+   "blue_in": 0.8052191870834506,
+   "blue_hue": 110.0,
+   "blue_s": 150.0,
+   "blue_v": 80.0,
+   "flood_orange": 0.004268251093208842,
+   "flood_blue": 0.2491470318527332,
+   "gains": [
+    0.7562531232833862,
+    0.9761648774147034,
+    1.4574289321899414
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9445694658296814,
+   "orange_hue": 9.0,
+   "orange_s": 216.0,
+   "orange_v": 196.0,
+   "blue_in": 0.9559008819823603,
+   "blue_hue": 108.0,
+   "blue_s": 227.0,
+   "blue_v": 143.0,
+   "flood_orange": 0.01638045394659813,
+   "flood_blue": 0.0022354033786249287,
+   "gains": [
+    0.9157441854476929,
+    1.0676519870758057,
+    1.0240331888198853
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.967032967032967,
+   "orange_hue": 8.0,
+   "orange_s": 216.0,
+   "orange_v": 195.0,
+   "blue_in": 0.9906781397254661,
+   "blue_hue": 108.0,
+   "blue_s": 230.0,
+   "blue_v": 184.0,
+   "flood_orange": 0.004902173128293986,
+   "flood_blue": 0.012150281451671126,
+   "gains": [
+    0.9738309979438782,
+    1.007206916809082,
+    1.0189181566238403
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9909870620729757,
+   "orange_hue": 7.0,
+   "orange_s": 218.0,
+   "orange_v": 188.0,
+   "blue_in": 0.9787406686140864,
+   "blue_hue": 108.0,
+   "blue_s": 226.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0024084660862349833,
+   "flood_blue": 0.01815221790389727,
+   "gains": [
+    1.0901634097099304,
+    1.0302678942680359,
+    0.9005550742149353
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.4703068592057762,
+   "orange_hue": 13.0,
+   "orange_s": 186.0,
+   "orange_v": 114.0,
+   "blue_in": 0.5764397905759162,
+   "blue_hue": 111.0,
+   "blue_s": 117.0,
+   "blue_v": 77.0,
+   "flood_orange": 0.0003208551755870705,
+   "flood_blue": 0.00017131447915468424,
+   "gains": [
+    0.8753117620944977,
+    0.9517293274402618,
+    1.2438203692436218
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5685247086457674,
+   "orange_hue": 12.0,
+   "orange_s": 194.0,
+   "orange_v": 149.0,
+   "blue_in": 0.856842658261098,
+   "blue_hue": 110.0,
+   "blue_s": 154.0,
+   "blue_v": 121.0,
+   "flood_orange": 0.0006493511731476754,
+   "flood_blue": 0.0007009766080314657,
+   "gains": [
+    0.8567377924919128,
+    0.9461914300918579,
+    1.2882892489433289
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.02208793498645551,
+   "orange_hue": 24.0,
+   "orange_s": 153.5,
+   "orange_v": 38.0,
+   "blue_in": 0.26910330461130577,
+   "blue_hue": 106.0,
+   "blue_s": 147.0,
+   "blue_v": 26.0,
+   "flood_orange": 0.017349313785815564,
+   "flood_blue": 0.3535273816849033,
+   "gains": [
+    0.6894422769546509,
+    1.071850061416626,
+    1.5835322141647339
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.29167793706608963,
+   "orange_hue": 13.0,
+   "orange_s": 155.0,
+   "orange_v": 118.0,
+   "blue_in": 0.768762501087051,
+   "blue_hue": 112.0,
+   "blue_s": 128.0,
+   "blue_v": 93.0,
+   "flood_orange": 4.430495989998357e-05,
+   "flood_blue": 0.005428968677198895,
+   "gains": [
+    0.8047291040420532,
+    0.9644509553909302,
+    1.3958445191383362
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6565683887836985,
+   "orange_hue": 10.0,
+   "orange_s": 171.0,
+   "orange_v": 141.0,
+   "blue_in": 0.9308635533524654,
+   "blue_hue": 113.0,
+   "blue_s": 153.0,
+   "blue_v": 122.0,
+   "flood_orange": 0.0004531348748968469,
+   "flood_blue": 0.013246310144671793,
+   "gains": [
+    0.748153418302536,
+    0.9484529197216034,
+    1.6456262469291687
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.22901451627445676,
+   "orange_hue": 14.0,
+   "orange_s": 158.0,
+   "orange_v": 111.0,
+   "blue_in": 0.9183407252804592,
+   "blue_hue": 112.0,
+   "blue_s": 136.0,
+   "blue_v": 93.0,
+   "flood_orange": 4.759413656371141e-05,
+   "flood_blue": 0.01988829898152581,
+   "gains": [
+    0.753677099943161,
+    0.9608369171619415,
+    1.6024015545845032
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.4555044630781715,
+   "orange_hue": 7.0,
+   "orange_s": 142.0,
+   "orange_v": 132.0,
+   "blue_in": 0.9426906687538047,
+   "blue_hue": 115.0,
+   "blue_s": 166.0,
+   "blue_v": 132.0,
+   "flood_orange": 0.00042400480299900785,
+   "flood_blue": 0.024851060848073307,
+   "gains": [
+    0.6858476102352142,
+    0.9409081935882568,
+    2.092709541320801
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.050631726719700516,
+   "orange_hue": 22.0,
+   "orange_s": 114.0,
+   "orange_v": 245.0,
+   "blue_in": 0.2143424036281179,
+   "blue_hue": 101.0,
+   "blue_s": 152.0,
+   "blue_v": 232.0,
+   "flood_orange": 0.000992865683433592,
+   "flood_blue": 0.0019148123894790702,
+   "gains": [
+    0.9944546818733215,
+    0.9945825040340424,
+    1.0159950256347656
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.1868181408349112,
+   "orange_hue": 107.0,
+   "orange_s": 77.0,
+   "orange_v": 25.0,
+   "blue_in": 0.00026089225150013044,
+   "blue_hue": 108.0,
+   "blue_s": 64.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.0019203533450154828,
+   "flood_blue": 3.6006625219040305e-05,
+   "gains": [
+    0.9001058042049408,
+    0.9466707110404968,
+    1.2028667330741882
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.22405554052835633,
+   "orange_hue": 78.0,
+   "orange_s": 92.0,
+   "orange_v": 27.0,
+   "blue_in": 0.00017392816766675364,
+   "blue_hue": 115.0,
+   "blue_s": 85.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.0013319401545509868,
+   "flood_blue": 8.037569898152507e-05,
+   "gains": [
+    0.865190178155899,
+    0.9527005851268768,
+    1.275550127029419
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.27003877017401495,
+   "orange_hue": 14.0,
+   "orange_s": 109.0,
+   "orange_v": 30.0,
+   "blue_in": 0.004783024610835725,
+   "blue_hue": 116.0,
+   "blue_s": 96.0,
+   "blue_v": 8.0,
+   "flood_orange": 0.000583586296127068,
+   "flood_blue": 0.00020357661492804698,
+   "gains": [
+    0.8399637043476105,
+    0.9436225295066833,
+    1.3469987511634827
+   ]
+  }
+ },
+ "gray_world|0.5|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9696885940667035,
+   "orange_hue": 7.0,
+   "orange_s": 223.0,
+   "orange_v": 173.0,
+   "blue_in": 0.9877202774898334,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0007222857364311043,
+   "flood_blue": 5.643614238378515e-05,
+   "wall_in": 5.072526990916119e-05,
+   "gains": [
+    1.018296241760254,
+    0.9847519397735596,
+    0.9985603392124176
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9552571799448321,
+   "orange_hue": 7.0,
+   "orange_s": 213.0,
+   "orange_v": 143.0,
+   "blue_in": 0.9221459537572254,
+   "blue_hue": 107.0,
+   "blue_s": 204.0,
+   "blue_v": 92.0,
+   "flood_orange": 0.0029205820467215716,
+   "flood_blue": 0.0028409316609875872,
+   "gains": [
+    1.0057320594787598,
+    0.9884710311889648,
+    1.006899118423462
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.3863840719332049,
+   "orange_hue": 1.0,
+   "orange_s": 229.0,
+   "orange_v": 193.0,
+   "blue_in": 0.9569915254237288,
+   "blue_hue": 111.0,
+   "blue_s": 236.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0044212296284398215,
+   "flood_blue": 0.014065792857919836,
+   "gains": [
+    0.9403026700019836,
+    1.0651482939720154,
+    1.0027305483818054
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9706375838926175,
+   "orange_hue": 9.0,
+   "orange_s": 212.0,
+   "orange_v": 143.0,
+   "blue_in": 0.9370704756771324,
+   "blue_hue": 106.0,
+   "blue_s": 207.0,
+   "blue_v": 88.0,
+   "flood_orange": 0.0034144237225045833,
+   "flood_blue": 0.0027395401747043907,
+   "gains": [
+    0.9434124231338501,
+    0.9432209730148315,
+    1.1539809703826904
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9928768716383195,
+   "orange_hue": 7.0,
+   "orange_s": 213.0,
+   "orange_v": 171.0,
+   "blue_in": 0.996754300551769,
+   "blue_hue": 108.0,
+   "blue_s": 226.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.0021023103779089893,
+   "flood_blue": 0.015846759437834416,
+   "gains": [
+    1.0592970848083496,
+    0.9922768473625183,
+    0.9549106359481812
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.12787386261026604,
+   "orange_hue": 16.0,
+   "orange_s": 203.0,
+   "orange_v": 123.5,
+   "blue_in": 0.82321749834296,
+   "blue_hue": 105.0,
+   "blue_s": 192.0,
+   "blue_v": 98.0,
+   "flood_orange": 0.002966589363701166,
+   "flood_blue": 0.013557159682820874,
+   "gains": [
+    0.9839651584625244,
+    0.9838272333145142,
+    1.0374524593353271
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9552013422818791,
+   "orange_hue": 10.0,
+   "orange_s": 199.0,
+   "orange_v": 144.0,
+   "blue_in": 0.4909041908098639,
+   "blue_hue": 111.0,
+   "blue_s": 112.0,
+   "blue_v": 66.0,
+   "flood_orange": 0.003864226393865195,
+   "flood_blue": 0.00046227768017301403,
+   "gains": [
+    0.8663987517356873,
+    0.956338107585907,
+    1.316755771636963
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9930222416048844,
+   "orange_hue": 7.0,
+   "orange_s": 215.0,
+   "orange_v": 171.0,
+   "blue_in": 0.9949691658552418,
+   "blue_hue": 108.0,
+   "blue_s": 228.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.00225123873610082,
+   "flood_blue": 0.015057162477546175,
+   "gains": [
+    1.021886944770813,
+    1.0126413106918335,
+    0.9676174521446228
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9832214765100671,
+   "orange_hue": 8.0,
+   "orange_s": 199.0,
+   "orange_v": 152.0,
+   "blue_in": 0.9067511117100121,
+   "blue_hue": 109.0,
+   "blue_s": 143.0,
+   "blue_v": 84.0,
+   "flood_orange": 0.006186272622201451,
+   "flood_blue": 0.0012511947767474307,
+   "gains": [
+    0.8569496273994446,
+    0.9547699689865112,
+    1.3622597455978394
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9952027911033581,
+   "orange_hue": 8.0,
+   "orange_s": 219.0,
+   "orange_v": 170.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 130.0,
+   "flood_orange": 0.002746698568267374,
+   "flood_blue": 0.013949230869552234,
+   "gains": [
+    0.9968478083610535,
+    1.0056620836257935,
+    1.0003130435943604
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.18295478224630132,
+   "orange_hue": 16.0,
+   "orange_s": 201.0,
+   "orange_v": 128.0,
+   "blue_in": 0.7870466811854938,
+   "blue_hue": 108.0,
+   "blue_s": 155.0,
+   "blue_v": 90.0,
+   "flood_orange": 0.006468268333111056,
+   "flood_blue": 0.004890099770736881,
+   "gains": [
+    0.9177068471908569,
+    0.9894537329673767,
+    1.1377962827682495
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9629194630872483,
+   "orange_hue": 6.0,
+   "orange_s": 183.0,
+   "orange_v": 147.0,
+   "blue_in": 0.65004716345506,
+   "blue_hue": 113.0,
+   "blue_s": 122.0,
+   "blue_v": 75.0,
+   "flood_orange": 0.03441755779703902,
+   "flood_blue": 0.0005384427596560354,
+   "gains": [
+    0.8031359314918518,
+    0.9493069648742676,
+    1.7060638666152954
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.995348161069923,
+   "orange_hue": 8.0,
+   "orange_s": 218.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9909120415449529,
+   "blue_hue": 109.0,
+   "blue_s": 219.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.0033107123386915283,
+   "flood_blue": 0.011850448709231364,
+   "gains": [
+    0.9636061191558838,
+    1.011390209197998,
+    1.0319596529006958
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.21844626249912594,
+   "orange_hue": 16.0,
+   "orange_s": 193.0,
+   "orange_v": 117.0,
+   "blue_in": 0.46784943208485874,
+   "blue_hue": 109.0,
+   "blue_s": 113.0,
+   "blue_v": 66.0,
+   "flood_orange": 0.006497866632310479,
+   "flood_blue": 0.0006502413774810346,
+   "gains": [
+    0.873677670955658,
+    0.986480712890625,
+    1.216938853263855
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9317778040980694,
+   "orange_hue": 9.0,
+   "orange_s": 211.0,
+   "orange_v": 190.0,
+   "blue_in": 0.9619907601847963,
+   "blue_hue": 109.0,
+   "blue_s": 231.0,
+   "blue_v": 155.0,
+   "flood_orange": 0.009390058280768483,
+   "flood_blue": 0.003501165729043875,
+   "gains": [
+    0.890411913394928,
+    1.043049693107605,
+    1.097446322441101
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9660561660561661,
+   "orange_hue": 8.0,
+   "orange_s": 215.0,
+   "orange_v": 195.0,
+   "blue_in": 0.9935464044253227,
+   "blue_hue": 109.0,
+   "blue_s": 230.0,
+   "blue_v": 187.0,
+   "flood_orange": 0.005119928455148225,
+   "flood_blue": 0.012955161034139843,
+   "gains": [
+    0.9759102463722229,
+    0.993137001991272,
+    1.0335381031036377
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9874981828754179,
+   "orange_hue": 7.0,
+   "orange_s": 215.0,
+   "orange_v": 182.0,
+   "blue_in": 0.9936708860759493,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 143.0,
+   "flood_orange": 0.002189838174670482,
+   "flood_blue": 0.020867779940329834,
+   "gains": [
+    1.0602285265922546,
+    1.013945460319519,
+    0.9387033879756927
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5393501805054152,
+   "orange_hue": 13.0,
+   "orange_s": 190.0,
+   "orange_v": 117.0,
+   "blue_in": 0.5137870855148342,
+   "blue_hue": 111.0,
+   "blue_s": 112.0,
+   "blue_v": 75.0,
+   "flood_orange": 0.000597751959640445,
+   "flood_blue": 4.313673935549603e-05,
+   "gains": [
+    0.8961357176303864,
+    0.9587854444980621,
+    1.227063000202179
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6393531484325594,
+   "orange_hue": 11.0,
+   "orange_s": 198.0,
+   "orange_v": 154.0,
+   "blue_in": 0.801068207687593,
+   "blue_hue": 110.0,
+   "blue_s": 149.0,
+   "blue_v": 118.0,
+   "flood_orange": 0.0012010980084681845,
+   "flood_blue": 0.00038436749565822024,
+   "gains": [
+    0.8845635950565338,
+    0.9500007629394531,
+    1.2761445045471191
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.07362644995485171,
+   "orange_hue": 16.0,
+   "orange_s": 164.5,
+   "orange_v": 43.0,
+   "blue_in": 0.2636114004355648,
+   "blue_hue": 111.0,
+   "blue_s": 127.0,
+   "blue_v": 27.0,
+   "flood_orange": 0.03340110757377137,
+   "flood_blue": 0.0018459562856149175,
+   "gains": [
+    0.8478047251701355,
+    1.005960464477539,
+    1.2694330215454102
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.4934631683346858,
+   "orange_hue": 12.0,
+   "orange_s": 170.0,
+   "orange_v": 127.0,
+   "blue_in": 0.33994260370467,
+   "blue_hue": 112.0,
+   "blue_s": 104.0,
+   "blue_v": 85.0,
+   "flood_orange": 0.0005054793152225398,
+   "flood_blue": 0.00022877470202900606,
+   "gains": [
+    0.8671730160713196,
+    0.9692445695400238,
+    1.286656141281128
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7937967721576052,
+   "orange_hue": 10.0,
+   "orange_s": 187.0,
+   "orange_v": 156.0,
+   "blue_in": 0.715192625445691,
+   "blue_hue": 113.0,
+   "blue_s": 130.0,
+   "blue_v": 110.0,
+   "flood_orange": 0.0027966606155527866,
+   "flood_blue": 0.0011062878751886898,
+   "gains": [
+    0.8312454521656036,
+    0.956748366355896,
+    1.4782126545906067
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.46776665765034714,
+   "orange_hue": 13.0,
+   "orange_s": 178.0,
+   "orange_v": 124.0,
+   "blue_in": 0.2828941647099748,
+   "blue_hue": 113.0,
+   "blue_s": 107.0,
+   "blue_v": 84.0,
+   "flood_orange": 0.000994233446013124,
+   "flood_blue": 0.0015205923291965425,
+   "gains": [
+    0.8361612260341644,
+    0.9640595614910126,
+    1.4176077842712402
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8577224776846092,
+   "orange_hue": 9.0,
+   "orange_s": 180.0,
+   "orange_v": 154.0,
+   "blue_in": 0.6195321332289764,
+   "blue_hue": 115.0,
+   "blue_s": 124.0,
+   "blue_v": 105.0,
+   "flood_orange": 0.005635481677418739,
+   "flood_blue": 0.002643958588466114,
+   "gains": [
+    0.8028793931007385,
+    0.9641334414482117,
+    1.6400009393692017
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.05081890500701919,
+   "orange_hue": 22.0,
+   "orange_s": 115.0,
+   "orange_v": 245.0,
+   "blue_in": 0.22511337868480727,
+   "blue_hue": 101.0,
+   "blue_s": 152.0,
+   "blue_v": 233.0,
+   "flood_orange": 0.001007447155419933,
+   "flood_blue": 0.0020036268097595117,
+   "gains": [
+    0.9912905395030975,
+    0.9922395646572113,
+    1.0172097086906433
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.21152285637002977,
+   "orange_hue": 71.0,
+   "orange_s": 64.0,
+   "orange_v": 25.0,
+   "blue_in": 0.0,
+   "blue_hue": 105.0,
+   "blue_s": 28.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.008191507237331669,
+   "flood_blue": 6.0011042031733835e-06,
+   "gains": [
+    0.943413257598877,
+    0.9721789956092834,
+    1.1223812699317932
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.2678748534848075,
+   "orange_hue": 50.0,
+   "orange_s": 76.0,
+   "orange_v": 25.0,
+   "blue_in": 0.0,
+   "blue_hue": 105.0,
+   "blue_s": 42.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.0050521867931244335,
+   "flood_blue": 2.8705606779116095e-05,
+   "gains": [
+    0.9218615889549255,
+    0.9751939475536346,
+    1.1468065977096558
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.31728428455504465,
+   "orange_hue": 13.0,
+   "orange_s": 93.0,
+   "orange_v": 29.0,
+   "blue_in": 0.00017392816766675364,
+   "blue_hue": 109.0,
+   "blue_s": 57.0,
+   "blue_v": 7.0,
+   "flood_orange": 0.004397254882445815,
+   "flood_blue": 2.2619623880894108e-05,
+   "gains": [
+    0.9051295816898346,
+    0.9718490540981293,
+    1.2002001404762268
+   ]
+  }
+ },
+ "white_patch|0.5|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.972636815920398,
+   "orange_hue": 7.0,
+   "orange_s": 222.0,
+   "orange_v": 170.0,
+   "blue_in": 0.988677138984132,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0006455035169647529,
+   "flood_blue": 0.00012183424729203403,
+   "wall_in": 6.08666189201856e-05,
+   "gains": [
+    1.0010824799537659,
+    0.9991166889667511,
+    1.0007151067256927
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9253204608145383,
+   "orange_hue": 8.0,
+   "orange_s": 213.0,
+   "orange_v": 142.5,
+   "blue_in": 0.9299584537572254,
+   "blue_hue": 107.0,
+   "blue_s": 206.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.002904692711460061,
+   "flood_blue": 0.0028672101769970093,
+   "gains": [
+    0.998661994934082,
+    0.9980733394622803,
+    1.002528190612793
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.30982658959537573,
+   "orange_hue": 1.0,
+   "orange_s": 231.0,
+   "orange_v": 203.0,
+   "blue_in": 0.948093220338983,
+   "blue_hue": 112.0,
+   "blue_s": 234.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.0046464083735994945,
+   "flood_blue": 0.01317168583142804,
+   "gains": [
+    0.9996543526649475,
+    1.0055586695671082,
+    0.994875431060791
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9703020134228187,
+   "orange_hue": 9.0,
+   "orange_s": 214.0,
+   "orange_v": 145.0,
+   "blue_in": 0.9156447918070341,
+   "blue_hue": 105.0,
+   "blue_s": 207.0,
+   "blue_v": 86.5,
+   "flood_orange": 0.003441094378173663,
+   "flood_blue": 0.027558904462232612,
+   "gains": [
+    0.9324009418487549,
+    0.9515511989593506,
+    1.1783641576766968
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9915685419392354,
+   "orange_hue": 7.0,
+   "orange_s": 209.0,
+   "orange_v": 168.0,
+   "blue_in": 0.9969165855241805,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.0014365684558249017,
+   "flood_blue": 0.020218897427528706,
+   "gains": [
+    1.0372204780578613,
+    0.9998219609260559,
+    0.9666796922683716
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.07828019726331875,
+   "orange_hue": 18.0,
+   "orange_s": 172.0,
+   "orange_v": 109.0,
+   "blue_in": 0.8954644446548622,
+   "blue_hue": 109.0,
+   "blue_s": 212.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.0019175234358638365,
+   "flood_blue": 0.30341061708517225,
+   "gains": [
+    0.8949078917503357,
+    0.9737372994422913,
+    1.198078989982605
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9605704697986577,
+   "orange_hue": 10.0,
+   "orange_s": 200.0,
+   "orange_v": 145.0,
+   "blue_in": 0.46354938687508424,
+   "blue_hue": 111.0,
+   "blue_s": 109.0,
+   "blue_v": 65.0,
+   "flood_orange": 0.003827912810509958,
+   "flood_blue": 0.0012738574478583055,
+   "gains": [
+    0.868660569190979,
+    0.9556722640991211,
+    1.3337135314941406
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9902602122401511,
+   "orange_hue": 7.0,
+   "orange_s": 211.0,
+   "orange_v": 167.0,
+   "blue_in": 0.9951314508276533,
+   "blue_hue": 109.0,
+   "blue_s": 230.0,
+   "blue_v": 138.0,
+   "flood_orange": 0.0017926074054165346,
+   "flood_blue": 0.018333540868120068,
+   "gains": [
+    0.9892491102218628,
+    1.0170003175735474,
+    0.9929469227790833
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.984731543624161,
+   "orange_hue": 8.0,
+   "orange_s": 200.0,
+   "orange_v": 152.0,
+   "blue_in": 0.8889637515159682,
+   "blue_hue": 109.0,
+   "blue_s": 140.0,
+   "blue_v": 84.0,
+   "flood_orange": 0.009414240881846649,
+   "flood_blue": 0.0012609072476171595,
+   "gains": [
+    0.8610140681266785,
+    0.9501625299453735,
+    1.38226318359375
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9941852013374037,
+   "orange_hue": 8.0,
+   "orange_s": 216.0,
+   "orange_v": 165.0,
+   "blue_in": 0.9944823109380071,
+   "blue_hue": 109.0,
+   "blue_s": 229.0,
+   "blue_v": 133.0,
+   "flood_orange": 0.0022134477923113163,
+   "flood_blue": 0.016489332851477776,
+   "gains": [
+    0.9383067488670349,
+    1.0160077810287476,
+    1.0940568447113037
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.19392929082447732,
+   "orange_hue": 17.0,
+   "orange_s": 168.0,
+   "orange_v": 114.0,
+   "blue_in": 0.8633652116276868,
+   "blue_hue": 112.0,
+   "blue_s": 184.0,
+   "blue_v": 125.0,
+   "flood_orange": 0.0057442795358850765,
+   "flood_blue": 0.06046259073675386,
+   "gains": [
+    0.8171083331108093,
+    0.9723421335220337,
+    1.5184508562088013
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9474832214765101,
+   "orange_hue": 5.0,
+   "orange_s": 183.0,
+   "orange_v": 149.0,
+   "blue_in": 0.6388626869694112,
+   "blue_hue": 114.0,
+   "blue_s": 121.0,
+   "blue_v": 76.0,
+   "flood_orange": 0.05139162356462796,
+   "flood_blue": 0.0003405194147400987,
+   "gains": [
+    0.8131322860717773,
+    0.9311909079551697,
+    1.7230805158615112
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9950574211367932,
+   "orange_hue": 8.0,
+   "orange_s": 216.0,
+   "orange_v": 165.0,
+   "blue_in": 0.9920480363518338,
+   "blue_hue": 110.0,
+   "blue_s": 221.0,
+   "blue_v": 133.0,
+   "flood_orange": 0.002900333237457864,
+   "flood_blue": 0.014064209286120883,
+   "gains": [
+    0.9343961477279663,
+    1.0209978818893433,
+    1.0546302795410156
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.2636179288161667,
+   "orange_hue": 16.0,
+   "orange_s": 167.0,
+   "orange_v": 106.0,
+   "blue_in": 0.8181732845207923,
+   "blue_hue": 113.0,
+   "blue_s": 153.0,
+   "blue_v": 89.0,
+   "flood_orange": 0.006928329455631257,
+   "flood_blue": 0.05283021727762578,
+   "gains": [
+    0.811504065990448,
+    0.9659157395362854,
+    1.687182903289795
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9474120573255952,
+   "orange_hue": 8.0,
+   "orange_s": 220.0,
+   "orange_v": 211.0,
+   "blue_in": 0.9529609407811844,
+   "blue_hue": 109.0,
+   "blue_s": 225.0,
+   "blue_v": 140.0,
+   "flood_orange": 0.08146632913003989,
+   "flood_blue": 0.0022678005290397824,
+   "gains": [
+    0.9941869974136353,
+    1.0140410661697388,
+    0.99193274974823
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9681318681318681,
+   "orange_hue": 8.0,
+   "orange_s": 216.0,
+   "orange_v": 196.0,
+   "blue_in": 0.9889879123130506,
+   "blue_hue": 108.0,
+   "blue_s": 229.0,
+   "blue_v": 182.0,
+   "flood_orange": 0.005356315253818869,
+   "flood_blue": 0.010857257307612587,
+   "gains": [
+    0.9872567057609558,
+    1.005962610244751,
+    1.0063207149505615
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9829917139119058,
+   "orange_hue": 6.0,
+   "orange_s": 211.0,
+   "orange_v": 178.0,
+   "blue_in": 0.9959428756897112,
+   "blue_hue": 109.0,
+   "blue_s": 229.0,
+   "blue_v": 146.0,
+   "flood_orange": 0.0018217297840362984,
+   "flood_blue": 0.024588013495951824,
+   "gains": [
+    1.032824456691742,
+    1.0030616521835327,
+    0.963756650686264
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5665162454873646,
+   "orange_hue": 13.0,
+   "orange_s": 199.0,
+   "orange_v": 124.0,
+   "blue_in": 0.30986038394415355,
+   "blue_hue": 110.0,
+   "blue_s": 94.0,
+   "blue_v": 70.0,
+   "flood_orange": 0.0032783921910176984,
+   "flood_blue": 1.6433043563998488e-05,
+   "gains": [
+    0.9477947354316711,
+    0.96797776222229,
+    1.1026445031166077
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6522721113018339,
+   "orange_hue": 11.0,
+   "orange_s": 208.0,
+   "orange_v": 166.0,
+   "blue_in": 0.6467909990368619,
+   "blue_hue": 109.0,
+   "blue_s": 127.0,
+   "blue_v": 105.0,
+   "flood_orange": 0.00176736449734976,
+   "flood_blue": 0.0001302735583395647,
+   "gains": [
+    0.9451532959938049,
+    0.9615121781826019,
+    1.114723265171051
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.12342849204695423,
+   "orange_hue": 15.0,
+   "orange_s": 170.0,
+   "orange_v": 45.0,
+   "blue_in": 0.252816968090143,
+   "blue_hue": 111.0,
+   "blue_s": 128.0,
+   "blue_v": 25.0,
+   "flood_orange": 0.03270552984295995,
+   "flood_blue": 0.0707616576152385,
+   "gains": [
+    0.8535766005516052,
+    0.9982249140739441,
+    1.274289608001709
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.531962852763502,
+   "orange_hue": 12.0,
+   "orange_s": 180.5,
+   "orange_v": 133.0,
+   "blue_in": 0.12209757370206105,
+   "blue_hue": 111.0,
+   "blue_s": 83.0,
+   "blue_v": 79.0,
+   "flood_orange": 0.001505563091873987,
+   "flood_blue": 0.00011237348920086741,
+   "gains": [
+    0.9146402776241302,
+    0.9744703471660614,
+    1.1593573093414307
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8114687584527995,
+   "orange_hue": 10.0,
+   "orange_s": 199.0,
+   "orange_v": 166.0,
+   "blue_in": 0.4821288807722411,
+   "blue_hue": 113.0,
+   "blue_s": 106.0,
+   "blue_v": 97.0,
+   "flood_orange": 0.008779238677516885,
+   "flood_blue": 0.0003684964665460702,
+   "gains": [
+    0.8784536123275757,
+    0.9565799236297607,
+    1.2806156873703003
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.4859796231178433,
+   "orange_hue": 13.0,
+   "orange_s": 189.0,
+   "orange_v": 130.0,
+   "blue_in": 0.09574745630054787,
+   "blue_hue": 112.0,
+   "blue_s": 79.0,
+   "blue_v": 74.0,
+   "flood_orange": 0.004033401403704356,
+   "flood_blue": 0.0006647045513304779,
+   "gains": [
+    0.8854633867740631,
+    0.9677475988864899,
+    1.237744688987732
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8859435578396898,
+   "orange_hue": 9.0,
+   "orange_s": 191.0,
+   "orange_v": 163.0,
+   "blue_in": 0.30176537090181754,
+   "blue_hue": 116.0,
+   "blue_s": 101.0,
+   "blue_v": 93.5,
+   "flood_orange": 0.010121173804545332,
+   "flood_blue": 0.0009093210986382479,
+   "gains": [
+    0.84624183177948,
+    0.9419957399368286,
+    1.4624624848365784
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.046420215255030414,
+   "orange_hue": 22.0,
+   "orange_s": 113.0,
+   "orange_v": 242.0,
+   "blue_in": 0.26825396825396824,
+   "blue_hue": 101.0,
+   "blue_s": 156.0,
+   "blue_v": 236.0,
+   "flood_orange": 0.0008762139075428629,
+   "flood_blue": 0.0020824993173219936,
+   "gains": [
+    0.9885067343711853,
+    0.9895203709602356,
+    1.0199128985404968
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.1622937516905599,
+   "orange_hue": 105.0,
+   "orange_s": 85.0,
+   "orange_v": 26.0,
+   "blue_in": 0.00026089225150013044,
+   "blue_hue": 105.0,
+   "blue_s": 43.0,
+   "blue_v": 6.0,
+   "flood_orange": 0.000984181089320435,
+   "flood_blue": 4.800883362538707e-05,
+   "gains": [
+    0.9028959274291992,
+    0.9847376644611359,
+    1.1885089874267578
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.21990803354070868,
+   "orange_hue": 66.0,
+   "orange_s": 96.0,
+   "orange_v": 27.0,
+   "blue_in": 8.696408383337682e-05,
+   "blue_hue": 105.0,
+   "blue_s": 59.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.0016649251931887337,
+   "flood_blue": 0.0003329850386377467,
+   "gains": [
+    0.8822112381458282,
+    0.9894654452800751,
+    1.2065714001655579
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.27202236047245515,
+   "orange_hue": 14.0,
+   "orange_s": 111.0,
+   "orange_v": 30.0,
+   "blue_in": 0.0007826767545003914,
+   "blue_hue": 110.0,
+   "blue_s": 78.0,
+   "blue_v": 8.0,
+   "flood_orange": 0.000990739525983162,
+   "flood_blue": 0.0004523924776178822,
+   "gains": [
+    0.8727111220359802,
+    0.980032205581665,
+    1.2531051635742188
+   ]
+  }
+ },
+ "without_loose|0.5|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9718997604569743,
+   "orange_hue": 7.0,
+   "orange_s": 223.0,
+   "orange_v": 172.0,
+   "blue_in": 0.9880392313212663,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.0006568876315228554,
+   "flood_blue": 5.910050962078788e-05,
+   "wall_in": 5.680884432550656e-05,
+   "gains": [
+    1.011218011379242,
+    0.9953866899013519,
+    0.9937333464622498
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.953350640921629,
+   "orange_hue": 8.0,
+   "orange_s": 213.0,
+   "orange_v": 143.0,
+   "blue_in": 0.9181719653179191,
+   "blue_hue": 107.0,
+   "blue_s": 204.0,
+   "blue_v": 92.0,
+   "flood_orange": 0.0029195634995894237,
+   "flood_blue": 0.0028287090954018097,
+   "gains": [
+    1.0064157247543335,
+    0.9963341951370239,
+    0.999556303024292
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.309184328837508,
+   "orange_hue": 1.0,
+   "orange_s": 231.0,
+   "orange_v": 203.0,
+   "blue_in": 0.9481991525423729,
+   "blue_hue": 112.0,
+   "blue_s": 234.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.004666740540205334,
+   "flood_blue": 0.013114247460766544,
+   "gains": [
+    0.9999089241027832,
+    1.0060566663742065,
+    0.9947638511657715
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9724832214765101,
+   "orange_hue": 9.0,
+   "orange_s": 215.0,
+   "orange_v": 147.0,
+   "blue_in": 0.8833041369087724,
+   "blue_hue": 105.0,
+   "blue_s": 205.0,
+   "blue_v": 85.0,
+   "flood_orange": 0.003852750150457286,
+   "flood_blue": 0.002469354836839365,
+   "gains": [
+    0.9647989273071289,
+    0.950456976890564,
+    1.1055375337600708
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9933129815380143,
+   "orange_hue": 7.0,
+   "orange_s": 211.0,
+   "orange_v": 170.0,
+   "blue_in": 0.996754300551769,
+   "blue_hue": 108.0,
+   "blue_s": 227.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.0019514830529428636,
+   "flood_blue": 0.016290587385890475,
+   "gains": [
+    1.045025110244751,
+    0.9998701214790344,
+    0.9604494571685791
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.18045426130443842,
+   "orange_hue": 15.0,
+   "orange_s": 204.0,
+   "orange_v": 127.0,
+   "blue_in": 0.8380835148186725,
+   "blue_hue": 105.0,
+   "blue_s": 190.5,
+   "blue_v": 97.0,
+   "flood_orange": 0.0029204765756643603,
+   "flood_blue": 0.013576373344502875,
+   "gains": [
+    0.9967082142829895,
+    0.969586193561554,
+    1.0377943515777588
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9694630872483222,
+   "orange_hue": 10.0,
+   "orange_s": 203.0,
+   "orange_v": 148.0,
+   "blue_in": 0.3566904729820779,
+   "blue_hue": 112.0,
+   "blue_s": 104.0,
+   "blue_v": 64.0,
+   "flood_orange": 0.0046308464869201935,
+   "flood_blue": 0.0002807097633968302,
+   "gains": [
+    0.8945073485374451,
+    0.9425908327102661,
+    1.265211582183838
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9930222416048844,
+   "orange_hue": 7.0,
+   "orange_s": 214.0,
+   "orange_v": 172.0,
+   "blue_in": 0.9951314508276533,
+   "blue_hue": 108.0,
+   "blue_s": 229.0,
+   "blue_v": 136.0,
+   "flood_orange": 0.0021606220618930376,
+   "flood_blue": 0.015594698123186895,
+   "gains": [
+    1.0144200325012207,
+    1.0154337882995605,
+    0.9738869667053223
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9869127516778523,
+   "orange_hue": 8.0,
+   "orange_s": 203.0,
+   "orange_v": 157.0,
+   "blue_in": 0.829133539954184,
+   "blue_hue": 110.0,
+   "blue_s": 133.0,
+   "blue_v": 79.0,
+   "flood_orange": 0.028335276779710306,
+   "flood_blue": 0.0007752837041307139,
+   "gains": [
+    0.8864595293998718,
+    0.9375771880149841,
+    1.3007042407989502
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.995348161069923,
+   "orange_hue": 8.0,
+   "orange_s": 218.0,
+   "orange_v": 168.0,
+   "blue_in": 0.9943200259655955,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 128.0,
+   "flood_orange": 0.0026473615665749883,
+   "flood_blue": 0.014233224997089974,
+   "gains": [
+    0.9946897625923157,
+    1.0111113786697388,
+    0.9966918230056763
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.23025630339654093,
+   "orange_hue": 15.0,
+   "orange_s": 202.0,
+   "orange_v": 130.0,
+   "blue_in": 0.7771044408673421,
+   "blue_hue": 108.0,
+   "blue_s": 153.0,
+   "blue_v": 89.0,
+   "flood_orange": 0.006688957900686519,
+   "flood_blue": 0.004621779361238656,
+   "gains": [
+    0.9257912635803223,
+    0.9760479927062988,
+    1.1302661895751953
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9708053691275168,
+   "orange_hue": 6.0,
+   "orange_s": 189.0,
+   "orange_v": 152.0,
+   "blue_in": 0.47028702331222205,
+   "blue_hue": 114.0,
+   "blue_s": 108.0,
+   "blue_v": 70.5,
+   "flood_orange": 0.06066493117743286,
+   "flood_blue": 0.0002030568034296066,
+   "gains": [
+    0.8291183114051819,
+    0.9301093816757202,
+    1.6089471578598022
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9957842709696176,
+   "orange_hue": 8.0,
+   "orange_s": 219.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9910743265173645,
+   "blue_hue": 109.0,
+   "blue_s": 220.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.0032553532810471048,
+   "flood_blue": 0.01219945146394621,
+   "gains": [
+    0.962891161441803,
+    1.017775297164917,
+    1.0215396881103516
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.284735333193483,
+   "orange_hue": 15.0,
+   "orange_s": 192.0,
+   "orange_v": 119.0,
+   "blue_in": 0.5125316812165587,
+   "blue_hue": 111.0,
+   "blue_s": 112.0,
+   "blue_v": 65.0,
+   "flood_orange": 0.0074269994164500456,
+   "flood_blue": 0.0014005198899591515,
+   "gains": [
+    0.8751453757286072,
+    0.9611807465553284,
+    1.278372883796692
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.946582968139287,
+   "orange_hue": 7.0,
+   "orange_s": 220.0,
+   "orange_v": 213.0,
+   "blue_in": 0.9523309533809324,
+   "blue_hue": 109.0,
+   "blue_s": 224.0,
+   "blue_v": 139.5,
+   "flood_orange": 0.09256036384841772,
+   "flood_blue": 0.0023070181321735534,
+   "gains": [
+    1.0021592378616333,
+    1.006748080253601,
+    0.9917258620262146
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.968009768009768,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 197.0,
+   "blue_in": 0.9914464249129277,
+   "blue_hue": 108.0,
+   "blue_s": 229.0,
+   "blue_v": 182.0,
+   "flood_orange": 0.00554565758615309,
+   "flood_blue": 0.010876354566224402,
+   "gains": [
+    0.98912113904953,
+    1.0018469095230103,
+    1.007469892501831
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9851722634103794,
+   "orange_hue": 6.0,
+   "orange_s": 213.0,
+   "orange_v": 180.0,
+   "blue_in": 0.9959428756897112,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 147.0,
+   "flood_orange": 0.001936636546858571,
+   "flood_blue": 0.023047957811931186,
+   "gains": [
+    1.029441773891449,
+    1.0001673996448517,
+    0.9714211523532867
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7088447653429603,
+   "orange_hue": 12.0,
+   "orange_s": 203.0,
+   "orange_v": 127.0,
+   "blue_in": 0.20846422338568935,
+   "blue_hue": 110.0,
+   "blue_s": 78.0,
+   "blue_v": 67.0,
+   "flood_orange": 0.0032364879299295025,
+   "flood_blue": 1.2324782672998866e-06,
+   "gains": [
+    0.9800858795642853,
+    0.9700455069541931,
+    1.0590920448303223
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.772427500225856,
+   "orange_hue": 11.0,
+   "orange_s": 212.0,
+   "orange_v": 170.0,
+   "blue_in": 0.5072235355923299,
+   "blue_hue": 107.0,
+   "blue_s": 113.5,
+   "blue_v": 99.0,
+   "flood_orange": 0.005098415018484325,
+   "flood_blue": 7.945477087583357e-05,
+   "gains": [
+    0.9849929511547089,
+    0.9722714722156525,
+    1.0489985346794128
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.29144960755712995,
+   "orange_hue": 14.0,
+   "orange_s": 197.0,
+   "orange_v": 51.0,
+   "blue_in": 0.14572483666319477,
+   "blue_hue": 109.0,
+   "blue_s": 38.0,
+   "blue_v": 20.0,
+   "flood_orange": 0.048730570641269164,
+   "flood_blue": 0.0010032371117472377,
+   "gains": [
+    0.9387025833129883,
+    0.9819501042366028,
+    1.1010239124298096
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6700027048958616,
+   "orange_hue": 12.0,
+   "orange_s": 187.0,
+   "orange_v": 136.0,
+   "blue_in": 0.02261066179667797,
+   "blue_hue": 111.0,
+   "blue_s": 69.0,
+   "blue_v": 75.0,
+   "flood_orange": 0.00423394307698752,
+   "flood_blue": 1.3694260332722193e-05,
+   "gains": [
+    0.9338774383068085,
+    0.9726765155792236,
+    1.1211051940917969
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.86664863402759,
+   "orange_hue": 10.0,
+   "orange_s": 207.0,
+   "orange_v": 175.0,
+   "blue_in": 0.27724149926080527,
+   "blue_hue": 113.0,
+   "blue_s": 81.0,
+   "blue_v": 87.0,
+   "flood_orange": 0.01453425120759446,
+   "flood_blue": 1.8364937661017586e-05,
+   "gains": [
+    0.9250909388065338,
+    0.9541786909103394,
+    1.1670844554901123
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6259129023532594,
+   "orange_hue": 13.0,
+   "orange_s": 195.0,
+   "orange_v": 134.0,
+   "blue_in": 0.0027828506826680583,
+   "blue_hue": 113.0,
+   "blue_s": 62.0,
+   "blue_v": 69.0,
+   "flood_orange": 0.009396615250210039,
+   "flood_blue": 6.493776259964014e-05,
+   "gains": [
+    0.9063439667224884,
+    0.9656654000282288,
+    1.184572994709015
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.9194842665224056,
+   "orange_hue": 8.0,
+   "orange_s": 200.0,
+   "orange_v": 170.0,
+   "blue_in": 0.04556917992868945,
+   "blue_hue": 118.0,
+   "blue_s": 79.0,
+   "blue_v": 84.0,
+   "flood_orange": 0.021611903029106237,
+   "flood_blue": 0.00015964875680995506,
+   "gains": [
+    0.8877105712890625,
+    0.9302510619163513,
+    1.318557620048523
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.04314459522695367,
+   "orange_hue": 22.0,
+   "orange_s": 116.0,
+   "orange_v": 244.0,
+   "blue_in": 0.18582766439909298,
+   "blue_hue": 100.0,
+   "blue_s": 152.0,
+   "blue_v": 232.0,
+   "flood_orange": 0.0012566577675501272,
+   "flood_blue": 0.0018902890047747692,
+   "gains": [
+    0.9995898008346558,
+    0.9982002675533295,
+    1.0022176504135132
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.21350644666846993,
+   "orange_hue": 56.5,
+   "orange_s": 75.0,
+   "orange_v": 25.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.002046376533282124,
+   "flood_blue": 3.000552101586692e-05,
+   "gains": [
+    0.957366555929184,
+    0.9774360358715057,
+    1.0950331687927246
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.26670273194482014,
+   "orange_hue": 20.0,
+   "orange_s": 82.0,
+   "orange_v": 26.0,
+   "blue_in": 0.0,
+   "blue_hue": 5.0,
+   "blue_s": 25.0,
+   "blue_v": 4.0,
+   "flood_orange": 0.003479119541628871,
+   "flood_blue": 4.018784949076254e-05,
+   "gains": [
+    0.9283154904842377,
+    0.9807011783123016,
+    1.1232805848121643
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.31719412135966096,
+   "orange_hue": 13.0,
+   "orange_s": 94.0,
+   "orange_v": 29.0,
+   "blue_in": 0.0,
+   "blue_hue": 109.0,
+   "blue_s": 51.0,
+   "blue_v": 7.0,
+   "flood_orange": 0.0032707976131772882,
+   "flood_blue": 4.0715322985609394e-05,
+   "gains": [
+    0.9156906306743622,
+    0.9713766872882843,
+    1.1689706444740295
+   ]
+  }
+ },
+ "gray_above|0.5|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9712548369264787,
+   "orange_hue": 6.0,
+   "orange_s": 228.0,
+   "orange_v": 189.0,
+   "blue_in": 0.9844510007176461,
+   "blue_hue": 110.0,
+   "blue_s": 228.0,
+   "blue_v": 126.0,
+   "flood_orange": 0.0013886197608851513,
+   "flood_blue": 7.266456100916543e-07,
+   "wall_in": 2.6378264310208388e-05,
+   "gains": [
+    1.106572449207306,
+    0.9833266735076904,
+    0.9336715042591095
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9522959597598573,
+   "orange_hue": 7.0,
+   "orange_s": 212.0,
+   "orange_v": 144.0,
+   "blue_in": 0.9318551300578035,
+   "blue_hue": 108.0,
+   "blue_s": 205.0,
+   "blue_v": 95.0,
+   "flood_orange": 0.0030316036841257187,
+   "flood_blue": 0.0031249026014304885,
+   "gains": [
+    1.0028266906738281,
+    0.9706298112869263,
+    1.0277329683303833
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.33179190751445087,
+   "orange_hue": 1.0,
+   "orange_s": 231.0,
+   "orange_v": 207.0,
+   "blue_in": 0.9473516949152543,
+   "blue_hue": 111.0,
+   "blue_s": 233.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.005553223004219942,
+   "flood_blue": 0.012567820483234604,
+   "gains": [
+    1.0141739249229431,
+    1.0149263739585876,
+    0.9734684824943542
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9716442953020135,
+   "orange_hue": 9.0,
+   "orange_s": 210.0,
+   "orange_v": 141.0,
+   "blue_in": 0.9613259668508287,
+   "blue_hue": 107.0,
+   "blue_s": 210.0,
+   "blue_v": 91.0,
+   "flood_orange": 0.0032283089296833963,
+   "flood_blue": 0.0029413094828096027,
+   "gains": [
+    0.9324195384979248,
+    0.9374653100967407,
+    1.1893724203109741
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9921500218054949,
+   "orange_hue": 7.0,
+   "orange_s": 212.0,
+   "orange_v": 170.0,
+   "blue_in": 0.9965920155793574,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 133.0,
+   "flood_orange": 0.0018049827413978974,
+   "flood_blue": 0.01675172338763117,
+   "gains": [
+    1.0341200828552246,
+    0.982335090637207,
+    0.9802600145339966
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.1519761061332222,
+   "orange_hue": 16.0,
+   "orange_s": 204.0,
+   "orange_v": 127.0,
+   "blue_in": 0.8382728908247326,
+   "blue_hue": 105.0,
+   "blue_s": 191.0,
+   "blue_v": 95.0,
+   "flood_orange": 0.002795587774731345,
+   "flood_blue": 0.014231559207859156,
+   "gains": [
+    0.9843092560768127,
+    0.9782499670982361,
+    1.0425610542297363
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9422818791946309,
+   "orange_hue": 10.0,
+   "orange_s": 203.0,
+   "orange_v": 145.0,
+   "blue_in": 0.3992723352647891,
+   "blue_hue": 109.0,
+   "blue_s": 106.0,
+   "blue_v": 64.0,
+   "flood_orange": 0.003936853560575668,
+   "flood_blue": 0.00036025380312734885,
+   "gains": [
+    0.8733705282211304,
+    0.9725354909896851,
+    1.2430431842803955
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9918592818723652,
+   "orange_hue": 7.0,
+   "orange_s": 213.0,
+   "orange_v": 171.0,
+   "blue_in": 0.9952937358000649,
+   "blue_hue": 109.0,
+   "blue_s": 229.0,
+   "blue_v": 138.0,
+   "flood_orange": 0.002145827502838706,
+   "flood_blue": 0.016063192493240737,
+   "gains": [
+    1.0096102952957153,
+    0.9960013628005981,
+    0.9941161274909973
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.978523489932886,
+   "orange_hue": 9.0,
+   "orange_s": 199.0,
+   "orange_v": 151.0,
+   "blue_in": 0.904595068050128,
+   "blue_hue": 108.0,
+   "blue_s": 142.0,
+   "blue_v": 83.0,
+   "flood_orange": 0.0053492861619571655,
+   "flood_blue": 0.0013511760945240517,
+   "gains": [
+    0.8484195470809937,
+    0.9699621796607971,
+    1.3503227233886719
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9944759412705335,
+   "orange_hue": 7.0,
+   "orange_s": 218.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9948068808828302,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.0025370548346343638,
+   "flood_blue": 0.015081550802953782,
+   "gains": [
+    0.983188807964325,
+    0.9904444217681885,
+    1.0234562158584595
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.20330624435646316,
+   "orange_hue": 16.0,
+   "orange_s": 201.0,
+   "orange_v": 129.0,
+   "blue_in": 0.7845847931067134,
+   "blue_hue": 108.0,
+   "blue_s": 156.0,
+   "blue_v": 90.0,
+   "flood_orange": 0.006171369418459174,
+   "flood_blue": 0.005353706632118429,
+   "gains": [
+    0.9195386171340942,
+    0.9809161424636841,
+    1.1404563188552856
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9761744966442953,
+   "orange_hue": 7.0,
+   "orange_s": 189.0,
+   "orange_v": 147.0,
+   "blue_in": 0.506400754615281,
+   "blue_hue": 110.0,
+   "blue_s": 112.0,
+   "blue_v": 70.0,
+   "flood_orange": 0.014826568956037062,
+   "flood_blue": 0.0005384427596560354,
+   "gains": [
+    0.8019134402275085,
+    0.9778265953063965,
+    1.5829582214355469
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9947666812036633,
+   "orange_hue": 7.0,
+   "orange_s": 217.0,
+   "orange_v": 165.0,
+   "blue_in": 0.9922103213242454,
+   "blue_hue": 110.0,
+   "blue_s": 221.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.0030531723748674694,
+   "flood_blue": 0.0134534544653699,
+   "gains": [
+    0.9477701187133789,
+    0.9951952695846558,
+    1.0639405250549316
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.2534787777078526,
+   "orange_hue": 16.0,
+   "orange_s": 193.0,
+   "orange_v": 117.0,
+   "blue_in": 0.4926311837041209,
+   "blue_hue": 110.0,
+   "blue_s": 113.0,
+   "blue_v": 66.0,
+   "flood_orange": 0.006556979484808755,
+   "flood_blue": 0.0010958613424680373,
+   "gains": [
+    0.8740076422691345,
+    0.9765142202377319,
+    1.2497750520706177
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9443325832050219,
+   "orange_hue": 8.0,
+   "orange_s": 218.0,
+   "orange_v": 205.0,
+   "blue_in": 0.9548509029819403,
+   "blue_hue": 109.0,
+   "blue_s": 226.0,
+   "blue_v": 142.0,
+   "flood_orange": 0.04651491917195157,
+   "flood_blue": 0.002129117990421811,
+   "gains": [
+    0.9634886980056763,
+    1.0315654277801514,
+    1.012342095375061
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9643467643467644,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 200.0,
+   "blue_in": 0.9916513009629174,
+   "blue_hue": 109.0,
+   "blue_s": 230.0,
+   "blue_v": 185.0,
+   "flood_orange": 0.006387567218856913,
+   "flood_blue": 0.012425561447758518,
+   "gains": [
+    0.9989533424377441,
+    0.9735449552536011,
+    1.0286976099014282
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9835731937781654,
+   "orange_hue": 6.0,
+   "orange_s": 214.0,
+   "orange_v": 179.0,
+   "blue_in": 0.996754300551769,
+   "blue_hue": 109.0,
+   "blue_s": 229.0,
+   "blue_v": 146.0,
+   "flood_orange": 0.001954431841985914,
+   "flood_blue": 0.022720524381588073,
+   "gains": [
+    1.0397937297821045,
+    0.9947371780872345,
+    0.9675374031066895
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6639891696750903,
+   "orange_hue": 12.0,
+   "orange_s": 202.0,
+   "orange_v": 128.0,
+   "blue_in": 0.2431937172774869,
+   "blue_hue": 110.0,
+   "blue_s": 79.0,
+   "blue_v": 67.0,
+   "flood_orange": 0.001326557441703778,
+   "flood_blue": 2.4649565345997732e-06,
+   "gains": [
+    0.9748087525367737,
+    0.9676414430141449,
+    1.072767734527588
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7015990604390641,
+   "orange_hue": 11.0,
+   "orange_s": 210.0,
+   "orange_v": 168.0,
+   "blue_in": 0.558269853778128,
+   "blue_hue": 108.0,
+   "blue_s": 117.0,
+   "blue_v": 102.0,
+   "flood_orange": 0.002497380412503358,
+   "flood_blue": 8.913453991654426e-05,
+   "gains": [
+    0.9726633131504059,
+    0.9608339965343475,
+    1.0838921666145325
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.41689240814058487,
+   "orange_hue": 13.0,
+   "orange_s": 199.0,
+   "orange_v": 52.0,
+   "blue_in": 0.14212669254805416,
+   "blue_hue": 109.0,
+   "blue_s": 38.0,
+   "blue_v": 20.0,
+   "flood_orange": 0.03877845849273656,
+   "flood_blue": 0.0011503785548034992,
+   "gains": [
+    0.9397538900375366,
+    0.9788262248039246,
+    1.103647232055664
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6334866107654855,
+   "orange_hue": 12.0,
+   "orange_s": 186.0,
+   "orange_v": 137.0,
+   "blue_in": 0.02782850682668058,
+   "blue_hue": 111.0,
+   "blue_s": 70.0,
+   "blue_v": 75.0,
+   "flood_orange": 0.004025709765457598,
+   "flood_blue": 2.054139049908329e-05,
+   "gains": [
+    0.9352001845836639,
+    0.9724330306053162,
+    1.1204206347465515
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8199440988188621,
+   "orange_hue": 10.0,
+   "orange_s": 204.0,
+   "orange_v": 171.0,
+   "blue_in": 0.3462040177406731,
+   "blue_hue": 113.0,
+   "blue_s": 89.0,
+   "blue_v": 90.0,
+   "flood_orange": 0.010963468545852258,
+   "flood_blue": 5.389709965733422e-05,
+   "gains": [
+    0.9093525111675262,
+    0.9573973417282104,
+    1.2021580338478088
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.6005770444504553,
+   "orange_hue": 13.0,
+   "orange_s": 195.0,
+   "orange_v": 135.0,
+   "blue_in": 0.0020871380120010435,
+   "blue_hue": 112.0,
+   "blue_s": 62.0,
+   "blue_v": 69.0,
+   "flood_orange": 0.009466796434634495,
+   "flood_blue": 8.994485130260715e-05,
+   "gains": [
+    0.9087899625301361,
+    0.9677375853061676,
+    1.1871962547302246
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8764764223244071,
+   "orange_hue": 9.0,
+   "orange_s": 198.0,
+   "orange_v": 167.0,
+   "blue_in": 0.07583268110270458,
+   "blue_hue": 116.0,
+   "blue_s": 82.0,
+   "blue_v": 85.0,
+   "flood_orange": 0.012427521056914583,
+   "flood_blue": 0.0002814754889392475,
+   "gains": [
+    0.8692225217819214,
+    0.9500457048416138,
+    1.3456122279167175
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.057463734206832005,
+   "orange_hue": 21.0,
+   "orange_s": 112.0,
+   "orange_v": 244.0,
+   "blue_in": 0.25776643990929704,
+   "blue_hue": 101.0,
+   "blue_s": 153.0,
+   "blue_v": 234.0,
+   "flood_orange": 0.0010982499582439665,
+   "flood_blue": 0.0021527555005289097,
+   "gains": [
+    0.9991964995861053,
+    0.9875683486461639,
+    1.0137301087379456
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.2209899918853124,
+   "orange_hue": 30.0,
+   "orange_s": 55.0,
+   "orange_v": 25.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 4.0,
+   "flood_orange": 0.013562495499171847,
+   "flood_blue": 0.0,
+   "gains": [
+    0.9600407183170319,
+    0.9709253311157227,
+    1.0995044112205505
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.28563700297538547,
+   "orange_hue": 16.0,
+   "orange_s": 67.0,
+   "orange_v": 26.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 4.0,
+   "flood_orange": 0.012601761376031967,
+   "flood_blue": 2.8705606779116095e-05,
+   "gains": [
+    0.9412049651145935,
+    0.96922567486763,
+    1.1238355040550232
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.3574069065007664,
+   "orange_hue": 12.0,
+   "orange_s": 111.0,
+   "orange_v": 30.0,
+   "blue_in": 0.0,
+   "blue_hue": 110.0,
+   "blue_s": 49.0,
+   "blue_v": 7.0,
+   "flood_orange": 0.00974905789266536,
+   "flood_blue": 2.2619623880894108e-05,
+   "gains": [
+    0.9246185421943665,
+    0.9660978615283966,
+    1.1767011284828186
+   ]
+  }
+ },
+ "shades_of_gray|0.5|0": {
+  "window_light": {
+   "class": "ordinary",
+   "frames": 16,
+   "orange_in": 0.9722682881886862,
+   "orange_hue": 7.0,
+   "orange_s": 223.0,
+   "orange_v": 171.0,
+   "blue_in": 0.9882784466948409,
+   "blue_hue": 110.0,
+   "blue_s": 232.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0006576142771329471,
+   "flood_blue": 6.588253531497665e-05,
+   "wall_in": 6.898216810954369e-05,
+   "gains": [
+    1.0050954818725586,
+    0.9937160313129425,
+    1.0017889738082886
+   ]
+  },
+  "campus_light": {
+   "class": "ordinary",
+   "frames": 21,
+   "orange_in": 0.9510790199578127,
+   "orange_hue": 8.0,
+   "orange_s": 214.0,
+   "orange_v": 143.0,
+   "blue_in": 0.9189396676300579,
+   "blue_hue": 107.0,
+   "blue_s": 203.0,
+   "blue_v": 93.0,
+   "flood_orange": 0.002914878182781542,
+   "flood_blue": 0.0028529505171469354,
+   "gains": [
+    1.006353735923767,
+    0.991899847984314,
+    1.0049481391906738
+   ]
+  },
+  "both_abpgray": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.33269107257546565,
+   "orange_hue": 1.0,
+   "orange_s": 230.0,
+   "orange_v": 201.0,
+   "blue_in": 0.9494703389830509,
+   "blue_hue": 111.0,
+   "blue_s": 234.0,
+   "blue_v": 134.0,
+   "flood_orange": 0.004801441143969022,
+   "flood_blue": 0.013368399543339538,
+   "gains": [
+    0.9788000881671906,
+    1.0280113816261292,
+    0.9935425519943237
+   ]
+  },
+  "lampcool6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9713087248322148,
+   "orange_hue": 9.0,
+   "orange_s": 213.0,
+   "orange_v": 146.0,
+   "blue_in": 0.9151057808920631,
+   "blue_hue": 106.0,
+   "blue_s": 207.0,
+   "blue_v": 87.0,
+   "flood_orange": 0.003626629374132479,
+   "flood_blue": 0.0026432938955507548,
+   "gains": [
+    0.9516026377677917,
+    0.946223258972168,
+    1.133149266242981
+   ]
+  },
+  "lampcool6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9933129815380143,
+   "orange_hue": 7.0,
+   "orange_s": 212.0,
+   "orange_v": 171.0,
+   "blue_in": 0.996754300551769,
+   "blue_hue": 108.0,
+   "blue_s": 227.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.0019712636857253064,
+   "flood_blue": 0.016197247524948322,
+   "gains": [
+    1.0471409559249878,
+    0.9988098740577698,
+    0.960459291934967
+   ]
+  },
+  "lampcool6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.06536083906369383,
+   "orange_hue": 18.0,
+   "orange_s": 201.0,
+   "orange_v": 121.0,
+   "blue_in": 0.6455828046586497,
+   "blue_hue": 104.0,
+   "blue_s": 193.5,
+   "blue_v": 97.0,
+   "flood_orange": 0.002885891984636756,
+   "flood_blue": 0.01353986738730707,
+   "gains": [
+    0.961134135723114,
+    1.01431405544281,
+    1.0179262161254883
+   ]
+  },
+  "lampmid3_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9592281879194631,
+   "orange_hue": 10.0,
+   "orange_s": 201.0,
+   "orange_v": 146.0,
+   "blue_in": 0.4481875757984099,
+   "blue_hue": 111.0,
+   "blue_s": 109.5,
+   "blue_v": 65.0,
+   "flood_orange": 0.0039650974587408525,
+   "flood_blue": 0.0003982966047375969,
+   "gains": [
+    0.8729047179222107,
+    0.9548657536506653,
+    1.2952524423599243
+   ]
+  },
+  "lampmid3_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9930222416048844,
+   "orange_hue": 7.0,
+   "orange_s": 214.0,
+   "orange_v": 172.0,
+   "blue_in": 0.9951314508276533,
+   "blue_hue": 108.0,
+   "blue_s": 229.0,
+   "blue_v": 135.0,
+   "flood_orange": 0.0021532247823658718,
+   "flood_blue": 0.015455999132052535,
+   "gains": [
+    1.0154093503952026,
+    1.0155062675476074,
+    0.9740607142448425
+   ]
+  },
+  "lampmid6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9848993288590604,
+   "orange_hue": 8.0,
+   "orange_s": 201.0,
+   "orange_v": 153.0,
+   "blue_in": 0.8822261150788303,
+   "blue_hue": 109.0,
+   "blue_s": 140.0,
+   "blue_v": 83.0,
+   "flood_orange": 0.009769603051315554,
+   "flood_blue": 0.0011620685734722712,
+   "gains": [
+    0.8640250563621521,
+    0.9505236744880676,
+    1.3406972885131836
+   ]
+  },
+  "lampmid6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9952027911033581,
+   "orange_hue": 8.0,
+   "orange_s": 219.0,
+   "orange_v": 171.0,
+   "blue_in": 0.994157740993184,
+   "blue_hue": 109.0,
+   "blue_s": 227.0,
+   "blue_v": 131.0,
+   "flood_orange": 0.0026820990456944112,
+   "flood_blue": 0.014164968897767598,
+   "gains": [
+    0.9945095181465149,
+    1.0078635215759277,
+    1.000226378440857
+   ]
+  },
+  "lampmid6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.14357157741196083,
+   "orange_hue": 17.0,
+   "orange_s": 201.0,
+   "orange_v": 126.0,
+   "blue_in": 0.7623331123946596,
+   "blue_hue": 106.0,
+   "blue_s": 153.0,
+   "blue_v": 88.0,
+   "flood_orange": 0.00692552441556957,
+   "flood_blue": 0.004388388235817123,
+   "gains": [
+    0.9130532741546631,
+    1.002301812171936,
+    1.0962834358215332
+   ]
+  },
+  "lampwarm6_bathtile": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9657718120805369,
+   "orange_hue": 6.0,
+   "orange_s": 185.0,
+   "orange_v": 149.0,
+   "blue_in": 0.5691955262094057,
+   "blue_hue": 113.0,
+   "blue_s": 118.0,
+   "blue_v": 74.0,
+   "flood_orange": 0.04068779217934707,
+   "flood_blue": 0.0004625816505095813,
+   "gains": [
+    0.8113031387329102,
+    0.9417352676391602,
+    1.6746922731399536
+   ]
+  },
+  "lampwarm6_glass": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9957842709696176,
+   "orange_hue": 8.0,
+   "orange_s": 219.0,
+   "orange_v": 169.0,
+   "blue_in": 0.9907497565725414,
+   "blue_hue": 109.0,
+   "blue_s": 219.0,
+   "blue_v": 129.0,
+   "flood_orange": 0.0032986777609427405,
+   "flood_blue": 0.01194371668678447,
+   "gains": [
+    0.9645659327507019,
+    1.0131206512451172,
+    1.0258359909057617
+   ]
+  },
+  "lampwarm6_ottoman": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.19201454443745192,
+   "orange_hue": 16.0,
+   "orange_s": 194.0,
+   "orange_v": 116.0,
+   "blue_in": 0.4104946963296724,
+   "blue_hue": 108.0,
+   "blue_s": 109.0,
+   "blue_v": 64.5,
+   "flood_orange": 0.007251176573121841,
+   "flood_blue": 0.0005274685299846155,
+   "gains": [
+    0.8696281313896179,
+    0.9880105257034302,
+    1.2072402238845825
+   ]
+  },
+  "overheaddim_palewood": {
+   "class": "ordinary",
+   "frames": 7,
+   "orange_in": 0.9463460855146275,
+   "orange_hue": 8.0,
+   "orange_s": 218.0,
+   "orange_v": 204.0,
+   "blue_in": 0.9548509029819403,
+   "blue_hue": 109.0,
+   "blue_s": 226.5,
+   "blue_v": 142.0,
+   "flood_orange": 0.040071864836814984,
+   "flood_blue": 0.002345667364247414,
+   "gains": [
+    0.9569452404975891,
+    1.0332725048065186,
+    1.0119452476501465
+   ]
+  },
+  "window_abpwhite": {
+   "class": "ordinary",
+   "frames": 17,
+   "orange_in": 0.9677655677655678,
+   "orange_hue": 8.0,
+   "orange_s": 217.0,
+   "orange_v": 197.0,
+   "blue_in": 0.9916513009629174,
+   "blue_hue": 108.0,
+   "blue_s": 229.0,
+   "blue_v": 182.0,
+   "flood_orange": 0.005437129262822528,
+   "flood_blue": 0.011130674156518337,
+   "gains": [
+    0.9868287444114685,
+    1.0035970211029053,
+    1.009414792060852
+   ]
+  },
+  "window_glass": {
+   "class": "ordinary",
+   "frames": 8,
+   "orange_in": 0.9863352231428987,
+   "orange_hue": 7.0,
+   "orange_s": 214.0,
+   "orange_v": 180.0,
+   "blue_in": 0.9939954560207724,
+   "blue_hue": 109.0,
+   "blue_s": 228.0,
+   "blue_v": 143.0,
+   "flood_orange": 0.0020439167546262684,
+   "flood_blue": 0.021341643227720797,
+   "gains": [
+    1.0441083908081055,
+    1.0150209665298462,
+    0.9489755928516388
+   ]
+  },
+  "lampcool3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5344765342960289,
+   "orange_hue": 13.0,
+   "orange_s": 198.0,
+   "orange_v": 123.0,
+   "blue_in": 0.3493891797556719,
+   "blue_hue": 109.0,
+   "blue_s": 91.0,
+   "blue_v": 69.0,
+   "flood_orange": 0.000858215700129821,
+   "flood_blue": 3.69743480189966e-06,
+   "gains": [
+    0.9355755150318146,
+    0.9755661487579346,
+    1.1152669191360474
+   ]
+  },
+  "lampcool6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.5993314662571144,
+   "orange_hue": 12.0,
+   "orange_s": 206.0,
+   "orange_v": 161.0,
+   "blue_in": 0.6307678837229664,
+   "blue_hue": 108.0,
+   "blue_s": 133.0,
+   "blue_v": 107.0,
+   "flood_orange": 0.0017209822706963545,
+   "flood_blue": 0.00014559985932068994,
+   "gains": [
+    0.9256005883216858,
+    0.972722738981247,
+    1.1350266337394714
+   ]
+  },
+  "lampmid3_ottoman": {
+   "class": "extreme",
+   "frames": 7,
+   "orange_in": 0.05063554907272348,
+   "orange_hue": 17.0,
+   "orange_s": 183.0,
+   "orange_v": 46.0,
+   "blue_in": 0.19856074235394375,
+   "blue_hue": 105.0,
+   "blue_s": 89.0,
+   "blue_v": 23.0,
+   "flood_orange": 0.043099066320661336,
+   "flood_blue": 0.0013242729875063539,
+   "gains": [
+    0.8303266167640686,
+    1.035301923751831,
+    1.2583847045898438
+   ]
+  },
+  "lampmid3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.49030745649625823,
+   "orange_hue": 13.0,
+   "orange_s": 180.0,
+   "orange_v": 131.0,
+   "blue_in": 0.09366031828854683,
+   "blue_hue": 111.0,
+   "blue_s": 87.0,
+   "blue_v": 79.0,
+   "flood_orange": 0.0008337387908451453,
+   "flood_blue": 5.074931770361754e-05,
+   "gains": [
+    0.8970669507980347,
+    0.9820646345615387,
+    1.1814579963684082
+   ]
+  },
+  "lampmid6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.7424939139843116,
+   "orange_hue": 11.0,
+   "orange_s": 198.0,
+   "orange_v": 163.0,
+   "blue_in": 0.4651708844247326,
+   "blue_hue": 111.0,
+   "blue_s": 106.0,
+   "blue_v": 96.0,
+   "flood_orange": 0.0037644129827333656,
+   "flood_blue": 0.000157299683444368,
+   "gains": [
+    0.8649581372737885,
+    0.9738854765892029,
+    1.2828195691108704
+   ]
+  },
+  "lampwarm3_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.4243079974754305,
+   "orange_hue": 13.0,
+   "orange_s": 188.0,
+   "orange_v": 128.0,
+   "blue_in": 0.04487346725802244,
+   "blue_hue": 111.0,
+   "blue_s": 81.0,
+   "blue_v": 74.0,
+   "flood_orange": 0.001986046851184025,
+   "flood_blue": 0.00030936188766412414,
+   "gains": [
+    0.868145763874054,
+    0.9802228808403015,
+    1.2658588886260986
+   ]
+  },
+  "lampwarm6_wood": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.8307636822648995,
+   "orange_hue": 9.0,
+   "orange_s": 190.0,
+   "orange_v": 160.0,
+   "blue_in": 0.3033307244108183,
+   "blue_hue": 114.0,
+   "blue_s": 100.0,
+   "blue_v": 91.0,
+   "flood_orange": 0.005839720610694317,
+   "flood_blue": 0.0006545200902632572,
+   "gains": [
+    0.8281591534614563,
+    0.9700034260749817,
+    1.4465977549552917
+   ]
+  },
+  "window_black": {
+   "class": "extreme",
+   "frames": 10,
+   "orange_in": 0.04277023865231633,
+   "orange_hue": 22.0,
+   "orange_s": 113.0,
+   "orange_v": 245.0,
+   "blue_in": 0.19710884353741498,
+   "blue_hue": 100.0,
+   "blue_s": 149.0,
+   "blue_v": 232.0,
+   "flood_orange": 0.0011506106985585552,
+   "flood_blue": 0.00193469621491499,
+   "gains": [
+    0.997221976518631,
+    0.9972875714302063,
+    1.0079613327980042
+   ]
+  },
+  "lampcool1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.21720313767919935,
+   "orange_hue": 21.0,
+   "orange_s": 46.0,
+   "orange_v": 24.0,
+   "blue_in": 0.0,
+   "blue_hue": 0.0,
+   "blue_s": 0.0,
+   "blue_v": 4.0,
+   "flood_orange": 0.005455003720684606,
+   "flood_blue": 0.0,
+   "gains": [
+    0.9487386643886566,
+    0.9729687869548798,
+    1.0967527031898499
+   ]
+  },
+  "lampmid1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.27833378414931026,
+   "orange_hue": 16.5,
+   "orange_s": 64.0,
+   "orange_v": 25.0,
+   "blue_in": 0.0,
+   "blue_hue": 105.0,
+   "blue_s": 36.0,
+   "blue_v": 5.0,
+   "flood_orange": 0.0064989493747918846,
+   "flood_blue": 2.8705606779116095e-05,
+   "gains": [
+    0.9301549196243286,
+    0.9760631322860718,
+    1.129400908946991
+   ]
+  },
+  "lampwarm1_wood": {
+   "class": "excluded",
+   "frames": 10,
+   "orange_in": 0.3308989270579749,
+   "orange_hue": 13.0,
+   "orange_s": 104.0,
+   "orange_v": 29.0,
+   "blue_in": 0.0,
+   "blue_hue": 107.0,
+   "blue_s": 51.0,
+   "blue_v": 7.0,
+   "flood_orange": 0.004808932037078087,
+   "flood_blue": 1.8095699104715286e-05,
+   "gains": [
+    0.9164937734603882,
+    0.9714016318321228,
+    1.1606027483940125
+   ]
+  }
+ }
+}
