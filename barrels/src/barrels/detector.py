@@ -100,6 +100,8 @@ class Stripe:
     thin: bool = False                   # narrower than a stripe is tall, or taller than wide. A thin piece is a barrel only as a
                                          # slice seen from top to bottom (see box_from_stripe, thin_slice)
     at: BarrelAt | None = None           # the barrel its centre row predicts (None: that row gives no barrel)
+    own_px: int | None = None            # a stripe with fewer than min_area_px pixels, admitted by its reading at the seams: its
+                                         # pixel count, which is what the verify step then asks of its box (None: min_area_px)
 
 
 @dataclass(frozen=True)
@@ -602,6 +604,56 @@ def _one_stripe_per_barrel(sel: np.ndarray, mask: np.ndarray, other: int, body: 
     return out
 
 
+SEAM_MAX_EATEN = 3.0     # the most pixels per edge the seams may give back: the 3 empty rows the body walk allows between a stripe and its body
+
+
+def read_at_seams(sw: Sandwich, sel: np.ndarray, core_h: float) -> tuple[float, float, int, int]:
+    """The stripe ``sel`` measured at its seams: (its height, the pixels eaten at each edge, the first row after the body
+    above, the first body row below).
+
+    Why: at the two seams the camera mixes the colors, and a mixed pixel is neither orange nor blue. So the stripe loses
+    rows at both edges, and the body loses the same rows next to it. With h the stripe's own height and g the gap between
+    the body above and the body below (the median over the stripe's pixels), each color lost e = (g - h) / 4 pixels at
+    each of its two edges. Given back, the stripe is h + 2e tall: the mean of h and g. ``e`` is at least 0 and at most
+    SEAM_MAX_EATEN (3 px)."""
+    up_r, dn_r = sw.up[sel], sw.dn[sel]
+    gap = float(np.median(dn_r - up_r - 1))
+    eaten = min(SEAM_MAX_EATEN, max(0.0, (gap - core_h) / 4))
+    return (core_h + gap) / 2, eaten, int(round(float(np.median(up_r)))) + 1, int(round(float(np.median(dn_r))))
+
+
+def rest_of_barrel_agrees(body: int, x: int, bw: int, sy0: int, sy1: int, at: BarrelAt, eaten: float, mask: np.ndarray,
+                          cfg: DetConfig) -> bool:
+    """Is the barrel seen whole, by the rest of it? Asked of a stripe in columns x..x+bw whose band (body to body) is rows
+    sy0..sy1, before it is read at its seams. Yes when all three hold:
+
+    1. the body, walked up and down from the band, ends where the stripe's row predicts the top and the bottom (the edge
+       tolerance: bottom_tol of the height, at least bottom_tol_min_px). An end may agree as seen, or with the ``eaten``
+       pixels given back (0 for a stripe too small by its own pixels: its ends must agree as seen);
+    2. neither end lies against the other barrel color (as ``_full_slice``);
+    3. on at least one side, the stripe and the body joined to it end together (within ``edge_tol`` of the width): that
+       side is the barrel's own edge. A sliver in the middle of something wider has no such side.
+
+    Why: one pixel eaten off every edge makes a stripe too thin AND too narrow for "seen whole by its width" at once. The
+    top and the bottom of the barrel are a second witness that does not lean on the stripe's own pixels."""
+    h = mask.shape[0]
+    x1 = x + bw
+    top, bottom = _body_extent(mask, body, x, x1, sy0, sy1)
+    if top >= sy0 or bottom <= sy1:
+        return False                                                 # no body joined above, or none below
+    tol = at.tol(cfg)
+    if min(abs(top - at.top), abs(top - eaten - at.top)) > tol or min(abs(bottom - at.bottom), abs(bottom + eaten - at.bottom)) > tol:
+        return False                                                 # 1.
+    other = (_other(body),)
+    if ends_against(mask, other, top - 4, top, x, x1) or ends_against(mask, other, bottom, bottom + 4, x, x1):
+        return False                                                 # 2.
+    span = _body_span(mask, body, x, x1, max(0, top), min(h, bottom), sy0, sy1) if bottom - top >= 2 else None
+    if span is None:
+        return False
+    tol_w = edge_tol(cfg, at.W)
+    return abs(span[0] - x) <= tol_w or abs(span[1] - x1) <= tol_w   # 3.
+
+
 def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetConfig(), log: list | None = None,
                  layers: dict | None = None) -> tuple[list[Stripe], list[Stripe]]:
     """Stage 2. In: the class mask (and ``layers``, its ``sandwiches``, when the caller has them). Out: (the stripes, left to
@@ -614,18 +666,31 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
     no stripe-colored pixel is not a stripe. Pieces a highlight cut apart are joined first (``_join_pieces``). Then, per
     stripe, in this order:
 
-    1. big enough: min_area_px pixels;                                                    else "area"
+    1. big enough: min_area_px pixels (or read again at the seams, below; so it is decided after 2, with the row known);
+                                                                                          else "area"
     2. on the table (``on_the_table``): one barrel is at least min_width_px wide there;                    else "too_far"
+       (a candidate under min_area_px that is not on the table is noted "area")
     3. as tall as a stripe: stripe_h_min to stripe_h_max x the expected stripe height, measured from the 10th to the
-       90th percentile of its rows. A stripe that is too thin but seen whole (stripe_full x W wide) is read a second
-       time, as the mean of its own height and of the gap between the body above and below it: mixed pixels at the
-       two seams make the one thinner and the other taller by the same amount;            else "height"
+       90th percentile of its rows (or read again at the seams, below);                   else "height"
     4. not a speck sideways: at least stripe_h_min x the expected stripe height wide;     else "width" -> a left-over piece
     5. no wider than one barrel, else it is cut into one stripe per barrel (``_one_stripe_per_barrel``);
     6. thin? Narrower than a stripe is tall, or taller than wide: marked ``Stripe.thin``, and handed out a second time
        as a left-over piece.
 
     The left-over pieces (4 and 6) are never a barrel alone: stage 7 pairs them.
+
+    The second reading, at the seams (``read_at_seams``), for a stripe too thin (3) or too small (1) by its own pixels
+    but not too tall. Mixed pixels at the two seams make the stripe thinner and the gap between its bodies taller by the
+    same amount, so the stripe is then as tall as the mean of the two. It is asked only when the barrel is seen whole:
+    - a stripe too thin, with enough pixels: by its width, with the eaten pixels given back (bw + 2 x eaten at least
+      stripe_full x W), or by the rest of the barrel (``rest_of_barrel_agrees``, the eaten pixels given back);
+    - a stripe too small: only by the rest of the barrel, its top and bottom as seen. (By its width alone, four
+      boxes on nothing came through on the train frames, 2026-11-26_slack.)
+    When the barrel is seen whole and the seam height is a stripe's height (3), the stripe passes 3, and passes 1 if its
+    pixels, scaled by seam height / own height, reach min_area_px. From then on its box is the band between its two
+    bodies, and a stripe under min_area_px carries its pixel count to the verify step (``Stripe.own_px``).
+    Not asked of a short piece whose barrel is not seen whole: thin because the seams were eaten, or short because partly
+    hidden, not both (a blue sliver between two fingers is thin and short).
 
     Not asked, because it is always so: a stripe's row gives a distance. A pixel is in the sandwich only at a row where a
     barrel can have its stripe (``_reach_by_row`` is -1 elsewhere, and no pixel is nearer than 0 rows to its body). The rows
@@ -635,7 +700,7 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
     out: list[Stripe] = []
     leftover: list[Stripe] = []
     for body, sw in (layers or sandwiches(mask, cam, cfg)).items():
-        other, up, dn = sw.other, sw.up, sw.dn
+        other = sw.other
         sandwich = sw.above & sw.below
         n, lab, st, _ = cv2.connectedComponentsWithStats((sw.stripe & sandwich).astype(np.uint8), connectivity=8)
         for ids in _join_pieces(st, cam, cfg, lab, sandwich):       # one candidate per group of pieces
@@ -643,26 +708,37 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
             bw, bh = int(max(st[i][0] + st[i][2] for i in ids)) - x, int(max(st[i][1] + st[i][3] for i in ids)) - y
             area = int(sum(st[i][4] for i in ids))
             sb = (x, y, x + bw, y + bh)
-            if area < cfg.min_area_px:
-                _note(log, "stripe", "area", sb, body=body, area=area)
-                continue                                                                   # 1.
             sel = np.isin(lab, ids) if len(ids) > 1 else lab == ids[0]
             ys = np.where(sel)[0]
             at = BarrelAt.from_stripe_row(cam, float(np.median(ys)) + 0.5)      # the row: the median row of the candidate's pixels
             assert at is not None, "a stripe's row gives no distance: see the docstring of find_stripes"
             W, Hs = at.W, at.Hs
+            a_ok = area >= cfg.min_area_px
             if not on_the_table(at, cfg):
-                _note(log, "stripe", "too_far", sb, body=body, expected_w=W, expected_stripe_h=Hs)
+                if a_ok:
+                    _note(log, "stripe", "too_far", sb, body=body, expected_w=W, expected_stripe_h=Hs)
+                else:
+                    _note(log, "stripe", "area", sb, body=body, area=area)                 # a small one is noted as small
                 continue                                                                   # 2.
             core_h = np.percentile(ys, 90) - np.percentile(ys, 10) + 1
-            h_ok = cfg.stripe_h_min * Hs <= core_h <= cfg.stripe_h_max * Hs
-            seam_h = None
-            if core_h < cfg.stripe_h_min * Hs and bw >= cfg.stripe_full * W:
-                # too thin by its own rows, and seen whole: the second reading. Not asked of a short piece: thin because the
-                # seams were eaten, or short because partly hidden, not both (a blue sliver between two fingers is thin and short)
-                gap = float(np.median((dn - up - 1)[sel]))
-                seam_h = (core_h + gap) / 2
-                h_ok = cfg.stripe_h_min * Hs <= seam_h <= cfg.stripe_h_max * Hs
+            lo, hi = cfg.stripe_h_min * Hs, cfg.stripe_h_max * Hs
+            h_ok = lo <= core_h <= hi
+            seam_h, band = None, None
+            if (core_h < lo or not a_ok) and core_h <= hi:
+                # too thin or too small by its own pixels: the second reading, at the seams, when the barrel is seen whole
+                sh, eaten, sy0, sy1 = read_at_seams(sw, sel, float(core_h))
+                sy0, sy1 = min(y, sy0), max(y + bh, sy1)
+                if a_ok:
+                    whole = bw + 2 * eaten >= cfg.stripe_full * W or rest_of_barrel_agrees(body, x, bw, sy0, sy1, at, eaten, mask, cfg)
+                else:
+                    whole = rest_of_barrel_agrees(body, x, bw, sy0, sy1, at, 0.0, mask, cfg)
+                if whole:
+                    seam_h = sh
+                    if lo <= seam_h <= hi:
+                        h_ok, a_ok, band = True, a_ok or area * seam_h / core_h >= cfg.min_area_px, (sy0, sy1)
+            if not a_ok:
+                _note(log, "stripe", "area", sb, body=body, area=area)
+                continue                                                                   # 1.
             if not h_ok:
                 _note(log, "stripe", "height", sb, body=body, core_h=float(core_h), expected_stripe_h=Hs,
                       **({} if seam_h is None else {"seam_h": float(seam_h)}))
@@ -675,11 +751,15 @@ def find_stripes(mask: np.ndarray, cam: geo.CameraModel, cfg: DetConfig = DetCon
             # 5. The barrel's size can be read off the body only where body IS seen right above and right below the region
             # (the body walk allows 3 empty rows). With none there the seen height says nothing, and a near barrel's stripe
             # can be 1.26 x the width its row gives
+            ry0, ry1 = band if band is not None else (y, y + bh)                           # the stripe's rows (read at the seams: body to body)
             W_two = None
-            top_s, bot_s = _body_extent(mask, body, x, x + bw, y, y + bh)
-            if top_s < y and bot_s > y + bh:
+            top_s, bot_s = _body_extent(mask, body, x, x + bw, ry0, ry1)
+            if top_s < ry0 and bot_s > ry1:
                 W_two = max(W, (bot_s - top_s) * W / at.H)
             parts = _one_stripe_per_barrel(sel, mask, other, body, x, bw, W, cam, cfg, W_two)
+            if band is not None or area < cfg.min_area_px:                                 # read at the seams: the band, the own pixels
+                parts = [replace(s, bbox=(s.bbox[0], min(s.bbox[1], ry0), s.bbox[2], max(s.bbox[3], ry1)),
+                                 own_px=area if area < cfg.min_area_px else None) for s in parts]
             if bw < Hs or bw < core_h:                                                     # 6.
                 parts = [replace(s, thin=True) for s in parts]
                 leftover.append(twin)
@@ -1416,7 +1496,8 @@ def drop_seen_through(found: list[Found], mask: np.ndarray, cam: geo.CameraModel
                 ok |= (lay == -1) | ((lay > 0) & (lay == mask[ey0:ey1, ex0:ex1]))
             own = int((ev & ~ok).sum())
             share = 1.0 - own / n
-        if nearer and own < cfg.min_area_px:
+        need = cfg.min_area_px if f.stripe is None or f.stripe.own_px is None else f.stripe.own_px   # a small stripe: its own pixels
+        if nearer and own < need:
             _note(log, "verify", "front", b.bbox, body=b.color, evidence=(ex0, ey0, ex1, ey1), explained=round(share, 3), own_px=own)
             continue
         if ex1 > ex0 and ey1 > ey0:

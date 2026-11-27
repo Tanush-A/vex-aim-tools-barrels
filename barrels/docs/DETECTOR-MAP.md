@@ -1,6 +1,6 @@
 # DETECTOR-MAP.md — what `detect()` does, check by check
 
-**Now (2026-11-26, after the collapse and its second pass).** This is the map of `barrels/src/barrels/detector.py`. The detector has **no on/off switches**. It has 18 numbers (`DetConfig`) and ten stages, each one function. It draws exactly the boxes it drew before the collapse: 6152 boxes on 5435 masks, box for box (section 5).
+**Now (2026-11-27, after the collapse, its second pass, and the seam reading).** This is the map of `barrels/src/barrels/detector.py`. The detector has **no on/off switches**. It has 18 numbers (`DetConfig`) and ten stages, each one function. The collapse drew exactly the boxes the detector drew before it: 6152 boxes on 5435 masks, box for box (section 5). Since then one rule was adopted: **the second reading at the seams** (stage 2, checks 1 and 3; from the experiment `2026-11-26_slack`, rule D). It changes the boxes of 54 of the 5435 masks (section 5, last part). *Branch `wip/adopt-slack`: the walkthrough is owed, awaiting Tanush's "understood".*
 
 - Every name in `code font` is a function or a field of that file. There are no line numbers: search for the name.
 - W = the width, H = the height, "a stripe height" = the stripe's height that the geometry expects of a barrel at the row in question.
@@ -61,7 +61,7 @@ flowchart TD
     V2 --> OUT["boxes, left to right"]
 ```
 
-**Which rule draws the boxes.** On the 261 real train masks (boxes drawn, not barrels found; no labels read) the detector draws 239 boxes. 201 come from a stripe (stage 3): 137 from a stripe seen whole, 27 where the body shows the width, 30 with one hidden side, 5 centred, 1 by the outline, 1 thin slice at the frame edge. 28 are close-ups (stage 4), 6 are caps, 4 are half stripes. No pair. `results/2026-11-26_collapse/rule_counts.md` has the same count for the simulated scenes and the damaged masks, and how often each check says no.
+**Which rule draws the boxes.** On the 261 real train masks (boxes drawn, not barrels found; no labels read) the detector draws 243 boxes (239 before the seam reading). 205 come from a stripe (stage 3): 137 from a stripe seen whole, 28 where the body shows the width, 30 with one hidden side, 6 centred, 2 by the outline, 2 thin slices at the frame edge. 28 are close-ups (stage 4), 6 are caps, 4 are half stripes. No pair. `results/2026-11-27_adopt_slack/rule_counts.md` has the same count for the simulated scenes and the damaged masks, and how often each check says no (`results/2026-11-26_collapse/rule_counts.md`: the same before the seam reading).
 
 ---
 
@@ -78,9 +78,9 @@ Stage 1 finds this barrel's piece, but cannot refuse the barrel: a barrel with a
 | 1 | The stripe's pixels survive the clean-up. Both colors are closed (3 × 3). A stripe pixel inside the closed body is body. | `close_px` 3 | `sandwiches` | a very thin stripe vanishes |
 | 2 | **The sandwich.** Every stripe pixel has body color above it **and** below it in its own column, near enough. | 3 × the stripe height expected at that row (`band_h_max`) [39 px; 20 px] | `sandwiches`, `_reach_by_row` | no stripe at all. This is the commonest real miss: the body is not painted |
 | 3 | If a highlight cut the stripe, the pieces join into one. | same rows; together at most 1.2 W; each piece stripe-shaped, or the gap bridged by body color | `_join_pieces` | each piece is judged alone |
-| 4 | Big enough. | 20 px (`min_area_px`) | `find_stripes` 1 | "area" |
+| 4 | Big enough. A smaller stripe gets one more chance at the seams (6) | 20 px (`min_area_px`) | `find_stripes` 1 | "area" |
 | 5 | On the table. | W at least 16 px, i.e. nearer than 637 mm (`min_width_px`) | `on_the_table` | "too_far" |
-| 6 | As tall as a stripe. | 0.45 to 1.6 × the stripe height [5.9–21 px; 3.0–10.8 px], from the 10th to the 90th percentile of its rows. Too thin but seen whole: read once more as the mean of its height and the gap between the two body parts | `find_stripes` 3 | "height" |
+| 6 | As tall as a stripe. | 0.45 to 1.6 × the stripe height [5.9–21 px; 3.0–10.8 px], from the 10th to the 90th percentile of its rows. Too thin (or too small) but the barrel seen whole: read once more at the seams, as the mean of its height and the gap between the two body parts (stage 2 below) | `find_stripes` 3, `read_at_seams`, `rest_of_barrel_agrees` | "height" |
 | 7 | Not a speck sideways. | at least 0.45 × the stripe height wide [5.9 px] | `find_stripes` 4 | "width"; kept for stage 7 |
 | 8 | Not wider than one barrel. | at most 1.4 W (`stripe_merge`); and at most 1.2 × W where body is seen right above and below | `_one_stripe_per_barrel` | it is cut into two barrels |
 | 9 | Top and bottom. The body is walked up and down from the stripe. A seen end that agrees with the predicted row is the edge; else the predicted row is drawn. This refuses only when **both** edges are predicted **and** the body above ends against the other barrel color. | the edge tolerance [8.3 px; 4.2 px]; "against" = the 4 rows beyond the end, half of the stripe's columns | `read_edges` | "top_against_barrel" |
@@ -129,9 +129,34 @@ First the sandwich (`sandwiches`, computed once per image and used again by stag
 
 Per stripe, in this order:
 
-1. **Big enough?** 20 px. No: "area".
-2. **On the table?** (`on_the_table`) W at least 16 px. No: "too_far".
-3. **As tall as a stripe?** 0.45 to 1.6 × the stripe height, measured from the 10th to the 90th percentile of its rows. Too thin **and** at least 0.8 W wide: read a second time as the mean of its own height and the gap between the two body parts. *Mixed pixels at the two seams make the stripe thinner and the gap taller by the same amount.* No: "height".
+1. **Big enough?** 20 px. Under 20: read again at the seams (below); it passes if its pixels, scaled by seam height ÷ own height, reach 20. No: "area". (So 1 is decided after 2: the second reading needs the row.)
+2. **On the table?** (`on_the_table`) W at least 16 px. No: "too_far" ("area" for one under 20 px).
+3. **As tall as a stripe?** 0.45 to 1.6 × the stripe height, measured from the 10th to the 90th percentile of its rows. Too thin, and the barrel seen whole: read a second time at the seams (below). No: "height".
+
+**The second reading, at the seams** (`read_at_seams`, `rest_of_barrel_agrees`; adopted 2026-11-27 from `2026-11-26_slack`, rule D). Asked of a stripe that is too thin (3) or too small (1) by its own pixels, and not too tall.
+
+```
+the stripe's own height h (10th to 90th percentile of its rows); the gap g between the body above and the body below
+  (median over its pixels)
+├─ each color lost e = (g − h) ÷ 4 px at each seam; e at least 0, at most 3 px (SEAM_MAX_EATEN)
+├─ the seam height = h + 2e = the mean of h and g
+├─ is the barrel seen whole?
+│    a stripe with 20 px or more (too thin only):
+│        its width with the eaten pixels given back, bw + 2e, at least 0.8 W (stripe_full)
+│        OR the rest of the barrel agrees (with e given back at the two ends)
+│    a stripe under 20 px: ONLY the rest of the barrel agrees, its ends as seen (e = 0)
+│  the rest of the barrel agrees (rest_of_barrel_agrees):
+│    ├─ the body walked up and down from the band ends where the row predicts the top and the bottom (the edge tolerance)
+│    ├─ neither end lies against the other barrel color (the 4 rows beyond it, half the columns)
+│    └─ on at least one side the stripe and the body joined to it end together (within the edge tolerance of W):
+│       that side is the barrel's own edge
+├─ not seen whole → the stripe is judged by its own pixels, as before ("height" / "area")
+└─ seen whole, and the seam height is 0.45 to 1.6 stripe heights →
+     passes 3; passes 1 when area × seam height ÷ h ≥ 20; from then on its box is the band from body to body;
+     a stripe under 20 px carries its pixel count (Stripe.own_px) to the verify step
+```
+
+*Mixed pixels at the two seams make the stripe thinner and the gap taller by the same amount.* One pixel shaved off every color makes a stripe 5 rows tall 3 rows tall, under the floor, **and** 0.65 to 0.73 of a barrel wide, under the 0.8 the old width test wanted, both at once. The top and bottom of the barrel are a second witness that does not lean on the stripe's own pixels. *A stripe under 20 px called "seen whole" by its width alone drew four boxes on nothing on the train frames with hand-set colors (bathroom tile, the warm ottoman): so a small stripe needs the rest of the barrel.* *A blue sliver between two fingers, skin above and below:* the skin runs on past both ends of the sliver, so no side is a barrel's own edge: not read again.
 4. **Wide enough to look at?** At least 0.45 × the stripe height. No: "width", and the piece becomes a **left-over piece**.
 5. **Wider than one barrel?** (`_one_stripe_per_barrel`) Over 1.4 W: cut into round(width ÷ W) equal parts. Or, where body is seen right above **and** below the whole region: over 1.2 × W₂, cut into at least two parts. W₂ is the larger of W and the width of a barrel as tall as that body. Each part remembers the region (`Stripe.cut_from`). *Two same-colored barrels side by side have one joined stripe. A near barrel runs wider than its row predicts, but then it is taller too.*
 6. **Thin?** Narrower than one stripe height, or taller than wide: marked `Stripe.thin`. It enters stage 3 **and** a copy goes to the left-over pieces.
@@ -218,6 +243,7 @@ for each box b:
 │    only in the rows where its body is seen
 ├─ own pixels = barrel-colored evidence pixels that no nearer barrel explains
 └─ a nearer barrel exists and own pixels < 20 (min_area_px) → dropped: "verify: front"
+     (a stripe admitted at the seams with fewer than 20 px: < its own pixel count, Stripe.own_px)
 ```
 
 *A nearer barrel's upper body between clutter above and its own stripe below reads as the stripe of a smaller barrel behind.* It runs before the caps so that stages 6 to 8 lean only on boxes that passed. A dropped box's stripe is cap material again.
@@ -302,9 +328,9 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 
 | name | value | what it means | where it is used |
 |---|---|---|---|
-| `min_area_px` | 20 | a speck | a blob (`find_blobs`), a stripe (`find_stripes` 1), a cap piece (`_cap_pieces`, `_cap_box`), a half-stripe band; and the "own pixels" limit of `drop_seen_through` |
+| `min_area_px` | 20 | a speck | a blob (`find_blobs`), a stripe (`find_stripes` 1; under it, only the rest of the barrel may call it seen whole), a cap piece (`_cap_pieces`, `_cap_box`), a half-stripe band; and the "own pixels" limit of `drop_seen_through` (a stripe admitted under it: its own pixel count) |
 | `close_px` | 3 | the closing: 3 × 3 | `_closed` (blobs, the sandwich, caps). Also, unrelated: how many pixels beside a seen end are searched for a nearer barrel (`hidden_side`) |
-| `bottom_tol` | 0.15 | the edge tolerance, as a share | `edge_tol`: of the height at 7 sites (`resolve_bottom`, `_seen_to_stripe`, `read_edges`, `_end_costs`, `_cap_box`, `_full_slice`, `half_stripes`); of the **width** at 1 (`seen_span`: body and stripe ending apart) |
+| `bottom_tol` | 0.15 | the edge tolerance, as a share | `edge_tol`: of the height at 8 sites (`resolve_bottom`, `_seen_to_stripe`, `read_edges`, `_end_costs`, `_cap_box`, `_full_slice`, `half_stripes`, `rest_of_barrel_agrees`); of the **width** at 2 (`seen_span`: body and stripe ending apart; `rest_of_barrel_agrees`: they end together) |
 | `bottom_tol_min_px` | 4 | its floor | `edge_tol` |
 | `width_min` | 0.4 | narrower × W is a sliver | a piece (`find_pieces` 3), a cap (`_cap_box` 2). Also a cap's least **height**, × an upper body (`_cap_box` 3) |
 | `width_max` | 1.6 | wider × W is not one barrel | a piece (`find_pieces` 3) |
@@ -315,7 +341,7 @@ A band = a connected piece of one color, 20 px or more. The distance comes from 
 | `band_h_max` | 3.0 | "right above / right below": within this × the stripe height | `_reach_by_row` (the sandwich: stages 2 and 8) |
 | `stripe_w_min` | 0.4 | × W | the least stripe for the centred guess (`centred`); the widest slice of a pair (`post_pairs`) |
 | `stripe_merge` | 1.4 | a stripe region wider × W is several barrels | `_one_stripe_per_barrel` |
-| `stripe_full` | 0.8 | "the whole width shows", × W | whole or partly seen (`place_sides`, the order of stage 3); the second height reading (`find_stripes` 3); the seen span (`seen_span`, `drop_single_reading`); a cap (`_cap_box` 4, 7); a pair's span; half stripes (the shares 0.8 and 0.2, and the widths) |
+| `stripe_full` | 0.8 | "the whole width shows", × W | whole or partly seen (`place_sides`, the order of stage 3); "seen whole by its width" in the reading at the seams (`find_stripes` 3, with 2 × the eaten pixels given back); the seen span (`seen_span`, `drop_single_reading`); a cap (`_cap_box` 4, 7); a pair's span; half stripes (the shares 0.8 and 0.2, and the widths) |
 | `height_min` | 0.5 | a piece shorter than this × H is far too short to be a barrel | `find_pieces` 4 |
 | `body_min` | 0.1 | the least share of body color in the box | `holds_body` |
 | `body_width` | 1.2 | one barrel is at most this × W wide | the box (`place_sides`), the trusted body (`seen_span`, `drop_single_reading`), a joined stripe (`_join_pieces`), the second cut of `_one_stripe_per_barrel`, a cap, a pair, a half stripe |
@@ -333,13 +359,15 @@ Seven numbers do more than one job: `stripe_full`, `body_width`, `bottom_tol`, `
 | 10th to 90th percentile of the rows, + 1 | "the stripe's height" | `find_stripes`, `_join_pieces`, `half_stripes` |
 | overlap at least half the shorter height | "the same rows" | `same_rows` (join, `piece_of_found`, pairs) |
 | middles within ½ stripe height; gap ≤ ½ the joined span; body in every gap column | the bridge | `_join_pieces` |
-| equal weights ½ and ½ | the second height reading | `find_stripes` 3 |
-| 3 empty rows end the walk | where the body ends, up and down | `_body_extent`, `_seen_lines` |
+| equal weights ½ and ½ | the second height reading: the mean of the stripe's height and the gap | `read_at_seams` |
+| (gap − height) ÷ 4, at least 0, at most 3 px (`SEAM_MAX_EATEN`: the 3 empty rows the body walk allows) | the pixels eaten at each seam | `read_at_seams` |
+| area × seam height ÷ own height ≥ 20 | a small stripe read at the seams is big enough | `find_stripes` 1 |
+| 3 empty rows end the walk | where the body ends, up and down | `_body_extent` (also in `rest_of_barrel_agrees`), `_seen_lines` |
 | 2 body pixels make a column; 2 empty columns end the walk | where the body ends, sideways | `_body_columns`, `_body_span` |
 | 0.353 W; the side curve 1 − √(1 − t) | the barrel's outline: the lid's half width, the shoulder | `LID_HALF`, `Outline` |
 | the columns within 0.353 W of the end; at least 2; the worst of the three lines; each line's median taken out | the own-side test | `_end_costs` |
 | more than half of the stripe's rows | "the body crosses the stripe" | `_body_crosses` |
-| the 4 rows beyond the edge; half of the columns | "ends against" | `ends_against`, and the open side of `half_stripes` |
+| the 4 rows beyond the edge; half of the columns | "ends against" | `ends_against` (`read_edges`, `_full_slice`, `rest_of_barrel_agrees`), and the open side of `half_stripes` |
 | body pixels ≥ stripe-colored pixels | the first half of the body check | `holds_body` |
 | 0.5 + 0.5 × the labeled share; a fixed 0.5 for caps, pairs, half stripes | "confidence", used only to pick the surer of two stripe boxes | `box_from_stripe` |
 | IoU over 0.5, same color | "the same barrel" | `is_same_barrel` |
@@ -362,10 +390,11 @@ The collapse put each idea in one helper but did **not** make the numbers the sa
 | "wider than one barrel" | 1.5 W (the blob's count rounds to 2), 1.6 W (`width_max`), 1.4 W (`stripe_merge`), 1.2 W (`body_width`) |
 | "a barrel standing nearer" | a found box's bottom lower than: this barrel's **predicted** bottom (`hidden_side`); the cap piece's **seen** bottom (`_cap_box` 5, 7); the cap box's **drawn** bottom (`_cap_box` 8); the other **box's** bottom (`drop_seen_through`) |
 | "beside" | 3 pixels beside the span (`hidden_side`); 1 pixel beside the cap (`_cap_box` 5) |
-| "ends against" | the **other** barrel color (`read_edges`, `_full_slice`); **any** barrel color (`half_stripes` 8, 9) |
+| "ends against" | the **other** barrel color (`read_edges`, `_full_slice`, `rest_of_barrel_agrees`); **any** barrel color (`half_stripes` 8, 9) |
 | the row that gives a stripe's barrel | the median row of the candidate's pixels (`find_stripes`); the stripe's centre row (stage 3, `Stripe.at`); the middle of a piece's box (`_join_pieces`); the middle of the stripe's box (`drop_single_reading`) |
 | "the same rows" | overlap at least half the shorter (`same_rows`); middles within half a stripe height (the bridge); any overlap (`closeup_pieces` 1) |
 | "the seen edge agrees" | 15 %, at least 4 px (the detector); 10 %, at least 3 px (the scorer, `eval_det.py`) |
+| "the barrel is seen whole" | the stripe 0.8 W wide (`place_sides`; at the seams with the eaten pixels given back); the body's top and bottom where the row puts them and one side ending with the stripe (`rest_of_barrel_agrees`); a full slice (`_full_slice`: top and bottom only) |
 
 ---
 
@@ -423,6 +452,18 @@ The same rule as the collapse: after every step the same 6152 boxes on the 5435 
 **The proof.** After every step: IDENTICAL BOXES ON EVERY INPUT. The reason logs are those of the collapse, except the 3 inputs of B15. Tests: 952 before, 955 after (3 added, none removed). The numbers above come from `experiments/2026-11-26_collapse/second_pass_margins.py` and are in `results/2026-11-26_collapse/second_pass.md`.
 
 **`report.py --cand-det`** with `height_max=…` or `min_stripe_px=…` stops with a message that says why the number is gone.
+
+### The seam reading (2026-11-27): the first rule adopted after the collapse
+
+*Branch `wip/adopt-slack`. Awaiting Tanush's "understood" (the walkthrough is owed).*
+
+Rule D of the experiment `2026-11-26_slack` (`experiments/2026-11-26_slack/PREREG.md` with its addendum; results `results/2026-11-26_slack/round2/`) is plain code: `read_at_seams`, `rest_of_barrel_agrees`, `Stripe.own_px`, and the second reading of `find_stripes` (stage 2 above). There is no switch. The other arms (A: a scaled area floor; B: a small stripe seen whole by its width; C: one floor missed by a pixel forgiven) are not in the code. The old second reading (too thin and 0.8 W wide by its own columns) is one case of the new one.
+
+**What changed, on the same 5435 masks.** 54 inputs get other boxes: damage 27 of 666, hand 1 of 45, pool 0 of 53, real 7 of 261, real_dilate 4 of 261, real_erode 9 of 261, scene 6 of 3888. 6207 boxes in all, 6152 before. The boxes are **the same, box for box, as the experiment's flag `slack="D"`** on every input. On the real train frames (fixed colors) 8 boxes appear and 4 go: 3 barrels found that were missed (`both_abpgray_touch_01`, `lampcool6_bathtile_clutter_01`, `lampmid6_ottoman_core_01`), 1 box on its barrel with the box off where nothing was (`lampmid6_ottoman_edge_01`), and 4 found boxes that move by 2 to 4 px (the band from body to body). With hand-set colors: 1 more barrel found (`lampwarm6_bathtile_clutter_01`). No new box that is not on a barrel, on any input. The list: `results/2026-11-27_adopt_slack/changes.md`.
+
+**The judge**, the adopted detector against `barrels` before it, fixed colors: NO CLEAR DIFFERENCE. 133.8 → 135.4 of 172 placements (211 → 214 per frame); 3 gained, 0 lost; boxes not on their barrel 1.9 → 1.9; empty frames 0 → 0. Eroded by one pixel the experiment measured 11 of the 40 lost barrels back (`results/2026-11-26_slack/round2/summary.md`).
+
+**Tests.** 955 before, 972 after: `tests/test_detector_seams.py` (17, the experiment's tests rewritten for the plain rule), and one test of `tests/test_detector_side.py` rewritten: a thin piece 0.6 of a barrel long, top and bottom where its row puts them and one side its own, is now read at the seams and boxed; the same piece with the body running on past both ends is not.
 
 ---
 
