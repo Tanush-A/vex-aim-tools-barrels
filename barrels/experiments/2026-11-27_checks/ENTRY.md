@@ -105,3 +105,28 @@ their barrel, per arrangement. Found placements never moved in J2 and J3 (156.83
   (the jar on `lampmid6_bathtile_neg_02`; 1.50 → 1.25); contrast winner, no box changes (156.97, 2.43). Proof harness
   (`plain/harness_diff.md`): 3 of 5435 inputs differ, all scenes, exactly round 2's L M removals.
 - `harness.py`, `judge_all.py` and `arms.py` name the switches: they run at commit 4863839 (round 2).
+
+#### Addendum 2: does the adopted stage still catch the traps it was made for? (B4, "bluer than the light")
+
+`b4_traps.py` (`results/2026-11-27_checks/b4/`), the plain code with bluer_geom's code unchanged, leave one place out.
+(i) = the folds pick as bluer_geom did (before stage 11), then run with stage 11 off / on; (ii) = the folds pick
+with stage 11 in the detector.
+
+| candidate | verdict vs today | found, placements | per frame | gained / lost | boxes not on their barrel (per frame) | cluttered empty |
+|---|---|---|---|---|---|---|
+| B4, stage 11 off (reproduces bluer_geom) | FAIL | 145.72 | 257 | 46 / 0 | 6.68 (24) | 1.25 |
+| B4, stage 11 on (i) | FAIL | 145.72 | 257 | 46 / 0 | 6.18 (22) | 0.75 |
+| B4, stage 11 on (ii) | FAIL | 145.72 | 257 | 46 / 0 | 6.18 (22) | 0.75 |
+| delta 0.20, stage 11 off | FAIL | 143.80 | 251 | 40 / 0 | 3.93 (13) | 0.75 |
+| delta 0.20, stage 11 on (i) | PASS | 143.80 | 251 | 40 / 0 | 3.43 (11) | 0.25 |
+| delta 0.20, stage 11 on (ii) | PASS | 145.80 | 257 | 46 / 0 | 3.43 (11) | 0.25 |
+
+B4's 24 false boxes, named from the contact sheet (`sheets/b4_false_*.jpg`): the jar with the gold lid and blue label
+12 (#1, 2, 4, 5, 6, 7, 9, 10, 14, 15, 21, 22), the Vaseline tin 4 (#13, 18, 19, 20), the small figure 2 (#16, 17),
+other 6 (#3 a cap over a real barrel, #8 a cap beside one, #11 and #23 wrong colors, #12 beside a barrel, #24 the
+pale-wood close-up). **The adopted stage removes 2: jar #4 and jar #15. Tin 0 of 4, figure 0 of 2, other 0 of 6.**
+Round 1 at P would have removed 20 of 24 (all but #3, #8, #11, #23). Delta 0.20: 2 of 13 (jar #27, #32).
+
+Why: the closing heals the tin's and the figure's speckle as it heals damaged paint. Solidity without the closing
+0.17-0.24, with it 0.59-0.95. The column median lowers the glass jars' label (1.65 → 1.27, 1.53 → 0.71). The safe
+readings and the trap readings are the same readings: what made the stage safe is what stopped it catching traps.
